@@ -1,0 +1,3789 @@
+{
+  "version": 1,
+  "app": "Cactus",
+  "type": "ranking_library",
+  "total": 150,
+  "duplicate_ids": [],
+  "rankings": [
+    {
+      "id": "surnoms_amoureux_v2",
+      "title": "Classe ces surnoms du plus mignon au moins mignon.",
+      "items": [
+        "Mon cœur",
+        "Ma vie",
+        "Doudou",
+        "Bébé",
+        "Ma puce",
+        "Mon amour",
+        "Bibiche"
+      ],
+      "category": "couple_relation_distance"
+    },
+    {
+      "id": "message_reveil",
+      "title": "Classe ces messages du matin selon ceux que tu aimerais le plus recevoir.",
+      "items": [
+        "Bonjour ❤️",
+        "J'espère que tu vas passer une belle journée",
+        "Tu me manques déjà",
+        "J'ai rêvé de toi",
+        "Bon courage pour aujourd'hui",
+        "J'ai hâte de te voir"
+      ],
+      "category": "couple_relation_distance"
+    },
+    {
+      "id": "preuve_affection",
+      "title": "Classe ces gestes selon ceux qui te font te sentir le plus aimé(e).",
+      "items": [
+        "Recevoir un long message",
+        "Passer du temps ensemble",
+        "Recevoir une surprise",
+        "Être pris(e) dans les bras",
+        "Recevoir de l'aide",
+        "Recevoir un compliment"
+      ],
+      "category": "couple_relation_distance"
+    },
+    {
+      "id": "emoji_amour",
+      "title": "Classe ces emojis selon ceux que tu préfères recevoir de ton partenaire.",
+      "items": [
+        "❤️",
+        "🥰",
+        "😘",
+        "🫶",
+        "😍",
+        "🥺",
+        "😏"
+      ],
+      "category": "couple_relation_distance"
+    },
+    {
+      "id": "appel_spontane",
+      "title": "Classe ces raisons d'appeler ton partenaire sans prévenir.",
+      "items": [
+        "Partager une bonne nouvelle",
+        "Entendre sa voix",
+        "Dire je t'aime",
+        "Raconter quelque chose de drôle",
+        "Demander un conseil",
+        "Raconter sa journée"
+      ],
+      "category": "couple_relation_distance"
+    },
+    {
+      "id": "cadeau_romantique",
+      "title": "Classe ces cadeaux selon ceux qui te toucheraient le plus.",
+      "items": [
+        "Une lettre écrite à la main",
+        "Un album photo",
+        "Une expérience à vivre ensemble",
+        "Un objet personnalisé",
+        "Un cadeau surprise",
+        "Un cadeau utile"
+      ],
+      "category": "couple_relation_distance"
+    },
+    {
+      "id": "moment_du_jour",
+      "title": "Classe ces moments passés ensemble selon ceux que tu préfères.",
+      "items": [
+        "Petit-déjeuner",
+        "Déjeuner",
+        "Après-midi",
+        "Soirée",
+        "Nuit",
+        "Week-end entier"
+      ],
+      "category": "couple_relation_distance"
+    },
+    {
+      "id": "soiree_couple",
+      "title": "Classe ces idées de soirée à deux.",
+      "items": [
+        "Regarder un film",
+        "Commander à manger",
+        "Jouer ensemble",
+        "Sortir au restaurant",
+        "Faire une promenade",
+        "Discuter pendant des heures"
+      ],
+      "category": "couple_relation_distance"
+    },
+    {
+      "id": "souvenir_couple",
+      "title": "Classe ces souvenirs de couple selon ceux qui ont le plus de valeur.",
+      "items": [
+        "Premier rendez-vous",
+        "Premier voyage",
+        "Premier je t'aime",
+        "Premier fou rire",
+        "Premier cadeau",
+        "Première photo ensemble"
+      ],
+      "category": "couple_relation_distance"
+    },
+    {
+      "id": "vacances_a_deux",
+      "title": "Classe ces types de vacances en couple.",
+      "items": [
+        "Road trip",
+        "Plage",
+        "Montagne",
+        "City trip",
+        "Parc naturel",
+        "Séjour tout inclus"
+      ],
+      "category": "couple_relation_distance"
+    },
+    {
+      "id": "message_reconfort",
+      "title": "Classe ces phrases selon celles qui te réconforteraient le plus.",
+      "items": [
+        "Je suis là pour toi",
+        "Tu vas y arriver",
+        "Je crois en toi",
+        "Prends ton temps",
+        "On va traverser ça ensemble",
+        "Je suis fier(ère) de toi"
+      ],
+      "category": "couple_relation_distance"
+    },
+    {
+      "id": "qualites_partenaire",
+      "title": "Classe ces qualités selon celles que tu apprécies le plus chez un partenaire.",
+      "items": [
+        "Gentillesse",
+        "Humour",
+        "Intelligence",
+        "Loyauté",
+        "Ambition",
+        "Créativité",
+        "Confiance en soi"
+      ],
+      "category": "couple_relation_distance"
+    },
+    {
+      "id": "petites_attentions",
+      "title": "Classe ces petites attentions du plus touchant au moins touchant.",
+      "items": [
+        "Envoyer un message de bonne nuit",
+        "Préparer quelque chose pour l'autre",
+        "Faire une surprise",
+        "Prendre des nouvelles",
+        "Envoyer une photo spontanée",
+        "Partager une chanson"
+      ],
+      "category": "couple_relation_distance"
+    },
+    {
+      "id": "activite_distance",
+      "title": "Classe ces activités à distance selon celles qui te plaisent le plus.",
+      "items": [
+        "Appel vidéo",
+        "Film en simultané",
+        "Jeux en ligne",
+        "Envoyer des vocaux",
+        "Quiz de couple",
+        "Regarder des photos ensemble"
+      ],
+      "category": "couple_relation_distance"
+    },
+    {
+      "id": "photo_couple_preferee",
+      "title": "Classe ces types de photos de couple.",
+      "items": [
+        "Photo drôle",
+        "Photo romantique",
+        "Photo de voyage",
+        "Photo spontanée",
+        "Photo élégante",
+        "Photo pendant une activité"
+      ],
+      "category": "couple_relation_distance"
+    },
+    {
+      "id": "compliments",
+      "title": "Classe ces compliments selon ceux qui te feraient le plus plaisir.",
+      "items": [
+        "Tu es magnifique",
+        "Tu me rends heureux(se)",
+        "Je suis fier(ère) de toi",
+        "Tu me fais rire",
+        "Tu es inspirant(e)",
+        "J'admire qui tu es"
+      ],
+      "category": "couple_relation_distance"
+    },
+    {
+      "id": "temps_ensemble_relation",
+      "title": "Classe ces façons de passer du temps ensemble.",
+      "items": [
+        "Voyager",
+        "Cuisiner",
+        "Faire du sport",
+        "Regarder une série",
+        "Recevoir des amis",
+        "Découvrir de nouveaux lieux"
+      ],
+      "category": "couple_relation_distance"
+    },
+    {
+      "id": "anniversaire_ideal",
+      "title": "Classe ces façons de célébrer ton anniversaire.",
+      "items": [
+        "Grande fête",
+        "Dîner romantique",
+        "Voyage surprise",
+        "Moment en famille",
+        "Journée tranquille",
+        "Activité originale"
+      ],
+      "category": "couple_relation_distance"
+    },
+    {
+      "id": "surprise_romantique",
+      "title": "Classe ces surprises selon celles qui te feraient le plus plaisir.",
+      "items": [
+        "Week-end improvisé",
+        "Lettre d'amour",
+        "Cadeau inattendu",
+        "Date surprise",
+        "Vidéo souvenir",
+        "Petit mot caché"
+      ],
+      "category": "couple_relation_distance"
+    },
+    {
+      "id": "relation_ideale",
+      "title": "Classe ces éléments selon leur importance dans une relation idéale.",
+      "items": [
+        "Confiance",
+        "Communication",
+        "Complicité",
+        "Passion",
+        "Respect",
+        "Soutien mutuel",
+        "Humour"
+      ],
+      "category": "couple_relation_distance"
+    },
+    {
+      "id": "super_pouvoirs",
+      "title": "Classe ces super-pouvoirs selon celui que tu aimerais avoir le plus.",
+      "items": [
+        "Lire dans les pensées",
+        "Se téléporter",
+        "Voyager dans le temps",
+        "Voler",
+        "Devenir invisible",
+        "Guérir n'importe quelle blessure"
+      ],
+      "category": "personnalite_valeurs"
+    },
+    {
+      "id": "vie_reussie",
+      "title": "Classe ces accomplissements selon ce qui représenterait le plus une vie réussie.",
+      "items": [
+        "Être heureux",
+        "Avoir une famille unie",
+        "Être financièrement libre",
+        "Avoir un impact positif",
+        "Réaliser ses rêves",
+        "Être admiré"
+      ],
+      "category": "personnalite_valeurs"
+    },
+    {
+      "id": "qualites_humaines",
+      "title": "Classe ces qualités humaines selon celles que tu admires le plus.",
+      "items": [
+        "Honnêteté",
+        "Courage",
+        "Gentillesse",
+        "Discipline",
+        "Loyauté",
+        "Curiosité",
+        "Humilité"
+      ],
+      "category": "personnalite_valeurs"
+    },
+    {
+      "id": "defauts_supportables",
+      "title": "Classe ces défauts du plus supportable au moins supportable.",
+      "items": [
+        "Être désordonné",
+        "Être en retard",
+        "Être têtu",
+        "Être jaloux",
+        "Être pessimiste",
+        "Être trop bavard"
+      ],
+      "category": "personnalite_valeurs"
+    },
+    {
+      "id": "peurs",
+      "title": "Classe ces peurs selon celles qui te semblent les plus difficiles à vivre.",
+      "items": [
+        "Perdre un proche",
+        "Échouer dans sa vie",
+        "Vieillir",
+        "Être seul",
+        "Être oublié",
+        "Perdre sa liberté"
+      ],
+      "category": "personnalite_valeurs"
+    },
+    {
+      "id": "temps_libre",
+      "title": "Classe ces façons de passer une journée libre.",
+      "items": [
+        "Voyager",
+        "Lire",
+        "Dormir",
+        "Voir des amis",
+        "Créer quelque chose",
+        "Faire du sport"
+      ],
+      "category": "personnalite_valeurs"
+    },
+    {
+      "id": "valeurs_enfant",
+      "title": "Classe ces qualités selon celles que tu aimerais transmettre à un enfant.",
+      "items": [
+        "Gentillesse",
+        "Confiance en soi",
+        "Curiosité",
+        "Honnêteté",
+        "Persévérance",
+        "Créativité",
+        "Courage"
+      ],
+      "category": "personnalite_valeurs"
+    },
+    {
+      "id": "argent_ou_temps",
+      "title": "Classe ces avantages selon ceux que tu considères les plus précieux.",
+      "items": [
+        "Avoir plus de temps libre",
+        "Avoir plus d'argent",
+        "Avoir plus d'énergie",
+        "Avoir plus de confiance",
+        "Avoir plus d'amis",
+        "Avoir plus de connaissances"
+      ],
+      "category": "personnalite_valeurs"
+    },
+    {
+      "id": "personnes_inspirantes",
+      "title": "Classe ces types de personnes selon celles qui t'inspirent le plus.",
+      "items": [
+        "Les entrepreneurs",
+        "Les artistes",
+        "Les scientifiques",
+        "Les enseignants",
+        "Les aventuriers",
+        "Les humanitaires"
+      ],
+      "category": "personnalite_valeurs"
+    },
+    {
+      "id": "choix_difficiles",
+      "title": "Classe ces pertes selon celle qui serait la plus difficile à accepter.",
+      "items": [
+        "Perdre son téléphone",
+        "Perdre ses souvenirs",
+        "Perdre son argent",
+        "Perdre son travail",
+        "Perdre sa maison",
+        "Perdre sa liberté"
+      ],
+      "category": "personnalite_valeurs"
+    },
+    {
+      "id": "ce_qui_rend_vivant",
+      "title": "Classe ces expériences selon celles qui te font le plus te sentir vivant(e).",
+      "items": [
+        "Tomber amoureux",
+        "Voyager",
+        "Créer quelque chose",
+        "Réussir un défi",
+        "Aider quelqu'un",
+        "Découvrir quelque chose de nouveau"
+      ],
+      "category": "personnalite_valeurs"
+    },
+    {
+      "id": "traits_de_personnalite",
+      "title": "Classe ces traits de personnalité selon ceux qui te ressemblent le plus.",
+      "items": [
+        "Calme",
+        "Curieux",
+        "Ambitieux",
+        "Sociable",
+        "Spontané",
+        "Prudent",
+        "Créatif"
+      ],
+      "category": "personnalite_valeurs"
+    },
+    {
+      "id": "bonne_nouvelle",
+      "title": "Classe ces bonnes nouvelles selon celle qui te rendrait le plus heureux(se).",
+      "items": [
+        "Gagner à la loterie",
+        "Obtenir le travail de ses rêves",
+        "Faire un voyage exceptionnel",
+        "Tomber amoureux",
+        "Être en parfaite santé",
+        "Avoir un an de vacances payées"
+      ],
+      "category": "personnalite_valeurs"
+    },
+    {
+      "id": "raisons_admirer",
+      "title": "Classe ces raisons d'admirer quelqu'un.",
+      "items": [
+        "Son intelligence",
+        "Sa gentillesse",
+        "Son courage",
+        "Sa réussite",
+        "Sa créativité",
+        "Sa sagesse"
+      ],
+      "category": "personnalite_valeurs"
+    },
+    {
+      "id": "bonheur_quotidien",
+      "title": "Classe ces petits bonheurs du quotidien.",
+      "items": [
+        "Dormir plus longtemps",
+        "Manger un excellent repas",
+        "Recevoir un message attendu",
+        "Finir une tâche importante",
+        "Passer du temps avec quelqu'un qu'on aime",
+        "Avoir du temps pour soi"
+      ],
+      "category": "personnalite_valeurs"
+    },
+    {
+      "id": "choses_irremplacables",
+      "title": "Classe ces choses selon celles auxquelles tu aurais le plus de mal à renoncer.",
+      "items": [
+        "Ton indépendance",
+        "Tes amis",
+        "Tes passions",
+        "Ton confort",
+        "Tes ambitions",
+        "Ton temps libre"
+      ],
+      "category": "personnalite_valeurs"
+    },
+    {
+      "id": "qualites_leader",
+      "title": "Classe ces qualités selon celles qui font le meilleur leader.",
+      "items": [
+        "Vision",
+        "Empathie",
+        "Courage",
+        "Discipline",
+        "Intelligence",
+        "Charisme"
+      ],
+      "category": "personnalite_valeurs"
+    },
+    {
+      "id": "decision_million",
+      "title": "Tu reçois 1 million d'euros. Classe ce que tu ferais en premier.",
+      "items": [
+        "Acheter une maison",
+        "Voyager",
+        "Investir",
+        "Aider sa famille",
+        "Créer une entreprise",
+        "Prendre une retraite anticipée"
+      ],
+      "category": "personnalite_valeurs"
+    },
+    {
+      "id": "amelioration_vie",
+      "title": "Classe ces améliorations selon celle que tu choisirais en priorité.",
+      "items": [
+        "Une santé parfaite",
+        "Plus de temps libre",
+        "Plus d'argent",
+        "Plus de confiance en toi",
+        "De meilleures relations",
+        "Ne plus jamais être stressé"
+      ],
+      "category": "personnalite_valeurs"
+    },
+    {
+      "id": "decouverte_futur",
+      "title": "Classe ces possibilités selon celle que tu choisirais en premier.",
+      "items": [
+        "Voir ton futur",
+        "Revoir ton passé",
+        "Rencontrer tes ancêtres",
+        "Rencontrer tes descendants",
+        "Voir la Terre dans 500 ans",
+        "Revivre une journée de ta vie"
+      ],
+      "category": "personnalite_valeurs"
+    },
+    {
+      "id": "lieu_de_vie_ideal",
+      "title": "Classe ces modes de vie selon celui qui t'attire le plus.",
+      "items": [
+        "Grande ville",
+        "Ville moyenne",
+        "Bord de mer",
+        "Campagne",
+        "Montagne",
+        "Changer régulièrement de pays"
+      ],
+      "category": "futur_projets_vie"
+    },
+    {
+      "id": "projet_dix_ans",
+      "title": "Classe ces objectifs selon ceux que tu aimerais le plus accomplir dans les 10 prochaines années.",
+      "items": [
+        "Acheter une maison",
+        "Créer une entreprise",
+        "Faire le tour du monde",
+        "Fonder une famille",
+        "Atteindre l'indépendance financière",
+        "Maîtriser une passion"
+      ],
+      "category": "futur_projets_vie"
+    },
+    {
+      "id": "utilisation_mois_libre",
+      "title": "Classe ces façons d'utiliser une année sabbatique.",
+      "items": [
+        "Voyager",
+        "Créer un projet",
+        "Étudier",
+        "Faire du bénévolat",
+        "Se reposer",
+        "Changer complètement de vie"
+      ],
+      "category": "futur_projets_vie"
+    },
+    {
+      "id": "maison_de_reve",
+      "title": "Classe ces caractéristiques selon celles que tu voudrais le plus dans ta maison idéale.",
+      "items": [
+        "Grand jardin",
+        "Piscine",
+        "Vue exceptionnelle",
+        "Grande cuisine",
+        "Salle de cinéma",
+        "Emplacement parfait"
+      ],
+      "category": "futur_projets_vie"
+    },
+    {
+      "id": "priorites_financieres",
+      "title": "Classe ces objectifs financiers selon leur importance pour toi.",
+      "items": [
+        "Être propriétaire",
+        "Investir",
+        "Voyager souvent",
+        "Prendre sa retraite tôt",
+        "Créer son entreprise",
+        "Pouvoir aider ses proches"
+      ],
+      "category": "futur_projets_vie"
+    },
+    {
+      "id": "travail_ideal",
+      "title": "Classe ces avantages professionnels selon ceux qui comptent le plus pour toi.",
+      "items": [
+        "Salaire élevé",
+        "Flexibilité",
+        "Travail passionnant",
+        "Impact positif",
+        "Sécurité de l'emploi",
+        "Équilibre vie privée / travail"
+      ],
+      "category": "futur_projets_vie"
+    },
+    {
+      "id": "depart_immediat",
+      "title": "Tu peux partir demain. Classe ces destinations selon ton envie.",
+      "items": [
+        "Japon",
+        "Islande",
+        "Italie",
+        "Nouvelle-Zélande",
+        "Corée du Sud",
+        "Canada",
+        "Pérou"
+      ],
+      "category": "futur_projets_vie"
+    },
+    {
+      "id": "vie_de_famille",
+      "title": "Classe ces aspects de la vie familiale selon leur importance.",
+      "items": [
+        "Passer du temps ensemble",
+        "Créer des traditions",
+        "Aider ses proches",
+        "Rester proche géographiquement",
+        "Partager les repas",
+        "Partir en vacances ensemble"
+      ],
+      "category": "futur_projets_vie"
+    },
+    {
+      "id": "objectif_2027",
+      "title": "Classe ces réussites selon celle qui te rendrait le plus fier(ère).",
+      "items": [
+        "Apprendre une nouvelle langue",
+        "Courir un marathon",
+        "Changer de carrière",
+        "Créer un projet rentable",
+        "Voyager seul(e)",
+        "Achever un projet personnel"
+      ],
+      "category": "futur_projets_vie"
+    },
+    {
+      "id": "vie_sans_contrainte",
+      "title": "Classe ces façons de vivre si l'argent n'était plus un problème.",
+      "items": [
+        "Voyager toute l'année",
+        "Créer des projets",
+        "Vivre près de la nature",
+        "Apprendre constamment",
+        "Aider les autres",
+        "Profiter de chaque jour"
+      ],
+      "category": "futur_projets_vie"
+    },
+    {
+      "id": "demenagement",
+      "title": "Classe ces critères selon ceux qui compteraient le plus pour choisir où vivre.",
+      "items": [
+        "Proximité de la famille",
+        "Opportunités professionnelles",
+        "Climat",
+        "Coût de la vie",
+        "Qualité de vie",
+        "Vie culturelle"
+      ],
+      "category": "futur_projets_vie"
+    },
+    {
+      "id": "luxe_quotidien",
+      "title": "Classe ces luxes selon celui que tu aimerais le plus avoir.",
+      "items": [
+        "Un chef personnel",
+        "Une femme de ménage",
+        "Un chauffeur privé",
+        "Voyager en première classe",
+        "Ne jamais regarder les prix",
+        "Avoir beaucoup de temps libre"
+      ],
+      "category": "futur_projets_vie"
+    },
+    {
+      "id": "weekend_parfait",
+      "title": "Classe ces façons de passer un week-end parfait.",
+      "items": [
+        "Explorer une nouvelle ville",
+        "Se reposer à la maison",
+        "Voir ses proches",
+        "Partir dans la nature",
+        "Faire la fête",
+        "Apprendre quelque chose"
+      ],
+      "category": "futur_projets_vie"
+    },
+    {
+      "id": "retraite_ideale",
+      "title": "Classe ces façons d'imaginer ta retraite.",
+      "items": [
+        "Voyager partout",
+        "Vivre au soleil",
+        "Passer du temps en famille",
+        "Continuer à travailler par passion",
+        "Avoir une vie calme",
+        "S'investir dans des associations"
+      ],
+      "category": "futur_projets_vie"
+    },
+    {
+      "id": "prochaine_depense",
+      "title": "Classe ces achats selon celui que tu ferais en premier avec 5000€ inattendus.",
+      "items": [
+        "Voyage",
+        "Épargne",
+        "Formation",
+        "Objet technologique",
+        "Expérience exceptionnelle",
+        "Cadeau pour un proche"
+      ],
+      "category": "futur_projets_vie"
+    },
+    {
+      "id": "temps_gagne",
+      "title": "Tu gagnes 10 heures libres par semaine. Classe ce que tu en ferais.",
+      "items": [
+        "Dormir davantage",
+        "Faire du sport",
+        "Voir ses proches",
+        "Apprendre quelque chose",
+        "Créer un projet",
+        "Se détendre"
+      ],
+      "category": "futur_projets_vie"
+    },
+    {
+      "id": "projet_commun",
+      "title": "Classe ces projets de couple selon celui qui te ferait le plus envie.",
+      "items": [
+        "Faire le tour du monde",
+        "Acheter une maison",
+        "Créer une entreprise ensemble",
+        "S'installer à l'étranger",
+        "Rénover un lieu",
+        "Lancer un projet créatif"
+      ],
+      "category": "futur_projets_vie"
+    },
+    {
+      "id": "changement_de_vie",
+      "title": "Classe ces changements selon celui que tu accepterais le plus facilement.",
+      "items": [
+        "Changer de pays",
+        "Changer de métier",
+        "Reprendre des études",
+        "Vivre dans plus petit",
+        "Partir sans plan précis",
+        "Changer complètement de rythme de vie"
+      ],
+      "category": "futur_projets_vie"
+    },
+    {
+      "id": "heritage",
+      "title": "Classe ces usages selon ce que tu ferais en priorité avec un héritage important.",
+      "items": [
+        "Investir",
+        "Acheter un logement",
+        "Voyager",
+        "Aider sa famille",
+        "Créer un projet",
+        "Faire plaisir à ses proches"
+      ],
+      "category": "futur_projets_vie"
+    },
+    {
+      "id": "reussite_future",
+      "title": "Classe ces scénarios selon celui qui te semblerait le plus satisfaisant dans 20 ans.",
+      "items": [
+        "Être très heureux",
+        "Être très riche",
+        "Être très respecté",
+        "Avoir une famille unie",
+        "Avoir vécu de grandes aventures",
+        "Avoir laissé une trace positive"
+      ],
+      "category": "futur_projets_vie"
+    },
+    {
+      "id": "bouton_magique",
+      "title": "Classe ces améliorations selon celle que tu choisirais en priorité.",
+      "items": [
+        "Une santé parfaite",
+        "Ne plus jamais être stressé(e)",
+        "Avoir toujours assez d'argent",
+        "Avoir plus de temps libre",
+        "Avoir une confiance totale en toi",
+        "Avoir des relations parfaites"
+      ],
+      "category": "dilemmes_debats_revelateurs"
+    },
+    {
+      "id": "voyage_temporel",
+      "title": "Classe ces possibilités selon celle que tu choisirais en premier.",
+      "items": [
+        "Voir ton futur",
+        "Revoir ton passé",
+        "Rencontrer tes ancêtres",
+        "Rencontrer tes descendants",
+        "Voir la Terre dans 500 ans",
+        "Revivre une journée de ta vie"
+      ],
+      "category": "dilemmes_debats_revelateurs"
+    },
+    {
+      "id": "verite_absolue",
+      "title": "Classe ces vérités selon celle que tu voudrais le plus connaître.",
+      "items": [
+        "Comment se terminera ta vie",
+        "Ce que pensent réellement les autres de toi",
+        "S'il existe une vie ailleurs dans l'univers",
+        "Ton plus grand potentiel",
+        "La plus grande décision de ta vie",
+        "Ce qui t'aurait attendu dans une autre vie"
+      ],
+      "category": "dilemmes_debats_revelateurs"
+    },
+    {
+      "id": "pouvoir_unique",
+      "title": "Classe ces capacités selon celle que tu choisirais.",
+      "items": [
+        "Lire dans les pensées",
+        "Arrêter le temps",
+        "Parler toutes les langues",
+        "Ne jamais oublier",
+        "Voir l'avenir proche",
+        "Comprendre instantanément n'importe quel sujet"
+      ],
+      "category": "dilemmes_debats_revelateurs"
+    },
+    {
+      "id": "journee_a_revivre",
+      "title": "Classe ces journées selon celle que tu aimerais revivre.",
+      "items": [
+        "Ton plus beau souvenir",
+        "Une journée d'enfance",
+        "Une journée avec un proche disparu",
+        "Le jour d'une grande réussite",
+        "Une journée sans aucun souci",
+        "Une journée que tu voudrais mieux comprendre"
+      ],
+      "category": "dilemmes_debats_revelateurs"
+    },
+    {
+      "id": "objet_du_futur",
+      "title": "Classe ces inventions selon celle que tu voudrais voir exister.",
+      "items": [
+        "Téléportation",
+        "Voiture volante",
+        "Traduction universelle parfaite",
+        "Médecine qui guérit tout",
+        "Voyage dans le temps",
+        "Énergie illimitée"
+      ],
+      "category": "dilemmes_debats_revelateurs"
+    },
+    {
+      "id": "vie_alternative",
+      "title": "Classe ces vies alternatives selon celle que tu serais le plus curieux(se) d'expérimenter.",
+      "items": [
+        "Artiste célèbre",
+        "Explorateur(trice)",
+        "Scientifique de génie",
+        "Athlète professionnel(le)",
+        "Chef(fe) d'entreprise",
+        "Musicien(ne)"
+      ],
+      "category": "dilemmes_debats_revelateurs"
+    },
+    {
+      "id": "sacrifice_difficile",
+      "title": "Classe ces choses selon celle que tu aurais le plus de mal à abandonner.",
+      "items": [
+        "Internet",
+        "Musique",
+        "Voyages",
+        "Films et séries",
+        "Jeux",
+        "Réseaux sociaux"
+      ],
+      "category": "dilemmes_debats_revelateurs"
+    },
+    {
+      "id": "connaissance_interdite",
+      "title": "Classe ces informations selon celle que tu voudrais connaître en priorité.",
+      "items": [
+        "Ton avenir amoureux",
+        "Ton avenir professionnel",
+        "La date exacte de ta mort",
+        "Le plus grand secret de l'humanité",
+        "Ce que pensent tes proches de toi",
+        "Les événements mondiaux à venir"
+      ],
+      "category": "dilemmes_debats_revelateurs"
+    },
+    {
+      "id": "talent_instantane",
+      "title": "Classe ces talents selon celui que tu aimerais maîtriser instantanément.",
+      "items": [
+        "Jouer de n'importe quel instrument",
+        "Parler toutes les langues",
+        "Dessiner parfaitement",
+        "Coder n'importe quoi",
+        "Écrire des histoires incroyables",
+        "Cuisiner comme un grand chef"
+      ],
+      "category": "dilemmes_debats_revelateurs"
+    },
+    {
+      "id": "machine_a_choix",
+      "title": "Classe ces récompenses selon celle que tu choisirais.",
+      "items": [
+        "10 millions d'euros",
+        "20 ans de vie en plus",
+        "Santé parfaite à vie",
+        "Succès garanti dans tes projets",
+        "Bonheur garanti à vie",
+        "Une relation parfaite"
+      ],
+      "category": "dilemmes_debats_revelateurs"
+    },
+    {
+      "id": "regret_possible",
+      "title": "Classe ces regrets selon celui que tu voudrais le plus éviter.",
+      "items": [
+        "Ne pas avoir osé",
+        "Ne pas avoir aimé suffisamment",
+        "Avoir trop travaillé",
+        "Avoir négligé ses proches",
+        "Ne pas avoir poursuivi ses rêves",
+        "Être resté dans sa zone de confort"
+      ],
+      "category": "dilemmes_debats_revelateurs"
+    },
+    {
+      "id": "maison_mysterieuse",
+      "title": "Classe ces pièces secrètes selon celle que tu voudrais découvrir en premier.",
+      "items": [
+        "Bibliothèque infinie",
+        "Salle remplie de souvenirs",
+        "Porte vers le futur",
+        "Porte vers le passé",
+        "Salle contenant toutes les réponses",
+        "Pièce qui réalise un souhait"
+      ],
+      "category": "dilemmes_debats_revelateurs"
+    },
+    {
+      "id": "chance_unique",
+      "title": "Classe ces opportunités selon celle que tu accepterais immédiatement.",
+      "items": [
+        "Faire le tour du monde gratuitement",
+        "Recevoir 1 million d'euros",
+        "Apprendre n'importe quelle compétence",
+        "Vivre 10 ans de plus",
+        "Rencontrer n'importe qui",
+        "Réussir le projet de tes rêves"
+      ],
+      "category": "dilemmes_debats_revelateurs"
+    },
+    {
+      "id": "ile_deserte",
+      "title": "Classe ces objets selon celui que tu emporterais en priorité sur une île déserte.",
+      "items": [
+        "Couteau multifonction",
+        "Téléphone satellite",
+        "Livre géant de survie",
+        "Kit médical",
+        "Briquet inépuisable",
+        "Réserve de nourriture"
+      ],
+      "category": "dilemmes_debats_revelateurs"
+    },
+    {
+      "id": "mission_spatiale",
+      "title": "Classe ces missions selon celle que tu accepterais le plus volontiers.",
+      "items": [
+        "Aller sur Mars",
+        "Explorer une nouvelle galaxie",
+        "Vivre un an dans l'espace",
+        "Observer la Terre depuis l'orbite",
+        "Rencontrer une civilisation extraterrestre",
+        "Participer à la première colonie spatiale"
+      ],
+      "category": "dilemmes_debats_revelateurs"
+    },
+    {
+      "id": "monde_ideal",
+      "title": "Classe ces changements selon celui qui améliorerait le plus le monde.",
+      "items": [
+        "Fin de la pauvreté",
+        "Fin des guerres",
+        "Accès universel à l'éducation",
+        "Énergie propre illimitée",
+        "Fin des maladies graves",
+        "Égalité parfaite des chances"
+      ],
+      "category": "dilemmes_debats_revelateurs"
+    },
+    {
+      "id": "carte_joker",
+      "title": "Classe ces avantages selon celui que tu voudrais posséder toute ta vie.",
+      "items": [
+        "Toujours prendre la bonne décision",
+        "Toujours être en bonne santé",
+        "Toujours rencontrer les bonnes personnes",
+        "Toujours apprendre rapidement",
+        "Toujours rester heureux(se)",
+        "Toujours réussir ses projets"
+      ],
+      "category": "dilemmes_debats_revelateurs"
+    },
+    {
+      "id": "retour_en_arriere",
+      "title": "Classe ces possibilités selon celle que tu choisirais.",
+      "items": [
+        "Corriger une erreur",
+        "Revivre un moment heureux",
+        "Dire quelque chose que tu n'as jamais osé dire",
+        "Rencontrer une version plus jeune de toi",
+        "Changer une décision importante",
+        "Observer discrètement ton passé"
+      ],
+      "category": "dilemmes_debats_revelateurs"
+    },
+    {
+      "id": "heritage_symbolique",
+      "title": "Classe ces héritages selon celui que tu aimerais laisser derrière toi.",
+      "items": [
+        "Une famille heureuse",
+        "Une invention utile",
+        "Une œuvre artistique",
+        "Une entreprise prospère",
+        "Un impact positif sur la société",
+        "Des souvenirs inoubliables pour tes proches"
+      ],
+      "category": "dilemmes_debats_revelateurs"
+    },
+    {
+      "id": "red_flags_premier_rdv",
+      "title": "Classe ces comportements du plus gros red flag au moins gênant lors d'un premier rendez-vous.",
+      "items": [
+        "Regarder son téléphone",
+        "Parler uniquement de soi",
+        "Arriver en retard",
+        "Être impoli avec le personnel",
+        "Parler de son ex",
+        "Ne poser aucune question"
+      ],
+      "category": "opinions_quotidien"
+    },
+    {
+      "id": "habitudes_agacantes",
+      "title": "Classe ces habitudes du plus agaçant au moins agaçant.",
+      "items": [
+        "Mâcher bruyamment",
+        "Couper la parole",
+        "Laisser traîner ses affaires",
+        "Être toujours en retard",
+        "Répondre après plusieurs heures",
+        "Ne jamais choisir"
+      ],
+      "category": "opinions_quotidien"
+    },
+    {
+      "id": "aliments_surestimes",
+      "title": "Classe ces aliments du plus surestimé au moins surestimé.",
+      "items": [
+        "Sushi",
+        "Avocat",
+        "Macarons",
+        "Burger gourmet",
+        "Truffe",
+        "Bubble tea"
+      ],
+      "category": "opinions_quotidien"
+    },
+    {
+      "id": "reseaux_sociaux_insupportables",
+      "title": "Classe ces comportements sur les réseaux sociaux du plus insupportable au moins gênant.",
+      "items": [
+        "Poster chaque repas",
+        "Partager des citations inspirantes tous les jours",
+        "Faire des faux concours",
+        "Publier 50 stories par jour",
+        "Afficher toute sa vie de couple",
+        "Corriger les gens en commentaires"
+      ],
+      "category": "opinions_quotidien"
+    },
+    {
+      "id": "films_a_revoir",
+      "title": "Classe ces types de films selon ceux que tu pourrais revoir le plus facilement.",
+      "items": [
+        "Comédie",
+        "Science-fiction",
+        "Film romantique",
+        "Film d'action",
+        "Film d'animation",
+        "Thriller"
+      ],
+      "category": "opinions_quotidien"
+    },
+    {
+      "id": "petits_crimes_du_quotidien",
+      "title": "Classe ces comportements du plus inacceptable au moins grave.",
+      "items": [
+        "Couper la file d'attente",
+        "Ne pas remettre son caddie",
+        "Laisser ses déchets derrière soi",
+        "Ne jamais répondre aux messages",
+        "Prendre la dernière part sans demander",
+        "Spoiler une série"
+      ],
+      "category": "opinions_quotidien"
+    },
+    {
+      "id": "debats_nourriture",
+      "title": "Classe ces opinions selon celle qui te choque le plus.",
+      "items": [
+        "L'ananas sur la pizza",
+        "Le ketchup avec les pâtes",
+        "Les céréales avant le lait",
+        "Le steak bien cuit",
+        "Les frites dans le burger",
+        "Le sucré-salé partout"
+      ],
+      "category": "opinions_quotidien"
+    },
+    {
+      "id": "voyages_surestimes",
+      "title": "Classe ces expériences de voyage du plus surestimé au moins surestimé.",
+      "items": [
+        "Prendre une photo devant chaque monument",
+        "Les hôtels de luxe",
+        "Les croisières",
+        "Les souvenirs touristiques",
+        "Les visites guidées",
+        "Les influenceurs voyage"
+      ],
+      "category": "opinions_quotidien"
+    },
+    {
+      "id": "pouvoirs_du_quotidien",
+      "title": "Classe ces petits super-pouvoirs selon celui que tu voudrais le plus.",
+      "items": [
+        "Toujours trouver une place de parking",
+        "Ne jamais faire la queue",
+        "Toujours choisir la meilleure file",
+        "Ne jamais perdre ses objets",
+        "Toujours se réveiller en forme",
+        "Toujours avoir le bon mot au bon moment"
+      ],
+      "category": "opinions_quotidien"
+    },
+    {
+      "id": "courses_enfer",
+      "title": "Classe ces situations selon celle qui t'agace le plus pendant les courses.",
+      "items": [
+        "Faire la queue longtemps",
+        "Chercher un produit introuvable",
+        "Tomber sur quelqu'un qu'on connaît",
+        "Oublier un article important",
+        "Avoir un caddie défectueux",
+        "Faire ses courses un samedi"
+      ],
+      "category": "opinions_quotidien"
+    },
+    {
+      "id": "mauvaises_habitudes",
+      "title": "Classe ces mauvaises habitudes selon celle qui te dérange le plus chez quelqu'un.",
+      "items": [
+        "Être toujours en retard",
+        "Parler très fort",
+        "Ne jamais ranger",
+        "Être constamment sur son téléphone",
+        "Annuler au dernier moment",
+        "Ne jamais écouter"
+      ],
+      "category": "opinions_quotidien"
+    },
+    {
+      "id": "conversations_interdites",
+      "title": "Classe ces sujets selon celui que tu éviterais le plus lors d'un dîner.",
+      "items": [
+        "Politique",
+        "Religion",
+        "Argent",
+        "Relations amoureuses",
+        "Travail",
+        "Santé"
+      ],
+      "category": "opinions_quotidien"
+    },
+    {
+      "id": "petits_plaisirs_coupables",
+      "title": "Classe ces plaisirs coupables selon ceux que tu assumes le plus.",
+      "items": [
+        "Regarder de la télé-réalité",
+        "Manger au lit",
+        "Rester en pyjama toute la journée",
+        "Commander au lieu de cuisiner",
+        "Scroller pendant des heures",
+        "Annuler des plans pour rester chez soi"
+      ],
+      "category": "opinions_quotidien"
+    },
+    {
+      "id": "series_insupportables",
+      "title": "Classe ces comportements selon celui qui gâche le plus une série regardée à deux.",
+      "items": [
+        "Spoiler",
+        "S'endormir",
+        "Regarder un épisode seul",
+        "Passer son temps sur son téléphone",
+        "Parler pendant les scènes importantes",
+        "Poser des questions sans arrêt"
+      ],
+      "category": "opinions_quotidien"
+    },
+    {
+      "id": "opinions_controversees",
+      "title": "Classe ces opinions selon celle qui te paraît la plus acceptable.",
+      "items": [
+        "Le petit-déjeuner est inutile",
+        "Les animaux sont mieux que beaucoup d'humains",
+        "Les réseaux sociaux font plus de mal que de bien",
+        "Les études ne garantissent rien",
+        "L'argent rend plus heureux qu'on le dit",
+        "On peut être heureux sans passion"
+      ],
+      "category": "opinions_quotidien"
+    },
+    {
+      "id": "trucs_inutiles",
+      "title": "Classe ces objets selon celui qui te paraît le plus inutile.",
+      "items": [
+        "Perche à selfie",
+        "Montre de luxe",
+        "Machine à popcorn",
+        "Enceinte connectée",
+        "Drone personnel",
+        "Presse-agrumes électrique"
+      ],
+      "category": "opinions_quotidien"
+    },
+    {
+      "id": "talents_bizarres",
+      "title": "Classe ces talents selon celui que tu trouverais le plus impressionnant.",
+      "items": [
+        "Reconnaître une chanson en 2 secondes",
+        "Retenir tous les visages",
+        "Faire rire n'importe qui",
+        "Retenir tous les anniversaires",
+        "Trouver son chemin partout",
+        "Parler avec n'importe quel inconnu"
+      ],
+      "category": "opinions_quotidien"
+    },
+    {
+      "id": "raisons_annuler",
+      "title": "Classe ces raisons selon celles qui justifient le mieux d'annuler un plan au dernier moment.",
+      "items": [
+        "Être malade",
+        "Être épuisé",
+        "Avoir une urgence familiale",
+        "Avoir oublié un autre engagement",
+        "Ne pas avoir envie",
+        "Avoir une meilleure opportunité"
+      ],
+      "category": "opinions_quotidien"
+    },
+    {
+      "id": "applications_indispensables",
+      "title": "Classe ces applications selon celles dont tu aurais le plus de mal à te passer.",
+      "items": [
+        "Maps",
+        "Spotify",
+        "WhatsApp",
+        "YouTube",
+        "Instagram",
+        "Calendrier"
+      ],
+      "category": "opinions_quotidien"
+    },
+    {
+      "id": "choses_surestimees_vie_adulte",
+      "title": "Classe ces aspects de la vie adulte du plus surestimé au moins surestimé.",
+      "items": [
+        "Posséder une grande maison",
+        "Avoir une voiture neuve",
+        "Travailler dans une grande entreprise",
+        "Être toujours occupé",
+        "Acheter les dernières nouveautés",
+        "Avoir une vie parfaitement organisée"
+      ],
+      "category": "opinions_quotidien"
+    },
+    {
+      "id": "pizza_toppings",
+      "title": "Classe ces garnitures de pizza selon celles que tu préfères.",
+      "items": [
+        "Pepperoni",
+        "Champignons",
+        "Ananas",
+        "Chèvre",
+        "Olives",
+        "4 fromages"
+      ],
+      "category": "opinions_quotidien"
+    },
+    {
+      "id": "messages_agacants",
+      "title": "Classe ces types de messages du plus agaçant au moins agaçant.",
+      "items": [
+        "Vu sans réponse",
+        "Réponse en un mot",
+        "Message vocal de 4 minutes",
+        "Réponse 8 heures plus tard",
+        "Beaucoup de fautes",
+        "Triple message d'affilée"
+      ],
+      "category": "opinions_quotidien"
+    },
+    {
+      "id": "transports",
+      "title": "Classe ces moyens de transport du plus agréable au moins agréable.",
+      "items": [
+        "Train",
+        "Voiture",
+        "Avion",
+        "Métro",
+        "Vélo",
+        "Marche"
+      ],
+      "category": "opinions_quotidien"
+    },
+    {
+      "id": "sons_insupportables",
+      "title": "Classe ces sons du plus insupportable au moins insupportable.",
+      "items": [
+        "Réveil",
+        "Ongles sur un tableau",
+        "Bébé qui pleure",
+        "Mastication bruyante",
+        "Alarme de voiture",
+        "Travaux"
+      ],
+      "category": "opinions_quotidien"
+    },
+    {
+      "id": "courses_file",
+      "title": "Classe ces personnes selon celles que tu voudrais le moins avoir devant toi à la caisse.",
+      "items": [
+        "Quelqu'un avec 100 articles",
+        "Quelqu'un qui paie en pièces",
+        "Quelqu'un qui cherche sa carte",
+        "Quelqu'un qui discute avec le caissier",
+        "Quelqu'un qui oublie un produit",
+        "Quelqu'un qui compare tous les prix"
+      ],
+      "category": "opinions_quotidien"
+    },
+    {
+      "id": "pluie",
+      "title": "Classe ces activités sous la pluie selon ton envie.",
+      "items": [
+        "Dormir",
+        "Lire",
+        "Regarder un film",
+        "Sortir marcher",
+        "Faire du sport",
+        "Cuisiner"
+      ],
+      "category": "opinions_quotidien"
+    },
+    {
+      "id": "nourriture_avion",
+      "title": "Classe ces snacks d'avion selon ceux que tu choisirais en premier.",
+      "items": [
+        "Chips",
+        "Cookies",
+        "Sandwich",
+        "Fruits",
+        "Barre chocolatée",
+        "Noix"
+      ],
+      "category": "opinions_quotidien"
+    },
+    {
+      "id": "attente",
+      "title": "Classe ces attentes selon celles qui t'énervent le plus.",
+      "items": [
+        "Chez le médecin",
+        "Au téléphone",
+        "À la caisse",
+        "Dans les bouchons",
+        "Au restaurant",
+        "À l'aéroport"
+      ],
+      "category": "opinions_quotidien"
+    },
+    {
+      "id": "telecommande",
+      "title": "Classe ces comportements TV du plus agaçant au moins agaçant.",
+      "items": [
+        "Changer sans arrêt",
+        "Parler pendant le film",
+        "Regarder son téléphone",
+        "Spoiler",
+        "S'endormir",
+        "Poser des questions"
+      ],
+      "category": "opinions_quotidien"
+    },
+    {
+      "id": "odeurs",
+      "title": "Classe ces odeurs selon celles que tu préfères.",
+      "items": [
+        "Pain chaud",
+        "Pluie",
+        "Café",
+        "Océan",
+        "Barbecue",
+        "Lessive propre"
+      ],
+      "category": "opinions_quotidien"
+    },
+    {
+      "id": "debats_maison",
+      "title": "Classe ces tâches ménagères selon celles que tu détestes le plus.",
+      "items": [
+        "Faire la vaisselle",
+        "Passer l'aspirateur",
+        "Nettoyer la salle de bain",
+        "Faire les vitres",
+        "Repasser",
+        "Sortir les poubelles"
+      ],
+      "category": "opinions_quotidien"
+    },
+    {
+      "id": "fast_food",
+      "title": "Classe ces repas rapides selon ton envie.",
+      "items": [
+        "Pizza",
+        "Burger",
+        "Tacos",
+        "Sushi",
+        "Kebab",
+        "Poulet frit"
+      ],
+      "category": "opinions_quotidien"
+    },
+    {
+      "id": "weekend_annule",
+      "title": "Classe ces raisons d'annuler une sortie selon celles que tu comprends le mieux.",
+      "items": [
+        "Fatigue",
+        "Maladie",
+        "Urgence familiale",
+        "Trop de travail",
+        "Pas envie",
+        "Météo"
+      ],
+      "category": "opinions_quotidien"
+    },
+    {
+      "id": "reunions",
+      "title": "Classe ces phrases selon celles qui t'agacent le plus en réunion.",
+      "items": [
+        "On se fait un point",
+        "Je rebondis sur ça",
+        "Quick win",
+        "On brainstorm",
+        "C'est dans le pipe",
+        "On en reparle"
+      ],
+      "category": "opinions_quotidien"
+    },
+    {
+      "id": "petits_luxes",
+      "title": "Classe ces petits luxes du quotidien.",
+      "items": [
+        "Draps propres",
+        "Petit-déjeuner au lit",
+        "Massage",
+        "Livraison à domicile",
+        "Dormir sans réveil",
+        "Bain chaud"
+      ],
+      "category": "opinions_quotidien"
+    },
+    {
+      "id": "reseaux_sociaux",
+      "title": "Classe ces réseaux sociaux selon ton intérêt.",
+      "items": [
+        "Instagram",
+        "TikTok",
+        "YouTube",
+        "X",
+        "Reddit",
+        "LinkedIn"
+      ],
+      "category": "opinions_quotidien"
+    },
+    {
+      "id": "plats_divisifs",
+      "title": "Classe ces aliments selon ceux qui divisent le plus les gens selon toi.",
+      "items": [
+        "Ananas",
+        "Coriandre",
+        "Huîtres",
+        "Réglisse",
+        "Bleu",
+        "Tofu"
+      ],
+      "category": "opinions_quotidien"
+    },
+    {
+      "id": "retards",
+      "title": "Classe ces retards selon ceux que tu pardonnes le plus facilement.",
+      "items": [
+        "5 minutes",
+        "10 minutes",
+        "15 minutes",
+        "20 minutes",
+        "30 minutes",
+        "45 minutes"
+      ],
+      "category": "opinions_quotidien"
+    },
+    {
+      "id": "meteo",
+      "title": "Classe ces météos selon celles que tu préfères.",
+      "items": [
+        "Soleil",
+        "Neige",
+        "Orage",
+        "Pluie légère",
+        "Temps frais",
+        "Temps nuageux"
+      ],
+      "category": "opinions_quotidien"
+    },
+    {
+      "id": "achats_impulsifs",
+      "title": "Classe ces achats selon ceux qui valent le plus le coup.",
+      "items": [
+        "Voyage",
+        "Restaurant",
+        "Vêtement",
+        "Gadget tech",
+        "Concert",
+        "Livre"
+      ],
+      "category": "opinions_quotidien"
+    },
+    {
+      "id": "discussion_finie",
+      "title": "Classe ces phrases selon celles qui mettent le plus fin à une discussion.",
+      "items": [
+        "Comme tu veux",
+        "Bref",
+        "Ok.",
+        "Fais ce que tu veux",
+        "Laisse tomber",
+        "👍"
+      ],
+      "category": "opinions_quotidien"
+    },
+    {
+      "id": "petites_victoires",
+      "title": "Classe ces petites victoires selon la satisfaction qu'elles procurent.",
+      "items": [
+        "Trouver une place de parking",
+        "Passer au vert partout",
+        "Finir une tâche",
+        "Recevoir un colis",
+        "Annulation d'une réunion",
+        "Trouver un billet oublié"
+      ],
+      "category": "opinions_quotidien"
+    },
+    {
+      "id": "vacances",
+      "title": "Classe ces façons de voyager.",
+      "items": [
+        "Road trip",
+        "All inclusive",
+        "Sac à dos",
+        "City trip",
+        "Croisière",
+        "Camping"
+      ],
+      "category": "opinions_quotidien"
+    },
+    {
+      "id": "frigo",
+      "title": "Classe ces aliments selon ceux qui devraient toujours être dans un frigo.",
+      "items": [
+        "Œufs",
+        "Fromage",
+        "Beurre",
+        "Yaourts",
+        "Fruits",
+        "Jus"
+      ],
+      "category": "opinions_quotidien"
+    },
+    {
+      "id": "notifications",
+      "title": "Classe ces notifications selon celles que tu aimes le moins recevoir.",
+      "items": [
+        "Banque",
+        "Travail",
+        "Publicité",
+        "Réseaux sociaux",
+        "Livraison",
+        "Mise à jour"
+      ],
+      "category": "opinions_quotidien"
+    },
+    {
+      "id": "reponse_messages",
+      "title": "Classe ces délais de réponse selon ceux qui te paraissent les plus acceptables.",
+      "items": [
+        "Quelques minutes",
+        "1 heure",
+        "3 heures",
+        "Une demi-journée",
+        "Une journée",
+        "Plusieurs jours"
+      ],
+      "category": "couple_debats"
+    },
+    {
+      "id": "telephone_au_lit",
+      "title": "Classe ces habitudes selon celles qui te dérangent le plus au lit.",
+      "items": [
+        "Scroller TikTok",
+        "Répondre à des messages",
+        "Regarder des vidéos sans écouteurs",
+        "Travailler",
+        "Passer des appels",
+        "Regarder une série seul(e)"
+      ],
+      "category": "couple_debats"
+    },
+    {
+      "id": "publication_couple",
+      "title": "Classe ces façons d'afficher sa relation selon celles que tu préfères.",
+      "items": [
+        "Ne jamais publier",
+        "Publier rarement",
+        "Publier les grandes occasions",
+        "Publier régulièrement",
+        "Mettre des stories ensemble",
+        "Afficher son partenaire partout"
+      ],
+      "category": "couple_debats"
+    },
+    {
+      "id": "vacances_beaux_parents",
+      "title": "Classe ces vacances selon ton niveau d'enthousiasme.",
+      "items": [
+        "À deux",
+        "Avec des amis",
+        "Avec sa famille",
+        "Avec la famille de son partenaire",
+        "Avec plusieurs familles",
+        "Avec un grand groupe"
+      ],
+      "category": "couple_debats"
+    },
+    {
+      "id": "premier_rendez_vous_paiement",
+      "title": "Classe ces façons de payer lors d'un premier rendez-vous.",
+      "items": [
+        "Partager l'addition",
+        "La personne qui invite paie",
+        "Celui qui a le plus de moyens paie",
+        "Alterner",
+        "Payer chacun sa part exacte",
+        "Décider sur le moment"
+      ],
+      "category": "couple_debats"
+    },
+    {
+      "id": "motifs_jalousie",
+      "title": "Classe ces situations selon celles qui pourraient le plus te rendre jaloux(se).",
+      "items": [
+        "Messages fréquents avec un ex",
+        "Sortie seul(e) avec quelqu'un d'attirant",
+        "Flirt léger en soirée",
+        "Cacher certaines conversations",
+        "Recevoir beaucoup d'attention en ligne",
+        "Parler souvent d'une autre personne"
+      ],
+      "category": "couple_debats"
+    },
+    {
+      "id": "motifs_dispute",
+      "title": "Classe ces raisons de dispute selon celles qui te semblent les plus légitimes.",
+      "items": [
+        "Mensonge",
+        "Manque de respect",
+        "Retards répétés",
+        "Promesse non tenue",
+        "Manque de communication",
+        "Jalousie excessive"
+      ],
+      "category": "couple_debats"
+    },
+    {
+      "id": "confidentialite_telephone",
+      "title": "Classe ces situations selon celles qui te paraissent les plus normales dans un couple.",
+      "items": [
+        "Connaître le code du téléphone",
+        "Pouvoir répondre à un message pour l'autre",
+        "Ne jamais toucher au téléphone de l'autre",
+        "Partager librement ses écrans",
+        "Avoir une confidentialité totale",
+        "Montrer quelque chose uniquement si demandé"
+      ],
+      "category": "couple_debats"
+    },
+    {
+      "id": "temps_ensemble_couple_debat",
+      "title": "Classe ces façons de passer une soirée ensemble.",
+      "items": [
+        "Discuter",
+        "Regarder une série",
+        "Jouer ensemble",
+        "Sortir",
+        "Cuisiner",
+        "Faire chacun son activité dans la même pièce"
+      ],
+      "category": "couple_debats"
+    },
+    {
+      "id": "messages_amour",
+      "title": "Classe ces messages selon celui qui te ferait le plus plaisir.",
+      "items": [
+        "Je pense à toi",
+        "Tu me manques",
+        "Je suis fier(ère) de toi",
+        "J'ai hâte de te voir",
+        "Merci pour tout",
+        "Je t'aime"
+      ],
+      "category": "couple_debats"
+    },
+    {
+      "id": "relation_distance",
+      "title": "Classe ces habitudes selon leur importance dans une relation à distance.",
+      "items": [
+        "Appels vidéo",
+        "Messages quotidiens",
+        "Activités à distance",
+        "Visites régulières",
+        "Partage de photos",
+        "Appels spontanés"
+      ],
+      "category": "couple_debats"
+    },
+    {
+      "id": "habitudes_mignonnes",
+      "title": "Classe ces habitudes du plus mignon au moins mignon.",
+      "items": [
+        "Envoyer un message de bonne nuit",
+        "Partager un meme",
+        "Envoyer une photo de sa journée",
+        "Préparer une surprise",
+        "Garder des souvenirs",
+        "Envoyer une chanson"
+      ],
+      "category": "couple_debats"
+    },
+    {
+      "id": "gestes_romantiques",
+      "title": "Classe ces gestes du plus romantique au moins romantique.",
+      "items": [
+        "Lettre d'amour",
+        "Week-end surprise",
+        "Dîner préparé maison",
+        "Album photo",
+        "Cadeau personnalisé",
+        "Message inattendu"
+      ],
+      "category": "couple_debats"
+    },
+    {
+      "id": "temps_sans_reponse",
+      "title": "Classe ces situations selon celles qui justifient le plus de ne pas répondre.",
+      "items": [
+        "Être au travail",
+        "Dormir",
+        "Passer du temps avec des amis",
+        "Regarder un film",
+        "Faire du sport",
+        "Vouloir être seul(e)"
+      ],
+      "category": "couple_debats"
+    },
+    {
+      "id": "petits_mensonges",
+      "title": "Classe ces petits mensonges du plus acceptable au moins acceptable.",
+      "items": [
+        "Mentir sur un cadeau surprise",
+        "Dire qu'on va bien alors que non",
+        "Prétendre aimer un plat",
+        "Cacher le prix d'un achat",
+        "Inventer une excuse pour annuler",
+        "Mentir pour éviter une dispute"
+      ],
+      "category": "couple_debats"
+    },
+    {
+      "id": "sorties_solo",
+      "title": "Classe ces sorties selon celles qui te semblent les plus normales sans ton partenaire.",
+      "items": [
+        "Restaurant",
+        "Cinéma",
+        "Voyage",
+        "Bar",
+        "Festival",
+        "Week-end entier"
+      ],
+      "category": "couple_debats"
+    },
+    {
+      "id": "attention_quotidienne",
+      "title": "Classe ces attentions selon celles qui comptent le plus.",
+      "items": [
+        "Prendre des nouvelles",
+        "Écouter attentivement",
+        "Aider spontanément",
+        "Faire rire",
+        "Faire un compliment",
+        "Passer du temps ensemble"
+      ],
+      "category": "couple_debats"
+    },
+    {
+      "id": "partage_localisation",
+      "title": "Classe ces positions selon celle qui te correspond le plus.",
+      "items": [
+        "Partager sa localisation en permanence",
+        "Partager uniquement lors des déplacements",
+        "Partager seulement à la demande",
+        "Partager dans certaines situations",
+        "Ne jamais partager",
+        "Peu importe"
+      ],
+      "category": "couple_debats"
+    },
+    {
+      "id": "vie_commune",
+      "title": "Classe ces sujets selon ceux qu'il faut aborder le plus tôt dans une relation.",
+      "items": [
+        "Argent",
+        "Enfants",
+        "Lieu de vie",
+        "Carrière",
+        "Valeurs",
+        "Organisation du quotidien"
+      ],
+      "category": "couple_debats"
+    },
+    {
+      "id": "comptes_financiers",
+      "title": "Classe ces façons de gérer l'argent dans un couple.",
+      "items": [
+        "Tout séparé",
+        "Tout commun",
+        "Compte commun + comptes personnels",
+        "Répartition selon les revenus",
+        "Partage à 50/50",
+        "Gestion au cas par cas"
+      ],
+      "category": "couple_debats"
+    },
+    {
+      "id": "comportements_soiree",
+      "title": "Classe ces comportements selon ceux qui te dérangeraient le plus en soirée.",
+      "items": [
+        "Flirter",
+        "Ignorer son partenaire",
+        "Boire excessivement",
+        "Passer son temps sur son téléphone",
+        "Disparaître sans prévenir",
+        "Parler uniquement avec ses amis"
+      ],
+      "category": "couple_debats"
+    },
+    {
+      "id": "preuves_confiance",
+      "title": "Classe ces preuves de confiance selon celles qui te semblent les plus importantes.",
+      "items": [
+        "Dire la vérité",
+        "Respecter ses promesses",
+        "Être transparent",
+        "Respecter l'intimité",
+        "Être cohérent dans ses actes",
+        "Reconnaître ses erreurs"
+      ],
+      "category": "couple_debats"
+    },
+    {
+      "id": "petites_trahisons",
+      "title": "Classe ces situations selon celles qui te paraissent les plus graves.",
+      "items": [
+        "Mentir sur sa localisation",
+        "Cacher une conversation",
+        "Partager un secret du couple",
+        "Flirter par message",
+        "Faire une promesse sans la tenir",
+        "Parler négativement de son partenaire à ses amis"
+      ],
+      "category": "couple_debats"
+    },
+    {
+      "id": "regles_dispute",
+      "title": "Classe ces comportements selon ceux qu'il faut le plus éviter pendant une dispute.",
+      "items": [
+        "Couper la parole",
+        "Crier",
+        "Partir sans rien dire",
+        "Ressortir de vieux problèmes",
+        "Faire du sarcasme",
+        "Ignorer l'autre"
+      ],
+      "category": "couple_debats"
+    },
+    {
+      "id": "green_flags",
+      "title": "Classe ces comportements du plus gros green flag au moins impressionnant.",
+      "items": [
+        "Être gentil avec le personnel",
+        "Admettre ses erreurs",
+        "Être ponctuel",
+        "Tenir ses promesses",
+        "Écouter attentivement",
+        "Parler avec respect de ses proches"
+      ],
+      "category": "couple_debats"
+    }
+  ],
+  "packs": {
+    "couple_relation_distance": [
+      {
+        "id": "surnoms_amoureux_v2",
+        "title": "Classe ces surnoms du plus mignon au moins mignon.",
+        "items": [
+          "Mon cœur",
+          "Ma vie",
+          "Doudou",
+          "Bébé",
+          "Ma puce",
+          "Mon amour",
+          "Bibiche"
+        ]
+      },
+      {
+        "id": "message_reveil",
+        "title": "Classe ces messages du matin selon ceux que tu aimerais le plus recevoir.",
+        "items": [
+          "Bonjour ❤️",
+          "J'espère que tu vas passer une belle journée",
+          "Tu me manques déjà",
+          "J'ai rêvé de toi",
+          "Bon courage pour aujourd'hui",
+          "J'ai hâte de te voir"
+        ]
+      },
+      {
+        "id": "preuve_affection",
+        "title": "Classe ces gestes selon ceux qui te font te sentir le plus aimé(e).",
+        "items": [
+          "Recevoir un long message",
+          "Passer du temps ensemble",
+          "Recevoir une surprise",
+          "Être pris(e) dans les bras",
+          "Recevoir de l'aide",
+          "Recevoir un compliment"
+        ]
+      },
+      {
+        "id": "emoji_amour",
+        "title": "Classe ces emojis selon ceux que tu préfères recevoir de ton partenaire.",
+        "items": [
+          "❤️",
+          "🥰",
+          "😘",
+          "🫶",
+          "😍",
+          "🥺",
+          "😏"
+        ]
+      },
+      {
+        "id": "appel_spontane",
+        "title": "Classe ces raisons d'appeler ton partenaire sans prévenir.",
+        "items": [
+          "Partager une bonne nouvelle",
+          "Entendre sa voix",
+          "Dire je t'aime",
+          "Raconter quelque chose de drôle",
+          "Demander un conseil",
+          "Raconter sa journée"
+        ]
+      },
+      {
+        "id": "cadeau_romantique",
+        "title": "Classe ces cadeaux selon ceux qui te toucheraient le plus.",
+        "items": [
+          "Une lettre écrite à la main",
+          "Un album photo",
+          "Une expérience à vivre ensemble",
+          "Un objet personnalisé",
+          "Un cadeau surprise",
+          "Un cadeau utile"
+        ]
+      },
+      {
+        "id": "moment_du_jour",
+        "title": "Classe ces moments passés ensemble selon ceux que tu préfères.",
+        "items": [
+          "Petit-déjeuner",
+          "Déjeuner",
+          "Après-midi",
+          "Soirée",
+          "Nuit",
+          "Week-end entier"
+        ]
+      },
+      {
+        "id": "soiree_couple",
+        "title": "Classe ces idées de soirée à deux.",
+        "items": [
+          "Regarder un film",
+          "Commander à manger",
+          "Jouer ensemble",
+          "Sortir au restaurant",
+          "Faire une promenade",
+          "Discuter pendant des heures"
+        ]
+      },
+      {
+        "id": "souvenir_couple",
+        "title": "Classe ces souvenirs de couple selon ceux qui ont le plus de valeur.",
+        "items": [
+          "Premier rendez-vous",
+          "Premier voyage",
+          "Premier je t'aime",
+          "Premier fou rire",
+          "Premier cadeau",
+          "Première photo ensemble"
+        ]
+      },
+      {
+        "id": "vacances_a_deux",
+        "title": "Classe ces types de vacances en couple.",
+        "items": [
+          "Road trip",
+          "Plage",
+          "Montagne",
+          "City trip",
+          "Parc naturel",
+          "Séjour tout inclus"
+        ]
+      },
+      {
+        "id": "message_reconfort",
+        "title": "Classe ces phrases selon celles qui te réconforteraient le plus.",
+        "items": [
+          "Je suis là pour toi",
+          "Tu vas y arriver",
+          "Je crois en toi",
+          "Prends ton temps",
+          "On va traverser ça ensemble",
+          "Je suis fier(ère) de toi"
+        ]
+      },
+      {
+        "id": "qualites_partenaire",
+        "title": "Classe ces qualités selon celles que tu apprécies le plus chez un partenaire.",
+        "items": [
+          "Gentillesse",
+          "Humour",
+          "Intelligence",
+          "Loyauté",
+          "Ambition",
+          "Créativité",
+          "Confiance en soi"
+        ]
+      },
+      {
+        "id": "petites_attentions",
+        "title": "Classe ces petites attentions du plus touchant au moins touchant.",
+        "items": [
+          "Envoyer un message de bonne nuit",
+          "Préparer quelque chose pour l'autre",
+          "Faire une surprise",
+          "Prendre des nouvelles",
+          "Envoyer une photo spontanée",
+          "Partager une chanson"
+        ]
+      },
+      {
+        "id": "activite_distance",
+        "title": "Classe ces activités à distance selon celles qui te plaisent le plus.",
+        "items": [
+          "Appel vidéo",
+          "Film en simultané",
+          "Jeux en ligne",
+          "Envoyer des vocaux",
+          "Quiz de couple",
+          "Regarder des photos ensemble"
+        ]
+      },
+      {
+        "id": "photo_couple_preferee",
+        "title": "Classe ces types de photos de couple.",
+        "items": [
+          "Photo drôle",
+          "Photo romantique",
+          "Photo de voyage",
+          "Photo spontanée",
+          "Photo élégante",
+          "Photo pendant une activité"
+        ]
+      },
+      {
+        "id": "compliments",
+        "title": "Classe ces compliments selon ceux qui te feraient le plus plaisir.",
+        "items": [
+          "Tu es magnifique",
+          "Tu me rends heureux(se)",
+          "Je suis fier(ère) de toi",
+          "Tu me fais rire",
+          "Tu es inspirant(e)",
+          "J'admire qui tu es"
+        ]
+      },
+      {
+        "id": "temps_ensemble_relation",
+        "title": "Classe ces façons de passer du temps ensemble.",
+        "items": [
+          "Voyager",
+          "Cuisiner",
+          "Faire du sport",
+          "Regarder une série",
+          "Recevoir des amis",
+          "Découvrir de nouveaux lieux"
+        ]
+      },
+      {
+        "id": "anniversaire_ideal",
+        "title": "Classe ces façons de célébrer ton anniversaire.",
+        "items": [
+          "Grande fête",
+          "Dîner romantique",
+          "Voyage surprise",
+          "Moment en famille",
+          "Journée tranquille",
+          "Activité originale"
+        ]
+      },
+      {
+        "id": "surprise_romantique",
+        "title": "Classe ces surprises selon celles qui te feraient le plus plaisir.",
+        "items": [
+          "Week-end improvisé",
+          "Lettre d'amour",
+          "Cadeau inattendu",
+          "Date surprise",
+          "Vidéo souvenir",
+          "Petit mot caché"
+        ]
+      },
+      {
+        "id": "relation_ideale",
+        "title": "Classe ces éléments selon leur importance dans une relation idéale.",
+        "items": [
+          "Confiance",
+          "Communication",
+          "Complicité",
+          "Passion",
+          "Respect",
+          "Soutien mutuel",
+          "Humour"
+        ]
+      }
+    ],
+    "personnalite_valeurs": [
+      {
+        "id": "super_pouvoirs",
+        "title": "Classe ces super-pouvoirs selon celui que tu aimerais avoir le plus.",
+        "items": [
+          "Lire dans les pensées",
+          "Se téléporter",
+          "Voyager dans le temps",
+          "Voler",
+          "Devenir invisible",
+          "Guérir n'importe quelle blessure"
+        ]
+      },
+      {
+        "id": "vie_reussie",
+        "title": "Classe ces accomplissements selon ce qui représenterait le plus une vie réussie.",
+        "items": [
+          "Être heureux",
+          "Avoir une famille unie",
+          "Être financièrement libre",
+          "Avoir un impact positif",
+          "Réaliser ses rêves",
+          "Être admiré"
+        ]
+      },
+      {
+        "id": "qualites_humaines",
+        "title": "Classe ces qualités humaines selon celles que tu admires le plus.",
+        "items": [
+          "Honnêteté",
+          "Courage",
+          "Gentillesse",
+          "Discipline",
+          "Loyauté",
+          "Curiosité",
+          "Humilité"
+        ]
+      },
+      {
+        "id": "defauts_supportables",
+        "title": "Classe ces défauts du plus supportable au moins supportable.",
+        "items": [
+          "Être désordonné",
+          "Être en retard",
+          "Être têtu",
+          "Être jaloux",
+          "Être pessimiste",
+          "Être trop bavard"
+        ]
+      },
+      {
+        "id": "peurs",
+        "title": "Classe ces peurs selon celles qui te semblent les plus difficiles à vivre.",
+        "items": [
+          "Perdre un proche",
+          "Échouer dans sa vie",
+          "Vieillir",
+          "Être seul",
+          "Être oublié",
+          "Perdre sa liberté"
+        ]
+      },
+      {
+        "id": "temps_libre",
+        "title": "Classe ces façons de passer une journée libre.",
+        "items": [
+          "Voyager",
+          "Lire",
+          "Dormir",
+          "Voir des amis",
+          "Créer quelque chose",
+          "Faire du sport"
+        ]
+      },
+      {
+        "id": "valeurs_enfant",
+        "title": "Classe ces qualités selon celles que tu aimerais transmettre à un enfant.",
+        "items": [
+          "Gentillesse",
+          "Confiance en soi",
+          "Curiosité",
+          "Honnêteté",
+          "Persévérance",
+          "Créativité",
+          "Courage"
+        ]
+      },
+      {
+        "id": "argent_ou_temps",
+        "title": "Classe ces avantages selon ceux que tu considères les plus précieux.",
+        "items": [
+          "Avoir plus de temps libre",
+          "Avoir plus d'argent",
+          "Avoir plus d'énergie",
+          "Avoir plus de confiance",
+          "Avoir plus d'amis",
+          "Avoir plus de connaissances"
+        ]
+      },
+      {
+        "id": "personnes_inspirantes",
+        "title": "Classe ces types de personnes selon celles qui t'inspirent le plus.",
+        "items": [
+          "Les entrepreneurs",
+          "Les artistes",
+          "Les scientifiques",
+          "Les enseignants",
+          "Les aventuriers",
+          "Les humanitaires"
+        ]
+      },
+      {
+        "id": "choix_difficiles",
+        "title": "Classe ces pertes selon celle qui serait la plus difficile à accepter.",
+        "items": [
+          "Perdre son téléphone",
+          "Perdre ses souvenirs",
+          "Perdre son argent",
+          "Perdre son travail",
+          "Perdre sa maison",
+          "Perdre sa liberté"
+        ]
+      },
+      {
+        "id": "ce_qui_rend_vivant",
+        "title": "Classe ces expériences selon celles qui te font le plus te sentir vivant(e).",
+        "items": [
+          "Tomber amoureux",
+          "Voyager",
+          "Créer quelque chose",
+          "Réussir un défi",
+          "Aider quelqu'un",
+          "Découvrir quelque chose de nouveau"
+        ]
+      },
+      {
+        "id": "traits_de_personnalite",
+        "title": "Classe ces traits de personnalité selon ceux qui te ressemblent le plus.",
+        "items": [
+          "Calme",
+          "Curieux",
+          "Ambitieux",
+          "Sociable",
+          "Spontané",
+          "Prudent",
+          "Créatif"
+        ]
+      },
+      {
+        "id": "bonne_nouvelle",
+        "title": "Classe ces bonnes nouvelles selon celle qui te rendrait le plus heureux(se).",
+        "items": [
+          "Gagner à la loterie",
+          "Obtenir le travail de ses rêves",
+          "Faire un voyage exceptionnel",
+          "Tomber amoureux",
+          "Être en parfaite santé",
+          "Avoir un an de vacances payées"
+        ]
+      },
+      {
+        "id": "raisons_admirer",
+        "title": "Classe ces raisons d'admirer quelqu'un.",
+        "items": [
+          "Son intelligence",
+          "Sa gentillesse",
+          "Son courage",
+          "Sa réussite",
+          "Sa créativité",
+          "Sa sagesse"
+        ]
+      },
+      {
+        "id": "bonheur_quotidien",
+        "title": "Classe ces petits bonheurs du quotidien.",
+        "items": [
+          "Dormir plus longtemps",
+          "Manger un excellent repas",
+          "Recevoir un message attendu",
+          "Finir une tâche importante",
+          "Passer du temps avec quelqu'un qu'on aime",
+          "Avoir du temps pour soi"
+        ]
+      },
+      {
+        "id": "choses_irremplacables",
+        "title": "Classe ces choses selon celles auxquelles tu aurais le plus de mal à renoncer.",
+        "items": [
+          "Ton indépendance",
+          "Tes amis",
+          "Tes passions",
+          "Ton confort",
+          "Tes ambitions",
+          "Ton temps libre"
+        ]
+      },
+      {
+        "id": "qualites_leader",
+        "title": "Classe ces qualités selon celles qui font le meilleur leader.",
+        "items": [
+          "Vision",
+          "Empathie",
+          "Courage",
+          "Discipline",
+          "Intelligence",
+          "Charisme"
+        ]
+      },
+      {
+        "id": "decision_million",
+        "title": "Tu reçois 1 million d'euros. Classe ce que tu ferais en premier.",
+        "items": [
+          "Acheter une maison",
+          "Voyager",
+          "Investir",
+          "Aider sa famille",
+          "Créer une entreprise",
+          "Prendre une retraite anticipée"
+        ]
+      },
+      {
+        "id": "amelioration_vie",
+        "title": "Classe ces améliorations selon celle que tu choisirais en priorité.",
+        "items": [
+          "Une santé parfaite",
+          "Plus de temps libre",
+          "Plus d'argent",
+          "Plus de confiance en toi",
+          "De meilleures relations",
+          "Ne plus jamais être stressé"
+        ]
+      },
+      {
+        "id": "decouverte_futur",
+        "title": "Classe ces possibilités selon celle que tu choisirais en premier.",
+        "items": [
+          "Voir ton futur",
+          "Revoir ton passé",
+          "Rencontrer tes ancêtres",
+          "Rencontrer tes descendants",
+          "Voir la Terre dans 500 ans",
+          "Revivre une journée de ta vie"
+        ]
+      }
+    ],
+    "futur_projets_vie": [
+      {
+        "id": "lieu_de_vie_ideal",
+        "title": "Classe ces modes de vie selon celui qui t'attire le plus.",
+        "items": [
+          "Grande ville",
+          "Ville moyenne",
+          "Bord de mer",
+          "Campagne",
+          "Montagne",
+          "Changer régulièrement de pays"
+        ]
+      },
+      {
+        "id": "projet_dix_ans",
+        "title": "Classe ces objectifs selon ceux que tu aimerais le plus accomplir dans les 10 prochaines années.",
+        "items": [
+          "Acheter une maison",
+          "Créer une entreprise",
+          "Faire le tour du monde",
+          "Fonder une famille",
+          "Atteindre l'indépendance financière",
+          "Maîtriser une passion"
+        ]
+      },
+      {
+        "id": "utilisation_mois_libre",
+        "title": "Classe ces façons d'utiliser une année sabbatique.",
+        "items": [
+          "Voyager",
+          "Créer un projet",
+          "Étudier",
+          "Faire du bénévolat",
+          "Se reposer",
+          "Changer complètement de vie"
+        ]
+      },
+      {
+        "id": "maison_de_reve",
+        "title": "Classe ces caractéristiques selon celles que tu voudrais le plus dans ta maison idéale.",
+        "items": [
+          "Grand jardin",
+          "Piscine",
+          "Vue exceptionnelle",
+          "Grande cuisine",
+          "Salle de cinéma",
+          "Emplacement parfait"
+        ]
+      },
+      {
+        "id": "priorites_financieres",
+        "title": "Classe ces objectifs financiers selon leur importance pour toi.",
+        "items": [
+          "Être propriétaire",
+          "Investir",
+          "Voyager souvent",
+          "Prendre sa retraite tôt",
+          "Créer son entreprise",
+          "Pouvoir aider ses proches"
+        ]
+      },
+      {
+        "id": "travail_ideal",
+        "title": "Classe ces avantages professionnels selon ceux qui comptent le plus pour toi.",
+        "items": [
+          "Salaire élevé",
+          "Flexibilité",
+          "Travail passionnant",
+          "Impact positif",
+          "Sécurité de l'emploi",
+          "Équilibre vie privée / travail"
+        ]
+      },
+      {
+        "id": "depart_immediat",
+        "title": "Tu peux partir demain. Classe ces destinations selon ton envie.",
+        "items": [
+          "Japon",
+          "Islande",
+          "Italie",
+          "Nouvelle-Zélande",
+          "Corée du Sud",
+          "Canada",
+          "Pérou"
+        ]
+      },
+      {
+        "id": "vie_de_famille",
+        "title": "Classe ces aspects de la vie familiale selon leur importance.",
+        "items": [
+          "Passer du temps ensemble",
+          "Créer des traditions",
+          "Aider ses proches",
+          "Rester proche géographiquement",
+          "Partager les repas",
+          "Partir en vacances ensemble"
+        ]
+      },
+      {
+        "id": "objectif_2027",
+        "title": "Classe ces réussites selon celle qui te rendrait le plus fier(ère).",
+        "items": [
+          "Apprendre une nouvelle langue",
+          "Courir un marathon",
+          "Changer de carrière",
+          "Créer un projet rentable",
+          "Voyager seul(e)",
+          "Achever un projet personnel"
+        ]
+      },
+      {
+        "id": "vie_sans_contrainte",
+        "title": "Classe ces façons de vivre si l'argent n'était plus un problème.",
+        "items": [
+          "Voyager toute l'année",
+          "Créer des projets",
+          "Vivre près de la nature",
+          "Apprendre constamment",
+          "Aider les autres",
+          "Profiter de chaque jour"
+        ]
+      },
+      {
+        "id": "demenagement",
+        "title": "Classe ces critères selon ceux qui compteraient le plus pour choisir où vivre.",
+        "items": [
+          "Proximité de la famille",
+          "Opportunités professionnelles",
+          "Climat",
+          "Coût de la vie",
+          "Qualité de vie",
+          "Vie culturelle"
+        ]
+      },
+      {
+        "id": "luxe_quotidien",
+        "title": "Classe ces luxes selon celui que tu aimerais le plus avoir.",
+        "items": [
+          "Un chef personnel",
+          "Une femme de ménage",
+          "Un chauffeur privé",
+          "Voyager en première classe",
+          "Ne jamais regarder les prix",
+          "Avoir beaucoup de temps libre"
+        ]
+      },
+      {
+        "id": "weekend_parfait",
+        "title": "Classe ces façons de passer un week-end parfait.",
+        "items": [
+          "Explorer une nouvelle ville",
+          "Se reposer à la maison",
+          "Voir ses proches",
+          "Partir dans la nature",
+          "Faire la fête",
+          "Apprendre quelque chose"
+        ]
+      },
+      {
+        "id": "retraite_ideale",
+        "title": "Classe ces façons d'imaginer ta retraite.",
+        "items": [
+          "Voyager partout",
+          "Vivre au soleil",
+          "Passer du temps en famille",
+          "Continuer à travailler par passion",
+          "Avoir une vie calme",
+          "S'investir dans des associations"
+        ]
+      },
+      {
+        "id": "prochaine_depense",
+        "title": "Classe ces achats selon celui que tu ferais en premier avec 5000€ inattendus.",
+        "items": [
+          "Voyage",
+          "Épargne",
+          "Formation",
+          "Objet technologique",
+          "Expérience exceptionnelle",
+          "Cadeau pour un proche"
+        ]
+      },
+      {
+        "id": "temps_gagne",
+        "title": "Tu gagnes 10 heures libres par semaine. Classe ce que tu en ferais.",
+        "items": [
+          "Dormir davantage",
+          "Faire du sport",
+          "Voir ses proches",
+          "Apprendre quelque chose",
+          "Créer un projet",
+          "Se détendre"
+        ]
+      },
+      {
+        "id": "projet_commun",
+        "title": "Classe ces projets de couple selon celui qui te ferait le plus envie.",
+        "items": [
+          "Faire le tour du monde",
+          "Acheter une maison",
+          "Créer une entreprise ensemble",
+          "S'installer à l'étranger",
+          "Rénover un lieu",
+          "Lancer un projet créatif"
+        ]
+      },
+      {
+        "id": "changement_de_vie",
+        "title": "Classe ces changements selon celui que tu accepterais le plus facilement.",
+        "items": [
+          "Changer de pays",
+          "Changer de métier",
+          "Reprendre des études",
+          "Vivre dans plus petit",
+          "Partir sans plan précis",
+          "Changer complètement de rythme de vie"
+        ]
+      },
+      {
+        "id": "heritage",
+        "title": "Classe ces usages selon ce que tu ferais en priorité avec un héritage important.",
+        "items": [
+          "Investir",
+          "Acheter un logement",
+          "Voyager",
+          "Aider sa famille",
+          "Créer un projet",
+          "Faire plaisir à ses proches"
+        ]
+      },
+      {
+        "id": "reussite_future",
+        "title": "Classe ces scénarios selon celui qui te semblerait le plus satisfaisant dans 20 ans.",
+        "items": [
+          "Être très heureux",
+          "Être très riche",
+          "Être très respecté",
+          "Avoir une famille unie",
+          "Avoir vécu de grandes aventures",
+          "Avoir laissé une trace positive"
+        ]
+      }
+    ],
+    "dilemmes_debats_revelateurs": [
+      {
+        "id": "bouton_magique",
+        "title": "Classe ces améliorations selon celle que tu choisirais en priorité.",
+        "items": [
+          "Une santé parfaite",
+          "Ne plus jamais être stressé(e)",
+          "Avoir toujours assez d'argent",
+          "Avoir plus de temps libre",
+          "Avoir une confiance totale en toi",
+          "Avoir des relations parfaites"
+        ]
+      },
+      {
+        "id": "voyage_temporel",
+        "title": "Classe ces possibilités selon celle que tu choisirais en premier.",
+        "items": [
+          "Voir ton futur",
+          "Revoir ton passé",
+          "Rencontrer tes ancêtres",
+          "Rencontrer tes descendants",
+          "Voir la Terre dans 500 ans",
+          "Revivre une journée de ta vie"
+        ]
+      },
+      {
+        "id": "verite_absolue",
+        "title": "Classe ces vérités selon celle que tu voudrais le plus connaître.",
+        "items": [
+          "Comment se terminera ta vie",
+          "Ce que pensent réellement les autres de toi",
+          "S'il existe une vie ailleurs dans l'univers",
+          "Ton plus grand potentiel",
+          "La plus grande décision de ta vie",
+          "Ce qui t'aurait attendu dans une autre vie"
+        ]
+      },
+      {
+        "id": "pouvoir_unique",
+        "title": "Classe ces capacités selon celle que tu choisirais.",
+        "items": [
+          "Lire dans les pensées",
+          "Arrêter le temps",
+          "Parler toutes les langues",
+          "Ne jamais oublier",
+          "Voir l'avenir proche",
+          "Comprendre instantanément n'importe quel sujet"
+        ]
+      },
+      {
+        "id": "journee_a_revivre",
+        "title": "Classe ces journées selon celle que tu aimerais revivre.",
+        "items": [
+          "Ton plus beau souvenir",
+          "Une journée d'enfance",
+          "Une journée avec un proche disparu",
+          "Le jour d'une grande réussite",
+          "Une journée sans aucun souci",
+          "Une journée que tu voudrais mieux comprendre"
+        ]
+      },
+      {
+        "id": "objet_du_futur",
+        "title": "Classe ces inventions selon celle que tu voudrais voir exister.",
+        "items": [
+          "Téléportation",
+          "Voiture volante",
+          "Traduction universelle parfaite",
+          "Médecine qui guérit tout",
+          "Voyage dans le temps",
+          "Énergie illimitée"
+        ]
+      },
+      {
+        "id": "vie_alternative",
+        "title": "Classe ces vies alternatives selon celle que tu serais le plus curieux(se) d'expérimenter.",
+        "items": [
+          "Artiste célèbre",
+          "Explorateur(trice)",
+          "Scientifique de génie",
+          "Athlète professionnel(le)",
+          "Chef(fe) d'entreprise",
+          "Musicien(ne)"
+        ]
+      },
+      {
+        "id": "sacrifice_difficile",
+        "title": "Classe ces choses selon celle que tu aurais le plus de mal à abandonner.",
+        "items": [
+          "Internet",
+          "Musique",
+          "Voyages",
+          "Films et séries",
+          "Jeux",
+          "Réseaux sociaux"
+        ]
+      },
+      {
+        "id": "connaissance_interdite",
+        "title": "Classe ces informations selon celle que tu voudrais connaître en priorité.",
+        "items": [
+          "Ton avenir amoureux",
+          "Ton avenir professionnel",
+          "La date exacte de ta mort",
+          "Le plus grand secret de l'humanité",
+          "Ce que pensent tes proches de toi",
+          "Les événements mondiaux à venir"
+        ]
+      },
+      {
+        "id": "talent_instantane",
+        "title": "Classe ces talents selon celui que tu aimerais maîtriser instantanément.",
+        "items": [
+          "Jouer de n'importe quel instrument",
+          "Parler toutes les langues",
+          "Dessiner parfaitement",
+          "Coder n'importe quoi",
+          "Écrire des histoires incroyables",
+          "Cuisiner comme un grand chef"
+        ]
+      },
+      {
+        "id": "machine_a_choix",
+        "title": "Classe ces récompenses selon celle que tu choisirais.",
+        "items": [
+          "10 millions d'euros",
+          "20 ans de vie en plus",
+          "Santé parfaite à vie",
+          "Succès garanti dans tes projets",
+          "Bonheur garanti à vie",
+          "Une relation parfaite"
+        ]
+      },
+      {
+        "id": "regret_possible",
+        "title": "Classe ces regrets selon celui que tu voudrais le plus éviter.",
+        "items": [
+          "Ne pas avoir osé",
+          "Ne pas avoir aimé suffisamment",
+          "Avoir trop travaillé",
+          "Avoir négligé ses proches",
+          "Ne pas avoir poursuivi ses rêves",
+          "Être resté dans sa zone de confort"
+        ]
+      },
+      {
+        "id": "maison_mysterieuse",
+        "title": "Classe ces pièces secrètes selon celle que tu voudrais découvrir en premier.",
+        "items": [
+          "Bibliothèque infinie",
+          "Salle remplie de souvenirs",
+          "Porte vers le futur",
+          "Porte vers le passé",
+          "Salle contenant toutes les réponses",
+          "Pièce qui réalise un souhait"
+        ]
+      },
+      {
+        "id": "chance_unique",
+        "title": "Classe ces opportunités selon celle que tu accepterais immédiatement.",
+        "items": [
+          "Faire le tour du monde gratuitement",
+          "Recevoir 1 million d'euros",
+          "Apprendre n'importe quelle compétence",
+          "Vivre 10 ans de plus",
+          "Rencontrer n'importe qui",
+          "Réussir le projet de tes rêves"
+        ]
+      },
+      {
+        "id": "ile_deserte",
+        "title": "Classe ces objets selon celui que tu emporterais en priorité sur une île déserte.",
+        "items": [
+          "Couteau multifonction",
+          "Téléphone satellite",
+          "Livre géant de survie",
+          "Kit médical",
+          "Briquet inépuisable",
+          "Réserve de nourriture"
+        ]
+      },
+      {
+        "id": "mission_spatiale",
+        "title": "Classe ces missions selon celle que tu accepterais le plus volontiers.",
+        "items": [
+          "Aller sur Mars",
+          "Explorer une nouvelle galaxie",
+          "Vivre un an dans l'espace",
+          "Observer la Terre depuis l'orbite",
+          "Rencontrer une civilisation extraterrestre",
+          "Participer à la première colonie spatiale"
+        ]
+      },
+      {
+        "id": "monde_ideal",
+        "title": "Classe ces changements selon celui qui améliorerait le plus le monde.",
+        "items": [
+          "Fin de la pauvreté",
+          "Fin des guerres",
+          "Accès universel à l'éducation",
+          "Énergie propre illimitée",
+          "Fin des maladies graves",
+          "Égalité parfaite des chances"
+        ]
+      },
+      {
+        "id": "carte_joker",
+        "title": "Classe ces avantages selon celui que tu voudrais posséder toute ta vie.",
+        "items": [
+          "Toujours prendre la bonne décision",
+          "Toujours être en bonne santé",
+          "Toujours rencontrer les bonnes personnes",
+          "Toujours apprendre rapidement",
+          "Toujours rester heureux(se)",
+          "Toujours réussir ses projets"
+        ]
+      },
+      {
+        "id": "retour_en_arriere",
+        "title": "Classe ces possibilités selon celle que tu choisirais.",
+        "items": [
+          "Corriger une erreur",
+          "Revivre un moment heureux",
+          "Dire quelque chose que tu n'as jamais osé dire",
+          "Rencontrer une version plus jeune de toi",
+          "Changer une décision importante",
+          "Observer discrètement ton passé"
+        ]
+      },
+      {
+        "id": "heritage_symbolique",
+        "title": "Classe ces héritages selon celui que tu aimerais laisser derrière toi.",
+        "items": [
+          "Une famille heureuse",
+          "Une invention utile",
+          "Une œuvre artistique",
+          "Une entreprise prospère",
+          "Un impact positif sur la société",
+          "Des souvenirs inoubliables pour tes proches"
+        ]
+      }
+    ],
+    "opinions_quotidien": [
+      {
+        "id": "red_flags_premier_rdv",
+        "title": "Classe ces comportements du plus gros red flag au moins gênant lors d'un premier rendez-vous.",
+        "items": [
+          "Regarder son téléphone",
+          "Parler uniquement de soi",
+          "Arriver en retard",
+          "Être impoli avec le personnel",
+          "Parler de son ex",
+          "Ne poser aucune question"
+        ]
+      },
+      {
+        "id": "habitudes_agacantes",
+        "title": "Classe ces habitudes du plus agaçant au moins agaçant.",
+        "items": [
+          "Mâcher bruyamment",
+          "Couper la parole",
+          "Laisser traîner ses affaires",
+          "Être toujours en retard",
+          "Répondre après plusieurs heures",
+          "Ne jamais choisir"
+        ]
+      },
+      {
+        "id": "aliments_surestimes",
+        "title": "Classe ces aliments du plus surestimé au moins surestimé.",
+        "items": [
+          "Sushi",
+          "Avocat",
+          "Macarons",
+          "Burger gourmet",
+          "Truffe",
+          "Bubble tea"
+        ]
+      },
+      {
+        "id": "reseaux_sociaux_insupportables",
+        "title": "Classe ces comportements sur les réseaux sociaux du plus insupportable au moins gênant.",
+        "items": [
+          "Poster chaque repas",
+          "Partager des citations inspirantes tous les jours",
+          "Faire des faux concours",
+          "Publier 50 stories par jour",
+          "Afficher toute sa vie de couple",
+          "Corriger les gens en commentaires"
+        ]
+      },
+      {
+        "id": "films_a_revoir",
+        "title": "Classe ces types de films selon ceux que tu pourrais revoir le plus facilement.",
+        "items": [
+          "Comédie",
+          "Science-fiction",
+          "Film romantique",
+          "Film d'action",
+          "Film d'animation",
+          "Thriller"
+        ]
+      },
+      {
+        "id": "petits_crimes_du_quotidien",
+        "title": "Classe ces comportements du plus inacceptable au moins grave.",
+        "items": [
+          "Couper la file d'attente",
+          "Ne pas remettre son caddie",
+          "Laisser ses déchets derrière soi",
+          "Ne jamais répondre aux messages",
+          "Prendre la dernière part sans demander",
+          "Spoiler une série"
+        ]
+      },
+      {
+        "id": "debats_nourriture",
+        "title": "Classe ces opinions selon celle qui te choque le plus.",
+        "items": [
+          "L'ananas sur la pizza",
+          "Le ketchup avec les pâtes",
+          "Les céréales avant le lait",
+          "Le steak bien cuit",
+          "Les frites dans le burger",
+          "Le sucré-salé partout"
+        ]
+      },
+      {
+        "id": "voyages_surestimes",
+        "title": "Classe ces expériences de voyage du plus surestimé au moins surestimé.",
+        "items": [
+          "Prendre une photo devant chaque monument",
+          "Les hôtels de luxe",
+          "Les croisières",
+          "Les souvenirs touristiques",
+          "Les visites guidées",
+          "Les influenceurs voyage"
+        ]
+      },
+      {
+        "id": "pouvoirs_du_quotidien",
+        "title": "Classe ces petits super-pouvoirs selon celui que tu voudrais le plus.",
+        "items": [
+          "Toujours trouver une place de parking",
+          "Ne jamais faire la queue",
+          "Toujours choisir la meilleure file",
+          "Ne jamais perdre ses objets",
+          "Toujours se réveiller en forme",
+          "Toujours avoir le bon mot au bon moment"
+        ]
+      },
+      {
+        "id": "courses_enfer",
+        "title": "Classe ces situations selon celle qui t'agace le plus pendant les courses.",
+        "items": [
+          "Faire la queue longtemps",
+          "Chercher un produit introuvable",
+          "Tomber sur quelqu'un qu'on connaît",
+          "Oublier un article important",
+          "Avoir un caddie défectueux",
+          "Faire ses courses un samedi"
+        ]
+      },
+      {
+        "id": "mauvaises_habitudes",
+        "title": "Classe ces mauvaises habitudes selon celle qui te dérange le plus chez quelqu'un.",
+        "items": [
+          "Être toujours en retard",
+          "Parler très fort",
+          "Ne jamais ranger",
+          "Être constamment sur son téléphone",
+          "Annuler au dernier moment",
+          "Ne jamais écouter"
+        ]
+      },
+      {
+        "id": "conversations_interdites",
+        "title": "Classe ces sujets selon celui que tu éviterais le plus lors d'un dîner.",
+        "items": [
+          "Politique",
+          "Religion",
+          "Argent",
+          "Relations amoureuses",
+          "Travail",
+          "Santé"
+        ]
+      },
+      {
+        "id": "petits_plaisirs_coupables",
+        "title": "Classe ces plaisirs coupables selon ceux que tu assumes le plus.",
+        "items": [
+          "Regarder de la télé-réalité",
+          "Manger au lit",
+          "Rester en pyjama toute la journée",
+          "Commander au lieu de cuisiner",
+          "Scroller pendant des heures",
+          "Annuler des plans pour rester chez soi"
+        ]
+      },
+      {
+        "id": "series_insupportables",
+        "title": "Classe ces comportements selon celui qui gâche le plus une série regardée à deux.",
+        "items": [
+          "Spoiler",
+          "S'endormir",
+          "Regarder un épisode seul",
+          "Passer son temps sur son téléphone",
+          "Parler pendant les scènes importantes",
+          "Poser des questions sans arrêt"
+        ]
+      },
+      {
+        "id": "opinions_controversees",
+        "title": "Classe ces opinions selon celle qui te paraît la plus acceptable.",
+        "items": [
+          "Le petit-déjeuner est inutile",
+          "Les animaux sont mieux que beaucoup d'humains",
+          "Les réseaux sociaux font plus de mal que de bien",
+          "Les études ne garantissent rien",
+          "L'argent rend plus heureux qu'on le dit",
+          "On peut être heureux sans passion"
+        ]
+      },
+      {
+        "id": "trucs_inutiles",
+        "title": "Classe ces objets selon celui qui te paraît le plus inutile.",
+        "items": [
+          "Perche à selfie",
+          "Montre de luxe",
+          "Machine à popcorn",
+          "Enceinte connectée",
+          "Drone personnel",
+          "Presse-agrumes électrique"
+        ]
+      },
+      {
+        "id": "talents_bizarres",
+        "title": "Classe ces talents selon celui que tu trouverais le plus impressionnant.",
+        "items": [
+          "Reconnaître une chanson en 2 secondes",
+          "Retenir tous les visages",
+          "Faire rire n'importe qui",
+          "Retenir tous les anniversaires",
+          "Trouver son chemin partout",
+          "Parler avec n'importe quel inconnu"
+        ]
+      },
+      {
+        "id": "raisons_annuler",
+        "title": "Classe ces raisons selon celles qui justifient le mieux d'annuler un plan au dernier moment.",
+        "items": [
+          "Être malade",
+          "Être épuisé",
+          "Avoir une urgence familiale",
+          "Avoir oublié un autre engagement",
+          "Ne pas avoir envie",
+          "Avoir une meilleure opportunité"
+        ]
+      },
+      {
+        "id": "applications_indispensables",
+        "title": "Classe ces applications selon celles dont tu aurais le plus de mal à te passer.",
+        "items": [
+          "Maps",
+          "Spotify",
+          "WhatsApp",
+          "YouTube",
+          "Instagram",
+          "Calendrier"
+        ]
+      },
+      {
+        "id": "choses_surestimees_vie_adulte",
+        "title": "Classe ces aspects de la vie adulte du plus surestimé au moins surestimé.",
+        "items": [
+          "Posséder une grande maison",
+          "Avoir une voiture neuve",
+          "Travailler dans une grande entreprise",
+          "Être toujours occupé",
+          "Acheter les dernières nouveautés",
+          "Avoir une vie parfaitement organisée"
+        ]
+      },
+      {
+        "id": "pizza_toppings",
+        "title": "Classe ces garnitures de pizza selon celles que tu préfères.",
+        "items": [
+          "Pepperoni",
+          "Champignons",
+          "Ananas",
+          "Chèvre",
+          "Olives",
+          "4 fromages"
+        ]
+      },
+      {
+        "id": "messages_agacants",
+        "title": "Classe ces types de messages du plus agaçant au moins agaçant.",
+        "items": [
+          "Vu sans réponse",
+          "Réponse en un mot",
+          "Message vocal de 4 minutes",
+          "Réponse 8 heures plus tard",
+          "Beaucoup de fautes",
+          "Triple message d'affilée"
+        ]
+      },
+      {
+        "id": "transports",
+        "title": "Classe ces moyens de transport du plus agréable au moins agréable.",
+        "items": [
+          "Train",
+          "Voiture",
+          "Avion",
+          "Métro",
+          "Vélo",
+          "Marche"
+        ]
+      },
+      {
+        "id": "sons_insupportables",
+        "title": "Classe ces sons du plus insupportable au moins insupportable.",
+        "items": [
+          "Réveil",
+          "Ongles sur un tableau",
+          "Bébé qui pleure",
+          "Mastication bruyante",
+          "Alarme de voiture",
+          "Travaux"
+        ]
+      },
+      {
+        "id": "courses_file",
+        "title": "Classe ces personnes selon celles que tu voudrais le moins avoir devant toi à la caisse.",
+        "items": [
+          "Quelqu'un avec 100 articles",
+          "Quelqu'un qui paie en pièces",
+          "Quelqu'un qui cherche sa carte",
+          "Quelqu'un qui discute avec le caissier",
+          "Quelqu'un qui oublie un produit",
+          "Quelqu'un qui compare tous les prix"
+        ]
+      },
+      {
+        "id": "pluie",
+        "title": "Classe ces activités sous la pluie selon ton envie.",
+        "items": [
+          "Dormir",
+          "Lire",
+          "Regarder un film",
+          "Sortir marcher",
+          "Faire du sport",
+          "Cuisiner"
+        ]
+      },
+      {
+        "id": "nourriture_avion",
+        "title": "Classe ces snacks d'avion selon ceux que tu choisirais en premier.",
+        "items": [
+          "Chips",
+          "Cookies",
+          "Sandwich",
+          "Fruits",
+          "Barre chocolatée",
+          "Noix"
+        ]
+      },
+      {
+        "id": "attente",
+        "title": "Classe ces attentes selon celles qui t'énervent le plus.",
+        "items": [
+          "Chez le médecin",
+          "Au téléphone",
+          "À la caisse",
+          "Dans les bouchons",
+          "Au restaurant",
+          "À l'aéroport"
+        ]
+      },
+      {
+        "id": "telecommande",
+        "title": "Classe ces comportements TV du plus agaçant au moins agaçant.",
+        "items": [
+          "Changer sans arrêt",
+          "Parler pendant le film",
+          "Regarder son téléphone",
+          "Spoiler",
+          "S'endormir",
+          "Poser des questions"
+        ]
+      },
+      {
+        "id": "odeurs",
+        "title": "Classe ces odeurs selon celles que tu préfères.",
+        "items": [
+          "Pain chaud",
+          "Pluie",
+          "Café",
+          "Océan",
+          "Barbecue",
+          "Lessive propre"
+        ]
+      },
+      {
+        "id": "debats_maison",
+        "title": "Classe ces tâches ménagères selon celles que tu détestes le plus.",
+        "items": [
+          "Faire la vaisselle",
+          "Passer l'aspirateur",
+          "Nettoyer la salle de bain",
+          "Faire les vitres",
+          "Repasser",
+          "Sortir les poubelles"
+        ]
+      },
+      {
+        "id": "fast_food",
+        "title": "Classe ces repas rapides selon ton envie.",
+        "items": [
+          "Pizza",
+          "Burger",
+          "Tacos",
+          "Sushi",
+          "Kebab",
+          "Poulet frit"
+        ]
+      },
+      {
+        "id": "weekend_annule",
+        "title": "Classe ces raisons d'annuler une sortie selon celles que tu comprends le mieux.",
+        "items": [
+          "Fatigue",
+          "Maladie",
+          "Urgence familiale",
+          "Trop de travail",
+          "Pas envie",
+          "Météo"
+        ]
+      },
+      {
+        "id": "reunions",
+        "title": "Classe ces phrases selon celles qui t'agacent le plus en réunion.",
+        "items": [
+          "On se fait un point",
+          "Je rebondis sur ça",
+          "Quick win",
+          "On brainstorm",
+          "C'est dans le pipe",
+          "On en reparle"
+        ]
+      },
+      {
+        "id": "petits_luxes",
+        "title": "Classe ces petits luxes du quotidien.",
+        "items": [
+          "Draps propres",
+          "Petit-déjeuner au lit",
+          "Massage",
+          "Livraison à domicile",
+          "Dormir sans réveil",
+          "Bain chaud"
+        ]
+      },
+      {
+        "id": "reseaux_sociaux",
+        "title": "Classe ces réseaux sociaux selon ton intérêt.",
+        "items": [
+          "Instagram",
+          "TikTok",
+          "YouTube",
+          "X",
+          "Reddit",
+          "LinkedIn"
+        ]
+      },
+      {
+        "id": "plats_divisifs",
+        "title": "Classe ces aliments selon ceux qui divisent le plus les gens selon toi.",
+        "items": [
+          "Ananas",
+          "Coriandre",
+          "Huîtres",
+          "Réglisse",
+          "Bleu",
+          "Tofu"
+        ]
+      },
+      {
+        "id": "retards",
+        "title": "Classe ces retards selon ceux que tu pardonnes le plus facilement.",
+        "items": [
+          "5 minutes",
+          "10 minutes",
+          "15 minutes",
+          "20 minutes",
+          "30 minutes",
+          "45 minutes"
+        ]
+      },
+      {
+        "id": "meteo",
+        "title": "Classe ces météos selon celles que tu préfères.",
+        "items": [
+          "Soleil",
+          "Neige",
+          "Orage",
+          "Pluie légère",
+          "Temps frais",
+          "Temps nuageux"
+        ]
+      },
+      {
+        "id": "achats_impulsifs",
+        "title": "Classe ces achats selon ceux qui valent le plus le coup.",
+        "items": [
+          "Voyage",
+          "Restaurant",
+          "Vêtement",
+          "Gadget tech",
+          "Concert",
+          "Livre"
+        ]
+      },
+      {
+        "id": "discussion_finie",
+        "title": "Classe ces phrases selon celles qui mettent le plus fin à une discussion.",
+        "items": [
+          "Comme tu veux",
+          "Bref",
+          "Ok.",
+          "Fais ce que tu veux",
+          "Laisse tomber",
+          "👍"
+        ]
+      },
+      {
+        "id": "petites_victoires",
+        "title": "Classe ces petites victoires selon la satisfaction qu'elles procurent.",
+        "items": [
+          "Trouver une place de parking",
+          "Passer au vert partout",
+          "Finir une tâche",
+          "Recevoir un colis",
+          "Annulation d'une réunion",
+          "Trouver un billet oublié"
+        ]
+      },
+      {
+        "id": "vacances",
+        "title": "Classe ces façons de voyager.",
+        "items": [
+          "Road trip",
+          "All inclusive",
+          "Sac à dos",
+          "City trip",
+          "Croisière",
+          "Camping"
+        ]
+      },
+      {
+        "id": "frigo",
+        "title": "Classe ces aliments selon ceux qui devraient toujours être dans un frigo.",
+        "items": [
+          "Œufs",
+          "Fromage",
+          "Beurre",
+          "Yaourts",
+          "Fruits",
+          "Jus"
+        ]
+      },
+      {
+        "id": "notifications",
+        "title": "Classe ces notifications selon celles que tu aimes le moins recevoir.",
+        "items": [
+          "Banque",
+          "Travail",
+          "Publicité",
+          "Réseaux sociaux",
+          "Livraison",
+          "Mise à jour"
+        ]
+      }
+    ],
+    "couple_debats": [
+      {
+        "id": "reponse_messages",
+        "title": "Classe ces délais de réponse selon ceux qui te paraissent les plus acceptables.",
+        "items": [
+          "Quelques minutes",
+          "1 heure",
+          "3 heures",
+          "Une demi-journée",
+          "Une journée",
+          "Plusieurs jours"
+        ]
+      },
+      {
+        "id": "telephone_au_lit",
+        "title": "Classe ces habitudes selon celles qui te dérangent le plus au lit.",
+        "items": [
+          "Scroller TikTok",
+          "Répondre à des messages",
+          "Regarder des vidéos sans écouteurs",
+          "Travailler",
+          "Passer des appels",
+          "Regarder une série seul(e)"
+        ]
+      },
+      {
+        "id": "publication_couple",
+        "title": "Classe ces façons d'afficher sa relation selon celles que tu préfères.",
+        "items": [
+          "Ne jamais publier",
+          "Publier rarement",
+          "Publier les grandes occasions",
+          "Publier régulièrement",
+          "Mettre des stories ensemble",
+          "Afficher son partenaire partout"
+        ]
+      },
+      {
+        "id": "vacances_beaux_parents",
+        "title": "Classe ces vacances selon ton niveau d'enthousiasme.",
+        "items": [
+          "À deux",
+          "Avec des amis",
+          "Avec sa famille",
+          "Avec la famille de son partenaire",
+          "Avec plusieurs familles",
+          "Avec un grand groupe"
+        ]
+      },
+      {
+        "id": "premier_rendez_vous_paiement",
+        "title": "Classe ces façons de payer lors d'un premier rendez-vous.",
+        "items": [
+          "Partager l'addition",
+          "La personne qui invite paie",
+          "Celui qui a le plus de moyens paie",
+          "Alterner",
+          "Payer chacun sa part exacte",
+          "Décider sur le moment"
+        ]
+      },
+      {
+        "id": "motifs_jalousie",
+        "title": "Classe ces situations selon celles qui pourraient le plus te rendre jaloux(se).",
+        "items": [
+          "Messages fréquents avec un ex",
+          "Sortie seul(e) avec quelqu'un d'attirant",
+          "Flirt léger en soirée",
+          "Cacher certaines conversations",
+          "Recevoir beaucoup d'attention en ligne",
+          "Parler souvent d'une autre personne"
+        ]
+      },
+      {
+        "id": "motifs_dispute",
+        "title": "Classe ces raisons de dispute selon celles qui te semblent les plus légitimes.",
+        "items": [
+          "Mensonge",
+          "Manque de respect",
+          "Retards répétés",
+          "Promesse non tenue",
+          "Manque de communication",
+          "Jalousie excessive"
+        ]
+      },
+      {
+        "id": "confidentialite_telephone",
+        "title": "Classe ces situations selon celles qui te paraissent les plus normales dans un couple.",
+        "items": [
+          "Connaître le code du téléphone",
+          "Pouvoir répondre à un message pour l'autre",
+          "Ne jamais toucher au téléphone de l'autre",
+          "Partager librement ses écrans",
+          "Avoir une confidentialité totale",
+          "Montrer quelque chose uniquement si demandé"
+        ]
+      },
+      {
+        "id": "temps_ensemble_couple_debat",
+        "title": "Classe ces façons de passer une soirée ensemble.",
+        "items": [
+          "Discuter",
+          "Regarder une série",
+          "Jouer ensemble",
+          "Sortir",
+          "Cuisiner",
+          "Faire chacun son activité dans la même pièce"
+        ]
+      },
+      {
+        "id": "messages_amour",
+        "title": "Classe ces messages selon celui qui te ferait le plus plaisir.",
+        "items": [
+          "Je pense à toi",
+          "Tu me manques",
+          "Je suis fier(ère) de toi",
+          "J'ai hâte de te voir",
+          "Merci pour tout",
+          "Je t'aime"
+        ]
+      },
+      {
+        "id": "relation_distance",
+        "title": "Classe ces habitudes selon leur importance dans une relation à distance.",
+        "items": [
+          "Appels vidéo",
+          "Messages quotidiens",
+          "Activités à distance",
+          "Visites régulières",
+          "Partage de photos",
+          "Appels spontanés"
+        ]
+      },
+      {
+        "id": "habitudes_mignonnes",
+        "title": "Classe ces habitudes du plus mignon au moins mignon.",
+        "items": [
+          "Envoyer un message de bonne nuit",
+          "Partager un meme",
+          "Envoyer une photo de sa journée",
+          "Préparer une surprise",
+          "Garder des souvenirs",
+          "Envoyer une chanson"
+        ]
+      },
+      {
+        "id": "gestes_romantiques",
+        "title": "Classe ces gestes du plus romantique au moins romantique.",
+        "items": [
+          "Lettre d'amour",
+          "Week-end surprise",
+          "Dîner préparé maison",
+          "Album photo",
+          "Cadeau personnalisé",
+          "Message inattendu"
+        ]
+      },
+      {
+        "id": "temps_sans_reponse",
+        "title": "Classe ces situations selon celles qui justifient le plus de ne pas répondre.",
+        "items": [
+          "Être au travail",
+          "Dormir",
+          "Passer du temps avec des amis",
+          "Regarder un film",
+          "Faire du sport",
+          "Vouloir être seul(e)"
+        ]
+      },
+      {
+        "id": "petits_mensonges",
+        "title": "Classe ces petits mensonges du plus acceptable au moins acceptable.",
+        "items": [
+          "Mentir sur un cadeau surprise",
+          "Dire qu'on va bien alors que non",
+          "Prétendre aimer un plat",
+          "Cacher le prix d'un achat",
+          "Inventer une excuse pour annuler",
+          "Mentir pour éviter une dispute"
+        ]
+      },
+      {
+        "id": "sorties_solo",
+        "title": "Classe ces sorties selon celles qui te semblent les plus normales sans ton partenaire.",
+        "items": [
+          "Restaurant",
+          "Cinéma",
+          "Voyage",
+          "Bar",
+          "Festival",
+          "Week-end entier"
+        ]
+      },
+      {
+        "id": "attention_quotidienne",
+        "title": "Classe ces attentions selon celles qui comptent le plus.",
+        "items": [
+          "Prendre des nouvelles",
+          "Écouter attentivement",
+          "Aider spontanément",
+          "Faire rire",
+          "Faire un compliment",
+          "Passer du temps ensemble"
+        ]
+      },
+      {
+        "id": "partage_localisation",
+        "title": "Classe ces positions selon celle qui te correspond le plus.",
+        "items": [
+          "Partager sa localisation en permanence",
+          "Partager uniquement lors des déplacements",
+          "Partager seulement à la demande",
+          "Partager dans certaines situations",
+          "Ne jamais partager",
+          "Peu importe"
+        ]
+      },
+      {
+        "id": "vie_commune",
+        "title": "Classe ces sujets selon ceux qu'il faut aborder le plus tôt dans une relation.",
+        "items": [
+          "Argent",
+          "Enfants",
+          "Lieu de vie",
+          "Carrière",
+          "Valeurs",
+          "Organisation du quotidien"
+        ]
+      },
+      {
+        "id": "comptes_financiers",
+        "title": "Classe ces façons de gérer l'argent dans un couple.",
+        "items": [
+          "Tout séparé",
+          "Tout commun",
+          "Compte commun + comptes personnels",
+          "Répartition selon les revenus",
+          "Partage à 50/50",
+          "Gestion au cas par cas"
+        ]
+      },
+      {
+        "id": "comportements_soiree",
+        "title": "Classe ces comportements selon ceux qui te dérangeraient le plus en soirée.",
+        "items": [
+          "Flirter",
+          "Ignorer son partenaire",
+          "Boire excessivement",
+          "Passer son temps sur son téléphone",
+          "Disparaître sans prévenir",
+          "Parler uniquement avec ses amis"
+        ]
+      },
+      {
+        "id": "preuves_confiance",
+        "title": "Classe ces preuves de confiance selon celles qui te semblent les plus importantes.",
+        "items": [
+          "Dire la vérité",
+          "Respecter ses promesses",
+          "Être transparent",
+          "Respecter l'intimité",
+          "Être cohérent dans ses actes",
+          "Reconnaître ses erreurs"
+        ]
+      },
+      {
+        "id": "petites_trahisons",
+        "title": "Classe ces situations selon celles qui te paraissent les plus graves.",
+        "items": [
+          "Mentir sur sa localisation",
+          "Cacher une conversation",
+          "Partager un secret du couple",
+          "Flirter par message",
+          "Faire une promesse sans la tenir",
+          "Parler négativement de son partenaire à ses amis"
+        ]
+      },
+      {
+        "id": "regles_dispute",
+        "title": "Classe ces comportements selon ceux qu'il faut le plus éviter pendant une dispute.",
+        "items": [
+          "Couper la parole",
+          "Crier",
+          "Partir sans rien dire",
+          "Ressortir de vieux problèmes",
+          "Faire du sarcasme",
+          "Ignorer l'autre"
+        ]
+      },
+      {
+        "id": "green_flags",
+        "title": "Classe ces comportements du plus gros green flag au moins impressionnant.",
+        "items": [
+          "Être gentil avec le personnel",
+          "Admettre ses erreurs",
+          "Être ponctuel",
+          "Tenir ses promesses",
+          "Écouter attentivement",
+          "Parler avec respect de ses proches"
+        ]
+      }
+    ]
+  }
+}
