@@ -28,6 +28,7 @@ const loginBtn = document.getElementById("loginBtn");
 const authEmail = document.getElementById("authEmail");
 const authPassword = document.getElementById("authPassword");
 const authMessage = document.getElementById("authMessage");
+const logoutBtn = document.getElementById("logoutBtn");
 
 let currentUser = null;
 
@@ -177,6 +178,10 @@ loginBtn.addEventListener("click", () => {
         .catch((error) => {
             authMessage.textContent = error.message;
         });
+});
+
+logoutBtn.addEventListener("click", () => {
+    auth.signOut();
 });
 
 // ====================
