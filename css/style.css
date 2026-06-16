@@ -299,3 +299,21 @@ button:hover,
         font-size: 0.95rem;
     }
 }
+
+.partner-box {
+    background: white;
+    border: 2px solid #95D5B2;
+    border-radius: 16px;
+    padding: 18px;
+    margin-bottom: 20px;
+}
+
+.partner-box p {
+    color: #52796F;
+    margin-bottom: 8px;
+}
+
+.partner-box strong {
+    color: #1B4332;
+    font-size: 1.2rem;
+}
