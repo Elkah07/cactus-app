@@ -89,26 +89,64 @@ savePseudoBtn.addEventListener("click", () => {
 createSpaceBtn.addEventListener("click", () => {
     currentSpaceCode = generateSpaceCode();
 
-    displayPseudo.textContent = pseudo;
-    spaceCode.textContent = currentSpaceCode;
+    database.ref("spaces/" + currentSpaceCode).set({
+        code: currentSpaceCode,
+        createdAt: Date.now(),
+        player1: {
+            uid: currentUser.uid,
+            pseudo: pseudo
+        },
+        player2: null
+    }).then(() => {
+        return database.ref("users/" + currentUser.uid).update({
+            spaceCode: currentSpaceCode
+        });
+    }).then(() => {
+        displayPseudo.textContent = pseudo;
+        spaceCode.textContent = currentSpaceCode;
 
-    showScreen("dashboard");
+        showScreen("dashboard");
+    });
 });
 
 joinSpaceBtn.addEventListener("click", () => {
-    const joinCode = document.getElementById("joinCode").value.trim();
+    const joinCode = document.getElementById("joinCode").value.trim().toUpperCase();
 
     if (joinCode === "") {
         alert("Entre un code d'espace 🌵");
         return;
     }
 
-    currentSpaceCode = joinCode.toUpperCase();
+    database.ref("spaces/" + joinCode).once("value")
+        .then((snapshot) => {
+            if (!snapshot.exists()) {
+                alert("Cet espace n'existe pas 🌵");
+                return;
+            }
 
-    displayPseudo.textContent = pseudo;
-    spaceCode.textContent = currentSpaceCode;
+            const spaceData = snapshot.val();
 
-    showScreen("dashboard");
+            if (spaceData.player2 && spaceData.player2.uid !== currentUser.uid) {
+                alert("Cet espace est déjà complet 🌵");
+                return;
+            }
+
+            return database.ref("spaces/" + joinCode + "/player2").set({
+                uid: currentUser.uid,
+                pseudo: pseudo
+            }).then(() => {
+                return database.ref("users/" + currentUser.uid).update({
+                    spaceCode: joinCode
+                });
+            }).then(() => {
+                currentSpaceCode = joinCode;
+
+                displayPseudo.textContent = pseudo;
+                spaceCode.textContent = currentSpaceCode;
+
+                showScreen("dashboard");
+            });
+        });
 });
 
 rankingBtn.addEventListener("click", () => {
