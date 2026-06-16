@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cactus 🌵</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="card">
+
+            <!-- ÉCRAN ACCUEIL -->
+            <div id="loginScreen">
+                <h1>🌵 Cactus</h1>
+                <p class="subtitle">
+                    Pour les couples qui poussent ensemble.
+                </p>
+                <button id="goPseudoBtn">Commencer</button>
+            </div>
+
+            <!-- ÉCRAN PSEUDO -->
+            <div id="pseudoScreen" style="display:none;">
+                <h1>Choisis ton pseudo</h1>
+                <input type="text" id="pseudo" placeholder="Ton pseudo">
+                <button id="savePseudoBtn">Continuer</button>
+            </div>
+
+            <!-- ÉCRAN ESPACE COUPLE -->
+            <div id="coupleScreen" style="display:none;">
+                <h1>🌵 Ton espace</h1>
+                <p class="subtitle">
+                    Crée un espace ou rejoins celui de ton/ta partenaire.
+                </p>
+
+                <button id="createSpaceBtn">Créer un espace</button>
+
+                <input type="text" id="joinCode" placeholder="Code de l'espace">
+
+                <button id="joinSpaceBtn" class="secondary">Rejoindre un espace</button>
+            </div>
+
+            <!-- ÉCRAN DASHBOARD -->
+            <div id="dashboardScreen" style="display:none;">
+                <h1>🌵 Bonjour <span id="displayPseudo"></span></h1>
+
+                <p class="subtitle">
+                    Ton espace Cactus est prêt.
+                </p>
+
+                <div class="space-code-box">
+                    <p>Code de l'espace :</p>
+                    <strong id="spaceCode">CACTUS-0000</strong>
+                </div>
+
+                <button id="rankingBtn">Classements</button>
+
+                <button class="secondary disabled-btn" disabled>
+                    Devine ma réponse
+                </button>
+
+                <button class="secondary disabled-btn" disabled>
+                    Qui est le plus susceptible de...
+                </button>
+            </div>
+
+            <!-- ÉCRAN CLASSEMENTS -->
+            <div id="rankingScreen" style="display:none;">
+                <h1>🌵 Classements</h1>
+
+                <p id="rankingTitle" class="subtitle"></p>
+
+                <ul id="rankingList" class="ranking-list"></ul>
+
+                <button id="validateRankingBtn">
+                    Valider mon classement
+                </button>
+            </div>
+
+            <!-- ÉCRAN ATTENTE CLASSEMENT -->
+            <div id="rankingResultScreen" style="display:none;">
+                <h1>🌵 Classement envoyé</h1>
+
+                <p class="subtitle">
+                    Ton classement est bien sauvegardé.
+                    <br>
+                    Dans la vraie version, on attendra la réponse de ton/ta partenaire.
+                </p>
+
+                <div class="waiting-box">
+                    <p>⏳ En attente...</p>
+                </div>
+
+                <button id="nextRankingBtn">
+                    Classement suivant
+                </button>
+
+                <button id="backDashboardBtn" class="secondary">
+                    Retour au dashboard
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="js/screens.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/rankings.js"></script>
+    <script src="js/questions.js"></script>
+    <script src="js/script.js"></script>
+
+</body>
+</html>
