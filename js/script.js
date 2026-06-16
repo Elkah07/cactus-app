@@ -24,6 +24,13 @@ const spaceCode = document.getElementById("spaceCode");
 
 const rankingTitle = document.getElementById("rankingTitle");
 const rankingList = document.getElementById("rankingList");
+const signupBtn = document.getElementById("signupBtn");
+const loginBtn = document.getElementById("loginBtn");
+const authEmail = document.getElementById("authEmail");
+const authPassword = document.getElementById("authPassword");
+const authMessage = document.getElementById("authMessage");
+
+let currentUser = null;
 
 let pseudo = "";
 let currentSpaceCode = "";
@@ -54,9 +61,7 @@ async function loadRankingsData() {
 // ÉVÉNEMENTS
 // ====================
 
-goPseudoBtn.addEventListener("click", () => {
-    showScreen("pseudo");
-});
+
 
 savePseudoBtn.addEventListener("click", () => {
     pseudo = document.getElementById("pseudo").value.trim();
@@ -125,6 +130,44 @@ backDashboardBtn.addEventListener("click", () => {
     showScreen("dashboard");
 });
 
+signupBtn.addEventListener("click", () => {
+    const email = authEmail.value.trim();
+    const password = authPassword.value.trim();
+
+    if (email === "" || password === "") {
+        authMessage.textContent = "Entre un e-mail et un mot de passe 🌵";
+        return;
+    }
+
+    auth.createUserWithEmailAndPassword(email, password)
+        .then((userCredential) => {
+            currentUser = userCredential.user;
+            showScreen("pseudo");
+        })
+        .catch((error) => {
+            authMessage.textContent = error.message;
+        });
+});
+
+loginBtn.addEventListener("click", () => {
+    const email = authEmail.value.trim();
+    const password = authPassword.value.trim();
+
+    if (email === "" || password === "") {
+        authMessage.textContent = "Entre ton e-mail et ton mot de passe 🌵";
+        return;
+    }
+
+    auth.signInWithEmailAndPassword(email, password)
+        .then((userCredential) => {
+            currentUser = userCredential.user;
+            showScreen("couple");
+        })
+        .catch((error) => {
+            authMessage.textContent = error.message;
+        });
+});
+
 // ====================
 // FONCTIONS
 // ====================
@@ -146,6 +189,16 @@ function startRandomRanking() {
 // ====================
 // LANCEMENT
 // ====================
+
+auth.onAuthStateChanged((user) => {
+    if (user) {
+        currentUser = user;
+        showScreen("couple");
+    } else {
+        currentUser = null;
+        showScreen("login");
+    }
+});
 
 loadRankingsData();
 
