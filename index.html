@@ -15,13 +15,34 @@
 
             <!-- ÉCRAN ACCUEIL -->
             <div id="loginScreen">
-                <h1>🌵 Cactus</h1>
-                <p class="subtitle">
-                    Pour les couples qui poussent ensemble.
-                </p>
-                <button id="goPseudoBtn">Commencer</button>
-            </div>
+    <h1>🌵 Cactus</h1>
 
+    <p class="subtitle">
+        Pour les couples qui poussent ensemble.
+    </p>
+
+    <input
+        type="email"
+        id="authEmail"
+        placeholder="Adresse e-mail"
+    >
+
+    <input
+        type="password"
+        id="authPassword"
+        placeholder="Mot de passe"
+    >
+
+    <button id="signupBtn">
+        Créer un compte
+    </button>
+
+    <button id="loginBtn" class="secondary">
+        Se connecter
+    </button>
+
+    <p id="authMessage"></p>
+</div>
             <!-- ÉCRAN PSEUDO -->
             <div id="pseudoScreen" style="display:none;">
                 <h1>Choisis ton pseudo</h1>
