@@ -9,7 +9,6 @@ const dashboardScreen = document.getElementById("dashboardScreen");
 const rankingScreen = document.getElementById("rankingScreen");
 const rankingResultScreen = document.getElementById("rankingResultScreen");
 
-const goPseudoBtn = document.getElementById("goPseudoBtn");
 const savePseudoBtn = document.getElementById("savePseudoBtn");
 const createSpaceBtn = document.getElementById("createSpaceBtn");
 const joinSpaceBtn = document.getElementById("joinSpaceBtn");
