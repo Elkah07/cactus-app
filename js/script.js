@@ -30,6 +30,8 @@ const authPassword = document.getElementById("authPassword");
 const authMessage = document.getElementById("authMessage");
 const logoutBtn = document.getElementById("logoutBtn");
 
+const partnerName = document.getElementById("partnerName");
+
 let currentUser = null;
 
 let pseudo = "";
@@ -40,9 +42,45 @@ let currentRanking = null;
 let lastRankingId = null;
 let draggedItem = null;
 
+let currentSpaceData = null;
+
 // ====================
 // CHARGEMENT DES DONNÉES
 // ====================
+
+function listenToCurrentSpace(spaceCodeValue) {
+    database.ref("spaces/" + spaceCodeValue).on("value", (snapshot) => {
+        const spaceData = snapshot.val();
+
+        if (!spaceData) {
+            return;
+        }
+
+        currentSpaceData = spaceData;
+
+        let partner = null;
+
+        if (
+            spaceData.player1 &&
+            spaceData.player1.uid !== currentUser.uid
+        ) {
+            partner = spaceData.player1;
+        }
+
+        if (
+            spaceData.player2 &&
+            spaceData.player2.uid !== currentUser.uid
+        ) {
+            partner = spaceData.player2;
+        }
+
+        if (partner) {
+            partnerName.textContent = partner.pseudo || "Partenaire";
+        } else {
+            partnerName.textContent = "En attente...";
+        }
+    });
+}
 
 async function loadRankingsData() {
     const response = await fetch("data/rankings.json");
@@ -105,6 +143,8 @@ createSpaceBtn.addEventListener("click", () => {
         displayPseudo.textContent = pseudo;
         spaceCode.textContent = currentSpaceCode;
 
+        listenToCurrentSpace(currentSpaceCode);
+
         showScreen("dashboard");
     });
 });
@@ -143,6 +183,8 @@ joinSpaceBtn.addEventListener("click", () => {
 
                 displayPseudo.textContent = pseudo;
                 spaceCode.textContent = currentSpaceCode;
+
+                listenToCurrentSpace(currentSpaceCode);
 
                 showScreen("dashboard");
             });
@@ -247,7 +289,30 @@ function startRandomRanking() {
 auth.onAuthStateChanged((user) => {
     if (user) {
         currentUser = user;
-        showScreen("couple");
+
+        database.ref("users/" + currentUser.uid).once("value")
+            .then((snapshot) => {
+                const userData = snapshot.val();
+
+                if (!userData) {
+                    showScreen("pseudo");
+                    return;
+                }
+
+                pseudo = userData.pseudo || "";
+                displayPseudo.textContent = pseudo;
+
+                if (userData.spaceCode) {
+                    currentSpaceCode = userData.spaceCode;
+                    spaceCode.textContent = currentSpaceCode;
+
+                    listenToCurrentSpace(currentSpaceCode);
+
+                    showScreen("dashboard");
+                } else {
+                    showScreen("couple");
+                }
+            });
     } else {
         currentUser = null;
         showScreen("login");
