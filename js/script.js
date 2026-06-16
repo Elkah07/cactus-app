@@ -66,11 +66,23 @@ savePseudoBtn.addEventListener("click", () => {
     pseudo = document.getElementById("pseudo").value.trim();
 
     if (pseudo === "") {
-        alert("Choisis un pseudo 🌵");
+        alert("Choisis ton pseudo 🌵");
         return;
     }
 
-    showScreen("couple");
+    database.ref("users/" + currentUser.uid).set({
+        pseudo: pseudo,
+        email: currentUser.email,
+        createdAt: Date.now()
+    })
+    .then(() => {
+        console.log("Pseudo sauvegardé !");
+        showScreen("couple");
+    })
+    .catch((error) => {
+        console.error(error);
+        alert(error.message);
+    });
 });
 
 createSpaceBtn.addEventListener("click", () => {
