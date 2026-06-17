@@ -1185,3 +1185,39 @@ body.dark-theme .notebook-block p {
     border-radius: 8px;
     padding: 4px;
 }
+
+.notebook-editor {
+    background: white;
+    border: 2px solid #95D5B2;
+    border-radius: 20px;
+
+    min-height: 360px;
+    padding: 18px;
+    margin-bottom: 18px;
+
+    text-align: left;
+    color: #1B4332;
+
+    line-height: 1.6;
+    outline: none;
+}
+
+.notebook-editor p {
+    margin-bottom: 10px;
+}
+
+.notebook-editor:focus {
+    border-color: #2D6A4F;
+}
+
+.fake-checkbox {
+    cursor: pointer;
+    font-weight: 900;
+    margin-right: 8px;
+}
+
+body.dark-theme .notebook-editor {
+    background: #2D6A4F;
+    color: #F8F9FA;
+    border-color: #74C69D;
+}
