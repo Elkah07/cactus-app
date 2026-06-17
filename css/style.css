@@ -413,3 +413,6 @@ button:hover,
     margin-bottom: 12px;
 }
 
+.mode-notification:hover {
+    text-decoration: underline;
+}

@@ -33,6 +33,9 @@ const logoutBtn = document.getElementById("logoutBtn");
 const partnerName = document.getElementById("partnerName");
 const leaveSpaceBtn = document.getElementById("leaveSpaceBtn");
 
+const backFromRankingBtn = document.getElementById("backFromRankingBtn");
+const backToLoginBtn = document.getElementById("backToLoginBtn");
+
 const rankingNotification = document.getElementById("rankingNotification");
 
 let currentUser = null;
@@ -46,6 +49,7 @@ let lastRankingId = null;
 let draggedItem = null;
 
 let currentSpaceData = null;
+let pendingRankingChallenges = [];
 
 // ====================
 // CHARGEMENT DES DONNÉES
@@ -345,6 +349,37 @@ leaveSpaceBtn.addEventListener("click", () => {
         });
 });
 
+rankingNotification.addEventListener("click", () => {
+    if (pendingRankingChallenges.length === 0) {
+        return;
+    }
+
+    const challenge = pendingRankingChallenges[0];
+
+    const ranking = rankings.find((item) => {
+        return item.id === challenge.rankingId;
+    });
+
+    if (!ranking) {
+        alert("Classement introuvable 🌵");
+        return;
+    }
+
+    currentRanking = ranking;
+
+    loadRanking(currentRanking);
+
+    showScreen("ranking");
+});
+
+backFromRankingBtn.addEventListener("click", () => {
+    showScreen("dashboard");
+});
+
+backToLoginBtn.addEventListener("click", () => {
+    showScreen("login");
+});
+
 // ====================
 // FONCTIONS
 // ====================
@@ -414,7 +449,7 @@ if ("serviceWorker" in navigator) {
 function displayRankingChallenges(challenges) {
     const challengeArray = Object.values(challenges);
 
-    const pendingChallenges = challengeArray.filter((challenge) => {
+    pendingRankingChallenges = challengeArray.filter((challenge) => {
         if (!challenge.answers) {
             return false;
         }
@@ -428,14 +463,17 @@ function displayRankingChallenges(challenges) {
         return !alreadyAnswered && answeredBySomeoneElse;
     });
 
-    if (pendingChallenges.length === 0) {
+    if (pendingRankingChallenges.length === 0) {
         rankingNotification.textContent = "";
+        rankingNotification.style.cursor = "default";
         return;
     }
 
-    if (pendingChallenges.length === 1) {
+    if (pendingRankingChallenges.length === 1) {
         rankingNotification.textContent = "🌵 1 classement t’attend";
     } else {
-        rankingNotification.textContent = `🌵 ${pendingChallenges.length} classements t’attendent`;
+        rankingNotification.textContent = `🌵 ${pendingRankingChallenges.length} classements t’attendent`;
     }
+
+    rankingNotification.style.cursor = "pointer";
 }
