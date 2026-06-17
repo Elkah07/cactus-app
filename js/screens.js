@@ -13,6 +13,7 @@ function showScreen(screenName) {
     historyBtn.style.display = "none";
     gardenBtn.style.display = "none";
     settingsBtn.style.display = "none";
+    notebookScreen.style.display = "none";
 
     if (
         screenName === "dashboard" ||
@@ -64,4 +65,8 @@ function showScreen(screenName) {
     if (screenName === "rankingCompatibility") {
         rankingCompatibilityScreen.style.display = "block";
     }
+
+    if (screenName === "notebook") {
+    notebookScreen.style.display = "block";
+}
 }

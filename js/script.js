@@ -79,6 +79,17 @@ const notebookColor = document.getElementById("notebookColor");
 const createNotebookBtn = document.getElementById("createNotebookBtn");
 const notebooksGrid = document.getElementById("notebooksGrid");
 
+const notebookScreen = document.getElementById("notebookScreen");
+const openedNotebookTitle = document.getElementById("openedNotebookTitle");
+const notebookBlocks = document.getElementById("notebookBlocks");
+const addSubtitleBtn = document.getElementById("addSubtitleBtn");
+const addTextBtn = document.getElementById("addTextBtn");
+const addCheckboxBtn = document.getElementById("addCheckboxBtn");
+const backToGardenBtn = document.getElementById("backToGardenBtn");
+
+let currentNotebookId = null;
+let currentNotebookData = null;
+
 let currentUser = null;
 
 let pseudo = "";
@@ -553,6 +564,26 @@ createNotebookBtn.addEventListener("click", () => {
         });
 });
 
+backToGardenBtn.addEventListener("click", () => {
+    currentNotebookId = null;
+    currentNotebookData = null;
+
+    loadNotebooks();
+    showScreen("garden");
+});
+
+addSubtitleBtn.addEventListener("click", () => {
+    addNotebookBlock("subtitle");
+});
+
+addTextBtn.addEventListener("click", () => {
+    addNotebookBlock("text");
+});
+
+addCheckboxBtn.addEventListener("click", () => {
+    addNotebookBlock("checkbox");
+});
+
 // ====================
 // FONCTIONS
 // ====================
@@ -816,8 +847,153 @@ function loadNotebooks() {
                     card.appendChild(title);
                     card.appendChild(meta);
 
+                    card.addEventListener("click", () => {
+    openNotebook(notebookId, notebook);
+});
+
                     notebooksGrid.appendChild(card);
                 });
+        });
+}
+
+function openNotebook(notebookId, notebook) {
+    currentNotebookId = notebookId;
+    currentNotebookData = notebook;
+
+    openedNotebookTitle.textContent =
+        (notebook.emoji || "📝") + " " + notebook.title;
+
+    loadNotebookBlocks();
+
+    showScreen("notebook");
+}
+
+function loadNotebookBlocks() {
+    notebookBlocks.innerHTML = "";
+
+    database
+        .ref(
+            "spaces/" +
+            currentSpaceCode +
+            "/garden/notebooks/" +
+            currentNotebookId +
+            "/blocks"
+        )
+        .once("value")
+        .then((snapshot) => {
+            const blocks = snapshot.val() || {};
+            const blocksArray = Object.entries(blocks);
+
+            if (blocksArray.length === 0) {
+                notebookBlocks.innerHTML =
+                    '<p class="empty-text">Ce carnet est vide pour le moment 🌱</p>';
+                return;
+            }
+
+            blocksArray
+                .sort((a, b) => a[1].createdAt - b[1].createdAt)
+                .forEach(([blockId, block]) => {
+                    renderNotebookBlock(blockId, block);
+                });
+        });
+}
+
+function renderNotebookBlock(blockId, block) {
+    const blockElement = document.createElement("div");
+    blockElement.classList.add("notebook-block");
+
+    if (block.type === "subtitle") {
+        const subtitle = document.createElement("h2");
+        subtitle.textContent = block.text;
+        blockElement.appendChild(subtitle);
+    }
+
+    if (block.type === "text") {
+        const text = document.createElement("p");
+        text.textContent = block.text;
+        blockElement.appendChild(text);
+    }
+
+    if (block.type === "checkbox") {
+        const label = document.createElement("label");
+        label.classList.add("notebook-checkbox");
+
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.checked = block.checked === true;
+
+        const span = document.createElement("span");
+        span.textContent = block.text;
+
+        if (block.checked) {
+            span.classList.add("checked-item");
+        }
+
+        checkbox.addEventListener("change", () => {
+            database
+                .ref(
+                    "spaces/" +
+                    currentSpaceCode +
+                    "/garden/notebooks/" +
+                    currentNotebookId +
+                    "/blocks/" +
+                    blockId +
+                    "/checked"
+                )
+                .set(checkbox.checked)
+                .then(() => {
+                    loadNotebookBlocks();
+                });
+        });
+
+        label.appendChild(checkbox);
+        label.appendChild(span);
+
+        blockElement.appendChild(label);
+    }
+
+    notebookBlocks.appendChild(blockElement);
+}
+
+function addNotebookBlock(type) {
+    let label = "Écris ton contenu";
+
+    if (type === "subtitle") {
+        label = "Nom du sous-titre";
+    }
+
+    if (type === "checkbox") {
+        label = "Élément à cocher";
+    }
+
+    const text = prompt(label);
+
+    if (!text || text.trim() === "") {
+        return;
+    }
+
+    const block = {
+        type: type,
+        text: text.trim(),
+        createdBy: pseudo,
+        createdAt: Date.now()
+    };
+
+    if (type === "checkbox") {
+        block.checked = false;
+    }
+
+    database
+        .ref(
+            "spaces/" +
+            currentSpaceCode +
+            "/garden/notebooks/" +
+            currentNotebookId +
+            "/blocks"
+        )
+        .push(block)
+        .then(() => {
+            loadNotebookBlocks();
         });
 }
 

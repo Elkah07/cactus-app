@@ -1051,3 +1051,67 @@ body.dark-theme .create-notebook-box {
 body.dark-theme .notebook-card h3 {
     color: #1B4332;
 }
+
+.notebook-blocks {
+    background: white;
+    border: 2px solid #95D5B2;
+    border-radius: 20px;
+
+    padding: 16px;
+    margin-bottom: 18px;
+
+    text-align: left;
+
+    min-height: 220px;
+}
+
+.notebook-block {
+    margin-bottom: 14px;
+}
+
+.notebook-block h2 {
+    color: #1B4332;
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+}
+
+.notebook-block p {
+    color: #52796F;
+    line-height: 1.5;
+    font-weight: 700;
+}
+
+.notebook-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    color: #1B4332;
+    font-weight: 800;
+}
+
+.notebook-checkbox input {
+    width: auto;
+    margin: 0;
+}
+
+.notebook-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+body.dark-theme .notebook-blocks {
+    background: #2D6A4F;
+    border-color: #74C69D;
+}
+
+body.dark-theme .notebook-block h2,
+body.dark-theme .notebook-checkbox {
+    color: #D8F3DC;
+}
+
+body.dark-theme .notebook-block p {
+    color: #B7E4C7;
+}
