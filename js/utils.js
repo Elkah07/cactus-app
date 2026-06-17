@@ -134,3 +134,27 @@ function generateRankingInsight(analysis) {
 
     return "🌵 Vos classements racontent une jolie dynamique.";
 }
+
+function getCompatibilityHearts(score) {
+    if (score >= 95) {
+        return "💚💚💚💚💚";
+    }
+
+    if (score >= 80) {
+        return "💚💚💚💚🤍";
+    }
+
+    if (score >= 60) {
+        return "💚💚💚🤍🤍";
+    }
+
+    if (score >= 40) {
+        return "💚💚🤍🤍🤍";
+    }
+
+    if (score >= 20) {
+        return "💚🤍🤍🤍🤍";
+    }
+
+    return "🤍🤍🤍🤍🤍";
+}

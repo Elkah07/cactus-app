@@ -704,7 +704,12 @@ function loadHistory() {
 
                     const score = document.createElement("span");
 score.classList.add("history-score");
-score.textContent = "Compatibilité : " + challenge.compatibility + "%";
+
+score.textContent =
+    getCompatibilityHearts(challenge.compatibility) +
+    " " +
+    challenge.compatibility +
+    "%";
 
 card.appendChild(title);
 card.appendChild(score);
