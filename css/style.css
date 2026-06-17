@@ -852,3 +852,63 @@ body.dark-theme .note-card {
     color: #F8F9FA;
     border-color: #74C69D;
 }
+
+.card {
+    position: relative;
+    padding-top: 72px;
+}
+
+.top-left-btn,
+.top-center-btn,
+.top-right-btn {
+    position: absolute !important;
+    top: 18px !important;
+
+    width: 44px !important;
+    height: 44px !important;
+
+    padding: 0 !important;
+    margin: 0 !important;
+
+    border-radius: 50% !important;
+
+    background: rgba(255, 255, 255, 0.85) !important;
+    color: #1B4332 !important;
+
+    font-size: 1.2rem !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    z-index: 10;
+}
+
+.top-left-btn {
+    left: 18px !important;
+}
+
+.top-center-btn {
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+}
+
+.top-right-btn {
+    right: 18px !important;
+}
+
+.top-left-btn:hover,
+.top-right-btn:hover {
+    transform: scale(1.08) !important;
+}
+
+.top-center-btn:hover {
+    transform: translateX(-50%) scale(1.08) !important;
+}
+
+body.dark-theme .top-left-btn,
+body.dark-theme .top-center-btn,
+body.dark-theme .top-right-btn {
+    background: rgba(255, 255, 255, 0.18) !important;
+    color: #D8F3DC !important;
+}
