@@ -996,17 +996,48 @@ text.addEventListener("blur", () => {
     }
 
     if (block.type === "checkbox") {
-        const label = document.createElement("label");
-        label.classList.add("notebook-checkbox");
+    const row = document.createElement("div");
+    row.classList.add("notebook-checkbox");
 
-        const checkbox = document.createElement("input");
-        checkbox.type = "checkbox";
-        checkbox.checked = block.checked === true;
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.checked = block.checked === true;
 
-        const span = document.createElement("span");
-        span.textContent = block.text;
-span.contentEditable = "true";
-span.classList.add("editable-block");
+    const span = document.createElement("span");
+    span.textContent = block.text;
+    span.contentEditable = "true";
+    span.classList.add("editable-block");
+
+    if (block.checked) {
+        span.classList.add("checked-item");
+    }
+
+    checkbox.addEventListener("change", () => {
+        database
+            .ref(
+                "spaces/" +
+                currentSpaceCode +
+                "/garden/notebooks/" +
+                currentNotebookId +
+                "/blocks/" +
+                blockId +
+                "/checked"
+            )
+            .set(checkbox.checked)
+            .then(() => {
+                loadNotebookBlocks();
+            });
+    });
+
+    span.addEventListener("blur", () => {
+        saveNotebookBlockText(blockId, span.textContent);
+    });
+
+    row.appendChild(checkbox);
+    row.appendChild(span);
+
+    content.appendChild(row);
+}
 
 span.addEventListener("blur", () => {
     saveNotebookBlockText(blockId, span.textContent);
