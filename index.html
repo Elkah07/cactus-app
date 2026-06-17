@@ -74,13 +74,25 @@
 <div id="notebookScreen" style="display:none;">
     <h1 id="openedNotebookTitle">📝 Carnet</h1>
 
-    <div class="notebook-toolbar">
-        ...
-    </div>
-
     <div class="editor-toolbar">
-        ...
-    </div>
+    <button id="boldBtn">B</button>
+    <button id="italicBtn">I</button>
+    <button id="underlineBtn">U</button>
+
+    <input
+        type="color"
+        id="textColorPicker"
+        value="#ffffff"
+    >
+
+    <input
+        type="color"
+        id="highlightColorPicker"
+        value="#fff59d"
+    >
+
+    <button id="insertCheckboxLineBtn">☑</button>
+</div>
 
     <div
         id="notebookEditor"
@@ -97,15 +109,6 @@
     <button id="backToGardenBtn" class="secondary">
         Retour aux carnets
     </button>
-</div>
-
-<div class="editor-toolbar">
-    <button id="boldBtn">B</button>
-    <button id="italicBtn">I</button>
-    <button id="underlineBtn">U</button>
-    <button id="highlightBtn">🖍️</button>
-    <button id="textColorBtn">🎨</button>
-    <button id="insertCheckboxLineBtn">☑</button>
 </div>
 
 <!-- ÉCRAN HISTORIQUE -->
