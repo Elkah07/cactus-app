@@ -13,9 +13,28 @@
     <div class="container">
         <div class="card">
 
-            <button id="settingsBtn" class="settings-btn" title="Réglages">
+            <button id="historyBtn" class="top-left-btn" title="Nos souvenirs">
+    📚
+</button>
+
+<button id="settingsBtn" class="top-right-btn" title="Réglages">
     ⚙️
 </button>
+
+<!-- ÉCRAN HISTORIQUE -->
+<div id="historyScreen" style="display:none;">
+    <h1>📚 Nos souvenirs</h1>
+
+    <p class="subtitle">
+        Tous vos jeux terminés ensemble.
+    </p>
+
+    <div id="historyList"></div>
+
+    <button id="backFromHistoryBtn" class="secondary">
+        Retour
+    </button>
+</div>
 
             <!-- ÉCRAN ACCUEIL -->
             <div id="loginScreen">

@@ -62,6 +62,11 @@ const myRankingName = document.getElementById("myRankingName");
 const partnerRankingName = document.getElementById("partnerRankingName");
 const rankingCompatibilityInsight = document.getElementById("rankingCompatibilityInsight");
 
+const historyScreen = document.getElementById("historyScreen");
+const historyBtn = document.getElementById("historyBtn");
+const historyList = document.getElementById("historyList");
+const backFromHistoryBtn = document.getElementById("backFromHistoryBtn");
+
 let currentUser = null;
 
 let pseudo = "";
@@ -482,6 +487,14 @@ toggleThemeBtn.addEventListener("click", () => {
     localStorage.setItem("theme", isDark ? "dark" : "light");
 });
 
+historyBtn.addEventListener("click", () => {
+    loadHistory();
+});
+
+backFromHistoryBtn.addEventListener("click", () => {
+    showScreen("dashboard");
+});
+
 // ====================
 // FONCTIONS
 // ====================
@@ -659,6 +672,47 @@ if (score >= 80) {
     }
 
     showScreen("rankingCompatibility");
+}
+
+function loadHistory() {
+    historyList.innerHTML = "";
+
+    database
+        .ref("spaces/" + currentSpaceCode + "/rankingChallenges")
+        .once("value")
+        .then((snapshot) => {
+            const challenges = snapshot.val() || {};
+            const historyItems = Object.values(challenges).filter((challenge) => {
+                return challenge.status === "completed";
+            });
+
+            if (historyItems.length === 0) {
+                historyList.innerHTML =
+                    '<p class="empty-text">Aucun souvenir pour le moment 🌵</p>';
+                showScreen("history");
+                return;
+            }
+
+            historyItems
+                .sort((a, b) => b.completedAt - a.completedAt)
+                .forEach((challenge) => {
+                    const card = document.createElement("div");
+                    card.classList.add("history-card");
+
+                    const title = document.createElement("h3");
+                    title.textContent = "🌵 " + challenge.title;
+
+                    const score = document.createElement("p");
+                    score.textContent = "Compatibilité : " + challenge.compatibility + "%";
+
+                    card.appendChild(title);
+                    card.appendChild(score);
+
+                    historyList.appendChild(card);
+                });
+
+            showScreen("history");
+        });
 }
 
 // ====================

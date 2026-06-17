@@ -633,3 +633,43 @@ body.dark-theme .secondary {
         opacity: 1;
     }
 }
+
+.top-left-btn,
+.top-right-btn {
+    position: absolute;
+    top: 14px;
+
+    width: 38px;
+    height: 38px;
+
+    padding: 0;
+    margin: 0;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.75);
+    color: #1B4332;
+
+    font-size: 1.1rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.top-left-btn {
+    left: 14px;
+}
+
+.top-right-btn {
+    right: 14px;
+}
+
+.top-left-btn:hover,
+.top-right-btn:hover {
+    transform: scale(1.08);
+}
+
+.card {
+    position: relative;
+}
