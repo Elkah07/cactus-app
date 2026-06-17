@@ -6,6 +6,7 @@ function showScreen(screenName) {
     rankingScreen.style.display = "none";
     rankingResultScreen.style.display = "none";
     settingsScreen.style.display = "none";
+    rankingCompatibilityScreen.style.display = "none";
 
     if (screenName === "login") {
         loginScreen.style.display = "block";
@@ -33,6 +34,11 @@ function showScreen(screenName) {
 
     if (screenName === "settings") {
     settingsScreen.style.display = "block";
-}
+    }
+
+    if (screenName === "rankingCompatibility") {
+    rankingCompatibilityScreen.style.display = "block";
+    }
+
 
 }

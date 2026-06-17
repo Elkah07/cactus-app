@@ -46,6 +46,17 @@ const saveNewPseudoBtn = document.getElementById("saveNewPseudoBtn");
 const toggleThemeBtn = document.getElementById("toggleThemeBtn");
 const backFromSettingsBtn = document.getElementById("backFromSettingsBtn");
 
+const rankingCompatibilityScreen = document.getElementById("rankingCompatibilityScreen");
+const rankingCompatibilityTitle = document.getElementById("rankingCompatibilityTitle");
+const rankingCompatibilityScore = document.getElementById("rankingCompatibilityScore");
+const rankingCompatibilityLabel = document.getElementById("rankingCompatibilityLabel");
+const myRankingResult = document.getElementById("myRankingResult");
+const partnerRankingResult = document.getElementById("partnerRankingResult");
+const perfectMatchesList = document.getElementById("perfectMatchesList");
+const biggestGapsList = document.getElementById("biggestGapsList");
+const nextAfterCompatibilityBtn = document.getElementById("nextAfterCompatibilityBtn");
+const backDashboardAfterCompatibilityBtn = document.getElementById("backDashboardAfterCompatibilityBtn");
+
 let currentUser = null;
 
 let pseudo = "";
@@ -265,9 +276,7 @@ saveRankingChallenge(
     currentRanking.id,
     answer
 ).then(() => {
-    console.log("Défi classement sauvegardé dans Firebase");
-    showRankingResult();
-});
+    return showRankingCompatibilityIfReady(currentRanking.id);
 });
 
 nextRankingBtn.addEventListener("click", () => {
@@ -281,6 +290,20 @@ nextRankingBtn.addEventListener("click", () => {
 });
 
 backDashboardBtn.addEventListener("click", () => {
+    showScreen("dashboard");
+});
+
+nextAfterCompatibilityBtn.addEventListener("click", () => {
+    if (isPlayingPendingChallenges) {
+        currentPendingChallengeIndex++;
+        startPendingRankingChallenge();
+        return;
+    }
+
+    startRandomRanking();
+});
+
+backDashboardAfterCompatibilityBtn.addEventListener("click", () => {
     showScreen("dashboard");
 });
 
@@ -497,6 +520,98 @@ function startPendingRankingChallenge() {
     loadRanking(currentRanking);
 
     showScreen("ranking");
+}
+
+function showRankingCompatibilityIfReady(rankingId) {
+    return database
+        .ref("spaces/" + currentSpaceCode + "/rankingChallenges/" + rankingId)
+        .once("value")
+        .then((snapshot) => {
+            const challenge = snapshot.val();
+
+            if (!challenge || !challenge.answers) {
+                showRankingResult();
+                return;
+            }
+
+            const answersArray = Object.values(challenge.answers);
+
+            if (answersArray.length < 2) {
+                showRankingResult();
+                return;
+            }
+
+            const myAnswerData = answersArray.find((answer) => {
+                return answer.uid === currentUser.uid;
+            });
+
+            const partnerAnswerData = answersArray.find((answer) => {
+                return answer.uid !== currentUser.uid;
+            });
+
+            if (!myAnswerData || !partnerAnswerData) {
+                showRankingResult();
+                return;
+            }
+
+            showRankingCompatibility(
+                challenge,
+                myAnswerData,
+                partnerAnswerData
+            );
+        });
+}
+
+function showRankingCompatibility(challenge, myAnswerData, partnerAnswerData) {
+    const myAnswer = myAnswerData.answer;
+    const partnerAnswer = partnerAnswerData.answer;
+
+    const score = calculateRankingCompatibility(myAnswer, partnerAnswer);
+    const label = getCompatibilityLabel(score);
+    const analysis = analyzeRankingDifferences(myAnswer, partnerAnswer);
+
+    rankingCompatibilityTitle.textContent = challenge.title;
+    rankingCompatibilityScore.textContent = score + "%";
+    rankingCompatibilityLabel.textContent = label;
+
+    myRankingResult.innerHTML = "";
+    partnerRankingResult.innerHTML = "";
+    perfectMatchesList.innerHTML = "";
+    biggestGapsList.innerHTML = "";
+
+    myAnswer.forEach((item) => {
+        const li = document.createElement("li");
+        li.textContent = item;
+        myRankingResult.appendChild(li);
+    });
+
+    partnerAnswer.forEach((item) => {
+        const li = document.createElement("li");
+        li.textContent = item;
+        partnerRankingResult.appendChild(li);
+    });
+
+    if (analysis.perfectMatches.length === 0) {
+        perfectMatchesList.innerHTML = "<li>Aucun accord parfait</li>";
+    } else {
+        analysis.perfectMatches.forEach((item) => {
+            const li = document.createElement("li");
+            li.textContent = item;
+            perfectMatchesList.appendChild(li);
+        });
+    }
+
+    if (analysis.biggestGaps.length === 0) {
+        biggestGapsList.innerHTML = "<li>Aucun grand écart</li>";
+    } else {
+        analysis.biggestGaps.forEach((gap) => {
+            const li = document.createElement("li");
+            li.textContent = `${gap.item} : ${gap.gap} places d'écart`;
+            biggestGapsList.appendChild(li);
+        });
+    }
+
+    showScreen("rankingCompatibility");
 }
 
 // ====================
