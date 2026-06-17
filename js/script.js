@@ -76,6 +76,10 @@ const saveNoteBtn = document.getElementById("saveNoteBtn");
 const notesList = document.getElementById("notesList");
 const backFromGardenBtn = document.getElementById("backFromGardenBtn");
 
+const listTitle = document.getElementById("listTitle");
+const createListBtn = document.getElementById("createListBtn");
+const listsContainer = document.getElementById("listsContainer");
+
 let currentUser = null;
 
 let pseudo = "";
@@ -506,7 +510,8 @@ backFromHistoryBtn.addEventListener("click", () => {
 
 gardenBtn.addEventListener("click", () => {
     loadGardenNotes();
-    showScreen("garden");
+loadGardenLists();
+showScreen("garden");
 });
 
 backFromGardenBtn.addEventListener("click", () => {
@@ -536,6 +541,27 @@ saveNoteBtn.addEventListener("click", () => {
         .then(() => {
             noteText.value = "";
             loadGardenNotes();
+        });
+});
+
+createListBtn.addEventListener("click", () => {
+    const title = listTitle.value.trim();
+
+    if (title === "") {
+        alert("Donne un titre à ta liste 🌵");
+        return;
+    }
+
+    database
+        .ref("spaces/" + currentSpaceCode + "/garden/lists")
+        .push({
+            title: title,
+            createdBy: pseudo,
+            createdAt: Date.now()
+        })
+        .then(() => {
+            listTitle.value = "";
+            loadGardenLists();
         });
 });
 
@@ -802,6 +828,125 @@ function loadGardenNotes() {
                     notesList.appendChild(card);
                 });
         });
+}
+
+function loadGardenLists() {
+    listsContainer.innerHTML = "";
+
+    database
+        .ref("spaces/" + currentSpaceCode + "/garden/lists")
+        .once("value")
+        .then((snapshot) => {
+            const lists = snapshot.val() || {};
+            const listsArray = Object.entries(lists);
+
+            if (listsArray.length === 0) {
+                listsContainer.innerHTML =
+                    '<p class="empty-text">Aucune liste pour le moment 📋</p>';
+                return;
+            }
+
+            listsArray
+                .sort((a, b) => b[1].createdAt - a[1].createdAt)
+                .forEach(([listId, list]) => {
+                    renderGardenList(listId, list);
+                });
+        });
+}
+
+function renderGardenList(listId, list) {
+    const listCard = document.createElement("div");
+    listCard.classList.add("garden-list-card");
+
+    const title = document.createElement("h3");
+    title.textContent = list.title;
+
+    const meta = document.createElement("small");
+    meta.textContent = "Créée par " + (list.createdBy || "Cactus");
+
+    const itemsBox = document.createElement("div");
+    itemsBox.classList.add("garden-list-items");
+
+    if (list.items) {
+        Object.entries(list.items).forEach(([itemId, item]) => {
+            const itemRow = document.createElement("label");
+            itemRow.classList.add("garden-list-item");
+
+            const checkbox = document.createElement("input");
+            checkbox.type = "checkbox";
+            checkbox.checked = item.checked === true;
+
+            const itemText = document.createElement("span");
+            itemText.textContent = item.text;
+
+            if (item.checked) {
+                itemText.classList.add("checked-item");
+            }
+
+            checkbox.addEventListener("change", () => {
+                database
+                    .ref(
+                        "spaces/" +
+                        currentSpaceCode +
+                        "/garden/lists/" +
+                        listId +
+                        "/items/" +
+                        itemId +
+                        "/checked"
+                    )
+                    .set(checkbox.checked)
+                    .then(() => {
+                        loadGardenLists();
+                    });
+            });
+
+            itemRow.appendChild(checkbox);
+            itemRow.appendChild(itemText);
+
+            itemsBox.appendChild(itemRow);
+        });
+    }
+
+    const newItemInput = document.createElement("input");
+    newItemInput.type = "text";
+    newItemInput.placeholder = "Nouvel élément";
+
+    const addItemBtn = document.createElement("button");
+    addItemBtn.textContent = "Ajouter";
+    addItemBtn.classList.add("small-btn");
+
+    addItemBtn.addEventListener("click", () => {
+        const text = newItemInput.value.trim();
+
+        if (text === "") {
+            return;
+        }
+
+        database
+            .ref(
+                "spaces/" +
+                currentSpaceCode +
+                "/garden/lists/" +
+                listId +
+                "/items"
+            )
+            .push({
+                text: text,
+                checked: false,
+                createdAt: Date.now()
+            })
+            .then(() => {
+                loadGardenLists();
+            });
+    });
+
+    listCard.appendChild(title);
+    listCard.appendChild(meta);
+    listCard.appendChild(itemsBox);
+    listCard.appendChild(newItemInput);
+    listCard.appendChild(addItemBtn);
+
+    listsContainer.appendChild(listCard);
 }
 
 // ====================

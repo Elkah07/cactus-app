@@ -915,3 +915,87 @@ body.dark-theme .top-right-btn {
     background: rgba(255, 255, 255, 0.18) !important;
     color: #D8F3DC !important;
 }
+
+.garden-separator {
+    border: none;
+    border-top: 2px dashed #95D5B2;
+    margin: 22px 0;
+}
+
+.garden-section-title {
+    color: #1B4332;
+    font-size: 1.2rem;
+    margin-bottom: 14px;
+}
+
+.lists-container {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+
+    margin-top: 14px;
+    margin-bottom: 18px;
+}
+
+.garden-list-card {
+    background: white;
+    border: 2px solid #95D5B2;
+    border-radius: 18px;
+
+    padding: 14px;
+
+    text-align: left;
+}
+
+.garden-list-card h3 {
+    color: #1B4332;
+    margin-bottom: 6px;
+}
+
+.garden-list-card small {
+    color: #52796F;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.garden-list-items {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.garden-list-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    color: #1B4332;
+    font-weight: 700;
+}
+
+.garden-list-item input {
+    width: auto;
+    margin: 0;
+}
+
+.checked-item {
+    text-decoration: line-through;
+    opacity: 0.55;
+}
+
+body.dark-theme .garden-section-title,
+body.dark-theme .garden-list-card h3,
+body.dark-theme .garden-list-item {
+    color: #D8F3DC;
+}
+
+body.dark-theme .garden-list-card {
+    background: #2D6A4F;
+    border-color: #74C69D;
+}
+
+body.dark-theme .garden-list-card small {
+    color: #B7E4C7;
+}
