@@ -69,15 +69,14 @@ function getOrCreateActiveRanking() {
 }
 
 function saveRankingChallenge(rankingId, answer) {
-    return database
-        .ref(
-            "spaces/" +
-            currentSpaceCode +
-            "/rankingChallenges/" +
-            rankingId +
-            "/answers/" +
-            currentUser.uid
-        )
+    const challengeRef = database.ref(
+        "spaces/" +
+        currentSpaceCode +
+        "/rankingChallenges/" +
+        rankingId
+    );
+
+    return challengeRef.child("answers/" + currentUser.uid)
         .set({
             uid: currentUser.uid,
             pseudo: pseudo,
@@ -85,18 +84,33 @@ function saveRankingChallenge(rankingId, answer) {
             createdAt: Date.now()
         })
         .then(() => {
-            return database
-                .ref(
-                    "spaces/" +
-                    currentSpaceCode +
-                    "/rankingChallenges/" +
-                    rankingId
-                )
-                .update({
-                    rankingId: rankingId,
-                    title: currentRanking.title,
-                    createdAt: Date.now()
-                });
+            return challengeRef.once("value");
+        })
+        .then((snapshot) => {
+            const challengeData = snapshot.val();
+            const answers = challengeData.answers || {};
+            const answersCount = Object.keys(answers).length;
+
+            const updates = {
+                rankingId: rankingId,
+                title: currentRanking.title,
+                updatedAt: Date.now()
+            };
+
+            if (!challengeData.createdAt) {
+                updates.createdAt = Date.now();
+            }
+
+            if (!challengeData.status) {
+                updates.status = "pending";
+            }
+
+            if (answersCount >= 2) {
+                updates.status = "completed";
+                updates.completedAt = Date.now();
+            }
+
+            return challengeRef.update(updates);
         });
 }
 
@@ -108,3 +122,4 @@ function listenToRankingChallenges() {
             displayRankingChallenges(challenges);
         });
 }
+

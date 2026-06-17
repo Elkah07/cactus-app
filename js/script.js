@@ -561,6 +561,20 @@ function showRankingCompatibilityIfReady(rankingId) {
                 return;
             }
 
+            database.ref(
+    "spaces/" +
+    currentSpaceCode +
+    "/rankingChallenges/" +
+    challenge.rankingId
+).update({
+    status: "completed",
+    completedAt: Date.now(),
+    compatibility: calculateRankingCompatibility(
+        myAnswerData.answer,
+        partnerAnswerData.answer
+    )
+});
+
             showRankingCompatibility(
                 challenge,
                 myAnswerData,
@@ -686,6 +700,10 @@ function displayRankingChallenges(challenges) {
     const challengeArray = Object.values(challenges);
 
     pendingRankingChallenges = challengeArray.filter((challenge) => {
+        if (challenge.status === "completed") {
+            return false;
+        }
+
         if (!challenge.answers) {
             return false;
         }
