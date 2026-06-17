@@ -81,11 +81,17 @@ function listenToCurrentSpace(spaceCodeValue) {
             partner = spaceData.player2;
         }
 
-        if (partner) {
-            partnerName.textContent = partner.pseudo || "Partenaire";
-        } else {
-            partnerName.textContent = "En attente...";
-        }
+       if (partner) {
+    partnerName.textContent = partner.pseudo || "Partenaire";
+
+    document.querySelector(".tiny-space-code").innerHTML =
+        "🌵 Espace relié";
+} else {
+    partnerName.textContent = "En attente...";
+
+    document.querySelector(".tiny-space-code").innerHTML =
+        `Code : <span>${currentSpaceCode}</span>`;
+}
 
         listenToRankingChallenges();
     });
