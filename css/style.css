@@ -395,14 +395,22 @@ button:hover,
 }
 
 .tiny-space-code {
-    color: #52796F;
-    font-size: 0.8rem;
-    margin-bottom: 18px;
+    grid-column: 1 / -1;
+
+    text-align: center;
+
+    margin-top: 8px;
+
+    color: #84A98C;
+
+    font-size: 0.72rem;
+
+    letter-spacing: 0.5px;
 }
 
 .tiny-space-code span {
-    font-weight: 800;
-    color: #1B4332;
+    color: #52796F;
+    font-weight: 700;
 }
 
 .mode-notification {
