@@ -31,6 +31,7 @@ const authMessage = document.getElementById("authMessage");
 const logoutBtn = document.getElementById("logoutBtn");
 
 const partnerName = document.getElementById("partnerName");
+const leaveSpaceBtn = document.getElementById("leaveSpaceBtn");
 
 let currentUser = null;
 
@@ -262,6 +263,42 @@ loginBtn.addEventListener("click", () => {
 
 logoutBtn.addEventListener("click", () => {
     auth.signOut();
+});
+
+leaveSpaceBtn.addEventListener("click", () => {
+    if (currentSpaceCode === "") {
+        showScreen("couple");
+        return;
+    }
+
+    database.ref("spaces/" + currentSpaceCode).once("value")
+        .then((snapshot) => {
+            const spaceData = snapshot.val();
+
+            if (!spaceData) {
+                return;
+            }
+
+            if (spaceData.player1 && spaceData.player1.uid === currentUser.uid) {
+                return database.ref("spaces/" + currentSpaceCode + "/player1").remove();
+            }
+
+            if (spaceData.player2 && spaceData.player2.uid === currentUser.uid) {
+                return database.ref("spaces/" + currentSpaceCode + "/player2").remove();
+            }
+        })
+        .then(() => {
+            return database.ref("users/" + currentUser.uid + "/spaceCode").remove();
+        })
+        .then(() => {
+            currentSpaceCode = "";
+            currentSpaceData = null;
+
+            spaceCode.textContent = "CACTUS-0000";
+            partnerName.textContent = "En attente...";
+
+            showScreen("couple");
+        });
 });
 
 // ====================
