@@ -669,16 +669,11 @@ highlightColorPicker.addEventListener("input", () => {
 });
 
 insertCheckboxLineBtn.addEventListener("click", () => {
-    notebookEditor.focus();
-
-   document.execCommand(
-    "insertHTML",
-    false,
-    '<p class="checkbox-line">' +
-        '<span class="fake-checkbox">☐</span> ' +
-        '<span class="checkbox-text"></span>' +
-    '</p><p><br></p>'
-);
+    document.execCommand(
+        "insertHTML",
+        false,
+        '<div class="checkbox-line"><span class="fake-checkbox">☐</span>.<span class="checkbox-text">&nbsp;</span></div>'
+    );
 
     saveNotebookContent();
     keepEditorToolbarOpen();
@@ -687,9 +682,13 @@ insertCheckboxLineBtn.addEventListener("click", () => {
 notebookEditor.addEventListener("click", (event) => {
     if (!event.target.classList.contains("fake-checkbox")) return;
 
+    event.preventDefault();
+
     const checkbox = event.target;
     const line = checkbox.closest(".checkbox-line");
     const text = line.querySelector(".checkbox-text");
+
+    if (!text) return;
 
     if (checkbox.textContent.trim() === "☐") {
         checkbox.textContent = "☑";
@@ -702,36 +701,7 @@ notebookEditor.addEventListener("click", (event) => {
     saveNotebookContent();
 });
 
-notebookEditor.addEventListener("keydown", (event) => {
-    if (event.key !== "Enter") return;
 
-    const selection = window.getSelection();
-
-    if (!selection.rangeCount) return;
-
-    const node = selection.anchorNode;
-
-    const checkboxLine =
-        node?.parentElement?.closest(".checkbox-line");
-
-    if (!checkboxLine) return;
-
-    event.preventDefault();
-
-    const newLine = document.createElement("p");
-    newLine.innerHTML = "<br>";
-
-    checkboxLine.after(newLine);
-
-    const range = document.createRange();
-    range.setStart(newLine, 0);
-    range.collapse(true);
-
-    selection.removeAllRanges();
-    selection.addRange(range);
-
-    saveNotebookContent();
-});
 
 // ====================
 // BARRE FLOTTANTE
