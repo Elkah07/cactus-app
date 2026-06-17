@@ -678,6 +678,25 @@ highlightColorPicker.addEventListener("input", () => {
     saveNotebookContent();
 });
 
+notebookEditor.addEventListener("click", (event) => {
+    if (!event.target.classList.contains("fake-checkbox")) {
+        return;
+    }
+
+    const checkbox = event.target;
+    const text = checkbox.parentElement.querySelector(".checkbox-text");
+
+    if (checkbox.textContent === "☐") {
+        checkbox.textContent = "☑";
+        text.classList.add("checked");
+    } else {
+        checkbox.textContent = "☐";
+        text.classList.remove("checked");
+    }
+
+    saveNotebookContent();
+});
+
 // ====================
 // FONCTIONS
 // ====================
@@ -965,7 +984,7 @@ insertCheckboxLineBtn.addEventListener("click", () => {
     document.execCommand(
         "insertHTML",
         false,
-        '<p><span class="fake-checkbox">☐</span> Nouvelle case</p>'
+        '<p><span class="fake-checkbox">☐</span> <span class="checkbox-text">Nouvelle case</span></p>'
     );
 
     saveNotebookContent();

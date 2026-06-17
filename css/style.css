@@ -1250,3 +1250,23 @@ body.dark-theme .notebook-editor {
 
     cursor: pointer;
 }
+
+.checked-line {
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+
+.checkbox-text.checked {
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+.checkbox-text.checked {
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+
+.fake-checkbox {
+    cursor: pointer;
+    user-select: none;
+    font-weight: bold;
+}
