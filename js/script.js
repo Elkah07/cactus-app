@@ -67,6 +67,15 @@ const historyBtn = document.getElementById("historyBtn");
 const historyList = document.getElementById("historyList");
 const backFromHistoryBtn = document.getElementById("backFromHistoryBtn");
 
+const gardenScreen = document.getElementById("gardenScreen");
+const gardenBtn = document.getElementById("gardenBtn");
+const noteText = document.getElementById("noteText");
+const noteColor = document.getElementById("noteColor");
+const noteFont = document.getElementById("noteFont");
+const saveNoteBtn = document.getElementById("saveNoteBtn");
+const notesList = document.getElementById("notesList");
+const backFromGardenBtn = document.getElementById("backFromGardenBtn");
+
 let currentUser = null;
 
 let pseudo = "";
@@ -495,6 +504,41 @@ backFromHistoryBtn.addEventListener("click", () => {
     showScreen("dashboard");
 });
 
+gardenBtn.addEventListener("click", () => {
+    loadGardenNotes();
+    showScreen("garden");
+});
+
+backFromGardenBtn.addEventListener("click", () => {
+    showScreen("dashboard");
+});
+
+saveNoteBtn.addEventListener("click", () => {
+    const text = noteText.value.trim();
+
+    if (text === "") {
+        alert("Écris une note avant de la planter 🌵");
+        return;
+    }
+
+    const note = {
+        text: text,
+        author: pseudo,
+        uid: currentUser.uid,
+        color: noteColor.value,
+        font: noteFont.value,
+        createdAt: Date.now()
+    };
+
+    database
+        .ref("spaces/" + currentSpaceCode + "/garden/notes")
+        .push(note)
+        .then(() => {
+            noteText.value = "";
+            loadGardenNotes();
+        });
+});
+
 // ====================
 // FONCTIONS
 // ====================
@@ -718,6 +762,45 @@ card.appendChild(score);
                 });
 
             showScreen("history");
+        });
+}
+
+function loadGardenNotes() {
+    notesList.innerHTML = "";
+
+    database
+        .ref("spaces/" + currentSpaceCode + "/garden/notes")
+        .once("value")
+        .then((snapshot) => {
+            const notes = snapshot.val() || {};
+            const notesArray = Object.values(notes);
+
+            if (notesArray.length === 0) {
+                notesList.innerHTML =
+                    '<p class="empty-text">Aucune note plantée pour le moment 🌱</p>';
+                return;
+            }
+
+            notesArray
+                .sort((a, b) => b.createdAt - a.createdAt)
+                .forEach((note) => {
+                    const card = document.createElement("div");
+                    card.classList.add("note-card");
+                    card.classList.add("font-" + note.font);
+
+                    card.style.color = note.color;
+
+                    const text = document.createElement("p");
+                    text.textContent = note.text;
+
+                    const meta = document.createElement("small");
+                    meta.textContent = "Plantée par " + note.author;
+
+                    card.appendChild(text);
+                    card.appendChild(meta);
+
+                    notesList.appendChild(card);
+                });
         });
 }
 

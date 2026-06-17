@@ -8,6 +8,7 @@ function showScreen(screenName) {
     settingsScreen.style.display = "none";
     rankingCompatibilityScreen.style.display = "none";
     historyScreen.style.display = "none";
+    gardenScreen.style.display = "none";
 
     if (screenName === "login") {
         loginScreen.style.display = "block";
@@ -43,6 +44,9 @@ function showScreen(screenName) {
 
     if (screenName === "history") {
     historyScreen.style.display = "block";
+}
+if (screenName === "garden") {
+    gardenScreen.style.display = "block";
 }
 
 

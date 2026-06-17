@@ -20,6 +20,48 @@
 <button id="settingsBtn" class="top-right-btn" title="Réglages">
     ⚙️
 </button>
+<button id="gardenBtn" class="top-center-btn" title="Notre jardin">
+    🪴
+</button>
+
+<!-- ÉCRAN NOTRE JARDIN -->
+<div id="gardenScreen" style="display:none;">
+    <h1>🪴 Notre jardin</h1>
+
+    <p class="subtitle">
+        Votre petit coin pour laisser des mots doux et des idées.
+    </p>
+
+    <textarea
+        id="noteText"
+        placeholder="Écris une petite note..."
+        rows="4"
+    ></textarea>
+
+    <select id="noteColor">
+        <option value="#1B4332">Vert profond</option>
+        <option value="#2D6A4F">Vert cactus</option>
+        <option value="#52796F">Sauge</option>
+        <option value="#D4A373">Beige doux</option>
+        <option value="#D62828">Rouge émotion</option>
+    </select>
+
+    <select id="noteFont">
+        <option value="classic">Classique</option>
+        <option value="soft">Douce</option>
+        <option value="mono">Machine à écrire</option>
+    </select>
+
+    <button id="saveNoteBtn">
+        Planter la note
+    </button>
+
+    <div id="notesList" class="notes-list"></div>
+
+    <button id="backFromGardenBtn" class="secondary">
+        Retour
+    </button>
+</div>
 
 <!-- ÉCRAN HISTORIQUE -->
 <div id="historyScreen" style="display:none;">

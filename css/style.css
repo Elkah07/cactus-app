@@ -745,3 +745,110 @@ body.dark-theme .history-score {
     background: #D8F3DC;
     color: #1B4332;
 }
+
+.top-center-btn {
+    position: absolute;
+    top: 14px;
+    left: 50%;
+
+    width: 38px;
+    height: 38px;
+
+    padding: 0;
+    margin: 0;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.75);
+    color: #1B4332;
+
+    font-size: 1.1rem;
+
+    transform: translateX(-50%);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.top-center-btn:hover {
+    transform: translateX(-50%) scale(1.08);
+}
+
+textarea,
+select {
+    width: 100%;
+
+    padding: 14px;
+    margin-bottom: 12px;
+
+    border: 2px solid #95D5B2;
+    border-radius: 12px;
+
+    font-size: 1rem;
+    outline: none;
+
+    background: white;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.notes-list {
+    margin-top: 12px;
+    margin-bottom: 18px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    max-height: 320px;
+    overflow-y: auto;
+}
+
+.note-card {
+    background: white;
+    border: 2px solid #95D5B2;
+    border-radius: 18px;
+
+    padding: 14px;
+
+    text-align: left;
+
+    box-shadow: 0 8px 18px rgba(27, 67, 50, 0.08);
+}
+
+.note-card p {
+    font-size: 1rem;
+    line-height: 1.4;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.note-card small {
+    color: #52796F;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.font-classic {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.font-soft {
+    font-family: Georgia, serif;
+}
+
+.font-mono {
+    font-family: "Courier New", monospace;
+}
+
+body.dark-theme textarea,
+body.dark-theme select,
+body.dark-theme .note-card {
+    background: #2D6A4F;
+    color: #F8F9FA;
+    border-color: #74C69D;
+}
