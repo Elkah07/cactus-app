@@ -280,13 +280,6 @@ validateRankingBtn.addEventListener("click", () => {
     });
 });
 
-saveRankingChallenge(
-    currentRanking.id,
-    answer
-).then(() => {
-    return showRankingCompatibilityIfReady(currentRanking.id);
-});
-
 nextRankingBtn.addEventListener("click", () => {
     if (isPlayingPendingChallenges) {
         currentPendingChallengeIndex++;
@@ -301,19 +294,19 @@ backDashboardBtn.addEventListener("click", () => {
     showScreen("dashboard");
 });
 
-// nextAfterCompatibilityBtn.addEventListener("click", () => {
-//     if (isPlayingPendingChallenges) {
-//         currentPendingChallengeIndex++;
-//         startPendingRankingChallenge();
-//         return;
-//     }
-//
-//     startRandomRanking();
-// });
-//
-// backDashboardAfterCompatibilityBtn.addEventListener("click", () => {
-//     showScreen("dashboard");
-// });
+nextAfterCompatibilityBtn.addEventListener("click", () => {
+    if (isPlayingPendingChallenges) {
+        currentPendingChallengeIndex++;
+        startPendingRankingChallenge();
+        return;
+    }
+
+    startRandomRanking();
+});
+
+backDashboardAfterCompatibilityBtn.addEventListener("click", () => {
+    showScreen("dashboard");
+});
 
 backDashboardAfterCompatibilityBtn.addEventListener("click", () => {
     showScreen("dashboard");
