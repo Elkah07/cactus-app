@@ -674,7 +674,7 @@ insertCheckboxLineBtn.addEventListener("click", () => {
     document.execCommand(
         "insertHTML",
         false,
-        '<p><span class="fake-checkbox">☐</span> <span class="checkbox-text"></span></p>'
+        '<p class="checkbox-line"><span class="fake-checkbox">☐</span><span class="checkbox-text">&nbsp;</span></p>'
     );
 
     saveNotebookContent();
@@ -682,17 +682,11 @@ insertCheckboxLineBtn.addEventListener("click", () => {
 });
 
 notebookEditor.addEventListener("click", (event) => {
-    if (!event.target.classList.contains("fake-checkbox")) {
-        return;
-    }
+    if (!event.target.classList.contains("fake-checkbox")) return;
 
     const checkbox = event.target;
-    const line = checkbox.closest("p");
+    const line = checkbox.closest(".checkbox-line");
     const text = line.querySelector(".checkbox-text");
-
-    if (!text) {
-        return;
-    }
 
     if (checkbox.textContent.trim() === "☐") {
         checkbox.textContent = "☑";
@@ -765,11 +759,11 @@ if (window.visualViewport) {
     window.visualViewport.addEventListener("scroll", updateEditorToolbarPosition);
 }
 
-document
-    .querySelector(".editor-toolbar")
-    .addEventListener("mousedown", (e) => {
+document.querySelectorAll(".editor-toolbar button").forEach((button) => {
+    button.addEventListener("mousedown", (e) => {
         e.preventDefault();
     });
+});
 
 // ====================
 // FONCTIONS
@@ -1115,9 +1109,9 @@ function restoreCheckboxes() {
 }
 
 function runEditorCommand(command, value = null) {
-    notebookEditor.focus();
     document.execCommand(command, false, value);
     saveNotebookContent();
+    showEditorToolbar();
 }
 
 function keepEditorToolbarOpen() {
