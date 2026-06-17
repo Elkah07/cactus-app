@@ -394,41 +394,22 @@ button:hover,
     background: white;
 }
 
-.challenges-box {
-    background: white;
-    border: 2px solid #95D5B2;
-    border-radius: 18px;
-    padding: 16px;
+.tiny-space-code {
+    color: #52796F;
+    font-size: 0.8rem;
     margin-bottom: 18px;
-    text-align: left;
 }
 
-.challenges-box h3 {
+.tiny-space-code span {
+    font-weight: 800;
     color: #1B4332;
+}
+
+.mode-notification {
+    color: #2D6A4F;
+    font-size: 0.85rem;
+    font-weight: 800;
+    margin-top: -4px;
     margin-bottom: 12px;
 }
 
-.empty-text {
-    color: #52796F;
-    font-size: 0.95rem;
-}
-
-.challenge-card {
-    background: #F8F9FA;
-    border: 2px solid #D8F3DC;
-    border-radius: 14px;
-    padding: 12px;
-    margin-bottom: 10px;
-}
-
-.challenge-card p {
-    color: #1B4332;
-    font-weight: 700;
-    margin-bottom: 10px;
-}
-
-.small-btn {
-    padding: 10px;
-    margin-bottom: 0;
-    font-size: 0.9rem;
-}

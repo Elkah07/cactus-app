@@ -33,7 +33,7 @@ const logoutBtn = document.getElementById("logoutBtn");
 const partnerName = document.getElementById("partnerName");
 const leaveSpaceBtn = document.getElementById("leaveSpaceBtn");
 
-const rankingChallengesList = document.getElementById("rankingChallengesList");
+const rankingNotification = document.getElementById("rankingNotification");
 
 let currentUser = null;
 
@@ -412,8 +412,6 @@ if ("serviceWorker" in navigator) {
 }
 
 function displayRankingChallenges(challenges) {
-    rankingChallengesList.innerHTML = "";
-
     const challengeArray = Object.values(challenges);
 
     const pendingChallenges = challengeArray.filter((challenge) => {
@@ -421,52 +419,23 @@ function displayRankingChallenges(challenges) {
             return false;
         }
 
-        const alreadyAnswered =
-            challenge.answers[currentUser.uid];
+        const alreadyAnswered = challenge.answers[currentUser.uid];
 
-        const answeredBySomeoneElse =
-            Object.keys(challenge.answers).some((uid) => {
-                return uid !== currentUser.uid;
-            });
+        const answeredBySomeoneElse = Object.keys(challenge.answers).some((uid) => {
+            return uid !== currentUser.uid;
+        });
 
         return !alreadyAnswered && answeredBySomeoneElse;
     });
 
     if (pendingChallenges.length === 0) {
-        rankingChallengesList.innerHTML =
-            '<p class="empty-text">Aucun classement en attente.</p>';
+        rankingNotification.textContent = "";
         return;
     }
 
-    pendingChallenges.forEach((challenge) => {
-        const challengeCard = document.createElement("div");
-        challengeCard.classList.add("challenge-card");
-
-        const title = document.createElement("p");
-        title.textContent = challenge.title;
-
-        const button = document.createElement("button");
-        button.textContent = "Répondre";
-        button.classList.add("small-btn");
-
-        button.addEventListener("click", () => {
-            const ranking = rankings.find((item) => {
-                return item.id === challenge.rankingId;
-            });
-
-            if (!ranking) {
-                alert("Classement introuvable 🌵");
-                return;
-            }
-
-            currentRanking = ranking;
-            loadRanking(currentRanking);
-            showScreen("ranking");
-        });
-
-        challengeCard.appendChild(title);
-        challengeCard.appendChild(button);
-
-        rankingChallengesList.appendChild(challengeCard);
-    });
+    if (pendingChallenges.length === 1) {
+        rankingNotification.textContent = "🌵 1 classement t’attend";
+    } else {
+        rankingNotification.textContent = `🌵 ${pendingChallenges.length} classements t’attendent`;
+    }
 }
