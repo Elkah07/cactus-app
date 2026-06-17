@@ -5,6 +5,7 @@ function showScreen(screenName) {
     dashboardScreen.style.display = "none";
     rankingScreen.style.display = "none";
     rankingResultScreen.style.display = "none";
+    settingsScreen.style.display = "none";
 
     if (screenName === "login") {
         loginScreen.style.display = "block";
@@ -29,4 +30,9 @@ function showScreen(screenName) {
     if (screenName === "rankingResult") {
         rankingResultScreen.style.display = "block";
     }
+
+    if (screenName === "settings") {
+    settingsScreen.style.display = "block";
+}
+
 }

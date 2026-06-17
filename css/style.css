@@ -424,3 +424,78 @@ button:hover,
 .mode-notification:hover {
     text-decoration: underline;
 }
+
+.card {
+    position: relative;
+}
+
+.settings-btn {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+
+    width: 38px;
+    height: 38px;
+
+    padding: 0;
+    margin: 0;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.75);
+    color: #1B4332;
+
+    font-size: 1.1rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.settings-btn:hover {
+    transform: rotate(20deg);
+}
+
+body.dark-theme {
+    background: #081C15;
+}
+
+body.dark-theme .card {
+    background: #1B4332;
+}
+
+body.dark-theme h1,
+body.dark-theme .person-box strong,
+body.dark-theme .space-code-box strong,
+body.dark-theme .waiting-box p,
+body.dark-theme .comparison-box h3 {
+    color: #D8F3DC;
+}
+
+body.dark-theme .subtitle,
+body.dark-theme .person-label,
+body.dark-theme .tiny-space-code,
+body.dark-theme .empty-text {
+    color: #B7E4C7;
+}
+
+body.dark-theme input,
+body.dark-theme .couple-card,
+body.dark-theme .person-box,
+body.dark-theme .waiting-box,
+body.dark-theme .comparison-box,
+body.dark-theme .challenges-box {
+    background: #2D6A4F;
+    color: #F8F9FA;
+    border-color: #74C69D;
+}
+
+body.dark-theme button {
+    background: #74C69D;
+    color: #081C15;
+}
+
+body.dark-theme .secondary {
+    background: #40916C;
+    color: white;
+}

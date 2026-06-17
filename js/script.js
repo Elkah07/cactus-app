@@ -37,6 +37,14 @@ const backFromRankingBtn = document.getElementById("backFromRankingBtn");
 const backToLoginBtn = document.getElementById("backToLoginBtn");
 
 const rankingNotification = document.getElementById("rankingNotification");
+const logoutFromCoupleBtn = document.getElementById("logoutFromCoupleBtn");
+
+const settingsScreen = document.getElementById("settingsScreen");
+const settingsBtn = document.getElementById("settingsBtn");
+const newPseudo = document.getElementById("newPseudo");
+const saveNewPseudoBtn = document.getElementById("saveNewPseudoBtn");
+const toggleThemeBtn = document.getElementById("toggleThemeBtn");
+const backFromSettingsBtn = document.getElementById("backFromSettingsBtn");
 
 let currentUser = null;
 
@@ -50,6 +58,7 @@ let draggedItem = null;
 
 let currentSpaceData = null;
 let pendingRankingChallenges = [];
+let previousScreen = "dashboard";
 
 // ====================
 // CHARGEMENT DES DONNÉES
@@ -81,17 +90,15 @@ function listenToCurrentSpace(spaceCodeValue) {
             partner = spaceData.player2;
         }
 
-       if (partner) {
-    partnerName.textContent = partner.pseudo || "Partenaire";
-
-    document.querySelector(".tiny-space-code").innerHTML =
-        "🌵 Espace relié";
-} else {
-    partnerName.textContent = "En attente...";
-
-    document.querySelector(".tiny-space-code").innerHTML =
-        `Code : <span>${currentSpaceCode}</span>`;
-}
+        if (partner) {
+            partnerName.textContent = partner.pseudo || "Partenaire";
+            document.querySelector(".tiny-space-code").innerHTML =
+                "🌵 Espace relié";
+        } else {
+            partnerName.textContent = "En attente...";
+            document.querySelector(".tiny-space-code").innerHTML =
+                `Code : <span>${spaceCodeValue}</span>`;
+        }
 
         listenToRankingChallenges();
     });
@@ -310,6 +317,10 @@ logoutBtn.addEventListener("click", () => {
     auth.signOut();
 });
 
+logoutFromCoupleBtn.addEventListener("click", () => {
+    auth.signOut();
+});
+
 leaveSpaceBtn.addEventListener("click", () => {
     console.log("Bouton quitter espace cliqué");
 
@@ -386,6 +397,61 @@ backToLoginBtn.addEventListener("click", () => {
     showScreen("login");
 });
 
+settingsBtn.addEventListener("click", () => {
+    previousScreen = "dashboard";
+    showScreen("settings");
+});
+
+backFromSettingsBtn.addEventListener("click", () => {
+    showScreen(previousScreen);
+});
+
+saveNewPseudoBtn.addEventListener("click", () => {
+    const updatedPseudo = newPseudo.value.trim();
+
+    if (updatedPseudo === "") {
+        alert("Entre un pseudo 🌵");
+        return;
+    }
+
+    pseudo = updatedPseudo;
+    displayPseudo.textContent = pseudo;
+
+    database.ref("users/" + currentUser.uid).update({
+        pseudo: pseudo
+    });
+
+    if (currentSpaceCode !== "") {
+        database.ref("spaces/" + currentSpaceCode).once("value")
+            .then((snapshot) => {
+                const spaceData = snapshot.val();
+
+                if (!spaceData) {
+                    return;
+                }
+
+                if (spaceData.player1 && spaceData.player1.uid === currentUser.uid) {
+                    return database.ref("spaces/" + currentSpaceCode + "/player1/pseudo").set(pseudo);
+                }
+
+                if (spaceData.player2 && spaceData.player2.uid === currentUser.uid) {
+                    return database.ref("spaces/" + currentSpaceCode + "/player2/pseudo").set(pseudo);
+                }
+            });
+    }
+
+    newPseudo.value = "";
+    alert("Pseudo modifié 🌵");
+});
+
+toggleThemeBtn.addEventListener("click", () => {
+    document.body.classList.toggle("dark-theme");
+
+    const isDark = document.body.classList.contains("dark-theme");
+
+    localStorage.setItem("theme", isDark ? "dark" : "light");
+});
+
 // ====================
 // FONCTIONS
 // ====================
@@ -447,6 +513,10 @@ auth.onAuthStateChanged((user) => {
 });
 
 loadRankingsData();
+
+if (localStorage.getItem("theme") === "dark") {
+    document.body.classList.add("dark-theme");
+}
 
 if ("serviceWorker" in navigator) {
     navigator.serviceWorker.register("service-worker.js");

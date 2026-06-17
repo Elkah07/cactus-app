@@ -13,6 +13,10 @@
     <div class="container">
         <div class="card">
 
+            <button id="settingsBtn" class="settings-btn" title="Réglages">
+    ⚙️
+</button>
+
             <!-- ÉCRAN ACCUEIL -->
             <div id="loginScreen">
     <h1>🌵 Cactus</h1>
@@ -67,9 +71,9 @@
                  Retour
                 </button>
 
-                <button id="logoutBtn" class="secondary">
-                Se déconnecter
-                </button>
+                <button id="logoutFromCoupleBtn" class="secondary">
+    Se déconnecter
+</button>
             </div>
 
             <!-- ÉCRAN DASHBOARD -->
@@ -98,7 +102,7 @@
         <p class="tiny-space-code">
              Code espace : <span id="spaceCode">CACTUS-0000</span>
             </p>
-            
+
     </div>
 
     
@@ -162,6 +166,33 @@
                     Retour au dashboard
                 </button>
             </div>
+
+            <!-- ÉCRAN RÉGLAGES -->
+<div id="settingsScreen" style="display:none;">
+    <h1>⚙️ Réglages</h1>
+
+    <p class="subtitle">
+        Personnalise ton coin Cactus.
+    </p>
+
+    <input
+        type="text"
+        id="newPseudo"
+        placeholder="Nouveau pseudo"
+    >
+
+    <button id="saveNewPseudoBtn">
+        Modifier mon pseudo
+    </button>
+
+    <button id="toggleThemeBtn" class="secondary">
+        Changer de thème
+    </button>
+
+    <button id="backFromSettingsBtn" class="secondary">
+        Retour
+    </button>
+</div>
 
         </div>
     </div>
