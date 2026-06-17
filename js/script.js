@@ -973,46 +973,88 @@ function renderNotebookBlock(blockId, block) {
     if (block.type === "subtitle") {
         const subtitle = document.createElement("h2");
         subtitle.textContent = block.text;
-subtitle.contentEditable = "true";
-subtitle.classList.add("editable-block");
+        subtitle.contentEditable = "true";
+        subtitle.classList.add("editable-block");
 
-subtitle.addEventListener("blur", () => {
-    saveNotebookBlockText(blockId, subtitle.textContent);
-});
+        subtitle.addEventListener("blur", () => {
+            saveNotebookBlockText(blockId, subtitle.textContent);
+        });
+
         content.appendChild(subtitle);
     }
 
     if (block.type === "text") {
         const text = document.createElement("p");
         text.textContent = block.text;
-text.contentEditable = "true";
-text.classList.add("editable-block");
+        text.contentEditable = "true";
+        text.classList.add("editable-block");
 
-text.addEventListener("blur", () => {
-    saveNotebookBlockText(blockId, text.textContent);
-});
+        text.addEventListener("blur", () => {
+            saveNotebookBlockText(blockId, text.textContent);
+        });
 
         content.appendChild(text);
     }
 
     if (block.type === "checkbox") {
-    const row = document.createElement("div");
-    row.classList.add("notebook-checkbox");
+        const row = document.createElement("div");
+        row.classList.add("notebook-checkbox");
 
-    const checkbox = document.createElement("input");
-    checkbox.type = "checkbox";
-    checkbox.checked = block.checked === true;
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.checked = block.checked === true;
 
-    const span = document.createElement("span");
-    span.textContent = block.text;
-    span.contentEditable = "true";
-    span.classList.add("editable-block");
+        const span = document.createElement("span");
+        span.textContent = block.text;
+        span.contentEditable = "true";
+        span.classList.add("editable-block");
 
-    if (block.checked) {
-        span.classList.add("checked-item");
+        if (block.checked) {
+            span.classList.add("checked-item");
+        }
+
+        checkbox.addEventListener("change", () => {
+            database
+                .ref(
+                    "spaces/" +
+                    currentSpaceCode +
+                    "/garden/notebooks/" +
+                    currentNotebookId +
+                    "/blocks/" +
+                    blockId +
+                    "/checked"
+                )
+                .set(checkbox.checked)
+                .then(() => {
+                    loadNotebookBlocks();
+                });
+        });
+
+        span.addEventListener("blur", () => {
+            saveNotebookBlockText(blockId, span.textContent);
+        });
+
+        row.appendChild(checkbox);
+        row.appendChild(span);
+
+        content.appendChild(row);
     }
 
-    checkbox.addEventListener("change", () => {
+    const actions = document.createElement("div");
+    actions.classList.add("notebook-block-actions");
+
+    const deleteBtn = document.createElement("button");
+    deleteBtn.type = "button";
+    deleteBtn.classList.add("delete-block-btn");
+    deleteBtn.textContent = "×";
+
+    deleteBtn.addEventListener("click", () => {
+        const confirmDelete = confirm("Supprimer cette ligne ?");
+
+        if (!confirmDelete) {
+            return;
+        }
+
         database
             .ref(
                 "spaces/" +
@@ -1020,23 +1062,20 @@ text.addEventListener("blur", () => {
                 "/garden/notebooks/" +
                 currentNotebookId +
                 "/blocks/" +
-                blockId +
-                "/checked"
+                blockId
             )
-            .set(checkbox.checked)
+            .remove()
             .then(() => {
                 loadNotebookBlocks();
             });
     });
 
-    span.addEventListener("blur", () => {
-        saveNotebookBlockText(blockId, span.textContent);
-    });
+    actions.appendChild(deleteBtn);
 
-    row.appendChild(checkbox);
-    row.appendChild(span);
+    blockElement.appendChild(content);
+    blockElement.appendChild(actions);
 
-    content.appendChild(row);
+    notebookBlocks.appendChild(blockElement);
 }
 
 span.addEventListener("blur", () => {
