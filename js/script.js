@@ -80,6 +80,14 @@ const listTitle = document.getElementById("listTitle");
 const createListBtn = document.getElementById("createListBtn");
 const listsContainer = document.getElementById("listsContainer");
 
+const showCreateNotebookBtn = document.getElementById("showCreateNotebookBtn");
+const createNotebookBox = document.getElementById("createNotebookBox");
+const notebookEmoji = document.getElementById("notebookEmoji");
+const notebookTitle = document.getElementById("notebookTitle");
+const notebookColor = document.getElementById("notebookColor");
+const createNotebookBtn = document.getElementById("createNotebookBtn");
+const notebooksGrid = document.getElementById("notebooksGrid");
+
 let currentUser = null;
 
 let pseudo = "";
@@ -509,9 +517,8 @@ backFromHistoryBtn.addEventListener("click", () => {
 });
 
 gardenBtn.addEventListener("click", () => {
-    loadGardenNotes();
-loadGardenLists();
-showScreen("garden");
+    loadNotebooks();
+    showScreen("garden");
 });
 
 backFromGardenBtn.addEventListener("click", () => {
@@ -562,6 +569,40 @@ createListBtn.addEventListener("click", () => {
         .then(() => {
             listTitle.value = "";
             loadGardenLists();
+        });
+});
+
+showCreateNotebookBtn.addEventListener("click", () => {
+    if (createNotebookBox.style.display === "none") {
+        createNotebookBox.style.display = "block";
+    } else {
+        createNotebookBox.style.display = "none";
+    }
+});
+
+createNotebookBtn.addEventListener("click", () => {
+    const emoji = notebookEmoji.value.trim() || "📝";
+    const title = notebookTitle.value.trim();
+
+    if (title === "") {
+        alert("Donne un titre à ton carnet 🌵");
+        return;
+    }
+
+    database
+        .ref("spaces/" + currentSpaceCode + "/garden/notebooks")
+        .push({
+            emoji: emoji,
+            title: title,
+            color: notebookColor.value,
+            createdBy: pseudo,
+            createdAt: Date.now()
+        })
+        .then(() => {
+            notebookEmoji.value = "";
+            notebookTitle.value = "";
+            createNotebookBox.style.display = "none";
+            loadNotebooks();
         });
 });
 
@@ -947,6 +988,48 @@ function renderGardenList(listId, list) {
     listCard.appendChild(addItemBtn);
 
     listsContainer.appendChild(listCard);
+}
+
+function loadNotebooks() {
+    notebooksGrid.innerHTML = "";
+
+    database
+        .ref("spaces/" + currentSpaceCode + "/garden/notebooks")
+        .once("value")
+        .then((snapshot) => {
+            const notebooks = snapshot.val() || {};
+            const notebooksArray = Object.entries(notebooks);
+
+            if (notebooksArray.length === 0) {
+                notebooksGrid.innerHTML =
+                    '<p class="empty-text">Aucun carnet pour le moment 🪴</p>';
+                return;
+            }
+
+            notebooksArray
+                .sort((a, b) => b[1].createdAt - a[1].createdAt)
+                .forEach(([notebookId, notebook]) => {
+                    const card = document.createElement("div");
+                    card.classList.add("notebook-card");
+                    card.style.background = notebook.color || "#D8F3DC";
+
+                    const emoji = document.createElement("div");
+                    emoji.classList.add("notebook-emoji");
+                    emoji.textContent = notebook.emoji || "📝";
+
+                    const title = document.createElement("h3");
+                    title.textContent = notebook.title;
+
+                    const meta = document.createElement("small");
+                    meta.textContent = "Par " + (notebook.createdBy || "Cactus");
+
+                    card.appendChild(emoji);
+                    card.appendChild(title);
+                    card.appendChild(meta);
+
+                    notebooksGrid.appendChild(card);
+                });
+        });
 }
 
 // ====================

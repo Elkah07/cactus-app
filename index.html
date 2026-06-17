@@ -24,55 +24,45 @@
     🪴
 </button>
 
-<!-- ÉCRAN NOTRE JARDIN -->
+<<!-- ÉCRAN NOTRE JARDIN -->
 <div id="gardenScreen" style="display:none;">
-    <h1>🪴 Notre jardin</h1>
+    <h1>🪴 Tous nos carnets</h1>
 
     <p class="subtitle">
-        Votre petit coin pour laisser des mots doux et des idées.
+        Vos notes, listes et idées à deux.
     </p>
 
-    <textarea
-        id="noteText"
-        placeholder="Écris une petite note..."
-        rows="4"
-    ></textarea>
-
-    <select id="noteColor">
-        <option value="#1B4332">Vert profond</option>
-        <option value="#2D6A4F">Vert cactus</option>
-        <option value="#52796F">Sauge</option>
-        <option value="#D4A373">Beige doux</option>
-        <option value="#D62828">Rouge émotion</option>
-    </select>
-
-    <select id="noteFont">
-        <option value="classic">Classique</option>
-        <option value="soft">Douce</option>
-        <option value="mono">Machine à écrire</option>
-    </select>
-
-    <button id="saveNoteBtn">
-        Planter la note
+    <button id="showCreateNotebookBtn">
+        + Nouveau carnet
     </button>
 
-    <div id="notesList" class="notes-list"></div>
+    <div id="createNotebookBox" class="create-notebook-box" style="display:none;">
+        <input
+            type="text"
+            id="notebookEmoji"
+            placeholder="Emoji du carnet ex : 👶"
+        >
 
-    <hr class="garden-separator">
+        <input
+            type="text"
+            id="notebookTitle"
+            placeholder="Titre du carnet"
+        >
 
-<h2 class="garden-section-title">📋 Listes communes</h2>
+        <select id="notebookColor">
+            <option value="#D8F3DC">Vert doux</option>
+            <option value="#FFF3B0">Jaune doux</option>
+            <option value="#FFD6E0">Rose doux</option>
+            <option value="#D7E3FC">Bleu doux</option>
+            <option value="#E9D8FD">Violet doux</option>
+        </select>
 
-<input
-    type="text"
-    id="listTitle"
-    placeholder="Titre de la liste"
->
+        <button id="createNotebookBtn">
+            Créer le carnet
+        </button>
+    </div>
 
-<button id="createListBtn">
-    Créer la liste
-</button>
-
-<div id="listsContainer" class="lists-container"></div>
+    <div id="notebooksGrid" class="notebooks-grid"></div>
 
     <button id="backFromGardenBtn" class="secondary">
         Retour

@@ -996,3 +996,58 @@ body.dark-theme .garden-list-card {
 body.dark-theme .garden-list-card small {
     color: #B7E4C7;
 }
+
+.create-notebook-box {
+    background: white;
+    border: 2px solid #95D5B2;
+    border-radius: 18px;
+    padding: 14px;
+    margin-bottom: 18px;
+}
+
+.notebooks-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin: 18px 0;
+}
+
+.notebook-card {
+    min-height: 150px;
+    border-radius: 22px;
+    padding: 16px;
+    text-align: left;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    box-shadow: 0 10px 22px rgba(27, 67, 50, 0.12);
+    cursor: pointer;
+}
+
+.notebook-emoji {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.notebook-card h3 {
+    color: #1B4332;
+    font-size: 1rem;
+    line-height: 1.25;
+    margin-bottom: 10px;
+}
+
+.notebook-card small {
+    color: #52796F;
+    font-weight: 800;
+}
+
+body.dark-theme .create-notebook-box {
+    background: #2D6A4F;
+    border-color: #74C69D;
+}
+
+body.dark-theme .notebook-card h3 {
+    color: #1B4332;
+}
