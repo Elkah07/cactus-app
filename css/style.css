@@ -602,3 +602,15 @@ body.dark-theme .secondary {
     color: #52796F;
     font-style: italic;
 }
+
+.compatibility-insight {
+    margin-top: 10px;
+    padding: 12px;
+
+    background: #F8F9FA;
+    border-radius: 14px;
+
+    color: #1B4332;
+    font-weight: 800;
+    line-height: 1.4;
+}

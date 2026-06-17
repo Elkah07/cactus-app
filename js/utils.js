@@ -122,3 +122,15 @@ function generateCompatibilityDescription(score) {
 
     return "Vous avez des visions très différentes, et c'est parfois ce qui fait la richesse d'un couple.";
 }
+
+function generateRankingInsight(analysis) {
+    if (analysis.perfectMatches.length > 0) {
+        return `✨ Vous êtes parfaitement d'accord sur : ${analysis.perfectMatches[0]}`;
+    }
+
+    if (analysis.biggestGaps.length > 0) {
+        return `🔥 Votre plus grand écart concerne : ${analysis.biggestGaps[0].item}`;
+    }
+
+    return "🌵 Vos classements racontent une jolie dynamique.";
+}

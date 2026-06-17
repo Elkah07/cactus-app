@@ -58,6 +58,9 @@ const nextAfterCompatibilityBtn = document.getElementById("nextAfterCompatibilit
 const backDashboardAfterCompatibilityBtn = document.getElementById("backDashboardAfterCompatibilityBtn");
 
 const rankingCompatibilityDescription = document.getElementById("rankingCompatibilityDescription");
+const myRankingName = document.getElementById("myRankingName");
+const partnerRankingName = document.getElementById("partnerRankingName");
+const rankingCompatibilityInsight = document.getElementById("rankingCompatibilityInsight");
 
 let currentUser = null;
 
@@ -590,10 +593,14 @@ function showRankingCompatibility(challenge, myAnswerData, partnerAnswerData) {
     const score = calculateRankingCompatibility(myAnswer, partnerAnswer);
     const label = getCompatibilityLabel(score);
     const analysis = analyzeRankingDifferences(myAnswer, partnerAnswer);
+    rankingCompatibilityInsight.textContent =
+    generateRankingInsight(analysis);
 
     rankingCompatibilityTitle.textContent = challenge.title;
     rankingCompatibilityScore.textContent = score + "%";
     rankingCompatibilityLabel.textContent = label;
+    myRankingName.textContent = pseudo || "Toi";
+partnerRankingName.textContent = partnerAnswerData.pseudo || "Partenaire";
 
     rankingCompatibilityScore.className = "";
     rankingCompatibilityDescription.textContent =
@@ -723,11 +730,15 @@ function displayRankingChallenges(challenges) {
         return;
     }
 
-    if (pendingRankingChallenges.length === 1) {
-        rankingNotification.textContent = "🌵 1 classement t’attend";
-    } else {
-        rankingNotification.textContent = `🌵 ${pendingRankingChallenges.length} classements t’attendent`;
-    }
+    const firstChallenge = pendingRankingChallenges[0];
+const firstAnswer = Object.values(firstChallenge.answers)[0];
+const senderName = firstAnswer.pseudo || "Ton/ta partenaire";
+
+if (pendingRankingChallenges.length === 1) {
+    rankingNotification.textContent = `💚 ${senderName} t’a envoyé un classement`;
+} else {
+    rankingNotification.textContent = `💚 ${senderName} t’a envoyé ${pendingRankingChallenges.length} classements`;
+}
 
     rankingNotification.style.cursor = "pointer";
 }
