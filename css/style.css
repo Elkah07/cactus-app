@@ -1287,3 +1287,15 @@ body.dark-theme .notebook-editor {
 
     border-radius: 18px;
 }
+
+.editor-toolbar {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+
+    background: transparent;
+    padding: 8px 0;
+    margin-bottom: 12px;
+
+    position: static;
+}
