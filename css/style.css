@@ -1268,30 +1268,26 @@ body.dark-theme .notebook-editor {
 }
 
 .editor-toolbar {
-    position: sticky;
-    top: 0;
-    z-index: 50;
+    position: fixed;
+    left: 50%;
+    bottom: 12px;
+    transform: translateX(-50%);
 
-    display: flex;
+    width: calc(100% - 32px);
+    max-width: 520px;
+
+    display: none;
     gap: 8px;
     align-items: center;
-    overflow-x: auto;
+    justify-content: center;
+
+    padding: 10px;
+    border-radius: 18px;
 
     background: #1B4332;
-    padding: 10px;
-    margin-bottom: 12px;
-
-    border-radius: 18px;
+    z-index: 9999;
 }
 
-.editor-toolbar {
+.editor-toolbar.visible {
     display: flex;
-    gap: 8px;
-    overflow-x: auto;
-
-    background: transparent;
-    padding: 8px 0;
-    margin-bottom: 12px;
-
-    position: static;
 }

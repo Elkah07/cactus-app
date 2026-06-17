@@ -688,6 +688,56 @@ notebookEditor.addEventListener("click", (event) => {
 });
 
 // ====================
+// BARRE FLOTTANTE
+// ====================
+
+notebookEditor.addEventListener("focus", () => {
+    showEditorToolbar();
+});
+
+notebookEditor.addEventListener("blur", () => {
+    setTimeout(() => {
+        if (!document.activeElement.closest(".editor-toolbar")) {
+            hideEditorToolbar();
+        }
+    }, 200);
+});
+
+function showEditorToolbar() {
+    const toolbar = document.querySelector(".editor-toolbar");
+    toolbar.classList.add("visible");
+    updateEditorToolbarPosition();
+}
+
+function hideEditorToolbar() {
+    const toolbar = document.querySelector(".editor-toolbar");
+    toolbar.classList.remove("visible");
+}
+
+function updateEditorToolbarPosition() {
+    const toolbar = document.querySelector(".editor-toolbar");
+
+    if (!toolbar.classList.contains("visible")) {
+        return;
+    }
+
+    if (window.visualViewport) {
+        const keyboardHeight =
+            window.innerHeight -
+            window.visualViewport.height -
+            window.visualViewport.offsetTop;
+
+        toolbar.style.bottom =
+            Math.max(keyboardHeight + 8, 12) + "px";
+    }
+}
+
+if (window.visualViewport) {
+    window.visualViewport.addEventListener("resize", updateEditorToolbarPosition);
+    window.visualViewport.addEventListener("scroll", updateEditorToolbarPosition);
+}
+
+// ====================
 // FONCTIONS
 // ====================
 
