@@ -673,3 +673,75 @@ body.dark-theme .secondary {
 .card {
     position: relative;
 }
+
+#historyList {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    max-height: 420px;
+    overflow-y: auto;
+
+    padding-right: 4px;
+    margin-bottom: 18px;
+}
+
+.history-card {
+    background: rgba(255, 255, 255, 0.9);
+
+    border: 2px solid #95D5B2;
+    border-radius: 18px;
+
+    padding: 14px;
+
+    text-align: left;
+
+    box-shadow: 0 8px 18px rgba(27, 67, 50, 0.08);
+}
+
+.history-card h3 {
+    color: #1B4332;
+
+    font-size: 0.95rem;
+    line-height: 1.35;
+
+    margin-bottom: 10px;
+}
+
+.history-card p {
+    color: #52796F;
+
+    font-size: 0.9rem;
+    font-weight: 800;
+}
+
+.history-score {
+    display: inline-block;
+
+    background: #D8F3DC;
+    color: #1B4332;
+
+    padding: 6px 10px;
+    border-radius: 999px;
+
+    font-size: 0.85rem;
+    font-weight: 900;
+}
+
+body.dark-theme .history-card {
+    background: #2D6A4F;
+    border-color: #74C69D;
+}
+
+body.dark-theme .history-card h3 {
+    color: #F8F9FA;
+}
+
+body.dark-theme .history-card p {
+    color: #D8F3DC;
+}
+
+body.dark-theme .history-score {
+    background: #D8F3DC;
+    color: #1B4332;
+}

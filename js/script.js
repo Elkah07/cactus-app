@@ -702,11 +702,12 @@ function loadHistory() {
                     const title = document.createElement("h3");
                     title.textContent = "🌵 " + challenge.title;
 
-                    const score = document.createElement("p");
-                    score.textContent = "Compatibilité : " + challenge.compatibility + "%";
+                    const score = document.createElement("span");
+score.classList.add("history-score");
+score.textContent = "Compatibilité : " + challenge.compatibility + "%";
 
-                    card.appendChild(title);
-                    card.appendChild(score);
+card.appendChild(title);
+card.appendChild(score);
 
                     historyList.appendChild(card);
                 });
