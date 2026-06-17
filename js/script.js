@@ -703,6 +703,36 @@ notebookEditor.addEventListener("click", (event) => {
     saveNotebookContent();
 });
 
+notebookEditor.addEventListener("keydown", (event) => {
+    if (event.key !== "Enter") {
+        return;
+    }
+
+    const selection = window.getSelection();
+
+    if (!selection.rangeCount) {
+        return;
+    }
+
+    const node = selection.anchorNode;
+    const checkboxLine =
+        node?.parentElement?.closest(".checkbox-line");
+
+    if (!checkboxLine) {
+        return;
+    }
+
+    event.preventDefault();
+
+    document.execCommand(
+        "insertHTML",
+        false,
+        "<div><br></div>"
+    );
+
+    saveNotebookContent();
+});
+
 
 // ====================
 // BARRE FLOTTANTE
