@@ -1272,23 +1272,18 @@ body.dark-theme .notebook-editor {
 }
 
 .editor-toolbar {
-    position: fixed;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-
-    width: 90%;
+    position: sticky;
+    top: 0;
+    z-index: 50;
 
     display: flex;
     gap: 8px;
-
+    align-items: center;
     overflow-x: auto;
 
-    background: #1f4d38;
-
+    background: #1B4332;
     padding: 10px;
+    margin-bottom: 12px;
 
-    border-radius: 25px;
-
-    z-index: 9999;
+    border-radius: 18px;
 }

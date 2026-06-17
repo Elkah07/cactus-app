@@ -644,38 +644,23 @@ deleteNotebookBtn.addEventListener("click", () => {
 });
 
 boldBtn.addEventListener("click", () => {
-    document.execCommand("bold");
-    saveNotebookContent();
+    runEditorCommand("bold");
 });
 
 italicBtn.addEventListener("click", () => {
-    document.execCommand("italic");
-    saveNotebookContent();
+    runEditorCommand("italic");
 });
 
 underlineBtn.addEventListener("click", () => {
-    document.execCommand("underline");
-    saveNotebookContent();
+    runEditorCommand("underline");
 });
 
 textColorPicker.addEventListener("input", () => {
-    document.execCommand(
-        "foreColor",
-        false,
-        textColorPicker.value
-    );
-
-    saveNotebookContent();
+    runEditorCommand("foreColor", textColorPicker.value);
 });
 
 highlightColorPicker.addEventListener("input", () => {
-    document.execCommand(
-        "hiliteColor",
-        false,
-        highlightColorPicker.value
-    );
-
-    saveNotebookContent();
+    runEditorCommand("hiliteColor", highlightColorPicker.value);
 });
 
 notebookEditor.addEventListener("click", (event) => {
@@ -981,6 +966,8 @@ function openNotebook(notebookId, notebook) {
 }
 
 insertCheckboxLineBtn.addEventListener("click", () => {
+    notebookEditor.focus();
+
     document.execCommand(
         "insertHTML",
         false,
@@ -1048,6 +1035,12 @@ function restoreCheckboxes() {
                 text.classList.remove("checked");
             }
         });
+}
+
+function runEditorCommand(command, value = null) {
+    notebookEditor.focus();
+    document.execCommand(command, false, value);
+    saveNotebookContent();
 }
 
 // ====================
