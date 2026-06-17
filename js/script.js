@@ -193,6 +193,7 @@ savePseudoBtn.addEventListener("click", () => {
 
 createSpaceBtn.addEventListener("click", () => {
     currentSpaceCode = generateSpaceCode();
+    localStorage.setItem("currentSpaceCode", currentSpaceCode);
 
     database.ref("spaces/" + currentSpaceCode).set({
         code: currentSpaceCode,
@@ -246,6 +247,7 @@ joinSpaceBtn.addEventListener("click", () => {
                     spaceCode: joinCode
                 }).then(() => {
                     currentSpaceCode = joinCode;
+                    localStorage.setItem("currentSpaceCode", currentSpaceCode);
                     spaceCode.textContent = currentSpaceCode;
                     displayPseudo.textContent = pseudo;
 
@@ -373,9 +375,9 @@ loginBtn.addEventListener("click", () => {
 
     auth.signInWithEmailAndPassword(email, password)
         .then((userCredential) => {
-            currentUser = userCredential.user;
-            showScreen("couple");
-        })
+    currentUser = userCredential.user;
+    console.log("Connecté :", currentUser.uid);
+})
         .catch((error) => {
             authMessage.textContent = error.message;
         });

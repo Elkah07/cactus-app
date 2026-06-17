@@ -13,6 +13,12 @@ firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 const database = firebase.database();
 
-auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL);
+auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL)
+    .then(() => {
+        console.log("Connexion persistante activée");
+    })
+    .catch((error) => {
+        console.error("Erreur persistence :", error);
+    });
 
 console.log("🔥 Firebase connecté !");
