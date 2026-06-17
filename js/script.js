@@ -1046,8 +1046,6 @@ function openNotebook(notebookId, notebook) {
     showScreen("notebook");
 }
 
-    saveNotebookContent();
-
 notebookEditor.addEventListener("input", () => {
     clearTimeout(saveNotebookTimeout);
 
