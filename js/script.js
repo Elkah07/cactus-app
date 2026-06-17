@@ -645,22 +645,40 @@ deleteNotebookBtn.addEventListener("click", () => {
 
 boldBtn.addEventListener("click", () => {
     runEditorCommand("bold");
+    keepEditorToolbarOpen();
 });
 
 italicBtn.addEventListener("click", () => {
     runEditorCommand("italic");
+    keepEditorToolbarOpen();
 });
 
 underlineBtn.addEventListener("click", () => {
     runEditorCommand("underline");
+    keepEditorToolbarOpen();
 });
 
 textColorPicker.addEventListener("input", () => {
     runEditorCommand("foreColor", textColorPicker.value);
+    keepEditorToolbarOpen();
 });
 
 highlightColorPicker.addEventListener("input", () => {
     runEditorCommand("hiliteColor", highlightColorPicker.value);
+    keepEditorToolbarOpen();
+});
+
+insertCheckboxLineBtn.addEventListener("click", () => {
+    notebookEditor.focus();
+
+    document.execCommand(
+        "insertHTML",
+        false,
+        '<p><span class="fake-checkbox">☐</span> <span class="checkbox-text"></span></p>'
+    );
+
+    saveNotebookContent();
+    keepEditorToolbarOpen();
 });
 
 notebookEditor.addEventListener("click", (event) => {
@@ -697,10 +715,19 @@ notebookEditor.addEventListener("focus", () => {
 
 notebookEditor.addEventListener("blur", () => {
     setTimeout(() => {
-        if (!document.activeElement.closest(".editor-toolbar")) {
-            hideEditorToolbar();
+        const activeElement = document.activeElement;
+
+        if (
+            activeElement &&
+            activeElement.closest &&
+            activeElement.closest(".editor-toolbar")
+        ) {
+            showEditorToolbar();
+            return;
         }
-    }, 200);
+
+        hideEditorToolbar();
+    }, 300);
 });
 
 function showEditorToolbar() {
@@ -1096,6 +1123,13 @@ function runEditorCommand(command, value = null) {
     notebookEditor.focus();
     document.execCommand(command, false, value);
     saveNotebookContent();
+}
+
+function keepEditorToolbarOpen() {
+    setTimeout(() => {
+        notebookEditor.focus();
+        showEditorToolbar();
+    }, 50);
 }
 
 // ====================
