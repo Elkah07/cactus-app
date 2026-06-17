@@ -67,3 +67,44 @@ function getOrCreateActiveRanking() {
                 });
         });
 }
+
+function saveRankingChallenge(rankingId, answer) {
+    return database
+        .ref(
+            "spaces/" +
+            currentSpaceCode +
+            "/rankingChallenges/" +
+            rankingId +
+            "/answers/" +
+            currentUser.uid
+        )
+        .set({
+            uid: currentUser.uid,
+            pseudo: pseudo,
+            answer: answer,
+            createdAt: Date.now()
+        })
+        .then(() => {
+            return database
+                .ref(
+                    "spaces/" +
+                    currentSpaceCode +
+                    "/rankingChallenges/" +
+                    rankingId
+                )
+                .update({
+                    rankingId: rankingId,
+                    title: currentRanking.title,
+                    createdAt: Date.now()
+                });
+        });
+}
+
+function listenToRankingChallenges() {
+    database
+        .ref("spaces/" + currentSpaceCode + "/rankingChallenges")
+        .on("value", (snapshot) => {
+            const challenges = snapshot.val() || {};
+            displayRankingChallenges(challenges);
+        });
+}
