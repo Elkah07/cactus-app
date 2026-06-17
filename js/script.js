@@ -1025,6 +1025,28 @@ function loadNotebookContent() {
 
             notebookEditor.innerHTML =
                 content || "<p>Écris ici...</p>";
+
+            restoreCheckboxes();
+        });
+}
+
+function restoreCheckboxes() {
+    document
+        .querySelectorAll(".fake-checkbox")
+        .forEach((checkbox) => {
+
+            const text =
+                checkbox.parentElement.querySelector(
+                    ".checkbox-text"
+                );
+
+            if (!text) return;
+
+            if (checkbox.textContent === "☑") {
+                text.classList.add("checked");
+            } else {
+                text.classList.remove("checked");
+            }
         });
 }
 

@@ -1270,3 +1270,25 @@ body.dark-theme .notebook-editor {
     user-select: none;
     font-weight: bold;
 }
+
+.editor-toolbar {
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 90%;
+
+    display: flex;
+    gap: 8px;
+
+    overflow-x: auto;
+
+    background: #1f4d38;
+
+    padding: 10px;
+
+    border-radius: 25px;
+
+    z-index: 9999;
+}
