@@ -888,13 +888,16 @@ body.dark-theme .note-card {
     left: 18px !important;
 }
 
+.top-left-btn {
+    left: 18px;
+}
+
 .top-center-btn {
-    left: 50% !important;
-    transform: translateX(-50%) !important;
+    left: 70px;
 }
 
 .top-right-btn {
-    right: 18px !important;
+    right: 18px;
 }
 
 .top-left-btn:hover,
