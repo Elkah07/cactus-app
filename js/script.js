@@ -973,21 +973,24 @@ function renderNotebookBlock(blockId, block) {
     if (block.type === "subtitle") {
         const subtitle = document.createElement("h2");
         subtitle.textContent = block.text;
-        subtitle.title = "Clique pour modifier";
-        subtitle.addEventListener("click", () => {
-            editNotebookBlock(blockId, block);
-        });
+subtitle.contentEditable = "true";
+subtitle.classList.add("editable-block");
 
+subtitle.addEventListener("blur", () => {
+    saveNotebookBlockText(blockId, subtitle.textContent);
+});
         content.appendChild(subtitle);
     }
 
     if (block.type === "text") {
         const text = document.createElement("p");
         text.textContent = block.text;
-        text.title = "Clique pour modifier";
-        text.addEventListener("click", () => {
-            editNotebookBlock(blockId, block);
-        });
+text.contentEditable = "true";
+text.classList.add("editable-block");
+
+text.addEventListener("blur", () => {
+    saveNotebookBlockText(blockId, text.textContent);
+});
 
         content.appendChild(text);
     }
@@ -1002,7 +1005,12 @@ function renderNotebookBlock(blockId, block) {
 
         const span = document.createElement("span");
         span.textContent = block.text;
-        span.title = "Clique sur le texte pour modifier";
+span.contentEditable = "true";
+span.classList.add("editable-block");
+
+span.addEventListener("blur", () => {
+    saveNotebookBlockText(blockId, span.textContent);
+});
 
         if (block.checked) {
             span.classList.add("checked-item");
@@ -1025,9 +1033,6 @@ function renderNotebookBlock(blockId, block) {
                 });
         });
 
-        span.addEventListener("click", () => {
-            editNotebookBlock(blockId, block);
-        });
 
         label.appendChild(checkbox);
         label.appendChild(span);
@@ -1073,30 +1078,23 @@ function renderNotebookBlock(blockId, block) {
 }
 
 function addNotebookBlock(type) {
-    let label = "Écris ton contenu";
-
-    if (type === "subtitle") {
-        label = "Nom du sous-titre";
-    }
-
-    if (type === "checkbox") {
-        label = "Élément à cocher";
-    }
-
-    const text = prompt(label);
-
-    if (!text || text.trim() === "") {
-        return;
-    }
-
     const block = {
         type: type,
-        text: text.trim(),
+        text: "",
         createdBy: pseudo,
         createdAt: Date.now()
     };
 
+    if (type === "subtitle") {
+        block.text = "Nouveau sous-titre";
+    }
+
+    if (type === "text") {
+        block.text = "Écris ici...";
+    }
+
     if (type === "checkbox") {
+        block.text = "Nouvelle case";
         block.checked = false;
     }
 
@@ -1114,13 +1112,9 @@ function addNotebookBlock(type) {
         });
 }
 
-function editNotebookBlock(blockId, block) {
-    const newText = prompt("Modifier", block.text);
 
-    if (!newText || newText.trim() === "") {
-        return;
-    }
 
+function saveNotebookBlockText(blockId, newText) {
     database
         .ref(
             "spaces/" +
@@ -1131,10 +1125,7 @@ function editNotebookBlock(blockId, block) {
             blockId +
             "/text"
         )
-        .set(newText.trim())
-        .then(() => {
-            loadNotebookBlocks();
-        });
+        .set(newText.trim());
 }
 
 // ====================

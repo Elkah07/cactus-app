@@ -1174,3 +1174,14 @@ body.dark-theme .notebook-block p {
     transform: none;
     background: #FFD1D1;
 }
+
+.editable-block {
+    outline: none;
+    min-height: 24px;
+}
+
+.editable-block:focus {
+    background: rgba(216, 243, 220, 0.35);
+    border-radius: 8px;
+    padding: 4px;
+}
