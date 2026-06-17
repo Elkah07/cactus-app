@@ -713,21 +713,20 @@ notebookEditor.addEventListener("focus", () => {
     showEditorToolbar();
 });
 
-notebookEditor.addEventListener("blur", () => {
-    setTimeout(() => {
-        const activeElement = document.activeElement;
+document.addEventListener("click", (event) => {
+    const toolbar = document.querySelector(".editor-toolbar");
 
-        if (
-            activeElement &&
-            activeElement.closest &&
-            activeElement.closest(".editor-toolbar")
-        ) {
-            showEditorToolbar();
-            return;
-        }
+    const clickedInEditor =
+        notebookEditor.contains(event.target);
 
+    const clickedInToolbar =
+        toolbar.contains(event.target);
+
+    if (clickedInEditor || clickedInToolbar) {
+        showEditorToolbar();
+    } else {
         hideEditorToolbar();
-    }, 300);
+    }
 });
 
 function showEditorToolbar() {
@@ -1047,17 +1046,7 @@ function openNotebook(notebookId, notebook) {
     showScreen("notebook");
 }
 
-insertCheckboxLineBtn.addEventListener("click", () => {
-    notebookEditor.focus();
-
-    document.execCommand(
-        "insertHTML",
-        false,
-        '<p><span class="fake-checkbox">☐</span> <span class="checkbox-text">Nouvelle case</span></p>'
-    );
-
     saveNotebookContent();
-});
 
 notebookEditor.addEventListener("input", () => {
     clearTimeout(saveNotebookTimeout);
