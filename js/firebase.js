@@ -13,4 +13,6 @@ firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 const database = firebase.database();
 
+auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL);
+
 console.log("🔥 Firebase connecté !");
