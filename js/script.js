@@ -263,14 +263,22 @@ validateRankingBtn.addEventListener("click", () => {
 
     items.forEach((item) => {
         answer.push(
-    item.querySelector(".ranking-item-text").textContent
-);
+            item.querySelector(".ranking-item-text").textContent
+        );
     });
 
     saveRankingAnswer(
-    currentRanking.id,
-    answer
-);
+        currentRanking.id,
+        answer
+    );
+
+    saveRankingChallenge(
+        currentRanking.id,
+        answer
+    ).then(() => {
+        return showRankingCompatibilityIfReady(currentRanking.id);
+    });
+});
 
 saveRankingChallenge(
     currentRanking.id,
