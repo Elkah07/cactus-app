@@ -266,6 +266,8 @@ logoutBtn.addEventListener("click", () => {
 });
 
 leaveSpaceBtn.addEventListener("click", () => {
+    console.log("Bouton quitter espace cliqué");
+
     if (currentSpaceCode === "") {
         showScreen("couple");
         return;
@@ -295,9 +297,16 @@ leaveSpaceBtn.addEventListener("click", () => {
             currentSpaceData = null;
 
             spaceCode.textContent = "CACTUS-0000";
-            partnerName.textContent = "En attente...";
+
+            if (partnerName) {
+                partnerName.textContent = "En attente...";
+            }
 
             showScreen("couple");
+        })
+        .catch((error) => {
+            console.error(error);
+            alert(error.message);
         });
 });
 
