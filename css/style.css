@@ -1300,13 +1300,12 @@ body.dark-theme .notebook-editor {
 }
 
 .fake-checkbox {
+    pointer-events: auto;
+    min-width: 32px;
+    min-height: 32px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-
-    min-width: 28px;
-    min-height: 28px;
-
     cursor: pointer;
     user-select: none;
     font-weight: bold;

@@ -672,7 +672,7 @@ insertCheckboxLineBtn.addEventListener("click", () => {
     document.execCommand(
         "insertHTML",
         false,
-        '<div class="checkbox-line"><span class="fake-checkbox">☐</span><span class="checkbox-text">&nbsp;</span></div>'
+        '<div class="checkbox-line"><span class="fake-checkbox" contenteditable="false">☐</span><span class="checkbox-text">&nbsp;</span></div>'
     );
 
     saveNotebookContent();
@@ -680,11 +680,13 @@ insertCheckboxLineBtn.addEventListener("click", () => {
 });
 
 notebookEditor.addEventListener("click", (event) => {
-    if (!event.target.classList.contains("fake-checkbox")) return;
+    const checkbox = event.target.closest(".fake-checkbox");
+
+    if (!checkbox) return;
 
     event.preventDefault();
+    event.stopPropagation();
 
-    const checkbox = event.target;
     const line = checkbox.closest(".checkbox-line");
     const text = line.querySelector(".checkbox-text");
 
@@ -700,7 +702,6 @@ notebookEditor.addEventListener("click", (event) => {
 
     saveNotebookContent();
 });
-
 
 
 // ====================
@@ -1093,18 +1094,18 @@ function loadNotebookContent() {
 }
 
 function restoreCheckboxes() {
-    document
+    notebookEditor
         .querySelectorAll(".fake-checkbox")
         .forEach((checkbox) => {
+            checkbox.setAttribute("contenteditable", "false");
 
-            const text =
-                checkbox.parentElement.querySelector(
-                    ".checkbox-text"
-                );
+            const line = checkbox.closest(".checkbox-line");
+            if (!line) return;
 
+            const text = line.querySelector(".checkbox-text");
             if (!text) return;
 
-            if (checkbox.textContent === "☑") {
+            if (checkbox.textContent.trim() === "☑") {
                 text.classList.add("checked");
             } else {
                 text.classList.remove("checked");
