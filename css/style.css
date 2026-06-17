@@ -1115,3 +1115,62 @@ body.dark-theme .notebook-checkbox {
 body.dark-theme .notebook-block p {
     color: #B7E4C7;
 }
+
+.notebook-toolbar {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+
+    margin-bottom: 14px;
+}
+
+.danger-btn {
+    background: #D62828;
+    color: white;
+}
+
+.notebook-block {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 10px;
+
+    padding: 8px 0;
+    border-bottom: 1px dashed #D8F3DC;
+}
+
+.notebook-block-content {
+    flex: 1;
+}
+
+.notebook-block-content h2,
+.notebook-block-content p,
+.notebook-block-content span {
+    cursor: pointer;
+}
+
+.notebook-block-actions {
+    display: flex;
+    align-items: center;
+}
+
+.delete-block-btn {
+    width: 28px;
+    height: 28px;
+
+    padding: 0;
+    margin: 0;
+
+    border-radius: 50%;
+
+    background: #FFE5E5;
+    color: #D62828;
+
+    font-size: 1.1rem;
+    font-weight: 900;
+}
+
+.delete-block-btn:hover {
+    transform: none;
+    background: #FFD1D1;
+}

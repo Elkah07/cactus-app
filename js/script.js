@@ -86,6 +86,8 @@ const addSubtitleBtn = document.getElementById("addSubtitleBtn");
 const addTextBtn = document.getElementById("addTextBtn");
 const addCheckboxBtn = document.getElementById("addCheckboxBtn");
 const backToGardenBtn = document.getElementById("backToGardenBtn");
+const renameNotebookBtn = document.getElementById("renameNotebookBtn");
+const deleteNotebookBtn = document.getElementById("deleteNotebookBtn");
 
 let currentNotebookId = null;
 let currentNotebookData = null;
@@ -584,6 +586,69 @@ addCheckboxBtn.addEventListener("click", () => {
     addNotebookBlock("checkbox");
 });
 
+renameNotebookBtn.addEventListener("click", () => {
+    if (!currentNotebookId || !currentNotebookData) {
+        return;
+    }
+
+    const newTitle = prompt(
+        "Nouveau nom du carnet",
+        currentNotebookData.title
+    );
+
+    if (!newTitle || newTitle.trim() === "") {
+        return;
+    }
+
+    database
+        .ref(
+            "spaces/" +
+            currentSpaceCode +
+            "/garden/notebooks/" +
+            currentNotebookId +
+            "/title"
+        )
+        .set(newTitle.trim())
+        .then(() => {
+            currentNotebookData.title = newTitle.trim();
+
+            openedNotebookTitle.textContent =
+                (currentNotebookData.emoji || "📝") +
+                " " +
+                currentNotebookData.title;
+        });
+});
+
+deleteNotebookBtn.addEventListener("click", () => {
+    if (!currentNotebookId) {
+        return;
+    }
+
+    const confirmDelete = confirm(
+        "Supprimer ce carnet ? Cette action est définitive 🌵"
+    );
+
+    if (!confirmDelete) {
+        return;
+    }
+
+    database
+        .ref(
+            "spaces/" +
+            currentSpaceCode +
+            "/garden/notebooks/" +
+            currentNotebookId
+        )
+        .remove()
+        .then(() => {
+            currentNotebookId = null;
+            currentNotebookData = null;
+
+            loadNotebooks();
+            showScreen("garden");
+        });
+});
+
 // ====================
 // FONCTIONS
 // ====================
@@ -902,16 +967,29 @@ function renderNotebookBlock(blockId, block) {
     const blockElement = document.createElement("div");
     blockElement.classList.add("notebook-block");
 
+    const content = document.createElement("div");
+    content.classList.add("notebook-block-content");
+
     if (block.type === "subtitle") {
         const subtitle = document.createElement("h2");
         subtitle.textContent = block.text;
-        blockElement.appendChild(subtitle);
+        subtitle.title = "Clique pour modifier";
+        subtitle.addEventListener("click", () => {
+            editNotebookBlock(blockId, block);
+        });
+
+        content.appendChild(subtitle);
     }
 
     if (block.type === "text") {
         const text = document.createElement("p");
         text.textContent = block.text;
-        blockElement.appendChild(text);
+        text.title = "Clique pour modifier";
+        text.addEventListener("click", () => {
+            editNotebookBlock(blockId, block);
+        });
+
+        content.appendChild(text);
     }
 
     if (block.type === "checkbox") {
@@ -924,6 +1002,7 @@ function renderNotebookBlock(blockId, block) {
 
         const span = document.createElement("span");
         span.textContent = block.text;
+        span.title = "Clique sur le texte pour modifier";
 
         if (block.checked) {
             span.classList.add("checked-item");
@@ -946,11 +1025,49 @@ function renderNotebookBlock(blockId, block) {
                 });
         });
 
+        span.addEventListener("click", () => {
+            editNotebookBlock(blockId, block);
+        });
+
         label.appendChild(checkbox);
         label.appendChild(span);
 
-        blockElement.appendChild(label);
+        content.appendChild(label);
     }
+
+    const actions = document.createElement("div");
+    actions.classList.add("notebook-block-actions");
+
+    const deleteBtn = document.createElement("button");
+    deleteBtn.type = "button";
+    deleteBtn.classList.add("delete-block-btn");
+    deleteBtn.textContent = "×";
+
+    deleteBtn.addEventListener("click", () => {
+        const confirmDelete = confirm("Supprimer cette ligne ?");
+        if (!confirmDelete) {
+            return;
+        }
+
+        database
+            .ref(
+                "spaces/" +
+                currentSpaceCode +
+                "/garden/notebooks/" +
+                currentNotebookId +
+                "/blocks/" +
+                blockId
+            )
+            .remove()
+            .then(() => {
+                loadNotebookBlocks();
+            });
+    });
+
+    actions.appendChild(deleteBtn);
+
+    blockElement.appendChild(content);
+    blockElement.appendChild(actions);
 
     notebookBlocks.appendChild(blockElement);
 }
@@ -992,6 +1109,29 @@ function addNotebookBlock(type) {
             "/blocks"
         )
         .push(block)
+        .then(() => {
+            loadNotebookBlocks();
+        });
+}
+
+function editNotebookBlock(blockId, block) {
+    const newText = prompt("Modifier", block.text);
+
+    if (!newText || newText.trim() === "") {
+        return;
+    }
+
+    database
+        .ref(
+            "spaces/" +
+            currentSpaceCode +
+            "/garden/notebooks/" +
+            currentNotebookId +
+            "/blocks/" +
+            blockId +
+            "/text"
+        )
+        .set(newText.trim())
         .then(() => {
             loadNotebookBlocks();
         });
