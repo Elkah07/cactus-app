@@ -61,6 +61,7 @@ const rankingCompatibilityDescription = document.getElementById("rankingCompatib
 const myRankingName = document.getElementById("myRankingName");
 const partnerRankingName = document.getElementById("partnerRankingName");
 const rankingCompatibilityInsight = document.getElementById("rankingCompatibilityInsight");
+const cactusCelebration = document.getElementById("cactusCelebration");
 
 const historyScreen = document.getElementById("historyScreen");
 const historyBtn = document.getElementById("historyBtn");
@@ -339,10 +340,6 @@ nextAfterCompatibilityBtn.addEventListener("click", () => {
     }
 
     startRandomRanking();
-});
-
-backDashboardAfterCompatibilityBtn.addEventListener("click", () => {
-    showScreen("dashboard");
 });
 
 backDashboardAfterCompatibilityBtn.addEventListener("click", () => {
