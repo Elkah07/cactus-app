@@ -41,3 +41,29 @@ function saveRankingAnswerToFirebase(rankingId, answer) {
             createdAt: Date.now()
         });
 }
+
+function getOrCreateActiveRanking() {
+    const activeRankingRef = database.ref(
+        "spaces/" + currentSpaceCode + "/activeRankingId"
+    );
+
+    return activeRankingRef.once("value")
+        .then((snapshot) => {
+            const activeRankingId = snapshot.val();
+
+            if (activeRankingId) {
+                const existingRanking = rankings.find((ranking) => {
+                    return ranking.id === activeRankingId;
+                });
+
+                return existingRanking;
+            }
+
+            const newRanking = getRandomItem(rankings, lastRankingId);
+
+            return activeRankingRef.set(newRanking.id)
+                .then(() => {
+                    return newRanking;
+                });
+        });
+}

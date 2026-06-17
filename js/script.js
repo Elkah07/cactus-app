@@ -350,12 +350,29 @@ function startRandomRanking() {
         return;
     }
 
-    currentRanking = getRandomItem(rankings, lastRankingId);
-    lastRankingId = currentRanking.id;
+    if (currentSpaceCode === "") {
+        alert("Tu dois être dans un espace pour jouer 🌵");
+        return;
+    }
 
-    loadRanking(currentRanking);
+    getOrCreateActiveRanking()
+        .then((ranking) => {
+            if (!ranking) {
+                alert("Impossible de trouver ce classement 🌵");
+                return;
+            }
 
-    showScreen("ranking");
+            currentRanking = ranking;
+            lastRankingId = currentRanking.id;
+
+            loadRanking(currentRanking);
+
+            showScreen("ranking");
+        })
+        .catch((error) => {
+            console.error(error);
+            alert(error.message);
+        });
 }
 
 // ====================
