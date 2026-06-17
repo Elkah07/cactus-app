@@ -1316,3 +1316,12 @@ body.dark-theme .notebook-editor {
     text-decoration: line-through;
     opacity: 0.6;
 }
+
+#notebookScreen {
+    padding-bottom: 180px;
+}
+
+#backToGardenBtn {
+    margin-top: 20px;
+    margin-bottom: 160px;
+}

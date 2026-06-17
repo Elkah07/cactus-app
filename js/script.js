@@ -671,11 +671,14 @@ highlightColorPicker.addEventListener("input", () => {
 insertCheckboxLineBtn.addEventListener("click", () => {
     notebookEditor.focus();
 
-    document.execCommand(
-        "insertHTML",
-        false,
-        '<div class="checkbox-line"><span class="fake-checkbox">☐</span><span class="checkbox-text" contenteditable="true"></span></div><p><br></p>'
-    );
+   document.execCommand(
+    "insertHTML",
+    false,
+    '<p class="checkbox-line">' +
+        '<span class="fake-checkbox">☐</span> ' +
+        '<span class="checkbox-text"></span>' +
+    '</p><p><br></p>'
+);
 
     saveNotebookContent();
     keepEditorToolbarOpen();
@@ -695,6 +698,37 @@ notebookEditor.addEventListener("click", (event) => {
         checkbox.textContent = "☐";
         text.classList.remove("checked");
     }
+
+    saveNotebookContent();
+});
+
+notebookEditor.addEventListener("keydown", (event) => {
+    if (event.key !== "Enter") return;
+
+    const selection = window.getSelection();
+
+    if (!selection.rangeCount) return;
+
+    const node = selection.anchorNode;
+
+    const checkboxLine =
+        node?.parentElement?.closest(".checkbox-line");
+
+    if (!checkboxLine) return;
+
+    event.preventDefault();
+
+    const newLine = document.createElement("p");
+    newLine.innerHTML = "<br>";
+
+    checkboxLine.after(newLine);
+
+    const range = document.createRange();
+    range.setStart(newLine, 0);
+    range.collapse(true);
+
+    selection.removeAllRanges();
+    selection.addRange(range);
 
     saveNotebookContent();
 });
@@ -1109,9 +1143,10 @@ function restoreCheckboxes() {
 }
 
 function runEditorCommand(command, value = null) {
+    notebookEditor.focus();
     document.execCommand(command, false, value);
     saveNotebookContent();
-    showEditorToolbar();
+    keepEditorToolbarOpen();
 }
 
 function keepEditorToolbarOpen() {
