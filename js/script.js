@@ -674,7 +674,7 @@ insertCheckboxLineBtn.addEventListener("click", () => {
     document.execCommand(
         "insertHTML",
         false,
-        '<p class="checkbox-line"><span class="fake-checkbox">☐</span><span class="checkbox-text">&nbsp;</span></p>'
+        '<div class="checkbox-line"><span class="fake-checkbox">☐</span><span class="checkbox-text" contenteditable="true"></span></div><p><br></p>'
     );
 
     saveNotebookContent();
