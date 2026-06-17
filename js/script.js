@@ -669,9 +669,14 @@ notebookEditor.addEventListener("click", (event) => {
     }
 
     const checkbox = event.target;
-    const text = checkbox.parentElement.querySelector(".checkbox-text");
+    const line = checkbox.closest("p");
+    const text = line.querySelector(".checkbox-text");
 
-    if (checkbox.textContent === "☐") {
+    if (!text) {
+        return;
+    }
+
+    if (checkbox.textContent.trim() === "☐") {
         checkbox.textContent = "☑";
         text.classList.add("checked");
     } else {
