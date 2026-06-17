@@ -231,13 +231,18 @@ validateRankingBtn.addEventListener("click", () => {
     });
 
     saveRankingAnswer(
-        currentRanking.id,
-        answer
-    );
+    currentRanking.id,
+    answer
+);
 
-    console.log("Réponses sauvegardées :", getRankingAnswers());
+saveRankingAnswerToFirebase(
+    currentRanking.id,
+    answer
+).then(() => {
+    console.log("Réponse classement sauvegardée dans Firebase");
 
     showRankingResult();
+});
 });
 
 nextRankingBtn.addEventListener("click", () => {
