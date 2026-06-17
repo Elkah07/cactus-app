@@ -6,7 +6,29 @@ function loadRanking(ranking) {
     ranking.items.forEach((item) => {
         const li = document.createElement("li");
 
-        li.textContent = item;
+        const itemText = document.createElement("span");
+        itemText.classList.add("ranking-item-text");
+        itemText.textContent = item;
+
+        const actions = document.createElement("div");
+        actions.classList.add("ranking-actions");
+
+        const upBtn = document.createElement("button");
+        upBtn.type = "button";
+        upBtn.classList.add("move-btn");
+        upBtn.textContent = "↑";
+
+        const downBtn = document.createElement("button");
+        downBtn.type = "button";
+        downBtn.classList.add("move-btn");
+        downBtn.textContent = "↓";
+
+        actions.appendChild(upBtn);
+        actions.appendChild(downBtn);
+
+        li.appendChild(itemText);
+        li.appendChild(actions);
+
         li.setAttribute("draggable", "true");
 
         li.addEventListener("dragstart", () => {
@@ -43,12 +65,29 @@ function loadRanking(ranking) {
             draggedItem = null;
 
             const allItems = rankingList.querySelectorAll("li");
-
             allItems.forEach((item) => {
                 item.classList.remove("drag-over");
             });
 
             updateRankingNumbers();
+        });
+
+        upBtn.addEventListener("click", () => {
+            const previous = li.previousElementSibling;
+
+            if (previous) {
+                swapItems(li, previous);
+                updateRankingNumbers();
+            }
+        });
+
+        downBtn.addEventListener("click", () => {
+            const next = li.nextElementSibling;
+
+            if (next) {
+                swapItems(li, next);
+                updateRankingNumbers();
+            }
         });
 
         rankingList.appendChild(li);
@@ -58,11 +97,11 @@ function loadRanking(ranking) {
 }
 
 function swapItems(itemA, itemB) {
-    const textA = itemA.textContent;
-    const textB = itemB.textContent;
+    const textA = itemA.querySelector(".ranking-item-text").textContent;
+    const textB = itemB.querySelector(".ranking-item-text").textContent;
 
-    itemA.textContent = textB;
-    itemB.textContent = textA;
+    itemA.querySelector(".ranking-item-text").textContent = textB;
+    itemB.querySelector(".ranking-item-text").textContent = textA;
 }
 
 function updateRankingNumbers() {

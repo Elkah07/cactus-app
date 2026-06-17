@@ -227,7 +227,9 @@ validateRankingBtn.addEventListener("click", () => {
     const answer = [];
 
     items.forEach((item) => {
-        answer.push(item.textContent);
+        answer.push(
+    item.querySelector(".ranking-item-text").textContent
+);
     });
 
     saveRankingAnswer(

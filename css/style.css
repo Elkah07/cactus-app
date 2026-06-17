@@ -362,3 +362,34 @@ button:hover,
 .heart-separator {
     font-size: 1.5rem;
 }
+
+.ranking-item-text {
+    flex: 1;
+}
+
+.ranking-actions {
+    display: flex;
+    gap: 6px;
+    margin-left: auto;
+}
+
+.move-btn {
+    width: 34px;
+    height: 34px;
+
+    padding: 0;
+    margin: 0;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.8);
+    color: #1B4332;
+
+    font-size: 1rem;
+    font-weight: 900;
+}
+
+.move-btn:hover {
+    transform: none;
+    background: white;
+}
