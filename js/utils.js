@@ -59,23 +59,19 @@ function getMaxRankingGap(itemCount) {
 }
 
 function getCompatibilityLabel(score) {
-    if (score >= 90) {
-        return "🌵 Connexion parfaite";
-    }
-
-    if (score >= 75) {
-        return "💚 Très compatibles";
+    if (score >= 80) {
+        return "🌵 Âmes cactus";
     }
 
     if (score >= 60) {
-        return "😊 Plutôt alignés";
+        return "💚 Très compatibles";
     }
 
     if (score >= 40) {
-        return "🤔 Quelques différences";
+        return "💛 Complémentaires";
     }
 
-    return "🌋 Deux visions très différentes";
+    return "💔 Très différents";
 }
 
 function analyzeRankingDifferences(myRanking, partnerRanking) {
@@ -109,4 +105,20 @@ function analyzeRankingDifferences(myRanking, partnerRanking) {
         perfectMatches: perfectMatches,
         biggestGaps: biggestGaps
     };
+}
+
+function generateCompatibilityDescription(score) {
+    if (score >= 80) {
+        return "Vous voyez souvent les choses de la même façon 🌵💚";
+    }
+
+    if (score >= 60) {
+        return "Vous partagez beaucoup d'idées en commun.";
+    }
+
+    if (score >= 40) {
+        return "Vos différences rendent vos échanges intéressants.";
+    }
+
+    return "Vous avez des visions très différentes, et c'est parfois ce qui fait la richesse d'un couple.";
 }

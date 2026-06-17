@@ -57,6 +57,8 @@ const biggestGapsList = document.getElementById("biggestGapsList");
 const nextAfterCompatibilityBtn = document.getElementById("nextAfterCompatibilityBtn");
 const backDashboardAfterCompatibilityBtn = document.getElementById("backDashboardAfterCompatibilityBtn");
 
+const rankingCompatibilityDescription = document.getElementById("rankingCompatibilityDescription");
+
 let currentUser = null;
 
 let pseudo = "";
@@ -578,6 +580,20 @@ function showRankingCompatibility(challenge, myAnswerData, partnerAnswerData) {
     rankingCompatibilityTitle.textContent = challenge.title;
     rankingCompatibilityScore.textContent = score + "%";
     rankingCompatibilityLabel.textContent = label;
+
+    rankingCompatibilityScore.className = "";
+    rankingCompatibilityDescription.textContent =
+    generateCompatibilityDescription(score);
+
+if (score >= 80) {
+    rankingCompatibilityScore.classList.add("score-perfect");
+} else if (score >= 60) {
+    rankingCompatibilityScore.classList.add("score-good");
+} else if (score >= 40) {
+    rankingCompatibilityScore.classList.add("score-medium");
+} else {
+    rankingCompatibilityScore.classList.add("score-low");
+}
 
     myRankingResult.innerHTML = "";
     partnerRankingResult.innerHTML = "";

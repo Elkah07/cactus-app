@@ -580,3 +580,25 @@ body.dark-theme .secondary {
         grid-template-columns: 1fr;
     }
 }
+
+.score-perfect {
+    color: #2D6A4F !important;
+}
+
+.score-good {
+    color: #52B788 !important;
+}
+
+.score-medium {
+    color: #D4A373 !important;
+}
+
+.score-low {
+    color: #D62828 !important;
+}
+
+#rankingCompatibilityDescription {
+    margin-top: 10px;
+    color: #52796F;
+    font-style: italic;
+}
