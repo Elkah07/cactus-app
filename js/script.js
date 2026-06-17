@@ -88,6 +88,14 @@ const deleteNotebookBtn = document.getElementById("deleteNotebookBtn");
 
 const notebookEditor = document.getElementById("notebookEditor");
 const insertCheckboxLineBtn = document.getElementById("insertCheckboxLineBtn");
+
+const boldBtn = document.getElementById("boldBtn");
+const italicBtn = document.getElementById("italicBtn");
+const underlineBtn = document.getElementById("underlineBtn");
+const textColorPicker = document.getElementById("textColorPicker");
+const highlightColorPicker = document.getElementById("highlightColorPicker");
+
+
 let saveNotebookTimeout = null;
 
 let currentNotebookId = null;
@@ -633,6 +641,41 @@ deleteNotebookBtn.addEventListener("click", () => {
             loadNotebooks();
             showScreen("garden");
         });
+});
+
+boldBtn.addEventListener("click", () => {
+    document.execCommand("bold");
+    saveNotebookContent();
+});
+
+italicBtn.addEventListener("click", () => {
+    document.execCommand("italic");
+    saveNotebookContent();
+});
+
+underlineBtn.addEventListener("click", () => {
+    document.execCommand("underline");
+    saveNotebookContent();
+});
+
+textColorPicker.addEventListener("input", () => {
+    document.execCommand(
+        "foreColor",
+        false,
+        textColorPicker.value
+    );
+
+    saveNotebookContent();
+});
+
+highlightColorPicker.addEventListener("input", () => {
+    document.execCommand(
+        "hiliteColor",
+        false,
+        highlightColorPicker.value
+    );
+
+    saveNotebookContent();
 });
 
 // ====================

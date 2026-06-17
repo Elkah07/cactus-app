@@ -1221,3 +1221,32 @@ body.dark-theme .notebook-editor {
     color: #F8F9FA;
     border-color: #74C69D;
 }
+
+.editor-toolbar {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+
+    margin-bottom: 12px;
+}
+
+.editor-toolbar button {
+    width: 42px;
+    height: 42px;
+
+    padding: 0;
+
+    border-radius: 12px;
+
+    font-size: 1rem;
+}
+
+.editor-toolbar input[type="color"] {
+    width: 42px;
+    height: 42px;
+
+    border: none;
+    padding: 0;
+
+    cursor: pointer;
+}
