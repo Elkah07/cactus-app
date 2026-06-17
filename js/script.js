@@ -60,6 +60,9 @@ let currentSpaceData = null;
 let pendingRankingChallenges = [];
 let previousScreen = "dashboard";
 
+let isPlayingPendingChallenges = false;
+let currentPendingChallengeIndex = 0;
+
 // ====================
 // CHARGEMENT DES DONNÉES
 // ====================
@@ -268,6 +271,12 @@ saveRankingChallenge(
 });
 
 nextRankingBtn.addEventListener("click", () => {
+    if (isPlayingPendingChallenges) {
+        currentPendingChallengeIndex++;
+        startPendingRankingChallenge();
+        return;
+    }
+
     startRandomRanking();
 });
 
@@ -371,22 +380,10 @@ rankingNotification.addEventListener("click", () => {
         return;
     }
 
-    const challenge = pendingRankingChallenges[0];
+    isPlayingPendingChallenges = true;
+    currentPendingChallengeIndex = 0;
 
-    const ranking = rankings.find((item) => {
-        return item.id === challenge.rankingId;
-    });
-
-    if (!ranking) {
-        alert("Classement introuvable 🌵");
-        return;
-    }
-
-    currentRanking = ranking;
-
-    loadRanking(currentRanking);
-
-    showScreen("ranking");
+    startPendingRankingChallenge();
 });
 
 backFromRankingBtn.addEventListener("click", () => {
@@ -469,6 +466,33 @@ function startRandomRanking() {
 
     currentRanking = getRandomItem(rankings, lastRankingId);
     lastRankingId = currentRanking.id;
+
+    loadRanking(currentRanking);
+
+    showScreen("ranking");
+}
+
+function startPendingRankingChallenge() {
+    const challenge = pendingRankingChallenges[currentPendingChallengeIndex];
+
+    if (!challenge) {
+        isPlayingPendingChallenges = false;
+        showScreen("dashboard");
+        return;
+    }
+
+    const ranking = rankings.find((item) => {
+        return item.id === challenge.rankingId;
+    });
+
+    if (!ranking) {
+        alert("Classement introuvable 🌵");
+        currentPendingChallengeIndex++;
+        startPendingRankingChallenge();
+        return;
+    }
+
+    currentRanking = ranking;
 
     loadRanking(currentRanking);
 
