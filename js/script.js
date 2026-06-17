@@ -598,6 +598,11 @@ function showRankingCompatibility(challenge, myAnswerData, partnerAnswerData) {
 
     rankingCompatibilityTitle.textContent = challenge.title;
     rankingCompatibilityScore.textContent = score + "%";
+    if (score >= 90) {
+    cactusCelebration.style.display = "block";
+} else {
+    cactusCelebration.style.display = "none";
+}
     rankingCompatibilityLabel.textContent = label;
     myRankingName.textContent = pseudo || "Toi";
 partnerRankingName.textContent = partnerAnswerData.pseudo || "Partenaire";

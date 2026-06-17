@@ -614,3 +614,22 @@ body.dark-theme .secondary {
     font-weight: 800;
     line-height: 1.4;
 }
+
+.cactus-celebration {
+    display: none;
+    font-size: 2rem;
+    margin-bottom: 8px;
+    animation: cactusPop 0.8s ease-in-out infinite alternate;
+}
+
+@keyframes cactusPop {
+    from {
+        transform: scale(1);
+        opacity: 0.75;
+    }
+
+    to {
+        transform: scale(1.15);
+        opacity: 1;
+    }
+}
