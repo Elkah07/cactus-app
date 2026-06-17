@@ -167,12 +167,35 @@ joinSpaceBtn.addEventListener("click", () => {
 
             const spaceData = snapshot.val();
 
-            if (spaceData.player2 && spaceData.player2.uid !== currentUser.uid) {
+            const isPlayer1 =
+                spaceData.player1 &&
+                spaceData.player1.uid === currentUser.uid;
+
+            const isPlayer2 =
+                spaceData.player2 &&
+                spaceData.player2.uid === currentUser.uid;
+
+            if (isPlayer1 || isPlayer2) {
+                return database.ref("users/" + currentUser.uid).update({
+                    spaceCode: joinCode
+                }).then(() => {
+                    currentSpaceCode = joinCode;
+                    spaceCode.textContent = currentSpaceCode;
+                    displayPseudo.textContent = pseudo;
+
+                    listenToCurrentSpace(currentSpaceCode);
+                    showScreen("dashboard");
+                });
+            }
+
+            if (spaceData.player1 && spaceData.player2) {
                 alert("Cet espace est déjà complet 🌵");
                 return;
             }
 
-            return database.ref("spaces/" + joinCode + "/player2").set({
+            const playerSlot = spaceData.player1 ? "player2" : "player1";
+
+            return database.ref("spaces/" + joinCode + "/" + playerSlot).set({
                 uid: currentUser.uid,
                 pseudo: pseudo
             }).then(() => {
@@ -181,14 +204,16 @@ joinSpaceBtn.addEventListener("click", () => {
                 });
             }).then(() => {
                 currentSpaceCode = joinCode;
-
-                displayPseudo.textContent = pseudo;
                 spaceCode.textContent = currentSpaceCode;
+                displayPseudo.textContent = pseudo;
 
                 listenToCurrentSpace(currentSpaceCode);
-
                 showScreen("dashboard");
             });
+        })
+        .catch((error) => {
+            console.error(error);
+            alert(error.message);
         });
 });
 
