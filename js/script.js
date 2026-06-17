@@ -716,6 +716,8 @@ notebookEditor.addEventListener("focus", () => {
 document.addEventListener("click", (event) => {
     const toolbar = document.querySelector(".editor-toolbar");
 
+    if (!toolbar) return;
+
     const clickedInEditor =
         notebookEditor.contains(event.target);
 
@@ -762,6 +764,12 @@ if (window.visualViewport) {
     window.visualViewport.addEventListener("resize", updateEditorToolbarPosition);
     window.visualViewport.addEventListener("scroll", updateEditorToolbarPosition);
 }
+
+document
+    .querySelector(".editor-toolbar")
+    .addEventListener("mousedown", (e) => {
+        e.preventDefault();
+    });
 
 // ====================
 // FONCTIONS
