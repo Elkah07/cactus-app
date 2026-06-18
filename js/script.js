@@ -825,21 +825,23 @@ guessNotification.addEventListener("click", () => {
         return;
     }
 
-    if (pendingGuessResults.length > 0) {
-    currentPendingGuessIndex = 0;
-    showPendingGuessResult();
-}
-
     if (pendingGuessPredictions.length > 0) {
-    currentPendingGuessIndex = 0;
-    startPendingGuessPrediction();
-    return;
-}
+        currentPendingGuessIndex = 0;
+        startPendingGuessPrediction();
+        return;
+    }
 
-if (pendingGuessValidations.length > 0) {
-    currentPendingGuessIndex = 0;
-    startPendingGuessValidation();
-}
+    if (pendingGuessValidations.length > 0) {
+        currentPendingGuessIndex = 0;
+        startPendingGuessValidation();
+        return;
+    }
+
+    if (pendingGuessResults.length > 0) {
+        currentPendingGuessIndex = 0;
+        showPendingGuessResult();
+        return;
+    }
 });
 
 validateGuessPredictionBtn.addEventListener("click", () => {
@@ -1443,6 +1445,28 @@ function displayGuessChallenges(challenges) {
 
     guessNotification.textContent = "";
     guessNotification.style.cursor = "default";
+}
+
+function startPendingGuessAnswer() {
+    const challenge =
+        pendingGuessAnswers[currentPendingGuessIndex];
+
+    if (!challenge) {
+        showScreen("dashboard");
+        return;
+    }
+
+    currentGuessId = challenge.questionId;
+
+    currentGuessQuestion = {
+        id: challenge.questionId,
+        question: challenge.question
+    };
+
+    guessQuestionText.textContent = challenge.question;
+    guessAnswerInput.value = "";
+
+    showScreen("guessAnswer");
 }
 
 function startPendingGuessPrediction() {
