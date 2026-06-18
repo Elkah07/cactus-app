@@ -25,6 +25,9 @@ function showScreen(screenName) {
     guessValidationScreen.style.display = "none";
     guessResultScreen.style.display = "none";
 
+    likelyScreen.style.display = "none";
+likelyResultScreen.style.display = "none";
+
     // ====================
     // BOUTONS DU HAUT
     // ====================
@@ -93,6 +96,14 @@ function showScreen(screenName) {
         case "notebook":
             notebookScreen.style.display = "block";
             break;
+
+            case "likely":
+    likelyScreen.style.display = "block";
+    break;
+
+case "likelyResult":
+    likelyResultScreen.style.display = "block";
+    break;
 
         // ====================
         // DEVINE MA RÉPONSE

@@ -911,6 +911,22 @@ likelyBtn.addEventListener("click", () => {
     startLikelyGame();
 });
 
+likelyMeBtn.addEventListener("click", () => {
+    saveLikelyAnswer("Moi");
+});
+
+likelyPartnerBtn.addEventListener("click", () => {
+    saveLikelyAnswer("Toi");
+});
+
+likelyBothBtn.addEventListener("click", () => {
+    saveLikelyAnswer("Nous deux");
+});
+
+backFromLikelyBtn.addEventListener("click", () => {
+    showScreen("dashboard");
+});
+
 // ====================
 // BARRE FLOTTANTE
 // ====================
@@ -1733,6 +1749,50 @@ function startLikelyGame() {
         randomQuestion.question;
 
     showScreen("likely");
+}
+
+function saveLikelyAnswer(answer) {
+    if (!currentLikelyQuestion) {
+        alert("Question introuvable 🌵");
+        return;
+    }
+
+    currentLikelyId = currentLikelyQuestion.id;
+
+    database
+        .ref(
+            "spaces/" +
+            currentSpaceCode +
+            "/likelyChallenges/" +
+            currentLikelyId
+        )
+        .update({
+            questionId: currentLikelyQuestion.id,
+            question: currentLikelyQuestion.question,
+            status: "answering",
+            createdAt: Date.now()
+        })
+        .then(() => {
+            return database
+                .ref(
+                    "spaces/" +
+                    currentSpaceCode +
+                    "/likelyChallenges/" +
+                    currentLikelyId +
+                    "/answers/" +
+                    currentUser.uid
+                )
+                .set({
+                    uid: currentUser.uid,
+                    pseudo: pseudo,
+                    answer: answer,
+                    createdAt: Date.now()
+                });
+        })
+        .then(() => {
+            alert("Réponse enregistrée 🌵");
+            showScreen("dashboard");
+        });
 }
 
 // ====================
