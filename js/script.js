@@ -367,20 +367,35 @@ validateGuessAnswerBtn.addEventListener("click", () => {
             "spaces/" +
             currentSpaceCode +
             "/guessAnswers/" +
-            currentGuessId +
-            "/answers/" +
-            currentUser.uid
+            currentGuessId
         )
-        .set({
-            uid: currentUser.uid,
-            pseudo: pseudo,
-            answer: answer,
+        .update({
+            questionId: currentGuessQuestion.id,
+            question: currentGuessQuestion.question,
+            status: "answering",
             createdAt: Date.now()
         })
         .then(() => {
-    alert("Réponse enregistrée 🌵");
-    showScreen("dashboard");
-});
+            return database
+                .ref(
+                    "spaces/" +
+                    currentSpaceCode +
+                    "/guessAnswers/" +
+                    currentGuessId +
+                    "/answers/" +
+                    currentUser.uid
+                )
+                .set({
+                    uid: currentUser.uid,
+                    pseudo: pseudo,
+                    answer: answer,
+                    createdAt: Date.now()
+                });
+        })
+        .then(() => {
+            alert("Réponse enregistrée 🌵");
+            showScreen("dashboard");
+        });
 });
 
 backFromGuessBtn.addEventListener("click", () => {
