@@ -206,6 +206,10 @@ let currentLikelyId = null;
 let pendingLikelyChallenges = [];
 let currentPendingLikelyIndex = 0;
 
+let pendingLikelyChallenges = [];
+let pendingLikelyResults = [];
+let currentPendingLikelyIndex = 0;
+
 // ====================
 // CHARGEMENT DES DONNÉES
 // ====================
@@ -248,6 +252,7 @@ function listenToCurrentSpace(spaceCodeValue) {
 
         listenToRankingChallenges();
         listenToGuessChallenges();
+        listenToLikelyChallenges();
     });
 }
 
@@ -1707,6 +1712,38 @@ function updateActivityBox() {
         activityList.appendChild(item);
     }
 
+    if (pendingLikelyChallenges.length > 0) {
+    hasActivities = true;
+
+    const item = document.createElement("p");
+    item.classList.add("mode-notification");
+    item.textContent =
+        "💚 " + pendingLikelyChallenges.length + " question(s) Qui est le plus susceptible";
+
+    item.addEventListener("click", () => {
+        currentPendingLikelyIndex = 0;
+        startPendingLikelyChallenge();
+    });
+
+    activityList.appendChild(item);
+}
+
+if (pendingLikelyResults.length > 0) {
+    hasActivities = true;
+
+    const item = document.createElement("p");
+    item.classList.add("mode-notification");
+    item.textContent =
+        "💚 " + pendingLikelyResults.length + " résultat(s) Qui est le plus susceptible";
+
+    item.addEventListener("click", () => {
+        currentPendingLikelyIndex = 0;
+        showPendingLikelyResult();
+    });
+
+    activityList.appendChild(item);
+}
+
     activityBox.style.display = hasActivities ? "block" : "none";
 }
 
@@ -1793,6 +1830,66 @@ function saveLikelyAnswer(answer) {
             alert("Réponse enregistrée 🌵");
             showScreen("dashboard");
         });
+}
+
+function listenToLikelyChallenges() {
+    database
+        .ref("spaces/" + currentSpaceCode + "/likelyChallenges")
+        .on("value", (snapshot) => {
+            const challenges = snapshot.val() || {};
+
+            Object.entries(challenges).forEach(([id, challenge]) => {
+                const answers = challenge.answers || {};
+                const answersCount = Object.keys(answers).length;
+
+                if (
+                    answersCount >= 2 &&
+                    challenge.status === "answering"
+                ) {
+                    database
+                        .ref(
+                            "spaces/" +
+                            currentSpaceCode +
+                            "/likelyChallenges/" +
+                            id
+                        )
+                        .update({
+                            status: "completed",
+                            completedAt: Date.now()
+                        });
+                }
+            });
+
+            displayLikelyChallenges(challenges);
+        });
+}
+
+function displayLikelyChallenges(challenges) {
+    const challengeArray = Object.values(challenges || {});
+
+    pendingLikelyChallenges = challengeArray.filter((challenge) => {
+        return (
+            challenge.status === "answering" &&
+            challenge.answers &&
+            !challenge.answers[currentUser.uid] &&
+            Object.keys(challenge.answers).some((uid) => uid !== currentUser.uid)
+        );
+    });
+
+    pendingLikelyResults = challengeArray.filter((challenge) => {
+        const seenByMe =
+            challenge.seenBy &&
+            challenge.seenBy[currentUser.uid];
+
+        return (
+            challenge.status === "completed" &&
+            challenge.answers &&
+            challenge.answers[currentUser.uid] &&
+            !seenByMe
+        );
+    });
+
+    updateActivityBox();
 }
 
 // ====================
