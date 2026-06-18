@@ -125,6 +125,8 @@ const guessValidationResult =    document.getElementById("guessValidationResult"
 const nextGuessBtn =    document.getElementById("nextGuessBtn");
 const backDashboardFromGuessResultBtn =    document.getElementById("backDashboardFromGuessResultBtn");
 
+const guessNotification =    document.getElementById("guessNotification");
+
 
 let saveNotebookTimeout = null;
 
@@ -151,7 +153,8 @@ let previousScreen = "dashboard";
 let isPlayingPendingChallenges = false;
 let currentPendingChallengeIndex = 0;
 
-let pendingGuessAnswers = [];
+let pendingGuessAnswers = []; 
+let currentPendingGuessIndex = 0;
 
 // ====================
 // CHARGEMENT DES DONNÉES
@@ -811,6 +814,15 @@ notebookEditor.addEventListener("click", (event) => {
     saveNotebookContent();
 });
 
+guessNotification.addEventListener("click", () => {
+    if (pendingGuessAnswers.length === 0) {
+        return;
+    }
+
+    currentPendingGuessIndex = 0;
+    startPendingGuessAnswer();
+});
+
 
 // ====================
 // BARRE FLOTTANTE
@@ -1315,13 +1327,8 @@ function displayGuessChallenges(challenges) {
     const challengeArray = Object.values(challenges || {});
 
     pendingGuessAnswers = challengeArray.filter((challenge) => {
-        if (challenge.status !== "answering") {
-            return false;
-        }
-
-        if (!challenge.answers) {
-            return false;
-        }
+        if (challenge.status !== "answering") return false;
+        if (!challenge.answers) return false;
 
         const alreadyAnswered =
             challenge.answers[currentUser.uid];
@@ -1335,17 +1342,44 @@ function displayGuessChallenges(challenges) {
     });
 
     if (pendingGuessAnswers.length === 0) {
-        // Pour l’instant on ne met rien visuellement
+        guessNotification.textContent = "";
+        guessNotification.style.cursor = "default";
         return;
     }
 
-    alert(
-        "💚 " +
-        pendingGuessAnswers.length +
-        " question Devine ma réponse t’attend"
-    );
+    if (pendingGuessAnswers.length === 1) {
+        guessNotification.textContent =
+            "💚 1 question Devine ma réponse t’attend";
+    } else {
+        guessNotification.textContent =
+            "💚 " + pendingGuessAnswers.length +
+            " questions Devine ma réponse t’attendent";
+    }
+
+    guessNotification.style.cursor = "pointer";
 }
 
+function startPendingGuessAnswer() {
+    const challenge =
+        pendingGuessAnswers[currentPendingGuessIndex];
+
+    if (!challenge) {
+        showScreen("dashboard");
+        return;
+    }
+
+    currentGuessId = challenge.questionId;
+
+    currentGuessQuestion = {
+        id: challenge.questionId,
+        question: challenge.question
+    };
+
+    guessQuestionText.textContent = challenge.question;
+    guessAnswerInput.value = "";
+
+    showScreen("guessAnswer");
+}
 
 // ====================
 // LANCEMENT
