@@ -352,6 +352,44 @@ guessBtn.addEventListener("click", () => {
     showScreen("guessAnswer");
 });
 
+validateGuessAnswerBtn.addEventListener("click", () => {
+    const answer = guessAnswerInput.value.trim();
+
+    if (answer === "") {
+        alert("Écris ta réponse 🌵");
+        return;
+    }
+
+    currentGuessId = currentGuessQuestion.id;
+
+    database
+        .ref(
+            "spaces/" +
+            currentSpaceCode +
+            "/guessAnswers/" +
+            currentGuessId +
+            "/answers/" +
+            currentUser.uid
+        )
+        .set({
+            uid: currentUser.uid,
+            pseudo: pseudo,
+            answer: answer,
+            createdAt: Date.now()
+        })
+        .then(() => {
+            showScreen("guessWaiting");
+        });
+});
+
+backFromGuessBtn.addEventListener("click", () => {
+    showScreen("dashboard");
+});
+
+backDashboardFromGuessWaitBtn.addEventListener("click", () => {
+    showScreen("dashboard");
+});
+
 validateRankingBtn.addEventListener("click", () => {
     const items = rankingList.querySelectorAll("li");
 
