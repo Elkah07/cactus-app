@@ -156,6 +156,8 @@ let currentPendingChallengeIndex = 0;
 let pendingGuessAnswers = []; 
 let currentPendingGuessIndex = 0;
 
+let pendingGuessPredictions = [];
+
 // ====================
 // CHARGEMENT DES DONNÉES
 // ====================
@@ -1341,22 +1343,52 @@ function displayGuessChallenges(challenges) {
         return !alreadyAnswered && answeredBySomeoneElse;
     });
 
-    if (pendingGuessAnswers.length === 0) {
-        guessNotification.textContent = "";
-        guessNotification.style.cursor = "default";
+    pendingGuessPredictions = challengeArray.filter((challenge) => {
+        if (challenge.status !== "predicting") return false;
+        if (!challenge.answers) return false;
+
+        const hasMyAnswer =
+            challenge.answers[currentUser.uid];
+
+        const alreadyPredicted =
+            challenge.predictions &&
+            challenge.predictions[currentUser.uid];
+
+        return hasMyAnswer && !alreadyPredicted;
+    });
+
+    if (pendingGuessAnswers.length > 0) {
+        if (pendingGuessAnswers.length === 1) {
+            guessNotification.textContent =
+                "💚 1 question Devine ma réponse t’attend";
+        } else {
+            guessNotification.textContent =
+                "💚 " +
+                pendingGuessAnswers.length +
+                " questions Devine ma réponse t’attendent";
+        }
+
+        guessNotification.style.cursor = "pointer";
         return;
     }
 
-    if (pendingGuessAnswers.length === 1) {
-        guessNotification.textContent =
-            "💚 1 question Devine ma réponse t’attend";
-    } else {
-        guessNotification.textContent =
-            "💚 " + pendingGuessAnswers.length +
-            " questions Devine ma réponse t’attendent";
+    if (pendingGuessPredictions.length > 0) {
+        if (pendingGuessPredictions.length === 1) {
+            guessNotification.textContent =
+                "💚 1 prédiction t’attend";
+        } else {
+            guessNotification.textContent =
+                "💚 " +
+                pendingGuessPredictions.length +
+                " prédictions t’attendent";
+        }
+
+        guessNotification.style.cursor = "pointer";
+        return;
     }
 
-    guessNotification.style.cursor = "pointer";
+    guessNotification.textContent = "";
+    guessNotification.style.cursor = "default";
 }
 
 function startPendingGuessAnswer() {
