@@ -671,50 +671,35 @@ highlightColorPicker.addEventListener("input", () => {
 insertCheckboxLineBtn.addEventListener("click", () => {
     notebookEditor.focus();
 
-    const block = getCurrentBlock();
+    document.execCommand(
+        "insertHTML",
+        false,
+        '<p class="checkbox-line"><span class="fake-checkbox" contenteditable="false">☐</span>&nbsp;</p>'
+    );
 
-    if (block && block.textContent.trim().startsWith("☐")) {
-        block.textContent = block.textContent.replace("☐", "☑");
-        block.classList.add("checked-line");
-    } else if (block && block.textContent.trim().startsWith("☑")) {
-        block.textContent = block.textContent.replace("☑", "☐");
-        block.classList.remove("checked-line");
-    } else {
-        document.execCommand("insertText", false, "☐ ");
-    }
-
-    normalizeCheckboxLines();
     saveNotebookContent();
     keepEditorToolbarOpen();
 });
 
 
-notebookEditor.addEventListener("keydown", (event) => {
-    if (event.key !== "Enter") {
-        return;
-    }
 
-    const selection = window.getSelection();
+notebookEditor.addEventListener("click", (event) => {
+    const checkbox = event.target.closest(".fake-checkbox");
 
-    if (!selection.rangeCount) {
-        return;
-    }
-
-    const node = selection.anchorNode;
-    const checkboxLine =
-        node?.parentElement?.closest(".checkbox-line");
-
-    if (!checkboxLine) {
-        return;
-    }
+    if (!checkbox) return;
 
     event.preventDefault();
+    event.stopPropagation();
 
-    document.execCommand(
-        "insertHTML",
-        false,
-        "<div><br></div>"
-    );
+    const line = checkbox.closest(".checkbox-line");
+
+    if (checkbox.textContent.trim() === "☐") {
+        checkbox.textContent = "☑";
+        line.classList.add("checked-line");
+    } else {
+        checkbox.textContent = "☐";
+        line.classList.remove("checked-line");
+    }
 
     saveNotebookContent();
 });
@@ -1110,7 +1095,19 @@ function loadNotebookContent() {
 }
 
 function restoreCheckboxes() {
-    normalizeCheckboxLines();
+    notebookEditor.querySelectorAll(".checkbox-line").forEach((line) => {
+        const checkbox = line.querySelector(".fake-checkbox");
+
+        if (!checkbox) return;
+
+        checkbox.setAttribute("contenteditable", "false");
+
+        if (checkbox.textContent.trim() === "☑") {
+            line.classList.add("checked-line");
+        } else {
+            line.classList.remove("checked-line");
+        }
+    });
 }
 
 function runEditorCommand(command, value = null) {

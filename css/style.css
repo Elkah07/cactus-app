@@ -1337,3 +1337,31 @@ body.dark-theme .notebook-editor {
     text-decoration: line-through;
     opacity: 0.6;
 }
+
+.checkbox-line {
+    display: block;
+    min-height: 28px;
+}
+
+.fake-checkbox {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 32px;
+    min-height: 32px;
+
+    cursor: pointer;
+    user-select: none;
+    font-weight: bold;
+}
+
+.checked-line {
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+
+.checked-line .fake-checkbox {
+    text-decoration: none;
+    opacity: 1;
+}
