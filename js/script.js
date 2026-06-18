@@ -127,7 +127,7 @@ const backDashboardFromGuessResultBtn =    document.getElementById("backDashboar
 
 const guessNotification =    document.getElementById("guessNotification");
 
-
+let pendingGuessValidations = [];
 let saveNotebookTimeout = null;
 
 let currentNotebookId = null;
@@ -1390,6 +1390,27 @@ function displayGuessChallenges(challenges) {
         return hasMyAnswer && !alreadyPredicted;
     });
 
+    pendingGuessValidations = challengeArray.filter((challenge) => {
+    if (challenge.status !== "predicting") return false;
+    if (!challenge.answers) return false;
+    if (!challenge.predictions) return false;
+
+    const hasMyAnswer =
+        challenge.answers[currentUser.uid];
+
+    const partnerPrediction = Object.values(
+        challenge.predictions
+    ).find((prediction) => {
+        return prediction.uid !== currentUser.uid;
+    });
+
+    const alreadyValidated =
+        challenge.validations &&
+        challenge.validations[currentUser.uid];
+
+    return hasMyAnswer && partnerPrediction && !alreadyValidated;
+});
+
     if (pendingGuessAnswers.length > 0) {
         if (pendingGuessAnswers.length === 1) {
             guessNotification.textContent =
@@ -1419,6 +1440,16 @@ function displayGuessChallenges(challenges) {
         guessNotification.style.cursor = "pointer";
         return;
     }
+
+    if (pendingGuessValidations.length > 0) {
+    guessNotification.textContent =
+        "💚 " +
+        pendingGuessValidations.length +
+        " validation Devine ma réponse t’attend";
+
+    guessNotification.style.cursor = "pointer";
+    return;
+}
 
     guessNotification.textContent = "";
     guessNotification.style.cursor = "default";
