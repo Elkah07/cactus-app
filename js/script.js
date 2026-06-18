@@ -829,6 +829,35 @@ guessNotification.addEventListener("click", () => {
     }
 });
 
+validateGuessPredictionBtn.addEventListener("click", () => {
+    const prediction = guessPredictionInput.value.trim();
+
+    if (prediction === "") {
+        alert("Écris ta prédiction 🌵");
+        return;
+    }
+
+    database
+        .ref(
+            "spaces/" +
+            currentSpaceCode +
+            "/guessAnswers/" +
+            currentGuessId +
+            "/predictions/" +
+            currentUser.uid
+        )
+        .set({
+            uid: currentUser.uid,
+            pseudo: pseudo,
+            prediction: prediction,
+            createdAt: Date.now()
+        })
+        .then(() => {
+            alert("Prédiction enregistrée 🌵");
+            showScreen("dashboard");
+        });
+});
+
 
 // ====================
 // BARRE FLOTTANTE
