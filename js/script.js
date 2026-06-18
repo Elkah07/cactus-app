@@ -817,12 +817,16 @@ notebookEditor.addEventListener("click", (event) => {
 });
 
 guessNotification.addEventListener("click", () => {
-    if (pendingGuessAnswers.length === 0) {
+    if (pendingGuessAnswers.length > 0) {
+        currentPendingGuessIndex = 0;
+        startPendingGuessAnswer();
         return;
     }
 
-    currentPendingGuessIndex = 0;
-    startPendingGuessAnswer();
+    if (pendingGuessPredictions.length > 0) {
+        currentPendingGuessIndex = 0;
+        startPendingGuessPrediction();
+    }
 });
 
 
@@ -1411,6 +1415,30 @@ function startPendingGuessAnswer() {
     guessAnswerInput.value = "";
 
     showScreen("guessAnswer");
+}
+
+function startPendingGuessPrediction() {
+    const challenge =
+        pendingGuessPredictions[currentPendingGuessIndex];
+
+    if (!challenge) {
+        showScreen("dashboard");
+        return;
+    }
+
+    currentGuessId = challenge.questionId;
+
+    currentGuessQuestion = {
+        id: challenge.questionId,
+        question: challenge.question
+    };
+
+    guessPredictQuestionText.textContent =
+        challenge.question;
+
+    guessPredictionInput.value = "";
+
+    showScreen("guessPredict");
 }
 
 // ====================
