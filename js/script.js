@@ -192,6 +192,7 @@ function listenToCurrentSpace(spaceCodeValue) {
         }
 
         listenToRankingChallenges();
+        listenToGuessChallenges();
     });
 }
 
@@ -1271,6 +1272,43 @@ function getRandomGuessQuestion() {
     return getRandomItem(guessQuestions);
 }
 
+function listenToGuessChallenges() {
+    database
+        .ref(
+            "spaces/" +
+            currentSpaceCode +
+            "/guessAnswers"
+        )
+        .on("value", (snapshot) => {
+
+            const challenges = snapshot.val() || {};
+
+            Object.entries(challenges).forEach(
+                ([id, challenge]) => {
+
+                    const answers =
+                        challenge.answers || {};
+
+                    if (
+                        Object.keys(answers).length >= 2 &&
+                        challenge.status === "answering"
+                    ) {
+
+                        database
+                            .ref(
+                                "spaces/" +
+                                currentSpaceCode +
+                                "/guessAnswers/" +
+                                id +
+                                "/status"
+                            )
+                            .set("predicting");
+                    }
+                }
+            );
+        });
+}
+
 
 // ====================
 // LANCEMENT
@@ -1358,4 +1396,32 @@ if (pendingRankingChallenges.length === 1) {
 }
 
     rankingNotification.style.cursor = "pointer";
+}
+
+function listenToGuessChallenges() {
+    database
+        .ref("spaces/" + currentSpaceCode + "/guessAnswers")
+        .on("value", (snapshot) => {
+            const challenges = snapshot.val() || {};
+
+            Object.entries(challenges).forEach(([id, challenge]) => {
+                const answers = challenge.answers || {};
+                const answersCount = Object.keys(answers).length;
+
+                if (
+                    answersCount >= 2 &&
+                    challenge.status === "answering"
+                ) {
+                    database
+                        .ref(
+                            "spaces/" +
+                            currentSpaceCode +
+                            "/guessAnswers/" +
+                            id +
+                            "/status"
+                        )
+                        .set("predicting");
+                }
+            });
+        });
 }
