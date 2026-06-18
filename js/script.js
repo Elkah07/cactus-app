@@ -378,8 +378,9 @@ validateGuessAnswerBtn.addEventListener("click", () => {
             createdAt: Date.now()
         })
         .then(() => {
-            showScreen("guessWaiting");
-        });
+    alert("Réponse enregistrée 🌵");
+    showScreen("dashboard");
+});
 });
 
 backFromGuessBtn.addEventListener("click", () => {
@@ -1254,6 +1255,7 @@ async function loadGuessQuestionsData() {
 function getRandomGuessQuestion() {
     return getRandomItem(guessQuestions);
 }
+
 
 // ====================
 // LANCEMENT
