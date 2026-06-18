@@ -36,7 +36,6 @@ const leaveSpaceBtn = document.getElementById("leaveSpaceBtn");
 const backFromRankingBtn = document.getElementById("backFromRankingBtn");
 const backToLoginBtn = document.getElementById("backToLoginBtn");
 
-const rankingNotification = document.getElementById("rankingNotification");
 const logoutFromCoupleBtn = document.getElementById("logoutFromCoupleBtn");
 
 const settingsScreen = document.getElementById("settingsScreen");
@@ -124,8 +123,6 @@ const guessPartnerAnswerResult =    document.getElementById("guessPartnerAnswerR
 const guessValidationResult =    document.getElementById("guessValidationResult");
 const nextGuessBtn =    document.getElementById("nextGuessBtn");
 const backDashboardFromGuessResultBtn =    document.getElementById("backDashboardFromGuessResultBtn");
-
-const guessNotification =    document.getElementById("guessNotification");
 
 const activityBox = document.getElementById("activityBox");
 const activityList = document.getElementById("activityList");
@@ -562,17 +559,6 @@ leaveSpaceBtn.addEventListener("click", () => {
         });
 });
 
-rankingNotification.addEventListener("click", () => {
-    if (pendingRankingChallenges.length === 0) {
-        return;
-    }
-
-    isPlayingPendingChallenges = true;
-    currentPendingChallengeIndex = 0;
-
-    startPendingRankingChallenge();
-});
-
 backFromRankingBtn.addEventListener("click", () => {
     showScreen("dashboard");
 });
@@ -821,32 +807,6 @@ notebookEditor.addEventListener("click", (event) => {
     saveNotebookContent();
 });
 
-guessNotification.addEventListener("click", () => {
-    if (pendingGuessAnswers.length > 0) {
-        currentPendingGuessIndex = 0;
-        startPendingGuessAnswer();
-        return;
-    }
-
-    if (pendingGuessPredictions.length > 0) {
-        currentPendingGuessIndex = 0;
-        startPendingGuessPrediction();
-        return;
-    }
-
-    if (pendingGuessValidations.length > 0) {
-        currentPendingGuessIndex = 0;
-        startPendingGuessValidation();
-        return;
-    }
-
-    if (pendingGuessResults.length > 0) {
-        currentPendingGuessIndex = 0;
-        showPendingGuessResult();
-        return;
-    }
-});
-
 validateGuessPredictionBtn.addEventListener("click", () => {
     const prediction = guessPredictionInput.value.trim();
 
@@ -890,7 +850,7 @@ guessFalseBtn.addEventListener("click", () => {
 
 nextGuessBtn.addEventListener("click", () => {
     markCurrentGuessResultSeen().then(() => {
-        currentPendingGuessIndex++;
+        currentPendingGuessIndex = 0;
         showPendingGuessResult();
     });
 });
@@ -1752,7 +1712,7 @@ if ("serviceWorker" in navigator) {
 }
 
 function displayRankingChallenges(challenges) {
-    const challengeArray = Object.values(challenges);
+    const challengeArray = Object.values(challenges || {});
 
     pendingRankingChallenges = challengeArray.filter((challenge) => {
         if (challenge.status === "completed") {
@@ -1763,32 +1723,18 @@ function displayRankingChallenges(challenges) {
             return false;
         }
 
-        const alreadyAnswered = challenge.answers[currentUser.uid];
+        const alreadyAnswered =
+            challenge.answers[currentUser.uid];
 
-        const answeredBySomeoneElse = Object.keys(challenge.answers).some((uid) => {
-            return uid !== currentUser.uid;
-        });
+        const answeredBySomeoneElse =
+            Object.keys(challenge.answers).some((uid) => {
+                return uid !== currentUser.uid;
+            });
 
         return !alreadyAnswered && answeredBySomeoneElse;
     });
 
-    if (pendingRankingChallenges.length === 0) {
-        rankingNotification.textContent = "";
-        rankingNotification.style.cursor = "default";
-        return;
-    }
-
-    const firstChallenge = pendingRankingChallenges[0];
-const firstAnswer = Object.values(firstChallenge.answers)[0];
-const senderName = firstAnswer.pseudo || "Ton/ta partenaire";
-
-if (pendingRankingChallenges.length === 1) {
-    rankingNotification.textContent = `💚 ${senderName} t’a envoyé un classement`;
-} else {
-    rankingNotification.textContent = `💚 ${senderName} t’a envoyé ${pendingRankingChallenges.length} classements`;
-}
-
-    rankingNotification.style.cursor = "pointer";
+    updateActivityBox();
 }
 
 function listenToGuessChallenges() {
