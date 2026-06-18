@@ -216,7 +216,7 @@
     Devine ma réponse
 </button>
 
-<button class="secondary disabled-btn" disabled>
+<button id="likelyBtn" class="secondary">
     Qui est le plus susceptible de...
 </button>
 
@@ -423,6 +423,44 @@
     </button>
 
     <button id="backDashboardFromGuessResultBtn" class="secondary">
+        Retour au dashboard
+    </button>
+</div>
+
+<div id="likelyScreen" style="display:none;">
+    <h1>🌵 Qui est le plus susceptible de...</h1>
+
+    <p id="likelyQuestionText" class="subtitle"></p>
+
+    <button id="likelyMeBtn">Moi</button>
+    <button id="likelyPartnerBtn" class="secondary">Toi</button>
+    <button id="likelyBothBtn" class="secondary">Nous deux</button>
+
+    <button id="backFromLikelyBtn" class="secondary">
+        Retour
+    </button>
+</div>
+
+<div id="likelyResultScreen" style="display:none;">
+    <h1>🌵 Résultat</h1>
+
+    <p id="likelyResultQuestion" class="subtitle"></p>
+
+    <div class="comparison-box">
+        <h3>Ta réponse</h3>
+        <p id="likelyMyAnswer"></p>
+    </div>
+
+    <div class="comparison-box">
+        <h3>Réponse partenaire</h3>
+        <p id="likelyPartnerAnswer"></p>
+    </div>
+
+    <button id="nextLikelyBtn">
+        Question suivante
+    </button>
+
+    <button id="backDashboardFromLikelyBtn" class="secondary">
         Retour au dashboard
     </button>
 </div>

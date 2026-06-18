@@ -127,6 +127,44 @@ const backDashboardFromGuessResultBtn =    document.getElementById("backDashboar
 const activityBox = document.getElementById("activityBox");
 const activityList = document.getElementById("activityList");
 
+const likelyBtn = document.getElementById("likelyBtn");
+
+const likelyScreen =
+    document.getElementById("likelyScreen");
+
+const likelyResultScreen =
+    document.getElementById("likelyResultScreen");
+
+const likelyQuestionText =
+    document.getElementById("likelyQuestionText");
+
+const likelyMeBtn =
+    document.getElementById("likelyMeBtn");
+
+const likelyPartnerBtn =
+    document.getElementById("likelyPartnerBtn");
+
+const likelyBothBtn =
+    document.getElementById("likelyBothBtn");
+
+const backFromLikelyBtn =
+    document.getElementById("backFromLikelyBtn");
+
+const likelyResultQuestion =
+    document.getElementById("likelyResultQuestion");
+
+const likelyMyAnswer =
+    document.getElementById("likelyMyAnswer");
+
+const likelyPartnerAnswer =
+    document.getElementById("likelyPartnerAnswer");
+
+const nextLikelyBtn =
+    document.getElementById("nextLikelyBtn");
+
+const backDashboardFromLikelyBtn =
+    document.getElementById("backDashboardFromLikelyBtn");
+
 let pendingGuessValidations = [];
 let saveNotebookTimeout = null;
 
@@ -159,6 +197,14 @@ let currentPendingGuessIndex = 0;
 let pendingGuessPredictions = [];
 
 let pendingGuessResults = [];
+
+let likelyQuestions = [];
+
+let currentLikelyQuestion = null;
+let currentLikelyId = null;
+
+let pendingLikelyChallenges = [];
+let currentPendingLikelyIndex = 0;
 
 // ====================
 // CHARGEMENT DES DONNÉES
@@ -859,6 +905,10 @@ backDashboardFromGuessResultBtn.addEventListener("click", () => {
     markCurrentGuessResultSeen().then(() => {
         showScreen("dashboard");
     });
+});
+
+likelyBtn.addEventListener("click", () => {
+    startLikelyGame();
 });
 
 // ====================
@@ -1661,6 +1711,28 @@ function markCurrentGuessResultSeen() {
             currentUser.uid
         )
         .set(true);
+}
+
+function startLikelyGame() {
+    if (!likelyQuestions.length) {
+        alert("Questions en cours de chargement...");
+        return;
+    }
+
+    const randomQuestion =
+        likelyQuestions[
+            Math.floor(
+                Math.random() * likelyQuestions.length
+            )
+        ];
+
+    currentLikelyQuestion = randomQuestion;
+    currentLikelyId = randomQuestion.id;
+
+    likelyQuestionText.textContent =
+        randomQuestion.question;
+
+    showScreen("likely");
 }
 
 // ====================
