@@ -669,39 +669,25 @@ highlightColorPicker.addEventListener("input", () => {
 });
 
 insertCheckboxLineBtn.addEventListener("click", () => {
-    document.execCommand(
-        "insertHTML",
-        false,
-        '<div class="checkbox-line"><span class="fake-checkbox" contenteditable="false">☐</span><span class="checkbox-text">&nbsp;</span></div>'
-    );
+    notebookEditor.focus();
 
+    const block = getCurrentBlock();
+
+    if (block && block.textContent.trim().startsWith("☐")) {
+        block.textContent = block.textContent.replace("☐", "☑");
+        block.classList.add("checked-line");
+    } else if (block && block.textContent.trim().startsWith("☑")) {
+        block.textContent = block.textContent.replace("☑", "☐");
+        block.classList.remove("checked-line");
+    } else {
+        document.execCommand("insertText", false, "☐ ");
+    }
+
+    normalizeCheckboxLines();
     saveNotebookContent();
     keepEditorToolbarOpen();
 });
 
-notebookEditor.addEventListener("click", (event) => {
-    const checkbox = event.target.closest(".fake-checkbox");
-
-    if (!checkbox) return;
-
-    event.preventDefault();
-    event.stopPropagation();
-
-    const line = checkbox.closest(".checkbox-line");
-    const text = line.querySelector(".checkbox-text");
-
-    if (!text) return;
-
-    if (checkbox.textContent.trim() === "☐") {
-        checkbox.textContent = "☑";
-        text.classList.add("checked");
-    } else {
-        checkbox.textContent = "☐";
-        text.classList.remove("checked");
-    }
-
-    saveNotebookContent();
-});
 
 notebookEditor.addEventListener("keydown", (event) => {
     if (event.key !== "Enter") {
@@ -1124,23 +1110,7 @@ function loadNotebookContent() {
 }
 
 function restoreCheckboxes() {
-    notebookEditor
-        .querySelectorAll(".fake-checkbox")
-        .forEach((checkbox) => {
-            checkbox.setAttribute("contenteditable", "false");
-
-            const line = checkbox.closest(".checkbox-line");
-            if (!line) return;
-
-            const text = line.querySelector(".checkbox-text");
-            if (!text) return;
-
-            if (checkbox.textContent.trim() === "☑") {
-                text.classList.add("checked");
-            } else {
-                text.classList.remove("checked");
-            }
-        });
+    normalizeCheckboxLines();
 }
 
 function runEditorCommand(command, value = null) {
@@ -1155,6 +1125,36 @@ function keepEditorToolbarOpen() {
         notebookEditor.focus();
         showEditorToolbar();
     }, 50);
+}
+
+function getCurrentBlock() {
+    const selection = window.getSelection();
+
+    if (!selection.rangeCount) {
+        return null;
+    }
+
+    let node = selection.anchorNode;
+
+    if (node.nodeType === Node.TEXT_NODE) {
+        node = node.parentElement;
+    }
+
+    return node.closest("p, div");
+}
+
+function normalizeCheckboxLines() {
+    const lines = notebookEditor.querySelectorAll("p, div");
+
+    lines.forEach((line) => {
+        const text = line.textContent.trim();
+
+        if (text.startsWith("☑")) {
+            line.classList.add("checked-line");
+        } else {
+            line.classList.remove("checked-line");
+        }
+    });
 }
 
 // ====================

@@ -1324,3 +1324,16 @@ body.dark-theme .notebook-editor {
     margin-top: 20px;
     margin-bottom: 160px;
 }
+
+.checkbox-text {
+    flex: 1;
+    min-width: 20px;
+
+    display: inline-block;
+    min-height: 24px;
+}
+
+.checked-line {
+    text-decoration: line-through;
+    opacity: 0.6;
+}
