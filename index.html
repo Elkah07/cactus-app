@@ -210,9 +210,9 @@
 
               <p id="rankingNotification" class="mode-notification"></p>
 
-            <button class="secondary disabled-btn" disabled>
-                  Devine ma réponse
-                 </button>
+            <button id="guessBtn" class="secondary">
+                Devine ma réponse
+                    </button>
 
             <button class="secondary disabled-btn" disabled>
                    Qui est le plus susceptible de...
@@ -310,6 +310,117 @@
     </button>
 
     <button id="backDashboardAfterCompatibilityBtn" class="secondary">
+        Retour au dashboard
+    </button>
+</div>
+
+<div id="guessAnswerScreen" style="display:none;">
+    <h1>🌵 Devine ma réponse</h1>
+
+    <p id="guessQuestionText" class="subtitle"></p>
+
+    <input
+        type="text"
+        id="guessAnswerInput"
+        placeholder="Ta réponse"
+    >
+
+    <button id="validateGuessAnswerBtn">
+        Valider ma réponse
+    </button>
+
+    <button id="backFromGuessBtn" class="secondary">
+        Retour
+    </button>
+</div>
+
+<div id="guessWaitingScreen" style="display:none;">
+    <h1>🌵 Réponse envoyée</h1>
+
+    <p class="subtitle">
+        On attend la réponse de ton/ta partenaire.
+    </p>
+
+    <div class="waiting-box">
+        <p>⏳ En attente...</p>
+    </div>
+
+    <button id="backDashboardFromGuessWaitBtn" class="secondary">
+        Retour au dashboard
+    </button>
+</div>
+
+<div id="guessPredictScreen" style="display:none;">
+    <h1>🌵 Devine sa réponse</h1>
+
+    <p id="guessPredictQuestionText" class="subtitle"></p>
+
+    <input
+        type="text"
+        id="guessPredictionInput"
+        placeholder="Selon toi, sa réponse c’est..."
+    >
+
+    <button id="validateGuessPredictionBtn">
+        Valider ma prédiction
+    </button>
+</div>
+
+<div id="guessValidationScreen" style="display:none;">
+    <h1>🌵 Validation</h1>
+
+    <p id="guessValidationQuestion" class="subtitle"></p>
+
+    <div class="comparison-box">
+        <h3>Ta vraie réponse</h3>
+        <p id="myRealGuessAnswer"></p>
+    </div>
+
+    <div class="comparison-box">
+        <h3>Ce que ton/ta partenaire pensait</h3>
+        <p id="partnerPredictionAboutMe"></p>
+    </div>
+
+    <button id="guessTrueBtn">VRAI</button>
+    <button id="guessAlmostBtn" class="secondary">BOF</button>
+    <button id="guessFalseBtn" class="danger-btn">FAUX</button>
+</div>
+
+<div id="guessResultScreen" style="display:none;">
+    <h1>🌵 Résultat</h1>
+
+    <p id="guessResultQuestion" class="subtitle"></p>
+
+    <div class="compatibility-score-box">
+        <strong id="guessResultScore">0%</strong>
+        <p id="guessResultLabel"></p>
+    </div>
+
+    <div class="comparison-box">
+        <h3>Ta réponse</h3>
+        <p id="guessMyAnswerResult"></p>
+    </div>
+
+    <div class="comparison-box">
+        <h3>Ta prédiction</h3>
+        <p id="guessMyPredictionResult"></p>
+    </div>
+
+    <div class="comparison-box">
+        <h3>Réponse partenaire</h3>
+        <p id="guessPartnerAnswerResult"></p>
+    </div>
+
+    <div class="comparison-box">
+        <h3>Validation</h3>
+        <p id="guessValidationResult"></p>
+    </div>
+
+    <button id="nextGuessBtn">
+        Question suivante
+    </button>
+
+    <button id="backDashboardFromGuessResultBtn" class="secondary">
         Retour au dashboard
     </button>
 </div>

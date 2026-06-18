@@ -95,6 +95,36 @@ const underlineBtn = document.getElementById("underlineBtn");
 const textColorPicker = document.getElementById("textColorPicker");
 const highlightColorPicker = document.getElementById("highlightColorPicker");
 
+const guessBtn = document.getElementById("guessBtn");
+const guessAnswerScreen = document.getElementById("guessAnswerScreen");
+const guessWaitingScreen = document.getElementById("guessWaitingScreen");
+const guessPredictScreen = document.getElementById("guessPredictScreen");
+const guessValidationScreen = document.getElementById("guessValidationScreen");
+const guessResultScreen =     document.getElementById("guessResultScreen");
+const guessQuestionText =    document.getElementById("guessQuestionText");
+const guessAnswerInput =    document.getElementById("guessAnswerInput");
+const validateGuessAnswerBtn =    document.getElementById("validateGuessAnswerBtn");
+const backFromGuessBtn =     document.getElementById("backFromGuessBtn");
+const backDashboardFromGuessWaitBtn =    document.getElementById("backDashboardFromGuessWaitBtn");
+const guessPredictQuestionText =    document.getElementById("guessPredictQuestionText");
+const guessPredictionInput =    document.getElementById("guessPredictionInput");
+const validateGuessPredictionBtn =    document.getElementById("validateGuessPredictionBtn");
+const guessValidationQuestion =    document.getElementById("guessValidationQuestion");
+const myRealGuessAnswer =    document.getElementById("myRealGuessAnswer");
+const partnerPredictionAboutMe =    document.getElementById("partnerPredictionAboutMe");
+const guessTrueBtn =    document.getElementById("guessTrueBtn");
+const guessAlmostBtn =    document.getElementById("guessAlmostBtn");
+const guessFalseBtn =    document.getElementById("guessFalseBtn");
+const guessResultQuestion =    document.getElementById("guessResultQuestion");
+const guessResultScore =    document.getElementById("guessResultScore");
+const guessResultLabel =    document.getElementById("guessResultLabel");
+const guessMyAnswerResult =    document.getElementById("guessMyAnswerResult");
+const guessMyPredictionResult =    document.getElementById("guessMyPredictionResult");
+const guessPartnerAnswerResult =    document.getElementById("guessPartnerAnswerResult");
+const guessValidationResult =    document.getElementById("guessValidationResult");
+const nextGuessBtn =    document.getElementById("nextGuessBtn");
+const backDashboardFromGuessResultBtn =    document.getElementById("backDashboardFromGuessResultBtn");
+
 
 let saveNotebookTimeout = null;
 
@@ -108,6 +138,9 @@ let currentSpaceCode = "";
 
 let rankings = [];
 let currentRanking = null;
+let guessQuestions = [];
+let currentGuessQuestion = null;
+let currentGuessId = null;
 let lastRankingId = null;
 let draggedItem = null;
 
@@ -300,6 +333,23 @@ joinSpaceBtn.addEventListener("click", () => {
 
 rankingBtn.addEventListener("click", () => {
     startRandomRanking();
+});
+
+guessBtn.addEventListener("click", () => {
+    if (guessQuestions.length === 0) {
+        alert("Les questions chargent encore 🌵");
+        return;
+    }
+
+    currentGuessQuestion =
+        getRandomItem(guessQuestions);
+
+    guessQuestionText.textContent =
+        currentGuessQuestion.question;
+
+    guessAnswerInput.value = "";
+
+    showScreen("guessAnswer");
 });
 
 validateRankingBtn.addEventListener("click", () => {
@@ -1154,6 +1204,19 @@ function normalizeCheckboxLines() {
     });
 }
 
+async function loadGuessQuestionsData() {
+    const response = await fetch("data/guess-my-answer.json");
+    const data = await response.json();
+
+    guessQuestions = data;
+
+    console.log("Questions Devine ma réponse chargées :", guessQuestions);
+}
+
+function getRandomGuessQuestion() {
+    return getRandomItem(guessQuestions);
+}
+
 // ====================
 // LANCEMENT
 // ====================
@@ -1192,6 +1255,7 @@ auth.onAuthStateChanged((user) => {
 });
 
 loadRankingsData();
+loadGuessQuestionsData();
 
 if (localStorage.getItem("theme") === "dark") {
     document.body.classList.add("dark-theme");
