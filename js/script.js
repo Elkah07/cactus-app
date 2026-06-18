@@ -1360,13 +1360,11 @@ function displayGuessChallenges(challenges) {
         if (challenge.status !== "answering") return false;
         if (!challenge.answers) return false;
 
-        const alreadyAnswered =
-            challenge.answers[currentUser.uid];
+        const alreadyAnswered = challenge.answers[currentUser.uid];
 
-        const answeredBySomeoneElse =
-            Object.keys(challenge.answers).some((uid) => {
-                return uid !== currentUser.uid;
-            });
+        const answeredBySomeoneElse = Object.keys(challenge.answers).some((uid) => {
+            return uid !== currentUser.uid;
+        });
 
         return !alreadyAnswered && answeredBySomeoneElse;
     });
@@ -1375,8 +1373,7 @@ function displayGuessChallenges(challenges) {
         if (challenge.status !== "predicting") return false;
         if (!challenge.answers) return false;
 
-        const hasMyAnswer =
-            challenge.answers[currentUser.uid];
+        const hasMyAnswer = challenge.answers[currentUser.uid];
 
         const alreadyPredicted =
             challenge.predictions &&
@@ -1390,24 +1387,17 @@ function displayGuessChallenges(challenges) {
         if (!challenge.answers) return false;
         if (!challenge.predictions) return false;
 
-        const hasMyAnswer =
-            challenge.answers[currentUser.uid];
+        const hasMyAnswer = challenge.answers[currentUser.uid];
 
-        const partnerPrediction =
-            Object.values(challenge.predictions).find(
-                (prediction) =>
-                    prediction.uid !== currentUser.uid
-            );
+        const partnerPrediction = Object.values(challenge.predictions).find((prediction) => {
+            return prediction.uid !== currentUser.uid;
+        });
 
         const alreadyValidated =
             challenge.validations &&
             challenge.validations[currentUser.uid];
 
-        return (
-            hasMyAnswer &&
-            partnerPrediction &&
-            !alreadyValidated
-        );
+        return hasMyAnswer && partnerPrediction && !alreadyValidated;
     });
 
     pendingGuessResults = challengeArray.filter((challenge) => {
@@ -1416,165 +1406,43 @@ function displayGuessChallenges(challenges) {
         if (!challenge.predictions) return false;
         if (!challenge.validations) return false;
 
-        const hasMyAnswer =
-            challenge.answers[currentUser.uid];
-
-        const hasMyPrediction =
-            challenge.predictions[currentUser.uid];
-
-        const hasMyValidation =
-            challenge.validations[currentUser.uid];
-
         return (
-            hasMyAnswer &&
-            hasMyPrediction &&
-            hasMyValidation
+            challenge.answers[currentUser.uid] &&
+            challenge.predictions[currentUser.uid] &&
+            challenge.validations[currentUser.uid]
         );
     });
 
     if (pendingGuessAnswers.length > 0) {
         guessNotification.textContent =
-            "💚 " +
-            pendingGuessAnswers.length +
-            " question(s) Devine ma réponse t’attendent";
-
+            "💚 " + pendingGuessAnswers.length + " question(s) Devine ma réponse t’attendent";
         guessNotification.style.cursor = "pointer";
         return;
     }
 
     if (pendingGuessPredictions.length > 0) {
         guessNotification.textContent =
-            "💚 " +
-            pendingGuessPredictions.length +
-            " prédiction(s) t’attendent";
-
+            "💚 " + pendingGuessPredictions.length + " prédiction(s) t’attendent";
         guessNotification.style.cursor = "pointer";
         return;
     }
 
     if (pendingGuessValidations.length > 0) {
         guessNotification.textContent =
-            "💚 " +
-            pendingGuessValidations.length +
-            " validation(s) t’attendent";
-
+            "💚 " + pendingGuessValidations.length + " validation(s) t’attendent";
         guessNotification.style.cursor = "pointer";
         return;
     }
 
     if (pendingGuessResults.length > 0) {
         guessNotification.textContent =
-            "💚 " +
-            pendingGuessResults.length +
-            " résultat(s) disponibles";
-
+            "💚 " + pendingGuessResults.length + " résultat(s) disponibles";
         guessNotification.style.cursor = "pointer";
         return;
     }
 
     guessNotification.textContent = "";
     guessNotification.style.cursor = "default";
-}
-
-    pendingGuessResults = challengeArray.filter((challenge) => {
-    if (challenge.status !== "completed") return false;
-    if (!challenge.answers) return false;
-    if (!challenge.predictions) return false;
-    if (!challenge.validations) return false;
-
-    const hasMyAnswer =
-        challenge.answers[currentUser.uid];
-
-    const hasMyPrediction =
-        challenge.predictions[currentUser.uid];
-
-    const hasMyValidation =
-        challenge.validations[currentUser.uid];
-
-    return hasMyAnswer && hasMyPrediction && hasMyValidation;
-});
-
-    const hasMyAnswer =
-        challenge.answers[currentUser.uid];
-
-    const partnerPrediction = Object.values(
-        challenge.predictions
-    ).find((prediction) => {
-        return prediction.uid !== currentUser.uid;
-    });
-
-    const alreadyValidated =
-        challenge.validations &&
-        challenge.validations[currentUser.uid];
-
-    return hasMyAnswer && partnerPrediction && !alreadyValidated;
-});
-
-    if (pendingGuessAnswers.length > 0) {
-        if (pendingGuessAnswers.length === 1) {
-            guessNotification.textContent =
-                "💚 1 question Devine ma réponse t’attend";
-        } else {
-            guessNotification.textContent =
-                "💚 " +
-                pendingGuessAnswers.length +
-                " questions Devine ma réponse t’attendent";
-        }
-
-        guessNotification.style.cursor = "pointer";
-        return;
-    }
-
-    if (pendingGuessPredictions.length > 0) {
-        if (pendingGuessPredictions.length === 1) {
-            guessNotification.textContent =
-                "💚 1 prédiction t’attend";
-        } else {
-            guessNotification.textContent =
-                "💚 " +
-                pendingGuessPredictions.length +
-                " prédictions t’attendent";
-        }
-
-        guessNotification.style.cursor = "pointer";
-        return;
-    }
-
-    if (pendingGuessValidations.length > 0) {
-    guessNotification.textContent =
-        "💚 " +
-        pendingGuessValidations.length +
-        " validation Devine ma réponse t’attend";
-
-    guessNotification.style.cursor = "pointer";
-    return;
-}
-
-    guessNotification.textContent = "";
-    guessNotification.style.cursor = "default";
-
-    
-
-function startPendingGuessAnswer() {
-    const challenge =
-        pendingGuessAnswers[currentPendingGuessIndex];
-
-    if (!challenge) {
-        showScreen("dashboard");
-        return;
-    }
-
-    currentGuessId = challenge.questionId;
-
-    currentGuessQuestion = {
-        id: challenge.questionId,
-        question: challenge.question
-    };
-
-    guessQuestionText.textContent = challenge.question;
-    guessAnswerInput.value = "";
-
-    showScreen("guessAnswer");
 }
 
 function startPendingGuessPrediction() {
