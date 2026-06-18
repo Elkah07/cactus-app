@@ -158,6 +158,8 @@ let currentPendingGuessIndex = 0;
 
 let pendingGuessPredictions = [];
 
+let pendingGuessResults = [];
+
 // ====================
 // CHARGEMENT DES DONNÉES
 // ====================
@@ -823,10 +825,21 @@ guessNotification.addEventListener("click", () => {
         return;
     }
 
+    if (pendingGuessResults.length > 0) {
+    currentPendingGuessIndex = 0;
+    showPendingGuessResult();
+}
+
     if (pendingGuessPredictions.length > 0) {
-        currentPendingGuessIndex = 0;
-        startPendingGuessPrediction();
-    }
+    currentPendingGuessIndex = 0;
+    startPendingGuessPrediction();
+    return;
+}
+
+if (pendingGuessValidations.length > 0) {
+    currentPendingGuessIndex = 0;
+    startPendingGuessValidation();
+}
 });
 
 validateGuessPredictionBtn.addEventListener("click", () => {
@@ -858,6 +871,25 @@ validateGuessPredictionBtn.addEventListener("click", () => {
         });
 });
 
+guessTrueBtn.addEventListener("click", () => {
+    saveGuessValidation("VRAI");
+});
+
+guessAlmostBtn.addEventListener("click", () => {
+    saveGuessValidation("BOF");
+});
+
+guessFalseBtn.addEventListener("click", () => {
+    saveGuessValidation("FAUX");
+});
+
+nextGuessBtn.addEventListener("click", () => {
+    showScreen("dashboard");
+});
+
+backDashboardFromGuessResultBtn.addEventListener("click", () => {
+    showScreen("dashboard");
+});
 
 // ====================
 // BARRE FLOTTANTE
@@ -1321,43 +1353,6 @@ function getRandomGuessQuestion() {
     return getRandomItem(guessQuestions);
 }
 
-function listenToGuessChallenges() {
-    database
-        .ref(
-            "spaces/" +
-            currentSpaceCode +
-            "/guessAnswers"
-        )
-        .on("value", (snapshot) => {
-
-            const challenges = snapshot.val() || {};
-
-            Object.entries(challenges).forEach(
-                ([id, challenge]) => {
-
-                    const answers =
-                        challenge.answers || {};
-
-                    if (
-                        Object.keys(answers).length >= 2 &&
-                        challenge.status === "answering"
-                    ) {
-
-                        database
-                            .ref(
-                                "spaces/" +
-                                currentSpaceCode +
-                                "/guessAnswers/" +
-                                id +
-                                "/status"
-                            )
-                            .set("predicting");
-                    }
-                }
-            );
-        });
-}
-
 function displayGuessChallenges(challenges) {
     const challengeArray = Object.values(challenges || {});
 
@@ -1391,9 +1386,113 @@ function displayGuessChallenges(challenges) {
     });
 
     pendingGuessValidations = challengeArray.filter((challenge) => {
-    if (challenge.status !== "predicting") return false;
+        if (challenge.status !== "predicting") return false;
+        if (!challenge.answers) return false;
+        if (!challenge.predictions) return false;
+
+        const hasMyAnswer =
+            challenge.answers[currentUser.uid];
+
+        const partnerPrediction =
+            Object.values(challenge.predictions).find(
+                (prediction) =>
+                    prediction.uid !== currentUser.uid
+            );
+
+        const alreadyValidated =
+            challenge.validations &&
+            challenge.validations[currentUser.uid];
+
+        return (
+            hasMyAnswer &&
+            partnerPrediction &&
+            !alreadyValidated
+        );
+    });
+
+    pendingGuessResults = challengeArray.filter((challenge) => {
+        if (challenge.status !== "completed") return false;
+        if (!challenge.answers) return false;
+        if (!challenge.predictions) return false;
+        if (!challenge.validations) return false;
+
+        const hasMyAnswer =
+            challenge.answers[currentUser.uid];
+
+        const hasMyPrediction =
+            challenge.predictions[currentUser.uid];
+
+        const hasMyValidation =
+            challenge.validations[currentUser.uid];
+
+        return (
+            hasMyAnswer &&
+            hasMyPrediction &&
+            hasMyValidation
+        );
+    });
+
+    if (pendingGuessAnswers.length > 0) {
+        guessNotification.textContent =
+            "💚 " +
+            pendingGuessAnswers.length +
+            " question(s) Devine ma réponse t’attendent";
+
+        guessNotification.style.cursor = "pointer";
+        return;
+    }
+
+    if (pendingGuessPredictions.length > 0) {
+        guessNotification.textContent =
+            "💚 " +
+            pendingGuessPredictions.length +
+            " prédiction(s) t’attendent";
+
+        guessNotification.style.cursor = "pointer";
+        return;
+    }
+
+    if (pendingGuessValidations.length > 0) {
+        guessNotification.textContent =
+            "💚 " +
+            pendingGuessValidations.length +
+            " validation(s) t’attendent";
+
+        guessNotification.style.cursor = "pointer";
+        return;
+    }
+
+    if (pendingGuessResults.length > 0) {
+        guessNotification.textContent =
+            "💚 " +
+            pendingGuessResults.length +
+            " résultat(s) disponibles";
+
+        guessNotification.style.cursor = "pointer";
+        return;
+    }
+
+    guessNotification.textContent = "";
+    guessNotification.style.cursor = "default";
+}
+
+    pendingGuessResults = challengeArray.filter((challenge) => {
+    if (challenge.status !== "completed") return false;
     if (!challenge.answers) return false;
     if (!challenge.predictions) return false;
+    if (!challenge.validations) return false;
+
+    const hasMyAnswer =
+        challenge.answers[currentUser.uid];
+
+    const hasMyPrediction =
+        challenge.predictions[currentUser.uid];
+
+    const hasMyValidation =
+        challenge.validations[currentUser.uid];
+
+    return hasMyAnswer && hasMyPrediction && hasMyValidation;
+});
 
     const hasMyAnswer =
         challenge.answers[currentUser.uid];
@@ -1453,7 +1552,8 @@ function displayGuessChallenges(challenges) {
 
     guessNotification.textContent = "";
     guessNotification.style.cursor = "default";
-}
+
+    
 
 function startPendingGuessAnswer() {
     const challenge =
@@ -1499,6 +1599,137 @@ function startPendingGuessPrediction() {
     guessPredictionInput.value = "";
 
     showScreen("guessPredict");
+}
+
+function startPendingGuessValidation() {
+    const challenge =
+        pendingGuessValidations[currentPendingGuessIndex];
+
+    if (!challenge) {
+        showScreen("dashboard");
+        return;
+    }
+
+    currentGuessId = challenge.questionId;
+
+    currentGuessQuestion = {
+        id: challenge.questionId,
+        question: challenge.question
+    };
+
+    const myAnswer =
+        challenge.answers[currentUser.uid];
+
+    const partnerPrediction =
+        Object.values(challenge.predictions)
+            .find((prediction) => {
+                return prediction.uid !== currentUser.uid;
+            });
+
+    guessValidationQuestion.textContent =
+        challenge.question;
+
+    myRealGuessAnswer.textContent =
+        myAnswer.answer;
+
+    partnerPredictionAboutMe.textContent =
+        partnerPrediction.prediction;
+
+    showScreen("guessValidation");
+}
+
+function saveGuessValidation(result) {
+    database
+        .ref(
+            "spaces/" +
+            currentSpaceCode +
+            "/guessAnswers/" +
+            currentGuessId +
+            "/validations/" +
+            currentUser.uid
+        )
+        .set({
+            uid: currentUser.uid,
+            result: result,
+            createdAt: Date.now()
+        })
+        .then(() => {
+            alert("Validation enregistrée 🌵");
+            showScreen("dashboard");
+        });
+}
+
+function showPendingGuessResult() {
+    const challenge =
+        pendingGuessResults[currentPendingGuessIndex];
+
+    if (!challenge) {
+        showScreen("dashboard");
+        return;
+    }
+
+    const answersArray = Object.values(challenge.answers);
+    const predictionsArray = Object.values(challenge.predictions);
+    const validationsArray = Object.values(challenge.validations);
+
+    const myAnswer =
+        challenge.answers[currentUser.uid];
+
+    const myPrediction =
+        challenge.predictions[currentUser.uid];
+
+    const partnerAnswer =
+        answersArray.find((answer) => {
+            return answer.uid !== currentUser.uid;
+        });
+
+    const myValidation =
+        challenge.validations[currentUser.uid];
+
+    const partnerValidation =
+        validationsArray.find((validation) => {
+            return validation.uid !== currentUser.uid;
+        });
+
+    const myScore = getGuessValidationScore(myValidation.result);
+    const partnerScore = getGuessValidationScore(partnerValidation.result);
+
+    const finalScore =
+        Math.round(((myScore + partnerScore) / 2) * 100);
+
+    guessResultQuestion.textContent = challenge.question;
+    guessResultScore.textContent = finalScore + "%";
+
+    if (finalScore >= 80) {
+        guessResultLabel.textContent = "Vous vous connaissez très bien 🌵";
+    } else if (finalScore >= 50) {
+        guessResultLabel.textContent = "Il y a de l’idée 💚";
+    } else {
+        guessResultLabel.textContent = "Bon... il faut encore enquêter 🕵️‍♀️";
+    }
+
+    guessMyAnswerResult.textContent =
+        myAnswer.answer;
+
+    guessMyPredictionResult.textContent =
+        myPrediction.prediction;
+
+    guessPartnerAnswerResult.textContent =
+        partnerAnswer.answer;
+
+    guessValidationResult.textContent =
+        "Toi : " +
+        myValidation.result +
+        " / Partenaire : " +
+        partnerValidation.result;
+
+    showScreen("guessResult");
+}
+
+function getGuessValidationScore(result) {
+    if (result === "VRAI") return 1;
+    if (result === "BOF") return 0.5;
+    return 0;
 }
 
 // ====================
@@ -1613,6 +1844,28 @@ function listenToGuessChallenges() {
                         )
                         .set("predicting");
                 }
+
+                const predictions = challenge.predictions || {};
+const validations = challenge.validations || {};
+
+if (
+    Object.keys(predictions).length >= 2 &&
+    Object.keys(validations).length >= 2 &&
+    challenge.status !== "completed"
+) {
+    database
+        .ref(
+            "spaces/" +
+            currentSpaceCode +
+            "/guessAnswers/" +
+            id
+        )
+        .update({
+            status: "completed",
+            completedAt: Date.now()
+        });
+}
+
             });
 
             displayGuessChallenges(challenges);
