@@ -1365,3 +1365,21 @@ body.dark-theme .notebook-editor {
     text-decoration: none;
     opacity: 1;
 }
+
+.activity-box {
+    background: rgba(255, 255, 255, 0.12);
+    border: 2px solid #74C69D;
+    border-radius: 18px;
+    padding: 14px;
+    margin: 14px 0;
+}
+
+.activity-box h3 {
+    margin-bottom: 10px;
+    color: inherit;
+}
+
+.activity-box .mode-notification {
+    cursor: pointer;
+    margin: 8px 0;
+}

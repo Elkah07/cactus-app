@@ -127,6 +127,9 @@ const backDashboardFromGuessResultBtn =    document.getElementById("backDashboar
 
 const guessNotification =    document.getElementById("guessNotification");
 
+const activityBox = document.getElementById("activityBox");
+const activityList = document.getElementById("activityList");
+
 let pendingGuessValidations = [];
 let saveNotebookTimeout = null;
 
@@ -886,11 +889,16 @@ guessFalseBtn.addEventListener("click", () => {
 });
 
 nextGuessBtn.addEventListener("click", () => {
-    showScreen("dashboard");
+    markCurrentGuessResultSeen().then(() => {
+        currentPendingGuessIndex++;
+        showPendingGuessResult();
+    });
 });
 
 backDashboardFromGuessResultBtn.addEventListener("click", () => {
-    showScreen("dashboard");
+    markCurrentGuessResultSeen().then(() => {
+        showScreen("dashboard");
+    });
 });
 
 // ====================
@@ -1359,92 +1367,55 @@ function displayGuessChallenges(challenges) {
     const challengeArray = Object.values(challenges || {});
 
     pendingGuessAnswers = challengeArray.filter((challenge) => {
-        if (challenge.status !== "answering") return false;
-        if (!challenge.answers) return false;
-
-        const alreadyAnswered = challenge.answers[currentUser.uid];
-
-        const answeredBySomeoneElse = Object.keys(challenge.answers).some((uid) => {
-            return uid !== currentUser.uid;
-        });
-
-        return !alreadyAnswered && answeredBySomeoneElse;
+        return (
+            challenge.status === "answering" &&
+            challenge.answers &&
+            !challenge.answers[currentUser.uid] &&
+            Object.keys(challenge.answers).some((uid) => uid !== currentUser.uid)
+        );
     });
 
     pendingGuessPredictions = challengeArray.filter((challenge) => {
-        if (challenge.status !== "predicting") return false;
-        if (!challenge.answers) return false;
-
-        const hasMyAnswer = challenge.answers[currentUser.uid];
-
-        const alreadyPredicted =
-            challenge.predictions &&
-            challenge.predictions[currentUser.uid];
-
-        return hasMyAnswer && !alreadyPredicted;
+        return (
+            challenge.status === "predicting" &&
+            challenge.answers &&
+            challenge.answers[currentUser.uid] &&
+            (!challenge.predictions || !challenge.predictions[currentUser.uid])
+        );
     });
 
     pendingGuessValidations = challengeArray.filter((challenge) => {
         if (challenge.status !== "predicting") return false;
-        if (!challenge.answers) return false;
-        if (!challenge.predictions) return false;
+        if (!challenge.answers || !challenge.predictions) return false;
 
-        const hasMyAnswer = challenge.answers[currentUser.uid];
+        const partnerPrediction = Object.values(challenge.predictions).find(
+            (prediction) => prediction.uid !== currentUser.uid
+        );
 
-        const partnerPrediction = Object.values(challenge.predictions).find((prediction) => {
-            return prediction.uid !== currentUser.uid;
-        });
-
-        const alreadyValidated =
-            challenge.validations &&
-            challenge.validations[currentUser.uid];
-
-        return hasMyAnswer && partnerPrediction && !alreadyValidated;
+        return (
+            challenge.answers[currentUser.uid] &&
+            partnerPrediction &&
+            (!challenge.validations || !challenge.validations[currentUser.uid])
+        );
     });
 
     pendingGuessResults = challengeArray.filter((challenge) => {
         if (challenge.status !== "completed") return false;
-        if (!challenge.answers) return false;
-        if (!challenge.predictions) return false;
-        if (!challenge.validations) return false;
+        if (!challenge.answers || !challenge.predictions || !challenge.validations) return false;
+
+        const seenByMe =
+            challenge.seenBy &&
+            challenge.seenBy[currentUser.uid];
 
         return (
             challenge.answers[currentUser.uid] &&
             challenge.predictions[currentUser.uid] &&
-            challenge.validations[currentUser.uid]
+            challenge.validations[currentUser.uid] &&
+            !seenByMe
         );
     });
 
-    if (pendingGuessAnswers.length > 0) {
-        guessNotification.textContent =
-            "💚 " + pendingGuessAnswers.length + " question(s) Devine ma réponse t’attendent";
-        guessNotification.style.cursor = "pointer";
-        return;
-    }
-
-    if (pendingGuessPredictions.length > 0) {
-        guessNotification.textContent =
-            "💚 " + pendingGuessPredictions.length + " prédiction(s) t’attendent";
-        guessNotification.style.cursor = "pointer";
-        return;
-    }
-
-    if (pendingGuessValidations.length > 0) {
-        guessNotification.textContent =
-            "💚 " + pendingGuessValidations.length + " validation(s) t’attendent";
-        guessNotification.style.cursor = "pointer";
-        return;
-    }
-
-    if (pendingGuessResults.length > 0) {
-        guessNotification.textContent =
-            "💚 " + pendingGuessResults.length + " résultat(s) disponibles";
-        guessNotification.style.cursor = "pointer";
-        return;
-    }
-
-    guessNotification.textContent = "";
-    guessNotification.style.cursor = "default";
+    updateActivityBox();
 }
 
 function startPendingGuessAnswer() {
@@ -1622,6 +1593,114 @@ function getGuessValidationScore(result) {
     if (result === "VRAI") return 1;
     if (result === "BOF") return 0.5;
     return 0;
+}
+
+function updateActivityBox() {
+    activityList.innerHTML = "";
+
+    let hasActivities = false;
+
+    if (pendingRankingChallenges.length > 0) {
+        hasActivities = true;
+
+        const item = document.createElement("p");
+        item.classList.add("mode-notification");
+        item.textContent =
+            "💚 " + pendingRankingChallenges.length + " classement(s) t’attendent";
+
+        item.addEventListener("click", () => {
+            isPlayingPendingChallenges = true;
+            currentPendingChallengeIndex = 0;
+            startPendingRankingChallenge();
+        });
+
+        activityList.appendChild(item);
+    }
+
+    if (pendingGuessAnswers.length > 0) {
+        hasActivities = true;
+
+        const item = document.createElement("p");
+        item.classList.add("mode-notification");
+        item.textContent =
+            "💚 " + pendingGuessAnswers.length + " question(s) Devine ma réponse";
+
+        item.addEventListener("click", () => {
+            currentPendingGuessIndex = 0;
+            startPendingGuessAnswer();
+        });
+
+        activityList.appendChild(item);
+    }
+
+    if (pendingGuessPredictions.length > 0) {
+        hasActivities = true;
+
+        const item = document.createElement("p");
+        item.classList.add("mode-notification");
+        item.textContent =
+            "💚 " + pendingGuessPredictions.length + " prédiction(s) à faire";
+
+        item.addEventListener("click", () => {
+            currentPendingGuessIndex = 0;
+            startPendingGuessPrediction();
+        });
+
+        activityList.appendChild(item);
+    }
+
+    if (pendingGuessValidations.length > 0) {
+        hasActivities = true;
+
+        const item = document.createElement("p");
+        item.classList.add("mode-notification");
+        item.textContent =
+            "💚 " + pendingGuessValidations.length + " validation(s) à faire";
+
+        item.addEventListener("click", () => {
+            currentPendingGuessIndex = 0;
+            startPendingGuessValidation();
+        });
+
+        activityList.appendChild(item);
+    }
+
+    if (pendingGuessResults.length > 0) {
+        hasActivities = true;
+
+        const item = document.createElement("p");
+        item.classList.add("mode-notification");
+        item.textContent =
+            "💚 " + pendingGuessResults.length + " résultat(s) disponibles";
+
+        item.addEventListener("click", () => {
+            currentPendingGuessIndex = 0;
+            showPendingGuessResult();
+        });
+
+        activityList.appendChild(item);
+    }
+
+    activityBox.style.display = hasActivities ? "block" : "none";
+}
+
+function markCurrentGuessResultSeen() {
+    const challenge = pendingGuessResults[currentPendingGuessIndex];
+
+    if (!challenge) {
+        return Promise.resolve();
+    }
+
+    return database
+        .ref(
+            "spaces/" +
+            currentSpaceCode +
+            "/guessAnswers/" +
+            challenge.questionId +
+            "/seenBy/" +
+            currentUser.uid
+        )
+        .set(true);
 }
 
 // ====================
