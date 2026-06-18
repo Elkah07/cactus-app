@@ -204,9 +204,6 @@ let currentLikelyQuestion = null;
 let currentLikelyId = null;
 
 let pendingLikelyChallenges = [];
-let currentPendingLikelyIndex = 0;
-
-let pendingLikelyChallenges = [];
 let pendingLikelyResults = [];
 let currentPendingLikelyIndex = 0;
 
@@ -269,6 +266,18 @@ async function loadRankingsData() {
     console.log("Classements chargés :", rankings);
 }
 
+async function loadLikelyQuestionsData() {
+    const response =
+        await fetch("data/likely.json");
+
+    likelyQuestions =
+        await response.json();
+
+    console.log(
+        "Questions Likely chargées :",
+        likelyQuestions
+    );
+}
 // ====================
 // ÉVÉNEMENTS
 // ====================
@@ -1931,6 +1940,7 @@ auth.onAuthStateChanged((user) => {
 
 loadRankingsData();
 loadGuessQuestionsData();
+loadLikelyQuestionsData();
 
 if (localStorage.getItem("theme") === "dark") {
     document.body.classList.add("dark-theme");
