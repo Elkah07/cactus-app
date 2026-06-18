@@ -151,6 +151,8 @@ let previousScreen = "dashboard";
 let isPlayingPendingChallenges = false;
 let currentPendingChallengeIndex = 0;
 
+let pendingGuessAnswers = [];
+
 // ====================
 // CHARGEMENT DES DONNÉES
 // ====================
@@ -1309,6 +1311,41 @@ function listenToGuessChallenges() {
         });
 }
 
+function displayGuessChallenges(challenges) {
+    const challengeArray = Object.values(challenges || {});
+
+    pendingGuessAnswers = challengeArray.filter((challenge) => {
+        if (challenge.status !== "answering") {
+            return false;
+        }
+
+        if (!challenge.answers) {
+            return false;
+        }
+
+        const alreadyAnswered =
+            challenge.answers[currentUser.uid];
+
+        const answeredBySomeoneElse =
+            Object.keys(challenge.answers).some((uid) => {
+                return uid !== currentUser.uid;
+            });
+
+        return !alreadyAnswered && answeredBySomeoneElse;
+    });
+
+    if (pendingGuessAnswers.length === 0) {
+        // Pour l’instant on ne met rien visuellement
+        return;
+    }
+
+    alert(
+        "💚 " +
+        pendingGuessAnswers.length +
+        " question Devine ma réponse t’attend"
+    );
+}
+
 
 // ====================
 // LANCEMENT
@@ -1423,5 +1460,7 @@ function listenToGuessChallenges() {
                         .set("predicting");
                 }
             });
+
+            displayGuessChallenges(challenges);
         });
 }
