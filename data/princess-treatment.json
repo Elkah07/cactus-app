@@ -1,1 +1,1002 @@
-[]
+[
+  {
+    "id": "galanterie_001",
+    "question": "Ton/ta partenaire t'ouvre systématiquement les portes."
+  },
+  {
+    "id": "galanterie_002",
+    "question": "Ton/ta partenaire t'ouvre la portière de la voiture."
+  },
+  {
+    "id": "galanterie_003",
+    "question": "Ton/ta partenaire te dépose devant l'entrée puis va se garer."
+  },
+  {
+    "id": "galanterie_004",
+    "question": "Ton/ta partenaire te tient le parapluie pendant qu'il/elle prend la pluie."
+  },
+  {
+    "id": "galanterie_005",
+    "question": "Ton/ta partenaire marche côté route quand vous êtes sur le trottoir."
+  },
+  {
+    "id": "galanterie_006",
+    "question": "Ton/ta partenaire refuse que tu portes quelque chose de lourd."
+  },
+  {
+    "id": "galanterie_007",
+    "question": "Ton/ta partenaire porte toutes les courses même quand il/elle galère."
+  },
+  {
+    "id": "galanterie_008",
+    "question": "Ton/ta partenaire porte tes valises sans te laisser négocier."
+  },
+  {
+    "id": "galanterie_009",
+    "question": "Ton/ta partenaire porte ton sac quand tu en as marre."
+  },
+  {
+    "id": "galanterie_010",
+    "question": "Ton/ta partenaire te laisse toujours la meilleure place."
+  },
+  {
+    "id": "galanterie_011",
+    "question": "Ton/ta partenaire te laisse le siège côté fenêtre."
+  },
+  {
+    "id": "galanterie_012",
+    "question": "Ton/ta partenaire te laisse la place la plus confortable sur le canapé."
+  },
+  {
+    "id": "galanterie_013",
+    "question": "Ton/ta partenaire te laisse systématiquement le meilleur oreiller."
+  },
+  {
+    "id": "galanterie_014",
+    "question": "Ton/ta partenaire te laisse toute la couverture."
+  },
+  {
+    "id": "galanterie_015",
+    "question": "Ton/ta partenaire te donne sa veste dès que tu as froid."
+  },
+  {
+    "id": "galanterie_016",
+    "question": "Ton/ta partenaire te couvre quand tu t'endors."
+  },
+  {
+    "id": "galanterie_017",
+    "question": "Ton/ta partenaire te propose son bras quand vous marchez."
+  },
+  {
+    "id": "galanterie_018",
+    "question": "Ton/ta partenaire te tient la main en public."
+  },
+  {
+    "id": "galanterie_019",
+    "question": "Ton/ta partenaire te prend spontanément la main dans la rue."
+  },
+  {
+    "id": "galanterie_020",
+    "question": "Ton/ta partenaire te raccompagne systématiquement jusque chez toi."
+  },
+  {
+    "id": "galanterie_021",
+    "question": "Ton/ta partenaire t'accompagne jusqu'à ta porte même pour une visite rapide."
+  },
+  {
+    "id": "galanterie_022",
+    "question": "Ton/ta partenaire te dépose en soirée puis revient te chercher."
+  },
+  {
+    "id": "galanterie_023",
+    "question": "Ton/ta partenaire vient te chercher à n'importe quelle heure si tu en as besoin."
+  },
+  {
+    "id": "galanterie_024",
+    "question": "Ton/ta partenaire t'attend après le travail pour rentrer avec toi."
+  },
+  {
+    "id": "galanterie_025",
+    "question": "Ton/ta partenaire te porte dans ses bras quand tu ne veux plus marcher."
+  },
+  {
+    "id": "galanterie_026",
+    "question": "Ton/ta partenaire te porte sur son dos quand tu as trop mal aux pieds."
+  },
+  {
+    "id": "galanterie_027",
+    "question": "Ton/ta partenaire échange ses chaussures avec toi si tu as mal aux pieds."
+  },
+  {
+    "id": "galanterie_028",
+    "question": "Ton/ta partenaire t'aide à mettre tes chaussures."
+  },
+  {
+    "id": "galanterie_029",
+    "question": "Ton/ta partenaire t'attache tes lacets."
+  },
+  {
+    "id": "galanterie_030",
+    "question": "Ton/ta partenaire te fait passer en premier quand vous commandez."
+  },
+  {
+    "id": "galanterie_031",
+    "question": "Ton/ta partenaire te sert ton assiette avant la sienne."
+  },
+  {
+    "id": "galanterie_032",
+    "question": "Ton/ta partenaire te coupe ta viande ou ton plat si tu galères."
+  },
+  {
+    "id": "galanterie_033",
+    "question": "Ton/ta partenaire te laisse goûter dans son assiette à chaque repas."
+  },
+  {
+    "id": "galanterie_034",
+    "question": "Ton/ta partenaire échange son cocktail avec toi si tu préfères le sien."
+  },
+  {
+    "id": "galanterie_035",
+    "question": "Ton/ta partenaire te donne la dernière bouchée de son dessert préféré."
+  },
+  {
+    "id": "galanterie_036",
+    "question": "Ton/ta partenaire te garde la dernière frite."
+  },
+  {
+    "id": "galanterie_037",
+    "question": "Ton/ta partenaire te laisse la dernière part de gâteau."
+  },
+  {
+    "id": "galanterie_038",
+    "question": "Ton/ta partenaire se lève pour te chercher quelque chose alors qu'il/elle était bien installé(e)."
+  },
+  {
+    "id": "galanterie_039",
+    "question": "Ton/ta partenaire t'apporte un verre d'eau avant de dormir."
+  },
+  {
+    "id": "galanterie_040",
+    "question": "Ton/ta partenaire te prépare le café avant que tu sois levé(e)."
+  },
+  {
+    "id": "galanterie_041",
+    "question": "Ton/ta partenaire te prépare le petit-déjeuner le week-end."
+  },
+  {
+    "id": "galanterie_042",
+    "question": "Ton/ta partenaire t'apporte le repas directement au lit ou sur le canapé."
+  },
+  {
+    "id": "galanterie_043",
+    "question": "Ton/ta partenaire te masse quand tu as mal quelque part."
+  },
+  {
+    "id": "galanterie_044",
+    "question": "Ton/ta partenaire te masse les pieds après une grosse journée."
+  },
+  {
+    "id": "galanterie_045",
+    "question": "Ton/ta partenaire te masse le dos dès que tu dis que tu as mal."
+  },
+  {
+    "id": "galanterie_046",
+    "question": "Ton/ta partenaire te laisse choisir la musique pendant tout le trajet."
+  },
+  {
+    "id": "galanterie_047",
+    "question": "Ton/ta partenaire te laisse choisir le restaurant même si ce n'est pas son envie."
+  },
+  {
+    "id": "galanterie_048",
+    "question": "Ton/ta partenaire te laisse choisir le film sans râler."
+  },
+  {
+    "id": "galanterie_049",
+    "question": "Ton/ta partenaire te laisse la prise la plus proche."
+  },
+  {
+    "id": "galanterie_050",
+    "question": "Ton/ta partenaire adapte son confort pour améliorer le tien."
+  },
+  {
+    "id": "services_001",
+    "question": "Ton/ta partenaire sort acheter ce dont tu as envie même s'il/elle était déjà en pyjama."
+  },
+  {
+    "id": "services_002",
+    "question": "Ton/ta partenaire va acheter des bonbons parce que tu en as envie maintenant."
+  },
+  {
+    "id": "services_003",
+    "question": "Ton/ta partenaire répond à tes envies de dernière minute."
+  },
+  {
+    "id": "services_004",
+    "question": "Ton/ta partenaire te ramène ton snack préféré sans que tu le demandes."
+  },
+  {
+    "id": "services_005",
+    "question": "Ton/ta partenaire te commande quelque chose même quand tu dis que tu ne veux rien."
+  },
+  {
+    "id": "services_006",
+    "question": "Ton/ta partenaire te fait livrer ton repas préféré après une mauvaise journée."
+  },
+  {
+    "id": "services_007",
+    "question": "Ton/ta partenaire te prépare à manger quand tu es fatigué(e)."
+  },
+  {
+    "id": "services_008",
+    "question": "Ton/ta partenaire te prépare un plateau avec boisson, snack et plaid."
+  },
+  {
+    "id": "services_009",
+    "question": "Ton/ta partenaire te prépare un bain après une journée compliquée."
+  },
+  {
+    "id": "services_010",
+    "question": "Ton/ta partenaire recharge ton téléphone pendant que tu dors."
+  },
+  {
+    "id": "services_011",
+    "question": "Ton/ta partenaire met ton téléphone en charge dès qu'il est à 2%."
+  },
+  {
+    "id": "services_012",
+    "question": "Ton/ta partenaire recharge tes écouteurs avant un voyage."
+  },
+  {
+    "id": "services_013",
+    "question": "Ton/ta partenaire prépare ta valise quand tu es débordé(e)."
+  },
+  {
+    "id": "services_014",
+    "question": "Ton/ta partenaire prépare tous les papiers avant un départ."
+  },
+  {
+    "id": "services_015",
+    "question": "Ton/ta partenaire prépare une trousse avec tout ce qui pourrait te manquer."
+  },
+  {
+    "id": "services_016",
+    "question": "Ton/ta partenaire prévoit toujours un plan B pour éviter que tu stresses."
+  },
+  {
+    "id": "services_017",
+    "question": "Ton/ta partenaire organise entièrement vos vacances pour que tu n'aies à penser à rien."
+  },
+  {
+    "id": "services_018",
+    "question": "Ton/ta partenaire planifie une sortie surprise sans te laisser gérer l'organisation."
+  },
+  {
+    "id": "services_019",
+    "question": "Ton/ta partenaire prend les rendez-vous que tu repousses depuis des semaines."
+  },
+  {
+    "id": "services_020",
+    "question": "Ton/ta partenaire appelle à ta place quand tu n'as pas envie de le faire."
+  },
+  {
+    "id": "services_021",
+    "question": "Ton/ta partenaire gère les démarches administratives que tu détestes."
+  },
+  {
+    "id": "services_022",
+    "question": "Ton/ta partenaire fait les tâches que tu détestes sans te le dire."
+  },
+  {
+    "id": "services_023",
+    "question": "Ton/ta partenaire lave aussi tes vêtements quand il/elle fait une lessive."
+  },
+  {
+    "id": "services_024",
+    "question": "Ton/ta partenaire remet de l'essence dans ta voiture sans que tu demandes."
+  },
+  {
+    "id": "services_025",
+    "question": "Ton/ta partenaire te rend ta voiture propre sans te prévenir."
+  },
+  {
+    "id": "services_026",
+    "question": "Ton/ta partenaire arrive immédiatement si tu es en panne."
+  },
+  {
+    "id": "services_027",
+    "question": "Ton/ta partenaire vient t'aider si tu as un problème avec ta voiture ou ta moto."
+  },
+  {
+    "id": "services_028",
+    "question": "Ton/ta partenaire t'appelle immédiatement quand tu dis que tu as un problème."
+  },
+  {
+    "id": "services_029",
+    "question": "Ton/ta partenaire annule une sortie pour rester avec toi quand ça ne va pas."
+  },
+  {
+    "id": "services_030",
+    "question": "Ton/ta partenaire laisse tomber ce qu'il/elle fait quand tu as vraiment besoin de lui/elle."
+  },
+  {
+    "id": "services_031",
+    "question": "Ton/ta partenaire reste réveillé(e) jusqu'à ce que tu sois rentré(e)."
+  },
+  {
+    "id": "services_032",
+    "question": "Ton/ta partenaire se réveille plus tôt pour te déposer quelque part."
+  },
+  {
+    "id": "services_033",
+    "question": "Ton/ta partenaire fait un détour juste pour te simplifier la journée."
+  },
+  {
+    "id": "services_034",
+    "question": "Ton/ta partenaire traverse la ville pour te voir dix minutes."
+  },
+  {
+    "id": "services_035",
+    "question": "Ton/ta partenaire te conduit partout dès que c'est possible."
+  },
+  {
+    "id": "services_036",
+    "question": "Ton/ta partenaire te laisse dormir pendant qu'il/elle gère tout le matin."
+  },
+  {
+    "id": "services_037",
+    "question": "Ton/ta partenaire se lève tôt pour te faciliter la journée."
+  },
+  {
+    "id": "services_038",
+    "question": "Ton/ta partenaire te prépare tes affaires avant une grosse journée."
+  },
+  {
+    "id": "services_039",
+    "question": "Ton/ta partenaire prend les choses en main quand tu es dépassé(e)."
+  },
+  {
+    "id": "services_040",
+    "question": "Ton/ta partenaire anticipe tes besoins avant que tu les exprimes."
+  },
+  {
+    "id": "services_041",
+    "question": "Ton/ta partenaire garde toujours des médicaments pour toi."
+  },
+  {
+    "id": "services_042",
+    "question": "Ton/ta partenaire va à la pharmacie pour toi."
+  },
+  {
+    "id": "services_043",
+    "question": "Ton/ta partenaire te prépare à manger quand tu es malade."
+  },
+  {
+    "id": "services_044",
+    "question": "Ton/ta partenaire t'apporte une bouillotte quand tu as mal."
+  },
+  {
+    "id": "services_045",
+    "question": "Ton/ta partenaire est aux petits soins quand tu as tes règles."
+  },
+  {
+    "id": "services_046",
+    "question": "Ton/ta partenaire va t'acheter ce que tu aimes quand tu as tes règles."
+  },
+  {
+    "id": "services_047",
+    "question": "Ton/ta partenaire te prépare ton coin confortable quand tu ne vas pas bien."
+  },
+  {
+    "id": "services_048",
+    "question": "Ton/ta partenaire connaît exactement ce qui te remonte le moral."
+  },
+  {
+    "id": "services_049",
+    "question": "Ton/ta partenaire sait quoi faire quand tu es stressé(e)."
+  },
+  {
+    "id": "services_050",
+    "question": "Ton/ta partenaire te facilite la vie sans que tu aies à demander."
+  },
+  {
+    "id": "argent_001",
+    "question": "Ton/ta partenaire paie régulièrement le restaurant."
+  },
+  {
+    "id": "argent_002",
+    "question": "Ton/ta partenaire insiste pour payer l'addition."
+  },
+  {
+    "id": "argent_003",
+    "question": "Ton/ta partenaire paie le restaurant même quand c'est toi qui proposes la sortie."
+  },
+  {
+    "id": "argent_004",
+    "question": "Ton/ta partenaire paie une journée entière sans te laisser sortir ton portefeuille."
+  },
+  {
+    "id": "argent_005",
+    "question": "Ton/ta partenaire te paie ton shopping."
+  },
+  {
+    "id": "argent_006",
+    "question": "Ton/ta partenaire te paie régulièrement des vêtements."
+  },
+  {
+    "id": "argent_007",
+    "question": "Ton/ta partenaire te dit d'acheter ce qui te fait envie sans demander."
+  },
+  {
+    "id": "argent_008",
+    "question": "Ton/ta partenaire te laisse utiliser sa carte bancaire."
+  },
+  {
+    "id": "argent_009",
+    "question": "Ton/ta partenaire te laisse sa carte bancaire sur ton téléphone."
+  },
+  {
+    "id": "argent_010",
+    "question": "Ton/ta partenaire te donne un budget plaisir juste pour te faire plaisir."
+  },
+  {
+    "id": "argent_011",
+    "question": "Ton/ta partenaire te dit d'arrêter de regarder les prix quand vous êtes ensemble."
+  },
+  {
+    "id": "argent_012",
+    "question": "Ton/ta partenaire paie les extras pour que tu profites davantage."
+  },
+  {
+    "id": "argent_013",
+    "question": "Ton/ta partenaire te paie systématiquement ton entrée quand vous faites une activité."
+  },
+  {
+    "id": "argent_014",
+    "question": "Ton/ta partenaire te paie le transport quand vous sortez ensemble."
+  },
+  {
+    "id": "argent_015",
+    "question": "Ton/ta partenaire t'offre des cadeaux sans occasion particulière."
+  },
+  {
+    "id": "argent_016",
+    "question": "Ton/ta partenaire t'offre régulièrement des petites attentions payantes."
+  },
+  {
+    "id": "argent_017",
+    "question": "Ton/ta partenaire t'achète des fleurs souvent."
+  },
+  {
+    "id": "argent_018",
+    "question": "Ton/ta partenaire te fait livrer des fleurs à l'improviste."
+  },
+  {
+    "id": "argent_019",
+    "question": "Ton/ta partenaire t'achète quelque chose dès que tu dis que ça te plaît."
+  },
+  {
+    "id": "argent_020",
+    "question": "Ton/ta partenaire t'offre quelque chose dont tu avais parlé une seule fois."
+  },
+  {
+    "id": "argent_021",
+    "question": "Ton/ta partenaire t'offre quelque chose que tu regardais depuis longtemps."
+  },
+  {
+    "id": "argent_022",
+    "question": "Ton/ta partenaire économise pour t'offrir quelque chose dont tu rêves."
+  },
+  {
+    "id": "argent_023",
+    "question": "Ton/ta partenaire garde une liste de cadeaux potentiels pour toi."
+  },
+  {
+    "id": "argent_024",
+    "question": "Ton/ta partenaire prépare tes cadeaux plusieurs mois à l'avance."
+  },
+  {
+    "id": "argent_025",
+    "question": "Ton/ta partenaire te choisit un cadeau que tu n'aurais jamais pensé demander."
+  },
+  {
+    "id": "argent_026",
+    "question": "Ton/ta partenaire t'achète quelque chose simplement parce qu'il/elle a pensé à toi."
+  },
+  {
+    "id": "argent_027",
+    "question": "Ton/ta partenaire t'offre quelque chose après une mauvaise journée."
+  },
+  {
+    "id": "argent_028",
+    "question": "Ton/ta partenaire te commande un cadeau dès qu'il/elle pense à toi."
+  },
+  {
+    "id": "argent_029",
+    "question": "Ton/ta partenaire te surprend régulièrement avec des petites dépenses pour toi."
+  },
+  {
+    "id": "argent_030",
+    "question": "Ton/ta partenaire t'offre quelque chose simplement parce qu'il/elle a eu une bonne journée."
+  },
+  {
+    "id": "argent_031",
+    "question": "Ton/ta partenaire te réserve spontanément un week-end."
+  },
+  {
+    "id": "argent_032",
+    "question": "Ton/ta partenaire paie une activité parce qu'il/elle sait que tu vas l'aimer."
+  },
+  {
+    "id": "argent_033",
+    "question": "Ton/ta partenaire organise une activité surprise et la finance entièrement."
+  },
+  {
+    "id": "argent_034",
+    "question": "Ton/ta partenaire te fait livrer ton dessert préféré sans raison."
+  },
+  {
+    "id": "argent_035",
+    "question": "Ton/ta partenaire te paie tes snacks préférés."
+  },
+  {
+    "id": "argent_036",
+    "question": "Ton/ta partenaire te commande à manger sans te demander de rembourser."
+  },
+  {
+    "id": "argent_037",
+    "question": "Ton/ta partenaire t'offre ton parfum préféré dès qu'il est presque vide."
+  },
+  {
+    "id": "argent_038",
+    "question": "Ton/ta partenaire te rachète ton produit préféré avant qu'il soit terminé."
+  },
+  {
+    "id": "argent_039",
+    "question": "Ton/ta partenaire remplace tes écouteurs dès qu'ils ne fonctionnent plus."
+  },
+  {
+    "id": "argent_040",
+    "question": "Ton/ta partenaire te rachète immédiatement un objet que tu as cassé."
+  },
+  {
+    "id": "argent_041",
+    "question": "Ton/ta partenaire te rachète un téléphone si tu casses le tien."
+  },
+  {
+    "id": "argent_042",
+    "question": "Ton/ta partenaire te remplace un objet sans attendre ton anniversaire."
+  },
+  {
+    "id": "argent_043",
+    "question": "Ton/ta partenaire te prend toujours quelque chose quand il/elle va dans ton magasin préféré."
+  },
+  {
+    "id": "argent_044",
+    "question": "Ton/ta partenaire te laisse choisir ce qui te ferait plaisir dans un budget qu'il/elle paie."
+  },
+  {
+    "id": "argent_045",
+    "question": "Ton/ta partenaire considère normal de te faire plaisir financièrement."
+  },
+  {
+    "id": "argent_046",
+    "question": "Ton/ta partenaire aime dépenser de l'argent pour te voir sourire."
+  },
+  {
+    "id": "argent_047",
+    "question": "Ton/ta partenaire considère que te gâter fait partie de sa façon d'aimer."
+  },
+  {
+    "id": "argent_048",
+    "question": "Ton/ta partenaire te paie une surprise sans rien attendre en retour."
+  },
+  {
+    "id": "argent_049",
+    "question": "Ton/ta partenaire refuse que tu paies lors d'une occasion spéciale."
+  },
+  {
+    "id": "argent_050",
+    "question": "Ton/ta partenaire te donne envie de dire 'ok là je suis trop bien traité(e)'."
+  },
+  {
+    "id": "standards_001",
+    "question": "Ton/ta partenaire partage sa localisation sans que tu la demandes."
+  },
+  {
+    "id": "standards_002",
+    "question": "Ton/ta partenaire t'envoie un message dès qu'il/elle est bien rentré(e)."
+  },
+  {
+    "id": "standards_003",
+    "question": "Ton/ta partenaire te prévient quand il/elle arrive quelque part."
+  },
+  {
+    "id": "standards_004",
+    "question": "Ton/ta partenaire te dit avec qui il/elle sort."
+  },
+  {
+    "id": "standards_005",
+    "question": "Ton/ta partenaire t'envoie une photo de ce qu'il/elle fait sans que tu demandes."
+  },
+  {
+    "id": "standards_006",
+    "question": "Ton/ta partenaire répond à tes messages même quand il/elle est avec ses amis."
+  },
+  {
+    "id": "standards_007",
+    "question": "Ton/ta partenaire répond à tes appels même quand il/elle est occupé(e)."
+  },
+  {
+    "id": "standards_008",
+    "question": "Ton/ta partenaire te donne le code de son téléphone."
+  },
+  {
+    "id": "standards_009",
+    "question": "Ton/ta partenaire te donne naturellement accès à son téléphone."
+  },
+  {
+    "id": "standards_010",
+    "question": "Ton/ta partenaire publie des photos de vous sur ses réseaux."
+  },
+  {
+    "id": "standards_011",
+    "question": "Ton/ta partenaire affiche clairement qu'il/elle est en couple."
+  },
+  {
+    "id": "standards_012",
+    "question": "Ton/ta partenaire refuse de cacher votre relation."
+  },
+  {
+    "id": "standards_013",
+    "question": "Ton/ta partenaire te présente rapidement à ses amis."
+  },
+  {
+    "id": "standards_014",
+    "question": "Ton/ta partenaire te présente rapidement à sa famille."
+  },
+  {
+    "id": "standards_015",
+    "question": "Ton/ta partenaire te fait passer avant ses amis quand tu as besoin de lui/elle."
+  },
+  {
+    "id": "standards_016",
+    "question": "Ton/ta partenaire t'inclut naturellement dans ses projets futurs."
+  },
+  {
+    "id": "standards_017",
+    "question": "Ton/ta partenaire te consulte avant une décision importante."
+  },
+  {
+    "id": "standards_018",
+    "question": "Ton/ta partenaire pense spontanément en mode 'nous'."
+  },
+  {
+    "id": "standards_019",
+    "question": "Ton/ta partenaire te raconte sa journée tous les soirs."
+  },
+  {
+    "id": "standards_020",
+    "question": "Ton/ta partenaire te dit bonne nuit tous les jours."
+  },
+  {
+    "id": "standards_021",
+    "question": "Ton/ta partenaire te dit bonjour tous les matins."
+  },
+  {
+    "id": "standards_022",
+    "question": "Ton/ta partenaire veut t'appeler tous les jours quand vous êtes à distance."
+  },
+  {
+    "id": "standards_023",
+    "question": "Ton/ta partenaire te rassure naturellement sans que tu le demandes."
+  },
+  {
+    "id": "standards_024",
+    "question": "Ton/ta partenaire remarque immédiatement quand quelque chose ne va pas."
+  },
+  {
+    "id": "standards_025",
+    "question": "Ton/ta partenaire se souvient des détails de tes histoires."
+  },
+  {
+    "id": "standards_026",
+    "question": "Ton/ta partenaire se souvient de tes dates importantes."
+  },
+  {
+    "id": "standards_027",
+    "question": "Ton/ta partenaire te fait des compliments régulièrement."
+  },
+  {
+    "id": "standards_028",
+    "question": "Ton/ta partenaire te dit qu'il/elle est fier/fière de toi devant les autres."
+  },
+  {
+    "id": "standards_029",
+    "question": "Ton/ta partenaire ne laisse jamais passer une occasion de te voir."
+  },
+  {
+    "id": "standards_030",
+    "question": "Ton/ta partenaire te propose spontanément de venir avec lui/elle."
+  },
+  {
+    "id": "standards_031",
+    "question": "Ton/ta partenaire garde les bonnes nouvelles pour te les annoncer en premier."
+  },
+  {
+    "id": "standards_032",
+    "question": "Ton/ta partenaire t'appelle avant tout le monde quand quelque chose d'important arrive."
+  },
+  {
+    "id": "standards_033",
+    "question": "Ton/ta partenaire refuse les ambiguïtés avec d'autres personnes."
+  },
+  {
+    "id": "standards_034",
+    "question": "Ton/ta partenaire pose des limites claires avec les personnes qui flirtent avec lui/elle."
+  },
+  {
+    "id": "standards_035",
+    "question": "Ton/ta partenaire coupe court aux avances sans ambiguïté."
+  },
+  {
+    "id": "standards_036",
+    "question": "Ton/ta partenaire te prévient quand son ex reprend contact."
+  },
+  {
+    "id": "standards_037",
+    "question": "Ton/ta partenaire te dit quand quelqu'un le/la drague."
+  },
+  {
+    "id": "standards_038",
+    "question": "Ton/ta partenaire te rassure sans te faire passer pour quelqu'un de jaloux."
+  },
+  {
+    "id": "standards_039",
+    "question": "Ton/ta partenaire évite volontairement les situations ambiguës."
+  },
+  {
+    "id": "standards_040",
+    "question": "Ton/ta partenaire refuse de jouer avec tes insécurités."
+  },
+  {
+    "id": "standards_041",
+    "question": "Ton/ta partenaire te fait sentir en sécurité dans la relation."
+  },
+  {
+    "id": "standards_042",
+    "question": "Ton/ta partenaire te fait sentir choisi(e) au quotidien."
+  },
+  {
+    "id": "standards_043",
+    "question": "Ton/ta partenaire agit comme si vous étiez une équipe."
+  },
+  {
+    "id": "standards_044",
+    "question": "Ton/ta partenaire te défend devant les autres."
+  },
+  {
+    "id": "standards_045",
+    "question": "Ton/ta partenaire te défend même quand tu as tort."
+  },
+  {
+    "id": "standards_046",
+    "question": "Ton/ta partenaire prend ton parti en public puis te recadre en privé."
+  },
+  {
+    "id": "standards_047",
+    "question": "Ton/ta partenaire refuse qu'on te manque de respect."
+  },
+  {
+    "id": "standards_048",
+    "question": "Ton/ta partenaire te présente comme son amour plutôt que comme son ami(e)."
+  },
+  {
+    "id": "standards_049",
+    "question": "Ton/ta partenaire te montre naturellement que tu es sa personne."
+  },
+  {
+    "id": "standards_050",
+    "question": "Ton/ta partenaire te donne constamment des raisons d'avoir confiance."
+  },
+  {
+    "id": "distance_001",
+    "question": "Ton/ta partenaire t'envoie un colis surprise quand vous êtes à distance."
+  },
+  {
+    "id": "distance_002",
+    "question": "Ton/ta partenaire te fait livrer ton repas préféré quand vous êtes loin."
+  },
+  {
+    "id": "distance_003",
+    "question": "Ton/ta partenaire t'envoie un vocal quand tu lui manques."
+  },
+  {
+    "id": "distance_004",
+    "question": "Ton/ta partenaire t'appelle pendant sa pause juste pour entendre ta voix."
+  },
+  {
+    "id": "distance_005",
+    "question": "Ton/ta partenaire reste au téléphone avec toi jusqu'à ce que tu t'endormes."
+  },
+  {
+    "id": "distance_006",
+    "question": "Ton/ta partenaire regarde un film en appel avec toi malgré la distance."
+  },
+  {
+    "id": "distance_007",
+    "question": "Ton/ta partenaire t'envoie des photos de sa journée pour que tu te sentes inclus(e)."
+  },
+  {
+    "id": "distance_008",
+    "question": "Ton/ta partenaire te garde une place dans ses routines même quand vous êtes loin."
+  },
+  {
+    "id": "distance_009",
+    "question": "Ton/ta partenaire compte les jours avant de te revoir."
+  },
+  {
+    "id": "distance_010",
+    "question": "Ton/ta partenaire prépare une surprise pour ton retour."
+  },
+  {
+    "id": "vacances_001",
+    "question": "Ton/ta partenaire pense à prendre des photos de toi pendant les vacances."
+  },
+  {
+    "id": "vacances_002",
+    "question": "Ton/ta partenaire te laisse la meilleure vue dans la chambre d'hôtel."
+  },
+  {
+    "id": "vacances_003",
+    "question": "Ton/ta partenaire réserve les activités en pensant d'abord à ce qui te plairait."
+  },
+  {
+    "id": "vacances_004",
+    "question": "Ton/ta partenaire vérifie le menu du restaurant à l'avance pour voir si tu vas aimer."
+  },
+  {
+    "id": "vacances_005",
+    "question": "Ton/ta partenaire prépare tout l'itinéraire pour que tu profites sans stress."
+  },
+  {
+    "id": "vacances_006",
+    "question": "Ton/ta partenaire te garde le plus beau souvenir du voyage."
+  },
+  {
+    "id": "vacances_007",
+    "question": "Ton/ta partenaire te laisse choisir les activités pendant les vacances."
+  },
+  {
+    "id": "vacances_008",
+    "question": "Ton/ta partenaire te réserve la meilleure place dans l'avion ou le train."
+  },
+  {
+    "id": "vacances_009",
+    "question": "Ton/ta partenaire te prend une couverture supplémentaire pour le trajet."
+  },
+  {
+    "id": "vacances_010",
+    "question": "Ton/ta partenaire pense à ton confort avant le sien à l'hôtel."
+  },
+  {
+    "id": "reseaux_001",
+    "question": "Ton/ta partenaire regarde tes stories dans la minute où elles sont publiées."
+  },
+  {
+    "id": "reseaux_002",
+    "question": "Ton/ta partenaire garde une photo de toi en fond d'écran."
+  },
+  {
+    "id": "reseaux_003",
+    "question": "Ton/ta partenaire a un album rempli de photos de toi."
+  },
+  {
+    "id": "reseaux_004",
+    "question": "Ton/ta partenaire prend des photos de toi sans que tu le demandes."
+  },
+  {
+    "id": "reseaux_005",
+    "question": "Ton/ta partenaire garde les photos où il/elle te trouve incroyable."
+  },
+  {
+    "id": "reseaux_006",
+    "question": "Ton/ta partenaire montre souvent tes photos à ses proches."
+  },
+  {
+    "id": "reseaux_007",
+    "question": "Ton/ta partenaire reposte ta story parce qu'il/elle te trouve trop beau/belle."
+  },
+  {
+    "id": "reseaux_008",
+    "question": "Ton/ta partenaire garde des captures d'écran de choses qui pourraient te faire rire."
+  },
+  {
+    "id": "reseaux_009",
+    "question": "Ton/ta partenaire t'envoie un mème dès qu'il lui rappelle toi."
+  },
+  {
+    "id": "reseaux_010",
+    "question": "Ton/ta partenaire évite de liker des contenus qu'il/elle n'assumerait pas devant toi."
+  },
+  {
+    "id": "souvenirs_001",
+    "question": "Ton/ta partenaire garde les petits tickets ou souvenirs de vos sorties."
+  },
+  {
+    "id": "souvenirs_002",
+    "question": "Ton/ta partenaire conserve les messages qui lui ont particulièrement plu."
+  },
+  {
+    "id": "souvenirs_003",
+    "question": "Ton/ta partenaire garde les petites notes ou lettres que tu lui écris."
+  },
+  {
+    "id": "souvenirs_004",
+    "question": "Ton/ta partenaire se souvient de la date où vous vous êtes rencontrés."
+  },
+  {
+    "id": "souvenirs_005",
+    "question": "Ton/ta partenaire se souvient du premier cadeau que vous vous êtes offert."
+  },
+  {
+    "id": "souvenirs_006",
+    "question": "Ton/ta partenaire se souvient d'une conversation vieille de plusieurs années."
+  },
+  {
+    "id": "souvenirs_007",
+    "question": "Ton/ta partenaire garde une capture d'écran de votre premier message."
+  },
+  {
+    "id": "souvenirs_008",
+    "question": "Ton/ta partenaire garde une liste de choses à faire avec toi."
+  },
+  {
+    "id": "souvenirs_009",
+    "question": "Ton/ta partenaire connaît les détails de tes rêves ou projets futurs."
+  },
+  {
+    "id": "souvenirs_010",
+    "question": "Ton/ta partenaire se souvient d'une envie que tu avais exprimée il y a plus d'un an."
+  },
+  {
+    "id": "premium_001",
+    "question": "Ton/ta partenaire te choisit systématiquement en priorité."
+  },
+  {
+    "id": "premium_002",
+    "question": "Ton/ta partenaire répond immédiatement à tes appels peu importe ce qu'il/elle fait."
+  },
+  {
+    "id": "premium_003",
+    "question": "Ton/ta partenaire garde son téléphone allumé la nuit au cas où tu aurais besoin."
+  },
+  {
+    "id": "premium_004",
+    "question": "Ton/ta partenaire vient te récupérer même après une dispute."
+  },
+  {
+    "id": "premium_005",
+    "question": "Ton/ta partenaire te ramène toujours chez toi avant de rentrer."
+  },
+  {
+    "id": "premium_006",
+    "question": "Ton/ta partenaire échange sa place avec toi dès que tu es moins bien installé(e)."
+  },
+  {
+    "id": "premium_007",
+    "question": "Ton/ta partenaire te donne systématiquement ce qu'il y a de mieux."
+  },
+  {
+    "id": "premium_008",
+    "question": "Ton/ta partenaire te laisse gagner les disputes sans importance."
+  },
+  {
+    "id": "premium_009",
+    "question": "Ton/ta partenaire regarde une émission qu'il/elle déteste parce que tu l'aimes."
+  },
+  {
+    "id": "premium_010",
+    "question": "Ton/ta partenaire apprend quelque chose uniquement parce que ça te passionne."
+  }
+]

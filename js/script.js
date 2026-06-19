@@ -238,6 +238,28 @@ const nextGreenFlagBtn =
 const backDashboardFromGreenFlagBtn =
     document.getElementById("backDashboardFromGreenFlagBtn");
 
+    const princessBtn = document.getElementById("princessBtn");
+
+const princessScreen = document.getElementById("princessScreen");
+const princessResultScreen = document.getElementById("princessResultScreen");
+
+const princessQuestionText = document.getElementById("princessQuestionText");
+
+const princessYesBtn = document.getElementById("princessYesBtn");
+const princessDependsBtn = document.getElementById("princessDependsBtn");
+const princessNoBtn = document.getElementById("princessNoBtn");
+
+const backFromPrincessBtn = document.getElementById("backFromPrincessBtn");
+
+const princessResultQuestion = document.getElementById("princessResultQuestion");
+const princessVerdictEmoji = document.getElementById("princessVerdictEmoji");
+const princessVerdictText = document.getElementById("princessVerdictText");
+const princessMyAnswer = document.getElementById("princessMyAnswer");
+const princessPartnerAnswer = document.getElementById("princessPartnerAnswer");
+
+const nextPrincessBtn = document.getElementById("nextPrincessBtn");
+const backDashboardFromPrincessBtn = document.getElementById("backDashboardFromPrincessBtn");
+
 let pendingGuessValidations = [];
 let saveNotebookTimeout = null;
 
@@ -296,6 +318,14 @@ let pendingGreenFlagChallenges = [];
 let pendingGreenFlagResults = [];
 let currentPendingGreenFlagIndex = 0;
 
+let princessQuestions = [];
+let currentPrincessQuestion = null;
+let currentPrincessId = null;
+
+let pendingPrincessChallenges = [];
+let pendingPrincessResults = [];
+let currentPendingPrincessIndex = 0;
+
 // ====================
 // CHARGEMENT DES DONNÉES
 // ====================
@@ -341,6 +371,7 @@ function listenToCurrentSpace(spaceCodeValue) {
         listenToLikelyChallenges();
         listenToOkChallenges();
         listenToGreenFlagChallenges();
+        listenToPrincessChallenges();
     });
 }
 
@@ -1136,6 +1167,55 @@ backDashboardFromGreenFlagBtn.addEventListener("click", () => {
         showScreen("dashboard");
     });
 });
+
+princessBtn.addEventListener("click", () => {
+    startPrincessGame();
+});
+
+princessYesBtn.addEventListener("click", () => {
+    savePrincessAnswer("Oui, évidemment");
+});
+
+princessDependsBtn.addEventListener("click", () => {
+    savePrincessAnswer("Ça dépend");
+});
+
+princessNoBtn.addEventListener("click", () => {
+    savePrincessAnswer("Non, abuse pas");
+});
+
+backFromPrincessBtn.addEventListener("click", () => {
+    showScreen("dashboard");
+});
+
+nextPrincessBtn.addEventListener(
+    "click",
+    () => {
+
+        markCurrentPrincessResultSeen()
+            .then(() => {
+
+            currentPendingPrincessIndex++;
+
+            showPendingPrincessResult();
+        });
+    }
+);
+
+backDashboardFromPrincessBtn
+    .addEventListener(
+        "click",
+        () => {
+
+            markCurrentPrincessResultSeen()
+                .then(() => {
+
+                showScreen(
+                    "dashboard"
+                );
+            });
+        }
+    );
 
 // ====================
 // BARRE FLOTTANTE
@@ -2013,6 +2093,58 @@ if (pendingGreenFlagResults.length > 0) {
     activityList.appendChild(item);
 }
 
+if (pendingPrincessChallenges.length > 0) {
+
+    hasActivities = true;
+
+    const item =
+        document.createElement("p");
+
+    item.classList.add(
+        "mode-notification"
+    );
+
+    item.textContent =
+        "👑 " +
+        pendingPrincessChallenges.length +
+        " question(s) Princess Treatment";
+
+    item.addEventListener("click", () => {
+
+        currentPendingPrincessIndex = 0;
+
+        startPendingPrincessChallenge();
+    });
+
+    activityList.appendChild(item);
+}
+
+if (pendingPrincessResults.length > 0) {
+
+    hasActivities = true;
+
+    const item =
+        document.createElement("p");
+
+    item.classList.add(
+        "mode-notification"
+    );
+
+    item.textContent =
+        "👑 " +
+        pendingPrincessResults.length +
+        " résultat(s) Princess Treatment";
+
+    item.addEventListener("click", () => {
+
+        currentPendingPrincessIndex = 0;
+
+        showPendingPrincessResult();
+    });
+
+    activityList.appendChild(item);
+}
+
     activityBox.style.display = hasActivities ? "block" : "none";
 }
 
@@ -2739,6 +2871,303 @@ function markCurrentGreenFlagResultSeen() {
             "spaces/" +
             currentSpaceCode +
             "/greenFlagChallenges/" +
+            challenge.questionId +
+            "/seenBy/" +
+            currentUser.uid
+        )
+        .set(true);
+}
+
+async function loadPrincessQuestionsData() {
+    const response = await fetch("data/princess-treatment.json");
+    princessQuestions = await response.json();
+
+    console.log("Questions Princess Treatment chargées :", princessQuestions);
+}
+
+loadPrincessQuestionsData();
+
+async function startPrincessGame() {
+    if (!princessQuestions.length) {
+        alert("Questions en cours de chargement...");
+        return;
+    }
+
+    currentPrincessQuestion =
+        princessQuestions[
+            Math.floor(
+                Math.random() * princessQuestions.length
+            )
+        ];
+
+    currentPrincessId =
+        currentPrincessQuestion.id;
+
+    princessQuestionText.textContent =
+        currentPrincessQuestion.question;
+
+    showScreen("princess");
+}
+
+function savePrincessAnswer(answer) {
+    if (!currentPrincessQuestion) {
+        return;
+    }
+
+    database
+        .ref(
+            "spaces/" +
+            currentSpaceCode +
+            "/princessChallenges/" +
+            currentPrincessId
+        )
+        .update({
+            questionId:
+                currentPrincessQuestion.id,
+            question:
+                currentPrincessQuestion.question,
+            status: "answering",
+            createdAt: Date.now()
+        })
+        .then(() => {
+            return database
+                .ref(
+                    "spaces/" +
+                    currentSpaceCode +
+                    "/princessChallenges/" +
+                    currentPrincessId +
+                    "/answers/" +
+                    currentUser.uid
+                )
+                .set({
+                    uid: currentUser.uid,
+                    pseudo: pseudo,
+                    answer: answer,
+                    createdAt: Date.now()
+                });
+        })
+        .then(() => {
+            showScreen("dashboard");
+        });
+}
+
+function listenToPrincessChallenges() {
+    database
+        .ref(
+            "spaces/" +
+            currentSpaceCode +
+            "/princessChallenges"
+        )
+        .on("value", (snapshot) => {
+
+            const challenges =
+                snapshot.val() || {};
+
+            Object.entries(challenges)
+                .forEach(([id, challenge]) => {
+
+                const answers =
+                    challenge.answers || {};
+
+                if (
+                    Object.keys(answers).length >= 2 &&
+                    challenge.status === "answering"
+                ) {
+                    database
+                        .ref(
+                            "spaces/" +
+                            currentSpaceCode +
+                            "/princessChallenges/" +
+                            id
+                        )
+                        .update({
+                            status: "completed"
+                        });
+                }
+            });
+
+            displayPrincessChallenges(
+                challenges
+            );
+        });
+}
+
+function displayPrincessChallenges(
+    challenges
+) {
+    const challengeArray =
+        Object.values(challenges || {});
+
+    pendingPrincessChallenges =
+        challengeArray.filter(
+            (challenge) => {
+
+            return (
+                challenge.status ===
+                    "answering" &&
+                challenge.answers &&
+                !challenge.answers[
+                    currentUser.uid
+                ] &&
+                Object.keys(
+                    challenge.answers
+                ).some(
+                    uid =>
+                    uid !== currentUser.uid
+                )
+            );
+        });
+
+    pendingPrincessResults =
+        challengeArray.filter(
+            (challenge) => {
+
+            const seen =
+                challenge.seenBy &&
+                challenge.seenBy[
+                    currentUser.uid
+                ];
+
+            return (
+                challenge.status ===
+                    "completed" &&
+                challenge.answers &&
+                challenge.answers[
+                    currentUser.uid
+                ] &&
+                !seen
+            );
+        });
+
+    updateActivityBox();
+}
+
+function startPendingPrincessChallenge() {
+
+    const challenge =
+        pendingPrincessChallenges[
+            currentPendingPrincessIndex
+        ];
+
+    if (!challenge) {
+
+        showScreen(
+            "dashboard"
+        );
+
+        return;
+    }
+
+    currentPrincessId =
+        challenge.questionId;
+
+    currentPrincessQuestion = {
+
+        id:
+            challenge.questionId,
+
+        question:
+            challenge.question
+    };
+
+    princessQuestionText.textContent =
+        challenge.question;
+
+    showScreen(
+        "princess"
+    );
+}
+
+function showPendingPrincessResult() {
+
+    const challenge =
+        pendingPrincessResults[
+            currentPendingPrincessIndex
+        ];
+
+    if (!challenge) {
+
+        showScreen(
+            "dashboard"
+        );
+
+        return;
+    }
+
+    const answersArray =
+        Object.values(
+            challenge.answers
+        );
+
+    const myAnswer =
+        challenge.answers[
+            currentUser.uid
+        ];
+
+    const partnerAnswer =
+        answersArray.find(
+            answer =>
+                answer.uid !==
+                currentUser.uid
+        );
+
+    princessResultQuestion.textContent =
+        challenge.question;
+
+    princessMyAnswer.textContent =
+        myAnswer
+            ? myAnswer.answer
+            : "Pas de réponse";
+
+    princessPartnerAnswer.textContent =
+        partnerAnswer
+            ? partnerAnswer.answer
+            : "Pas encore répondu";
+
+    if (
+        myAnswer &&
+        partnerAnswer &&
+        myAnswer.answer ===
+        partnerAnswer.answer
+    ) {
+
+        princessVerdictEmoji.textContent =
+            "👑";
+
+        princessVerdictText.textContent =
+            "Vous êtes totalement d’accord.";
+    }
+    else {
+
+        princessVerdictEmoji.textContent =
+            "👀";
+
+        princessVerdictText.textContent =
+            "Vous n’avez pas la même vision du traitement de princesse.";
+    }
+
+    showScreen(
+        "princessResult"
+    );
+}
+
+function markCurrentPrincessResultSeen() {
+
+    const challenge =
+        pendingPrincessResults[
+            currentPendingPrincessIndex
+        ];
+
+    if (!challenge) {
+
+        return Promise.resolve();
+    }
+
+    return database
+        .ref(
+            "spaces/" +
+            currentSpaceCode +
+            "/princessChallenges/" +
             challenge.questionId +
             "/seenBy/" +
             currentUser.uid

@@ -34,6 +34,9 @@ okResultScreen.style.display = "none";
 greenFlagScreen.style.display = "none";
 greenFlagResultScreen.style.display = "none";
 
+princessScreen.style.display = "none";
+princessResultScreen.style.display = "none";
+
     // ====================
     // BOUTONS DU HAUT
     // ====================
@@ -149,6 +152,14 @@ case "okResult":
 
 case "greenFlagResult":
     greenFlagResultScreen.style.display = "block";
+    break;
+
+    case "princess":
+    princessScreen.style.display = "block";
+    break;
+
+case "princessResult":
+    princessResultScreen.style.display = "block";
     break;
     
     }

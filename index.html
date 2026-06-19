@@ -228,6 +228,10 @@
     Green Flag / Red Flag
 </button>
 
+<button id="princessBtn" class="secondary">
+    Princess Treatment
+</button>
+
 <button id="leaveSpaceBtn" class="secondary">
     Quitter cet espace
 </button>
@@ -568,6 +572,57 @@
     </button>
 
     <button id="backDashboardFromGreenFlagBtn" class="secondary">
+        Retour au dashboard
+    </button>
+</div>
+
+<div id="princessScreen" style="display:none;">
+    <h1>👑 Princess Treatment</h1>
+
+    <p id="princessQuestionText" class="subtitle"></p>
+
+    <button id="princessYesBtn">
+        Oui, évidemment
+    </button>
+
+    <button id="princessDependsBtn" class="secondary">
+        Ça dépend
+    </button>
+
+    <button id="princessNoBtn" class="danger-btn">
+        Non, abuse pas
+    </button>
+
+    <button id="backFromPrincessBtn" class="secondary">
+        Retour
+    </button>
+</div>
+
+<div id="princessResultScreen" style="display:none;">
+    <h1>👑 Résultat</h1>
+
+    <p id="princessResultQuestion" class="subtitle"></p>
+
+    <div class="compatibility-score-box">
+        <strong id="princessVerdictEmoji">👑</strong>
+        <p id="princessVerdictText"></p>
+    </div>
+
+    <div class="comparison-box">
+        <h3>Ta réponse</h3>
+        <p id="princessMyAnswer"></p>
+    </div>
+
+    <div class="comparison-box">
+        <h3>Réponse partenaire</h3>
+        <p id="princessPartnerAnswer"></p>
+    </div>
+
+    <button id="nextPrincessBtn">
+        Question suivante
+    </button>
+
+    <button id="backDashboardFromPrincessBtn" class="secondary">
         Retour au dashboard
     </button>
 </div>
