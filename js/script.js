@@ -627,7 +627,7 @@ validateGuessAnswerBtn.addEventListener("click", () => {
         })
         .then(() => {
             showToast("🌵 Réponse enregistrée");
-            showScreen("dashboard");
+            showScreen();
         });
 });
 
@@ -2315,9 +2315,9 @@ function saveLikelyAnswer(answer) {
                 });
         })
         .then(() => {
-            showToast("🌵 Réponse enregistrée");
-            showScreen("dashboard");
-        });
+    showToast("🌵 Réponse enregistrée");
+    startLikelyGame();
+});
 }
 
 function listenToLikelyChallenges() {
@@ -2595,9 +2595,9 @@ function saveOkAnswer(answer) {
                 });
         })
         .then(() => {
-            showToast("🌵 Réponse enregistrée");
-            showScreen("dashboard");
-        });
+    showToast("🌵 Réponse enregistrée");
+    startOkGame();
+});
 }
 
 function listenToOkChallenges() {
@@ -2812,9 +2812,9 @@ function saveGreenFlagAnswer(answer) {
                 });
         })
         .then(() => {
-            showToast("🌵 Réponse enregistrée");
-            showScreen("dashboard");
-        });
+    showToast("🌵 Réponse enregistrée");
+    startGreenFlagGame();
+});
 }
 
 function listenToGreenFlagChallenges() {
