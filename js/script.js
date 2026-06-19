@@ -3640,6 +3640,10 @@ function showAnswerSentScreen(nextFunction) {
 }
 
 function openHistoryMode(mode) {
+        if (mode === "stats") {
+        openRelationStats();
+        return;
+    }
     historyDetailList.innerHTML = "";
 
     currentHistoryMode = mode;
@@ -3738,7 +3742,13 @@ function createHistoryCard(mode, item) {
         item.question ||
         "Souvenir";
 
+    const date = document.createElement("small");
+    date.classList.add("history-date");
+    date.textContent =
+        formatHistoryDate(item.completedAt || item.createdAt);
+
     card.appendChild(title);
+    card.appendChild(date);
 
     if (mode === "ranking") {
         const score = document.createElement("span");
@@ -3760,29 +3770,16 @@ function createHistoryCard(mode, item) {
         answersArray.forEach((answer) => {
             const p = document.createElement("p");
 
+            const label =
+                answer.uid === currentUser.uid
+                    ? "Toi"
+                    : "Partenaire";
+
             p.innerHTML =
                 "<strong>" +
-                (answer.pseudo || "Quelqu’un") +
+                label +
                 " :</strong> " +
                 (answer.answer || "Pas de réponse");
-
-            card.appendChild(p);
-        });
-    }
-
-    if (mode === "guess" && item.predictions) {
-        const predictionsTitle = document.createElement("h4");
-        predictionsTitle.textContent = "Prédictions";
-        card.appendChild(predictionsTitle);
-
-        Object.values(item.predictions).forEach((prediction) => {
-            const p = document.createElement("p");
-
-            p.innerHTML =
-                "<strong>" +
-                (prediction.pseudo || "Quelqu’un") +
-                " pensait :</strong> " +
-                (prediction.prediction || "Pas de prédiction");
 
             card.appendChild(p);
         });
@@ -3815,6 +3812,13 @@ function openHistoryItem(index) {
 }
 
 function renderRankingHistoryItem(item) {
+    const date = document.createElement("p");
+    date.classList.add("history-date");
+    date.textContent =
+        formatHistoryDate(item.completedAt || item.createdAt);
+
+    historyItemContent.appendChild(date);
+
     const scoreBox = document.createElement("div");
     scoreBox.classList.add("compatibility-score-box");
 
@@ -3828,8 +3832,7 @@ function renderRankingHistoryItem(item) {
 
     historyItemContent.appendChild(scoreBox);
 
-    const answersArray =
-        Object.values(item.answers || {});
+    const answersArray = Object.values(item.answers || {});
 
     answersArray.forEach((answerData) => {
         const box = document.createElement("div");
@@ -3837,7 +3840,9 @@ function renderRankingHistoryItem(item) {
 
         const title = document.createElement("h3");
         title.textContent =
-            answerData.pseudo || "Quelqu’un";
+            answerData.uid === currentUser.uid
+                ? "Toi"
+                : "Partenaire";
 
         const list = document.createElement("ol");
 
@@ -3855,6 +3860,13 @@ function renderRankingHistoryItem(item) {
 }
 
 function renderSimpleHistoryItem(item) {
+    const date = document.createElement("p");
+    date.classList.add("history-date");
+    date.textContent =
+        formatHistoryDate(item.completedAt || item.createdAt);
+
+    historyItemContent.appendChild(date);
+
     const answersArray =
         Object.values(item.answers || {});
 
@@ -3864,7 +3876,9 @@ function renderSimpleHistoryItem(item) {
 
         const title = document.createElement("h3");
         title.textContent =
-            answerData.pseudo || "Quelqu’un";
+            answerData.uid === currentUser.uid
+                ? "Toi"
+                : "Partenaire";
 
         const answer = document.createElement("p");
         answer.textContent =
@@ -3887,8 +3901,9 @@ function renderSimpleHistoryItem(item) {
 
             const title = document.createElement("h3");
             title.textContent =
-                (predictionData.pseudo || "Quelqu’un") +
-                " pensait";
+                predictionData.uid === currentUser.uid
+                    ? "Ta prédiction"
+                    : "Prédiction partenaire";
 
             const prediction = document.createElement("p");
             prediction.textContent =
@@ -3900,6 +3915,90 @@ function renderSimpleHistoryItem(item) {
             historyItemContent.appendChild(box);
         });
     }
+}
+
+function formatHistoryDate(timestamp) {
+    if (!timestamp) {
+        return "Date inconnue";
+    }
+
+    return new Date(timestamp).toLocaleDateString("fr-FR", {
+        day: "2-digit",
+        month: "long",
+        year: "numeric"
+    });
+}
+
+function openRelationStats() {
+    historyDetailTitle.textContent = "📊 Notre relation";
+    historyDetailList.innerHTML = "";
+
+    const paths = [
+        "rankingChallenges",
+        "guessAnswers",
+        "questionsChallenges",
+        "likelyChallenges",
+        "okChallenges",
+        "greenFlagChallenges",
+        "princessChallenges"
+    ];
+
+    Promise.all(
+        paths.map((path) => {
+            return database
+                .ref("spaces/" + currentSpaceCode + "/" + path)
+                .once("value");
+        })
+    ).then((snapshots) => {
+        let totalSouvenirs = 0;
+        let totalCompatibility = 0;
+        let compatibilityCount = 0;
+        let bestCompatibility = 0;
+
+        snapshots.forEach((snapshot) => {
+            const items = Object.values(snapshot.val() || {});
+
+            items.forEach((item) => {
+                if (item.status !== "completed") return;
+
+                totalSouvenirs++;
+
+                if (typeof item.compatibility === "number") {
+                    totalCompatibility += item.compatibility;
+                    compatibilityCount++;
+                    bestCompatibility = Math.max(bestCompatibility, item.compatibility);
+                }
+            });
+        });
+
+        const averageCompatibility =
+            compatibilityCount > 0
+                ? Math.round(totalCompatibility / compatibilityCount)
+                : 0;
+
+        addStatCard("📚 Souvenirs créés", totalSouvenirs);
+        addStatCard("💚 Compatibilité moyenne", averageCompatibility + "%");
+        addStatCard("🏆 Meilleur score", bestCompatibility + "%");
+
+        showScreen("historyDetail");
+    });
+}
+function addStatCard(label, value) {
+    const card = document.createElement("div");
+    card.classList.add("history-card");
+
+    const title = document.createElement("h3");
+    title.textContent = label;
+
+    const number = document.createElement("p");
+    number.textContent = value;
+    number.style.fontSize = "1.8rem";
+    number.style.fontWeight = "900";
+
+    card.appendChild(title);
+    card.appendChild(number);
+
+    historyDetailList.appendChild(card);
 }
 
 // ====================

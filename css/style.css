@@ -1636,3 +1636,12 @@ body.dark-theme .notebook-editor {
         font-size: 0.95rem;
     }
 }
+
+.history-date {
+    display: block;
+    color: #B7E4C7;
+    font-size: 0.8rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
