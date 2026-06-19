@@ -232,6 +232,10 @@
     Princess Treatment
 </button>
 
+<button id="questionsBtn" class="secondary">
+    Questions
+</button>
+
 <button id="leaveSpaceBtn" class="secondary">
     Quitter cet espace
 </button>
@@ -623,6 +627,49 @@
     </button>
 
     <button id="backDashboardFromPrincessBtn" class="secondary">
+        Retour au dashboard
+    </button>
+</div>
+
+<div id="questionsScreen" style="display:none;">
+    <h1>🌵 Questions</h1>
+
+    <p id="questionsQuestionText" class="subtitle"></p>
+
+    <textarea
+        id="questionsAnswerInput"
+        placeholder="Écris ta réponse..."
+    ></textarea>
+
+    <button id="validateQuestionsAnswerBtn">
+        Valider ma réponse
+    </button>
+
+    <button id="backFromQuestionsBtn" class="secondary">
+        Retour
+    </button>
+</div>
+
+<div id="questionsResultScreen" style="display:none;">
+    <h1>🌵 Vos réponses</h1>
+
+    <p id="questionsResultQuestion" class="subtitle"></p>
+
+    <div class="comparison-box">
+        <h3>Ta réponse</h3>
+        <p id="questionsMyAnswer"></p>
+    </div>
+
+    <div class="comparison-box">
+        <h3>Réponse partenaire</h3>
+        <p id="questionsPartnerAnswer"></p>
+    </div>
+
+    <button id="nextQuestionsBtn">
+        Question suivante
+    </button>
+
+    <button id="backDashboardFromQuestionsBtn" class="secondary">
         Retour au dashboard
     </button>
 </div>

@@ -260,6 +260,23 @@ const princessPartnerAnswer = document.getElementById("princessPartnerAnswer");
 const nextPrincessBtn = document.getElementById("nextPrincessBtn");
 const backDashboardFromPrincessBtn = document.getElementById("backDashboardFromPrincessBtn");
 
+const questionsBtn = document.getElementById("questionsBtn");
+
+const questionsScreen = document.getElementById("questionsScreen");
+const questionsResultScreen = document.getElementById("questionsResultScreen");
+
+const questionsQuestionText = document.getElementById("questionsQuestionText");
+const questionsAnswerInput = document.getElementById("questionsAnswerInput");
+const validateQuestionsAnswerBtn = document.getElementById("validateQuestionsAnswerBtn");
+const backFromQuestionsBtn = document.getElementById("backFromQuestionsBtn");
+
+const questionsResultQuestion = document.getElementById("questionsResultQuestion");
+const questionsMyAnswer = document.getElementById("questionsMyAnswer");
+const questionsPartnerAnswer = document.getElementById("questionsPartnerAnswer");
+
+const nextQuestionsBtn = document.getElementById("nextQuestionsBtn");
+const backDashboardFromQuestionsBtn = document.getElementById("backDashboardFromQuestionsBtn");
+
 let pendingGuessValidations = [];
 let saveNotebookTimeout = null;
 
@@ -326,6 +343,14 @@ let pendingPrincessChallenges = [];
 let pendingPrincessResults = [];
 let currentPendingPrincessIndex = 0;
 
+let coupleQuestions = [];
+let currentCoupleQuestion = null;
+let currentCoupleQuestionId = null;
+
+let pendingQuestionsChallenges = [];
+let pendingQuestionsResults = [];
+let currentPendingQuestionsIndex = 0;
+
 // ====================
 // CHARGEMENT DES DONNÉES
 // ====================
@@ -372,6 +397,7 @@ function listenToCurrentSpace(spaceCodeValue) {
         listenToOkChallenges();
         listenToGreenFlagChallenges();
         listenToPrincessChallenges();
+        listenToQuestionsChallenges();
     });
 }
 
@@ -1216,6 +1242,18 @@ backDashboardFromPrincessBtn
             });
         }
     );
+
+    questionsBtn.addEventListener("click", () => {
+    startQuestionsGame();
+});
+
+validateQuestionsAnswerBtn.addEventListener("click", () => {
+    saveQuestionsAnswer();
+});
+
+backFromQuestionsBtn.addEventListener("click", () => {
+    showScreen("dashboard");
+});
 
 // ====================
 // BARRE FLOTTANTE
@@ -3174,6 +3212,146 @@ function markCurrentPrincessResultSeen() {
         )
         .set(true);
 }
+
+async function loadCoupleQuestionsData() {
+    const response = await fetch("data/questions.json");
+    coupleQuestions = await response.json();
+
+    console.log("Questions chargées :", coupleQuestions);
+}
+
+loadCoupleQuestionsData();
+
+function startQuestionsGame() {
+    if (!coupleQuestions.length) {
+        alert("Questions en cours de chargement...");
+        return;
+    }
+
+    currentCoupleQuestion =
+        coupleQuestions[
+            Math.floor(Math.random() * coupleQuestions.length)
+        ];
+
+    currentCoupleQuestionId =
+        currentCoupleQuestion.id;
+
+    questionsQuestionText.textContent =
+        currentCoupleQuestion.question;
+
+    questionsAnswerInput.value = "";
+
+    showScreen("questions");
+}
+
+function saveQuestionsAnswer() {
+    const answer =
+        questionsAnswerInput.value.trim();
+
+    if (answer === "") {
+        alert("Écris ta réponse 🌵");
+        return;
+    }
+
+    database
+        .ref(
+            "spaces/" +
+            currentSpaceCode +
+            "/questionsChallenges/" +
+            currentCoupleQuestionId
+        )
+        .update({
+            questionId: currentCoupleQuestion.id,
+            question: currentCoupleQuestion.question,
+            status: "answering",
+            createdAt: Date.now()
+        })
+        .then(() => {
+            return database
+                .ref(
+                    "spaces/" +
+                    currentSpaceCode +
+                    "/questionsChallenges/" +
+                    currentCoupleQuestionId +
+                    "/answers/" +
+                    currentUser.uid
+                )
+                .set({
+                    uid: currentUser.uid,
+                    pseudo: pseudo,
+                    answer: answer,
+                    createdAt: Date.now()
+                });
+        })
+        .then(() => {
+            showScreen("dashboard");
+        });
+}
+
+function listenToQuestionsChallenges() {
+    database
+        .ref("spaces/" + currentSpaceCode + "/questionsChallenges")
+        .on("value", (snapshot) => {
+            const challenges = snapshot.val() || {};
+
+            Object.entries(challenges).forEach(([id, challenge]) => {
+                const answers = challenge.answers || {};
+
+                if (
+                    Object.keys(answers).length >= 2 &&
+                    challenge.status === "answering"
+                ) {
+                    database
+                        .ref(
+                            "spaces/" +
+                            currentSpaceCode +
+                            "/questionsChallenges/" +
+                            id
+                        )
+                        .update({
+                            status: "completed",
+                            completedAt: Date.now()
+                        });
+                }
+            });
+
+            displayQuestionsChallenges(challenges);
+        });
+}
+
+function displayQuestionsChallenges(challenges) {
+    const challengeArray =
+        Object.values(challenges || {});
+
+    pendingQuestionsChallenges =
+        challengeArray.filter((challenge) => {
+            return (
+                challenge.status === "answering" &&
+                challenge.answers &&
+                !challenge.answers[currentUser.uid] &&
+                Object.keys(challenge.answers).some((uid) => {
+                    return uid !== currentUser.uid;
+                })
+            );
+        });
+
+    pendingQuestionsResults =
+        challengeArray.filter((challenge) => {
+            const seenByMe =
+                challenge.seenBy &&
+                challenge.seenBy[currentUser.uid];
+
+            return (
+                challenge.status === "completed" &&
+                challenge.answers &&
+                challenge.answers[currentUser.uid] &&
+                !seenByMe
+            );
+        });
+
+    updateActivityBox();
+}
+
 
 // ====================
 // LANCEMENT
