@@ -165,6 +165,12 @@ const nextLikelyBtn =
 const backDashboardFromLikelyBtn =
     document.getElementById("backDashboardFromLikelyBtn");
 
+    const likelyVerdictEmoji =
+    document.getElementById("likelyVerdictEmoji");
+
+const likelyVerdictText =
+    document.getElementById("likelyVerdictText");
+
 let pendingGuessValidations = [];
 let saveNotebookTimeout = null;
 
@@ -1973,12 +1979,24 @@ function showPendingLikelyResult() {
         challenge.question;
 
     likelyMyAnswer.textContent =
-        myAnswer.answer;
+        myAnswer ? myAnswer.answer : "Pas de réponse";
 
     likelyPartnerAnswer.textContent =
-        partnerAnswer
-            ? partnerAnswer.answer
-            : "En attente";
+        partnerAnswer ? partnerAnswer.answer : "Pas encore répondu";
+
+    if (
+        myAnswer &&
+        partnerAnswer &&
+        myAnswer.answer === partnerAnswer.answer
+    ) {
+        likelyVerdictEmoji.textContent = "💚";
+        likelyVerdictText.textContent =
+            "Vous êtes totalement d’accord.";
+    } else {
+        likelyVerdictEmoji.textContent = "👀";
+        likelyVerdictText.textContent =
+            "Vos réponses sont différentes.";
+    }
 
     showScreen("likelyResult");
 }
