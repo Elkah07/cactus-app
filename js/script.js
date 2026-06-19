@@ -353,6 +353,9 @@ let pendingQuestionsChallenges = [];
 let pendingQuestionsResults = [];
 let currentPendingQuestionsIndex = 0;
 
+let pendingRankingResults = [];
+let currentPendingRankingResultIndex = 0;
+
 // ====================
 // CHARGEMENT DES DONNÉES
 // ====================
@@ -678,17 +681,27 @@ backDashboardBtn.addEventListener("click", () => {
 });
 
 nextAfterCompatibilityBtn.addEventListener("click", () => {
-    if (isPlayingPendingChallenges) {
-        currentPendingChallengeIndex++;
-        startPendingRankingChallenge();
-        return;
-    }
+    markCurrentRankingResultSeen().then(() => {
+        if (pendingRankingResults.length > 0) {
+            currentPendingRankingResultIndex++;
+            showPendingRankingResult();
+            return;
+        }
 
-    startRandomRanking();
+        if (isPlayingPendingChallenges) {
+            currentPendingChallengeIndex++;
+            startPendingRankingChallenge();
+            return;
+        }
+
+        startRandomRanking();
+    });
 });
 
 backDashboardAfterCompatibilityBtn.addEventListener("click", () => {
-    showScreen("dashboard");
+    markCurrentRankingResultSeen().then(() => {
+        showScreen("dashboard");
+    });
 });
 
 signupBtn.addEventListener("click", () => {
@@ -1786,6 +1799,19 @@ function displayGuessChallenges(challenges) {
         );
     });
 
+    pendingRankingResults = challengeArray.filter((challenge) => {
+    const seenByMe =
+        challenge.seenBy &&
+        challenge.seenBy[currentUser.uid];
+
+    return (
+        challenge.status === "completed" &&
+        challenge.answers &&
+        challenge.answers[currentUser.uid] &&
+        !seenByMe
+    );
+});
+
     updateActivityBox();
 }
 
@@ -1970,6 +1996,22 @@ function updateActivityBox() {
     activityList.innerHTML = "";
 
     let hasActivities = false;
+
+    if (pendingRankingResults.length > 0) {
+    hasActivities = true;
+
+    const item = document.createElement("p");
+    item.classList.add("mode-notification");
+    item.textContent =
+        "💚 " + pendingRankingResults.length + " résultat(s) Classements";
+
+    item.addEventListener("click", () => {
+        currentPendingRankingResultIndex = 0;
+        showPendingRankingResult();
+    });
+
+    activityList.appendChild(item);
+}
 
     if (pendingRankingChallenges.length > 0) {
         hasActivities = true;
@@ -3481,6 +3523,58 @@ function showToast(message) {
     setTimeout(() => {
         toastMessage.classList.remove("visible");
     }, 1800);
+}
+
+function showPendingRankingResult() {
+    const challenge =
+        pendingRankingResults[currentPendingRankingResultIndex];
+
+    if (!challenge) {
+        showScreen("dashboard");
+        return;
+    }
+
+    const answersArray =
+        Object.values(challenge.answers);
+
+    const myAnswerData =
+        challenge.answers[currentUser.uid];
+
+    const partnerAnswerData =
+        answersArray.find((answer) => {
+            return answer.uid !== currentUser.uid;
+        });
+
+    if (!myAnswerData || !partnerAnswerData) {
+        showScreen("dashboard");
+        return;
+    }
+
+    showRankingCompatibility(
+        challenge,
+        myAnswerData,
+        partnerAnswerData
+    );
+}
+
+function markCurrentRankingResultSeen() {
+    const challenge =
+        pendingRankingResults[currentPendingRankingResultIndex];
+
+    if (!challenge) {
+        return Promise.resolve();
+    }
+
+    return database
+        .ref(
+            "spaces/" +
+            currentSpaceCode +
+            "/rankingChallenges/" +
+            challenge.rankingId +
+            "/seenBy/" +
+            currentUser.uid
+        )
+        .set(true);
 }
 
 // ====================
