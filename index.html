@@ -220,6 +220,10 @@
     Qui est le plus susceptible de...
 </button>
 
+<button id="okBtn" class="secondary">
+    OK ou Pas OK ?
+</button>
+
 <button id="leaveSpaceBtn" class="secondary">
     Quitter cet espace
 </button>
@@ -444,7 +448,48 @@
 <div id="likelyResultScreen" style="display:none;">
     <h1>🌵 Résultat</h1>
 
+<div id="okScreen" style="display:none;">
+    <h1>🌵 OK ou Pas OK ?</h1>
 
+    <p id="okQuestionText" class="subtitle"></p>
+
+    <button id="okYesBtn">OK</button>
+    <button id="okDependsBtn" class="secondary">Ça dépend</button>
+    <button id="okNoBtn" class="danger-btn">Pas OK</button>
+
+    <button id="backFromOkBtn" class="secondary">
+        Retour
+    </button>
+</div>
+
+<div id="okResultScreen" style="display:none;">
+    <h1>🌵 Résultat</h1>
+
+    <p id="okResultQuestion" class="subtitle"></p>
+
+    <div class="compatibility-score-box">
+        <strong id="okVerdictEmoji">🌵</strong>
+        <p id="okVerdictText"></p>
+    </div>
+
+    <div class="comparison-box">
+        <h3>Ta réponse</h3>
+        <p id="okMyAnswer"></p>
+    </div>
+
+    <div class="comparison-box">
+        <h3>Réponse partenaire</h3>
+        <p id="okPartnerAnswer"></p>
+    </div>
+
+    <button id="nextOkBtn">
+        Question suivante
+    </button>
+
+    <button id="backDashboardFromOkBtn" class="secondary">
+        Retour au dashboard
+    </button>
+</div>
 
     <p id="likelyResultQuestion" class="subtitle"></p>
 

@@ -171,6 +171,28 @@ const backDashboardFromLikelyBtn =
 const likelyVerdictText =
     document.getElementById("likelyVerdictText");
 
+    const okBtn = document.getElementById("okBtn");
+
+const okScreen = document.getElementById("okScreen");
+const okResultScreen = document.getElementById("okResultScreen");
+
+const okQuestionText = document.getElementById("okQuestionText");
+
+const okYesBtn = document.getElementById("okYesBtn");
+const okDependsBtn = document.getElementById("okDependsBtn");
+const okNoBtn = document.getElementById("okNoBtn");
+
+const backFromOkBtn = document.getElementById("backFromOkBtn");
+
+const okResultQuestion = document.getElementById("okResultQuestion");
+const okVerdictEmoji = document.getElementById("okVerdictEmoji");
+const okVerdictText = document.getElementById("okVerdictText");
+const okMyAnswer = document.getElementById("okMyAnswer");
+const okPartnerAnswer = document.getElementById("okPartnerAnswer");
+
+const nextOkBtn = document.getElementById("nextOkBtn");
+const backDashboardFromOkBtn = document.getElementById("backDashboardFromOkBtn");
+
 let pendingGuessValidations = [];
 let saveNotebookTimeout = null;
 
@@ -212,6 +234,14 @@ let currentLikelyId = null;
 let pendingLikelyChallenges = [];
 let pendingLikelyResults = [];
 let currentPendingLikelyIndex = 0;
+
+let okQuestions = [];
+let currentOkQuestion = null;
+let currentOkId = null;
+
+let pendingOkChallenges = [];
+let pendingOkResults = [];
+let currentPendingOkIndex = 0;
 
 // ====================
 // CHARGEMENT DES DONNÉES

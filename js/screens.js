@@ -28,6 +28,9 @@ function showScreen(screenName) {
     likelyScreen.style.display = "none";
 likelyResultScreen.style.display = "none";
 
+okScreen.style.display = "none";
+okResultScreen.style.display = "none";
+
     // ====================
     // BOUTONS DU HAUT
     // ====================
@@ -128,5 +131,13 @@ case "likelyResult":
         case "guessResult":
             guessResultScreen.style.display = "block";
             break;
+
+            case "ok":
+    okScreen.style.display = "block";
+    break;
+
+case "okResult":
+    okResultScreen.style.display = "block";
+    break;
     }
 }

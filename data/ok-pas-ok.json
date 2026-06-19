@@ -1,1 +1,3746 @@
-[]
+[
+  {
+    "id": "festival_avec_meilleure_amie",
+    "question": "Ton partenaire part seul(e) en festival avec sa meilleure amie."
+  },
+  {
+    "id": "vacances_avec_celibataires",
+    "question": "Ton partenaire part une semaine en vacances avec uniquement des amis célibataires."
+  },
+  {
+    "id": "dormir_chez_une_amie",
+    "question": "Après une soirée, ton partenaire te prévient qu'il ou elle dort chez un(e) ami(e)."
+  },
+  {
+    "id": "accepter_verre_bar",
+    "question": "Une personne inconnue offre un verre à ton partenaire et il ou elle l'accepte."
+  },
+  {
+    "id": "shooting_nu_demande",
+    "question": "Une personne contacte ton partenaire pour lui proposer un shooting photo nu."
+  },
+  {
+    "id": "tatouage_avec_ami",
+    "question": "Ton partenaire fait un tatouage en commun avec un(e) ami(e)."
+  },
+  {
+    "id": "aider_ex_en_galere",
+    "question": "Ton partenaire aide son ex qui traverse une période difficile."
+  },
+  {
+    "id": "appel_toute_nuit",
+    "question": "Ton partenaire passe toute la nuit au téléphone avec un ancien ami retrouvé par hasard."
+  },
+  {
+    "id": "oublier_destination",
+    "question": "Ton partenaire sort sans te dire où il ou elle va."
+  },
+  {
+    "id": "retour_surprise_matin",
+    "question": "Ton partenaire disparaît toute la nuit et revient le matin avec une surprise."
+  },
+  {
+    "id": "ajouter_amis_reseaux",
+    "question": "Ton partenaire ajoute tous tes amis sur les réseaux sociaux."
+  },
+  {
+    "id": "ramene_par_inconnu",
+    "question": "Une personne inconnue raccompagne ton partenaire après une soirée."
+  },
+  {
+    "id": "prete_veste",
+    "question": "Une autre personne prête sa veste à ton partenaire parce qu'il ou elle a froid."
+  },
+  {
+    "id": "heberger_amie_temporairement",
+    "question": "Ton partenaire propose d'héberger un(e) ami(e) chez vous pendant plusieurs semaines."
+  },
+  {
+    "id": "maillot_string_plage",
+    "question": "Ton partenaire porte un maillot de bain très échancré à la plage."
+  },
+  {
+    "id": "edjf_secret",
+    "question": "Pour l'EVJF ou EVG, ton partenaire refuse de te dire ce qui est prévu."
+  },
+  {
+    "id": "table_inconnus_vacances",
+    "question": "Ton partenaire accepte l'invitation de personnes inconnues à leur table en vacances."
+  },
+  {
+    "id": "suivre_ex_instagram",
+    "question": "Ton partenaire suit encore son ex sur Instagram."
+  },
+  {
+    "id": "like_photos_ex",
+    "question": "Ton partenaire like régulièrement les photos de son ex."
+  },
+  {
+    "id": "garder_photos_ex",
+    "question": "Ton partenaire garde toutes les photos de son ancienne relation."
+  },
+  {
+    "id": "sortie_ex_cafe",
+    "question": "Ton partenaire prend un café avec son ex pour discuter."
+  },
+  {
+    "id": "message_anniversaire_ex",
+    "question": "Ton partenaire souhaite l'anniversaire de son ex chaque année."
+  },
+  {
+    "id": "appel_ex_en_cachette",
+    "question": "Ton partenaire appelle son ex sans t'en parler."
+  },
+  {
+    "id": "voyage_avec_ex_amis",
+    "question": "Son ex fait partie d'un groupe d'amis avec qui ton partenaire part en voyage."
+  },
+  {
+    "id": "diner_ex_professionnel",
+    "question": "Ton partenaire dîne seul(e) avec son ex pour parler travail."
+  },
+  {
+    "id": "garder_cadeau_ex",
+    "question": "Ton partenaire conserve un cadeau très symbolique de son ex."
+  },
+  {
+    "id": "confidences_ex",
+    "question": "Ton partenaire se confie encore à son ex quand ça ne va pas."
+  },
+  {
+    "id": "partager_lit_amie",
+    "question": "En voyage, ton partenaire partage un lit avec un(e) ami(e) faute de place."
+  },
+  {
+    "id": "weekend_entre_amis",
+    "question": "Ton partenaire part en week-end sans toi avec ses amis."
+  },
+  {
+    "id": "soirée_sans_repondre",
+    "question": "Ton partenaire ne répond à aucun message pendant toute une soirée."
+  },
+  {
+    "id": "bar_jusqua_fermeture",
+    "question": "Ton partenaire reste au bar jusqu'à la fermeture sans te prévenir."
+  },
+  {
+    "id": "voyage_seul_etranger",
+    "question": "Ton partenaire décide de partir seul(e) à l'étranger."
+  },
+  {
+    "id": "partir_roadtrip",
+    "question": "Ton partenaire part en road trip improvisé pendant quelques jours."
+  },
+  {
+    "id": "festival_sans_reseau",
+    "question": "Ton partenaire part en festival et coupe totalement son téléphone."
+  },
+  {
+    "id": "sortie_collegues",
+    "question": "Ton partenaire sort boire un verre avec ses collègues après le travail."
+  },
+  {
+    "id": "vacances_famille_sans_toi",
+    "question": "Ton partenaire part en vacances avec sa famille sans toi."
+  },
+  {
+    "id": "voyage_meilleur_ami",
+    "question": "Ton partenaire part une semaine avec son ou sa meilleur(e) ami(e)."
+  },
+  {
+    "id": "club_sport_mixte",
+    "question": "Ton partenaire rejoint un club sportif où il ou elle ne connaît personne."
+  },
+  {
+    "id": "danser_avec_inconnu",
+    "question": "Ton partenaire danse avec une personne inconnue en soirée."
+  },
+  {
+    "id": "karaoke_inconnus",
+    "question": "Ton partenaire finit la soirée avec un groupe rencontré sur place."
+  },
+  {
+    "id": "compte_joint",
+    "question": "Ton partenaire souhaite ouvrir un compte bancaire commun."
+  },
+  {
+    "id": "achat_sans_consulter",
+    "question": "Ton partenaire dépense 1000 euros sans t'en parler."
+  },
+  {
+    "id": "pret_argent_ami",
+    "question": "Ton partenaire prête une grosse somme à un ami."
+  },
+  {
+    "id": "payer_repas_groupe",
+    "question": "Ton partenaire paie tout le restaurant pour ses amis."
+  },
+  {
+    "id": "acheter_voiture_seul",
+    "question": "Ton partenaire achète une voiture sans te consulter."
+  },
+  {
+    "id": "cadeau_couteux_parent",
+    "question": "Ton partenaire offre un cadeau très cher à un membre de sa famille."
+  },
+  {
+    "id": "investissement_risque",
+    "question": "Ton partenaire investit ses économies dans un projet risqué."
+  },
+  {
+    "id": "don_association",
+    "question": "Ton partenaire fait un don important à une association."
+  },
+  {
+    "id": "payer_abonnement_ex",
+    "question": "Ton partenaire continue de payer un abonnement pour son ex."
+  },
+  {
+    "id": "acheter_chien",
+    "question": "Ton partenaire rentre à la maison avec un chien sans prévenir."
+  },
+  {
+    "id": "acheter_chat",
+    "question": "Ton partenaire adopte un chat sur un coup de tête."
+  },
+  {
+    "id": "changer_couleur_cheveux",
+    "question": "Ton partenaire change radicalement de couleur de cheveux."
+  },
+  {
+    "id": "tatouage_visage",
+    "question": "Ton partenaire envisage un tatouage très visible."
+  },
+  {
+    "id": "quitter_travail",
+    "question": "Ton partenaire quitte son travail sans avoir de plan."
+  },
+  {
+    "id": "reprise_etudes",
+    "question": "Ton partenaire décide de reprendre des études."
+  },
+  {
+    "id": "changer_ville",
+    "question": "Ton partenaire veut déménager dans une autre ville."
+  },
+  {
+    "id": "annee_australie",
+    "question": "Ton partenaire veut partir vivre un an en Australie."
+  },
+  {
+    "id": "acheter_van",
+    "question": "Ton partenaire veut acheter un van pour voyager."
+  },
+  {
+    "id": "creer_entreprise",
+    "question": "Ton partenaire veut lancer son entreprise."
+  },
+  {
+    "id": "telephone_code",
+    "question": "Ton partenaire met un nouveau code secret sur son téléphone."
+  },
+  {
+    "id": "supprimer_conversation",
+    "question": "Ton partenaire supprime régulièrement certaines conversations."
+  },
+  {
+    "id": "compte_prive",
+    "question": "Ton partenaire rend tous ses réseaux sociaux privés."
+  },
+  {
+    "id": "poster_photo_seul",
+    "question": "Ton partenaire publie uniquement des photos où tu n'apparais jamais."
+  },
+  {
+    "id": "story_quotidienne",
+    "question": "Ton partenaire partage tout son quotidien en story."
+  },
+  {
+    "id": "repondre_dm",
+    "question": "Ton partenaire répond souvent à des messages privés d'inconnus."
+  },
+  {
+    "id": "ami_virtuel",
+    "question": "Ton partenaire discute tous les jours avec une personne rencontrée en ligne."
+  },
+  {
+    "id": "compte_anonyme",
+    "question": "Ton partenaire possède un compte anonyme dont tu ignores le contenu."
+  },
+  {
+    "id": "publier_dispute",
+    "question": "Ton partenaire raconte vos disputes sur internet."
+  },
+  {
+    "id": "lire_messages",
+    "question": "Ton partenaire lit tes messages sans demander."
+  },
+  {
+    "id": "partager_mdp",
+    "question": "Ton partenaire souhaite échanger tous vos mots de passe."
+  },
+  {
+    "id": "fouiller_telephone",
+    "question": "Ton partenaire fouille ton téléphone pendant ton absence."
+  },
+  {
+    "id": "localisation_active",
+    "question": "Ton partenaire veut partager sa localisation en permanence."
+  },
+  {
+    "id": "demander_localisation",
+    "question": "Ton partenaire te demande où tu es plusieurs fois par jour."
+  },
+  {
+    "id": "questionner_amis",
+    "question": "Ton partenaire interroge tes amis sur tes sorties."
+  },
+  {
+    "id": "jaloux_collegue",
+    "question": "Ton partenaire devient jaloux ou jalouse d'un collègue."
+  },
+  {
+    "id": "demander_preuve",
+    "question": "Ton partenaire demande régulièrement des preuves de ce que tu fais."
+  },
+  {
+    "id": "ignorer_deux_jours",
+    "question": "Ton partenaire refuse de te parler pendant deux jours après une dispute."
+  },
+  {
+    "id": "partir_sans_prevenir",
+    "question": "Ton partenaire quitte la maison après une dispute sans prévenir."
+  },
+  {
+    "id": "dormir_canape",
+    "question": "Ton partenaire préfère dormir sur le canapé après une dispute."
+  },
+  {
+    "id": "annuler_sortie_couple",
+    "question": "Ton partenaire annule un rendez-vous prévu avec toi pour voir des amis."
+  },
+  {
+    "id": "oublier_anniversaire",
+    "question": "Ton partenaire oublie votre anniversaire de rencontre."
+  },
+  {
+    "id": "partir_weekend_seul",
+    "question": "Ton partenaire s'offre un week-end seul(e) pour se retrouver."
+  },
+  {
+    "id": "journee_sans_message",
+    "question": "Ton partenaire passe une journée entière sans envoyer de message."
+  },
+  {
+    "id": "vacances_separees",
+    "question": "Ton partenaire souhaite faire certaines vacances chacun de son côté."
+  },
+  {
+    "id": "piece_perso",
+    "question": "Ton partenaire veut une pièce rien qu'à lui ou elle à la maison."
+  },
+  {
+    "id": "banque_separee",
+    "question": "Ton partenaire préfère garder ses finances totalement séparées."
+  },
+  {
+    "id": "compte_secret_epargne",
+    "question": "Ton partenaire possède une épargne dont tu ignores le montant."
+  },
+  {
+    "id": "refuser_mariage",
+    "question": "Ton partenaire ne souhaite jamais se marier."
+  },
+  {
+    "id": "refuser_enfant",
+    "question": "Ton partenaire ne souhaite jamais avoir d'enfant."
+  },
+  {
+    "id": "vouloir_bebe_rapidement",
+    "question": "Ton partenaire souhaite avoir un bébé dans l'année."
+  },
+  {
+    "id": "congelation_ovocytes",
+    "question": "Ton partenaire envisage de préserver sa fertilité sans t'en parler avant."
+  },
+  {
+    "id": "achat_maison",
+    "question": "Ton partenaire veut acheter une maison rapidement."
+  },
+  {
+    "id": "vivre_etranger",
+    "question": "Ton partenaire rêve de s'installer à l'étranger."
+  },
+  {
+    "id": "retour_chez_parents",
+    "question": "Ton partenaire veut retourner vivre chez ses parents quelques mois."
+  },
+  {
+    "id": "changer_religion",
+    "question": "Ton partenaire souhaite changer de religion."
+  },
+  {
+    "id": "vegetarien",
+    "question": "Ton partenaire décide de devenir végétarien ou végétarienne."
+  },
+  {
+    "id": "influenceur",
+    "question": "Ton partenaire veut devenir créateur ou créatrice de contenu."
+  },
+  {
+    "id": "colloc_avec_ami",
+    "question": "Ton partenaire décide de prendre un logement avec un(e) ami(e) pendant quelques mois pour économiser."
+  },
+  {
+    "id": "ancien_crush_ami",
+    "question": "Ton partenaire devient ami(e) avec une personne pour qui il ou elle a déjà eu un crush."
+  },
+  {
+    "id": "vacances_avec_ex_et_groupe",
+    "question": "L'ex de ton partenaire participe à des vacances entre amis."
+  },
+  {
+    "id": "soirée_sans_batterie",
+    "question": "Ton partenaire disparaît plusieurs heures parce que son téléphone n'a plus de batterie."
+  },
+  {
+    "id": "supprimer_photo_couple",
+    "question": "Ton partenaire retire toutes vos photos de ses réseaux sociaux."
+  },
+  {
+    "id": "ne_pas_afficher_relation",
+    "question": "Ton partenaire préfère ne jamais afficher sa relation sur les réseaux."
+  },
+  {
+    "id": "accepter_numero",
+    "question": "Une personne demande le numéro de ton partenaire et il ou elle le donne."
+  },
+  {
+    "id": "conserver_tshirt_ex",
+    "question": "Ton partenaire dort encore avec un vieux t-shirt de son ex."
+  },
+  {
+    "id": "aller_concert_seul",
+    "question": "Ton partenaire va seul(e) à un concert."
+  },
+  {
+    "id": "ami_tres_jaloux",
+    "question": "Un(e) ami(e) de ton partenaire critique souvent votre relation."
+  },
+  {
+    "id": "vacances_entre_collegues",
+    "question": "Ton partenaire part quelques jours avec des collègues de travail."
+  },
+  {
+    "id": "danse_en_couple_cours",
+    "question": "Ton partenaire s'inscrit à des cours de danse en duo avec quelqu'un d'autre."
+  },
+  {
+    "id": "groupe_whatsapp_secret",
+    "question": "Ton partenaire participe à un groupe de discussion dont tu ignores tout."
+  },
+  {
+    "id": "sortie_avec_nouvel_ami",
+    "question": "Ton partenaire passe régulièrement du temps avec une nouvelle connaissance."
+  },
+  {
+    "id": "ami_exclusif",
+    "question": "Ton partenaire a un(e) ami(e) à qui il ou elle raconte tout avant toi."
+  },
+  {
+    "id": "partage_chambre_hotel",
+    "question": "Ton partenaire partage une chambre d'hôtel avec un(e) ami(e)."
+  },
+  {
+    "id": "appel_tardif",
+    "question": "Ton partenaire reçoit souvent des appels tard le soir d'une même personne."
+  },
+  {
+    "id": "resto_tete_a_tete",
+    "question": "Ton partenaire va régulièrement au restaurant seul(e) avec un(e) ami(e)."
+  },
+  {
+    "id": "sauver_ex_financierement",
+    "question": "Ton partenaire aide financièrement son ex."
+  },
+  {
+    "id": "garder_contact_famille_ex",
+    "question": "Ton partenaire est toujours proche de la famille de son ex."
+  },
+  {
+    "id": "voyage_affaires_prolonge",
+    "question": "Ton partenaire prolonge un voyage professionnel pour visiter la ville."
+  },
+  {
+    "id": "retour_maison_tres_tard",
+    "question": "Ton partenaire rentre très tard sans donner de nouvelles."
+  },
+  {
+    "id": "fete_sans_invitation",
+    "question": "Ton partenaire participe à une fête où tu n'es pas invité(e)."
+  },
+  {
+    "id": "boire_avec_ex",
+    "question": "Ton partenaire accepte un verre avec son ex."
+  },
+  {
+    "id": "ami_dans_le_lit",
+    "question": "Un(e) ami(e) s'endort dans le même lit que ton partenaire après une soirée."
+  },
+  {
+    "id": "faire_cadeau_ex",
+    "question": "Ton partenaire offre un cadeau à son ex pour son anniversaire."
+  },
+  {
+    "id": "voyage_avec_ancien_crush",
+    "question": "Ton partenaire part en voyage avec quelqu'un qui a déjà flirté avec lui ou elle."
+  },
+  {
+    "id": "accepter_fleurs",
+    "question": "Une personne offre des fleurs à ton partenaire et il ou elle les accepte."
+  },
+  {
+    "id": "photo_avec_inconnu",
+    "question": "Ton partenaire poste une photo très complice avec une personne inconnue."
+  },
+  {
+    "id": "partage_netflix_ex",
+    "question": "Ton partenaire partage toujours un abonnement avec son ex."
+  },
+  {
+    "id": "weekend_sans_reseau",
+    "question": "Ton partenaire part un week-end et coupe totalement internet."
+  },
+  {
+    "id": "ami_a_la_maison",
+    "question": "Ton partenaire invite un(e) ami(e) à dormir chez vous sans te demander."
+  },
+  {
+    "id": "partir_sans_bisou",
+    "question": "Ton partenaire quitte la maison sans dire au revoir."
+  },
+  {
+    "id": "oublier_repondre",
+    "question": "Ton partenaire lit tes messages mais répond plusieurs heures après."
+  },
+  {
+    "id": "suivre_modele_onlyfans",
+    "question": "Ton partenaire suit des créateurs ou créatrices de contenu très suggestif."
+  },
+  {
+    "id": "abonnement_contenu",
+    "question": "Ton partenaire paie pour accéder à du contenu exclusif d'une autre personne."
+  },
+  {
+    "id": "supprimer_messages_avant_montrer",
+    "question": "Ton partenaire efface certaines conversations avant de te montrer son téléphone."
+  },
+  {
+    "id": "bloquer_pendant_dispute",
+    "question": "Ton partenaire te bloque temporairement après une dispute."
+  },
+  {
+    "id": "changer_photo_profil",
+    "question": "Ton partenaire retire votre photo de couple de sa photo de profil."
+  },
+  {
+    "id": "publication_ambiguë",
+    "question": "Ton partenaire publie un message qui pourrait faire croire qu'il ou elle est célibataire."
+  },
+  {
+    "id": "partager_localisation_exigee",
+    "question": "Ton partenaire exige votre localisation mutuelle en permanence."
+  },
+  {
+    "id": "regarder_ancien_messages",
+    "question": "Ton partenaire relit souvent ses anciennes conversations avec son ex."
+  },
+  {
+    "id": "compte_bancaire_cache",
+    "question": "Ton partenaire ouvre un nouveau compte bancaire sans t'en parler."
+  },
+  {
+    "id": "achat_luxe",
+    "question": "Ton partenaire achète un objet de luxe sur un coup de tête."
+  },
+  {
+    "id": "prestation_famille",
+    "question": "Ton partenaire aide financièrement sa famille tous les mois."
+  },
+  {
+    "id": "cacher_dette",
+    "question": "Ton partenaire découvre une dette importante mais ne t'en parle pas tout de suite."
+  },
+  {
+    "id": "preparer_surprise_couteuse",
+    "question": "Ton partenaire dépense beaucoup d'argent pour te préparer une surprise."
+  },
+  {
+    "id": "investir_sans_accord",
+    "question": "Ton partenaire investit dans un projet commun sans ton accord."
+  },
+  {
+    "id": "acheter_moto",
+    "question": "Ton partenaire achète une moto sans t'en parler avant."
+  },
+  {
+    "id": "offrir_argent_ami",
+    "question": "Ton partenaire donne une grosse somme à un(e) ami(e)."
+  },
+  {
+    "id": "quitter_cdi",
+    "question": "Ton partenaire quitte un emploi stable pour suivre une passion."
+  },
+  {
+    "id": "reprendre_contact_parent",
+    "question": "Ton partenaire reprend contact avec un parent qu'il ou elle ne voyait plus."
+  },
+  {
+    "id": "changer_nom",
+    "question": "Ton partenaire veut changer officiellement de nom."
+  },
+  {
+    "id": "piercing_visible",
+    "question": "Ton partenaire se fait un piercing très visible."
+  },
+  {
+    "id": "adopter_deuxieme_animal",
+    "question": "Ton partenaire adopte un deuxième animal de compagnie."
+  },
+  {
+    "id": "inscription_emission",
+    "question": "Ton partenaire s'inscrit à une émission de télévision."
+  },
+  {
+    "id": "demenagement_rapide",
+    "question": "Ton partenaire veut déménager dans les trois prochains mois."
+  },
+  {
+    "id": "maison_campagne",
+    "question": "Ton partenaire rêve de tout quitter pour vivre à la campagne."
+  },
+  {
+    "id": "tour_du_monde",
+    "question": "Ton partenaire veut partir plusieurs mois faire le tour du monde."
+  },
+  {
+    "id": "changer_carriere",
+    "question": "Ton partenaire veut complètement changer de métier."
+  },
+  {
+    "id": "refuser_fetes_famille",
+    "question": "Ton partenaire ne veut plus participer aux fêtes familiales."
+  },
+  {
+    "id": "vivre_separement",
+    "question": "Ton partenaire propose de vivre séparément tout en restant en couple."
+  },
+  {
+    "id": "chambre_separee",
+    "question": "Ton partenaire souhaite avoir sa propre chambre."
+  },
+  {
+    "id": "voyage_entreprise_mixte",
+    "question": "Ton partenaire partage une chambre avec un collègue lors d'un déplacement."
+  },
+  {
+    "id": "amitie_exclusive",
+    "question": "Ton partenaire passe plus de temps avec son ou sa meilleur(e) ami(e) qu'avec toi."
+  },
+  {
+    "id": "vacances_entre_copines",
+    "question": "Ton partenaire part en vacances entre ami(e)s chaque année sans toi."
+  },
+  {
+    "id": "sauver_numero_ex",
+    "question": "Le numéro de l'ex de ton partenaire est toujours enregistré dans ses favoris."
+  },
+  {
+    "id": "dejeuner_collegue",
+    "question": "Ton partenaire déjeune seul(e) chaque semaine avec le même collègue."
+  },
+  {
+    "id": "partager_confidences",
+    "question": "Ton partenaire raconte vos problèmes de couple à un(e) ami(e)."
+  },
+  {
+    "id": "copain_ami_proche",
+    "question": "Ton partenaire développe une grande complicité avec une nouvelle personne."
+  },
+  {
+    "id": "sortir_seul_boire",
+    "question": "Ton partenaire aime sortir seul(e) boire un verre."
+  },
+  {
+    "id": "club_nuit_amis",
+    "question": "Ton partenaire va parfois en boîte sans toi."
+  },
+  {
+    "id": "photo_plage_reseaux",
+    "question": "Ton partenaire publie des photos très travaillées de lui ou elle en maillot."
+  },
+  {
+    "id": "commentaires_recurrents",
+    "question": "Une même personne commente toutes les publications de ton partenaire."
+  },
+  {
+    "id": "demande_mariage_publique",
+    "question": "Ton partenaire aimerait une demande en mariage très publique."
+  },
+  {
+    "id": "annuler_projet_commun",
+    "question": "Ton partenaire abandonne un projet que vous aviez prévu ensemble."
+  },
+  {
+    "id": "retour_chez_ex",
+    "question": "Ton partenaire retourne récupérer des affaires chez son ex sans toi."
+  },
+  {
+    "id": "partager_journal_intime",
+    "question": "Ton partenaire refuse que tu lises son journal intime."
+  },
+  {
+    "id": "garder_secret_ami",
+    "question": "Ton partenaire garde un secret important pour protéger un(e) ami(e)."
+  },
+  {
+    "id": "faire_credit",
+    "question": "Ton partenaire contracte un crédit sans te consulter."
+  },
+  {
+    "id": "cadeau_collegue",
+    "question": "Ton partenaire reçoit un cadeau personnel d'un collègue."
+  },
+  {
+    "id": "demenager_pour_travail",
+    "question": "Ton partenaire accepte une mutation loin de chez vous."
+  },
+  {
+    "id": "partir_formation",
+    "question": "Ton partenaire part plusieurs mois en formation."
+  },
+  {
+    "id": "faire_fete_sans_prevenir",
+    "question": "Ton partenaire organise une fête à la maison sans t'en parler avant."
+  },
+  {
+    "id": "rentrer_accompagne",
+    "question": "Ton partenaire rentre accompagné(e) par quelqu'un que tu ne connais pas."
+  },
+  {
+    "id": "ami_ancien_flirt",
+    "question": "Ton partenaire reste ami(e) avec quelqu'un avec qui il ou elle a flirté."
+  },
+  {
+    "id": "nouveau_coloc",
+    "question": "Ton partenaire propose à un(e) ami(e) de devenir votre colocataire."
+  },
+  {
+    "id": "voyage_improvise",
+    "question": "Ton partenaire réserve un voyage sans t'en parler."
+  },
+  {
+    "id": "annuler_noel",
+    "question": "Ton partenaire préfère passer Noël ailleurs que avec toi."
+  },
+  {
+    "id": "rencontre_reseaux",
+    "question": "Ton partenaire rencontre dans la vraie vie quelqu'un connu sur internet."
+  },
+  {
+    "id": "longue_absence",
+    "question": "Ton partenaire part plusieurs semaines pour réaliser un rêve personnel."
+  },
+  {
+    "id": "changer_style_radicalement",
+    "question": "Ton partenaire change totalement de style vestimentaire."
+  },
+  {
+    "id": "vivre_etranger_seul",
+    "question": "Ton partenaire veut vivre quelques mois à l'étranger sans toi."
+  },
+  {
+    "id": "groupe_amis_mixte_voyage",
+    "question": "Ton partenaire part en voyage avec un groupe majoritairement composé de personnes qu'il ou elle vient de rencontrer."
+  },
+  {
+    "id": "promesse_ami_avant_couple",
+    "question": "Ton partenaire respecte une promesse faite à un(e) ami(e) avant votre relation, même si cela te déplaît."
+  },
+  {
+    "id": "revoir_amour_jeunesse",
+    "question": "Ton partenaire souhaite revoir un amour de jeunesse par curiosité."
+  },
+  {
+    "id": "weekend_collegue_seul",
+    "question": "Ton partenaire part en week-end avec un(e) collègue pour assister à un événement."
+  },
+  {
+    "id": "ami_douche_maison",
+    "question": "Un(e) ami(e) de ton partenaire prend sa douche chez vous régulièrement."
+  },
+  {
+    "id": "garder_animal_ex",
+    "question": "Ton partenaire garde l'animal de son ex pendant quelques jours."
+  },
+  {
+    "id": "vacances_derniere_minute",
+    "question": "Ton partenaire réserve des vacances sans te consulter."
+  },
+  {
+    "id": "partager_position_ami",
+    "question": "Ton partenaire partage sa localisation avec un(e) ami(e) mais pas avec toi."
+  },
+  {
+    "id": "soirée_costumee_sans_toi",
+    "question": "Ton partenaire participe à une soirée costumée sans toi."
+  },
+  {
+    "id": "rire_messages_cache",
+    "question": "Ton partenaire rigole souvent devant son téléphone sans expliquer pourquoi."
+  },
+  {
+    "id": "appel_video_quotidien",
+    "question": "Ton partenaire fait un appel vidéo quotidien avec un(e) ami(e)."
+  },
+  {
+    "id": "voyage_travail_plusieurs_semaines",
+    "question": "Ton partenaire accepte une mission professionnelle de plusieurs semaines loin de toi."
+  },
+  {
+    "id": "fete_ex_present",
+    "question": "Ton partenaire va à une fête où son ex sera présent(e)."
+  },
+  {
+    "id": "sortie_plage_ami",
+    "question": "Ton partenaire passe la journée à la plage avec un(e) ami(e)."
+  },
+  {
+    "id": "suivre_compte_ex",
+    "question": "Ton partenaire consulte régulièrement le profil de son ex."
+  },
+  {
+    "id": "ami_appelle_mon_coeur",
+    "question": "Un(e) ami(e) appelle ton partenaire par un surnom affectueux."
+  },
+  {
+    "id": "partager_photos_enfance",
+    "question": "Ton partenaire échange ses vieilles photos personnelles avec une nouvelle connaissance."
+  },
+  {
+    "id": "sortie_bateau_groupe",
+    "question": "Ton partenaire part une journée en bateau avec des amis."
+  },
+  {
+    "id": "weekend_bien_etre",
+    "question": "Ton partenaire part en retraite bien-être sans toi."
+  },
+  {
+    "id": "ami_clef_maison",
+    "question": "Ton partenaire donne un double des clés à un(e) ami(e)."
+  },
+  {
+    "id": "partager_compte_streaming",
+    "question": "Ton partenaire partage encore un abonnement avec une ancienne relation."
+  },
+  {
+    "id": "photo_profil_avec_ami",
+    "question": "Ton partenaire met une photo avec un(e) ami(e) en photo de profil."
+  },
+  {
+    "id": "partir_randonnee_seul",
+    "question": "Ton partenaire part deux jours seul(e) en randonnée."
+  },
+  {
+    "id": "inviter_ami_vacances",
+    "question": "Ton partenaire invite un(e) ami(e) à se joindre à vos vacances."
+  },
+  {
+    "id": "cadeau_saint_valentin_ami",
+    "question": "Ton partenaire offre un cadeau à un(e) ami(e) pour la Saint-Valentin par plaisanterie."
+  },
+  {
+    "id": "refuser_appel",
+    "question": "Ton partenaire refuse souvent tes appels mais répond aux messages."
+  },
+  {
+    "id": "changer_horaires",
+    "question": "Ton partenaire modifie souvent ses horaires sans te prévenir."
+  },
+  {
+    "id": "ami_dort_canape",
+    "question": "Un(e) ami(e) dort plusieurs nuits sur votre canapé."
+  },
+  {
+    "id": "groupe_amis_inconnu",
+    "question": "Ton partenaire sort avec un groupe d'amis que tu n'as jamais rencontré."
+  },
+  {
+    "id": "abonnement_salle_sport_duo",
+    "question": "Ton partenaire prend un abonnement duo à la salle avec quelqu'un d'autre."
+  },
+  {
+    "id": "cours_particulier",
+    "question": "Ton partenaire prend régulièrement des cours particuliers avec la même personne."
+  },
+  {
+    "id": "dejeuner_ex_famille",
+    "question": "Ton partenaire déjeune parfois avec la famille de son ex."
+  },
+  {
+    "id": "photo_ancienne_relation",
+    "question": "Ton partenaire garde une photo de son ancienne relation encadrée."
+  },
+  {
+    "id": "fleurs_collegue",
+    "question": "Un(e) collègue offre un bouquet à ton partenaire."
+  },
+  {
+    "id": "voyage_solo_annuel",
+    "question": "Ton partenaire souhaite partir seul(e) une semaine chaque année."
+  },
+  {
+    "id": "garder_secret_famille",
+    "question": "Ton partenaire te cache quelque chose à la demande de sa famille."
+  },
+  {
+    "id": "retour_tres_tard_fete",
+    "question": "Ton partenaire rentre à l'aube après une soirée."
+  },
+  {
+    "id": "partager_lit_cousin",
+    "question": "Ton partenaire partage un lit avec un cousin ou une cousine en voyage."
+  },
+  {
+    "id": "voyage_ancien_groupe",
+    "question": "Ton partenaire repart en vacances avec un groupe d'amis de son passé."
+  },
+  {
+    "id": "repondre_ex_urgence",
+    "question": "Ton partenaire répond immédiatement aux appels de son ex en cas de besoin."
+  },
+  {
+    "id": "pret_voiture_ami",
+    "question": "Ton partenaire prête sa voiture à un(e) ami(e)."
+  },
+  {
+    "id": "achat_billet_concert",
+    "question": "Ton partenaire achète deux places de concert sans te demander avec qui il ou elle ira."
+  },
+  {
+    "id": "sejour_hotel_seul",
+    "question": "Ton partenaire réserve une nuit d'hôtel seul(e) pour se reposer."
+  },
+  {
+    "id": "changer_mot_de_passe",
+    "question": "Ton partenaire change tous ses mots de passe d'un coup."
+  },
+  {
+    "id": "story_toute_la_nuit",
+    "question": "Ton partenaire publie des stories toute la nuit sans répondre à tes messages."
+  },
+  {
+    "id": "ajouter_ex_linkedin",
+    "question": "Ton partenaire ajoute son ex sur LinkedIn et recommence à discuter."
+  },
+  {
+    "id": "supprimer_historique",
+    "question": "Ton partenaire efface systématiquement son historique de navigation."
+  },
+  {
+    "id": "rejoindre_application_rencontre",
+    "question": "Ton partenaire télécharge une application de rencontres par curiosité."
+  },
+  {
+    "id": "compte_reseau_secondaire",
+    "question": "Ton partenaire possède un second compte sur un réseau social."
+  },
+  {
+    "id": "poster_photo_sensuelle",
+    "question": "Ton partenaire publie des photos très séduisantes de lui ou elle."
+  },
+  {
+    "id": "discussion_quotidienne_inconnu",
+    "question": "Ton partenaire échange chaque jour avec une personne rencontrée en ligne."
+  },
+  {
+    "id": "laisser_telephone_retourne",
+    "question": "Ton partenaire retourne toujours son téléphone écran contre la table."
+  },
+  {
+    "id": "desactiver_localisation",
+    "question": "Ton partenaire désactive soudainement le partage de localisation."
+  },
+  {
+    "id": "acheter_bijou_cher",
+    "question": "Ton partenaire achète un bijou très cher pour lui ou elle."
+  },
+  {
+    "id": "preparer_projet_secret",
+    "question": "Ton partenaire prépare un projet important sans t'en parler."
+  },
+  {
+    "id": "donner_argent_famille",
+    "question": "Ton partenaire aide financièrement un membre de sa famille sans te consulter."
+  },
+  {
+    "id": "cacher_augmentation",
+    "question": "Ton partenaire obtient une augmentation et attend plusieurs semaines avant de te le dire."
+  },
+  {
+    "id": "payer_vacances_amis",
+    "question": "Ton partenaire paie une partie des vacances de ses amis."
+  },
+  {
+    "id": "acheter_terrain",
+    "question": "Ton partenaire achète un terrain sans t'en parler."
+  },
+  {
+    "id": "changer_banque",
+    "question": "Ton partenaire change de banque sans te prévenir."
+  },
+  {
+    "id": "faire_grosse_donation",
+    "question": "Ton partenaire fait une importante donation à une association."
+  },
+  {
+    "id": "prendre_annee_sabbatique",
+    "question": "Ton partenaire souhaite prendre une année sabbatique."
+  },
+  {
+    "id": "partir_humanitaire",
+    "question": "Ton partenaire veut partir plusieurs mois en mission humanitaire."
+  },
+  {
+    "id": "acheter_bateau",
+    "question": "Ton partenaire rêve d'acheter un bateau."
+  },
+  {
+    "id": "retour_etudes_longues",
+    "question": "Ton partenaire veut reprendre plusieurs années d'études."
+  },
+  {
+    "id": "ouvrir_commerce",
+    "question": "Ton partenaire veut ouvrir son propre commerce."
+  },
+  {
+    "id": "vivre_pres_mer",
+    "question": "Ton partenaire souhaite déménager près de la mer."
+  },
+  {
+    "id": "changer_pays",
+    "question": "Ton partenaire veut changer de pays dans les deux prochaines années."
+  },
+  {
+    "id": "refuser_animaux",
+    "question": "Ton partenaire ne veut jamais d'animal à la maison."
+  },
+  {
+    "id": "vouloir_famille_nombreuse",
+    "question": "Ton partenaire rêve d'une grande famille."
+  },
+  {
+    "id": "vivre_van",
+    "question": "Ton partenaire veut vivre plusieurs mois dans un van."
+  },
+  {
+    "id": "demenager_pres_famille",
+    "question": "Ton partenaire veut se rapprocher géographiquement de sa famille."
+  },
+  {
+    "id": "changer_mode_vie",
+    "question": "Ton partenaire souhaite adopter un mode de vie beaucoup plus minimaliste."
+  },
+  {
+    "id": "accepter_colocation",
+    "question": "Ton partenaire envisage une colocation pour réduire les dépenses."
+  },
+  {
+    "id": "dejeuner_quotidien_collegue",
+    "question": "Ton partenaire déjeune tous les jours avec la même personne au travail."
+  },
+  {
+    "id": "partager_confidences_collegue",
+    "question": "Ton partenaire se confie davantage à un collègue qu'à toi."
+  },
+  {
+    "id": "meilleur_ami_prioritaire",
+    "question": "Ton partenaire annule souvent des plans avec toi pour son ou sa meilleur(e) ami(e)."
+  },
+  {
+    "id": "voyage_annuel_amis",
+    "question": "Ton partenaire tient à partir chaque année en voyage entre amis."
+  },
+  {
+    "id": "ami_vient_sans_prevenir",
+    "question": "Les amis de ton partenaire viennent souvent chez vous sans prévenir."
+  },
+  {
+    "id": "feter_nouvel_an_sans_toi",
+    "question": "Ton partenaire choisit de passer le Nouvel An sans toi."
+  },
+  {
+    "id": "weekend_festival_amis",
+    "question": "Ton partenaire part tout un week-end en festival avec ses amis."
+  },
+  {
+    "id": "roadtrip_ami_unique",
+    "question": "Ton partenaire part en road trip avec un(e) seul(e) ami(e)."
+  },
+  {
+    "id": "accepter_massage",
+    "question": "Ton partenaire accepte un massage proposé par quelqu'un d'autre."
+  },
+  {
+    "id": "sortie_restaurant_tete_tete",
+    "question": "Ton partenaire va régulièrement au restaurant en tête-à-tête avec une autre personne."
+  },
+  {
+    "id": "regarder_films_ex",
+    "question": "Ton partenaire regarde encore souvent des souvenirs de son ancienne relation."
+  },
+  {
+    "id": "appel_quotidien_parent",
+    "question": "Ton partenaire appelle un parent plusieurs fois par jour."
+  },
+  {
+    "id": "passer_dimanche_seul",
+    "question": "Ton partenaire aime consacrer certains dimanches uniquement à lui ou elle."
+  },
+  {
+    "id": "faire_surprise_sans_consulter",
+    "question": "Ton partenaire organise une grosse surprise impliquant votre couple sans te consulter."
+  },
+  {
+    "id": "garder_objet_ex",
+    "question": "Ton partenaire conserve un objet très sentimental offert par son ex."
+  },
+  {
+    "id": "rentrer_ville_ancienne_relation",
+    "question": "Ton partenaire retourne seul(e) dans une ville liée à une ancienne histoire."
+  },
+  {
+    "id": "revoir_premier_amour",
+    "question": "Ton partenaire accepte de revoir son premier amour lors d'un événement."
+  },
+  {
+    "id": "demenager_opportunite",
+    "question": "Ton partenaire veut déménager rapidement pour une opportunité professionnelle."
+  },
+  {
+    "id": "changer_projet_enfant",
+    "question": "Ton partenaire change soudainement d'avis sur le fait d'avoir des enfants."
+  },
+  {
+    "id": "faire_credit_maison",
+    "question": "Ton partenaire souhaite contracter un gros crédit pour acheter une maison."
+  },
+  {
+    "id": "adopter_mode_vie_nomade",
+    "question": "Ton partenaire rêve d'un mode de vie nomade pendant plusieurs années."
+  },
+  {
+    "id": "organiser_voyage_secret",
+    "question": "Ton partenaire prépare un voyage surprise sans te donner aucun détail."
+  },
+  {
+    "id": "diner_avec_inconnu_reseau",
+    "question": "Ton partenaire accepte un dîner avec une personne rencontrée sur les réseaux sociaux."
+  },
+  {
+    "id": "weekend_ancien_collegue",
+    "question": "Ton partenaire part en week-end avec un ancien collègue."
+  },
+  {
+    "id": "surnom_affectueux_ami",
+    "question": "Ton partenaire utilise un surnom affectueux avec un(e) ami(e)."
+  },
+  {
+    "id": "cadeau_recu_inconnu",
+    "question": "Ton partenaire accepte un cadeau envoyé par une personne qu'il ou elle connaît peu."
+  },
+  {
+    "id": "retour_ex_reseaux",
+    "question": "Ton partenaire recommence à discuter avec son ex après plusieurs années."
+  },
+  {
+    "id": "voyage_sans_programme",
+    "question": "Ton partenaire part quelques jours sans te dire précisément où il ou elle sera."
+  },
+  {
+    "id": "demenager_seul",
+    "question": "Ton partenaire souhaite vivre seul(e) pendant quelques mois."
+  },
+  {
+    "id": "garder_chat_ex",
+    "question": "Ton partenaire garde régulièrement l'animal de son ex."
+  },
+  {
+    "id": "bar_avec_personne_attiree",
+    "question": "Ton partenaire va boire un verre avec quelqu'un qui lui a déjà déclaré son attirance."
+  },
+  {
+    "id": "vacances_amis_mixte",
+    "question": "Ton partenaire partage une villa avec des amis pendant les vacances."
+  },
+  {
+    "id": "photo_couple_archive",
+    "question": "Ton partenaire archive toutes vos photos de couple sur ses réseaux."
+  },
+  {
+    "id": "appel_video_ex",
+    "question": "Ton partenaire fait occasionnellement des appels vidéo avec son ex."
+  },
+  {
+    "id": "offrir_cadeau_collegue",
+    "question": "Ton partenaire offre un cadeau personnel à un collègue."
+  },
+  {
+    "id": "fete_bureau_nuit",
+    "question": "Ton partenaire reste toute la nuit à une fête d'entreprise."
+  },
+  {
+    "id": "partager_playlist_personnelle",
+    "question": "Ton partenaire crée une playlist très personnelle pour quelqu'un d'autre."
+  },
+  {
+    "id": "partir_weekend_reflexion",
+    "question": "Ton partenaire veut partir seul(e) réfléchir quelques jours."
+  },
+  {
+    "id": "ami_ancien_ex",
+    "question": "Le ou la meilleur(e) ami(e) de ton partenaire est aussi son ex."
+  },
+  {
+    "id": "changer_numero",
+    "question": "Ton partenaire change de numéro de téléphone sans t'en parler avant."
+  },
+  {
+    "id": "pret_argent_ex",
+    "question": "Ton partenaire prête de l'argent à son ex."
+  },
+  {
+    "id": "vacances_ex_present",
+    "question": "Ton partenaire participe à des vacances de groupe où son ex est présent(e)."
+  },
+  {
+    "id": "abonnement_application_rencontre",
+    "question": "Ton partenaire paie un abonnement sur une application de rencontres pour regarder."
+  },
+  {
+    "id": "partager_chambre_collegue",
+    "question": "Ton partenaire partage une chambre avec un collègue lors d'un déplacement."
+  },
+  {
+    "id": "sortie_nocturne_improvisee",
+    "question": "Ton partenaire décide de sortir au dernier moment sans t'en informer."
+  },
+  {
+    "id": "cadeau_ex_anniversaire",
+    "question": "Ton partenaire envoie un cadeau d'anniversaire à son ex."
+  },
+  {
+    "id": "rentrer_chez_ami_apres_soiree",
+    "question": "Ton partenaire dort chez un(e) ami(e) après une soirée alors qu'il ou elle pouvait rentrer."
+  },
+  {
+    "id": "supprimer_statut_couple",
+    "question": "Ton partenaire retire toute mention de votre relation sur ses profils."
+  },
+  {
+    "id": "voyage_avec_groupe_inconnus",
+    "question": "Ton partenaire part en voyage organisé avec des inconnus."
+  },
+  {
+    "id": "ami_trop_present",
+    "question": "Un(e) ami(e) de ton partenaire est présent(e) à presque toutes vos sorties."
+  },
+  {
+    "id": "revoir_ancien_flirt",
+    "question": "Ton partenaire accepte de revoir une personne avec qui il ou elle a flirté."
+  },
+  {
+    "id": "photo_bras_dessus_dessous",
+    "question": "Ton partenaire publie une photo bras dessus bras dessous avec quelqu'un d'autre."
+  },
+  {
+    "id": "retour_maison_petit_matin",
+    "question": "Ton partenaire rentre à la maison au lever du soleil après une soirée."
+  },
+  {
+    "id": "weekend_sans_contact",
+    "question": "Ton partenaire souhaite passer un week-end complet sans téléphone."
+  },
+  {
+    "id": "reveiller_ex_aide",
+    "question": "Ton partenaire se déplace en pleine nuit pour aider son ex."
+  },
+  {
+    "id": "partir_festival_seul",
+    "question": "Ton partenaire part seul(e) à un festival pendant plusieurs jours."
+  },
+  {
+    "id": "partager_lit_hotel_groupe",
+    "question": "Ton partenaire partage un grand lit avec plusieurs amis en voyage."
+  },
+  {
+    "id": "nouveau_tatouage_sans_prevenir",
+    "question": "Ton partenaire se fait tatouer sans t'en parler avant."
+  },
+  {
+    "id": "changer_style_extreme",
+    "question": "Ton partenaire adopte soudainement un style complètement différent."
+  },
+  {
+    "id": "inviter_ex_mariage",
+    "question": "Ton partenaire souhaite inviter son ex à votre mariage."
+  },
+  {
+    "id": "weekend_famille_sans_toi",
+    "question": "Ton partenaire part voir sa famille sans te proposer de venir."
+  },
+  {
+    "id": "faire_credit_secret",
+    "question": "Ton partenaire contracte un petit crédit sans t'en parler."
+  },
+  {
+    "id": "refuser_partage_position",
+    "question": "Ton partenaire refuse catégoriquement tout partage de localisation."
+  },
+  {
+    "id": "acheter_objet_collection",
+    "question": "Ton partenaire dépense beaucoup pour un objet de collection."
+  },
+  {
+    "id": "projet_professionnel_risque",
+    "question": "Ton partenaire investit toutes ses économies dans un projet professionnel."
+  },
+  {
+    "id": "partir_travailler_etranger",
+    "question": "Ton partenaire accepte un travail à l'étranger pendant un an."
+  },
+  {
+    "id": "prendre_colocataire",
+    "question": "Ton partenaire veut accueillir un colocataire pour réduire les dépenses."
+  },
+  {
+    "id": "changer_region",
+    "question": "Ton partenaire veut déménager dans une autre région."
+  },
+  {
+    "id": "retour_etudes_tardif",
+    "question": "Ton partenaire souhaite reprendre des études à temps plein."
+  },
+  {
+    "id": "acheter_residence_secondaire",
+    "question": "Ton partenaire rêve d'acheter une résidence secondaire."
+  },
+  {
+    "id": "devenir_nomade",
+    "question": "Ton partenaire veut vendre la plupart de ses affaires pour voyager."
+  },
+  {
+    "id": "ouvrir_compte_secret_epargne",
+    "question": "Ton partenaire ouvre un compte d'épargne dont tu ignores l'existence."
+  },
+  {
+    "id": "soirée_karaoke_inconnus",
+    "question": "Ton partenaire finit une soirée karaoké avec un groupe d'inconnus rencontrés sur place."
+  },
+  {
+    "id": "ami_qui_flirte",
+    "question": "Un(e) ami(e) de ton partenaire flirte régulièrement avec lui ou elle sans être recadré(e)."
+  },
+  {
+    "id": "message_bon_matin",
+    "question": "Ton partenaire envoie chaque matin un message à la même personne."
+  },
+  {
+    "id": "cadeau_retour_voyage",
+    "question": "Ton partenaire ramène un souvenir à quelqu'un d'autre après un voyage."
+  },
+  {
+    "id": "reveillon_amis",
+    "question": "Ton partenaire préfère passer le réveillon avec ses amis plutôt qu'avec toi."
+  },
+  {
+    "id": "weekend_spa_amie",
+    "question": "Ton partenaire part en week-end spa avec un(e) ami(e)."
+  },
+  {
+    "id": "photo_portefeuille_ex",
+    "question": "Ton partenaire conserve une photo de son ex dans son portefeuille."
+  },
+  {
+    "id": "rencontre_ancien_crush",
+    "question": "Ton partenaire accepte de déjeuner avec un ancien crush."
+  },
+  {
+    "id": "invitation_mariage_ex",
+    "question": "Ton partenaire assiste seul(e) au mariage de son ex."
+  },
+  {
+    "id": "partage_meme_bungalow",
+    "question": "Ton partenaire partage un bungalow avec des amis en vacances."
+  },
+  {
+    "id": "vacances_entre_potes_annuelles",
+    "question": "Ton partenaire réserve chaque année une semaine uniquement avec ses amis."
+  },
+  {
+    "id": "retour_maison_sans_explication",
+    "question": "Ton partenaire rentre très tard et refuse d'expliquer où il ou elle était."
+  },
+  {
+    "id": "fleurs_remercier_collegue",
+    "question": "Ton partenaire offre des fleurs à un collègue pour le remercier."
+  },
+  {
+    "id": "appel_ex_anniversaire",
+    "question": "Ton partenaire appelle son ex le jour de son anniversaire."
+  },
+  {
+    "id": "partager_secret_couple",
+    "question": "Ton partenaire raconte un secret de votre couple à son meilleur ami ou sa meilleure amie."
+  },
+  {
+    "id": "voyage_ancien_groupe_etudes",
+    "question": "Ton partenaire repart quelques jours avec des amis rencontrés pendant ses études."
+  },
+  {
+    "id": "bar_sans_repondre",
+    "question": "Ton partenaire passe toute la soirée au bar sans répondre à tes messages."
+  },
+  {
+    "id": "inviter_ami_nuit",
+    "question": "Ton partenaire invite un(e) ami(e) à dormir chez vous alors que tu es absent(e)."
+  },
+  {
+    "id": "sport_binome_unique",
+    "question": "Ton partenaire fait toujours équipe avec la même personne dans son activité sportive."
+  },
+  {
+    "id": "partage_playlist_amour",
+    "question": "Ton partenaire partage une playlist de chansons d'amour avec quelqu'un d'autre."
+  },
+  {
+    "id": "dejeuner_seul_superieur",
+    "question": "Ton partenaire déjeune régulièrement seul(e) avec son supérieur."
+  },
+  {
+    "id": "ami_trop_physique",
+    "question": "Un(e) ami(e) de ton partenaire est très tactile avec lui ou elle."
+  },
+  {
+    "id": "roadtrip_collegue",
+    "question": "Ton partenaire part en road trip avec un collègue."
+  },
+  {
+    "id": "voyage_ex_professionnel",
+    "question": "Ton partenaire doit voyager plusieurs jours avec son ex pour le travail."
+  },
+  {
+    "id": "suivre_tous_ex",
+    "question": "Ton partenaire suit encore tous ses ex sur les réseaux sociaux."
+  },
+  {
+    "id": "photo_ancienne_relation_visible",
+    "question": "Ton partenaire laisse visibles les photos de son ancienne relation."
+  },
+  {
+    "id": "changer_photo_sans_toi",
+    "question": "Ton partenaire remplace votre photo de couple par une photo avec quelqu'un d'autre."
+  },
+  {
+    "id": "ami_prioritaire_vacances",
+    "question": "Ton partenaire préfère partir en vacances avec son meilleur ami ou sa meilleure amie."
+  },
+  {
+    "id": "rester_ami_ex_recent",
+    "question": "Ton partenaire reste très proche de son ex juste après leur rupture."
+  },
+  {
+    "id": "message_toute_nuit",
+    "question": "Ton partenaire échange des messages avec quelqu'un jusqu'au milieu de la nuit."
+  },
+  {
+    "id": "faire_surprise_ex",
+    "question": "Ton partenaire prépare une surprise pour son ex afin de lui remonter le moral."
+  },
+  {
+    "id": "pret_appartement",
+    "question": "Ton partenaire prête votre logement à un(e) ami(e) pendant votre absence."
+  },
+  {
+    "id": "partager_compte_bancaire_famille",
+    "question": "Ton partenaire partage encore un compte bancaire avec un membre de sa famille."
+  },
+  {
+    "id": "achat_ordinateur_cher",
+    "question": "Ton partenaire achète un ordinateur très coûteux sans en discuter avec toi."
+  },
+  {
+    "id": "aider_financierement_frere",
+    "question": "Ton partenaire aide financièrement son frère ou sa sœur tous les mois."
+  },
+  {
+    "id": "investissement_crypto",
+    "question": "Ton partenaire place une grosse somme dans les cryptomonnaies."
+  },
+  {
+    "id": "acheter_billet_concert_vip",
+    "question": "Ton partenaire dépense beaucoup pour une expérience VIP à un concert."
+  },
+  {
+    "id": "payer_voyage_parent",
+    "question": "Ton partenaire offre un voyage à un parent avec ses économies."
+  },
+  {
+    "id": "prendre_pret_ami",
+    "question": "Ton partenaire emprunte de l'argent à un ami sans t'en parler."
+  },
+  {
+    "id": "acheter_objet_collection_rare",
+    "question": "Ton partenaire achète un objet rare qui coûte plusieurs mois d'économies."
+  },
+  {
+    "id": "quitter_ville_famille",
+    "question": "Ton partenaire veut quitter la ville où vit toute sa famille."
+  },
+  {
+    "id": "changer_metier_completement",
+    "question": "Ton partenaire souhaite abandonner son métier pour repartir de zéro."
+  },
+  {
+    "id": "ouvrir_restaurant",
+    "question": "Ton partenaire rêve d'ouvrir un restaurant."
+  },
+  {
+    "id": "partir_benevolat_etranger",
+    "question": "Ton partenaire veut partir plusieurs mois faire du bénévolat à l'étranger."
+  },
+  {
+    "id": "acheter_maison_campagne",
+    "question": "Ton partenaire veut acheter une maison isolée à la campagne."
+  },
+  {
+    "id": "demenager_pres_mer_retraite",
+    "question": "Ton partenaire prévoit déjà de vivre près de la mer plus tard."
+  },
+  {
+    "id": "vivre_fourgon",
+    "question": "Ton partenaire aimerait vivre plusieurs mois dans un fourgon aménagé."
+  },
+  {
+    "id": "faire_ecole_soir",
+    "question": "Ton partenaire s'inscrit à des cours du soir plusieurs fois par semaine."
+  },
+  {
+    "id": "changer_horaires_travail",
+    "question": "Ton partenaire accepte des horaires qui réduisent fortement votre temps ensemble."
+  },
+  {
+    "id": "refuser_mariage_jamais",
+    "question": "Ton partenaire affirme qu'il ou elle ne voudra jamais se marier."
+  },
+  {
+    "id": "collegue_texte_weekend",
+    "question": "Un(e) collègue écrit à ton partenaire tous les week-ends."
+  },
+  {
+    "id": "sortie_cinema_collegue",
+    "question": "Ton partenaire va régulièrement au cinéma avec un(e) collègue."
+  },
+  {
+    "id": "ami_clef_voiture",
+    "question": "Ton partenaire prête les clés de sa voiture à un(e) ami(e)."
+  },
+  {
+    "id": "revoir_ex_seul",
+    "question": "Ton partenaire revoit seul(e) son ex pour prendre de ses nouvelles."
+  },
+  {
+    "id": "voyage_amis_sans_chambre",
+    "question": "Ton partenaire part en voyage sans savoir à l'avance avec qui il ou elle partagera sa chambre."
+  },
+  {
+    "id": "apero_quotidien_collegues",
+    "question": "Ton partenaire reste boire un verre avec ses collègues plusieurs soirs par semaine."
+  },
+  {
+    "id": "rentrer_petit_matin_weekend",
+    "question": "Ton partenaire rentre au petit matin chaque week-end."
+  },
+  {
+    "id": "partager_photo_enfance",
+    "question": "Ton partenaire partage des photos très personnelles de son enfance avec quelqu'un d'autre."
+  },
+  {
+    "id": "meilleur_ami_exclusif",
+    "question": "Ton partenaire réserve certaines activités uniquement à son meilleur ami ou sa meilleure amie."
+  },
+  {
+    "id": "voyage_ancien_crush",
+    "question": "Ton partenaire voyage avec une personne pour qui il ou elle a déjà eu des sentiments."
+  },
+  {
+    "id": "anniversaire_ex_present",
+    "question": "Ton partenaire participe à l'anniversaire de son ex."
+  },
+  {
+    "id": "ami_appelle_tous_les_jours",
+    "question": "Un(e) ami(e) appelle ton partenaire tous les jours."
+  },
+  {
+    "id": "message_bonne_nuit_autre",
+    "question": "Ton partenaire souhaite bonne nuit chaque soir à une autre personne."
+  },
+  {
+    "id": "festival_sous_tente_mixte",
+    "question": "Ton partenaire partage une tente avec plusieurs amis pendant un festival."
+  },
+  {
+    "id": "sortie_plage_collegues",
+    "question": "Ton partenaire passe la journée à la plage avec ses collègues."
+  },
+  {
+    "id": "weekend_sans_nouvelles",
+    "question": "Ton partenaire donne très peu de nouvelles pendant un week-end entre amis."
+  },
+  {
+    "id": "inviter_ex_soiree",
+    "question": "Ton partenaire invite son ex à une soirée organisée chez vous."
+  },
+  {
+    "id": "cadeau_personnel_ami",
+    "question": "Ton partenaire offre un cadeau très personnel à un(e) ami(e)."
+  },
+  {
+    "id": "photo_tres_complice",
+    "question": "Ton partenaire publie une photo très complice avec quelqu'un d'autre."
+  },
+  {
+    "id": "raconter_disputes_famille",
+    "question": "Ton partenaire raconte vos disputes à sa famille."
+  },
+  {
+    "id": "dejeuner_ex_midi",
+    "question": "Ton partenaire déjeune avec son ex pendant sa pause déjeuner."
+  },
+  {
+    "id": "ami_priorite_urgence",
+    "question": "Ton partenaire annule un moment prévu avec toi pour aider un(e) ami(e)."
+  },
+  {
+    "id": "voyage_annuel_solo",
+    "question": "Ton partenaire souhaite faire un voyage en solo chaque année."
+  },
+  {
+    "id": "ami_reste_plusieurs_semaines",
+    "question": "Un(e) ami(e) reste vivre chez vous pendant plusieurs semaines."
+  },
+  {
+    "id": "roadtrip_inconnu_reseau",
+    "question": "Ton partenaire part en road trip avec une personne rencontrée récemment."
+  },
+  {
+    "id": "suivre_influenceur_attirant",
+    "question": "Ton partenaire commente souvent les publications d'une personne qu'il ou elle trouve attirante."
+  },
+  {
+    "id": "story_avec_autre",
+    "question": "Ton partenaire publie beaucoup plus de stories avec une autre personne qu'avec toi."
+  },
+  {
+    "id": "reaction_coeur_frequente",
+    "question": "Ton partenaire réagit régulièrement avec des cœurs aux publications de quelqu'un."
+  },
+  {
+    "id": "partager_meme_netflix_ami",
+    "question": "Ton partenaire partage un abonnement avec un(e) ami(e) proche."
+  },
+  {
+    "id": "supprimer_conversation_precise",
+    "question": "Ton partenaire supprime uniquement les conversations avec une personne précise."
+  },
+  {
+    "id": "desactiver_vu_messages",
+    "question": "Ton partenaire désactive toutes les confirmations de lecture."
+  },
+  {
+    "id": "compte_anonyme_reseau",
+    "question": "Ton partenaire possède un compte anonyme que tu ne peux pas voir."
+  },
+  {
+    "id": "partager_position_ami_unique",
+    "question": "Ton partenaire partage sa position uniquement avec une personne."
+  },
+  {
+    "id": "rencontrer_contact_internet",
+    "question": "Ton partenaire rencontre seul(e) une personne connue uniquement en ligne."
+  },
+  {
+    "id": "payer_loyer_parent",
+    "question": "Ton partenaire paie une partie du loyer d'un parent."
+  },
+  {
+    "id": "acheter_bijou_luxe",
+    "question": "Ton partenaire dépense une grosse somme pour un bijou."
+  },
+  {
+    "id": "offrir_argent_sans_consulter",
+    "question": "Ton partenaire offre plusieurs centaines d'euros à un proche sans t'en parler."
+  },
+  {
+    "id": "investir_entreprise_ami",
+    "question": "Ton partenaire investit dans l'entreprise d'un ami."
+  },
+  {
+    "id": "acheter_montre_rare",
+    "question": "Ton partenaire achète une montre très coûteuse."
+  },
+  {
+    "id": "prendre_second_job",
+    "question": "Ton partenaire accepte un deuxième emploi pour gagner plus."
+  },
+  {
+    "id": "quitter_cdi_projet",
+    "question": "Ton partenaire quitte son emploi stable pour lancer un projet personnel."
+  },
+  {
+    "id": "partir_travailler_bateau",
+    "question": "Ton partenaire accepte un travail qui l'éloigne plusieurs mois."
+  },
+  {
+    "id": "retour_vivre_parents",
+    "question": "Ton partenaire souhaite retourner vivre chez ses parents quelque temps."
+  },
+  {
+    "id": "acheter_ferme",
+    "question": "Ton partenaire rêve d'acheter une ferme et changer totalement de vie."
+  },
+  {
+    "id": "ouvrir_gite",
+    "question": "Ton partenaire veut ouvrir un gîte ou une maison d'hôtes."
+  },
+  {
+    "id": "partir_annee_sabbatique",
+    "question": "Ton partenaire souhaite arrêter de travailler pendant un an."
+  },
+  {
+    "id": "changer_pays_retraite",
+    "question": "Ton partenaire veut vivre dans un autre pays à long terme."
+  },
+  {
+    "id": "avoir_trois_enfants",
+    "question": "Ton partenaire souhaite avoir au moins trois enfants."
+  },
+  {
+    "id": "refuser_animal_compagnie",
+    "question": "Ton partenaire refuse catégoriquement d'avoir un animal de compagnie."
+  },
+  {
+    "id": "vivre_en_ville_toujours",
+    "question": "Ton partenaire veut toujours vivre en centre-ville."
+  },
+  {
+    "id": "ami_envoie_selfies",
+    "question": "Une personne envoie régulièrement des selfies à ton partenaire."
+  },
+  {
+    "id": "collegue_confidences_personnelles",
+    "question": "Ton partenaire partage ses problèmes personnels avec un(e) collègue."
+  },
+  {
+    "id": "partir_ski_amis",
+    "question": "Ton partenaire part une semaine au ski avec ses amis sans toi."
+  },
+  {
+    "id": "dormir_chambre_ami",
+    "question": "Ton partenaire dort dans la chambre d'un(e) ami(e) lors d'un voyage."
+  },
+  {
+    "id": "inviter_collegue_maison",
+    "question": "Ton partenaire invite un(e) collègue à la maison pendant ton absence."
+  },
+  {
+    "id": "accepter_demande_numero",
+    "question": "Ton partenaire donne son numéro à quelqu'un rencontré en soirée."
+  },
+  {
+    "id": "retour_ex_reunion_amis",
+    "question": "Ton partenaire continue à voir son ex lors des réunions entre amis."
+  },
+  {
+    "id": "sortie_bowling_collegue",
+    "question": "Ton partenaire va souvent au bowling avec un(e) collègue."
+  },
+  {
+    "id": "cadeau_noel_ex",
+    "question": "Ton partenaire offre encore un cadeau de Noël à son ex."
+  },
+  {
+    "id": "ami_tres_protecteur",
+    "question": "Un(e) ami(e) est extrêmement protecteur ou protectrice avec ton partenaire."
+  },
+  {
+    "id": "vacances_bungalow_mixte",
+    "question": "Ton partenaire partage un bungalow avec plusieurs personnes pendant des vacances."
+  },
+  {
+    "id": "soiree_bateau",
+    "question": "Ton partenaire participe à une soirée sur un bateau sans toi."
+  },
+  {
+    "id": "weekend_randonnee_mixte",
+    "question": "Ton partenaire part en randonnée avec un groupe mixte tout un week-end."
+  },
+  {
+    "id": "partage_photo_lit_hotel",
+    "question": "Ton partenaire publie une photo depuis un lit d'hôtel avec d'autres personnes."
+  },
+  {
+    "id": "message_reveil_autre",
+    "question": "Ton partenaire envoie un message de réveil à quelqu'un tous les matins."
+  },
+  {
+    "id": "ami_connait_tout",
+    "question": "Un(e) ami(e) connaît tous les détails de votre relation."
+  },
+  {
+    "id": "roadtrip_sans_itineraire",
+    "question": "Ton partenaire part en road trip sans partager son itinéraire."
+  },
+  {
+    "id": "sortie_boite_celibataires",
+    "question": "Ton partenaire sort en boîte avec un groupe composé uniquement de célibataires."
+  },
+  {
+    "id": "weekend_ancien_groupe",
+    "question": "Ton partenaire retrouve un ancien groupe d'amis pour un week-end."
+  },
+  {
+    "id": "revoir_ex_evenement",
+    "question": "Ton partenaire accepte une invitation à un événement organisé par son ex."
+  },
+  {
+    "id": "ami_dort_dans_chambre",
+    "question": "Un(e) ami(e) dort dans votre chambre pendant que tu es absent(e)."
+  },
+  {
+    "id": "voyage_collegue_unique",
+    "question": "Ton partenaire voyage seul(e) avec un collègue pour un salon professionnel."
+  },
+  {
+    "id": "message_supprime_direct",
+    "question": "Ton partenaire supprime immédiatement certains messages reçus."
+  },
+  {
+    "id": "reponse_tardive_systematique",
+    "question": "Ton partenaire répond toujours à tes messages avec plusieurs heures de retard."
+  },
+  {
+    "id": "compte_reseau_cache",
+    "question": "Ton partenaire te bloque sur un de ses comptes de réseaux sociaux."
+  },
+  {
+    "id": "rencontre_follower",
+    "question": "Ton partenaire accepte de rencontrer un abonné ou une abonnée."
+  },
+  {
+    "id": "commentaire_flatteur",
+    "question": "Ton partenaire laisse régulièrement des commentaires flatteurs sous les publications d'une personne."
+  },
+  {
+    "id": "envoyer_photo_personnelle",
+    "question": "Ton partenaire envoie des photos de son quotidien à quelqu'un tous les jours."
+  },
+  {
+    "id": "conversation_cachee_archive",
+    "question": "Ton partenaire archive une conversation pour qu'elle soit moins visible."
+  },
+  {
+    "id": "utiliser_mode_ephemere",
+    "question": "Ton partenaire privilégie les messages qui disparaissent automatiquement."
+  },
+  {
+    "id": "partager_abonnement_ex",
+    "question": "Ton partenaire partage encore plusieurs abonnements avec son ex."
+  },
+  {
+    "id": "achat_console_chere",
+    "question": "Ton partenaire achète une console ou un PC très coûteux."
+  },
+  {
+    "id": "preparer_achat_secret",
+    "question": "Ton partenaire économise pour un gros achat sans t'en parler."
+  },
+  {
+    "id": "payer_voyage_ami",
+    "question": "Ton partenaire finance une partie du voyage d'un(e) ami(e)."
+  },
+  {
+    "id": "investissement_risque_important",
+    "question": "Ton partenaire investit une grande partie de son épargne dans un projet risqué."
+  },
+  {
+    "id": "don_famille_regulier",
+    "question": "Ton partenaire donne régulièrement de l'argent à sa famille."
+  },
+  {
+    "id": "acheter_terrain_vacances",
+    "question": "Ton partenaire veut acheter un terrain pour un projet futur."
+  },
+  {
+    "id": "ouvrir_compte_crypto",
+    "question": "Ton partenaire ouvre un compte d'investissement sans t'en parler."
+  },
+  {
+    "id": "acheter_camping_car",
+    "question": "Ton partenaire veut acheter un camping-car."
+  },
+  {
+    "id": "quitter_emploi_reprendre_etudes",
+    "question": "Ton partenaire veut quitter son travail pour reprendre ses études."
+  },
+  {
+    "id": "partir_travail_humanitaire",
+    "question": "Ton partenaire souhaite partir plusieurs mois en mission humanitaire."
+  },
+  {
+    "id": "demenager_montagne",
+    "question": "Ton partenaire rêve de vivre à la montagne."
+  },
+  {
+    "id": "ouvrir_bar",
+    "question": "Ton partenaire veut ouvrir un bar ou un café."
+  },
+  {
+    "id": "partir_tour_monde",
+    "question": "Ton partenaire veut faire un tour du monde de plusieurs mois."
+  },
+  {
+    "id": "changer_vie_radicalement",
+    "question": "Ton partenaire souhaite complètement changer de mode de vie."
+  },
+  {
+    "id": "retour_etudes_etranger",
+    "question": "Ton partenaire veut partir étudier à l'étranger."
+  },
+  {
+    "id": "vouloir_quatre_enfants",
+    "question": "Ton partenaire rêve d'avoir une très grande famille."
+  },
+  {
+    "id": "vivre_bord_mer",
+    "question": "Ton partenaire veut absolument vivre près de la mer."
+  },
+  {
+    "id": "acheter_maison_isolee",
+    "question": "Ton partenaire souhaite vivre dans un endroit très isolé."
+  },
+  {
+    "id": "annee_sans_vacances",
+    "question": "Ton partenaire préfère économiser et ne pas partir en vacances pendant un an."
+  },
+  {
+    "id": "sortie_parc_attraction_ami",
+    "question": "Ton partenaire passe la journée dans un parc d'attractions avec un(e) ami(e)."
+  },
+  {
+    "id": "partir_concert_autre_personne",
+    "question": "Ton partenaire va à un concert avec quelqu'un d'autre alors que tu es disponible."
+  },
+  {
+    "id": "message_vocal_quotidien",
+    "question": "Ton partenaire échange des vocaux tous les jours avec la même personne."
+  },
+  {
+    "id": "ami_ancien_amour",
+    "question": "Le ou la meilleur(e) ami(e) de ton partenaire est un ancien amour."
+  },
+  {
+    "id": "weekend_location_groupe",
+    "question": "Ton partenaire loue une maison pour un week-end entre amis sans toi."
+  },
+  {
+    "id": "soiree_karaoke_collegues",
+    "question": "Ton partenaire passe la soirée avec ses collègues dans un karaoké."
+  },
+  {
+    "id": "inviter_personne_rencontree_en_ligne",
+    "question": "Ton partenaire invite chez lui ou elle une personne rencontrée sur internet."
+  },
+  {
+    "id": "voyage_photo_ami",
+    "question": "Ton partenaire part plusieurs jours avec un(e) ami(e) pour faire de la photo."
+  },
+  {
+    "id": "ami_compte_bancaire",
+    "question": "Ton partenaire se porte garant ou garante pour un(e) ami(e)."
+  },
+  {
+    "id": "dejeuner_tete_tete_recurrent",
+    "question": "Ton partenaire déjeune chaque semaine seul(e) avec la même personne."
+  },
+  {
+    "id": "retour_ex_aide_demenagement",
+    "question": "Ton partenaire aide son ex à déménager."
+  },
+  {
+    "id": "partager_hotel_collegues",
+    "question": "Ton partenaire partage un appartement avec plusieurs collègues pendant un déplacement."
+  },
+  {
+    "id": "voyage_imprevu_48h",
+    "question": "Ton partenaire décide de partir deux jours sur un coup de tête."
+  },
+  {
+    "id": "ami_fait_cadeaux",
+    "question": "Une personne offre souvent des cadeaux à ton partenaire."
+  },
+  {
+    "id": "fete_plage_nuit",
+    "question": "Ton partenaire participe à une fête sur la plage toute la nuit."
+  },
+  {
+    "id": "discussion_quotidienne_ex",
+    "question": "Ton partenaire échange quelques messages chaque jour avec son ex."
+  },
+  {
+    "id": "ami_surnom_amoureux",
+    "question": "Un(e) ami(e) utilise avec ton partenaire un surnom qui pourrait sembler ambigu."
+  },
+  {
+    "id": "weekend_sans_itineraire",
+    "question": "Ton partenaire part en week-end sans donner de détails sur son programme."
+  },
+  {
+    "id": "voyage_groupe_mixte_chambres",
+    "question": "Ton partenaire partage une chambre avec plusieurs personnes lors d'un voyage de groupe."
+  },
+  {
+    "id": "rentrer_chez_ami_apres_bar",
+    "question": "Ton partenaire préfère dormir chez un(e) ami(e) après un bar plutôt que rentrer."
+  },
+  {
+    "id": "partager_story_autre_personne",
+    "question": "Ton partenaire repartage très souvent les publications d'une même personne."
+  },
+  {
+    "id": "reaction_coeur_story",
+    "question": "Ton partenaire réagit régulièrement avec des cœurs aux stories de quelqu'un."
+  },
+  {
+    "id": "abonne_compte_prive",
+    "question": "Ton partenaire suit un compte privé dont il ou elle ne parle jamais."
+  },
+  {
+    "id": "laisser_telephone_silencieux",
+    "question": "Ton partenaire met toujours son téléphone en silencieux lorsqu'il ou elle est avec toi."
+  },
+  {
+    "id": "supprimer_historique_messages",
+    "question": "Ton partenaire efface régulièrement ses anciennes conversations."
+  },
+  {
+    "id": "rencontrer_ami_virtuel",
+    "question": "Ton partenaire part rencontrer seul(e) un ami virtuel."
+  },
+  {
+    "id": "compte_secondaire_anonyme",
+    "question": "Ton partenaire possède un compte anonyme uniquement pour observer les autres."
+  },
+  {
+    "id": "envoyer_memes_unique_personne",
+    "question": "Ton partenaire échange des dizaines de messages par jour avec une même personne."
+  },
+  {
+    "id": "publier_photo_seduction",
+    "question": "Ton partenaire publie volontairement des photos pour attirer l'attention."
+  },
+  {
+    "id": "cacher_notifications",
+    "question": "Ton partenaire masque le contenu de ses notifications."
+  },
+  {
+    "id": "acheter_billet_avion_seul",
+    "question": "Ton partenaire réserve un billet d'avion sans t'en parler."
+  },
+  {
+    "id": "payer_etudes_proche",
+    "question": "Ton partenaire finance une partie des études d'un proche."
+  },
+  {
+    "id": "investir_immobilier",
+    "question": "Ton partenaire investit seul(e) dans l'immobilier."
+  },
+  {
+    "id": "acheter_moto_sportive",
+    "question": "Ton partenaire achète une moto sportive."
+  },
+  {
+    "id": "offrir_pret_sans_remboursement",
+    "question": "Ton partenaire prête de l'argent sans attendre d'être remboursé."
+  },
+  {
+    "id": "acheter_objet_passion",
+    "question": "Ton partenaire dépense plusieurs milliers d'euros pour sa passion."
+  },
+  {
+    "id": "faire_don_anonyme",
+    "question": "Ton partenaire fait un don important sans te le dire."
+  },
+  {
+    "id": "ouvrir_entreprise_ami",
+    "question": "Ton partenaire crée une entreprise avec un(e) ami(e)."
+  },
+  {
+    "id": "acheter_bateau_plaisance",
+    "question": "Ton partenaire souhaite acheter un bateau de plaisance."
+  },
+  {
+    "id": "partir_travailler_capitale",
+    "question": "Ton partenaire veut déménager dans une grande capitale pour sa carrière."
+  },
+  {
+    "id": "ouvrir_boutique",
+    "question": "Ton partenaire rêve d'ouvrir sa propre boutique."
+  },
+  {
+    "id": "vivre_etranger_cinq_ans",
+    "question": "Ton partenaire veut vivre plusieurs années à l'étranger."
+  },
+  {
+    "id": "partir_saison_travail",
+    "question": "Ton partenaire souhaite partir plusieurs mois pour un travail saisonnier."
+  },
+  {
+    "id": "retour_universite",
+    "question": "Ton partenaire veut retourner à l'université."
+  },
+  {
+    "id": "acheter_terrain_autoconstruction",
+    "question": "Ton partenaire veut acheter un terrain pour construire lui-même sa maison."
+  },
+  {
+    "id": "vivre_campagne_loin",
+    "question": "Ton partenaire veut vivre loin de toute grande ville."
+  },
+  {
+    "id": "vouloir_aucun_enfant",
+    "question": "Ton partenaire décide qu'il ou elle ne veut finalement pas d'enfant."
+  },
+  {
+    "id": "famille_accueil",
+    "question": "Ton partenaire souhaite devenir famille d'accueil."
+  },
+  {
+    "id": "changer_pays_retraite_future",
+    "question": "Ton partenaire prévoit déjà de passer sa retraite dans un autre pays."
+  },
+  {
+    "id": "vendre_tout_voyager",
+    "question": "Ton partenaire veut vendre la majorité de ses biens pour voyager."
+  },
+  {
+    "id": "soirée_chez_collegue",
+    "question": "Ton partenaire passe la soirée chez un(e) collègue après le travail."
+  },
+  {
+    "id": "ami_vient_tous_weekends",
+    "question": "Le ou la meilleur(e) ami(e) de ton partenaire est présent(e) presque tous les week-ends."
+  },
+  {
+    "id": "voyage_avec_photographe",
+    "question": "Ton partenaire part quelques jours avec une personne partageant la même passion."
+  },
+  {
+    "id": "message_coeur_collegue",
+    "question": "Un(e) collègue envoie souvent des emojis cœur à ton partenaire."
+  },
+  {
+    "id": "revoir_ex_cafe_annuel",
+    "question": "Ton partenaire retrouve son ex une fois par an pour prendre un café."
+  },
+  {
+    "id": "weekend_entre_freres_soeurs",
+    "question": "Ton partenaire part en week-end uniquement avec ses frères et sœurs."
+  },
+  {
+    "id": "ami_connait_code_telephone",
+    "question": "Un(e) ami(e) connaît le code du téléphone de ton partenaire."
+  },
+  {
+    "id": "sortie_restaurant_ancien_crush",
+    "question": "Ton partenaire va au restaurant avec une personne qui a déjà eu un crush sur lui ou elle."
+  },
+  {
+    "id": "festival_groupe_mixte",
+    "question": "Ton partenaire passe plusieurs jours en festival avec un groupe mixte."
+  },
+  {
+    "id": "voyage_coloc_vacances",
+    "question": "Ton partenaire partage un logement avec des amis pendant des vacances."
+  },
+  {
+    "id": "appel_quotidien_meilleur_ami",
+    "question": "Ton partenaire appelle son meilleur ami ou sa meilleure amie tous les jours."
+  },
+  {
+    "id": "ami_invite_sans_prevenir",
+    "question": "Ton partenaire invite quelqu'un à la maison sans t'en parler avant."
+  },
+  {
+    "id": "soiree_bureau_hotel",
+    "question": "Ton partenaire dort à l'hôtel après une soirée d'entreprise."
+  },
+  {
+    "id": "dejeuner_hebdomadaire_ex",
+    "question": "Ton partenaire déjeune avec son ex une fois par semaine."
+  },
+  {
+    "id": "cadeau_souvenir_ex",
+    "question": "Ton partenaire garde précieusement tous les cadeaux de son ex."
+  },
+  {
+    "id": "ami_contact_urgence",
+    "question": "Une autre personne est indiquée comme contact d'urgence avant toi."
+  },
+  {
+    "id": "sortie_bar_apres_travail",
+    "question": "Ton partenaire sort boire un verre après le travail sans te prévenir."
+  },
+  {
+    "id": "voyage_ski_collegues",
+    "question": "Ton partenaire part au ski avec ses collègues."
+  },
+  {
+    "id": "groupe_amis_nouveaux",
+    "question": "Ton partenaire passe beaucoup de temps avec un nouveau groupe d'amis."
+  },
+  {
+    "id": "retour_maison_lendemain",
+    "question": "Ton partenaire ne rentre pas dormir et revient le lendemain matin."
+  },
+  {
+    "id": "story_avec_personne_unique",
+    "question": "Ton partenaire apparaît constamment avec la même personne dans ses stories."
+  },
+  {
+    "id": "partager_mot_de_passe_ami",
+    "question": "Ton partenaire partage certains mots de passe avec un(e) ami(e)."
+  },
+  {
+    "id": "compte_cache_aux_proches",
+    "question": "Ton partenaire possède un compte que même ses proches ne connaissent pas."
+  },
+  {
+    "id": "repondre_nuit_messages",
+    "question": "Ton partenaire répond à des messages en pleine nuit."
+  },
+  {
+    "id": "discussion_quotidienne_reseau",
+    "question": "Ton partenaire discute chaque jour avec une personne rencontrée sur les réseaux."
+  },
+  {
+    "id": "publier_photos_vacances_solo",
+    "question": "Ton partenaire publie des photos ambiguës pendant un voyage sans toi."
+  },
+  {
+    "id": "effacer_notifications",
+    "question": "Ton partenaire supprime systématiquement ses notifications."
+  },
+  {
+    "id": "reaction_feu_publications",
+    "question": "Ton partenaire envoie souvent des réactions 🔥 à quelqu'un."
+  },
+  {
+    "id": "appel_video_tardif",
+    "question": "Ton partenaire fait des appels vidéo tard le soir avec une autre personne."
+  },
+  {
+    "id": "rencontre_abonne",
+    "question": "Ton partenaire accepte un rendez-vous avec quelqu'un qui le ou la suit en ligne."
+  },
+  {
+    "id": "acheter_voiture_plaisir",
+    "question": "Ton partenaire achète une voiture uniquement pour le plaisir."
+  },
+  {
+    "id": "investir_somme_importante",
+    "question": "Ton partenaire investit une grosse somme sans demander ton avis."
+  },
+  {
+    "id": "payer_vacances_famille",
+    "question": "Ton partenaire finance les vacances de sa famille."
+  },
+  {
+    "id": "aider_ami_financierement",
+    "question": "Ton partenaire aide régulièrement un(e) ami(e) financièrement."
+  },
+  {
+    "id": "acheter_montre_luxe",
+    "question": "Ton partenaire achète une montre de luxe."
+  },
+  {
+    "id": "faire_credit_consommation",
+    "question": "Ton partenaire souscrit un crédit à la consommation."
+  },
+  {
+    "id": "acheter_residence_vacances",
+    "question": "Ton partenaire veut acheter une maison de vacances."
+  },
+  {
+    "id": "ouvrir_societe",
+    "question": "Ton partenaire souhaite créer sa société."
+  },
+  {
+    "id": "quitter_travail_voyager",
+    "question": "Ton partenaire veut quitter son emploi pour voyager."
+  },
+  {
+    "id": "changer_pays_travail",
+    "question": "Ton partenaire accepte une opportunité professionnelle dans un autre pays."
+  },
+  {
+    "id": "partir_six_mois_etranger",
+    "question": "Ton partenaire veut partir six mois à l'étranger."
+  },
+  {
+    "id": "reprise_etudes_longues",
+    "question": "Ton partenaire veut reprendre plusieurs années d'études."
+  },
+  {
+    "id": "ouvrir_camping",
+    "question": "Ton partenaire rêve d'ouvrir un camping."
+  },
+  {
+    "id": "vivre_bateau",
+    "question": "Ton partenaire aimerait vivre sur un bateau."
+  },
+  {
+    "id": "demenager_ile",
+    "question": "Ton partenaire souhaite vivre sur une île."
+  },
+  {
+    "id": "avoir_cinq_enfants",
+    "question": "Ton partenaire rêve d'avoir cinq enfants ou plus."
+  },
+  {
+    "id": "aucun_mariage",
+    "question": "Ton partenaire ne veut jamais se marier."
+  },
+  {
+    "id": "retour_vie_etudiante",
+    "question": "Ton partenaire aimerait retrouver un mode de vie étudiant."
+  },
+  {
+    "id": "vivre_minimaliste",
+    "question": "Ton partenaire veut réduire fortement son confort matériel."
+  },
+  {
+    "id": "changer_totalement_carriere",
+    "question": "Ton partenaire veut repartir de zéro dans sa vie professionnelle."
+  },
+  {
+    "id": "ami_telephone_tard",
+    "question": "Une personne appelle régulièrement ton partenaire tard le soir."
+  },
+  {
+    "id": "sortie_restau_collegue_unique",
+    "question": "Ton partenaire va souvent au restaurant avec le même collègue."
+  },
+  {
+    "id": "weekend_festival_sans_signal",
+    "question": "Ton partenaire passe un week-end entier en festival sans donner beaucoup de nouvelles."
+  },
+  {
+    "id": "revoir_ex_lors_voyage",
+    "question": "Ton partenaire profite d'un voyage pour revoir son ex."
+  },
+  {
+    "id": "ami_dort_chaque_semaine",
+    "question": "Un(e) ami(e) dort régulièrement chez vous."
+  },
+  {
+    "id": "voyage_photo_duo",
+    "question": "Ton partenaire part en voyage avec une seule personne pour pratiquer une passion commune."
+  },
+  {
+    "id": "partage_tente_festival",
+    "question": "Ton partenaire partage une tente avec plusieurs amis pendant un festival."
+  },
+  {
+    "id": "appel_video_collegue",
+    "question": "Ton partenaire fait parfois des appels vidéo avec un collègue en dehors du travail."
+  },
+  {
+    "id": "ami_vient_vacances",
+    "question": "Ton partenaire invite un(e) ami(e) à rejoindre vos vacances."
+  },
+  {
+    "id": "anniversaire_ex_message",
+    "question": "Ton partenaire envoie un long message à son ex pour son anniversaire."
+  },
+  {
+    "id": "weekend_bien_etre_solo",
+    "question": "Ton partenaire part seul(e) en retraite bien-être."
+  },
+  {
+    "id": "sortie_plage_sans_toi",
+    "question": "Ton partenaire passe la journée à la plage avec des amis sans toi."
+  },
+  {
+    "id": "ami_connait_disputes",
+    "question": "Le ou la meilleur(e) ami(e) de ton partenaire connaît tous vos conflits."
+  },
+  {
+    "id": "groupe_vacances_mixte",
+    "question": "Ton partenaire part en vacances avec un groupe où il ou elle ne connaît pas tout le monde."
+  },
+  {
+    "id": "dormir_hotel_apres_soiree",
+    "question": "Ton partenaire réserve une chambre d'hôtel après une soirée plutôt que rentrer."
+  },
+  {
+    "id": "partager_chambre_auberge",
+    "question": "Ton partenaire dort dans un dortoir partagé pendant un voyage."
+  },
+  {
+    "id": "ami_offre_bijou",
+    "question": "Un(e) ami(e) offre un bijou à ton partenaire."
+  },
+  {
+    "id": "retour_ancien_groupe_amis",
+    "question": "Ton partenaire recommence à fréquenter un ancien groupe d'amis."
+  },
+  {
+    "id": "sortie_bateau_amis",
+    "question": "Ton partenaire passe une journée en bateau avec ses amis."
+  },
+  {
+    "id": "rentrer_apres_lever_soleil",
+    "question": "Ton partenaire rentre après le lever du soleil à la fin d'une soirée."
+  },
+  {
+    "id": "commentaires_tres_frequents",
+    "question": "Ton partenaire commente presque toutes les publications d'une même personne."
+  },
+  {
+    "id": "story_avec_coeur",
+    "question": "Ton partenaire publie souvent des stories avec des emojis cœur destinés à quelqu'un."
+  },
+  {
+    "id": "compte_prive_inaccessible",
+    "question": "Ton partenaire possède un compte privé auquel tu n'as pas accès."
+  },
+  {
+    "id": "rencontre_contact_reseaux",
+    "question": "Ton partenaire rencontre régulièrement des personnes connues sur les réseaux."
+  },
+  {
+    "id": "conversation_mode_ephemere",
+    "question": "Ton partenaire utilise principalement les messages éphémères avec une personne."
+  },
+  {
+    "id": "supprimer_message_recu",
+    "question": "Ton partenaire efface certains messages juste après les avoir lus."
+  },
+  {
+    "id": "desactiver_derniere_connexion",
+    "question": "Ton partenaire cache systématiquement sa dernière connexion."
+  },
+  {
+    "id": "partager_photos_privees",
+    "question": "Ton partenaire partage beaucoup de photos de son quotidien avec quelqu'un."
+  },
+  {
+    "id": "discussion_constante_reseau",
+    "question": "Ton partenaire échange en continu avec une personne rencontrée en ligne."
+  },
+  {
+    "id": "profil_sans_mention_couple",
+    "question": "Ton partenaire retire toute référence à votre relation sur son profil."
+  },
+  {
+    "id": "acheter_appartement_locatif",
+    "question": "Ton partenaire souhaite acheter un bien immobilier pour le louer."
+  },
+  {
+    "id": "preparer_reconversion",
+    "question": "Ton partenaire prépare une reconversion professionnelle sans t'en parler immédiatement."
+  },
+  {
+    "id": "aider_parent_endette",
+    "question": "Ton partenaire aide un parent à rembourser ses dettes."
+  },
+  {
+    "id": "offrir_grosse_somme",
+    "question": "Ton partenaire offre une grosse somme d'argent à un proche."
+  },
+  {
+    "id": "acheter_voilier",
+    "question": "Ton partenaire rêve d'acheter un voilier."
+  },
+  {
+    "id": "ouvrir_franchise",
+    "question": "Ton partenaire souhaite investir dans une franchise."
+  },
+  {
+    "id": "faire_pause_carriere",
+    "question": "Ton partenaire veut faire une pause dans sa carrière pendant un an."
+  },
+  {
+    "id": "demenager_etranger_retraite",
+    "question": "Ton partenaire envisage de vivre à l'étranger à long terme."
+  },
+  {
+    "id": "acheter_maison_travaux",
+    "question": "Ton partenaire veut acheter une maison à rénover entièrement."
+  },
+  {
+    "id": "partir_travail_saisonnier",
+    "question": "Ton partenaire veut partir plusieurs mois pour un emploi saisonnier."
+  },
+  {
+    "id": "ouvrir_food_truck",
+    "question": "Ton partenaire rêve d'ouvrir un food truck."
+  },
+  {
+    "id": "vivre_en_foret",
+    "question": "Ton partenaire aimerait vivre au plus proche de la nature."
+  },
+  {
+    "id": "avoir_un_seul_enfant",
+    "question": "Ton partenaire ne souhaite avoir qu'un seul enfant."
+  },
+  {
+    "id": "famille_accueil_animaux",
+    "question": "Ton partenaire veut accueillir régulièrement des animaux en famille d'accueil."
+  },
+  {
+    "id": "demenager_pres_parents",
+    "question": "Ton partenaire veut vivre beaucoup plus près de ses parents."
+  },
+  {
+    "id": "changer_completement_rythme_vie",
+    "question": "Ton partenaire souhaite ralentir fortement son rythme de vie."
+  },
+  {
+    "id": "acheter_terrain_agricole",
+    "question": "Ton partenaire rêve d'acheter un terrain agricole."
+  },
+  {
+    "id": "partir_vivre_sud",
+    "question": "Ton partenaire veut tout quitter pour vivre dans le sud."
+  },
+  {
+    "id": "lancer_chaine_contenu",
+    "question": "Ton partenaire souhaite devenir créateur ou créatrice de contenu à plein temps."
+  },
+  {
+    "id": "retour_colocation",
+    "question": "Ton partenaire envisage de vivre en colocation pendant quelque temps."
+  },
+  {
+    "id": "partager_liste_proches",
+    "question": "Ton partenaire partage avec quelqu'un la liste de ses plus grands rêves."
+  },
+  {
+    "id": "ami_connait_mdp_wifi",
+    "question": "Un(e) ami(e) de ton partenaire a un accès permanent à votre logement."
+  },
+  {
+    "id": "weekend_annule_amis",
+    "question": "Ton partenaire annule un week-end prévu avec toi pour partir avec ses amis."
+  },
+  {
+    "id": "dejeuner_ancien_amour",
+    "question": "Ton partenaire déjeune avec une personne qu'il ou elle a déjà aimée."
+  },
+  {
+    "id": "voyage_dernier_moment",
+    "question": "Ton partenaire réserve un voyage quelques jours avant le départ sans t'en parler."
+  },
+  {
+    "id": "message_bonne_nuit_collegue",
+    "question": "Ton partenaire souhaite bonne nuit à un collègue presque tous les soirs."
+  },
+  {
+    "id": "sortie_sportive_mixte",
+    "question": "Ton partenaire participe chaque semaine à une activité sportive avec un groupe mixte."
+  },
+  {
+    "id": "ami_prioritaire_anniversaire",
+    "question": "Ton partenaire préfère passer son anniversaire avec ses amis plutôt qu'en couple."
+  },
+  {
+    "id": "partage_chambre_ami_voyage",
+    "question": "Ton partenaire partage une chambre avec un(e) ami(e) pour économiser pendant un voyage."
+  },
+  {
+    "id": "appel_ex_urgence_frequente",
+    "question": "L'ex de ton partenaire l'appelle régulièrement en cas de problème."
+  },
+  {
+    "id": "sortie_bar_inconnus",
+    "question": "Ton partenaire termine la soirée avec des personnes rencontrées le soir même."
+  },
+  {
+    "id": "vacances_sans_programme",
+    "question": "Ton partenaire part en vacances sans te donner son programme."
+  },
+  {
+    "id": "ami_vient_chez_nous_seul",
+    "question": "Un(e) ami(e) vient souvent chez vous lorsque tu n'es pas là."
+  },
+  {
+    "id": "revoir_ex_sans_prevenir",
+    "question": "Ton partenaire revoit son ex sans te le dire sur le moment."
+  },
+  {
+    "id": "festival_groupe_inconnu",
+    "question": "Ton partenaire part en festival avec un groupe qu'il ou elle connaît peu."
+  },
+  {
+    "id": "sortie_soiree_collegues_reguliere",
+    "question": "Ton partenaire sort avec ses collègues presque chaque semaine."
+  },
+  {
+    "id": "ami_fait_surprises",
+    "question": "Une personne organise régulièrement des surprises pour ton partenaire."
+  },
+  {
+    "id": "roadtrip_solo_spontane",
+    "question": "Ton partenaire part seul(e) en road trip sur un coup de tête."
+  },
+  {
+    "id": "retour_ex_dans_groupe",
+    "question": "L'ex de ton partenaire réintègre son groupe d'amis proche."
+  },
+  {
+    "id": "message_reveil_autre_personne",
+    "question": "Ton partenaire est la première personne à qui quelqu'un écrit chaque matin."
+  },
+  {
+    "id": "reagir_toutes_stories",
+    "question": "Ton partenaire réagit à presque toutes les stories d'une même personne."
+  },
+  {
+    "id": "discussion_journee_complete",
+    "question": "Ton partenaire discute du matin au soir avec une personne en ligne."
+  },
+  {
+    "id": "partager_compte_streaming_autre",
+    "question": "Ton partenaire partage un abonnement avec quelqu'un dont tu ignores l'identité."
+  },
+  {
+    "id": "publication_celibataire_humour",
+    "question": "Ton partenaire publie des blagues laissant croire qu'il ou elle est célibataire."
+  },
+  {
+    "id": "envoyer_selfies_regulierement",
+    "question": "Ton partenaire envoie régulièrement des selfies à quelqu'un."
+  },
+  {
+    "id": "compte_secondaire_observation",
+    "question": "Ton partenaire utilise un second compte pour observer discrètement d'autres profils."
+  },
+  {
+    "id": "cacher_liste_abonnements",
+    "question": "Ton partenaire cache volontairement les comptes qu'il ou elle suit."
+  },
+  {
+    "id": "supprimer_anciens_messages",
+    "question": "Ton partenaire supprime systématiquement ses conversations après quelques jours."
+  },
+  {
+    "id": "rencontre_personne_reseau_voyage",
+    "question": "Ton partenaire profite d'un voyage pour rencontrer quelqu'un connu sur internet."
+  },
+  {
+    "id": "envoyer_photos_vacances_unique",
+    "question": "Ton partenaire envoie toutes ses photos de vacances à une seule personne."
+  },
+  {
+    "id": "acheter_objet_passion_couteux",
+    "question": "Ton partenaire dépense plusieurs milliers d'euros pour un hobby."
+  },
+  {
+    "id": "aider_financierement_ex",
+    "question": "Ton partenaire aide financièrement son ex en difficulté."
+  },
+  {
+    "id": "preparer_achat_secret_maison",
+    "question": "Ton partenaire se renseigne pour acheter un bien sans t'en parler."
+  },
+  {
+    "id": "investir_avec_ami",
+    "question": "Ton partenaire investit dans un projet avec un(e) ami(e)."
+  },
+  {
+    "id": "offrir_voiture_parent",
+    "question": "Ton partenaire souhaite offrir une voiture à un parent."
+  },
+  {
+    "id": "acheter_bateau_vacances",
+    "question": "Ton partenaire veut acheter un bateau pour les vacances."
+  },
+  {
+    "id": "faire_pause_travail",
+    "question": "Ton partenaire veut arrêter de travailler pendant plusieurs mois."
+  },
+  {
+    "id": "ouvrir_commerce_famille",
+    "question": "Ton partenaire souhaite ouvrir un commerce avec sa famille."
+  },
+  {
+    "id": "acheter_maison_etranger",
+    "question": "Ton partenaire rêve d'acheter une maison à l'étranger."
+  },
+  {
+    "id": "partir_six_mois_voyage",
+    "question": "Ton partenaire veut partir voyager six mois."
+  },
+  {
+    "id": "retour_etudes_reconversion",
+    "question": "Ton partenaire reprend des études pour changer totalement de métier."
+  },
+  {
+    "id": "ouvrir_refuge_animaux",
+    "question": "Ton partenaire aimerait ouvrir un refuge pour animaux."
+  },
+  {
+    "id": "vivre_en_montagne",
+    "question": "Ton partenaire rêve de vivre en montagne toute l'année."
+  },
+  {
+    "id": "demenager_petit_village",
+    "question": "Ton partenaire souhaite vivre dans un très petit village."
+  },
+  {
+    "id": "avoir_enfant_rapidement",
+    "question": "Ton partenaire veut avoir un enfant dans les deux prochaines années."
+  },
+  {
+    "id": "aucun_animal_maison",
+    "question": "Ton partenaire refuse toute présence d'animal à la maison."
+  },
+  {
+    "id": "partir_vivre_outre_mer",
+    "question": "Ton partenaire aimerait vivre en outre-mer."
+  },
+  {
+    "id": "devenir_independant",
+    "question": "Ton partenaire souhaite devenir indépendant ou indépendante."
+  },
+  {
+    "id": "vendre_maison_voyager",
+    "question": "Ton partenaire voudrait vendre son logement pour financer un voyage."
+  },
+  {
+    "id": "changer_vie_avant_40_ans",
+    "question": "Ton partenaire veut complètement changer de vie avant ses 40 ans."
+  },
+  {
+    "id": "ami_appel_quotidien_pause",
+    "question": "Ton partenaire profite de chaque pause pour appeler la même personne."
+  },
+  {
+    "id": "sortie_restaurant_tardive",
+    "question": "Ton partenaire va dîner seul(e) avec quelqu'un jusqu'à tard dans la nuit."
+  },
+  {
+    "id": "weekend_amis_sans_reseau",
+    "question": "Ton partenaire part en week-end et coupe volontairement son téléphone."
+  },
+  {
+    "id": "ancien_flirt_recontacte",
+    "question": "Ton partenaire reprend contact avec une personne avec qui il ou elle flirtait autrefois."
+  },
+  {
+    "id": "ami_vacances_chaque_annee",
+    "question": "Ton partenaire part chaque année en vacances avec la même personne."
+  },
+  {
+    "id": "partager_logement_voyage",
+    "question": "Ton partenaire partage un logement avec plusieurs inconnus pendant un voyage."
+  },
+  {
+    "id": "dejeuner_quotidien_collegue_unique",
+    "question": "Ton partenaire déjeune chaque midi avec le même collègue."
+  },
+  {
+    "id": "ami_connait_localisation",
+    "question": "Une autre personne connaît toujours la localisation de ton partenaire."
+  },
+  {
+    "id": "festival_nuit_complete",
+    "question": "Ton partenaire reste éveillé toute la nuit pendant un festival."
+  },
+  {
+    "id": "cadeau_personne_reseau",
+    "question": "Ton partenaire envoie un cadeau à une personne rencontrée sur internet."
+  },
+  {
+    "id": "ex_dans_groupe_proche",
+    "question": "L'ex de ton partenaire fait partie de son cercle d'amis le plus proche."
+  },
+  {
+    "id": "ami_passe_avant_rendezvous",
+    "question": "Ton partenaire annule un rendez-vous amoureux pour aider un(e) ami(e)."
+  },
+  {
+    "id": "voyage_collegues_etranger",
+    "question": "Ton partenaire part plusieurs jours à l'étranger avec ses collègues."
+  },
+  {
+    "id": "retour_maison_sans_explications",
+    "question": "Ton partenaire rentre très tard et préfère ne pas raconter sa soirée."
+  },
+  {
+    "id": "sortie_bateau_personne_unique",
+    "question": "Ton partenaire passe une journée en bateau avec une seule autre personne."
+  },
+  {
+    "id": "ami_tres_present_reseaux",
+    "question": "Une même personne apparaît constamment dans les réseaux sociaux de ton partenaire."
+  },
+  {
+    "id": "weekend_improvise_ami",
+    "question": "Ton partenaire part en week-end sur un coup de tête avec un(e) ami(e)."
+  },
+  {
+    "id": "partager_souvenirs_ex",
+    "question": "Ton partenaire conserve une boîte remplie de souvenirs de son ex."
+  },
+  {
+    "id": "rentrer_chez_ami_frequent",
+    "question": "Ton partenaire dort régulièrement chez un(e) ami(e) après les soirées."
+  },
+  {
+    "id": "discussion_jusqua_aube",
+    "question": "Ton partenaire passe parfois la nuit à discuter avec quelqu'un."
+  },
+  {
+    "id": "reagir_publications_attirance",
+    "question": "Ton partenaire réagit souvent aux publications d'une personne qu'il ou elle trouve attirante."
+  },
+  {
+    "id": "partager_meme_humour_prive",
+    "question": "Ton partenaire échange des blagues privées avec quelqu'un toute la journée."
+  },
+  {
+    "id": "cacher_abonnements",
+    "question": "Ton partenaire cache volontairement sa liste d'abonnements."
+  },
+  {
+    "id": "supprimer_message_avant_lecture",
+    "question": "Ton partenaire supprime parfois des messages avant que tu puisses les voir apparaître."
+  },
+  {
+    "id": "compte_prive_secret",
+    "question": "Ton partenaire possède un compte privé dont personne ne connaît l'existence."
+  },
+  {
+    "id": "envoyer_selfie_journalier",
+    "question": "Ton partenaire envoie un selfie quotidien à quelqu'un."
+  },
+  {
+    "id": "rencontre_reseau_sans_prevenir",
+    "question": "Ton partenaire rencontre une personne connue en ligne sans te le dire avant."
+  },
+  {
+    "id": "story_ambiguë_vacances",
+    "question": "Ton partenaire publie une story laissant volontairement planer le doute."
+  },
+  {
+    "id": "desactiver_notifications_apercu",
+    "question": "Ton partenaire masque tout aperçu de ses notifications."
+  },
+  {
+    "id": "partager_photos_privees_ami",
+    "question": "Ton partenaire partage énormément de photos personnelles avec un(e) ami(e)."
+  },
+  {
+    "id": "acheter_residence_secondaire_secret",
+    "question": "Ton partenaire envisage une résidence secondaire sans t'en parler."
+  },
+  {
+    "id": "offrir_aide_financiere_importante",
+    "question": "Ton partenaire aide un proche avec plusieurs milliers d'euros."
+  },
+  {
+    "id": "investir_societe_collegue",
+    "question": "Ton partenaire investit dans le projet professionnel d'un collègue."
+  },
+  {
+    "id": "acheter_objet_collection_exceptionnel",
+    "question": "Ton partenaire dépense une somme énorme pour un objet rare."
+  },
+  {
+    "id": "ouvrir_business_etranger",
+    "question": "Ton partenaire veut créer une activité à l'étranger."
+  },
+  {
+    "id": "acheter_terrain_construction",
+    "question": "Ton partenaire souhaite acheter un terrain pour un projet futur."
+  },
+  {
+    "id": "quitter_emploi_stable",
+    "question": "Ton partenaire veut quitter un emploi très stable pour tenter autre chose."
+  },
+  {
+    "id": "partir_vivre_soleil",
+    "question": "Ton partenaire veut déménager dans une région beaucoup plus ensoleillée."
+  },
+  {
+    "id": "ouvrir_maison_hotes",
+    "question": "Ton partenaire rêve d'ouvrir une maison d'hôtes."
+  },
+  {
+    "id": "pause_professionnelle_longue",
+    "question": "Ton partenaire souhaite faire une longue pause professionnelle."
+  },
+  {
+    "id": "retour_etudes_temps_plein",
+    "question": "Ton partenaire veut redevenir étudiant ou étudiante à temps plein."
+  },
+  {
+    "id": "acheter_ferme_animaliere",
+    "question": "Ton partenaire rêve d'acheter une ferme avec des animaux."
+  },
+  {
+    "id": "vivre_pres_lac",
+    "question": "Ton partenaire aimerait vivre près d'un lac toute l'année."
+  },
+  {
+    "id": "partir_un_an_voyage",
+    "question": "Ton partenaire souhaite partir un an faire le tour du monde."
+  },
+  {
+    "id": "devenir_famille_nombreuse",
+    "question": "Ton partenaire rêve d'une famille très nombreuse."
+  },
+  {
+    "id": "ne_jamais_avoir_enfant",
+    "question": "Ton partenaire décide qu'il ou elle ne veut jamais d'enfant."
+  },
+  {
+    "id": "vivre_sans_voiture",
+    "question": "Ton partenaire souhaite vivre sans voiture."
+  },
+  {
+    "id": "partir_vivre_campagne",
+    "question": "Ton partenaire veut quitter la ville pour la campagne."
+  },
+  {
+    "id": "devenir_createur_temps_plein",
+    "question": "Ton partenaire veut vivre uniquement de la création de contenu."
+  },
+  {
+    "id": "changer_totalement_mode_vie",
+    "question": "Ton partenaire souhaite repartir de zéro dans une nouvelle région."
+  },
+  {
+    "id": "partager_playlist_personnelle_unique",
+    "question": "Ton partenaire crée une playlist très personnelle pour une seule personne."
+  },
+  {
+    "id": "appel_ancien_amour",
+    "question": "Ton partenaire reprend contact par téléphone avec un ancien amour."
+  },
+  {
+    "id": "dejeuner_reseau_social",
+    "question": "Ton partenaire accepte de déjeuner avec quelqu'un rencontré sur les réseaux."
+  },
+  {
+    "id": "ami_vient_cles_maison",
+    "question": "Un(e) ami(e) possède les clés de votre logement et peut venir librement."
+  },
+  {
+    "id": "sortie_camping_mixte",
+    "question": "Ton partenaire part camper plusieurs jours avec un groupe mixte."
+  },
+  {
+    "id": "vacances_personne_attiree",
+    "question": "Ton partenaire part en vacances avec une personne qui lui a déjà déclaré son attirance."
+  },
+  {
+    "id": "revoir_ex_souvenirs",
+    "question": "Ton partenaire revoit son ex pour récupérer et trier d'anciens souvenirs."
+  },
+  {
+    "id": "ami_appel_prioritaire",
+    "question": "Ton partenaire décroche toujours quand une personne précise appelle."
+  },
+  {
+    "id": "festival_sans_hebergement_prevu",
+    "question": "Ton partenaire part en festival sans savoir où il ou elle dormira."
+  },
+  {
+    "id": "partager_chambre_voyage_pro",
+    "question": "Ton partenaire partage une chambre pendant un voyage professionnel pour réduire les frais."
+  },
+  {
+    "id": "weekend_entre_inconnus",
+    "question": "Ton partenaire participe à un week-end avec des personnes rencontrées récemment."
+  },
+  {
+    "id": "ami_confident_unique",
+    "question": "Ton partenaire se confie davantage à une autre personne qu'à toi."
+  },
+  {
+    "id": "rentrer_accompagne_maison",
+    "question": "Une autre personne raccompagne ton partenaire jusqu'à sa porte après une soirée."
+  },
+  {
+    "id": "voyage_groupe_reseau",
+    "question": "Ton partenaire part en voyage avec un groupe rencontré sur internet."
+  },
+  {
+    "id": "cadeau_symbolique_ami",
+    "question": "Ton partenaire offre un cadeau très symbolique à un(e) ami(e)."
+  },
+  {
+    "id": "partager_souvenirs_enfance",
+    "question": "Ton partenaire partage ses souvenirs les plus personnels avec quelqu'un d'autre."
+  },
+  {
+    "id": "sortie_sport_duo",
+    "question": "Ton partenaire pratique régulièrement une activité en duo avec la même personne."
+  },
+  {
+    "id": "message_des_reveil",
+    "question": "Ton partenaire est la première personne à qui quelqu'un écrit chaque matin."
+  },
+  {
+    "id": "dejeuner_plusieurs_heures",
+    "question": "Ton partenaire passe plusieurs heures à déjeuner avec quelqu'un."
+  },
+  {
+    "id": "weekend_sans_nouvelles_complet",
+    "question": "Ton partenaire donne très peu de nouvelles pendant tout un week-end."
+  },
+  {
+    "id": "discussion_message_supprime",
+    "question": "Ton partenaire échange avec une personne via des messages qui disparaissent."
+  },
+  {
+    "id": "envoyer_photos_tous_les_jours",
+    "question": "Ton partenaire envoie quotidiennement des photos à quelqu'un."
+  },
+  {
+    "id": "cacher_liste_amis",
+    "question": "Ton partenaire cache sa liste d'amis sur les réseaux sociaux."
+  },
+  {
+    "id": "reaction_emoji_coeur_unique",
+    "question": "Ton partenaire réagit très souvent avec des cœurs aux contenus d'une même personne."
+  },
+  {
+    "id": "publier_photos_sans_te_montrer",
+    "question": "Ton partenaire publie des photos où il ou elle apparaît célibataire."
+  },
+  {
+    "id": "rencontre_abonne_voyage",
+    "question": "Ton partenaire profite d'un voyage pour rencontrer un abonné ou une abonnée."
+  },
+  {
+    "id": "profil_secondaire_actif",
+    "question": "Ton partenaire est très actif ou active sur un compte secondaire."
+  },
+  {
+    "id": "effacer_historique_discussion",
+    "question": "Ton partenaire efface régulièrement certaines conversations."
+  },
+  {
+    "id": "cacher_derniere_connexion",
+    "question": "Ton partenaire masque toujours ses horaires de connexion."
+  },
+  {
+    "id": "partager_memes_toute_journee",
+    "question": "Ton partenaire échange des dizaines de messages humoristiques avec une personne."
+  },
+  {
+    "id": "acheter_bien_immobilier_seul",
+    "question": "Ton partenaire veut acheter un bien immobilier uniquement à son nom."
+  },
+  {
+    "id": "investir_epargne_complete",
+    "question": "Ton partenaire veut investir la majorité de son épargne."
+  },
+  {
+    "id": "aider_financierement_frere_soeur",
+    "question": "Ton partenaire aide financièrement son frère ou sa sœur sur le long terme."
+  },
+  {
+    "id": "acheter_voiture_collection",
+    "question": "Ton partenaire veut acheter une voiture de collection."
+  },
+  {
+    "id": "ouvrir_affaire_famille",
+    "question": "Ton partenaire veut monter un projet professionnel avec sa famille."
+  },
+  {
+    "id": "faire_pause_un_an",
+    "question": "Ton partenaire veut prendre une année entière pour réaliser un rêve."
+  },
+  {
+    "id": "partir_vivre_etranger_longtemps",
+    "question": "Ton partenaire souhaite vivre plusieurs années à l'étranger."
+  },
+  {
+    "id": "acheter_maison_renover",
+    "question": "Ton partenaire veut acheter une maison nécessitant de gros travaux."
+  },
+  {
+    "id": "ouvrir_gite_rural",
+    "question": "Ton partenaire rêve d'ouvrir un gîte à la campagne."
+  },
+  {
+    "id": "retour_etudes_metier_passion",
+    "question": "Ton partenaire veut reprendre des études pour exercer sa passion."
+  },
+  {
+    "id": "partir_travail_hiver",
+    "question": "Ton partenaire souhaite partir plusieurs mois pour un emploi saisonnier."
+  },
+  {
+    "id": "acheter_terrain_isole",
+    "question": "Ton partenaire veut acheter un terrain dans un endroit très isolé."
+  },
+  {
+    "id": "vivre_en_bateau",
+    "question": "Ton partenaire aimerait vivre sur un bateau pendant plusieurs années."
+  },
+  {
+    "id": "demenager_pres_famille",
+    "question": "Ton partenaire veut déménager pour se rapprocher de sa famille."
+  },
+  {
+    "id": "avoir_bebe_rapidement",
+    "question": "Ton partenaire souhaite avoir un enfant le plus vite possible."
+  },
+  {
+    "id": "aucun_animal_jamais",
+    "question": "Ton partenaire ne veut jamais vivre avec un animal."
+  },
+  {
+    "id": "vivre_sans_credit",
+    "question": "Ton partenaire refuse toute forme de crédit dans sa vie."
+  },
+  {
+    "id": "quitter_ville_definitivement",
+    "question": "Ton partenaire veut quitter définitivement la vie en ville."
+  },
+  {
+    "id": "devenir_nomade_digital",
+    "question": "Ton partenaire rêve de devenir nomade digital."
+  },
+  {
+    "id": "changer_vie_avant_35_ans",
+    "question": "Ton partenaire veut complètement réinventer sa vie avant ses 35 ans."
+  },
+  {
+    "id": "partager_photo_dossier",
+    "question": "Ton partenaire montre des photos embarrassantes de toi à ses amis."
+  },
+  {
+    "id": "vacances_sans_date_retour",
+    "question": "Ton partenaire part en voyage sans fixer de date précise de retour."
+  },
+  {
+    "id": "ami_passe_avant_toi",
+    "question": "Ton partenaire considère son ou sa meilleur(e) ami(e) comme sa priorité absolue."
+  },
+  {
+    "id": "revoir_ex_pour_cloture",
+    "question": "Ton partenaire souhaite revoir son ex une dernière fois pour tourner la page."
+  },
+  {
+    "id": "partager_bungalow_personne_unique",
+    "question": "Ton partenaire partage un bungalow de vacances avec une seule autre personne."
+  },
+  {
+    "id": "message_toute_journee_collegue",
+    "question": "Ton partenaire échange avec un collègue du réveil jusqu'au coucher."
+  },
+  {
+    "id": "weekend_amis_sans_lieu",
+    "question": "Ton partenaire part en week-end entre amis sans te dire exactement où."
+  },
+  {
+    "id": "sortie_concert_ancien_flirt",
+    "question": "Ton partenaire va à un concert avec une personne avec qui il ou elle a déjà flirté."
+  },
+  {
+    "id": "rentrer_chez_ami_habitude",
+    "question": "Ton partenaire dort régulièrement chez le même ami ou la même amie."
+  },
+  {
+    "id": "ami_offre_weekend",
+    "question": "Une personne offre un week-end à ton partenaire."
+  },
+  {
+    "id": "voyage_retrouvailles",
+    "question": "Ton partenaire part quelques jours retrouver une personne qu'il ou elle n'a pas vue depuis longtemps."
+  },
+  {
+    "id": "partage_confidences_reseau",
+    "question": "Ton partenaire se confie beaucoup à une personne rencontrée en ligne."
+  },
+  {
+    "id": "sortie_nocturne_improvisee",
+    "question": "Ton partenaire décide à minuit de sortir rejoindre des amis."
+  },
+  {
+    "id": "dejeuner_ex_travail",
+    "question": "Ton partenaire déjeune régulièrement avec son ex pour parler travail."
+  },
+  {
+    "id": "ami_tres_tactile_public",
+    "question": "Un(e) ami(e) de ton partenaire est très tactile en public."
+  },
+  {
+    "id": "partager_tente_personne_unique",
+    "question": "Ton partenaire partage une tente avec une seule autre personne pendant un festival."
+  },
+  {
+    "id": "weekend_spontane_reseau",
+    "question": "Ton partenaire part en week-end avec des personnes rencontrées sur internet."
+  },
+  {
+    "id": "retour_maison_matin_sans_explication",
+    "question": "Ton partenaire rentre au petit matin sans raconter sa nuit."
+  },
+  {
+    "id": "garder_cadeaux_tous_ex",
+    "question": "Ton partenaire conserve les cadeaux de toutes ses anciennes relations."
+  },
+  {
+    "id": "appel_video_quotidien_personne",
+    "question": "Ton partenaire fait un appel vidéo quotidien avec la même personne."
+  },
+  {
+    "id": "reaction_coeur_toutes_publications",
+    "question": "Ton partenaire réagit avec un cœur à presque tout ce que publie une personne."
+  },
+  {
+    "id": "envoyer_selfies_vacances",
+    "question": "Ton partenaire envoie ses selfies de vacances à quelqu'un avant de te les envoyer."
+  },
+  {
+    "id": "compte_cache_actif",
+    "question": "Ton partenaire est beaucoup plus actif sur un compte secondaire que sur son compte principal."
+  },
+  {
+    "id": "conversation_archivee_unique",
+    "question": "Ton partenaire archive systématiquement les conversations avec une personne."
+  },
+  {
+    "id": "publier_photo_ambiguë",
+    "question": "Ton partenaire publie volontairement une photo pouvant être mal interprétée."
+  },
+  {
+    "id": "rencontrer_plusieurs_abonnes",
+    "question": "Ton partenaire rencontre régulièrement des personnes qui le ou la suivent en ligne."
+  },
+  {
+    "id": "cacher_abonnements_specifiques",
+    "question": "Ton partenaire masque volontairement certains abonnements."
+  },
+  {
+    "id": "partager_humour_prive",
+    "question": "Ton partenaire partage des blagues privées avec quelqu'un que tu ne connais pas."
+  },
+  {
+    "id": "desactiver_statut_en_ligne",
+    "question": "Ton partenaire refuse que quiconque voie quand il ou elle est connecté(e)."
+  },
+  {
+    "id": "supprimer_conversations_regulierement",
+    "question": "Ton partenaire nettoie constamment ses conversations."
+  },
+  {
+    "id": "acheter_logement_seul",
+    "question": "Ton partenaire veut acheter un logement sans projet commun."
+  },
+  {
+    "id": "investissement_passion",
+    "question": "Ton partenaire investit énormément dans sa passion personnelle."
+  },
+  {
+    "id": "offrir_argent_parent",
+    "question": "Ton partenaire donne une grosse somme à un parent."
+  },
+  {
+    "id": "acheter_van_voyage",
+    "question": "Ton partenaire veut acheter un van pour partir à l'aventure."
+  },
+  {
+    "id": "ouvrir_business_ami",
+    "question": "Ton partenaire veut créer une entreprise avec un ami."
+  },
+  {
+    "id": "partir_un_an_etranger",
+    "question": "Ton partenaire souhaite vivre un an à l'étranger."
+  },
+  {
+    "id": "pause_professionnelle_reve",
+    "question": "Ton partenaire veut mettre sa carrière en pause pour réaliser un rêve."
+  },
+  {
+    "id": "acheter_maison_secondaire",
+    "question": "Ton partenaire souhaite acheter une maison secondaire."
+  },
+  {
+    "id": "retour_formation_longue",
+    "question": "Ton partenaire veut suivre une longue formation."
+  },
+  {
+    "id": "ouvrir_cafe_librairie",
+    "question": "Ton partenaire rêve d'ouvrir un café-librairie."
+  },
+  {
+    "id": "vivre_pres_ocean",
+    "question": "Ton partenaire veut vivre près de l'océan."
+  },
+  {
+    "id": "demenager_autre_continent",
+    "question": "Ton partenaire souhaite déménager sur un autre continent."
+  },
+  {
+    "id": "avoir_enfant_unique",
+    "question": "Ton partenaire ne souhaite avoir qu'un seul enfant."
+  },
+  {
+    "id": "aucun_enfant_finalement",
+    "question": "Ton partenaire change d'avis et ne veut plus d'enfant."
+  },
+  {
+    "id": "vivre_hors_reseau",
+    "question": "Ton partenaire rêve d'une vie très déconnectée de la technologie."
+  },
+  {
+    "id": "quitter_metropole",
+    "question": "Ton partenaire veut quitter définitivement les grandes villes."
+  },
+  {
+    "id": "devenir_autoentrepreneur",
+    "question": "Ton partenaire veut devenir son propre patron."
+  },
+  {
+    "id": "vendre_biens_recommencer",
+    "question": "Ton partenaire souhaite vendre la plupart de ses biens pour recommencer ailleurs."
+  },
+  {
+    "id": "changer_vie_40_ans",
+    "question": "Ton partenaire prévoit un changement radical de vie avant ses 40 ans."
+  },
+  {
+    "id": "partir_retraite_anticipee",
+    "question": "Ton partenaire rêve de prendre une retraite très anticipée."
+  },
+  {
+    "id": "vacances_avec_collegue_unique",
+    "question": "Ton partenaire prolonge des vacances pour rester quelques jours avec un(e) collègue."
+  },
+  {
+    "id": "ami_priorite_appel",
+    "question": "Ton partenaire quitte un dîner en amoureux pour répondre à un(e) ami(e)."
+  },
+  {
+    "id": "dejeuner_personne_attirante",
+    "question": "Ton partenaire accepte régulièrement des déjeuners avec une personne qu'il ou elle trouve attirante."
+  },
+  {
+    "id": "partager_chambre_festival",
+    "question": "Ton partenaire partage une chambre avec plusieurs amis pendant un festival."
+  },
+  {
+    "id": "weekend_ancien_crush",
+    "question": "Ton partenaire part en week-end avec une personne pour qui il ou elle a déjà eu un crush."
+  },
+  {
+    "id": "rentrer_chez_ex_objets",
+    "question": "Ton partenaire passe l'après-midi chez son ex pour récupérer des affaires."
+  },
+  {
+    "id": "ami_connait_toutes_disputes",
+    "question": "Une personne connaît tous les détails de vos disputes."
+  },
+  {
+    "id": "sortie_apres_travail_imprevue",
+    "question": "Ton partenaire décide au dernier moment de sortir après le travail."
+  },
+  {
+    "id": "voyage_reseau_personne_unique",
+    "question": "Ton partenaire traverse le pays pour rencontrer quelqu'un connu en ligne."
+  },
+  {
+    "id": "appel_trois_heures",
+    "question": "Ton partenaire passe parfois plusieurs heures au téléphone avec quelqu'un."
+  },
+  {
+    "id": "ami_toujours_invite",
+    "question": "Le ou la meilleur(e) ami(e) de ton partenaire est invité(e) à presque toutes vos sorties."
+  },
+  {
+    "id": "retour_maison_apres_soiree_ami",
+    "question": "Ton partenaire dort chez un(e) ami(e) après chaque grosse soirée."
+  },
+  {
+    "id": "cadeau_couteux_ami",
+    "question": "Ton partenaire offre un cadeau très coûteux à un(e) ami(e)."
+  },
+  {
+    "id": "partager_souvenirs_relation",
+    "question": "Ton partenaire raconte les détails de votre relation à une autre personne."
+  },
+  {
+    "id": "voyage_groupe_nouveaux_amis",
+    "question": "Ton partenaire part en vacances avec des amis rencontrés récemment."
+  },
+  {
+    "id": "dejeuner_hebdomadaire_meme_personne",
+    "question": "Ton partenaire réserve chaque semaine un déjeuner à la même personne."
+  },
+  {
+    "id": "festival_sans_hebergement",
+    "question": "Ton partenaire part en festival sans avoir réservé d'hébergement."
+  },
+  {
+    "id": "ex_present_evenements",
+    "question": "L'ex de ton partenaire est présent(e) à la plupart des événements de son groupe d'amis."
+  },
+  {
+    "id": "message_fin_soiree",
+    "question": "Ton partenaire envoie toujours un message à une personne avant de dormir."
+  },
+  {
+    "id": "weekend_sans_itineraire_precis",
+    "question": "Ton partenaire part plusieurs jours sans vraiment savoir où il ou elle ira."
+  },
+  {
+    "id": "reagir_toutes_photos",
+    "question": "Ton partenaire réagit à presque toutes les photos d'une même personne."
+  },
+  {
+    "id": "envoyer_photos_journee",
+    "question": "Ton partenaire partage chaque moment de sa journée avec quelqu'un."
+  },
+  {
+    "id": "conversation_cachee_notification",
+    "question": "Ton partenaire masque les notifications d'une conversation précise."
+  },
+  {
+    "id": "compte_secondaire_inconnu",
+    "question": "Ton partenaire possède un compte dont tu ignores totalement le contenu."
+  },
+  {
+    "id": "publier_photo_sans_contexte",
+    "question": "Ton partenaire publie une photo ambiguë sans donner d'explication."
+  },
+  {
+    "id": "rencontre_abonne_reguliere",
+    "question": "Ton partenaire rencontre régulièrement des personnes connues grâce aux réseaux."
+  },
+  {
+    "id": "supprimer_messages_tous_soirs",
+    "question": "Ton partenaire efface certaines conversations chaque soir."
+  },
+  {
+    "id": "partager_blagues_privees",
+    "question": "Ton partenaire a beaucoup de références privées avec une autre personne."
+  },
+  {
+    "id": "cacher_horaires_connexion",
+    "question": "Ton partenaire refuse que l'on puisse voir quand il ou elle est connecté(e)."
+  },
+  {
+    "id": "envoyer_vocaux_quotidiens",
+    "question": "Ton partenaire échange de longs vocaux quotidiens avec quelqu'un."
+  },
+  {
+    "id": "acheter_immeuble_investissement",
+    "question": "Ton partenaire veut acheter un immeuble pour investir."
+  },
+  {
+    "id": "aider_proche_grosse_somme",
+    "question": "Ton partenaire prête une très grosse somme à un proche."
+  },
+  {
+    "id": "ouvrir_societe_avec_famille",
+    "question": "Ton partenaire veut créer une entreprise familiale."
+  },
+  {
+    "id": "acheter_residence_etranger",
+    "question": "Ton partenaire rêve d'acheter une résidence à l'étranger."
+  },
+  {
+    "id": "partir_un_an_sabbatique",
+    "question": "Ton partenaire veut prendre une année sabbatique."
+  },
+  {
+    "id": "changer_metier_passion",
+    "question": "Ton partenaire souhaite abandonner son métier pour vivre de sa passion."
+  },
+  {
+    "id": "ouvrir_hotel",
+    "question": "Ton partenaire rêve d'ouvrir un hôtel ou une maison d'hôtes."
+  },
+  {
+    "id": "acheter_terrain_grand_projet",
+    "question": "Ton partenaire veut acheter un terrain pour un projet futur."
+  },
+  {
+    "id": "retour_etudes_cinq_ans",
+    "question": "Ton partenaire souhaite reprendre plusieurs années d'études."
+  },
+  {
+    "id": "vivre_bord_lac",
+    "question": "Ton partenaire aimerait vivre au bord d'un lac."
+  },
+  {
+    "id": "demenager_zone_rurale",
+    "question": "Ton partenaire veut s'installer dans une zone très rurale."
+  },
+  {
+    "id": "avoir_quatre_enfants",
+    "question": "Ton partenaire rêve d'avoir quatre enfants."
+  },
+  {
+    "id": "aucun_animal_foyer",
+    "question": "Ton partenaire refuse de vivre avec un animal de compagnie."
+  },
+  {
+    "id": "vivre_sans_reseaux",
+    "question": "Ton partenaire souhaite quitter complètement les réseaux sociaux."
+  },
+  {
+    "id": "quitter_pays_origine",
+    "question": "Ton partenaire veut quitter définitivement son pays."
+  },
+  {
+    "id": "devenir_travailleur_nomade",
+    "question": "Ton partenaire veut travailler en voyageant toute l'année."
+  },
+  {
+    "id": "vendre_maison_voyage_long",
+    "question": "Ton partenaire veut vendre sa maison pour financer un long voyage."
+  },
+  {
+    "id": "changer_vie_complete",
+    "question": "Ton partenaire veut repartir de zéro dans une nouvelle vie."
+  },
+  {
+    "id": "retraite_avant_50_ans",
+    "question": "Ton partenaire rêve de prendre sa retraite avant 50 ans."
+  },
+  {
+    "id": "demenager_sans_connaitre_personne",
+    "question": "Ton partenaire veut déménager dans une ville où il ou elle ne connaît personne."
+  },
+  {
+    "id": "laisser_telephone_deverrouille_ami",
+    "question": "Ton partenaire laisse régulièrement son téléphone déverrouillé à un(e) ami(e)."
+  },
+  {
+    "id": "voyage_spontane_personne_unique",
+    "question": "Ton partenaire accepte un voyage spontané avec une seule autre personne."
+  },
+  {
+    "id": "diner_aux_chandelles_ami",
+    "question": "Ton partenaire se retrouve dans un restaurant très romantique avec un(e) ami(e)."
+  },
+  {
+    "id": "partager_chambre_exception",
+    "question": "Ton partenaire partage une chambre avec quelqu'un faute d'autre solution."
+  },
+  {
+    "id": "ami_connait_compte_bancaire",
+    "question": "Un(e) ami(e) connaît en détail la situation financière de ton partenaire."
+  },
+  {
+    "id": "annuler_vacances_couple",
+    "question": "Ton partenaire annule des vacances prévues ensemble pour un projet personnel."
+  },
+  {
+    "id": "partir_24h_sans_prevenir",
+    "question": "Ton partenaire disparaît 24 heures pour se vider la tête."
+  },
+  {
+    "id": "revoir_ex_par_nostalgie",
+    "question": "Ton partenaire revoit son ex uniquement par nostalgie."
+  },
+  {
+    "id": "garder_photos_ex_visibles",
+    "question": "Ton partenaire garde visibles chez lui ou elle des photos avec son ex."
+  },
+  {
+    "id": "vacances_groupe_inconnus",
+    "question": "Ton partenaire réserve des vacances avec un groupe qu'il ou elle n'a jamais rencontré."
+  },
+  {
+    "id": "ami_texte_toute_la_journee",
+    "question": "Une personne échange des messages avec ton partenaire toute la journée."
+  },
+  {
+    "id": "cadeau_anniversaire_tres_personnel",
+    "question": "Ton partenaire reçoit un cadeau très personnel d'une autre personne."
+  },
+  {
+    "id": "sortie_nocturne_sans_batterie",
+    "question": "Ton partenaire n'est plus joignable pendant toute une nuit à cause de son téléphone déchargé."
+  },
+  {
+    "id": "ami_prioritaire_weekend",
+    "question": "Ton partenaire réserve un week-end entier chaque mois à ses amis."
+  },
+  {
+    "id": "partager_secret_important",
+    "question": "Ton partenaire confie un secret très important à quelqu'un avant de t'en parler."
+  },
+  {
+    "id": "rentrer_tard_sans_details",
+    "question": "Ton partenaire te dit seulement qu'il ou elle est sorti(e), sans plus de détails."
+  },
+  {
+    "id": "voyage_avec_personne_attirante",
+    "question": "Ton partenaire doit voyager plusieurs jours avec une personne qu'il ou elle trouve attirante."
+  },
+  {
+    "id": "message_bonne_nuit_unique",
+    "question": "Ton partenaire souhaite bonne nuit tous les soirs à la même personne."
+  },
+  {
+    "id": "dejeuner_tete_tete_habituel",
+    "question": "Ton partenaire déjeune en tête-à-tête avec quelqu'un chaque semaine."
+  },
+  {
+    "id": "ami_dort_maison_absence",
+    "question": "Un(e) ami(e) dort chez vous pendant que tu es absent(e)."
+  },
+  {
+    "id": "supprimer_toutes_conversations",
+    "question": "Ton partenaire supprime automatiquement toutes ses conversations au bout de quelques jours."
+  },
+  {
+    "id": "rencontre_contact_vacances",
+    "question": "Ton partenaire rencontre une personne connue en ligne pendant ses vacances."
+  },
+  {
+    "id": "story_pour_personne",
+    "question": "Ton partenaire publie certaines stories uniquement pour une personne précise."
+  },
+  {
+    "id": "compte_secondaire_anonyme_actif",
+    "question": "Ton partenaire utilise activement un compte anonyme."
+  },
+  {
+    "id": "partager_photos_uniquement",
+    "question": "Ton partenaire partage davantage son quotidien avec quelqu'un qu'avec toi."
+  },
+  {
+    "id": "reagir_toutes_stories_personne",
+    "question": "Ton partenaire réagit à presque toutes les stories d'une même personne."
+  },
+  {
+    "id": "masquer_abonnes",
+    "question": "Ton partenaire masque volontairement sa liste d'abonnés."
+  },
+  {
+    "id": "conversation_silencieuse_unique",
+    "question": "Ton partenaire met une conversation spécifique en silencieux permanent."
+  },
+  {
+    "id": "envoyer_vocaux_intimes",
+    "question": "Ton partenaire échange quotidiennement de longs vocaux personnels avec quelqu'un."
+  },
+  {
+    "id": "partager_humour_exclusif",
+    "question": "Ton partenaire a un humour et des références que toi seul(e) ne comprends pas dans son groupe proche."
+  },
+  {
+    "id": "acheter_maison_sans_consultation",
+    "question": "Ton partenaire visite sérieusement des maisons sans t'en parler."
+  },
+  {
+    "id": "investir_toutes_economies",
+    "question": "Ton partenaire envisage d'investir la quasi-totalité de ses économies."
+  },
+  {
+    "id": "offrir_somme_importante_proche",
+    "question": "Ton partenaire veut offrir plusieurs milliers d'euros à un proche."
+  },
+  {
+    "id": "ouvrir_business_risque",
+    "question": "Ton partenaire souhaite lancer un projet professionnel très risqué."
+  },
+  {
+    "id": "acheter_bien_etranger",
+    "question": "Ton partenaire rêve d'acheter un logement dans un autre pays."
+  },
+  {
+    "id": "annee_complete_voyage",
+    "question": "Ton partenaire veut consacrer une année entière au voyage."
+  },
+  {
+    "id": "quitter_metier_stable",
+    "question": "Ton partenaire veut abandonner une carrière stable pour suivre une passion."
+  },
+  {
+    "id": "ouvrir_lieu_accueil",
+    "question": "Ton partenaire rêve d'ouvrir un lieu d'accueil pour voyageurs."
+  },
+  {
+    "id": "retour_etudes_reorientation",
+    "question": "Ton partenaire veut reprendre des études pour se réorienter complètement."
+  },
+  {
+    "id": "vivre_pres_mer_definitivement",
+    "question": "Ton partenaire veut vivre au bord de la mer pour toujours."
+  },
+  {
+    "id": "demenager_etranger_retraite",
+    "question": "Ton partenaire prévoit de passer sa retraite à l'étranger."
+  },
+  {
+    "id": "avoir_grande_famille",
+    "question": "Ton partenaire rêve d'une famille avec de nombreux enfants."
+  },
+  {
+    "id": "ne_jamais_avoir_animaux",
+    "question": "Ton partenaire refuse l'idée d'avoir un animal un jour."
+  },
+  {
+    "id": "quitter_reseaux_definitivement",
+    "question": "Ton partenaire veut supprimer définitivement tous ses réseaux sociaux."
+  },
+  {
+    "id": "partir_vivre_ile",
+    "question": "Ton partenaire veut s'installer sur une île."
+  },
+  {
+    "id": "devenir_nomade_permanent",
+    "question": "Ton partenaire veut vivre en voyage permanent."
+  },
+  {
+    "id": "vendre_tous_biens",
+    "question": "Ton partenaire veut vendre la majorité de ses biens pour changer de vie."
+  },
+  {
+    "id": "recommencer_nouvelle_ville",
+    "question": "Ton partenaire veut repartir de zéro dans une ville où personne ne le ou la connaît."
+  },
+  {
+    "id": "retraite_tres_jeune",
+    "question": "Ton partenaire rêve de prendre sa retraite le plus tôt possible."
+  },
+  {
+    "id": "changer_vie_sans_plan",
+    "question": "Ton partenaire veut tout quitter sans avoir de plan précis."
+  }
+]
