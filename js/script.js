@@ -3933,40 +3933,78 @@ function openRelationStats() {
     historyDetailTitle.textContent = "📊 Notre relation";
     historyDetailList.innerHTML = "";
 
-    const paths = [
-        "rankingChallenges",
-        "guessAnswers",
-        "questionsChallenges",
-        "likelyChallenges",
-        "okChallenges",
-        "greenFlagChallenges",
-        "princessChallenges"
+    const modes = [
+        {
+            label: "🌵 Classements",
+            path: "rankingChallenges"
+        },
+        {
+            label: "💭 Devine ma réponse",
+            path: "guessAnswers"
+        },
+        {
+            label: "💬 Questions",
+            path: "questionsChallenges"
+        },
+        {
+            label: "😂 Qui est le plus susceptible",
+            path: "likelyChallenges"
+        },
+        {
+            label: "✅ OK ou Pas OK",
+            path: "okChallenges"
+        },
+        {
+            label: "🚩 Green Flag / Red Flag",
+            path: "greenFlagChallenges"
+        },
+        {
+            label: "👑 Princess Treatment",
+            path: "princessChallenges"
+        }
     ];
 
     Promise.all(
-        paths.map((path) => {
+        modes.map((mode) => {
             return database
-                .ref("spaces/" + currentSpaceCode + "/" + path)
-                .once("value");
+                .ref("spaces/" + currentSpaceCode + "/" + mode.path)
+                .once("value")
+                .then((snapshot) => {
+                    return {
+                        label: mode.label,
+                        items: Object.values(snapshot.val() || {})
+                    };
+                });
         })
-    ).then((snapshots) => {
+    ).then((results) => {
         let totalSouvenirs = 0;
         let totalCompatibility = 0;
         let compatibilityCount = 0;
         let bestCompatibility = 0;
 
-        snapshots.forEach((snapshot) => {
-            const items = Object.values(snapshot.val() || {});
+        let favoriteMode = "Aucun pour le moment";
+        let favoriteModeCount = 0;
 
-            items.forEach((item) => {
-                if (item.status !== "completed") return;
+        results.forEach((modeResult) => {
+            const completedItems = modeResult.items.filter((item) => {
+                return item.status === "completed";
+            });
 
-                totalSouvenirs++;
+            totalSouvenirs += completedItems.length;
 
+            if (completedItems.length > favoriteModeCount) {
+                favoriteModeCount = completedItems.length;
+                favoriteMode = modeResult.label;
+            }
+
+            completedItems.forEach((item) => {
                 if (typeof item.compatibility === "number") {
                     totalCompatibility += item.compatibility;
                     compatibilityCount++;
-                    bestCompatibility = Math.max(bestCompatibility, item.compatibility);
+                    bestCompatibility = Math.max(
+                        bestCompatibility,
+                        item.compatibility
+                    );
                 }
             });
         });
@@ -3979,10 +4017,21 @@ function openRelationStats() {
         addStatCard("📚 Souvenirs créés", totalSouvenirs);
         addStatCard("💚 Compatibilité moyenne", averageCompatibility + "%");
         addStatCard("🏆 Meilleur score", bestCompatibility + "%");
+        addStatCard("🎮 Mode préféré", favoriteMode);
+
+        results.forEach((modeResult) => {
+            const completedItems = modeResult.items.filter((item) => {
+                return item.status === "completed";
+            });
+
+            addStatCard(modeResult.label, completedItems.length + " souvenir(s)");
+        });
 
         showScreen("historyDetail");
     });
 }
+
+
 function addStatCard(label, value) {
     const card = document.createElement("div");
     card.classList.add("history-card");
