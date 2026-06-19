@@ -288,6 +288,11 @@ const historyDetailTitle = document.getElementById("historyDetailTitle");
 const historyDetailList = document.getElementById("historyDetailList");
 const backToHistoryBtn = document.getElementById("backToHistoryBtn");
 
+const historyItemScreen = document.getElementById("historyItemScreen");
+const historyItemTitle = document.getElementById("historyItemTitle");
+const historyItemContent = document.getElementById("historyItemContent");
+const backToHistoryDetailBtn = document.getElementById("backToHistoryDetailBtn");
+
 let pendingGuessValidations = [];
 let saveNotebookTimeout = null;
 
@@ -366,6 +371,10 @@ let pendingRankingResults = [];
 let currentPendingRankingResultIndex = 0;
 
 let nextAfterAnswerFunction = null;
+
+let currentHistoryMode = null;
+let currentHistoryItems = []; 
+
 
 // ====================
 // CHARGEMENT DES DONNÉES
@@ -1316,6 +1325,12 @@ document.querySelectorAll(".history-mode-card").forEach((card) => {
 
 backToHistoryBtn.addEventListener("click", () => {
     showScreen("history");
+});
+
+screenName === "historyItem" ||
+
+backToHistoryDetailBtn.addEventListener("click", () => {
+    showScreen("historyDetail");
 });
 
 // ====================
@@ -3629,6 +3644,9 @@ function showAnswerSentScreen(nextFunction) {
 function openHistoryMode(mode) {
     historyDetailList.innerHTML = "";
 
+    currentHistoryMode = mode;
+    currentHistoryItems = [];
+
     const config = {
         ranking: {
             title: "🌵 Classements",
@@ -3679,11 +3697,16 @@ function openHistoryMode(mode) {
         .then((snapshot) => {
             const data = snapshot.val() || {};
 
-            const items = Object.values(data).filter((item) => {
-                return item.status === "completed";
-            });
+            currentHistoryItems = Object.values(data)
+                .filter((item) => {
+                    return item.status === "completed";
+                })
+                .sort((a, b) => {
+                    return (b.completedAt || b.createdAt || 0) -
+                        (a.completedAt || a.createdAt || 0);
+                });
 
-            if (items.length === 0) {
+            if (currentHistoryItems.length === 0) {
                 historyDetailList.innerHTML =
                     '<p class="empty-text">Aucun souvenir pour ce mode 🌵</p>';
 
@@ -3691,15 +3714,17 @@ function openHistoryMode(mode) {
                 return;
             }
 
-            items
-                .sort((a, b) => {
-                    return (b.completedAt || b.createdAt || 0) -
-                        (a.completedAt || a.createdAt || 0);
-                })
-                .forEach((item) => {
-                    const card = createHistoryCard(mode, item);
-                    historyDetailList.appendChild(card);
+            currentHistoryItems.forEach((item, index) => {
+                const card = createHistoryCard(mode, item);
+
+                card.style.cursor = "pointer";
+
+                card.addEventListener("click", () => {
+                    openHistoryItem(index);
                 });
+
+                historyDetailList.appendChild(card);
+            });
 
             showScreen("historyDetail");
         });
@@ -3768,7 +3793,116 @@ function createHistoryCard(mode, item) {
     return card;
 }
 
+function openHistoryItem(index) {
+    const item = currentHistoryItems[index];
 
+    if (!item) {
+        return;
+    }
+
+    historyItemContent.innerHTML = "";
+
+    historyItemTitle.textContent =
+        item.title ||
+        item.question ||
+        "📚 Souvenir";
+
+    if (currentHistoryMode === "ranking") {
+        renderRankingHistoryItem(item);
+    } else {
+        renderSimpleHistoryItem(item);
+    }
+
+    showScreen("historyItem");
+}
+
+function renderRankingHistoryItem(item) {
+    const scoreBox = document.createElement("div");
+    scoreBox.classList.add("compatibility-score-box");
+
+    scoreBox.innerHTML =
+        "<strong>" +
+        (item.compatibility || 0) +
+        "%</strong>" +
+        "<p>" +
+        getCompatibilityHearts(item.compatibility || 0) +
+        "</p>";
+
+    historyItemContent.appendChild(scoreBox);
+
+    const answersArray =
+        Object.values(item.answers || {});
+
+    answersArray.forEach((answerData) => {
+        const box = document.createElement("div");
+        box.classList.add("comparison-box");
+
+        const title = document.createElement("h3");
+        title.textContent =
+            answerData.pseudo || "Quelqu’un";
+
+        const list = document.createElement("ol");
+
+        (answerData.answer || []).forEach((rankedItem) => {
+            const li = document.createElement("li");
+            li.textContent = rankedItem;
+            list.appendChild(li);
+        });
+
+        box.appendChild(title);
+        box.appendChild(list);
+
+        historyItemContent.appendChild(box);
+    });
+}
+
+function renderSimpleHistoryItem(item) {
+    const answersArray =
+        Object.values(item.answers || {});
+
+    answersArray.forEach((answerData) => {
+        const box = document.createElement("div");
+        box.classList.add("comparison-box");
+
+        const title = document.createElement("h3");
+        title.textContent =
+            answerData.pseudo || "Quelqu’un";
+
+        const answer = document.createElement("p");
+        answer.textContent =
+            answerData.answer || "Pas de réponse";
+
+        box.appendChild(title);
+        box.appendChild(answer);
+
+        historyItemContent.appendChild(box);
+    });
+
+    if (currentHistoryMode === "guess" && item.predictions) {
+        const predictionTitle = document.createElement("h3");
+        predictionTitle.textContent = "Prédictions";
+        historyItemContent.appendChild(predictionTitle);
+
+        Object.values(item.predictions).forEach((predictionData) => {
+            const box = document.createElement("div");
+            box.classList.add("comparison-box");
+
+            const title = document.createElement("h3");
+            title.textContent =
+                (predictionData.pseudo || "Quelqu’un") +
+                " pensait";
+
+            const prediction = document.createElement("p");
+            prediction.textContent =
+                predictionData.prediction || "Pas de prédiction";
+
+            box.appendChild(title);
+            box.appendChild(prediction);
+
+            historyItemContent.appendChild(box);
+        });
+    }
+}
 
 // ====================
 // LANCEMENT

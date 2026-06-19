@@ -60,6 +60,8 @@ function showScreenContent(screenName) {
 
     historyDetailScreen.style.display = "none";
 
+    historyItemScreen.style.display = "none";
+
     // ====================
     // BOUTONS DU HAUT
     // ====================
@@ -202,8 +204,14 @@ function showScreenContent(screenName) {
     historyDetailScreen.style.display = "block";
     break;
 
+    case "historyItem":
+    historyItemScreen.style.display = "block";
+    break;
+
     }
 }
+
+
 
 window.addEventListener("popstate", (event) => {
     if (!event.state || !event.state.screen) {
