@@ -1457,3 +1457,182 @@ body.dark-theme .notebook-editor {
     margin: 14px 0 8px;
     color: #D8F3DC;
 }
+
+/* ====================
+   HISTORIQUE - SOUVENIRS PROPRES
+==================== */
+
+.history-modes-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+.history-mode-card {
+    text-align: left;
+    padding: 16px 18px;
+}
+
+/* Liste des souvenirs par mode */
+
+#historyDetailList {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+
+    max-height: 520px;
+    overflow-y: auto;
+
+    padding-right: 4px;
+    margin-bottom: 18px;
+}
+
+#historyDetailList .history-card {
+    background: rgba(255, 255, 255, 0.08);
+    border: 2px solid #74C69D;
+    border-radius: 22px;
+
+    padding: 18px;
+
+    text-align: left;
+    overflow: hidden;
+}
+
+#historyDetailList .history-card h3 {
+    color: #F8F9FA;
+    font-size: 1.05rem;
+    line-height: 1.35;
+
+    margin-bottom: 12px;
+}
+
+#historyDetailList .history-card p {
+    color: #D8F3DC;
+    font-size: 0.95rem;
+    line-height: 1.45;
+
+    margin: 8px 0;
+
+    word-break: break-word;
+    overflow-wrap: anywhere;
+}
+
+#historyDetailList .history-card strong {
+    color: #FFFFFF;
+}
+
+#historyDetailList .history-card h4 {
+    margin: 14px 0 8px;
+
+    color: #FFFFFF;
+    font-size: 1rem;
+}
+
+/* Écran détail d'un souvenir */
+
+#historyItemContent {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+
+    margin-bottom: 18px;
+}
+
+#historyItemContent .compatibility-score-box {
+    margin-bottom: 0;
+}
+
+#historyItemContent .comparison-box {
+    background: rgba(255, 255, 255, 0.08);
+    border: 2px solid #74C69D;
+    border-radius: 22px;
+
+    padding: 18px;
+
+    text-align: left;
+    overflow: hidden;
+}
+
+#historyItemContent .comparison-box h3 {
+    color: #FFFFFF;
+    font-size: 1.1rem;
+
+    margin-bottom: 10px;
+}
+
+#historyItemContent .comparison-box p {
+    color: #D8F3DC;
+
+    font-size: 1rem;
+    line-height: 1.55;
+
+    word-break: break-word;
+    overflow-wrap: anywhere;
+}
+
+#historyItemContent .comparison-box ol,
+#historyItemContent .comparison-box ul {
+    margin: 12px 0 0;
+    padding-left: 26px;
+
+    color: #D8F3DC;
+    font-size: 1rem;
+    line-height: 1.65;
+    font-weight: 700;
+}
+
+#historyItemContent .comparison-box li {
+    margin-bottom: 8px;
+
+    word-break: break-word;
+    overflow-wrap: anywhere;
+}
+
+/* Score / badge dans les cartes */
+
+.history-score {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: fit-content;
+    max-width: 100%;
+
+    background: #D8F3DC;
+    color: #1B4332;
+
+    padding: 8px 12px;
+    border-radius: 999px;
+
+    font-size: 0.9rem;
+    font-weight: 900;
+
+    line-height: 1.2;
+}
+
+/* Mobile */
+
+@media (max-width: 520px) {
+    #historyDetailList {
+        max-height: none;
+        overflow-y: visible;
+    }
+
+    #historyDetailList .history-card,
+    #historyItemContent .comparison-box {
+        padding: 16px;
+        border-radius: 20px;
+    }
+
+    #historyItemContent .comparison-box ol,
+    #historyItemContent .comparison-box ul {
+        padding-left: 22px;
+        font-size: 0.95rem;
+    }
+
+    #historyItemContent .comparison-box p,
+    #historyDetailList .history-card p {
+        font-size: 0.95rem;
+    }
+}
