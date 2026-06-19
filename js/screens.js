@@ -1,4 +1,20 @@
+let isNavigatingWithBrowserBack = false;
+let lastShownScreen = null;
+
 function showScreen(screenName) {
+    if (!isNavigatingWithBrowserBack && lastShownScreen !== screenName) {
+        history.pushState(
+            { screen: screenName },
+            "",
+            "#" + screenName
+        );
+    }
+
+    lastShownScreen = screenName;
+    showScreenContent(screenName);
+}
+
+function showScreenContent(screenName) {
 
     // ====================
     // MASQUER TOUS LES ÉCRANS
@@ -26,19 +42,19 @@ function showScreen(screenName) {
     guessResultScreen.style.display = "none";
 
     likelyScreen.style.display = "none";
-likelyResultScreen.style.display = "none";
+    likelyResultScreen.style.display = "none";
 
-okScreen.style.display = "none";
-okResultScreen.style.display = "none";
+    okScreen.style.display = "none";
+    okResultScreen.style.display = "none";
 
-greenFlagScreen.style.display = "none";
-greenFlagResultScreen.style.display = "none";
+    greenFlagScreen.style.display = "none";
+    greenFlagResultScreen.style.display = "none";
 
-princessScreen.style.display = "none";
-princessResultScreen.style.display = "none";
+    princessScreen.style.display = "none";
+    princessResultScreen.style.display = "none";
 
-questionsScreen.style.display = "none";
-questionsResultScreen.style.display = "none";
+    questionsScreen.style.display = "none";
+    questionsResultScreen.style.display = "none";
 
     // ====================
     // BOUTONS DU HAUT
@@ -64,7 +80,6 @@ questionsResultScreen.style.display = "none";
     // ====================
 
     switch (screenName) {
-
         case "login":
             loginScreen.style.display = "block";
             break;
@@ -109,18 +124,6 @@ questionsResultScreen.style.display = "none";
             notebookScreen.style.display = "block";
             break;
 
-            case "likely":
-    likelyScreen.style.display = "block";
-    break;
-
-case "likelyResult":
-    likelyResultScreen.style.display = "block";
-    break;
-
-        // ====================
-        // DEVINE MA RÉPONSE
-        // ====================
-
         case "guessAnswer":
             guessAnswerScreen.style.display = "block";
             break;
@@ -141,37 +144,68 @@ case "likelyResult":
             guessResultScreen.style.display = "block";
             break;
 
-            case "ok":
-    okScreen.style.display = "block";
-    break;
+        case "likely":
+            likelyScreen.style.display = "block";
+            break;
 
-case "okResult":
-    okResultScreen.style.display = "block";
-    break;
+        case "likelyResult":
+            likelyResultScreen.style.display = "block";
+            break;
 
-    case "greenFlag":
-    greenFlagScreen.style.display = "block";
-    break;
+        case "ok":
+            okScreen.style.display = "block";
+            break;
 
-case "greenFlagResult":
-    greenFlagResultScreen.style.display = "block";
-    break;
+        case "okResult":
+            okResultScreen.style.display = "block";
+            break;
 
-    case "princess":
-    princessScreen.style.display = "block";
-    break;
+        case "greenFlag":
+            greenFlagScreen.style.display = "block";
+            break;
 
-case "princessResult":
-    princessResultScreen.style.display = "block";
-    break;
-    
-case "questions":
-    questionsScreen.style.display = "block";
-    break;
+        case "greenFlagResult":
+            greenFlagResultScreen.style.display = "block";
+            break;
 
-case "questionsResult":
-    questionsResultScreen.style.display = "block";
-    break;
+        case "princess":
+            princessScreen.style.display = "block";
+            break;
 
+        case "princessResult":
+            princessResultScreen.style.display = "block";
+            break;
+
+        case "questions":
+            questionsScreen.style.display = "block";
+            break;
+
+        case "questionsResult":
+            questionsResultScreen.style.display = "block";
+            break;
+
+        default:
+            dashboardScreen.style.display = "block";
+            lastShownScreen = "dashboard";
+            break;
     }
 }
+
+window.addEventListener("popstate", (event) => {
+    if (!event.state || !event.state.screen) {
+        return;
+    }
+
+    isNavigatingWithBrowserBack = true;
+
+    lastShownScreen = event.state.screen;
+    showScreenContent(event.state.screen);
+
+    isNavigatingWithBrowserBack = false;
+});
+
+history.replaceState(
+    { screen: "login" },
+    "",
+    "#login"
+);
