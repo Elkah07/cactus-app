@@ -286,8 +286,11 @@ function listenToCurrentSpace(spaceCodeValue) {
         listenToRankingChallenges();
         listenToGuessChallenges();
         listenToLikelyChallenges();
+        listenToOkChallenges();
     });
 }
+
+
 
 async function loadRankingsData() {
     const response = await fetch("data/rankings.json");
@@ -1846,6 +1849,38 @@ if (pendingLikelyResults.length > 0) {
     activityList.appendChild(item);
 }
 
+if (pendingOkChallenges.length > 0) {
+    hasActivities = true;
+
+    const item = document.createElement("p");
+    item.classList.add("mode-notification");
+    item.textContent =
+        "💚 " + pendingOkChallenges.length + " question(s) OK ou Pas OK";
+
+    item.addEventListener("click", () => {
+        currentPendingOkIndex = 0;
+        startPendingOkChallenge();
+    });
+
+    activityList.appendChild(item);
+}
+
+if (pendingOkResults.length > 0) {
+    hasActivities = true;
+
+    const item = document.createElement("p");
+    item.classList.add("mode-notification");
+    item.textContent =
+        "💚 " + pendingOkResults.length + " résultat(s) OK ou Pas OK";
+
+    item.addEventListener("click", () => {
+        currentPendingOkIndex = 0;
+        showPendingOkResult();
+    });
+
+    activityList.appendChild(item);
+}
+
     activityBox.style.display = hasActivities ? "block" : "none";
 }
 
@@ -2212,6 +2247,66 @@ function saveOkAnswer(answer) {
             alert("Réponse enregistrée 🌵");
             showScreen("dashboard");
         });
+}
+
+function listenToOkChallenges() {
+    database
+        .ref("spaces/" + currentSpaceCode + "/okChallenges")
+        .on("value", (snapshot) => {
+            const challenges = snapshot.val() || {};
+
+            Object.entries(challenges).forEach(([id, challenge]) => {
+                const answers = challenge.answers || {};
+                const answersCount = Object.keys(answers).length;
+
+                if (
+                    answersCount >= 2 &&
+                    challenge.status === "answering"
+                ) {
+                    database
+                        .ref(
+                            "spaces/" +
+                            currentSpaceCode +
+                            "/okChallenges/" +
+                            id
+                        )
+                        .update({
+                            status: "completed",
+                            completedAt: Date.now()
+                        });
+                }
+            });
+
+            displayOkChallenges(challenges);
+        });
+}
+
+function displayOkChallenges(challenges) {
+    const challengeArray = Object.values(challenges || {});
+
+    pendingOkChallenges = challengeArray.filter((challenge) => {
+        return (
+            challenge.status === "answering" &&
+            challenge.answers &&
+            !challenge.answers[currentUser.uid] &&
+            Object.keys(challenge.answers).some((uid) => uid !== currentUser.uid)
+        );
+    });
+
+    pendingOkResults = challengeArray.filter((challenge) => {
+        const seenByMe =
+            challenge.seenBy &&
+            challenge.seenBy[currentUser.uid];
+
+        return (
+            challenge.status === "completed" &&
+            challenge.answers &&
+            challenge.answers[currentUser.uid] &&
+            !seenByMe
+        );
+    });
+
+    updateActivityBox();
 }
 
 // ====================
