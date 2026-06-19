@@ -1255,6 +1255,21 @@ backFromQuestionsBtn.addEventListener("click", () => {
     showScreen("dashboard");
 });
 
+nextQuestionsBtn.addEventListener("click", () => {
+    markCurrentQuestionsResultSeen().then(() => {
+        currentPendingQuestionsIndex++;
+        showPendingQuestionsResult();
+    });
+});
+
+backDashboardFromQuestionsBtn.addEventListener("click", () => {
+    markCurrentQuestionsResultSeen().then(() => {
+        showScreen("dashboard");
+    });
+});
+
+
+
 // ====================
 // BARRE FLOTTANTE
 // ====================
@@ -2178,6 +2193,38 @@ if (pendingPrincessResults.length > 0) {
         currentPendingPrincessIndex = 0;
 
         showPendingPrincessResult();
+    });
+
+    activityList.appendChild(item);
+}
+
+if (pendingQuestionsChallenges.length > 0) {
+    hasActivities = true;
+
+    const item = document.createElement("p");
+    item.classList.add("mode-notification");
+    item.textContent =
+        "💬 " + pendingQuestionsChallenges.length + " question(s) à répondre";
+
+    item.addEventListener("click", () => {
+        currentPendingQuestionsIndex = 0;
+        startPendingQuestionsChallenge();
+    });
+
+    activityList.appendChild(item);
+}
+
+if (pendingQuestionsResults.length > 0) {
+    hasActivities = true;
+
+    const item = document.createElement("p");
+    item.classList.add("mode-notification");
+    item.textContent =
+        "💬 " + pendingQuestionsResults.length + " réponse(s) à découvrir";
+
+    item.addEventListener("click", () => {
+        currentPendingQuestionsIndex = 0;
+        showPendingQuestionsResult();
     });
 
     activityList.appendChild(item);
@@ -3351,6 +3398,80 @@ function displayQuestionsChallenges(challenges) {
 
     updateActivityBox();
 }
+
+function startPendingQuestionsChallenge() {
+    const challenge =
+        pendingQuestionsChallenges[currentPendingQuestionsIndex];
+
+    if (!challenge) {
+        showScreen("dashboard");
+        return;
+    }
+
+    currentCoupleQuestionId = challenge.questionId;
+
+    currentCoupleQuestion = {
+        id: challenge.questionId,
+        question: challenge.question
+    };
+
+    questionsQuestionText.textContent = challenge.question;
+    questionsAnswerInput.value = "";
+
+    showScreen("questions");
+}
+
+function showPendingQuestionsResult() {
+    const challenge =
+        pendingQuestionsResults[currentPendingQuestionsIndex];
+
+    if (!challenge) {
+        showScreen("dashboard");
+        return;
+    }
+
+    const answersArray = Object.values(challenge.answers);
+
+    const myAnswer =
+        challenge.answers[currentUser.uid];
+
+    const partnerAnswer =
+        answersArray.find((answer) => {
+            return answer.uid !== currentUser.uid;
+        });
+
+    questionsResultQuestion.textContent =
+        challenge.question;
+
+    questionsMyAnswer.textContent =
+        myAnswer ? myAnswer.answer : "Pas de réponse";
+
+    questionsPartnerAnswer.textContent =
+        partnerAnswer ? partnerAnswer.answer : "Pas encore répondu";
+
+    showScreen("questionsResult");
+}
+
+function markCurrentQuestionsResultSeen() {
+    const challenge =
+        pendingQuestionsResults[currentPendingQuestionsIndex];
+
+    if (!challenge) {
+        return Promise.resolve();
+    }
+
+    return database
+        .ref(
+            "spaces/" +
+            currentSpaceCode +
+            "/questionsChallenges/" +
+            challenge.questionId +
+            "/seenBy/" +
+            currentUser.uid
+        )
+        .set(true);
+}
+
 
 
 // ====================
