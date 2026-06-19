@@ -279,6 +279,10 @@ const backDashboardFromQuestionsBtn = document.getElementById("backDashboardFrom
 
 const toastMessage = document.getElementById("toastMessage");
 
+const answerSentScreen = document.getElementById("answerSentScreen");
+const answerSentNextBtn = document.getElementById("answerSentNextBtn");
+const answerSentDashboardBtn = document.getElementById("answerSentDashboardBtn");
+
 let pendingGuessValidations = [];
 let saveNotebookTimeout = null;
 
@@ -355,6 +359,8 @@ let currentPendingQuestionsIndex = 0;
 
 let pendingRankingResults = [];
 let currentPendingRankingResultIndex = 0;
+
+let nextAfterAnswerFunction = null;
 
 // ====================
 // CHARGEMENT DES DONNÉES
@@ -1283,7 +1289,18 @@ backDashboardFromQuestionsBtn.addEventListener("click", () => {
     });
 });
 
+answerSentNextBtn.addEventListener("click", () => {
+    if (nextAfterAnswerFunction) {
+        nextAfterAnswerFunction();
+        return;
+    }
 
+    showScreen("dashboard");
+});
+
+answerSentDashboardBtn.addEventListener("click", () => {
+    showScreen("dashboard");
+});
 
 // ====================
 // BARRE FLOTTANTE
@@ -3575,6 +3592,11 @@ function markCurrentRankingResultSeen() {
             currentUser.uid
         )
         .set(true);
+}
+
+function showAnswerSentScreen(nextFunction) {
+    nextAfterAnswerFunction = nextFunction;
+    showScreen("answerSent");
 }
 
 // ====================

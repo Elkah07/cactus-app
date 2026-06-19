@@ -56,6 +56,8 @@ function showScreenContent(screenName) {
     questionsScreen.style.display = "none";
     questionsResultScreen.style.display = "none";
 
+    answerSentScreen.style.display = "none";
+
     // ====================
     // BOUTONS DU HAUT
     // ====================
@@ -188,6 +190,10 @@ function showScreenContent(screenName) {
             dashboardScreen.style.display = "block";
             lastShownScreen = "dashboard";
             break;
+
+            case "answerSent":
+    answerSentScreen.style.display = "block";
+    break;
     }
 }
 
