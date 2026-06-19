@@ -1037,6 +1037,19 @@ backFromOkBtn.addEventListener("click", () => {
     showScreen("dashboard");
 });
 
+nextOkBtn.addEventListener("click", () => {
+    markCurrentOkResultSeen().then(() => {
+        currentPendingOkIndex++;
+        showPendingOkResult();
+    });
+});
+
+backDashboardFromOkBtn.addEventListener("click", () => {
+    markCurrentOkResultSeen().then(() => {
+        showScreen("dashboard");
+    });
+});
+
 // ====================
 // BARRE FLOTTANTE
 // ====================
@@ -2307,6 +2320,91 @@ function displayOkChallenges(challenges) {
     });
 
     updateActivityBox();
+}
+
+function startPendingOkChallenge() {
+    const challenge =
+        pendingOkChallenges[currentPendingOkIndex];
+
+    if (!challenge) {
+        showScreen("dashboard");
+        return;
+    }
+
+    currentOkId = challenge.questionId;
+
+    currentOkQuestion = {
+        id: challenge.questionId,
+        question: challenge.question
+    };
+
+    okQuestionText.textContent = challenge.question;
+
+    showScreen("ok");
+}
+
+function showPendingOkResult() {
+    const challenge =
+        pendingOkResults[currentPendingOkIndex];
+
+    if (!challenge) {
+        showScreen("dashboard");
+        return;
+    }
+
+    const answersArray = Object.values(challenge.answers);
+
+    const myAnswer =
+        challenge.answers[currentUser.uid];
+
+    const partnerAnswer =
+        answersArray.find((answer) => {
+            return answer.uid !== currentUser.uid;
+        });
+
+    okResultQuestion.textContent = challenge.question;
+
+    okMyAnswer.textContent =
+        myAnswer ? myAnswer.answer : "Pas de réponse";
+
+    okPartnerAnswer.textContent =
+        partnerAnswer ? partnerAnswer.answer : "Pas encore répondu";
+
+    if (
+        myAnswer &&
+        partnerAnswer &&
+        myAnswer.answer === partnerAnswer.answer
+    ) {
+        okVerdictEmoji.textContent = "💚";
+        okVerdictText.textContent =
+            "Vous êtes d’accord.";
+    } else {
+        okVerdictEmoji.textContent = "👀";
+        okVerdictText.textContent =
+            "Vous n’avez pas la même limite.";
+    }
+
+    showScreen("okResult");
+}
+
+function markCurrentOkResultSeen() {
+    const challenge =
+        pendingOkResults[currentPendingOkIndex];
+
+    if (!challenge) {
+        return Promise.resolve();
+    }
+
+    return database
+        .ref(
+            "spaces/" +
+            currentSpaceCode +
+            "/okChallenges/" +
+            challenge.questionId +
+            "/seenBy/" +
+            currentUser.uid
+        )
+        .set(true);
 }
 
 // ====================
