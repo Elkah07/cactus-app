@@ -340,6 +340,7 @@ function listenToCurrentSpace(spaceCodeValue) {
         listenToGuessChallenges();
         listenToLikelyChallenges();
         listenToOkChallenges();
+        listenToGreenFlagChallenges();
     });
 }
 
@@ -1121,6 +1122,19 @@ greenFlagNoBtn.addEventListener("click", () => {
 
 backFromGreenFlagBtn.addEventListener("click", () => {
     showScreen("dashboard");
+});
+
+nextGreenFlagBtn.addEventListener("click", () => {
+    markCurrentGreenFlagResultSeen().then(() => {
+        currentPendingGreenFlagIndex++;
+        showPendingGreenFlagResult();
+    });
+});
+
+backDashboardFromGreenFlagBtn.addEventListener("click", () => {
+    markCurrentGreenFlagResultSeen().then(() => {
+        showScreen("dashboard");
+    });
 });
 
 // ====================
@@ -1967,6 +1981,38 @@ if (pendingOkResults.length > 0) {
     activityList.appendChild(item);
 }
 
+if (pendingGreenFlagChallenges.length > 0) {
+    hasActivities = true;
+
+    const item = document.createElement("p");
+    item.classList.add("mode-notification");
+    item.textContent =
+        "💚 " + pendingGreenFlagChallenges.length + " question(s) Green Flag / Red Flag";
+
+    item.addEventListener("click", () => {
+        currentPendingGreenFlagIndex = 0;
+        startPendingGreenFlagChallenge();
+    });
+
+    activityList.appendChild(item);
+}
+
+if (pendingGreenFlagResults.length > 0) {
+    hasActivities = true;
+
+    const item = document.createElement("p");
+    item.classList.add("mode-notification");
+    item.textContent =
+        "💚 " + pendingGreenFlagResults.length + " résultat(s) Green Flag / Red Flag";
+
+    item.addEventListener("click", () => {
+        currentPendingGreenFlagIndex = 0;
+        showPendingGreenFlagResult();
+    });
+
+    activityList.appendChild(item);
+}
+
     activityBox.style.display = hasActivities ? "block" : "none";
 }
 
@@ -2550,6 +2596,154 @@ function saveGreenFlagAnswer(answer) {
             alert("Réponse enregistrée 🌵");
             showScreen("dashboard");
         });
+}
+
+function listenToGreenFlagChallenges() {
+    database
+        .ref("spaces/" + currentSpaceCode + "/greenFlagChallenges")
+        .on("value", (snapshot) => {
+            const challenges = snapshot.val() || {};
+
+            Object.entries(challenges).forEach(([id, challenge]) => {
+                const answers = challenge.answers || {};
+                const answersCount = Object.keys(answers).length;
+
+                if (
+                    answersCount >= 2 &&
+                    challenge.status === "answering"
+                ) {
+                    database
+                        .ref(
+                            "spaces/" +
+                            currentSpaceCode +
+                            "/greenFlagChallenges/" +
+                            id
+                        )
+                        .update({
+                            status: "completed",
+                            completedAt: Date.now()
+                        });
+                }
+            });
+
+            displayGreenFlagChallenges(challenges);
+        });
+}
+
+function displayGreenFlagChallenges(challenges) {
+    const challengeArray = Object.values(challenges || {});
+
+    pendingGreenFlagChallenges = challengeArray.filter((challenge) => {
+        return (
+            challenge.status === "answering" &&
+            challenge.answers &&
+            !challenge.answers[currentUser.uid] &&
+            Object.keys(challenge.answers).some((uid) => uid !== currentUser.uid)
+        );
+    });
+
+    pendingGreenFlagResults = challengeArray.filter((challenge) => {
+        const seenByMe =
+            challenge.seenBy &&
+            challenge.seenBy[currentUser.uid];
+
+        return (
+            challenge.status === "completed" &&
+            challenge.answers &&
+            challenge.answers[currentUser.uid] &&
+            !seenByMe
+        );
+    });
+
+    updateActivityBox();
+}
+
+function startPendingGreenFlagChallenge() {
+    const challenge =
+        pendingGreenFlagChallenges[currentPendingGreenFlagIndex];
+
+    if (!challenge) {
+        showScreen("dashboard");
+        return;
+    }
+
+    currentGreenFlagId = challenge.questionId;
+
+    currentGreenFlagQuestion = {
+        id: challenge.questionId,
+        question: challenge.question
+    };
+
+    greenFlagQuestionText.textContent =
+        challenge.question;
+
+    showScreen("greenFlag");
+}
+
+function showPendingGreenFlagResult() {
+    const challenge =
+        pendingGreenFlagResults[currentPendingGreenFlagIndex];
+
+    if (!challenge) {
+        showScreen("dashboard");
+        return;
+    }
+
+    const answersArray =
+        Object.values(challenge.answers);
+
+    const myAnswer =
+        challenge.answers[currentUser.uid];
+
+    const partnerAnswer =
+        answersArray.find((answer) => {
+            return answer.uid !== currentUser.uid;
+        });
+
+    greenFlagResultQuestion.textContent =
+        challenge.question;
+
+    greenFlagMyAnswer.textContent =
+        myAnswer ? myAnswer.answer : "Pas de réponse";
+
+    greenFlagPartnerAnswer.textContent =
+        partnerAnswer ? partnerAnswer.answer : "Pas encore répondu";
+
+    if (
+        myAnswer &&
+        partnerAnswer &&
+        myAnswer.answer === partnerAnswer.answer
+    ) {
+        greenFlagVerdictEmoji.textContent = "💚";
+        greenFlagVerdictText.textContent =
+            "Vous voyez les choses de la même façon.";
+    } else {
+        greenFlagVerdictEmoji.textContent = "👀";
+        greenFlagVerdictText.textContent =
+            "Vous n’avez pas la même lecture de ce comportement.";
+    }
+
+    showScreen("greenFlagResult");
+}
+
+function markCurrentGreenFlagResultSeen() {
+    const challenge =
+        pendingGreenFlagResults[currentPendingGreenFlagIndex];
+
+    if (!challenge) {
+        return Promise.resolve();
+    }
+
+    return database
+        .ref(
+            "spaces/" +
+            currentSpaceCode +
+            "/greenFlagChallenges/" +
+            challenge.questionId +
+            "/seenBy/" +
+            currentUser.uid
+        )
+        .set(true);
 }
 
 // ====================

@@ -1,1 +1,394 @@
-[]
+[
+  {
+    "id": "green_red_001",
+    "question": "Quelqu'un qui répond toujours dans la minute."
+  },
+  {
+    "id": "green_red_002",
+    "question": "Quelqu'un qui met son téléphone en mode silencieux toute la journée."
+  },
+  {
+    "id": "green_red_003",
+    "question": "Quelqu'un qui est ami avec plusieurs ex."
+  },
+  {
+    "id": "green_red_004",
+    "question": "Quelqu'un qui partage sa localisation en permanence."
+  },
+  {
+    "id": "green_red_005",
+    "question": "Quelqu'un qui refuse de partager sa localisation."
+  },
+  {
+    "id": "green_red_006",
+    "question": "Quelqu'un qui voyage souvent sans son partenaire."
+  },
+  {
+    "id": "green_red_007",
+    "question": "Quelqu'un qui parle d'argent dès les premiers rendez-vous."
+  },
+  {
+    "id": "green_red_008",
+    "question": "Quelqu'un qui préfère garder un compte bancaire séparé."
+  },
+  {
+    "id": "green_red_009",
+    "question": "Quelqu'un qui raconte tout à ses amis."
+  },
+  {
+    "id": "green_red_010",
+    "question": "Quelqu'un qui garde beaucoup de choses pour lui."
+  },
+  {
+    "id": "green_red_011",
+    "question": "Quelqu'un qui travaille le week-end par ambition."
+  },
+  {
+    "id": "green_red_012",
+    "question": "Quelqu'un qui change souvent de travail."
+  },
+  {
+    "id": "green_red_013",
+    "question": "Quelqu'un qui publie beaucoup de selfies."
+  },
+  {
+    "id": "green_red_014",
+    "question": "Quelqu'un qui ne publie jamais rien."
+  },
+  {
+    "id": "green_red_015",
+    "question": "Quelqu'un qui veut tout planifier à l'avance."
+  },
+  {
+    "id": "green_red_016",
+    "question": "Quelqu'un qui décide au dernier moment."
+  },
+  {
+    "id": "green_red_017",
+    "question": "Quelqu'un qui a besoin de plusieurs soirées seul chaque semaine."
+  },
+  {
+    "id": "green_red_018",
+    "question": "Quelqu'un qui veut tout faire en couple."
+  },
+  {
+    "id": "green_red_019",
+    "question": "Quelqu'un qui suit encore tous ses ex sur les réseaux."
+  },
+  {
+    "id": "green_red_020",
+    "question": "Quelqu'un qui supprime systématiquement ses ex des réseaux."
+  },
+  {
+    "id": "green_red_021",
+    "question": "Quelqu'un qui prête facilement de l'argent."
+  },
+  {
+    "id": "green_red_022",
+    "question": "Quelqu'un qui ne prête jamais d'argent."
+  },
+  {
+    "id": "green_red_023",
+    "question": "Quelqu'un qui répond aux messages professionnels le soir."
+  },
+  {
+    "id": "green_red_024",
+    "question": "Quelqu'un qui coupe totalement avec le travail après sa journée."
+  },
+  {
+    "id": "green_red_025",
+    "question": "Quelqu'un qui passe beaucoup de temps avec sa famille."
+  },
+  {
+    "id": "green_red_026",
+    "question": "Quelqu'un qui voit rarement sa famille."
+  },
+  {
+    "id": "green_red_027",
+    "question": "Quelqu'un qui adore sortir tous les week-ends."
+  },
+  {
+    "id": "green_red_028",
+    "question": "Quelqu'un qui préfère rester chez lui."
+  },
+  {
+    "id": "green_red_029",
+    "question": "Quelqu'un qui a beaucoup d'amis du sexe qui l'attire."
+  },
+  {
+    "id": "green_red_030",
+    "question": "Quelqu'un qui n'a presque aucun ami proche."
+  },
+  {
+    "id": "green_red_031",
+    "question": "Quelqu'un qui demande souvent de la réassurance."
+  },
+  {
+    "id": "green_red_032",
+    "question": "Quelqu'un qui ne demande jamais de réassurance."
+  },
+  {
+    "id": "green_red_033",
+    "question": "Quelqu'un qui garde les cadeaux de ses ex."
+  },
+  {
+    "id": "green_red_034",
+    "question": "Quelqu'un qui jette tous les souvenirs de ses ex."
+  },
+  {
+    "id": "green_red_035",
+    "question": "Quelqu'un qui aime débattre de tout."
+  },
+  {
+    "id": "green_red_036",
+    "question": "Quelqu'un qui évite les désaccords."
+  },
+  {
+    "id": "green_red_037",
+    "question": "Quelqu'un qui dépense beaucoup pour ses loisirs."
+  },
+  {
+    "id": "green_red_038",
+    "question": "Quelqu'un qui économise au maximum."
+  },
+  {
+    "id": "green_red_039",
+    "question": "Quelqu'un qui part seul en vacances de temps en temps."
+  },
+  {
+    "id": "green_red_040",
+    "question": "Quelqu'un qui veut toujours partir en vacances à deux."
+  },
+  {
+    "id": "green_red_041",
+    "question": "Quelqu'un qui aime flirter pour plaisanter."
+  },
+  {
+    "id": "green_red_042",
+    "question": "Quelqu'un qui ne flirte jamais."
+  },
+  {
+    "id": "green_red_043",
+    "question": "Quelqu'un qui partage tous ses mots de passe."
+  },
+  {
+    "id": "green_red_044",
+    "question": "Quelqu'un qui garde tous ses mots de passe privés."
+  },
+  {
+    "id": "green_red_045",
+    "question": "Quelqu'un qui parle facilement de ses émotions."
+  },
+  {
+    "id": "green_red_046",
+    "question": "Quelqu'un qui a du mal à parler de ses émotions."
+  },
+  {
+    "id": "green_red_047",
+    "question": "Quelqu'un qui adore les surprises."
+  },
+  {
+    "id": "green_red_048",
+    "question": "Quelqu'un qui déteste les surprises."
+  },
+  {
+    "id": "green_red_049",
+    "question": "Quelqu'un qui veut des nouvelles plusieurs fois par jour."
+  },
+  {
+    "id": "green_red_050",
+    "question": "Quelqu'un qui peut passer une journée sans écrire."
+  },
+  {
+    "id": "green_red_051",
+    "question": "Quelqu'un qui a un meilleur ami extrêmement présent."
+  },
+  {
+    "id": "green_red_052",
+    "question": "Quelqu'un qui préfère avoir plusieurs groupes d'amis."
+  },
+  {
+    "id": "green_red_053",
+    "question": "Quelqu'un qui répond honnêtement même quand ça blesse."
+  },
+  {
+    "id": "green_red_054",
+    "question": "Quelqu'un qui préfère éviter de blesser."
+  },
+  {
+    "id": "green_red_055",
+    "question": "Quelqu'un qui est très ambitieux professionnellement."
+  },
+  {
+    "id": "green_red_056",
+    "question": "Quelqu'un qui privilégie sa qualité de vie."
+  },
+  {
+    "id": "green_red_057",
+    "question": "Quelqu'un qui poste souvent des photos de son couple."
+  },
+  {
+    "id": "green_red_058",
+    "question": "Quelqu'un qui garde sa relation privée."
+  },
+  {
+    "id": "green_red_059",
+    "question": "Quelqu'un qui annule parfois au dernier moment."
+  },
+  {
+    "id": "green_red_060",
+    "question": "Quelqu'un qui est toujours ponctuel."
+  },
+  {
+    "id": "green_red_061",
+    "question": "Quelqu'un qui aime être rassuré sur son physique."
+  },
+  {
+    "id": "green_red_062",
+    "question": "Quelqu'un qui ne demande jamais de compliments."
+  },
+  {
+    "id": "green_red_063",
+    "question": "Quelqu'un qui consulte souvent l'avis de ses parents."
+  },
+  {
+    "id": "green_red_064",
+    "question": "Quelqu'un qui décide seul."
+  },
+  {
+    "id": "green_red_065",
+    "question": "Quelqu'un qui a beaucoup d'humour noir."
+  },
+  {
+    "id": "green_red_066",
+    "question": "Quelqu'un qui évite les blagues sensibles."
+  },
+  {
+    "id": "green_red_067",
+    "question": "Quelqu'un qui veut tout savoir de la journée de son partenaire."
+  },
+  {
+    "id": "green_red_068",
+    "question": "Quelqu'un qui respecte totalement le jardin secret."
+  },
+  {
+    "id": "green_red_069",
+    "question": "Quelqu'un qui est très tactile avec ses amis."
+  },
+  {
+    "id": "green_red_070",
+    "question": "Quelqu'un qui garde une certaine distance physique."
+  },
+  {
+    "id": "green_red_071",
+    "question": "Quelqu'un qui adore les grandes fêtes."
+  },
+  {
+    "id": "green_red_072",
+    "question": "Quelqu'un qui préfère les petits groupes."
+  },
+  {
+    "id": "green_red_073",
+    "question": "Quelqu'un qui fait souvent passer son travail avant ses loisirs."
+  },
+  {
+    "id": "green_red_074",
+    "question": "Quelqu'un qui refuse de sacrifier ses loisirs."
+  },
+  {
+    "id": "green_red_075",
+    "question": "Quelqu'un qui est très proche de son ex belle-famille."
+  },
+  {
+    "id": "green_red_076",
+    "question": "Quelqu'un qui coupe les ponts après une rupture."
+  },
+  {
+    "id": "green_red_077",
+    "question": "Quelqu'un qui veut emménager rapidement."
+  },
+  {
+    "id": "green_red_078",
+    "question": "Quelqu'un qui préfère prendre son temps."
+  },
+  {
+    "id": "green_red_079",
+    "question": "Quelqu'un qui partage toutes ses dépenses dans le détail."
+  },
+  {
+    "id": "green_red_080",
+    "question": "Quelqu'un qui reste vague sur ses finances."
+  },
+  {
+    "id": "green_red_081",
+    "question": "Quelqu'un qui a toujours besoin d'un projet en cours."
+  },
+  {
+    "id": "green_red_082",
+    "question": "Quelqu'un qui aime vivre au jour le jour."
+  },
+  {
+    "id": "green_red_083",
+    "question": "Quelqu'un qui commente souvent les publications des autres."
+  },
+  {
+    "id": "green_red_084",
+    "question": "Quelqu'un qui regarde sans jamais interagir."
+  },
+  {
+    "id": "green_red_085",
+    "question": "Quelqu'un qui est jaloux mais l'assume."
+  },
+  {
+    "id": "green_red_086",
+    "question": "Quelqu'un qui n'est presque jamais jaloux."
+  },
+  {
+    "id": "green_red_087",
+    "question": "Quelqu'un qui aime dormir seul de temps en temps."
+  },
+  {
+    "id": "green_red_088",
+    "question": "Quelqu'un qui veut toujours dormir ensemble."
+  },
+  {
+    "id": "green_red_089",
+    "question": "Quelqu'un qui aide spontanément les inconnus."
+  },
+  {
+    "id": "green_red_090",
+    "question": "Quelqu'un qui préfère se concentrer sur ses proches."
+  },
+  {
+    "id": "green_red_091",
+    "question": "Quelqu'un qui garde toutes ses conversations archivées."
+  },
+  {
+    "id": "green_red_092",
+    "question": "Quelqu'un qui supprime régulièrement ses conversations."
+  },
+  {
+    "id": "green_red_093",
+    "question": "Quelqu'un qui dit rapidement je t'aime."
+  },
+  {
+    "id": "green_red_094",
+    "question": "Quelqu'un qui attend longtemps avant de le dire."
+  },
+  {
+    "id": "green_red_095",
+    "question": "Quelqu'un qui aime recevoir beaucoup d'attention."
+  },
+  {
+    "id": "green_red_096",
+    "question": "Quelqu'un qui est très indépendant."
+  },
+  {
+    "id": "green_red_097",
+    "question": "Quelqu'un qui vérifie toujours les avis avant une décision."
+  },
+  {
+    "id": "green_red_098",
+    "question": "Quelqu'un qui suit surtout son instinct."
+  }
+]
