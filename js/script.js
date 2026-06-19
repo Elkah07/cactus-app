@@ -2375,7 +2375,10 @@ function saveLikelyAnswer(answer) {
         })
         .then(() => {
     showToast("🌵 Réponse enregistrée");
-    startLikelyGame();
+
+    showAnswerSentScreen(() => {
+        startLikelyGame();
+    });
 });
 }
 
@@ -2655,7 +2658,10 @@ function saveOkAnswer(answer) {
         })
         .then(() => {
     showToast("🌵 Réponse enregistrée");
-    startOkGame();
+
+    showAnswerSentScreen(() => {
+        startOkGame();
+    });
 });
 }
 
@@ -2872,7 +2878,10 @@ function saveGreenFlagAnswer(answer) {
         })
         .then(() => {
     showToast("🌵 Réponse enregistrée");
-    startGreenFlagGame();
+
+    showAnswerSentScreen(() => {
+        startGreenFlagGame();
+    });
 });
 }
 
@@ -3068,10 +3077,8 @@ function savePrincessAnswer(answer) {
             currentPrincessId
         )
         .update({
-            questionId:
-                currentPrincessQuestion.id,
-            question:
-                currentPrincessQuestion.question,
+            questionId: currentPrincessQuestion.id,
+            question: currentPrincessQuestion.question,
             status: "answering",
             createdAt: Date.now()
         })
@@ -3093,7 +3100,11 @@ function savePrincessAnswer(answer) {
                 });
         })
         .then(() => {
-            showScreen("dashboard");
+            showToast("👑 Réponse enregistrée");
+
+            showAnswerSentScreen(() => {
+                startPrincessGame();
+            });
         });
 }
 
