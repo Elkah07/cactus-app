@@ -954,6 +954,19 @@ backDashboardFromLikelyBtn.addEventListener("click", () => {
     });
 });
 
+nextLikelyBtn.addEventListener("click", () => {
+    markCurrentLikelyResultSeen().then(() => {
+        currentPendingLikelyIndex++;
+        showPendingLikelyResult();
+    });
+});
+
+backDashboardFromLikelyBtn.addEventListener("click", () => {
+    markCurrentLikelyResultSeen().then(() => {
+        showScreen("dashboard");
+    });
+});
+
 // ====================
 // BARRE FLOTTANTE
 // ====================
@@ -1966,6 +1979,77 @@ function showPendingLikelyResult() {
         partnerAnswer
             ? partnerAnswer.answer
             : "En attente";
+
+    showScreen("likelyResult");
+}
+
+function markCurrentLikelyResultSeen() {
+    const challenge =
+        pendingLikelyResults[currentPendingLikelyIndex];
+
+    if (!challenge) {
+        return Promise.resolve();
+    }
+
+    return database
+        .ref(
+            "spaces/" +
+            currentSpaceCode +
+            "/likelyChallenges/" +
+            challenge.questionId +
+            "/seenBy/" +
+            currentUser.uid
+        )
+        .set(true);
+}
+
+function startPendingLikelyChallenge() {
+    const challenge =
+        pendingLikelyChallenges[currentPendingLikelyIndex];
+
+    if (!challenge) {
+        showScreen("dashboard");
+        return;
+    }
+
+    currentLikelyId = challenge.questionId;
+
+    currentLikelyQuestion = {
+        id: challenge.questionId,
+        question: challenge.question
+    };
+
+    likelyQuestionText.textContent = challenge.question;
+
+    showScreen("likely");
+}
+
+function showPendingLikelyResult() {
+    const challenge =
+        pendingLikelyResults[currentPendingLikelyIndex];
+
+    if (!challenge) {
+        showScreen("dashboard");
+        return;
+    }
+
+    const answersArray = Object.values(challenge.answers);
+
+    const myAnswer =
+        challenge.answers[currentUser.uid];
+
+    const partnerAnswer =
+        answersArray.find((answer) => {
+            return answer.uid !== currentUser.uid;
+        });
+
+    likelyResultQuestion.textContent = challenge.question;
+
+    likelyMyAnswer.textContent =
+        myAnswer ? myAnswer.answer : "Pas de réponse";
+
+    likelyPartnerAnswer.textContent =
+        partnerAnswer ? partnerAnswer.answer : "Pas encore répondu";
 
     showScreen("likelyResult");
 }
