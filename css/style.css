@@ -1411,3 +1411,49 @@ body.dark-theme .notebook-editor {
     opacity: 1;
     transform: translateX(-50%) translateY(0);
 }
+
+#historyItemContent {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+#historyItemContent .comparison-box {
+    overflow: hidden;
+}
+
+#historyItemContent .comparison-box ol {
+    margin: 12px 0 0;
+    padding-left: 24px;
+
+    color: #D8F3DC;
+    font-size: 1rem;
+    line-height: 1.7;
+    font-weight: 700;
+}
+
+#historyItemContent .comparison-box li {
+    margin-bottom: 6px;
+    word-break: break-word;
+}
+
+#historyDetailList {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.history-card {
+    overflow: hidden;
+}
+
+.history-card p {
+    margin: 8px 0;
+    line-height: 1.45;
+    word-break: break-word;
+}
+
+.history-card h4 {
+    margin: 14px 0 8px;
+    color: #D8F3DC;
+}
