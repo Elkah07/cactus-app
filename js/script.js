@@ -1327,8 +1327,6 @@ backToHistoryBtn.addEventListener("click", () => {
     showScreen("history");
 });
 
-screenName === "historyItem" ||
-
 backToHistoryDetailBtn.addEventListener("click", () => {
     showScreen("historyDetail");
 });

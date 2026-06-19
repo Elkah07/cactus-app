@@ -71,12 +71,15 @@ function showScreenContent(screenName) {
     settingsBtn.style.display = "none";
 
     if (
-        screenName === "dashboard" ||
-        screenName === "history" ||
-        screenName === "historyDetail" ||
-        screenName === "garden" ||
-        screenName === "settings"
-    ) {
+    screenName === "dashboard" ||
+    screenName === "history" ||
+    screenName === "historyDetail" ||
+    screenName === "historyItem" ||
+    screenName === "garden" ||
+    screenName === "settings"
+)
+
+{
         historyBtn.style.display = "flex";
         gardenBtn.style.display = "flex";
         settingsBtn.style.display = "flex";
@@ -191,21 +194,21 @@ function showScreenContent(screenName) {
             questionsResultScreen.style.display = "block";
             break;
 
-        default:
-            dashboardScreen.style.display = "block";
-            lastShownScreen = "dashboard";
-            break;
-
-            case "answerSent":
+        case "answerSent":
     answerSentScreen.style.display = "block";
     break;
 
-    case "historyDetail":
+case "historyDetail":
     historyDetailScreen.style.display = "block";
     break;
 
-    case "historyItem":
+case "historyItem":
     historyItemScreen.style.display = "block";
+    break;
+
+default:
+    dashboardScreen.style.display = "block";
+    lastShownScreen = "dashboard";
     break;
 
     }
