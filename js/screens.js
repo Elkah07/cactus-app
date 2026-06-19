@@ -58,6 +58,8 @@ function showScreenContent(screenName) {
 
     answerSentScreen.style.display = "none";
 
+    historyDetailScreen.style.display = "none";
+
     // ====================
     // BOUTONS DU HAUT
     // ====================
@@ -69,6 +71,7 @@ function showScreenContent(screenName) {
     if (
         screenName === "dashboard" ||
         screenName === "history" ||
+        screenName === "historyDetail" ||
         screenName === "garden" ||
         screenName === "settings"
     ) {
@@ -194,6 +197,11 @@ function showScreenContent(screenName) {
             case "answerSent":
     answerSentScreen.style.display = "block";
     break;
+
+    case "historyDetail":
+    historyDetailScreen.style.display = "block";
+    break;
+
     }
 }
 

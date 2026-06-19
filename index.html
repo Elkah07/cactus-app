@@ -106,13 +106,51 @@
     <h1>📚 Nos souvenirs</h1>
 
     <p class="subtitle">
-        Tous vos jeux terminés ensemble.
+        Retrouvez vos anciennes réponses par mode de jeu.
     </p>
 
-    <div id="historyList"></div>
+    <div class="history-modes-grid">
+        <button class="history-mode-card" data-history-mode="ranking">
+            🌵 Classements
+        </button>
+
+        <button class="history-mode-card" data-history-mode="guess">
+            💭 Devine ma réponse
+        </button>
+
+        <button class="history-mode-card" data-history-mode="questions">
+            💬 Questions
+        </button>
+
+        <button class="history-mode-card" data-history-mode="likely">
+            😂 Qui est le plus susceptible
+        </button>
+
+        <button class="history-mode-card" data-history-mode="ok">
+            ✅ OK ou Pas OK
+        </button>
+
+        <button class="history-mode-card" data-history-mode="greenFlag">
+            🚩 Green Flag / Red Flag
+        </button>
+
+        <button class="history-mode-card" data-history-mode="princess">
+            👑 Princess Treatment
+        </button>
+    </div>
 
     <button id="backFromHistoryBtn" class="secondary">
         Retour
+    </button>
+</div>
+
+<div id="historyDetailScreen" style="display:none;">
+    <h1 id="historyDetailTitle">📚 Souvenirs</h1>
+
+    <div id="historyDetailList"></div>
+
+    <button id="backToHistoryBtn" class="secondary">
+        Retour aux souvenirs
     </button>
 </div>
 

@@ -283,6 +283,11 @@ const answerSentScreen = document.getElementById("answerSentScreen");
 const answerSentNextBtn = document.getElementById("answerSentNextBtn");
 const answerSentDashboardBtn = document.getElementById("answerSentDashboardBtn");
 
+const historyDetailScreen = document.getElementById("historyDetailScreen");
+const historyDetailTitle = document.getElementById("historyDetailTitle");
+const historyDetailList = document.getElementById("historyDetailList");
+const backToHistoryBtn = document.getElementById("backToHistoryBtn");
+
 let pendingGuessValidations = [];
 let saveNotebookTimeout = null;
 
@@ -865,7 +870,7 @@ toggleThemeBtn.addEventListener("click", () => {
 });
 
 historyBtn.addEventListener("click", () => {
-    loadHistory();
+    showScreen("history");
 });
 
 backFromHistoryBtn.addEventListener("click", () => {
@@ -1300,6 +1305,17 @@ answerSentNextBtn.addEventListener("click", () => {
 
 answerSentDashboardBtn.addEventListener("click", () => {
     showScreen("dashboard");
+});
+
+document.querySelectorAll(".history-mode-card").forEach((card) => {
+    card.addEventListener("click", () => {
+        const mode = card.dataset.historyMode;
+        openHistoryMode(mode);
+    });
+});
+
+backToHistoryBtn.addEventListener("click", () => {
+    showScreen("history");
 });
 
 // ====================
