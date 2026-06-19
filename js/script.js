@@ -3934,34 +3934,13 @@ function openRelationStats() {
     historyDetailList.innerHTML = "";
 
     const modes = [
-        {
-            label: "🌵 Classements",
-            path: "rankingChallenges"
-        },
-        {
-            label: "💭 Devine ma réponse",
-            path: "guessAnswers"
-        },
-        {
-            label: "💬 Questions",
-            path: "questionsChallenges"
-        },
-        {
-            label: "😂 Qui est le plus susceptible",
-            path: "likelyChallenges"
-        },
-        {
-            label: "✅ OK ou Pas OK",
-            path: "okChallenges"
-        },
-        {
-            label: "🚩 Green Flag / Red Flag",
-            path: "greenFlagChallenges"
-        },
-        {
-            label: "👑 Princess Treatment",
-            path: "princessChallenges"
-        }
+        { label: "🌵 Classements", path: "rankingChallenges" },
+        { label: "💭 Devine ma réponse", path: "guessAnswers" },
+        { label: "💬 Questions", path: "questionsChallenges" },
+        { label: "😂 Qui est le plus susceptible", path: "likelyChallenges" },
+        { label: "✅ OK ou Pas OK", path: "okChallenges" },
+        { label: "🚩 Green Flag / Red Flag", path: "greenFlagChallenges" },
+        { label: "👑 Princess Treatment", path: "princessChallenges" }
     ];
 
     Promise.all(
@@ -3985,6 +3964,9 @@ function openRelationStats() {
         let favoriteMode = "Aucun pour le moment";
         let favoriteModeCount = 0;
 
+        let firstMemoryDate = null;
+        let lastMemoryDate = null;
+
         results.forEach((modeResult) => {
             const completedItems = modeResult.items.filter((item) => {
                 return item.status === "completed";
@@ -3998,6 +3980,18 @@ function openRelationStats() {
             }
 
             completedItems.forEach((item) => {
+                const date = item.completedAt || item.createdAt;
+
+                if (date) {
+                    if (!firstMemoryDate || date < firstMemoryDate) {
+                        firstMemoryDate = date;
+                    }
+
+                    if (!lastMemoryDate || date > lastMemoryDate) {
+                        lastMemoryDate = date;
+                    }
+                }
+
                 if (typeof item.compatibility === "number") {
                     totalCompatibility += item.compatibility;
                     compatibilityCount++;
@@ -4019,12 +4013,29 @@ function openRelationStats() {
         addStatCard("🏆 Meilleur score", bestCompatibility + "%");
         addStatCard("🎮 Mode préféré", favoriteMode);
 
+        addStatCard(
+            "🌱 Premier souvenir",
+            firstMemoryDate
+                ? formatHistoryDate(firstMemoryDate)
+                : "Aucun pour le moment"
+        );
+
+        addStatCard(
+            "✨ Dernier souvenir",
+            lastMemoryDate
+                ? formatHistoryDate(lastMemoryDate)
+                : "Aucun pour le moment"
+        );
+
         results.forEach((modeResult) => {
             const completedItems = modeResult.items.filter((item) => {
                 return item.status === "completed";
             });
 
-            addStatCard(modeResult.label, completedItems.length + " souvenir(s)");
+            addStatCard(
+                modeResult.label,
+                completedItems.length + " souvenir(s)"
+            );
         });
 
         showScreen("historyDetail");
