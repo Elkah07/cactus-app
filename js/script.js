@@ -3626,6 +3626,150 @@ function showAnswerSentScreen(nextFunction) {
     showScreen("answerSent");
 }
 
+function openHistoryMode(mode) {
+    historyDetailList.innerHTML = "";
+
+    const config = {
+        ranking: {
+            title: "🌵 Classements",
+            path: "rankingChallenges"
+        },
+        guess: {
+            title: "💭 Devine ma réponse",
+            path: "guessAnswers"
+        },
+        questions: {
+            title: "💬 Questions",
+            path: "questionsChallenges"
+        },
+        likely: {
+            title: "😂 Qui est le plus susceptible",
+            path: "likelyChallenges"
+        },
+        ok: {
+            title: "✅ OK ou Pas OK",
+            path: "okChallenges"
+        },
+        greenFlag: {
+            title: "🚩 Green Flag / Red Flag",
+            path: "greenFlagChallenges"
+        },
+        princess: {
+            title: "👑 Princess Treatment",
+            path: "princessChallenges"
+        }
+    };
+
+    const selectedMode = config[mode];
+
+    if (!selectedMode) {
+        return;
+    }
+
+    historyDetailTitle.textContent = selectedMode.title;
+
+    database
+        .ref(
+            "spaces/" +
+            currentSpaceCode +
+            "/" +
+            selectedMode.path
+        )
+        .once("value")
+        .then((snapshot) => {
+            const data = snapshot.val() || {};
+
+            const items = Object.values(data).filter((item) => {
+                return item.status === "completed";
+            });
+
+            if (items.length === 0) {
+                historyDetailList.innerHTML =
+                    '<p class="empty-text">Aucun souvenir pour ce mode 🌵</p>';
+
+                showScreen("historyDetail");
+                return;
+            }
+
+            items
+                .sort((a, b) => {
+                    return (b.completedAt || b.createdAt || 0) -
+                        (a.completedAt || a.createdAt || 0);
+                })
+                .forEach((item) => {
+                    const card = createHistoryCard(mode, item);
+                    historyDetailList.appendChild(card);
+                });
+
+            showScreen("historyDetail");
+        });
+}
+
+function createHistoryCard(mode, item) {
+    const card = document.createElement("div");
+    card.classList.add("history-card");
+
+    const title = document.createElement("h3");
+    title.textContent =
+        item.title ||
+        item.question ||
+        "Souvenir";
+
+    card.appendChild(title);
+
+    if (mode === "ranking") {
+        const score = document.createElement("span");
+        score.classList.add("history-score");
+
+        score.textContent =
+            getCompatibilityHearts(item.compatibility || 0) +
+            " " +
+            (item.compatibility || 0) +
+            "%";
+
+        card.appendChild(score);
+        return card;
+    }
+
+    if (item.answers) {
+        const answersArray = Object.values(item.answers);
+
+        answersArray.forEach((answer) => {
+            const p = document.createElement("p");
+
+            p.innerHTML =
+                "<strong>" +
+                (answer.pseudo || "Quelqu’un") +
+                " :</strong> " +
+                (answer.answer || "Pas de réponse");
+
+            card.appendChild(p);
+        });
+    }
+
+    if (mode === "guess" && item.predictions) {
+        const predictionsTitle = document.createElement("h4");
+        predictionsTitle.textContent = "Prédictions";
+        card.appendChild(predictionsTitle);
+
+        Object.values(item.predictions).forEach((prediction) => {
+            const p = document.createElement("p");
+
+            p.innerHTML =
+                "<strong>" +
+                (prediction.pseudo || "Quelqu’un") +
+                " pensait :</strong> " +
+                (prediction.prediction || "Pas de prédiction");
+
+            card.appendChild(p);
+        });
+    }
+
+    return card;
+}
+
+
+
 // ====================
 // LANCEMENT
 // ====================
