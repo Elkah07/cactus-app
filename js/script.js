@@ -314,6 +314,17 @@ async function loadLikelyQuestionsData() {
         likelyQuestions
     );
 }
+
+async function loadOkQuestionsData() {
+    const response = await fetch("data/ok-ou-pas-ok.json");
+    okQuestions = await response.json();
+
+    console.log("Questions OK ou Pas OK chargées :", okQuestions);
+}
+
+loadOkQuestionsData();
+
+
 // ====================
 // ÉVÉNEMENTS
 // ====================
@@ -1001,6 +1012,26 @@ backDashboardFromLikelyBtn.addEventListener("click", () => {
     markCurrentLikelyResultSeen().then(() => {
         showScreen("dashboard");
     });
+});
+
+okBtn.addEventListener("click", () => {
+    startOkGame();
+});
+
+okYesBtn.addEventListener("click", () => {
+    saveOkAnswer("OK");
+});
+
+okDependsBtn.addEventListener("click", () => {
+    saveOkAnswer("Ça dépend");
+});
+
+okNoBtn.addEventListener("click", () => {
+    saveOkAnswer("Pas OK");
+});
+
+backFromOkBtn.addEventListener("click", () => {
+    showScreen("dashboard");
 });
 
 // ====================
@@ -2120,6 +2151,67 @@ function markCurrentLikelyResultSeen() {
             currentUser.uid
         )
         .set(true);
+}
+
+function startOkGame() {
+    if (!okQuestions.length) {
+        alert("Questions en cours de chargement...");
+        return;
+    }
+
+    currentOkQuestion =
+        okQuestions[Math.floor(Math.random() * okQuestions.length)];
+
+    currentOkId = currentOkQuestion.id;
+
+    okQuestionText.textContent =
+        currentOkQuestion.question;
+
+    showScreen("ok");
+}
+
+function saveOkAnswer(answer) {
+    if (!currentOkQuestion) {
+        alert("Question introuvable 🌵");
+        return;
+    }
+
+    currentOkId = currentOkQuestion.id;
+
+    database
+        .ref(
+            "spaces/" +
+            currentSpaceCode +
+            "/okChallenges/" +
+            currentOkId
+        )
+        .update({
+            questionId: currentOkQuestion.id,
+            question: currentOkQuestion.question,
+            status: "answering",
+            createdAt: Date.now()
+        })
+        .then(() => {
+            return database
+                .ref(
+                    "spaces/" +
+                    currentSpaceCode +
+                    "/okChallenges/" +
+                    currentOkId +
+                    "/answers/" +
+                    currentUser.uid
+                )
+                .set({
+                    uid: currentUser.uid,
+                    pseudo: pseudo,
+                    answer: answer,
+                    createdAt: Date.now()
+                });
+        })
+        .then(() => {
+            alert("Réponse enregistrée 🌵");
+            showScreen("dashboard");
+        });
 }
 
 // ====================
