@@ -224,6 +224,10 @@
     OK ou Pas OK ?
 </button>
 
+<button id="greenFlagBtn" class="secondary">
+    Green Flag / Red Flag
+</button>
+
 <button id="leaveSpaceBtn" class="secondary">
     Quitter cet espace
 </button>
@@ -513,6 +517,57 @@
     </button>
 
     <button id="backDashboardFromOkBtn" class="secondary">
+        Retour au dashboard
+    </button>
+</div>
+
+<div id="greenFlagScreen" style="display:none;">
+    <h1>🌵 Green Flag / Red Flag</h1>
+
+    <p id="greenFlagQuestionText" class="subtitle"></p>
+
+    <button id="greenFlagYesBtn">
+        Green Flag
+    </button>
+
+    <button id="greenFlagNeutralBtn" class="secondary">
+        Neutre
+    </button>
+
+    <button id="greenFlagNoBtn" class="danger-btn">
+        Red Flag
+    </button>
+
+    <button id="backFromGreenFlagBtn" class="secondary">
+        Retour
+    </button>
+</div>
+
+<div id="greenFlagResultScreen" style="display:none;">
+    <h1>🌵 Résultat</h1>
+
+    <p id="greenFlagResultQuestion" class="subtitle"></p>
+
+    <div class="compatibility-score-box">
+        <strong id="greenFlagVerdictEmoji">🌵</strong>
+        <p id="greenFlagVerdictText"></p>
+    </div>
+
+    <div class="comparison-box">
+        <h3>Ta réponse</h3>
+        <p id="greenFlagMyAnswer"></p>
+    </div>
+
+    <div class="comparison-box">
+        <h3>Réponse partenaire</h3>
+        <p id="greenFlagPartnerAnswer"></p>
+    </div>
+
+    <button id="nextGreenFlagBtn">
+        Question suivante
+    </button>
+
+    <button id="backDashboardFromGreenFlagBtn" class="secondary">
         Retour au dashboard
     </button>
 </div>

@@ -193,6 +193,51 @@ const okPartnerAnswer = document.getElementById("okPartnerAnswer");
 const nextOkBtn = document.getElementById("nextOkBtn");
 const backDashboardFromOkBtn = document.getElementById("backDashboardFromOkBtn");
 
+const greenFlagBtn =
+    document.getElementById("greenFlagBtn");
+
+const greenFlagScreen =
+    document.getElementById("greenFlagScreen");
+
+const greenFlagResultScreen =
+    document.getElementById("greenFlagResultScreen");
+
+const greenFlagQuestionText =
+    document.getElementById("greenFlagQuestionText");
+
+const greenFlagYesBtn =
+    document.getElementById("greenFlagYesBtn");
+
+const greenFlagNeutralBtn =
+    document.getElementById("greenFlagNeutralBtn");
+
+const greenFlagNoBtn =
+    document.getElementById("greenFlagNoBtn");
+
+const backFromGreenFlagBtn =
+    document.getElementById("backFromGreenFlagBtn");
+
+const greenFlagResultQuestion =
+    document.getElementById("greenFlagResultQuestion");
+
+const greenFlagVerdictEmoji =
+    document.getElementById("greenFlagVerdictEmoji");
+
+const greenFlagVerdictText =
+    document.getElementById("greenFlagVerdictText");
+
+const greenFlagMyAnswer =
+    document.getElementById("greenFlagMyAnswer");
+
+const greenFlagPartnerAnswer =
+    document.getElementById("greenFlagPartnerAnswer");
+
+const nextGreenFlagBtn =
+    document.getElementById("nextGreenFlagBtn");
+
+const backDashboardFromGreenFlagBtn =
+    document.getElementById("backDashboardFromGreenFlagBtn");
+
 let pendingGuessValidations = [];
 let saveNotebookTimeout = null;
 
@@ -242,6 +287,14 @@ let currentOkId = null;
 let pendingOkChallenges = [];
 let pendingOkResults = [];
 let currentPendingOkIndex = 0;
+
+let greenFlagQuestions = [];
+let currentGreenFlagQuestion = null;
+let currentGreenFlagId = null;
+
+let pendingGreenFlagChallenges = [];
+let pendingGreenFlagResults = [];
+let currentPendingGreenFlagIndex = 0;
 
 // ====================
 // CHARGEMENT DES DONNÉES
@@ -1048,6 +1101,26 @@ backDashboardFromOkBtn.addEventListener("click", () => {
     markCurrentOkResultSeen().then(() => {
         showScreen("dashboard");
     });
+});
+
+greenFlagBtn.addEventListener("click", () => {
+    startGreenFlagGame();
+});
+
+greenFlagYesBtn.addEventListener("click", () => {
+    saveGreenFlagAnswer("Green Flag");
+});
+
+greenFlagNeutralBtn.addEventListener("click", () => {
+    saveGreenFlagAnswer("Neutre");
+});
+
+greenFlagNoBtn.addEventListener("click", () => {
+    saveGreenFlagAnswer("Red Flag");
+});
+
+backFromGreenFlagBtn.addEventListener("click", () => {
+    showScreen("dashboard");
 });
 
 // ====================
@@ -2405,6 +2478,78 @@ function markCurrentOkResultSeen() {
             currentUser.uid
         )
         .set(true);
+}
+
+async function loadGreenFlagQuestionsData() {
+    const response = await fetch("data/green-flag-red-flag.json");
+    greenFlagQuestions = await response.json();
+
+    console.log("Questions Green Flag chargées :", greenFlagQuestions);
+}
+
+loadGreenFlagQuestionsData();
+
+function startGreenFlagGame() {
+    if (!greenFlagQuestions.length) {
+        alert("Questions en cours de chargement...");
+        return;
+    }
+
+    currentGreenFlagQuestion =
+        greenFlagQuestions[
+            Math.floor(Math.random() * greenFlagQuestions.length)
+        ];
+
+    currentGreenFlagId = currentGreenFlagQuestion.id;
+
+    greenFlagQuestionText.textContent =
+        currentGreenFlagQuestion.question;
+
+    showScreen("greenFlag");
+}
+
+function saveGreenFlagAnswer(answer) {
+    if (!currentGreenFlagQuestion) {
+        alert("Question introuvable 🌵");
+        return;
+    }
+
+    currentGreenFlagId = currentGreenFlagQuestion.id;
+
+    database
+        .ref(
+            "spaces/" +
+            currentSpaceCode +
+            "/greenFlagChallenges/" +
+            currentGreenFlagId
+        )
+        .update({
+            questionId: currentGreenFlagQuestion.id,
+            question: currentGreenFlagQuestion.question,
+            status: "answering",
+            createdAt: Date.now()
+        })
+        .then(() => {
+            return database
+                .ref(
+                    "spaces/" +
+                    currentSpaceCode +
+                    "/greenFlagChallenges/" +
+                    currentGreenFlagId +
+                    "/answers/" +
+                    currentUser.uid
+                )
+                .set({
+                    uid: currentUser.uid,
+                    pseudo: pseudo,
+                    answer: answer,
+                    createdAt: Date.now()
+                });
+        })
+        .then(() => {
+            alert("Réponse enregistrée 🌵");
+            showScreen("dashboard");
+        });
 }
 
 // ====================

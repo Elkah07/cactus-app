@@ -31,6 +31,9 @@ likelyResultScreen.style.display = "none";
 okScreen.style.display = "none";
 okResultScreen.style.display = "none";
 
+greenFlagScreen.style.display = "none";
+greenFlagResultScreen.style.display = "none";
+
     // ====================
     // BOUTONS DU HAUT
     // ====================
@@ -139,5 +142,14 @@ case "likelyResult":
 case "okResult":
     okResultScreen.style.display = "block";
     break;
+
+    case "greenFlag":
+    greenFlagScreen.style.display = "block";
+    break;
+
+case "greenFlagResult":
+    greenFlagResultScreen.style.display = "block";
+    break;
+    
     }
 }
