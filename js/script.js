@@ -277,6 +277,8 @@ const questionsPartnerAnswer = document.getElementById("questionsPartnerAnswer")
 const nextQuestionsBtn = document.getElementById("nextQuestionsBtn");
 const backDashboardFromQuestionsBtn = document.getElementById("backDashboardFromQuestionsBtn");
 
+const toastMessage = document.getElementById("toastMessage");
+
 let pendingGuessValidations = [];
 let saveNotebookTimeout = null;
 
@@ -624,7 +626,7 @@ validateGuessAnswerBtn.addEventListener("click", () => {
                 });
         })
         .then(() => {
-            alert("Réponse enregistrée 🌵");
+            showToast("🌵 Réponse enregistrée");
             showScreen("dashboard");
         });
 });
@@ -2313,7 +2315,7 @@ function saveLikelyAnswer(answer) {
                 });
         })
         .then(() => {
-            alert("Réponse enregistrée 🌵");
+            showToast("🌵 Réponse enregistrée");
             showScreen("dashboard");
         });
 }
@@ -2593,7 +2595,7 @@ function saveOkAnswer(answer) {
                 });
         })
         .then(() => {
-            alert("Réponse enregistrée 🌵");
+            showToast("🌵 Réponse enregistrée");
             showScreen("dashboard");
         });
 }
@@ -2810,7 +2812,7 @@ function saveGreenFlagAnswer(answer) {
                 });
         })
         .then(() => {
-            alert("Réponse enregistrée 🌵");
+            showToast("🌵 Réponse enregistrée");
             showScreen("dashboard");
         });
 }
@@ -3472,7 +3474,14 @@ function markCurrentQuestionsResultSeen() {
         .set(true);
 }
 
+function showToast(message) {
+    toastMessage.textContent = message;
+    toastMessage.classList.add("visible");
 
+    setTimeout(() => {
+        toastMessage.classList.remove("visible");
+    }, 1800);
+}
 
 // ====================
 // LANCEMENT

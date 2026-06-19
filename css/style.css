@@ -1383,3 +1383,31 @@ body.dark-theme .notebook-editor {
     cursor: pointer;
     margin: 8px 0;
 }
+
+.toast-message {
+    position: fixed;
+    left: 50%;
+    bottom: 28px;
+    transform: translateX(-50%) translateY(20px);
+
+    background: #1B4332;
+    color: #D8F3DC;
+
+    padding: 14px 18px;
+    border-radius: 999px;
+
+    font-weight: 900;
+    font-size: 0.95rem;
+
+    opacity: 0;
+    pointer-events: none;
+
+    z-index: 10000;
+
+    transition: 0.25s ease;
+}
+
+.toast-message.visible {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
