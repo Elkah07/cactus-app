@@ -293,6 +293,12 @@ const historyItemTitle = document.getElementById("historyItemTitle");
 const historyItemContent = document.getElementById("historyItemContent");
 const backToHistoryDetailBtn = document.getElementById("backToHistoryDetailBtn");
 
+const guessAnswerTitle =
+    document.querySelector("#guessAnswerScreen h1");
+
+const guessPredictTitle =
+    document.querySelector("#guessPredictScreen h1");
+
 let pendingGuessValidations = [];
 let saveNotebookTimeout = null;
 
@@ -604,6 +610,8 @@ guessBtn.addEventListener("click", () => {
         currentGuessQuestion.question;
 
     guessAnswerInput.value = "";
+
+    guessAnswerTitle.textContent = "Écris ta réponse";
 
     showScreen("guessAnswer");
 });
@@ -1863,19 +1871,7 @@ function displayGuessChallenges(challenges) {
         );
     });
 
-    pendingRankingResults = challengeArray.filter((challenge) => {
-    const seenByMe =
-        challenge.seenBy &&
-        challenge.seenBy[currentUser.uid];
-
-    return (
-        challenge.status === "completed" &&
-        challenge.answers &&
-        challenge.answers[currentUser.uid] &&
-        !seenByMe
-    );
-});
-
+    
     updateActivityBox();
 }
 
@@ -1897,6 +1893,8 @@ function startPendingGuessAnswer() {
 
     guessQuestionText.textContent = challenge.question;
     guessAnswerInput.value = "";
+
+    guessAnswerTitle.textContent = "Écris ta réponse";
 
     showScreen("guessAnswer");
 }
@@ -1921,6 +1919,9 @@ function startPendingGuessPrediction() {
         challenge.question;
 
     guessPredictionInput.value = "";
+
+    guessPredictTitle.textContent =
+    "Devine la réponse de ton/ta partenaire";
 
     showScreen("guessPredict");
 }
@@ -2148,7 +2149,8 @@ function updateActivityBox() {
         const item = document.createElement("p");
         item.classList.add("mode-notification");
         item.textContent =
-            "💚 " + pendingGuessResults.length + " résultat(s) disponibles";
+            item.textContent =
+    "💭 " + pendingGuessResults.length + " résultat(s) Devine ma réponse";
 
         item.addEventListener("click", () => {
             currentPendingGuessIndex = 0;
@@ -4104,6 +4106,19 @@ function displayRankingChallenges(challenges) {
 
         return !alreadyAnswered && answeredBySomeoneElse;
     });
+
+    pendingRankingResults = challengeArray.filter((challenge) => {
+    const seenByMe =
+        challenge.seenBy &&
+        challenge.seenBy[currentUser.uid];
+
+    return (
+        challenge.status === "completed" &&
+        challenge.answers &&
+        challenge.answers[currentUser.uid] &&
+        !seenByMe
+    );
+});
 
     updateActivityBox();
 }
