@@ -2511,71 +2511,9 @@ function startPendingLikelyChallenge() {
     showScreen("likely");
 }
 
-function showPendingLikelyResult() {
-    const challenge =
-        pendingLikelyResults[currentPendingLikelyIndex];
 
-    if (!challenge) {
-        showScreen("dashboard");
-        return;
-    }
 
-    const answersArray =
-        Object.values(challenge.answers);
 
-    const myAnswer =
-        challenge.answers[currentUser.uid];
-
-    const partnerAnswer =
-        answersArray.find((answer) => {
-            return answer.uid !== currentUser.uid;
-        });
-
-    likelyResultQuestion.textContent =
-        challenge.question;
-
-    likelyMyAnswer.textContent =
-        myAnswer ? myAnswer.answer : "Pas de réponse";
-
-    likelyPartnerAnswer.textContent =
-        partnerAnswer ? partnerAnswer.answer : "Pas encore répondu";
-
-    if (
-    myAnswer &&
-    partnerAnswer &&
-    myAnswer.answer === partnerAnswer.answer
-) {
-    likelyVerdictEmoji.textContent = "💚";
-    likelyVerdictText.textContent =
-        "Vous êtes totalement d’accord.";
-} else {
-    likelyVerdictEmoji.textContent = "👀";
-    likelyVerdictText.textContent =
-        "Vous n’avez pas désigné la même personne.";
-}
-
-    showScreen("likelyResult");
-}
-
-function markCurrentLikelyResultSeen() {
-    const challenge =
-        pendingLikelyResults[currentPendingLikelyIndex];
-
-    if (!challenge) {
-        return Promise.resolve();
-    }
-
-    return database
-        .ref(
-            "spaces/" +
-            currentSpaceCode +
-            "/likelyChallenges/" +
-            challenge.questionId +
-            "/seenBy/" +
-            currentUser.uid
-        )
-        .set(true);
-}
 
 function startPendingLikelyChallenge() {
     const challenge =
@@ -2607,7 +2545,8 @@ function showPendingLikelyResult() {
         return;
     }
 
-    const answersArray = Object.values(challenge.answers);
+    const answersArray =
+        Object.values(challenge.answers || {});
 
     const myAnswer =
         challenge.answers[currentUser.uid];
@@ -2617,13 +2556,28 @@ function showPendingLikelyResult() {
             return answer.uid !== currentUser.uid;
         });
 
-    likelyResultQuestion.textContent = challenge.question;
+    likelyResultQuestion.textContent =
+        challenge.question;
 
     likelyMyAnswer.textContent =
         myAnswer ? myAnswer.answer : "Pas de réponse";
 
     likelyPartnerAnswer.textContent =
         partnerAnswer ? partnerAnswer.answer : "Pas encore répondu";
+
+    if (
+        myAnswer &&
+        partnerAnswer &&
+        myAnswer.answer === partnerAnswer.answer
+    ) {
+        likelyVerdictEmoji.textContent = "💚";
+        likelyVerdictText.textContent =
+            "Vous êtes totalement d’accord.";
+    } else {
+        likelyVerdictEmoji.textContent = "👀";
+        likelyVerdictText.textContent =
+            "Vous n’avez pas désigné la même personne.";
+    }
 
     showScreen("likelyResult");
 }
