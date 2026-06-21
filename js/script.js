@@ -2068,7 +2068,11 @@ function updateActivityBox() {
     const item = document.createElement("p");
     item.classList.add("mode-notification");
     item.textContent =
-        "💚 " + pendingRankingResults.length + " résultat(s) Classements";
+    "💚 " +
+    pendingRankingResults.length +
+    (pendingRankingResults.length === 1
+        ? " résultat Classement"
+        : " résultats Classements");
 
     item.addEventListener("click", () => {
         currentPendingRankingResultIndex = 0;
@@ -2084,7 +2088,11 @@ function updateActivityBox() {
         const item = document.createElement("p");
         item.classList.add("mode-notification");
         item.textContent =
-            "💚 " + pendingRankingChallenges.length + " classement(s) t’attendent";
+    "💚 " +
+    pendingRankingChallenges.length +
+    (pendingRankingChallenges.length === 1
+        ? " classement t’attend"
+        : " classements t’attendent");
 
         item.addEventListener("click", () => {
             isPlayingPendingChallenges = true;
@@ -4135,37 +4143,40 @@ function displayRankingChallenges(challenges) {
     const challengeArray = Object.values(challenges || {});
 
     pendingRankingChallenges = challengeArray.filter((challenge) => {
-        if (challenge.status === "completed") {
-            return false;
-        }
+        if (challenge.status !== "answering") return false;
+        if (!challenge.answers) return false;
+        if (!challenge.rankingId) return false;
 
-        if (!challenge.answers) {
-            return false;
-        }
-
-        const alreadyAnswered =
+        const myAnswer =
             challenge.answers[currentUser.uid];
 
-        const answeredBySomeoneElse =
+        const partnerAnswered =
             Object.keys(challenge.answers).some((uid) => {
                 return uid !== currentUser.uid;
             });
 
-        return !alreadyAnswered && answeredBySomeoneElse;
+        return !myAnswer && partnerAnswered;
     });
 
     pendingRankingResults = challengeArray.filter((challenge) => {
-    const seenByMe =
-        challenge.seenBy &&
-        challenge.seenBy[currentUser.uid];
+        if (challenge.status !== "completed") return false;
+        if (!challenge.answers) return false;
+        if (!challenge.rankingId) return false;
 
-    return (
-        challenge.status === "completed" &&
-        challenge.answers &&
-        challenge.answers[currentUser.uid] &&
-        !seenByMe
-    );
-});
+        const myAnswer =
+            challenge.answers[currentUser.uid];
+
+        const partnerAnswered =
+            Object.keys(challenge.answers).some((uid) => {
+                return uid !== currentUser.uid;
+            });
+
+        const seenByMe =
+            challenge.seenBy &&
+            challenge.seenBy[currentUser.uid];
+
+        return myAnswer && partnerAnswered && !seenByMe;
+    });
 
     updateActivityBox();
 }
