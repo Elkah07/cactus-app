@@ -2453,9 +2453,13 @@ function listenToLikelyChallenges() {
                             id
                         )
                         .update({
-                            status: "completed",
-                            completedAt: Date.now()
-                        });
+    status: "completed",
+    completedAt: Date.now(),
+    compatibility: calculateChoiceCompatibility(
+        Object.values(answers)[0].answer,
+        Object.values(answers)[1].answer
+    )
+});
                 }
             });
 
@@ -2690,9 +2694,13 @@ function listenToOkChallenges() {
                             id
                         )
                         .update({
-                            status: "completed",
-                            completedAt: Date.now()
-                        });
+    status: "completed",
+    completedAt: Date.now(),
+    compatibility: calculateChoiceCompatibility(
+        Object.values(answers)[0].answer,
+        Object.values(answers)[1].answer
+    )
+});
                 }
             });
 
@@ -2910,9 +2918,13 @@ function listenToGreenFlagChallenges() {
                             id
                         )
                         .update({
-                            status: "completed",
-                            completedAt: Date.now()
-                        });
+    status: "completed",
+    completedAt: Date.now(),
+    compatibility: calculateChoiceCompatibility(
+        Object.values(answers)[0].answer,
+        Object.values(answers)[1].answer
+    )
+});
                 }
             });
 
@@ -3141,8 +3153,13 @@ function listenToPrincessChallenges() {
                             id
                         )
                         .update({
-                            status: "completed"
-                        });
+    status: "completed",
+    completedAt: Date.now(),
+    compatibility: calculateChoiceCompatibility(
+        Object.values(answers)[0].answer,
+        Object.values(answers)[1].answer
+    )
+});
                 }
             });
 
@@ -3431,9 +3448,13 @@ function listenToQuestionsChallenges() {
                             id
                         )
                         .update({
-                            status: "completed",
-                            completedAt: Date.now()
-                        });
+    status: "completed",
+    completedAt: Date.now(),
+    compatibility: calculateChoiceCompatibility(
+        Object.values(answers)[0].answer,
+        Object.values(answers)[1].answer
+    )
+});
                 }
             });
 
@@ -4055,6 +4076,18 @@ function getPartnerPseudo() {
     }
 
     return "ton/ta partenaire";
+}
+
+function calculateChoiceCompatibility(answerA, answerB) {
+    if (!answerA || !answerB) {
+        return 0;
+    }
+
+    if (answerA === answerB) {
+        return 100;
+    }
+
+    return 0;
 }
 
 // ====================
