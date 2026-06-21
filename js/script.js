@@ -1234,15 +1234,15 @@ princessBtn.addEventListener("click", () => {
 });
 
 princessYesBtn.addEventListener("click", () => {
-    savePrincessAnswer("Oui, évidemment");
+    savePrincessAnswer("Princess Treatment");
 });
 
 princessDependsBtn.addEventListener("click", () => {
-    savePrincessAnswer("Ça dépend");
+    savePrincessAnswer("Mitigé");
 });
 
 princessNoBtn.addEventListener("click", () => {
-    savePrincessAnswer("Non, abuse pas");
+    savePrincessAnswer("C’est normal");
 });
 
 backFromPrincessBtn.addEventListener("click", () => {
@@ -2523,18 +2523,18 @@ function showPendingLikelyResult() {
         partnerAnswer ? partnerAnswer.answer : "Pas encore répondu";
 
     if (
-        myAnswer &&
-        partnerAnswer &&
-        myAnswer.answer === partnerAnswer.answer
-    ) {
-        likelyVerdictEmoji.textContent = "💚";
-        likelyVerdictText.textContent =
-            "Vous êtes totalement d’accord.";
-    } else {
-        likelyVerdictEmoji.textContent = "👀";
-        likelyVerdictText.textContent =
-            "Vos réponses sont différentes.";
-    }
+    myAnswer &&
+    partnerAnswer &&
+    myAnswer.answer === partnerAnswer.answer
+) {
+    likelyVerdictEmoji.textContent = "💚";
+    likelyVerdictText.textContent =
+        "Vous êtes totalement d’accord.";
+} else {
+    likelyVerdictEmoji.textContent = "👀";
+    likelyVerdictText.textContent =
+        "Vous n’avez pas désigné la même personne.";
+}
 
     showScreen("likelyResult");
 }
