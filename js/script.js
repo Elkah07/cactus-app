@@ -4171,30 +4171,32 @@ function displayRankingChallenges(challenges) {
     const challengeArray = Object.values(challenges || {});
 
     pendingRankingChallenges = challengeArray.filter((challenge) => {
-        if (challenge.status !== "answering") return false;
         if (!challenge.answers) return false;
         if (!challenge.rankingId) return false;
 
         const myAnswer =
             challenge.answers[currentUser.uid];
 
-        const partnerAnswered =
+        const someoneElseAnswered =
             Object.keys(challenge.answers).some((uid) => {
                 return uid !== currentUser.uid;
             });
 
-        return !myAnswer && partnerAnswered;
+        return (
+            !myAnswer &&
+            someoneElseAnswered &&
+            challenge.status !== "completed"
+        );
     });
 
     pendingRankingResults = challengeArray.filter((challenge) => {
-        if (challenge.status !== "completed") return false;
         if (!challenge.answers) return false;
         if (!challenge.rankingId) return false;
 
         const myAnswer =
             challenge.answers[currentUser.uid];
 
-        const partnerAnswered =
+        const someoneElseAnswered =
             Object.keys(challenge.answers).some((uid) => {
                 return uid !== currentUser.uid;
             });
@@ -4203,7 +4205,12 @@ function displayRankingChallenges(challenges) {
             challenge.seenBy &&
             challenge.seenBy[currentUser.uid];
 
-        return myAnswer && partnerAnswered && !seenByMe;
+        return (
+            challenge.status === "completed" &&
+            myAnswer &&
+            someoneElseAnswered &&
+            !seenByMe
+        );
     });
 
     updateActivityBox();
