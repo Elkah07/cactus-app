@@ -1156,24 +1156,16 @@ backFromLikelyBtn.addEventListener("click", () => {
 });
 
 nextLikelyBtn.addEventListener("click", () => {
+    const currentChallenge =
+        pendingLikelyResults[currentPendingLikelyIndex];
+
     markCurrentLikelyResultSeen().then(() => {
+        pendingLikelyResults =
+            pendingLikelyResults.filter((challenge) => {
+                return challenge.questionId !== currentChallenge.questionId;
+            });
+
         currentPendingLikelyIndex = 0;
-
-        setTimeout(() => {
-            showPendingLikelyResult();
-        }, 300);
-    });
-});
-
-backDashboardFromLikelyBtn.addEventListener("click", () => {
-    markCurrentLikelyResultSeen().then(() => {
-        showScreen("dashboard");
-    });
-});
-
-nextLikelyBtn.addEventListener("click", () => {
-    markCurrentLikelyResultSeen().then(() => {
-        currentPendingLikelyIndex++;
         showPendingLikelyResult();
     });
 });
@@ -2579,14 +2571,20 @@ function showPendingLikelyResult() {
     likelyPartnerAnswer.textContent =
         partnerAnswer ? partnerAnswer.answer : "Pas encore répondu";
 
+    const myTarget =
+        getLikelyChosenTarget(myAnswer);
+
+    const partnerTarget =
+        getLikelyChosenTarget(partnerAnswer);
+
     if (
-        myAnswer &&
-        partnerAnswer &&
-        myAnswer.answer === partnerAnswer.answer
+        myTarget &&
+        partnerTarget &&
+        myTarget === partnerTarget
     ) {
         likelyVerdictEmoji.textContent = "💚";
         likelyVerdictText.textContent =
-            "Vous êtes totalement d’accord.";
+            "Vous avez désigné la même personne.";
     } else {
         likelyVerdictEmoji.textContent = "👀";
         likelyVerdictText.textContent =
@@ -4088,6 +4086,36 @@ function calculateChoiceCompatibility(answerA, answerB) {
     }
 
     return 0;
+}
+
+function getLikelyChosenTarget(answerData) {
+    if (!answerData) {
+        return null;
+    }
+
+    if (answerData.answer === "Nous deux") {
+        return "both";
+    }
+
+    if (answerData.answer === "Moi") {
+        return answerData.uid;
+    }
+
+    if (answerData.answer === "Toi") {
+        const answersArray =
+            Object.values(
+                pendingLikelyResults[currentPendingLikelyIndex]?.answers || {}
+            );
+
+        const partnerAnswer =
+            answersArray.find((answer) => {
+                return answer.uid !== answerData.uid;
+            });
+
+        return partnerAnswer ? partnerAnswer.uid : "partner";
+    }
+
+    return null;
 }
 
 // ====================
