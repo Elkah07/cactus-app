@@ -1920,8 +1920,8 @@ function startPendingGuessPrediction() {
 
     guessPredictionInput.value = "";
 
-    guessPredictTitle.textContent =
-    "Devine la réponse de ton/ta partenaire";
+guessPredictTitle.textContent =
+    "Écris la réponse de " + getPartnerPseudo();
 
     showScreen("guessPredict");
 }
@@ -4033,6 +4033,28 @@ function addStatCard(label, value) {
     card.appendChild(number);
 
     historyDetailList.appendChild(card);
+}
+
+function getPartnerPseudo() {
+    if (!currentSpaceData || !currentUser) {
+        return "ton/ta partenaire";
+    }
+
+    if (
+        currentSpaceData.player1 &&
+        currentSpaceData.player1.uid !== currentUser.uid
+    ) {
+        return currentSpaceData.player1.pseudo || "ton/ta partenaire";
+    }
+
+    if (
+        currentSpaceData.player2 &&
+        currentSpaceData.player2.uid !== currentUser.uid
+    ) {
+        return currentSpaceData.player2.pseudo || "ton/ta partenaire";
+    }
+
+    return "ton/ta partenaire";
 }
 
 // ====================
