@@ -702,19 +702,26 @@ backDashboardBtn.addEventListener("click", () => {
 
 nextAfterCompatibilityBtn.addEventListener("click", () => {
     markCurrentRankingResultSeen().then(() => {
-        if (pendingRankingResults.length > 0) {
-            currentPendingRankingResultIndex++;
-            showPendingRankingResult();
-            return;
-        }
 
-        if (isPlayingPendingChallenges) {
-            currentPendingChallengeIndex++;
-            startPendingRankingChallenge();
-            return;
-        }
+        currentPendingRankingResultIndex = 0;
 
-        startRandomRanking();
+        setTimeout(() => {
+
+            if (pendingRankingResults.length > 0) {
+                showPendingRankingResult();
+                return;
+            }
+
+            if (isPlayingPendingChallenges) {
+                currentPendingChallengeIndex++;
+                startPendingRankingChallenge();
+                return;
+            }
+
+            startRandomRanking();
+
+        }, 300);
+
     });
 });
 
@@ -1107,7 +1114,10 @@ guessFalseBtn.addEventListener("click", () => {
 nextGuessBtn.addEventListener("click", () => {
     markCurrentGuessResultSeen().then(() => {
         currentPendingGuessIndex = 0;
-        showPendingGuessResult();
+
+        setTimeout(() => {
+            showPendingGuessResult();
+        }, 300);
     });
 });
 
@@ -1139,8 +1149,11 @@ backFromLikelyBtn.addEventListener("click", () => {
 
 nextLikelyBtn.addEventListener("click", () => {
     markCurrentLikelyResultSeen().then(() => {
-        currentPendingLikelyIndex++;
-        showPendingLikelyResult();
+        currentPendingLikelyIndex = 0;
+
+        setTimeout(() => {
+            showPendingLikelyResult();
+        }, 300);
     });
 });
 
@@ -1185,8 +1198,11 @@ backFromOkBtn.addEventListener("click", () => {
 
 nextOkBtn.addEventListener("click", () => {
     markCurrentOkResultSeen().then(() => {
-        currentPendingOkIndex++;
-        showPendingOkResult();
+        currentPendingOkIndex = 0;
+
+        setTimeout(() => {
+            showPendingOkResult();
+        }, 300);
     });
 });
 
@@ -1218,8 +1234,11 @@ backFromGreenFlagBtn.addEventListener("click", () => {
 
 nextGreenFlagBtn.addEventListener("click", () => {
     markCurrentGreenFlagResultSeen().then(() => {
-        currentPendingGreenFlagIndex++;
-        showPendingGreenFlagResult();
+        currentPendingGreenFlagIndex = 0;
+
+        setTimeout(() => {
+            showPendingGreenFlagResult();
+        }, 300);
     });
 });
 
@@ -1249,19 +1268,15 @@ backFromPrincessBtn.addEventListener("click", () => {
     showScreen("dashboard");
 });
 
-nextPrincessBtn.addEventListener(
-    "click",
-    () => {
+nextPrincessBtn.addEventListener("click", () => {
+    markCurrentPrincessResultSeen().then(() => {
+        currentPendingPrincessIndex = 0;
 
-        markCurrentPrincessResultSeen()
-            .then(() => {
-
-            currentPendingPrincessIndex++;
-
+        setTimeout(() => {
             showPendingPrincessResult();
-        });
-    }
-);
+        }, 300);
+    });
+});
 
 backDashboardFromPrincessBtn
     .addEventListener(
@@ -1292,8 +1307,11 @@ backFromQuestionsBtn.addEventListener("click", () => {
 
 nextQuestionsBtn.addEventListener("click", () => {
     markCurrentQuestionsResultSeen().then(() => {
-        currentPendingQuestionsIndex++;
-        showPendingQuestionsResult();
+        currentPendingQuestionsIndex = 0;
+
+        setTimeout(() => {
+            showPendingQuestionsResult();
+        }, 300);
     });
 });
 
