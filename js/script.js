@@ -2785,18 +2785,18 @@ function showPendingOkResult() {
         partnerAnswer ? partnerAnswer.answer : "Pas encore répondu";
 
     if (
-        myAnswer &&
-        partnerAnswer &&
-        myAnswer.answer === partnerAnswer.answer
-    ) {
-        okVerdictEmoji.textContent = "💚";
-        okVerdictText.textContent =
-            "Vous êtes d’accord.";
-    } else {
-        okVerdictEmoji.textContent = "👀";
-        okVerdictText.textContent =
-            "Vous n’avez pas la même limite.";
-    }
+    myAnswer &&
+    partnerAnswer &&
+    myAnswer.answer === partnerAnswer.answer
+) {
+    okVerdictEmoji.textContent = "💚";
+    okVerdictText.textContent =
+        "Vous avez la même limite.";
+} else {
+    okVerdictEmoji.textContent = "👀";
+    okVerdictText.textContent =
+        "Vous ne placez pas la limite au même endroit.";
+}
 
     showScreen("okResult");
 }
@@ -3011,19 +3011,19 @@ function showPendingGreenFlagResult() {
     greenFlagPartnerAnswer.textContent =
         partnerAnswer ? partnerAnswer.answer : "Pas encore répondu";
 
-    if (
-        myAnswer &&
-        partnerAnswer &&
-        myAnswer.answer === partnerAnswer.answer
-    ) {
-        greenFlagVerdictEmoji.textContent = "💚";
-        greenFlagVerdictText.textContent =
-            "Vous voyez les choses de la même façon.";
-    } else {
-        greenFlagVerdictEmoji.textContent = "👀";
-        greenFlagVerdictText.textContent =
-            "Vous n’avez pas la même lecture de ce comportement.";
-    }
+   if (
+    myAnswer &&
+    partnerAnswer &&
+    myAnswer.answer === partnerAnswer.answer
+) {
+    greenFlagVerdictEmoji.textContent = "💚";
+    greenFlagVerdictText.textContent =
+        "Vous lisez ce comportement de la même façon.";
+} else {
+    greenFlagVerdictEmoji.textContent = "👀";
+    greenFlagVerdictText.textContent =
+        "Vous n’avez pas la même lecture de ce comportement.";
+}
 
     showScreen("greenFlagResult");
 }
@@ -3302,26 +3302,18 @@ function showPendingPrincessResult() {
             : "Pas encore répondu";
 
     if (
-        myAnswer &&
-        partnerAnswer &&
-        myAnswer.answer ===
-        partnerAnswer.answer
-    ) {
-
-        princessVerdictEmoji.textContent =
-            "👑";
-
-        princessVerdictText.textContent =
-            "Vous êtes totalement d’accord.";
-    }
-    else {
-
-        princessVerdictEmoji.textContent =
-            "👀";
-
-        princessVerdictText.textContent =
-            "Vous n’avez pas la même vision du traitement de princesse.";
-    }
+    myAnswer &&
+    partnerAnswer &&
+    myAnswer.answer === partnerAnswer.answer
+) {
+    princessVerdictEmoji.textContent = "👑";
+    princessVerdictText.textContent =
+        "Vous avez la même vision du Princess Treatment.";
+} else {
+    princessVerdictEmoji.textContent = "👀";
+    princessVerdictText.textContent =
+        "Vous n’avez pas tout à fait la même vision.";
+}
 
     showScreen(
         "princessResult"
