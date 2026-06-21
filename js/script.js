@@ -734,9 +734,7 @@ nextAfterCompatibilityBtn.addEventListener("click", () => {
 });
 
 backDashboardAfterCompatibilityBtn.addEventListener("click", () => {
-    markCurrentRankingResultSeen().then(() => {
-        showScreen("dashboard");
-    });
+    showScreen("dashboard");
 });
 
 signupBtn.addEventListener("click", () => {
