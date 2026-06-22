@@ -1645,3 +1645,244 @@ body.dark-theme .notebook-editor {
     margin-bottom: 10px;
 }
 
+/* ====================
+   DASHBOARD V2
+==================== */
+
+.dashboard-v2 {
+    text-align: left;
+}
+
+.dashboard-v2-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    margin-bottom: 14px;
+}
+
+.dashboard-v2-kicker {
+    color: #74C69D;
+    font-size: 0.78rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+
+    margin-bottom: 4px;
+}
+
+.dashboard-v2-header h1 {
+    font-size: 1.55rem;
+    line-height: 1.2;
+    color: #FFFFFF;
+    margin: 0;
+}
+
+.dashboard-heart {
+    margin: 0 6px;
+}
+
+.dashboard-v2-subtitle {
+    color: #B7E4C7;
+    font-size: 0.95rem;
+    margin-top: 6px;
+}
+
+.dashboard-v2 .tiny-space-code {
+    text-align: left;
+    margin: 0 0 16px;
+    color: #95D5B2;
+    font-size: 0.75rem;
+}
+
+/* Hero */
+
+.dashboard-hero-card {
+    position: relative;
+    overflow: hidden;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+
+    background:
+        radial-gradient(circle at top right, rgba(149, 213, 178, 0.45), transparent 45%),
+        linear-gradient(135deg, #1B4332, #2D6A4F);
+
+    border: 2px solid rgba(183, 228, 199, 0.4);
+    border-radius: 28px;
+
+    padding: 18px;
+    margin-bottom: 18px;
+
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+}
+
+.dashboard-hero-text {
+    position: relative;
+    z-index: 2;
+    max-width: 60%;
+}
+
+.dashboard-hero-text h2 {
+    color: #FFFFFF;
+    font-size: 1.25rem;
+    line-height: 1.15;
+
+    margin: 0 0 8px;
+}
+
+.dashboard-hero-text p {
+    color: #D8F3DC;
+    font-size: 0.9rem;
+    line-height: 1.35;
+
+    margin: 0;
+}
+
+.dashboard-hero-cactus {
+    width: 120px;
+    max-width: 38%;
+    object-fit: contain;
+
+    filter: drop-shadow(0 14px 18px rgba(0, 0, 0, 0.22));
+}
+
+/* Activités */
+
+.dashboard-activity {
+    margin-bottom: 20px;
+}
+
+/* Jeux */
+
+.dashboard-games-section {
+    margin-top: 12px;
+}
+
+.dashboard-games-section h2 {
+    color: #FFFFFF;
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+}
+
+.dashboard-games-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+
+    margin-bottom: 20px;
+}
+
+.dashboard-game-card {
+    min-height: 150px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    padding: 14px;
+
+    border: none;
+    border-radius: 24px;
+
+    background: #F8F9FA;
+    color: #1B4332;
+
+    font-size: 0.9rem;
+    font-weight: 900;
+    line-height: 1.2;
+    text-align: center;
+
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.14);
+
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dashboard-game-card img {
+    width: 78px;
+    height: 78px;
+    object-fit: contain;
+}
+
+.dashboard-game-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 16px 34px rgba(0, 0, 0, 0.18);
+}
+
+.dashboard-game-card:active {
+    transform: scale(0.97);
+}
+
+/* Raccourcis */
+
+.dashboard-shortcuts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+
+    margin-bottom: 18px;
+}
+
+.dashboard-shortcuts button {
+    min-height: 92px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+
+    padding: 10px;
+
+    border: 2px solid rgba(183, 228, 199, 0.45);
+    border-radius: 22px;
+
+    background: rgba(216, 243, 220, 0.12);
+    color: #D8F3DC;
+
+    font-size: 0.82rem;
+    font-weight: 900;
+
+    box-shadow: none;
+}
+
+.dashboard-shortcuts img {
+    width: 46px;
+    height: 46px;
+    object-fit: contain;
+}
+
+/* Responsive */
+
+@media (max-width: 420px) {
+    .dashboard-hero-card {
+        padding: 16px;
+    }
+
+    .dashboard-hero-text {
+        max-width: 62%;
+    }
+
+    .dashboard-hero-text h2 {
+        font-size: 1.1rem;
+    }
+
+    .dashboard-hero-cactus {
+        width: 100px;
+    }
+
+    .dashboard-game-card {
+        min-height: 138px;
+        border-radius: 22px;
+    }
+
+    .dashboard-game-card img {
+        width: 68px;
+        height: 68px;
+    }
+}

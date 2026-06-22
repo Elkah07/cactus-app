@@ -225,73 +225,112 @@
             </div>
 
             <!-- ÉCRAN DASHBOARD -->
-<div id="dashboardScreen" style="display:none;">
-    <h1>🌵 Notre coin Cactus</h1>
+<!-- ÉCRAN DASHBOARD -->
+<div id="dashboardScreen" style="display:none;" class="dashboard-v2">
 
-    <p class="subtitle">
-        Votre petit espace à deux.
-    </p>
-
-    <div class="couple-card">
-        <div class="person-box">
-            <span class="person-label">Toi</span>
-            <strong id="displayPseudo">...</strong>
-        </div>
-
-        <div class="heart-separator">
-            💚
-        </div>
-
-        <div class="person-box">
-            <span class="person-label">Partenaire</span>
-            <strong id="partnerName">En attente...</strong>
-        </div>
-
-        <p class="tiny-space-code">
-             Code espace : <span id="spaceCode">CACTUS-0000</span>
+    <div class="dashboard-v2-header">
+        <div>
+            <p class="dashboard-v2-kicker">Votre espace</p>
+            <h1>
+                <span id="displayPseudo">...</span>
+                <span class="dashboard-heart">💚</span>
+                <span id="partnerName">En attente...</span>
+            </h1>
+            <p class="dashboard-v2-subtitle">
+                Votre petit coin à deux.
             </p>
-
+        </div>
     </div>
 
-    
-<div id="activityBox" class="activity-box" style="display:none;">
-    <h3>📬 Activités</h3>
-    <div id="activityList"></div>
-</div>
+    <p class="tiny-space-code">
+        Code espace : <span id="spaceCode">CACTUS-0000</span>
+    </p>
 
-<button id="rankingBtn">Classements</button>
+    <section class="dashboard-hero-card">
+        <div class="dashboard-hero-text">
+            <p class="dashboard-v2-kicker">Bienvenue</p>
+            <h2>Votre cactus pousse tranquillement.</h2>
+            <p>Jeux, souvenirs, carnets et petites discussions à deux.</p>
+        </div>
 
-<button id="guessBtn" class="secondary">
-    Devine ma réponse
-</button>
+        <img
+            src="assets/cactus-main.png"
+            alt="Cactus principal"
+            class="dashboard-hero-cactus"
+        >
+    </section>
 
-<button id="likelyBtn" class="secondary">
-    Qui est le plus susceptible de...
-</button>
+    <div id="activityBox" class="activity-box dashboard-activity" style="display:none;">
+        <h3>📬 Activités</h3>
+        <div id="activityList"></div>
+    </div>
 
-<button id="okBtn" class="secondary">
-    OK ou Pas OK ?
-</button>
+    <section class="dashboard-games-section">
+        <h2>🎮 Jeux</h2>
 
-<button id="greenFlagBtn" class="secondary">
-    Green Flag / Red Flag
-</button>
+        <div class="dashboard-games-grid">
+            <button id="rankingBtn" class="dashboard-game-card">
+                <img src="assets/cactus-ranking.png" alt="">
+                <span>Classements</span>
+            </button>
 
-<button id="princessBtn" class="secondary">
-    Princess Treatment
-</button>
+            <button id="guessBtn" class="dashboard-game-card">
+                <img src="assets/cactus-guess.png" alt="">
+                <span>Devine ma réponse</span>
+            </button>
 
-<button id="questionsBtn" class="secondary">
-    Questions
-</button>
+            <button id="likelyBtn" class="dashboard-game-card">
+                <img src="assets/cactus-likely.png" alt="">
+                <span>Qui est le plus susceptible ?</span>
+            </button>
 
-<button id="leaveSpaceBtn" class="secondary">
-    Quitter cet espace
-</button>
+            <button id="okBtn" class="dashboard-game-card">
+                <img src="assets/cactus-ok.png" alt="">
+                <span>OK ou Pas OK ?</span>
+            </button>
 
-<button id="logoutBtn" class="secondary">
-    Se déconnecter
-</button>
+            <button id="greenFlagBtn" class="dashboard-game-card">
+                <img src="assets/cactus-greenflag.png" alt="">
+                <span>Green Flag / Red Flag</span>
+            </button>
+
+            <button id="princessBtn" class="dashboard-game-card">
+                <img src="assets/cactus-princess.png" alt="">
+                <span>Princess Treatment</span>
+            </button>
+
+            <button id="questionsBtn" class="dashboard-game-card">
+                <img src="assets/cactus-questions.png" alt="">
+                <span>Questions</span>
+            </button>
+        </div>
+    </section>
+
+    <section class="dashboard-shortcuts">
+        <button onclick="showScreen('history')">
+            <img src="assets/cactus-history.png" alt="">
+            <span>Souvenirs</span>
+        </button>
+
+        <button onclick="openHistoryMode('stats')">
+            <img src="assets/cactus-stats.png" alt="">
+            <span>Stats</span>
+        </button>
+
+        <button onclick="loadNotebooks(); showScreen('garden');">
+            <img src="assets/cactus-garden.png" alt="">
+            <span>Jardin</span>
+        </button>
+    </section>
+
+    <button id="leaveSpaceBtn" class="secondary">
+        Quitter cet espace
+    </button>
+
+    <button id="logoutBtn" class="secondary">
+        Se déconnecter
+    </button>
+
 </div>
 
             <!-- ÉCRAN CLASSEMENTS -->
