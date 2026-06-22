@@ -1956,3 +1956,264 @@ body.dark-theme .notebook-editor {
 .dashboard-shortcuts img {
     mix-blend-mode: multiply;
 }
+
+/* ====================
+   DASHBOARD HOME CLEAN
+==================== */
+
+.dashboard-home {
+    text-align: left;
+    padding-bottom: 24px;
+}
+
+.home-header h1 {
+    margin: 0;
+    color: #F8F9FA;
+    font-size: 2rem;
+    line-height: 1.15;
+}
+
+.home-subtitle,
+.home-space-code {
+    color: #B7E4C7;
+}
+
+.home-space-code {
+    margin: 10px 0 18px;
+    font-size: 0.9rem;
+}
+
+/* HERO */
+
+.home-hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+
+    background: linear-gradient(135deg, #F8FFF9, #D8F3DC);
+    border-radius: 34px;
+    padding: 24px;
+
+    margin-bottom: 26px;
+
+    box-shadow: 0 18px 34px rgba(0, 0, 0, 0.18);
+}
+
+.home-hero-text {
+    max-width: 58%;
+}
+
+.home-hero-text p {
+    margin: 0 0 6px;
+    color: #2D6A4F;
+    font-size: 0.8rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.home-hero-text h2 {
+    margin: 0 0 8px;
+    color: #1B4332;
+    font-size: 1.8rem;
+    line-height: 1.05;
+}
+
+.home-hero-text span {
+    color: #2D6A4F;
+    font-weight: 700;
+    line-height: 1.35;
+}
+
+.home-hero img {
+    width: 128px;
+    object-fit: contain;
+}
+
+/* SECTIONS */
+
+.home-section {
+    margin-top: 24px;
+}
+
+.home-section h2 {
+    color: #F8F9FA;
+    font-size: 1.35rem;
+    margin-bottom: 14px;
+}
+
+/* CONTINUER */
+
+.continue-card {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 92px 1fr 34px;
+    align-items: center;
+    gap: 14px;
+
+    background: linear-gradient(135deg, #F8FFF9, #D8F3DC);
+    color: #1B4332;
+
+    border: none;
+    border-radius: 28px;
+
+    padding: 16px;
+
+    text-align: left;
+    box-shadow: 0 16px 30px rgba(0, 0, 0, 0.16);
+}
+
+.continue-card img {
+    width: 86px;
+    height: 86px;
+    object-fit: contain;
+}
+
+.continue-card h3 {
+    margin: 0 0 6px;
+    font-size: 1.15rem;
+}
+
+.continue-card p {
+    margin: 0;
+    font-size: 0.85rem;
+    line-height: 1.35;
+    opacity: 0.8;
+}
+
+.continue-card > span {
+    font-size: 1.4rem;
+    font-weight: 900;
+}
+
+/* JEUX */
+
+.home-games-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+}
+
+.home-game-card {
+    min-height: 164px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    border: none;
+    border-radius: 30px;
+    padding: 14px;
+
+    color: #123527;
+    font-weight: 900;
+    font-size: 0.95rem;
+    text-align: center;
+    line-height: 1.15;
+
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.14);
+}
+
+.home-game-card img {
+    width: 92px;
+    height: 92px;
+    object-fit: contain;
+}
+
+.card-purple {
+    background: #F4EFFF;
+}
+
+.card-yellow {
+    background: #FFF4C7;
+}
+
+.card-green {
+    background: #D8F3DC;
+}
+
+.card-mint {
+    background: #E7FFF2;
+}
+
+.card-pink {
+    background: #FFEDEF;
+}
+
+.card-blue {
+    background: #EAF4FF;
+}
+
+/* RACCOURCIS */
+
+.home-shortcuts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+
+    margin: 24px 0 18px;
+}
+
+.home-shortcuts button {
+    min-height: 94px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+
+    background: rgba(255, 255, 255, 0.08);
+    color: #D8F3DC;
+
+    border: 2px solid rgba(183, 228, 199, 0.35);
+    border-radius: 24px;
+
+    font-size: 0.85rem;
+    font-weight: 900;
+}
+
+.home-shortcuts img {
+    width: 46px;
+    height: 46px;
+    object-fit: contain;
+}
+
+/* ACTIVITÉS */
+
+.home-activity {
+    margin-bottom: 22px;
+}
+
+/* MOBILE */
+
+@media (max-width: 420px) {
+    .home-header h1 {
+        font-size: 1.75rem;
+    }
+
+    .home-hero {
+        padding: 20px;
+        border-radius: 30px;
+    }
+
+    .home-hero img {
+        width: 112px;
+    }
+
+    .home-hero-text h2 {
+        font-size: 1.5rem;
+    }
+
+    .home-game-card {
+        min-height: 150px;
+    }
+
+    .home-game-card img {
+        width: 82px;
+        height: 82px;
+    }
+}

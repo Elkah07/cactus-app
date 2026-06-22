@@ -226,87 +226,88 @@
 
             <!-- ÉCRAN DASHBOARD -->
 <!-- ÉCRAN DASHBOARD -->
-<div id="dashboardScreen" style="display:none;" class="dashboard-v2">
+<div id="dashboardScreen" style="display:none;" class="dashboard-home">
 
-    <div class="dashboard-v2-header">
+    <header class="home-header">
         <div>
-            <p class="dashboard-v2-kicker">Votre espace</p>
             <h1>
                 <span id="displayPseudo">...</span>
-                <span class="dashboard-heart">💚</span>
+                <span>💚</span>
                 <span id="partnerName">En attente...</span>
             </h1>
-            <p class="dashboard-v2-subtitle">
-                Votre petit coin à deux.
-            </p>
+            <p class="home-subtitle">Votre petit monde à deux.</p>
         </div>
-    </div>
+    </header>
 
-    <p class="tiny-space-code">
+    <p class="tiny-space-code home-space-code">
         Code espace : <span id="spaceCode">CACTUS-0000</span>
     </p>
 
-    <section class="dashboard-hero-card">
-        <div class="dashboard-hero-text">
-            <p class="dashboard-v2-kicker">Bienvenue</p>
-            <h2>Votre cactus pousse tranquillement.</h2>
-            <p>Jeux, souvenirs, carnets et petites discussions à deux.</p>
+    <section class="home-hero">
+        <div class="home-hero-text">
+            <p>Bienvenue</p>
+            <h2>Bonjour 🌵</h2>
+            <span>Votre cactus a grandi aujourd’hui.</span>
         </div>
 
-        <img
-            src="assets/cactus-main.png"
-            alt="Cactus principal"
-            class="dashboard-hero-cactus"
-        >
+        <img src="assets/cactus-main.png" alt="Cactus principal">
     </section>
 
-    <div id="activityBox" class="activity-box dashboard-activity" style="display:none;">
+    <div id="activityBox" class="activity-box home-activity" style="display:none;">
         <h3>📬 Activités</h3>
         <div id="activityList"></div>
     </div>
 
-    <section class="dashboard-games-section">
-        <h2>🎮 Jeux</h2>
+    <section class="home-section">
+        <h2>Continuer à jouer</h2>
 
-        <div class="dashboard-games-grid">
-            <button id="rankingBtn" class="dashboard-game-card">
-                <img src="assets/cactus-ranking.png" alt="">
-                <span>Classements</span>
-            </button>
+        <button id="rankingBtn" class="continue-card">
+            <img src="assets/cactus-ranking.png" alt="">
+            <div>
+                <h3>Classements</h3>
+                <p>Reprendre une partie ou en lancer une nouvelle.</p>
+            </div>
+            <span>➜</span>
+        </button>
+    </section>
 
-            <button id="guessBtn" class="dashboard-game-card">
+    <section class="home-section">
+        <h2>Tous les jeux</h2>
+
+        <div class="home-games-grid">
+            <button id="guessBtn" class="home-game-card card-purple">
                 <img src="assets/cactus-guess.png" alt="">
                 <span>Devine ma réponse</span>
             </button>
 
-            <button id="likelyBtn" class="dashboard-game-card">
+            <button id="likelyBtn" class="home-game-card card-yellow">
                 <img src="assets/cactus-likely.png" alt="">
                 <span>Qui est le plus susceptible ?</span>
             </button>
 
-            <button id="okBtn" class="dashboard-game-card">
+            <button id="okBtn" class="home-game-card card-green">
                 <img src="assets/cactus-ok.png" alt="">
                 <span>OK ou Pas OK ?</span>
             </button>
 
-            <button id="greenFlagBtn" class="dashboard-game-card">
+            <button id="greenFlagBtn" class="home-game-card card-mint">
                 <img src="assets/cactus-greenflag.png" alt="">
                 <span>Green Flag / Red Flag</span>
             </button>
 
-            <button id="princessBtn" class="dashboard-game-card">
+            <button id="princessBtn" class="home-game-card card-pink">
                 <img src="assets/cactus-princess.png" alt="">
                 <span>Princess Treatment</span>
             </button>
 
-            <button id="questionsBtn" class="dashboard-game-card">
+            <button id="questionsBtn" class="home-game-card card-blue">
                 <img src="assets/cactus-questions.png" alt="">
                 <span>Questions</span>
             </button>
         </div>
     </section>
 
-    <section class="dashboard-shortcuts">
+    <section class="home-shortcuts">
         <button onclick="showScreen('history')">
             <img src="assets/cactus-history.png" alt="">
             <span>Souvenirs</span>
@@ -323,13 +324,8 @@
         </button>
     </section>
 
-    <button id="leaveSpaceBtn" class="secondary">
-        Quitter cet espace
-    </button>
-
-    <button id="logoutBtn" class="secondary">
-        Se déconnecter
-    </button>
+    <button id="leaveSpaceBtn" class="secondary">Quitter cet espace</button>
+    <button id="logoutBtn" class="secondary">Se déconnecter</button>
 
 </div>
 
