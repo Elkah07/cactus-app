@@ -1886,3 +1886,73 @@ body.dark-theme .notebook-editor {
         height: 68px;
     }
 }
+
+/* ====================
+   PATCH DASHBOARD V2 PLUS PROPRE
+==================== */
+
+.dashboard-v2 {
+    padding-bottom: 24px;
+}
+
+.dashboard-v2-header h1 {
+    font-size: 1.8rem;
+    color: #F8F9FA;
+}
+
+.dashboard-hero-card {
+    background: linear-gradient(135deg, #F8F9FA, #D8F3DC);
+    border: none;
+    color: #1B4332;
+}
+
+.dashboard-hero-text h2,
+.dashboard-hero-text p,
+.dashboard-hero-card .dashboard-v2-kicker {
+    color: #1B4332;
+}
+
+.dashboard-hero-cactus {
+    width: 130px;
+    background: transparent;
+    mix-blend-mode: multiply;
+}
+
+.dashboard-games-section h2 {
+    margin-top: 22px;
+    margin-bottom: 14px;
+}
+
+.dashboard-games-grid {
+    gap: 14px;
+}
+
+.dashboard-game-card {
+    min-height: 145px;
+    background: linear-gradient(145deg, #F8F9FA, #D8F3DC);
+    border: 1px solid rgba(27, 67, 50, 0.08);
+    border-radius: 26px;
+    color: #123527;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+}
+
+.dashboard-game-card img {
+    width: 88px;
+    height: 88px;
+    object-fit: contain;
+    mix-blend-mode: multiply;
+}
+
+.dashboard-game-card span {
+    font-size: 0.95rem;
+    line-height: 1.15;
+}
+
+.dashboard-shortcuts button {
+    background: #F8F9FA;
+    color: #1B4332;
+}
+
+.dashboard-shortcuts img {
+    mix-blend-mode: multiply;
+}
