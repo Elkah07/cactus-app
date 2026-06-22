@@ -1035,7 +1035,17 @@ textColorPicker.addEventListener("input", () => {
     keepEditorToolbarOpen();
 });
 
+textColorPicker.addEventListener("click", () => {
+    runEditorCommand("foreColor", textColorPicker.value);
+    keepEditorToolbarOpen();
+});
+
 highlightColorPicker.addEventListener("input", () => {
+    runEditorCommand("hiliteColor", highlightColorPicker.value);
+    keepEditorToolbarOpen();
+});
+
+highlightColorPicker.addEventListener("click", () => {
     runEditorCommand("hiliteColor", highlightColorPicker.value);
     keepEditorToolbarOpen();
 });
