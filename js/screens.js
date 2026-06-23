@@ -103,8 +103,9 @@ function showScreenContent(screenName) {
             break;
 
         case "dashboard":
-            dashboardScreen.style.display = "block";
-            break;
+    dashboardScreen.style.display = "block";
+    loadCoupleStats();
+    break;
 
         case "ranking":
             rankingScreen.style.display = "block";

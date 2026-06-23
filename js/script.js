@@ -299,6 +299,11 @@ const guessAnswerTitle =
 const guessPredictTitle =
     document.querySelector("#guessPredictScreen h1");
 
+    const compatibilityStat = document.getElementById("compatibilityStat");
+const streakStat = document.getElementById("streakStat");
+const answersStat = document.getElementById("answersStat");
+const badgesStat = document.getElementById("badgesStat");
+
 let pendingGuessValidations = [];
 let saveNotebookTimeout = null;
 
@@ -380,6 +385,8 @@ let nextAfterAnswerFunction = null;
 
 let currentHistoryMode = null;
 let currentHistoryItems = []; 
+
+let coupleStats = {compatibility: 0, answersCount: 0, streak: 0, badges: 0};
 
 
 // ====================
@@ -4124,6 +4131,34 @@ function getLikelyChosenTarget(answerData) {
     }
 
     return null;
+}
+
+function loadCoupleStats() {
+
+    database
+        .ref(
+            "spaces/" +
+            currentSpaceCode +
+            "/stats"
+        )
+        .once("value")
+        .then((snapshot) => {
+
+            const stats =
+                snapshot.val() || {};
+
+            compatibilityStat.textContent =
+                (stats.compatibility || 0) + "%";
+
+            streakStat.textContent =
+                stats.streak || 0;
+
+            answersStat.textContent =
+                stats.answersCount || 0;
+
+            badgesStat.textContent =
+                stats.badges || 0;
+        });
 }
 
 // ====================
