@@ -2408,12 +2408,7 @@ function saveLikelyAnswer(answer) {
     currentLikelyId = currentLikelyQuestion.id;
 
     database
-        .ref(
-            "spaces/" +
-            currentSpaceCode +
-            "/likelyChallenges/" +
-            currentLikelyId
-        )
+        .ref("spaces/" + currentSpaceCode + "/likelyChallenges/" + currentLikelyId)
         .update({
             questionId: currentLikelyQuestion.id,
             question: currentLikelyQuestion.question,
@@ -2422,14 +2417,7 @@ function saveLikelyAnswer(answer) {
         })
         .then(() => {
             return database
-                .ref(
-                    "spaces/" +
-                    currentSpaceCode +
-                    "/likelyChallenges/" +
-                    currentLikelyId +
-                    "/answers/" +
-                    currentUser.uid
-                )
+                .ref("spaces/" + currentSpaceCode + "/likelyChallenges/" + currentLikelyId + "/answers/" + currentUser.uid)
                 .set({
                     uid: currentUser.uid,
                     pseudo: pseudo,
@@ -2438,12 +2426,15 @@ function saveLikelyAnswer(answer) {
                 });
         })
         .then(() => {
-    showToast("🌵 Réponse enregistrée");
+            return incrementAnswersCount();
+        })
+        .then(() => {
+            showToast("🌵 Réponse enregistrée");
 
-    showAnswerSentScreen(() => {
-        startLikelyGame();
-    });
-});
+            showAnswerSentScreen(() => {
+                startLikelyGame();
+            });
+        });
 }
 
 function listenToLikelyChallenges() {
@@ -2655,12 +2646,7 @@ function saveOkAnswer(answer) {
     currentOkId = currentOkQuestion.id;
 
     database
-        .ref(
-            "spaces/" +
-            currentSpaceCode +
-            "/okChallenges/" +
-            currentOkId
-        )
+        .ref("spaces/" + currentSpaceCode + "/okChallenges/" + currentOkId)
         .update({
             questionId: currentOkQuestion.id,
             question: currentOkQuestion.question,
@@ -2669,14 +2655,7 @@ function saveOkAnswer(answer) {
         })
         .then(() => {
             return database
-                .ref(
-                    "spaces/" +
-                    currentSpaceCode +
-                    "/okChallenges/" +
-                    currentOkId +
-                    "/answers/" +
-                    currentUser.uid
-                )
+                .ref("spaces/" + currentSpaceCode + "/okChallenges/" + currentOkId + "/answers/" + currentUser.uid)
                 .set({
                     uid: currentUser.uid,
                     pseudo: pseudo,
@@ -2685,12 +2664,15 @@ function saveOkAnswer(answer) {
                 });
         })
         .then(() => {
-    showToast("🌵 Réponse enregistrée");
+            return incrementAnswersCount();
+        })
+        .then(() => {
+            showToast("🌵 Réponse enregistrée");
 
-    showAnswerSentScreen(() => {
-        startOkGame();
-    });
-});
+            showAnswerSentScreen(() => {
+                startOkGame();
+            });
+        });
 }
 
 function listenToOkChallenges() {
