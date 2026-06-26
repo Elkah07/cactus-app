@@ -687,7 +687,11 @@ validateRankingBtn.addEventListener("click", () => {
     saveRankingChallenge(
         currentRanking.id,
         answer
-    ).then(() => {
+    )
+    .then(() => {
+        return incrementAnswersCount();
+    })
+    .then(() => {
         return showRankingCompatibilityIfReady(currentRanking.id);
     });
 });
@@ -1424,6 +1428,18 @@ document.querySelectorAll(".editor-toolbar button").forEach((button) => {
 // ====================
 // FONCTIONS
 // ====================
+
+function incrementAnswersCount() {
+    if (!currentSpaceCode) {
+        return Promise.resolve();
+    }
+
+    return database
+        .ref("spaces/" + currentSpaceCode + "/stats/answersCount")
+        .transaction((currentValue) => {
+            return (currentValue || 0) + 1;
+        });
+}
 
 function startRandomRanking() {
     if (rankings.length === 0) {
