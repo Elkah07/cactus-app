@@ -634,12 +634,7 @@ validateGuessAnswerBtn.addEventListener("click", () => {
     currentGuessId = currentGuessQuestion.id;
 
     database
-        .ref(
-            "spaces/" +
-            currentSpaceCode +
-            "/guessAnswers/" +
-            currentGuessId
-        )
+        .ref("spaces/" + currentSpaceCode + "/guessAnswers/" + currentGuessId)
         .update({
             questionId: currentGuessQuestion.id,
             question: currentGuessQuestion.question,
@@ -648,20 +643,16 @@ validateGuessAnswerBtn.addEventListener("click", () => {
         })
         .then(() => {
             return database
-                .ref(
-                    "spaces/" +
-                    currentSpaceCode +
-                    "/guessAnswers/" +
-                    currentGuessId +
-                    "/answers/" +
-                    currentUser.uid
-                )
+                .ref("spaces/" + currentSpaceCode + "/guessAnswers/" + currentGuessId + "/answers/" + currentUser.uid)
                 .set({
                     uid: currentUser.uid,
                     pseudo: pseudo,
                     answer: answer,
                     createdAt: Date.now()
                 });
+        })
+        .then(() => {
+            return incrementAnswersCount();
         })
         .then(() => {
             showToast("🌵 Réponse enregistrée");
@@ -2861,12 +2852,7 @@ function saveGreenFlagAnswer(answer) {
     currentGreenFlagId = currentGreenFlagQuestion.id;
 
     database
-        .ref(
-            "spaces/" +
-            currentSpaceCode +
-            "/greenFlagChallenges/" +
-            currentGreenFlagId
-        )
+        .ref("spaces/" + currentSpaceCode + "/greenFlagChallenges/" + currentGreenFlagId)
         .update({
             questionId: currentGreenFlagQuestion.id,
             question: currentGreenFlagQuestion.question,
@@ -2875,14 +2861,7 @@ function saveGreenFlagAnswer(answer) {
         })
         .then(() => {
             return database
-                .ref(
-                    "spaces/" +
-                    currentSpaceCode +
-                    "/greenFlagChallenges/" +
-                    currentGreenFlagId +
-                    "/answers/" +
-                    currentUser.uid
-                )
+                .ref("spaces/" + currentSpaceCode + "/greenFlagChallenges/" + currentGreenFlagId + "/answers/" + currentUser.uid)
                 .set({
                     uid: currentUser.uid,
                     pseudo: pseudo,
@@ -2891,12 +2870,15 @@ function saveGreenFlagAnswer(answer) {
                 });
         })
         .then(() => {
-    showToast("🌵 Réponse enregistrée");
+            return incrementAnswersCount();
+        })
+        .then(() => {
+            showToast("🌵 Réponse enregistrée");
 
-    showAnswerSentScreen(() => {
-        startGreenFlagGame();
-    });
-});
+            showAnswerSentScreen(() => {
+                startGreenFlagGame();
+            });
+        });
 }
 
 function listenToGreenFlagChallenges() {
@@ -3084,16 +3066,14 @@ async function startPrincessGame() {
 
 function savePrincessAnswer(answer) {
     if (!currentPrincessQuestion) {
+        alert("Question introuvable 👑");
         return;
     }
 
+    currentPrincessId = currentPrincessQuestion.id;
+
     database
-        .ref(
-            "spaces/" +
-            currentSpaceCode +
-            "/princessChallenges/" +
-            currentPrincessId
-        )
+        .ref("spaces/" + currentSpaceCode + "/princessChallenges/" + currentPrincessId)
         .update({
             questionId: currentPrincessQuestion.id,
             question: currentPrincessQuestion.question,
@@ -3102,20 +3082,16 @@ function savePrincessAnswer(answer) {
         })
         .then(() => {
             return database
-                .ref(
-                    "spaces/" +
-                    currentSpaceCode +
-                    "/princessChallenges/" +
-                    currentPrincessId +
-                    "/answers/" +
-                    currentUser.uid
-                )
+                .ref("spaces/" + currentSpaceCode + "/princessChallenges/" + currentPrincessId + "/answers/" + currentUser.uid)
                 .set({
                     uid: currentUser.uid,
                     pseudo: pseudo,
                     answer: answer,
                     createdAt: Date.now()
                 });
+        })
+        .then(() => {
+            return incrementAnswersCount();
         })
         .then(() => {
             showToast("👑 Réponse enregistrée");
@@ -3379,8 +3355,7 @@ function startQuestionsGame() {
 }
 
 function saveQuestionsAnswer() {
-    const answer =
-        questionsAnswerInput.value.trim();
+    const answer = questionsAnswerInput.value.trim();
 
     if (answer === "") {
         alert("Écris ta réponse 🌵");
@@ -3388,12 +3363,7 @@ function saveQuestionsAnswer() {
     }
 
     database
-        .ref(
-            "spaces/" +
-            currentSpaceCode +
-            "/questionsChallenges/" +
-            currentCoupleQuestionId
-        )
+        .ref("spaces/" + currentSpaceCode + "/questionsChallenges/" + currentCoupleQuestionId)
         .update({
             questionId: currentCoupleQuestion.id,
             question: currentCoupleQuestion.question,
@@ -3402,20 +3372,16 @@ function saveQuestionsAnswer() {
         })
         .then(() => {
             return database
-                .ref(
-                    "spaces/" +
-                    currentSpaceCode +
-                    "/questionsChallenges/" +
-                    currentCoupleQuestionId +
-                    "/answers/" +
-                    currentUser.uid
-                )
+                .ref("spaces/" + currentSpaceCode + "/questionsChallenges/" + currentCoupleQuestionId + "/answers/" + currentUser.uid)
                 .set({
                     uid: currentUser.uid,
                     pseudo: pseudo,
                     answer: answer,
                     createdAt: Date.now()
                 });
+        })
+        .then(() => {
+            return incrementAnswersCount();
         })
         .then(() => {
             showScreen("dashboard");
