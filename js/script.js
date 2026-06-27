@@ -304,6 +304,41 @@ const streakStat = document.getElementById("streakStat");
 const answersStat = document.getElementById("answersStat");
 const badgesStat = document.getElementById("badgesStat");
 
+const seedsStat = document.getElementById("seedsStat");
+const xpStat = document.getElementById("xpStat");
+const levelStat = document.getElementById("levelStat");
+
+const storyIntroScreen = document.getElementById("storyIntroScreen");
+const storyDateScreen = document.getElementById("storyDateScreen");
+const storyMeetingScreen = document.getElementById("storyMeetingScreen");
+const storyFirstDateScreen = document.getElementById("storyFirstDateScreen");
+const storyNicknamesScreen = document.getElementById("storyNicknamesScreen");
+const storySongScreen = document.getElementById("storySongScreen");
+const storyDistanceScreen = document.getElementById("storyDistanceScreen");
+const storyFinalScreen = document.getElementById("storyFinalScreen");
+
+const startStoryBtn = document.getElementById("startStoryBtn");
+const storyDateInput = document.getElementById("storyDateInput");
+const saveStoryDateBtn = document.getElementById("saveStoryDateBtn");
+
+const storyMeetingInput = document.getElementById("storyMeetingInput");
+const saveStoryMeetingBtn = document.getElementById("saveStoryMeetingBtn");
+
+const storyFirstDateInput = document.getElementById("storyFirstDateInput");
+const saveStoryFirstDateBtn = document.getElementById("saveStoryFirstDateBtn");
+
+const storyNicknameMineInput = document.getElementById("storyNicknameMineInput");
+const storyNicknamePartnerInput = document.getElementById("storyNicknamePartnerInput");
+const saveStoryNicknamesBtn = document.getElementById("saveStoryNicknamesBtn");
+
+const storySongInput = document.getElementById("storySongInput");
+const saveStorySongBtn = document.getElementById("saveStorySongBtn");
+
+const storyTogetherBtn = document.getElementById("storyTogetherBtn");
+const storyDistanceBtn = document.getElementById("storyDistanceBtn");
+
+const finishStoryBtn = document.getElementById("finishStoryBtn");
+
 let pendingGuessValidations = [];
 let saveNotebookTimeout = null;
 
@@ -387,6 +422,8 @@ let currentHistoryMode = null;
 let currentHistoryItems = []; 
 
 let coupleStats = {compatibility: 0, answersCount: 0, streak: 0, badges: 0};
+
+let coupleStory = {};
 
 
 // ====================
@@ -4115,30 +4152,28 @@ function getLikelyChosenTarget(answerData) {
 }
 
 function loadCoupleStats() {
-
     database
-        .ref(
-            "spaces/" +
-            currentSpaceCode +
-            "/stats"
-        )
+        .ref("spaces/" + currentSpaceCode + "/stats")
         .once("value")
         .then((snapshot) => {
+            const stats = snapshot.val() || {};
 
-            const stats =
-                snapshot.val() || {};
+            compatibilityStat.textContent = (stats.compatibility || 0) + "%";
+            streakStat.textContent = stats.streak || 0;
+            answersStat.textContent = stats.answersCount || 0;
+            badgesStat.textContent = stats.badges || 0;
 
-            compatibilityStat.textContent =
-                (stats.compatibility || 0) + "%";
+            if (seedsStat) {
+                seedsStat.textContent = stats.seeds || 0;
+            }
 
-            streakStat.textContent =
-                stats.streak || 0;
+            if (xpStat) {
+                xpStat.textContent = (stats.xp || 0) + " XP";
+            }
 
-            answersStat.textContent =
-                stats.answersCount || 0;
-
-            badgesStat.textContent =
-                stats.badges || 0;
+            if (levelStat) {
+                levelStat.textContent = stats.level || 1;
+            }
         });
 }
 

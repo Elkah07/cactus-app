@@ -61,6 +61,15 @@ function showScreenContent(screenName) {
     historyDetailScreen.style.display = "none";
 
     historyItemScreen.style.display = "none";
+    storyIntroScreen.style.display = "none";
+
+storyDateScreen.style.display = "none";
+storyMeetingScreen.style.display = "none";
+storyFirstDateScreen.style.display = "none";
+storyNicknamesScreen.style.display = "none";
+storySongScreen.style.display = "none";
+storyDistanceScreen.style.display = "none";
+storyFinalScreen.style.display = "none";
 
     // ====================
     // BOUTONS DU HAUT
@@ -210,6 +219,38 @@ case "historyItem":
 default:
     dashboardScreen.style.display = "block";
     lastShownScreen = "dashboard";
+    break;
+
+    case "storyIntro":
+    storyIntroScreen.style.display = "block";
+    break;
+
+case "storyDate":
+    storyDateScreen.style.display = "block";
+    break;
+
+case "storyMeeting":
+    storyMeetingScreen.style.display = "block";
+    break;
+
+case "storyFirstDate":
+    storyFirstDateScreen.style.display = "block";
+    break;
+
+case "storyNicknames":
+    storyNicknamesScreen.style.display = "block";
+    break;
+
+case "storySong":
+    storySongScreen.style.display = "block";
+    break;
+
+case "storyDistance":
+    storyDistanceScreen.style.display = "block";
+    break;
+
+case "storyFinal":
+    storyFinalScreen.style.display = "block";
     break;
 
     }
