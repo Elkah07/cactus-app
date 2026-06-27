@@ -1434,11 +1434,28 @@ function incrementAnswersCount() {
         return Promise.resolve();
     }
 
-    return database
-        .ref("spaces/" + currentSpaceCode + "/stats/answersCount")
-        .transaction((currentValue) => {
-            return (currentValue || 0) + 1;
-        });
+    const statsRef =
+        database.ref("spaces/" + currentSpaceCode + "/stats");
+
+    return statsRef.transaction((stats) => {
+        if (!stats) {
+            stats = {};
+        }
+
+        stats.answersCount =
+            (stats.answersCount || 0) + 1;
+
+        stats.seeds =
+            (stats.seeds || 0) + 5;
+
+        stats.xp =
+            (stats.xp || 0) + 5;
+
+        stats.level =
+            Math.floor((stats.xp || 0) / 100) + 1;
+
+        return stats;
+    });
 }
 
 function startRandomRanking() {
