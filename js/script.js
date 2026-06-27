@@ -440,6 +440,11 @@ function listenToCurrentSpace(spaceCodeValue) {
 
         currentSpaceData = spaceData;
 
+        if (!spaceData.story && lastShownScreen === "dashboard") {
+    showScreen("storyIntro");
+    return;
+}
+
         let partner = null;
 
         if (
@@ -1394,6 +1399,50 @@ backToHistoryBtn.addEventListener("click", () => {
 
 backToHistoryDetailBtn.addEventListener("click", () => {
     showScreen("historyDetail");
+});
+
+startStoryBtn.addEventListener("click", () => {
+    showScreen("storyDate");
+});
+
+saveStoryDateBtn.addEventListener("click", () => {
+    coupleStory.relationshipDate = storyDateInput.value;
+    showScreen("storyMeeting");
+});
+
+saveStoryMeetingBtn.addEventListener("click", () => {
+    coupleStory.meetingPlace = storyMeetingInput.value.trim();
+    showScreen("storyFirstDate");
+});
+
+saveStoryFirstDateBtn.addEventListener("click", () => {
+    coupleStory.firstDate = storyFirstDateInput.value.trim();
+    showScreen("storyNicknames");
+});
+
+saveStoryNicknamesBtn.addEventListener("click", () => {
+    coupleStory.nicknameMine = storyNicknameMineInput.value.trim();
+    coupleStory.nicknamePartner = storyNicknamePartnerInput.value.trim();
+    showScreen("storySong");
+});
+
+saveStorySongBtn.addEventListener("click", () => {
+    coupleStory.song = storySongInput.value.trim();
+    showScreen("storyDistance");
+});
+
+storyTogetherBtn.addEventListener("click", () => {
+    coupleStory.relationshipType = "together";
+    showScreen("storyFinal");
+});
+
+storyDistanceBtn.addEventListener("click", () => {
+    coupleStory.relationshipType = "distance";
+    showScreen("storyFinal");
+});
+
+finishStoryBtn.addEventListener("click", () => {
+    saveCoupleStory();
 });
 
 // ====================
@@ -4174,6 +4223,24 @@ function loadCoupleStats() {
             if (levelStat) {
                 levelStat.textContent = stats.level || 1;
             }
+        });
+}
+
+function saveCoupleStory() {
+    database
+        .ref("spaces/" + currentSpaceCode + "/story")
+        .set({
+            relationshipDate: coupleStory.relationshipDate || "",
+            meetingPlace: coupleStory.meetingPlace || "",
+            firstDate: coupleStory.firstDate || "",
+            nicknameMine: coupleStory.nicknameMine || "",
+            nicknamePartner: coupleStory.nicknamePartner || "",
+            song: coupleStory.song || "",
+            relationshipType: coupleStory.relationshipType || "",
+            completedAt: Date.now()
+        })
+        .then(() => {
+            showScreen("dashboard");
         });
 }
 
