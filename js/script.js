@@ -345,6 +345,9 @@ const relationshipDaysText =
     const storyPageScreen = document.getElementById("storyPageScreen");
 const storyPageContent = document.getElementById("storyPageContent");
 
+const editStoryBtn = document.getElementById("editStoryBtn");
+const backFromStoryPageBtn = document.getElementById("backFromStoryPageBtn");
+
 let pendingGuessValidations = [];
 let saveNotebookTimeout = null;
 
@@ -1524,6 +1527,14 @@ storyDistanceBtn.addEventListener("click", () => {
 });
 
 finishStoryBtn.addEventListener("click", () => {
+    showScreen("dashboard");
+});
+
+editStoryBtn.addEventListener("click", () => {
+    showScreen("storyIntro");
+});
+
+backFromStoryPageBtn.addEventListener("click", () => {
     showScreen("dashboard");
 });
 
@@ -4385,6 +4396,72 @@ function showStoryPage() {
     `;
 
     showScreen("storyPage");
+}
+
+function openStoryPage() {
+    database
+        .ref("spaces/" + currentSpaceCode + "/story")
+        .once("value")
+        .then((snapshot) => {
+            const story = snapshot.val();
+
+            if (!story) {
+                showScreen("storyIntro");
+                return;
+            }
+
+            storyPageContent.innerHTML = `
+                <div class="story-info-card">
+                    <span>📅</span>
+                    <div>
+                        <small>Ensemble depuis</small>
+                        <strong>${getRelationshipDaysText(story.startDate)}</strong>
+                    </div>
+                </div>
+
+                <div class="story-info-card">
+                    <span>📍</span>
+                    <div>
+                        <small>Rencontre</small>
+                        <strong>${story.meetingPlace || "Non renseigné"}</strong>
+                    </div>
+                </div>
+
+                <div class="story-info-card">
+                    <span>☕</span>
+                    <div>
+                        <small>Premier rendez-vous</small>
+                        <strong>${story.firstDate || "Non renseigné"}</strong>
+                    </div>
+                </div>
+
+                <div class="story-info-card">
+                    <span>💬</span>
+                    <div>
+                        <small>Vos surnoms</small>
+                        <strong>${story.nicknameMine || "—"} / ${story.nicknamePartner || "—"}</strong>
+                    </div>
+                </div>
+
+                <div class="story-info-card">
+                    <span>🎵</span>
+                    <div>
+                        <small>Votre chanson</small>
+                        <strong>${story.song || "Non renseigné"}</strong>
+                    </div>
+                </div>
+
+                <div class="story-info-card">
+                    <span>🏠</span>
+                    <div>
+                        <small>Situation</small>
+                        <strong>${story.situation === "distance" ? "À distance" : "Ensemble"}</strong>
+                    </div>
+                </div>
+            `;
+
+            showScreen("storyPage");
+        });
 }
 
 // ====================

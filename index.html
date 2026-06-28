@@ -370,7 +370,7 @@
             <img src="assets/cactus-garden.png" alt="">
             <span>Jardin</span>
         </button>
-        <button onclick="showScreen('storyIntro')">
+        <button onclick="openStoryPage()">
     ❤️ Notre histoire
 </button>
     </section>
@@ -479,6 +479,21 @@
     </p>
 
     <button id="finishStoryBtn">Découvrir Cactus</button>
+</div>
+
+<!-- ÉCRAN PAGE NOTRE HISTOIRE -->
+<div id="storyPageScreen" style="display:none;">
+    <h1>❤️ Notre histoire</h1>
+
+    <div id="storyPageContent" class="story-page-content"></div>
+
+    <button id="editStoryBtn">
+        Modifier notre histoire
+    </button>
+
+    <button id="backFromStoryPageBtn" class="secondary">
+        Retour
+    </button>
 </div>
 
             <!-- ÉCRAN CLASSEMENTS -->

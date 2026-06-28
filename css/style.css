@@ -2217,3 +2217,45 @@ body.dark-theme .notebook-editor {
         height: 82px;
     }
 }
+
+/* ====================
+   STORY PAGE
+==================== */
+
+.story-page-content {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin: 24px 0;
+}
+
+.story-info-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(183, 228, 199, 0.25);
+    border-radius: 22px;
+
+    padding: 16px;
+    text-align: left;
+}
+
+.story-info-card span {
+    font-size: 1.8rem;
+    width: 42px;
+    text-align: center;
+}
+
+.story-info-card small {
+    display: block;
+    color: #B7E4C7;
+    font-size: 0.78rem;
+    margin-bottom: 4px;
+}
+
+.story-info-card strong {
+    color: #F8F9FA;
+    font-size: 1rem;
+}

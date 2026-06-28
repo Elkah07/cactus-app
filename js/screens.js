@@ -69,6 +69,7 @@ function showScreenContent(screenName) {
     hideScreen(storySongScreen);
     hideScreen(storyDistanceScreen);
     hideScreen(storyFinalScreen);
+    hideScreen(storyPageScreen);
 
     historyBtn.style.display = "none";
     gardenBtn.style.display = "none";
@@ -241,6 +242,10 @@ function showScreenContent(screenName) {
             dashboardScreen.style.display = "block";
             lastShownScreen = "dashboard";
             break;
+
+        case "storyPage":
+    storyPageScreen.style.display = "block";
+    break;
     }
 }
 
