@@ -431,6 +431,8 @@ let coupleStats = {compatibility: 0, answersCount: 0, streak: 0, badges: 0};
 
 let coupleStory = {};
 
+let lastKnownSeeds = null;
+
 
 // ====================
 // CHARGEMENT DES DONNÉES
@@ -4296,13 +4298,20 @@ function loadCoupleStats() {
                 seedsStat.textContent = stats.seeds || 0;
             }
 
-            if (xpStat) {
-                xpStat.textContent = (stats.xp || 0) + " XP";
-            }
-
             if (levelStat) {
                 levelStat.textContent = stats.level || 1;
             }
+
+            const currentSeeds = stats.seeds || 0;
+
+            if (
+                lastKnownSeeds !== null &&
+                currentSeeds > lastKnownSeeds
+            ) {
+                showToast("🌱 +" + (currentSeeds - lastKnownSeeds) + " graines");
+            }
+
+            lastKnownSeeds = currentSeeds;
         });
 }
 
