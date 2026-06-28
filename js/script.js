@@ -339,6 +339,12 @@ const storyDistanceBtn = document.getElementById("storyDistanceBtn");
 
 const finishStoryBtn = document.getElementById("finishStoryBtn");
 
+const relationshipDaysText =
+    document.getElementById("relationshipDaysText");
+
+    const storyPageScreen = document.getElementById("storyPageScreen");
+const storyPageContent = document.getElementById("storyPageContent");
+
 let pendingGuessValidations = [];
 let saveNotebookTimeout = null;
 
@@ -444,6 +450,8 @@ function listenToCurrentSpace(spaceCodeValue) {
     showScreen("storyIntro");
     return;
 }
+
+updateRelationshipDays(spaceData.story);
 
         let partner = null;
 
@@ -4242,6 +4250,50 @@ function saveCoupleStory() {
         .then(() => {
             showScreen("dashboard");
         });
+}
+
+function updateRelationshipDays(story) {
+    if (!relationshipDaysText || !story || !story.relationshipDate) {
+        return;
+    }
+
+    const startDate = new Date(story.relationshipDate);
+    const today = new Date();
+
+    startDate.setHours(0, 0, 0, 0);
+    today.setHours(0, 0, 0, 0);
+
+    const diffTime = today - startDate;
+    const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+
+    if (diffDays <= 0) {
+        relationshipDaysText.textContent =
+            "Votre histoire commence aujourd’hui ❤️";
+        return;
+    }
+
+    relationshipDaysText.textContent =
+        "Ensemble depuis " + diffDays + " jours ❤️";
+}
+
+function showStoryPage() {
+    const story = currentSpaceData && currentSpaceData.story;
+
+    if (!story) {
+        showScreen("storyIntro");
+        return;
+    }
+
+    storyPageContent.innerHTML = `
+        <p><strong>📅 Ensemble depuis :</strong><br>${relationshipDaysText.textContent}</p>
+        <p><strong>📍 Rencontre :</strong><br>${story.meetingPlace || "Non renseigné"}</p>
+        <p><strong>☕ Premier rendez-vous :</strong><br>${story.firstDate || "Non renseigné"}</p>
+        <p><strong>💬 Surnoms :</strong><br>${story.nicknameMine || "—"} / ${story.nicknamePartner || "—"}</p>
+        <p><strong>🎵 Votre chanson :</strong><br>${story.song || "Non renseigné"}</p>
+        <p><strong>🏠 Relation :</strong><br>${story.relationshipType === "distance" ? "À distance" : "Ensemble"}</p>
+    `;
+
+    showScreen("storyPage");
 }
 
 // ====================

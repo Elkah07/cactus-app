@@ -70,6 +70,7 @@ storyNicknamesScreen.style.display = "none";
 storySongScreen.style.display = "none";
 storyDistanceScreen.style.display = "none";
 storyFinalScreen.style.display = "none";
+storyPageScreen.style.display = "none";
 
     // ====================
     // BOUTONS DU HAUT
@@ -251,6 +252,10 @@ case "storyDistance":
 
 case "storyFinal":
     storyFinalScreen.style.display = "block";
+    break;
+
+    case "storyPage":
+    storyPageScreen.style.display = "block";
     break;
 
     }
