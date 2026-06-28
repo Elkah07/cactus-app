@@ -1453,6 +1453,78 @@ finishStoryBtn.addEventListener("click", () => {
     saveCoupleStory();
 });
 
+startStoryBtn.addEventListener("click", () => {
+    showScreen("storyDate");
+});
+
+saveStoryDateBtn.addEventListener("click", () => {
+    const startDate = storyDateInput.value;
+
+    if (!startDate) {
+        alert("Choisis une date ❤️");
+        return;
+    }
+
+    saveStoryData({
+        startDate: startDate
+    }).then(() => {
+        showScreen("storyMeeting");
+    });
+});
+
+saveStoryMeetingBtn.addEventListener("click", () => {
+    saveStoryData({
+        meetingPlace: storyMeetingInput.value.trim()
+    }).then(() => {
+        showScreen("storyFirstDate");
+    });
+});
+
+saveStoryFirstDateBtn.addEventListener("click", () => {
+    saveStoryData({
+        firstDate: storyFirstDateInput.value.trim()
+    }).then(() => {
+        showScreen("storyNicknames");
+    });
+});
+
+saveStoryNicknamesBtn.addEventListener("click", () => {
+    saveStoryData({
+        nicknameMine: storyNicknameMineInput.value.trim(),
+        nicknamePartner: storyNicknamePartnerInput.value.trim()
+    }).then(() => {
+        showScreen("storySong");
+    });
+});
+
+saveStorySongBtn.addEventListener("click", () => {
+    saveStoryData({
+        song: storySongInput.value.trim()
+    }).then(() => {
+        showScreen("storyDistance");
+    });
+});
+
+storyTogetherBtn.addEventListener("click", () => {
+    saveStoryData({
+        situation: "together"
+    }).then(() => {
+        showScreen("storyFinal");
+    });
+});
+
+storyDistanceBtn.addEventListener("click", () => {
+    saveStoryData({
+        situation: "distance"
+    }).then(() => {
+        showScreen("storyFinal");
+    });
+});
+
+finishStoryBtn.addEventListener("click", () => {
+    showScreen("dashboard");
+});
+
 // ====================
 // BARRE FLOTTANTE
 // ====================
@@ -4232,6 +4304,16 @@ function loadCoupleStats() {
                 levelStat.textContent = stats.level || 1;
             }
         });
+}
+
+function saveStoryData(data) {
+    if (!currentSpaceCode) {
+        return Promise.resolve();
+    }
+
+    return database
+        .ref("spaces/" + currentSpaceCode + "/story")
+        .update(data);
 }
 
 function saveCoupleStory() {
