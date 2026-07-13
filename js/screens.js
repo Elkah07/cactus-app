@@ -71,6 +71,8 @@ function showScreenContent(screenName) {
     hideScreen(storyFinalScreen);
     hideScreen(storyPageScreen);
 
+    hideScreen(allGamesScreen);
+
     historyBtn.style.display = "none";
     gardenBtn.style.display = "none";
     settingsBtn.style.display = "none";
@@ -237,6 +239,10 @@ function showScreenContent(screenName) {
         case "storyFinal":
             storyFinalScreen.style.display = "block";
             break;
+
+        case "allGames":
+    allGamesScreen.style.display = "block";
+    break;
 
         default:
             dashboardScreen.style.display = "block";

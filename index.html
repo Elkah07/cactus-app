@@ -299,6 +299,58 @@
 
 </div>
 
+<!-- ÉCRAN TOUS LES JEUX -->
+<div id="allGamesScreen" style="display:none;">
+    <h1>🎮 Tous les jeux</h1>
+
+    <p class="subtitle">
+        Choisissez votre prochain terrain de jeu.
+    </p>
+
+    <div class="home-games-grid all-games-grid">
+
+        <button id="allRankingBtn" class="home-game-card card-green">
+            <img src="assets/cactus-ranking.png" alt="">
+            <span>Classements</span>
+        </button>
+
+        <button id="allGuessBtn" class="home-game-card card-purple">
+            <img src="assets/cactus-guess.png" alt="">
+            <span>Devine ma réponse</span>
+        </button>
+
+        <button id="allLikelyBtn" class="home-game-card card-yellow">
+            <img src="assets/cactus-likely.png" alt="">
+            <span>Qui est le plus susceptible ?</span>
+        </button>
+
+        <button id="allOkBtn" class="home-game-card card-green">
+            <img src="assets/cactus-ok.png" alt="">
+            <span>OK ou Pas OK ?</span>
+        </button>
+
+        <button id="allGreenFlagBtn" class="home-game-card card-mint">
+            <img src="assets/cactus-greenflag.png" alt="">
+            <span>Green Flag / Red Flag</span>
+        </button>
+
+        <button id="allPrincessBtn" class="home-game-card card-pink">
+            <img src="assets/cactus-princess.png" alt="">
+            <span>Princess Treatment</span>
+        </button>
+
+        <button id="allQuestionsBtn" class="home-game-card card-blue">
+            <img src="assets/cactus-questions.png" alt="">
+            <span>Questions</span>
+        </button>
+
+    </div>
+
+    <button id="backFromAllGamesBtn" class="secondary">
+        Retour
+    </button>
+</div>
+
 </section>
 
     <div id="activityBox" class="activity-box home-activity" style="display:none;">
@@ -306,54 +358,41 @@
         <div id="activityList"></div>
     </div>
 
-    <section class="home-section">
-        <h2>Continuer à jouer</h2>
+   
 
-        <button id="rankingBtn" class="continue-card">
-            <img src="assets/cactus-ranking.png" alt="">
-            <div>
-                <h3>Classements</h3>
-                <p>Reprendre une partie ou en lancer une nouvelle.</p>
-            </div>
+   <section class="home-section">
+    <div class="home-section-heading">
+        <h2>Jeux à découvrir</h2>
+
+        <button
+            id="openAllGamesBtn"
+            class="home-section-link"
+            type="button"
+        >
+            Voir tous les jeux
             <span>➜</span>
         </button>
-    </section>
+    </div>
 
-    <section class="home-section">
-        <h2>Tous les jeux</h2>
+    <div class="home-games-grid featured-games-grid">
 
-        <div class="home-games-grid">
-            <button id="guessBtn" class="home-game-card card-purple">
-                <img src="assets/cactus-guess.png" alt="">
-                <span>Devine ma réponse</span>
-            </button>
+        <button id="rankingBtn" class="home-game-card card-green">
+            <img src="assets/cactus-ranking.png" alt="">
+            <span>Classements</span>
+        </button>
 
-            <button id="likelyBtn" class="home-game-card card-yellow">
-                <img src="assets/cactus-likely.png" alt="">
-                <span>Qui est le plus susceptible ?</span>
-            </button>
+        <button id="guessBtn" class="home-game-card card-purple">
+            <img src="assets/cactus-guess.png" alt="">
+            <span>Devine ma réponse</span>
+        </button>
 
-            <button id="okBtn" class="home-game-card card-green">
-                <img src="assets/cactus-ok.png" alt="">
-                <span>OK ou Pas OK ?</span>
-            </button>
+        <button id="questionsBtn" class="home-game-card card-blue">
+            <img src="assets/cactus-questions.png" alt="">
+            <span>Questions</span>
+        </button>
 
-            <button id="greenFlagBtn" class="home-game-card card-mint">
-                <img src="assets/cactus-greenflag.png" alt="">
-                <span>Green Flag / Red Flag</span>
-            </button>
-
-            <button id="princessBtn" class="home-game-card card-pink">
-                <img src="assets/cactus-princess.png" alt="">
-                <span>Princess Treatment</span>
-            </button>
-
-            <button id="questionsBtn" class="home-game-card card-blue">
-                <img src="assets/cactus-questions.png" alt="">
-                <span>Questions</span>
-            </button>
-        </div>
-    </section>
+    </div>
+</section>
 
     <section class="home-shortcuts">
         <button onclick="showScreen('history')">
