@@ -244,15 +244,17 @@ function showScreenContent(screenName) {
     allGamesScreen.style.display = "block";
     break;
 
+    case "storyPage":
+    storyPageScreen.style.display = "block";
+    break;
+    }
+
         default:
             dashboardScreen.style.display = "block";
             lastShownScreen = "dashboard";
             break;
 
-        case "storyPage":
-    storyPageScreen.style.display = "block";
-    break;
-    }
+        
 }
 
 window.addEventListener("popstate", (event) => {
