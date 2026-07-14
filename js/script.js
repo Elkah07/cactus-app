@@ -355,10 +355,6 @@ const backFromAllGamesBtn = document.getElementById("backFromAllGamesBtn");
 
 const allRankingBtn = document.getElementById("allRankingBtn");
 const allGuessBtn = document.getElementById("allGuessBtn");
-const allLikelyBtn = document.getElementById("allLikelyBtn");
-const allOkBtn = document.getElementById("allOkBtn");
-const allGreenFlagBtn = document.getElementById("allGreenFlagBtn");
-const allPrincessBtn = document.getElementById("allPrincessBtn");
 const allQuestionsBtn = document.getElementById("allQuestionsBtn");
 
 let pendingGuessValidations = [];
@@ -1567,21 +1563,6 @@ allGuessBtn.addEventListener("click", () => {
     guessBtn.click();
 });
 
-allLikelyBtn.addEventListener("click", () => {
-    startLikelyGame();
-});
-
-allOkBtn.addEventListener("click", () => {
-    startOkGame();
-});
-
-allGreenFlagBtn.addEventListener("click", () => {
-    startGreenFlagGame();
-});
-
-allPrincessBtn.addEventListener("click", () => {
-    startPrincessGame();
-});
 
 allQuestionsBtn.addEventListener("click", () => {
     startQuestionsGame();
