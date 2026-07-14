@@ -228,32 +228,81 @@
 <!-- ÉCRAN DASHBOARD -->
 <div id="dashboardScreen" style="display:none;" class="dashboard-home">
 
-    <header class="home-header">
-        <div>
-            <h1>
-                <span id="displayPseudo">...</span>
-                <span>💚</span>
-                <span id="partnerName">En attente...</span>
-            </h1>
-            <p id="relationshipDaysText" class="home-subtitle">
-    Votre petit monde à deux.
-</p>
+    <section class="cactus-dashboard-hero">
+
+    <div class="cactus-dashboard-top">
+        <button
+            type="button"
+            class="couple-avatar-button"
+            aria-label="Profil du couple"
+        >
+            💕
+        </button>
+
+        <button
+            id="dashboardSettingsBtn"
+            type="button"
+            class="dashboard-settings-button"
+            aria-label="Ouvrir les réglages"
+        >
+            ⚙️
+        </button>
+    </div>
+
+    <div class="couple-dashboard-title">
+        <h1>
+            <span id="displayPseudo">...</span>
+            <span class="couple-dashboard-heart">💚</span>
+            <span id="partnerName">En attente...</span>
+        </h1>
+
+        <p id="relationshipDaysText" class="relationship-days-pill">
+            ❤️ Votre petit monde à deux
+        </p>
+    </div>
+
+    <div class="cactus-main-stage">
+
+        <div class="cactus-message-bubble">
+            Ton cactus est en pleine forme ! 🌵✨
         </div>
-    </header>
+
+        <div class="cactus-glow"></div>
+
+        <img
+            id="mainCactusImage"
+            class="main-cactus-image"
+            src="assets/cactus-main.png"
+            alt="Votre cactus"
+        >
+
+        <div class="cactus-level-pill">
+            ⭐ Niveau <span id="levelHeroStat">1</span>
+        </div>
+
+        <div class="cactus-xp-progress">
+            <div class="cactus-xp-track">
+                <div
+                    id="cactusXpProgressBar"
+                    class="cactus-xp-progress-bar"
+                ></div>
+            </div>
+
+            <p>
+                <span id="currentXpHero">0</span>
+                /
+                <span id="nextLevelXpHero">100</span>
+                XP
+            </p>
+        </div>
+
+    </div>
 
     <p class="tiny-space-code home-space-code">
         Code espace : <span id="spaceCode">CACTUS-0000</span>
     </p>
 
-    <section class="home-hero">
-        <div class="home-hero-text">
-            <p>Bienvenue</p>
-            <h2>Bonjour 🌵</h2>
-            <span>Votre cactus a grandi aujourd’hui.</span>
-        </div>
-
-        <img src="assets/cactus-main.png" alt="Cactus principal">
-    </section>
+</section>
 
     <section class="progress-card">
 

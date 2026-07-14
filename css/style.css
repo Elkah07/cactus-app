@@ -2259,3 +2259,197 @@ body.dark-theme .notebook-editor {
     color: #F8F9FA;
     font-size: 1rem;
 }
+
+/* ==========================
+   HERO CACTUS
+========================== */
+
+.cactus-dashboard-hero{
+
+    padding:20px 20px 10px;
+
+}
+
+.cactus-dashboard-top{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+}
+
+.couple-avatar-button,
+.dashboard-settings-button{
+
+    width:62px;
+    height:62px;
+
+    border:none;
+    border-radius:50%;
+
+    background:rgba(255,255,255,.10);
+
+    font-size:28px;
+
+    cursor:pointer;
+
+}
+
+.couple-dashboard-title{
+
+    text-align:center;
+
+    margin-top:18px;
+
+}
+
+.couple-dashboard-title h1{
+
+    font-size:54px;
+
+    margin-bottom:14px;
+
+}
+
+.relationship-days-pill{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    padding:10px 22px;
+
+    border-radius:999px;
+
+    background:rgba(255,255,255,.08);
+
+    border:1px solid rgba(255,255,255,.10);
+
+    font-size:22px;
+
+}
+
+.cactus-main-stage{
+
+    position:relative;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    margin-top:35px;
+
+}
+
+.main-cactus-image{
+
+    width:280px;
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+.cactus-glow{
+
+    position:absolute;
+
+    width:320px;
+
+    height:320px;
+
+    border-radius:50%;
+
+    background:radial-gradient(
+        rgba(120,255,180,.22),
+        transparent 70%
+    );
+
+    filter:blur(20px);
+
+    top:10px;
+
+}
+
+.cactus-level-pill{
+
+    margin-top:10px;
+
+    padding:10px 22px;
+
+    border-radius:999px;
+
+    background:rgba(255,255,255,.08);
+
+}
+
+.cactus-xp-progress{
+
+    width:80%;
+
+    margin-top:18px;
+
+}
+
+.cactus-xp-track{
+
+    height:14px;
+
+    border-radius:999px;
+
+    background:rgba(255,255,255,.12);
+
+    overflow:hidden;
+
+}
+
+.cactus-xp-progress-bar{
+
+    width:0%;
+
+    height:100%;
+
+    border-radius:999px;
+
+    background:#66d58d;
+
+    transition:.4s;
+
+}
+
+.cactus-xp-progress p{
+
+    text-align:center;
+
+    margin-top:8px;
+
+    opacity:.9;
+
+}
+
+.cactus-message-bubble{
+
+    position:absolute;
+
+    left:0;
+
+    top:60px;
+
+    max-width:180px;
+
+    padding:16px;
+
+    border-radius:20px;
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(10px);
+
+    z-index:3;
+
+}

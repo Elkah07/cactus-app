@@ -357,6 +357,21 @@ const allRankingBtn = document.getElementById("allRankingBtn");
 const allGuessBtn = document.getElementById("allGuessBtn");
 const allQuestionsBtn = document.getElementById("allQuestionsBtn");
 
+const dashboardSettingsBtn =
+    document.getElementById("dashboardSettingsBtn");
+
+const levelHeroStat =
+    document.getElementById("levelHeroStat");
+
+const currentXpHero =
+    document.getElementById("currentXpHero");
+
+const nextLevelXpHero =
+    document.getElementById("nextLevelXpHero");
+
+const cactusXpProgressBar =
+    document.getElementById("cactusXpProgressBar");
+
 let pendingGuessValidations = [];
 let saveNotebookTimeout = null;
 
@@ -1566,6 +1581,11 @@ allGuessBtn.addEventListener("click", () => {
 
 allQuestionsBtn.addEventListener("click", () => {
     startQuestionsGame();
+});
+
+dashboardSettingsBtn.addEventListener("click", () => {
+    previousScreen = "dashboard";
+    showScreen("settings");
 });
 
 // ====================
@@ -4329,6 +4349,30 @@ function loadCoupleStats() {
         .once("value")
         .then((snapshot) => {
             const stats = snapshot.val() || {};
+
+            const level = stats.level || 1;
+const xp = stats.xp || 0;
+
+const xpPerLevel = 100;
+const xpInsideCurrentLevel = xp % xpPerLevel;
+const progressPercent =
+    Math.min((xpInsideCurrentLevel / xpPerLevel) * 100, 100);
+
+if (levelHeroStat) {
+    levelHeroStat.textContent = level;
+}
+
+if (currentXpHero) {
+    currentXpHero.textContent = xpInsideCurrentLevel;
+}
+
+if (nextLevelXpHero) {
+    nextLevelXpHero.textContent = xpPerLevel;
+}
+
+if (cactusXpProgressBar) {
+    cactusXpProgressBar.style.width = progressPercent + "%";
+}
 
             compatibilityStat.textContent = (stats.compatibility || 0) + "%";
             streakStat.textContent = stats.streak || 0;

@@ -253,7 +253,7 @@ function showScreenContent(screenName) {
             lastShownScreen = "dashboard";
             break;
     }
-}
+}-
 
 window.addEventListener("popstate", (event) => {
     if (!event.state || !event.state.screen) {
