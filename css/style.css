@@ -2752,3 +2752,98 @@ body.dark-theme .notebook-editor {
 .dashboard-all-games-link:hover {
     background: rgba(255, 255, 255, 0.06);
 }
+
+/* ==========================
+   RACCOURCIS DASHBOARD
+========================== */
+
+.dashboard-shortcuts-section {
+    margin: 34px 20px 26px;
+}
+
+.dashboard-shortcuts-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.dashboard-shortcut-card {
+    min-width: 0;
+    min-height: 102px;
+    padding: 15px 8px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 22px;
+
+    background: rgba(255, 255, 255, 0.065);
+
+    box-shadow:
+        0 12px 26px rgba(0, 0, 0, 0.13),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+
+    color: #f8fff9;
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+}
+
+.dashboard-shortcut-card:hover {
+    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.dashboard-shortcut-card:active {
+    transform: scale(0.98);
+}
+
+.dashboard-shortcut-icon {
+    width: 48px;
+    height: 48px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 16px;
+
+    font-size: 1.55rem;
+}
+
+.dashboard-shortcut-card strong {
+    font-size: 0.75rem;
+    line-height: 1.15;
+    text-align: center;
+}
+
+.shortcut-story .dashboard-shortcut-icon {
+    background: rgba(255, 105, 135, 0.16);
+}
+
+.shortcut-garden .dashboard-shortcut-icon {
+    background: rgba(105, 213, 140, 0.16);
+}
+
+.shortcut-stats .dashboard-shortcut-icon {
+    background: rgba(84, 170, 225, 0.16);
+}
+
+.shortcut-memories .dashboard-shortcut-icon {
+    background: rgba(170, 106, 255, 0.16);
+}
+
+@media (max-width: 620px) {
+    .dashboard-shortcuts-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .dashboard-shortcut-card {
+        min-height: 94px;
+    }
+}

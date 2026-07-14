@@ -459,25 +459,49 @@
 
 </section>
 
-    <section class="home-shortcuts">
-        <button onclick="showScreen('history')">
-            <img src="assets/cactus-history.png" alt="">
-            <span>Souvenirs</span>
+<section class="dashboard-shortcuts-section">
+
+    <div class="dashboard-shortcuts-grid">
+
+        <button
+            type="button"
+            class="dashboard-shortcut-card shortcut-story"
+            onclick="openStoryPage()"
+        >
+            <span class="dashboard-shortcut-icon">❤️</span>
+            <strong>Notre histoire</strong>
         </button>
 
-        <button onclick="openHistoryMode('stats')">
-            <img src="assets/cactus-stats.png" alt="">
-            <span>Stats</span>
+        <button
+            type="button"
+            class="dashboard-shortcut-card shortcut-garden"
+            onclick="loadNotebooks(); showScreen('garden');"
+        >
+            <span class="dashboard-shortcut-icon">🪴</span>
+            <strong>Jardin</strong>
         </button>
 
-        <button onclick="loadNotebooks(); showScreen('garden');">
-            <img src="assets/cactus-garden.png" alt="">
-            <span>Jardin</span>
+        <button
+            type="button"
+            class="dashboard-shortcut-card shortcut-stats"
+            onclick="openHistoryMode('stats')"
+        >
+            <span class="dashboard-shortcut-icon">📊</span>
+            <strong>Statistiques</strong>
         </button>
-        <button onclick="openStoryPage()">
-    ❤️ Notre histoire
-</button>
-    </section>
+
+        <button
+            type="button"
+            class="dashboard-shortcut-card shortcut-memories"
+            onclick="showScreen('history')"
+        >
+            <span class="dashboard-shortcut-icon">📖</span>
+            <strong>Souvenirs</strong>
+        </button>
+
+    </div>
+
+</section>
 
     <button id="leaveSpaceBtn" class="secondary">Quitter cet espace</button>
     <button id="logoutBtn" class="secondary">Se déconnecter</button>
