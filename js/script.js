@@ -4362,78 +4362,81 @@ function loadCoupleStats() {
         .then((snapshot) => {
             const stats = snapshot.val() || {};
 
+            const compatibility = stats.compatibility || 0;
+            const streak = stats.streak || 0;
+            const answersCount = stats.answersCount || 0;
+            const badges = stats.badges || 0;
+            const seeds = stats.seeds || 0;
             const level = stats.level || 1;
-const xp = stats.xp || 0;
+            const xp = stats.xp || 0;
 
-const compatibility = stats.compatibility || 0;
-const seeds = stats.seeds || 0;
-const level = stats.level || 1;
-const badges = stats.badges || 0;
-
-if (compatibilityMiniBar) {
-    compatibilityMiniBar.style.width =
-        Math.min(compatibility, 100) + "%";
-}
-
-if (seedsMiniBar) {
-    seedsMiniBar.style.width =
-        Math.min((seeds / 500) * 100, 100) + "%";
-}
-
-if (levelMiniBar) {
-    levelMiniBar.style.width =
-        Math.min((level / 10) * 100, 100) + "%";
-}
-
-if (badgesMiniBar) {
-    badgesMiniBar.style.width =
-        Math.min((badges / 20) * 100, 100) + "%";
-}
-
-const xpPerLevel = 100;
-const xpInsideCurrentLevel = xp % xpPerLevel;
-const progressPercent =
-    Math.min((xpInsideCurrentLevel / xpPerLevel) * 100, 100);
-
-if (levelHeroStat) {
-    levelHeroStat.textContent = level;
-}
-
-if (currentXpHero) {
-    currentXpHero.textContent = xpInsideCurrentLevel;
-}
-
-if (nextLevelXpHero) {
-    nextLevelXpHero.textContent = xpPerLevel;
-}
-
-if (cactusXpProgressBar) {
-    cactusXpProgressBar.style.width = progressPercent + "%";
-}
-
-            compatibilityStat.textContent = (stats.compatibility || 0) + "%";
-            streakStat.textContent = stats.streak || 0;
-            answersStat.textContent = stats.answersCount || 0;
-            badgesStat.textContent = stats.badges || 0;
+            compatibilityStat.textContent = compatibility + "%";
+            streakStat.textContent = streak;
+            answersStat.textContent = answersCount;
+            badgesStat.textContent = badges;
 
             if (seedsStat) {
-                seedsStat.textContent = stats.seeds || 0;
+                seedsStat.textContent = seeds;
             }
 
             if (levelStat) {
-                levelStat.textContent = stats.level || 1;
+                levelStat.textContent = level;
             }
 
-            const currentSeeds = stats.seeds || 0;
+            if (levelHeroStat) {
+                levelHeroStat.textContent = level;
+            }
+
+            const xpPerLevel = 100;
+            const xpInsideCurrentLevel = xp % xpPerLevel;
+            const progressPercent =
+                Math.min((xpInsideCurrentLevel / xpPerLevel) * 100, 100);
+
+            if (currentXpHero) {
+                currentXpHero.textContent = xpInsideCurrentLevel;
+            }
+
+            if (nextLevelXpHero) {
+                nextLevelXpHero.textContent = xpPerLevel;
+            }
+
+            if (cactusXpProgressBar) {
+                cactusXpProgressBar.style.width =
+                    progressPercent + "%";
+            }
+
+            if (compatibilityMiniBar) {
+                compatibilityMiniBar.style.width =
+                    Math.min(compatibility, 100) + "%";
+            }
+
+            if (seedsMiniBar) {
+                seedsMiniBar.style.width =
+                    Math.min((seeds / 500) * 100, 100) + "%";
+            }
+
+            if (levelMiniBar) {
+                levelMiniBar.style.width =
+                    Math.min((level / 10) * 100, 100) + "%";
+            }
+
+            if (badgesMiniBar) {
+                badgesMiniBar.style.width =
+                    Math.min((badges / 20) * 100, 100) + "%";
+            }
 
             if (
                 lastKnownSeeds !== null &&
-                currentSeeds > lastKnownSeeds
+                seeds > lastKnownSeeds
             ) {
-                showToast("🌱 +" + (currentSeeds - lastKnownSeeds) + " graines");
+                showToast(
+                    "🌱 +" +
+                    (seeds - lastKnownSeeds) +
+                    " graines"
+                );
             }
 
-            lastKnownSeeds = currentSeeds;
+            lastKnownSeeds = seeds;
         });
 }
 
