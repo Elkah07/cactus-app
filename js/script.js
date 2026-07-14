@@ -372,6 +372,18 @@ const nextLevelXpHero =
 const cactusXpProgressBar =
     document.getElementById("cactusXpProgressBar");
 
+const compatibilityMiniBar =
+    document.getElementById("compatibilityMiniBar");
+
+const seedsMiniBar =
+    document.getElementById("seedsMiniBar");
+
+const levelMiniBar =
+    document.getElementById("levelMiniBar");
+
+const badgesMiniBar =
+    document.getElementById("badgesMiniBar");
+
 let pendingGuessValidations = [];
 let saveNotebookTimeout = null;
 
@@ -4352,6 +4364,31 @@ function loadCoupleStats() {
 
             const level = stats.level || 1;
 const xp = stats.xp || 0;
+
+const compatibility = stats.compatibility || 0;
+const seeds = stats.seeds || 0;
+const level = stats.level || 1;
+const badges = stats.badges || 0;
+
+if (compatibilityMiniBar) {
+    compatibilityMiniBar.style.width =
+        Math.min(compatibility, 100) + "%";
+}
+
+if (seedsMiniBar) {
+    seedsMiniBar.style.width =
+        Math.min((seeds / 500) * 100, 100) + "%";
+}
+
+if (levelMiniBar) {
+    levelMiniBar.style.width =
+        Math.min((level / 10) * 100, 100) + "%";
+}
+
+if (badgesMiniBar) {
+    badgesMiniBar.style.width =
+        Math.min((badges / 20) * 100, 100) + "%";
+}
 
 const xpPerLevel = 100;
 const xpInsideCurrentLevel = xp % xpPerLevel;

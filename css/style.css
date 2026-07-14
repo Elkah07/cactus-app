@@ -2453,3 +2453,123 @@ body.dark-theme .notebook-editor {
     z-index:3;
 
 }
+
+/* ==========================
+   CARTES DE PROGRESSION
+========================== */
+
+.dashboard-stats-section {
+    margin: 26px 20px 34px;
+}
+
+.dashboard-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.dashboard-stat-card {
+    min-width: 0;
+    padding: 18px 10px 14px;
+    border-radius: 24px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.11),
+        rgba(255, 255, 255, 0.055)
+    );
+
+    border: 1px solid rgba(255, 255, 255, 0.10);
+
+    box-shadow:
+        0 16px 32px rgba(0, 0, 0, 0.16),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+
+    backdrop-filter: blur(12px);
+}
+
+.dashboard-stat-icon {
+    font-size: 2rem;
+    line-height: 1;
+    margin-bottom: 10px;
+}
+
+.dashboard-stat-card strong {
+    color: #f8fff9;
+    font-size: clamp(1.3rem, 4vw, 2rem);
+    line-height: 1;
+}
+
+.dashboard-stat-card small {
+    margin-top: 8px;
+    color: rgba(248, 255, 249, 0.82);
+    font-size: 0.78rem;
+    white-space: nowrap;
+}
+
+.dashboard-stat-track {
+    width: 78%;
+    height: 6px;
+    margin-top: 14px;
+
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.dashboard-stat-fill {
+    width: 0;
+    height: 100%;
+    border-radius: inherit;
+    transition: width 0.45s ease;
+}
+
+.stat-compatibility .dashboard-stat-fill {
+    background: #ff6689;
+}
+
+.stat-seeds .dashboard-stat-fill {
+    background: #69d58c;
+}
+
+.stat-level .dashboard-stat-fill {
+    background: #ffd157;
+}
+
+.stat-badges .dashboard-stat-fill {
+    background: #a760ff;
+}
+
+.dashboard-secondary-stats {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+
+    margin-top: 14px;
+
+    color: rgba(248, 255, 249, 0.74);
+    font-size: 0.86rem;
+}
+
+.dashboard-secondary-stats strong {
+    color: #f8fff9;
+}
+
+@media (max-width: 620px) {
+    .dashboard-stats-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .dashboard-stat-card {
+        padding: 16px 10px 13px;
+    }
+
+    .dashboard-secondary-stats {
+        gap: 14px;
+        flex-wrap: wrap;
+    }
+}

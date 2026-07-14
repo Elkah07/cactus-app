@@ -304,50 +304,64 @@
 
 </section>
 
-    <section class="progress-card">
+    <section class="dashboard-stats-section">
 
-    <h2>📊 Votre progression</h2>
+    <div class="dashboard-stats-grid">
 
-    <div class="progress-grid">
+        <article class="dashboard-stat-card stat-compatibility">
+            <span class="dashboard-stat-icon">❤️</span>
 
-    <div class="progress-item">
-        <span>❤️</span>
-        <strong id="compatibilityStat">0%</strong>
-        <small>Compatibilité</small>
+            <strong id="compatibilityStat">0%</strong>
+
+            <small>Compatibilité</small>
+
+            <div class="dashboard-stat-track">
+                <div id="compatibilityMiniBar" class="dashboard-stat-fill"></div>
+            </div>
+        </article>
+
+        <article class="dashboard-stat-card stat-seeds">
+            <span class="dashboard-stat-icon">🌱</span>
+
+            <strong id="seedsStat">0</strong>
+
+            <small>Graines</small>
+
+            <div class="dashboard-stat-track">
+                <div id="seedsMiniBar" class="dashboard-stat-fill"></div>
+            </div>
+        </article>
+
+        <article class="dashboard-stat-card stat-level">
+            <span class="dashboard-stat-icon">⭐</span>
+
+            <strong id="levelStat">1</strong>
+
+            <small>Niveau</small>
+
+            <div class="dashboard-stat-track">
+                <div id="levelMiniBar" class="dashboard-stat-fill"></div>
+            </div>
+        </article>
+
+        <article class="dashboard-stat-card stat-badges">
+            <span class="dashboard-stat-icon">🏆</span>
+
+            <strong id="badgesStat">0</strong>
+
+            <small>Badges</small>
+
+            <div class="dashboard-stat-track">
+                <div id="badgesMiniBar" class="dashboard-stat-fill"></div>
+            </div>
+        </article>
+
     </div>
 
-    <div class="progress-item">
-        <span>🔥</span>
-        <strong id="streakStat">0</strong>
-        <small>Série</small>
+    <div class="dashboard-secondary-stats">
+        <span>🔥 <strong id="streakStat">0</strong> jours de série</span>
+        <span>🎮 <strong id="answersStat">0</strong> réponses</span>
     </div>
-
-    <div class="progress-item">
-        <span>🎮</span>
-        <strong id="answersStat">0</strong>
-        <small>Réponses</small>
-    </div>
-
-    <div class="progress-item">
-        <span>🏆</span>
-        <strong id="badgesStat">0</strong>
-        <small>Badges</small>
-    </div>
-
-    <div class="progress-item">
-        <span>🌱</span>
-        <strong id="seedsStat">0</strong>
-        <small>Graines</small>
-    </div>
-
-    <div class="progress-item">
-        <span>⭐</span>
-        <strong id="levelStat">1</strong>
-        <small>Niveau</small>
-    </div>
-
-</div>
-
 
 </section>
 
