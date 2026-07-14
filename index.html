@@ -372,38 +372,91 @@
 
    
 
-   <section class="home-section">
-    <div class="home-section-heading">
-        <h2>Jeux à découvrir</h2>
+<section class="dashboard-games-section">
+
+    <div class="dashboard-section-title">
+        <div>
+            <span class="dashboard-section-icon">🎮</span>
+            <div>
+                <h2>Jouer ensemble</h2>
+                <p>Un petit moment à deux ?</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="dashboard-featured-games">
 
         <button
-            id="openAllGamesBtn"
-            class="home-section-link"
+            id="rankingBtn"
+            class="dashboard-game-card game-card-green"
             type="button"
         >
-            Voir tous les jeux
-            <span>➜</span>
+            <div class="dashboard-game-image">
+                <img
+                    src="assets/cactus-ranking.png"
+                    alt=""
+                >
+            </div>
+
+            <div class="dashboard-game-content">
+                <h3>Classements</h3>
+                <p>Comparez vos préférences</p>
+            </div>
+
+            <span class="dashboard-game-arrow">›</span>
         </button>
+
+        <button
+            id="guessBtn"
+            class="dashboard-game-card game-card-purple"
+            type="button"
+        >
+            <div class="dashboard-game-image">
+                <img
+                    src="assets/cactus-guess.png"
+                    alt=""
+                >
+            </div>
+
+            <div class="dashboard-game-content">
+                <h3>Devine ma réponse</h3>
+                <p>À quel point vous connaissez-vous ?</p>
+            </div>
+
+            <span class="dashboard-game-arrow">›</span>
+        </button>
+
+        <button
+            id="questionsBtn"
+            class="dashboard-game-card game-card-blue"
+            type="button"
+        >
+            <div class="dashboard-game-image">
+                <img
+                    src="assets/cactus-questions.png"
+                    alt=""
+                >
+            </div>
+
+            <div class="dashboard-game-content">
+                <h3>Questions</h3>
+                <p>Découvrez-vous encore un peu plus</p>
+            </div>
+
+            <span class="dashboard-game-arrow">›</span>
+        </button>
+
     </div>
 
-    <div class="home-games-grid featured-games-grid">
+    <button
+        id="openAllGamesBtn"
+        class="dashboard-all-games-link"
+        type="button"
+    >
+        Voir tous les jeux
+        <span>→</span>
+    </button>
 
-        <button id="rankingBtn" class="home-game-card card-green">
-            <img src="assets/cactus-ranking.png" alt="">
-            <span>Classements</span>
-        </button>
-
-        <button id="guessBtn" class="home-game-card card-purple">
-            <img src="assets/cactus-guess.png" alt="">
-            <span>Devine ma réponse</span>
-        </button>
-
-        <button id="questionsBtn" class="home-game-card card-blue">
-            <img src="assets/cactus-questions.png" alt="">
-            <span>Questions</span>
-        </button>
-
-    </div>
 </section>
 
     <section class="home-shortcuts">
