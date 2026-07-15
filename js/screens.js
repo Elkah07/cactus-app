@@ -73,9 +73,9 @@ function showScreenContent(screenName) {
 
     hideScreen(allGamesScreen);
 
-    historyBtn.style.display = "none";
-    gardenBtn.style.display = "none";
-    settingsBtn.style.display = "none";
+    historyBtn.style.setProperty("display", "none", "important");
+gardenBtn.style.setProperty("display", "none", "important");
+settingsBtn.style.setProperty("display", "none", "important");
 
    if (
     screenName === "history" ||
