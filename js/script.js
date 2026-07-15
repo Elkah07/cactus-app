@@ -4578,6 +4578,25 @@ function openStoryPage() {
         });
 }
 
+function showDashboardLastActivity(text) {
+    if (!activityBox || !activityList) {
+        return;
+    }
+
+    if (!text) {
+        activityBox.style.display = "none";
+        return;
+    }
+
+    activityList.innerHTML = `
+        <strong class="dashboard-activity-title">
+            ${text}
+        </strong>
+    `;
+
+    activityBox.style.display = "grid";
+}
+
 // ====================
 // LANCEMENT
 // ====================

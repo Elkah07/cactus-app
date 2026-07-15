@@ -3919,3 +3919,12 @@ body.dark-theme .notebook-editor {
 .dashboard-games-section {
     margin-top: 0 !important;
 }
+
+.dashboard-activity-title {
+    display: block;
+    margin-top: 4px;
+
+    color: #ffffff;
+    font-size: 0.85rem;
+    line-height: 1.3;
+}

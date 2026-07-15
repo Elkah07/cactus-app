@@ -107,6 +107,10 @@ settingsBtn.style.setProperty("display", "none", "important");
             loadCoupleStats();
             break;
 
+            showDashboardLastActivity(
+    "Lily a terminé un classement"
+);
+
         case "ranking":
             rankingScreen.style.display = "block";
             break;
