@@ -3725,3 +3725,113 @@ body.dark-theme .notebook-editor {
         font-size: 0.52rem;
     }
 }
+
+/* ==========================================
+   PATCH DASHBOARD - RAPPROCHER DU MOCKUP
+========================================== */
+
+/* Remonter fortement le cactus */
+.dashboard-cactus-section {
+    min-height: 330px !important;
+    padding-top: 4px !important;
+}
+
+.dashboard-main-cactus {
+    width: min(235px, 64vw) !important;
+    height: 235px !important;
+    margin-top: 12px !important;
+}
+
+.dashboard-cactus-glow {
+    top: 28px !important;
+    width: 270px !important;
+    height: 270px !important;
+}
+
+.dashboard-cactus-message {
+    top: 92px !important;
+}
+
+
+/* Rapprocher la zone niveau / XP */
+.dashboard-level-badge {
+    margin-top: -2px !important;
+}
+
+.dashboard-xp-wrapper {
+    margin-top: 10px !important;
+}
+
+
+/* Stats plus compactes */
+.dashboard-stats-grid {
+    gap: 8px !important;
+    margin-top: 4px !important;
+}
+
+.dashboard-stat-card {
+    min-height: 145px !important;
+    padding: 14px 5px 11px !important;
+    border-radius: 20px !important;
+}
+
+.dashboard-stat-card > span {
+    font-size: 1.55rem !important;
+}
+
+.dashboard-stat-card strong {
+    font-size: 1.25rem !important;
+}
+
+.dashboard-stat-card small {
+    font-size: 0.58rem !important;
+}
+
+
+/* Moins d'espace avant les jeux */
+.dashboard-secondary-stats {
+    margin-bottom: 22px !important;
+}
+
+.dashboard-games-section h2 {
+    margin-bottom: 14px !important;
+}
+
+
+/* Cartes de jeux plus larges et moins hautes */
+.dashboard-featured-games {
+    gap: 8px !important;
+}
+
+.dashboard-game-card {
+    min-height: 170px !important;
+    aspect-ratio: 0.82 / 1 !important;
+
+    padding: 10px 6px 9px !important;
+
+    border-radius: 22px !important;
+}
+
+.dashboard-game-card img {
+    width: 78px !important;
+    height: 78px !important;
+}
+
+.dashboard-game-card h3 {
+    font-size: 0.74rem !important;
+}
+
+.dashboard-game-card > span {
+    font-size: 0.52rem !important;
+}
+
+
+/* Barre du bas plus compacte */
+.dashboard-bottom-nav {
+    margin-top: 16px !important;
+    padding: 10px 6px 7px !important;
+}
+
+.dashboard-bottom-nav button {
+    padding: 6px 2px !important;
+}
