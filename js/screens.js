@@ -77,18 +77,17 @@ function showScreenContent(screenName) {
     gardenBtn.style.display = "none";
     settingsBtn.style.display = "none";
 
-    if (
-        screenName === "dashboard" ||
-        screenName === "history" ||
-        screenName === "historyDetail" ||
-        screenName === "historyItem" ||
-        screenName === "garden" ||
-        screenName === "settings"
-    ) {
-        historyBtn.style.display = "flex";
-        gardenBtn.style.display = "flex";
-        settingsBtn.style.display = "flex";
-    }
+   if (
+    screenName === "history" ||
+    screenName === "historyDetail" ||
+    screenName === "historyItem" ||
+    screenName === "garden" ||
+    screenName === "settings"
+) {
+    historyBtn.style.display = "flex";
+    gardenBtn.style.display = "flex";
+    settingsBtn.style.display = "flex";
+}
 
     switch (screenName) {
         case "login":
