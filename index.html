@@ -228,63 +228,68 @@
 <!-- ÉCRAN DASHBOARD -->
 <div id="dashboardScreen" style="display:none;" class="dashboard-home">
 
-    <section class="cactus-dashboard-hero">
+    <!-- HAUT -->
+    <section class="dashboard-topbar">
 
-    <div class="cactus-dashboard-top">
         <button
             type="button"
-            class="couple-avatar-button"
+            class="dashboard-profile-btn"
             aria-label="Profil du couple"
         >
             💕
         </button>
 
+        <div class="dashboard-couple-title">
+            <h1>
+                <span id="displayPseudo">...</span>
+                <span>☀️ 💚</span>
+                <span id="partnerName">En attente...</span>
+                <span>🌻</span>
+            </h1>
+
+            <p id="relationshipDaysText">
+                ❤️ Votre petit monde à deux
+            </p>
+        </div>
+
         <button
             id="dashboardSettingsBtn"
             type="button"
-            class="dashboard-settings-button"
-            aria-label="Ouvrir les réglages"
+            class="dashboard-settings-btn"
+            aria-label="Réglages"
         >
             ⚙️
         </button>
-    </div>
 
-    <div class="couple-dashboard-title">
-        <h1>
-            <span id="displayPseudo">...</span>
-            <span class="couple-dashboard-heart">💚</span>
-            <span id="partnerName">En attente...</span>
-        </h1>
+    </section>
 
-        <p id="relationshipDaysText" class="relationship-days-pill">
-            ❤️ Votre petit monde à deux
-        </p>
-    </div>
 
-    <div class="cactus-main-stage">
+    <!-- CACTUS PRINCIPAL -->
+    <section class="dashboard-cactus-section">
 
-        <div class="cactus-message-bubble">
+        <div class="dashboard-cactus-message">
             Ton cactus est en pleine forme ! 🌵✨
         </div>
 
-        <div class="cactus-glow"></div>
+        <div class="dashboard-cactus-glow"></div>
 
         <img
             id="mainCactusImage"
-            class="main-cactus-image"
             src="assets/cactus-main.png"
             alt="Votre cactus"
+            class="dashboard-main-cactus"
         >
 
-        <div class="cactus-level-pill">
+        <div class="dashboard-level-badge">
             ⭐ Niveau <span id="levelHeroStat">1</span>
         </div>
 
-        <div class="cactus-xp-progress">
-            <div class="cactus-xp-track">
+        <div class="dashboard-xp-wrapper">
+
+            <div class="dashboard-xp-track">
                 <div
                     id="cactusXpProgressBar"
-                    class="cactus-xp-progress-bar"
+                    class="dashboard-xp-fill"
                 ></div>
             </div>
 
@@ -294,193 +299,205 @@
                 <span id="nextLevelXpHero">100</span>
                 XP
             </p>
+
         </div>
 
-    </div>
+    </section>
 
-    <p class="tiny-space-code home-space-code">
-        Code espace : <span id="spaceCode">CACTUS-0000</span>
-    </p>
 
-</section>
-
-    <section class="dashboard-stats-section">
-
-    <div class="dashboard-stats-grid">
+    <!-- STATS -->
+    <section class="dashboard-stats-grid">
 
         <article class="dashboard-stat-card stat-compatibility">
-            <span class="dashboard-stat-icon">❤️</span>
-
+            <span>❤️</span>
             <strong id="compatibilityStat">0%</strong>
-
             <small>Compatibilité</small>
 
-            <div class="dashboard-stat-track">
-                <div id="compatibilityMiniBar" class="dashboard-stat-fill"></div>
+            <div class="dashboard-mini-track">
+                <div id="compatibilityMiniBar"></div>
             </div>
         </article>
 
         <article class="dashboard-stat-card stat-seeds">
-            <span class="dashboard-stat-icon">🌱</span>
-
+            <span>🌱</span>
             <strong id="seedsStat">0</strong>
-
             <small>Graines</small>
 
-            <div class="dashboard-stat-track">
-                <div id="seedsMiniBar" class="dashboard-stat-fill"></div>
+            <div class="dashboard-mini-track">
+                <div id="seedsMiniBar"></div>
             </div>
         </article>
 
         <article class="dashboard-stat-card stat-level">
-            <span class="dashboard-stat-icon">⭐</span>
-
+            <span>⭐</span>
             <strong id="levelStat">1</strong>
-
             <small>Niveau</small>
 
-            <div class="dashboard-stat-track">
-                <div id="levelMiniBar" class="dashboard-stat-fill"></div>
+            <div class="dashboard-mini-track">
+                <div id="levelMiniBar"></div>
             </div>
         </article>
 
         <article class="dashboard-stat-card stat-badges">
-            <span class="dashboard-stat-icon">🏆</span>
-
+            <span>🏆</span>
             <strong id="badgesStat">0</strong>
-
             <small>Badges</small>
 
-            <div class="dashboard-stat-track">
-                <div id="badgesMiniBar" class="dashboard-stat-fill"></div>
+            <div class="dashboard-mini-track">
+                <div id="badgesMiniBar"></div>
             </div>
         </article>
 
-    </div>
+    </section>
 
-    <div class="dashboard-secondary-stats">
+
+    <!-- STATS SECONDAIRES -->
+    <section class="dashboard-secondary-stats">
         <span>🔥 <strong id="streakStat">0</strong> jours de série</span>
         <span>🎮 <strong id="answersStat">0</strong> réponses</span>
-    </div>
+    </section>
 
-</section>
 
-    <div id="activityBox" class="activity-box home-activity" style="display:none;">
-        <h3>📬 Activités</h3>
-        <div id="activityList"></div>
-    </div>
+    <!-- JEUX -->
+    <section class="dashboard-games-section">
 
-   
+        <h2>🎮 Jouer ensemble</h2>
 
-<section class="dashboard-games-section">
+        <div class="dashboard-featured-games">
 
-    <div class="dashboard-section-title">
-        <div>
-            <span class="dashboard-section-icon">🎮</span>
-            <div>
-                <h2>Jouer ensemble</h2>
-                <p>Un petit moment à deux ?</p>
-            </div>
+            <button
+                id="rankingBtn"
+                class="dashboard-game-card game-ranking"
+                type="button"
+            >
+                <img src="assets/cactus-ranking.png" alt="">
+
+                <h3>Classements</h3>
+
+                <span>80 catégories</span>
+            </button>
+
+            <button
+                id="guessBtn"
+                class="dashboard-game-card game-guess"
+                type="button"
+            >
+                <img src="assets/cactus-guess.png" alt="">
+
+                <h3>Devine ma réponse</h3>
+
+                <span>350 questions</span>
+            </button>
+
+            <button
+                id="questionsBtn"
+                class="dashboard-game-card game-questions"
+                type="button"
+            >
+                <img src="assets/cactus-questions.png" alt="">
+
+                <h3>Questions</h3>
+
+                <span>350 questions</span>
+            </button>
+
         </div>
-    </div>
 
-    <div class="dashboard-featured-games">
+        <button
+            id="openAllGamesBtn"
+            class="dashboard-all-games-btn"
+            type="button"
+        >
+            Voir tous les jeux →
+        </button>
 
-    <button
-        id="rankingBtn"
-        class="dashboard-game-card game-card-green"
-        type="button"
+    </section>
+
+
+    <!-- ACTIVITÉ -->
+    <section
+        id="activityBox"
+        class="dashboard-last-activity"
+        style="display:none;"
     >
-        <img src="assets/cactus-ranking.png" alt="">
+        <div class="dashboard-last-activity-icon">
+            🪴
+        </div>
 
-        <h3>Classements</h3>
+        <div>
+            <small>Dernière activité</small>
+            <div id="activityList"></div>
+        </div>
 
-        <span>80 catégories</span>
-    </button>
+        <span class="dashboard-last-activity-arrow">
+            ›
+        </span>
+    </section>
 
-    <button
-        id="guessBtn"
-        class="dashboard-game-card game-card-purple"
-        type="button"
-    >
-        <img src="assets/cactus-guess.png" alt="">
 
-        <h3>Devine ma réponse</h3>
-
-        <span>350 questions</span>
-    </button>
-
-    <button
-        id="questionsBtn"
-        class="dashboard-game-card game-card-blue"
-        type="button"
-    >
-        <img src="assets/cactus-questions.png" alt="">
-
-        <h3>Questions</h3>
-
-        <span>350 questions</span>
-    </button>
-
-</div>
-
-    <button
-        id="openAllGamesBtn"
-        class="dashboard-all-games-link"
-        type="button"
-    >
-        Voir tous les jeux
-        <span>→</span>
-    </button>
-
-</section>
-
-<section class="dashboard-shortcuts-section">
-
-    <div class="dashboard-shortcuts-grid">
+    <!-- NAVIGATION BASSE -->
+    <nav class="dashboard-bottom-nav">
 
         <button
             type="button"
-            class="dashboard-shortcut-card shortcut-story"
             onclick="openStoryPage()"
         >
-            <span class="dashboard-shortcut-icon">❤️</span>
-            <strong>Notre histoire</strong>
+            <span>📖</span>
+            <small>Notre histoire</small>
         </button>
 
         <button
             type="button"
-            class="dashboard-shortcut-card shortcut-garden"
             onclick="loadNotebooks(); showScreen('garden');"
         >
-            <span class="dashboard-shortcut-icon">🪴</span>
-            <strong>Jardin</strong>
+            <span>🪴</span>
+            <small>Jardin</small>
         </button>
 
         <button
             type="button"
-            class="dashboard-shortcut-card shortcut-stats"
             onclick="openHistoryMode('stats')"
         >
-            <span class="dashboard-shortcut-icon">📊</span>
-            <strong>Statistiques</strong>
+            <span>📊</span>
+            <small>Stats</small>
         </button>
 
         <button
             type="button"
-            class="dashboard-shortcut-card shortcut-memories"
             onclick="showScreen('history')"
         >
-            <span class="dashboard-shortcut-icon">📖</span>
-            <strong>Souvenirs</strong>
+            <span>📚</span>
+            <small>Souvenirs</small>
+        </button>
+
+    </nav>
+
+
+    <!-- CODE ESPACE DISCRET -->
+    <p class="tiny-space-code dashboard-space-code">
+        Code espace :
+        <span id="spaceCode">CACTUS-0000</span>
+    </p>
+
+
+    <!-- ACTIONS SECONDAIRES -->
+    <div class="dashboard-account-actions">
+
+        <button
+            id="leaveSpaceBtn"
+            type="button"
+        >
+            Quitter cet espace
+        </button>
+
+        <button
+            id="logoutBtn"
+            type="button"
+        >
+            Se déconnecter
         </button>
 
     </div>
-
-</section>
-
-    <button id="leaveSpaceBtn" class="secondary">Quitter cet espace</button>
-    <button id="logoutBtn" class="secondary">Se déconnecter</button>
 
 </div>
 
