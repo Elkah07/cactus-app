@@ -1,4 +1,4 @@
-const CACHE_NAME = "cactus-v4";
+const CACHE_NAME = "cactus-v5";
 
 const FILES_TO_CACHE = [
     "./",

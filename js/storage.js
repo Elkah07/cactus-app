@@ -115,11 +115,8 @@ function saveRankingChallenge(rankingId, answer) {
 }
 
 function listenToRankingChallenges() {
-    database
-        .ref("spaces/" + currentSpaceCode + "/rankingChallenges")
-        .on("value", (snapshot) => {
-            const challenges = snapshot.val() || {};
-            displayRankingChallenges(challenges);
-        });
+    subscribeToSpaceValue("rankingChallenges", (snapshot) => {
+        const challenges = snapshot.val() || {};
+        displayRankingChallenges(challenges);
+    });
 }
-

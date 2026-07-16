@@ -485,14 +485,48 @@ let currentHistoryItems = [];
 let coupleStats = {compatibility: 0, answersCount: 0, streak: 0, badges: 0};
 
 let lastKnownSeeds = null;
+let activeRealtimeSpaceCode = "";
+let activeRealtimeSubscriptions = [];
 
 
 // ====================
 // CHARGEMENT DES DONNÉES
 // ====================
 
+function stopCurrentSpaceListeners() {
+    activeRealtimeSubscriptions.forEach(({ reference, callback }) => {
+        reference.off("value", callback);
+    });
+
+    activeRealtimeSubscriptions = [];
+    activeRealtimeSpaceCode = "";
+}
+
+function subscribeToSpaceValue(relativePath, callback) {
+    if (!activeRealtimeSpaceCode) {
+        return;
+    }
+
+    const completePath = [
+        "spaces",
+        activeRealtimeSpaceCode,
+        relativePath
+    ].filter(Boolean).join("/");
+    const reference = database.ref(completePath);
+
+    reference.on("value", callback);
+    activeRealtimeSubscriptions.push({ reference, callback });
+}
+
 function listenToCurrentSpace(spaceCodeValue) {
-    database.ref("spaces/" + spaceCodeValue).on("value", (snapshot) => {
+    if (activeRealtimeSpaceCode === spaceCodeValue) {
+        return;
+    }
+
+    stopCurrentSpaceListeners();
+    activeRealtimeSpaceCode = spaceCodeValue;
+
+    subscribeToSpaceValue("", (snapshot) => {
         const spaceData = snapshot.val();
 
         if (!spaceData) {
@@ -543,15 +577,15 @@ function listenToCurrentSpace(spaceCodeValue) {
         }
 
         updateActivityBox();
-
-        listenToRankingChallenges();
-        listenToGuessChallenges();
-        listenToLikelyChallenges();
-        listenToOkChallenges();
-        listenToGreenFlagChallenges();
-        listenToPrincessChallenges();
-        listenToQuestionsChallenges();
     });
+
+    listenToRankingChallenges();
+    listenToGuessChallenges();
+    listenToLikelyChallenges();
+    listenToOkChallenges();
+    listenToGreenFlagChallenges();
+    listenToPrincessChallenges();
+    listenToQuestionsChallenges();
 }
 
 
@@ -949,6 +983,7 @@ leaveSpaceBtn.addEventListener("click", () => {
             return database.ref("users/" + currentUser.uid + "/spaceCode").remove();
         })
         .then(() => {
+            stopCurrentSpaceListeners();
             currentSpaceCode = "";
             currentSpaceData = null;
 
@@ -2748,9 +2783,7 @@ function saveLikelyAnswer(answer) {
 }
 
 function listenToLikelyChallenges() {
-    database
-        .ref("spaces/" + currentSpaceCode + "/likelyChallenges")
-        .on("value", (snapshot) => {
+    subscribeToSpaceValue("likelyChallenges", (snapshot) => {
             const challenges = snapshot.val() || {};
 
             Object.entries(challenges).forEach(([id, challenge]) => {
@@ -2780,7 +2813,7 @@ function listenToLikelyChallenges() {
             });
 
             displayLikelyChallenges(challenges);
-        });
+    });
 }
 
 function displayLikelyChallenges(challenges) {
@@ -2986,9 +3019,7 @@ function saveOkAnswer(answer) {
 }
 
 function listenToOkChallenges() {
-    database
-        .ref("spaces/" + currentSpaceCode + "/okChallenges")
-        .on("value", (snapshot) => {
+    subscribeToSpaceValue("okChallenges", (snapshot) => {
             const challenges = snapshot.val() || {};
 
             Object.entries(challenges).forEach(([id, challenge]) => {
@@ -3018,7 +3049,7 @@ function listenToOkChallenges() {
             });
 
             displayOkChallenges(challenges);
-        });
+    });
 }
 
 function displayOkChallenges(challenges) {
@@ -3201,9 +3232,7 @@ function saveGreenFlagAnswer(answer) {
 }
 
 function listenToGreenFlagChallenges() {
-    database
-        .ref("spaces/" + currentSpaceCode + "/greenFlagChallenges")
-        .on("value", (snapshot) => {
+    subscribeToSpaceValue("greenFlagChallenges", (snapshot) => {
             const challenges = snapshot.val() || {};
 
             Object.entries(challenges).forEach(([id, challenge]) => {
@@ -3233,7 +3262,7 @@ function listenToGreenFlagChallenges() {
             });
 
             displayGreenFlagChallenges(challenges);
-        });
+    });
 }
 
 function displayGreenFlagChallenges(challenges) {
@@ -3422,13 +3451,7 @@ function savePrincessAnswer(answer) {
 }
 
 function listenToPrincessChallenges() {
-    database
-        .ref(
-            "spaces/" +
-            currentSpaceCode +
-            "/princessChallenges"
-        )
-        .on("value", (snapshot) => {
+    subscribeToSpaceValue("princessChallenges", (snapshot) => {
 
             const challenges =
                 snapshot.val() || {};
@@ -3464,7 +3487,7 @@ function listenToPrincessChallenges() {
             displayPrincessChallenges(
                 challenges
             );
-        });
+    });
 }
 
 function displayPrincessChallenges(
@@ -3709,9 +3732,7 @@ function saveQuestionsAnswer() {
 }
 
 function listenToQuestionsChallenges() {
-    database
-        .ref("spaces/" + currentSpaceCode + "/questionsChallenges")
-        .on("value", (snapshot) => {
+    subscribeToSpaceValue("questionsChallenges", (snapshot) => {
             const challenges = snapshot.val() || {};
 
             Object.entries(challenges).forEach(([id, challenge]) => {
@@ -3740,7 +3761,7 @@ function listenToQuestionsChallenges() {
             });
 
             displayQuestionsChallenges(challenges);
-        });
+    });
 }
 
 function displayQuestionsChallenges(challenges) {
@@ -4649,6 +4670,7 @@ auth.onAuthStateChanged((user) => {
                 const userData = snapshot.val();
 
                 if (!userData) {
+                    stopCurrentSpaceListeners();
                     showScreen("pseudo");
                     return;
                 }
@@ -4664,10 +4686,12 @@ auth.onAuthStateChanged((user) => {
 
                     showScreen("dashboard");
                 } else {
+                    stopCurrentSpaceListeners();
                     showScreen("couple");
                 }
             });
     } else {
+        stopCurrentSpaceListeners();
         currentUser = null;
         showScreen("login");
     }
@@ -4735,9 +4759,7 @@ function displayRankingChallenges(challenges) {
 }
 
 function listenToGuessChallenges() {
-    database
-        .ref("spaces/" + currentSpaceCode + "/guessAnswers")
-        .on("value", (snapshot) => {
+    subscribeToSpaceValue("guessAnswers", (snapshot) => {
             const challenges = snapshot.val() || {};
 
             Object.entries(challenges).forEach(([id, challenge]) => {
@@ -4783,5 +4805,5 @@ if (
             });
 
             displayGuessChallenges(challenges);
-        });
+    });
 }
