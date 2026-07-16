@@ -64,7 +64,6 @@ const cactusCelebration = document.getElementById("cactusCelebration");
 
 const historyScreen = document.getElementById("historyScreen");
 const historyBtn = document.getElementById("historyBtn");
-const historyList = document.getElementById("historyList");
 const backFromHistoryBtn = document.getElementById("backFromHistoryBtn");
 
 const gardenScreen = document.getElementById("gardenScreen");
@@ -126,6 +125,8 @@ const backDashboardFromGuessResultBtn =    document.getElementById("backDashboar
 
 const activityBox = document.getElementById("activityBox");
 const activityList = document.getElementById("activityList");
+const activityKicker = document.getElementById("activityKicker");
+const activityIcon = document.getElementById("activityIcon");
 
 const likelyBtn = document.getElementById("likelyBtn");
 
@@ -299,13 +300,10 @@ const guessAnswerTitle =
 const guessPredictTitle =
     document.querySelector("#guessPredictScreen h1");
 
-    const compatibilityStat = document.getElementById("compatibilityStat");
-const streakStat = document.getElementById("streakStat");
-const answersStat = document.getElementById("answersStat");
+const compatibilityStat = document.getElementById("compatibilityStat");
 const badgesStat = document.getElementById("badgesStat");
 
 const seedsStat = document.getElementById("seedsStat");
-const xpStat = document.getElementById("xpStat");
 const levelStat = document.getElementById("levelStat");
 
 const storyIntroScreen = document.getElementById("storyIntroScreen");
@@ -357,8 +355,26 @@ const allRankingBtn = document.getElementById("allRankingBtn");
 const allGuessBtn = document.getElementById("allGuessBtn");
 const allQuestionsBtn = document.getElementById("allQuestionsBtn");
 
+const dashboardProfileBtn =
+    document.getElementById("dashboardProfileBtn");
+
 const dashboardSettingsBtn =
     document.getElementById("dashboardSettingsBtn");
+
+const dashboardSpaceCode =
+    document.getElementById("dashboardSpaceCode");
+
+const spaceCodeLabel =
+    document.getElementById("spaceCodeLabel");
+
+const rankingCountLabel =
+    document.getElementById("rankingCountLabel");
+
+const guessCountLabel =
+    document.getElementById("guessCountLabel");
+
+const questionsCountLabel =
+    document.getElementById("questionsCountLabel");
 
 const levelHeroStat =
     document.getElementById("levelHeroStat");
@@ -468,8 +484,6 @@ let currentHistoryItems = [];
 
 let coupleStats = {compatibility: 0, answersCount: 0, streak: 0, badges: 0};
 
-let coupleStory = {};
-
 let lastKnownSeeds = null;
 
 
@@ -488,11 +502,11 @@ function listenToCurrentSpace(spaceCodeValue) {
         currentSpaceData = spaceData;
 
         if (!spaceData.story && lastShownScreen === "dashboard") {
-    showScreen("storyIntro");
-    return;
-}
+            showScreen("storyIntro");
+            return;
+        }
 
-updateRelationshipDays(spaceData.story);
+        updateRelationshipDays(spaceData.story);
 
         let partner = null;
 
@@ -512,13 +526,23 @@ updateRelationshipDays(spaceData.story);
 
         if (partner) {
             partnerName.textContent = partner.pseudo || "Partenaire";
-            document.querySelector(".tiny-space-code").innerHTML =
-                "🌵 Espace relié";
         } else {
             partnerName.textContent = "En attente...";
-            document.querySelector(".tiny-space-code").innerHTML =
-                `Code : <span>${spaceCodeValue}</span>`;
         }
+
+        spaceCode.textContent = spaceCodeValue;
+
+        if (spaceCodeLabel) {
+            spaceCodeLabel.textContent = partner
+                ? "Code espace :"
+                : "Code à partager :";
+        }
+
+        if (dashboardSpaceCode) {
+            dashboardSpaceCode.classList.toggle("is-waiting", !partner);
+        }
+
+        updateActivityBox();
 
         listenToRankingChallenges();
         listenToGuessChallenges();
@@ -539,10 +563,31 @@ async function loadRankingsData() {
     if (Array.isArray(data)) {
         rankings = data;
     } else {
-        rankings = data.rankings;
+        rankings = data.rankings || [];
     }
 
+    updateDashboardContentCounts();
     console.log("Classements chargés :", rankings);
+}
+
+function updateDashboardContentCounts() {
+    if (rankingCountLabel && rankings.length > 0) {
+        rankingCountLabel.textContent =
+            rankings.length +
+            (rankings.length === 1 ? " catégorie" : " catégories");
+    }
+
+    if (guessCountLabel && guessQuestions.length > 0) {
+        guessCountLabel.textContent =
+            guessQuestions.length +
+            (guessQuestions.length === 1 ? " question" : " questions");
+    }
+
+    if (questionsCountLabel && coupleQuestions.length > 0) {
+        questionsCountLabel.textContent =
+            coupleQuestions.length +
+            (coupleQuestions.length === 1 ? " question" : " questions");
+    }
 }
 
 async function loadLikelyQuestionsData() {
@@ -747,7 +792,7 @@ validateGuessAnswerBtn.addEventListener("click", () => {
         })
         .then(() => {
             showToast("🌵 Réponse enregistrée");
-            showScreen();
+            showScreen("dashboard");
         });
 });
 
@@ -1455,50 +1500,6 @@ startStoryBtn.addEventListener("click", () => {
 });
 
 saveStoryDateBtn.addEventListener("click", () => {
-    coupleStory.relationshipDate = storyDateInput.value;
-    showScreen("storyMeeting");
-});
-
-saveStoryMeetingBtn.addEventListener("click", () => {
-    coupleStory.meetingPlace = storyMeetingInput.value.trim();
-    showScreen("storyFirstDate");
-});
-
-saveStoryFirstDateBtn.addEventListener("click", () => {
-    coupleStory.firstDate = storyFirstDateInput.value.trim();
-    showScreen("storyNicknames");
-});
-
-saveStoryNicknamesBtn.addEventListener("click", () => {
-    coupleStory.nicknameMine = storyNicknameMineInput.value.trim();
-    coupleStory.nicknamePartner = storyNicknamePartnerInput.value.trim();
-    showScreen("storySong");
-});
-
-saveStorySongBtn.addEventListener("click", () => {
-    coupleStory.song = storySongInput.value.trim();
-    showScreen("storyDistance");
-});
-
-storyTogetherBtn.addEventListener("click", () => {
-    coupleStory.relationshipType = "together";
-    showScreen("storyFinal");
-});
-
-storyDistanceBtn.addEventListener("click", () => {
-    coupleStory.relationshipType = "distance";
-    showScreen("storyFinal");
-});
-
-finishStoryBtn.addEventListener("click", () => {
-    saveCoupleStory();
-});
-
-startStoryBtn.addEventListener("click", () => {
-    showScreen("storyDate");
-});
-
-saveStoryDateBtn.addEventListener("click", () => {
     const startDate = storyDateInput.value;
 
     if (!startDate) {
@@ -1598,6 +1599,24 @@ allQuestionsBtn.addEventListener("click", () => {
 dashboardSettingsBtn.addEventListener("click", () => {
     previousScreen = "dashboard";
     showScreen("settings");
+});
+
+dashboardProfileBtn.addEventListener("click", () => {
+    openStoryPage();
+});
+
+dashboardSpaceCode.addEventListener("click", async () => {
+    if (!currentSpaceCode) {
+        return;
+    }
+
+    try {
+        await navigator.clipboard.writeText(currentSpaceCode);
+        showToast("Code de l’espace copié 🌵");
+    } catch (error) {
+        console.warn("Copie du code indisponible", error);
+        showToast("Code : " + currentSpaceCode);
+    }
 });
 
 // ====================
@@ -1874,53 +1893,6 @@ if (score >= 80) {
     showScreen("rankingCompatibility");
 }
 
-function loadHistory() {
-    historyList.innerHTML = "";
-
-    database
-        .ref("spaces/" + currentSpaceCode + "/rankingChallenges")
-        .once("value")
-        .then((snapshot) => {
-            const challenges = snapshot.val() || {};
-            const historyItems = Object.values(challenges).filter((challenge) => {
-                return challenge.status === "completed";
-            });
-
-            if (historyItems.length === 0) {
-                historyList.innerHTML =
-                    '<p class="empty-text">Aucun souvenir pour le moment 🌵</p>';
-                showScreen("history");
-                return;
-            }
-
-            historyItems
-                .sort((a, b) => b.completedAt - a.completedAt)
-                .forEach((challenge) => {
-                    const card = document.createElement("div");
-                    card.classList.add("history-card");
-
-                    const title = document.createElement("h3");
-                    title.textContent = "🌵 " + challenge.title;
-
-                    const score = document.createElement("span");
-score.classList.add("history-score");
-
-score.textContent =
-    getCompatibilityHearts(challenge.compatibility) +
-    " " +
-    challenge.compatibility +
-    "%";
-
-card.appendChild(title);
-card.appendChild(score);
-
-                    historyList.appendChild(card);
-                });
-
-            showScreen("history");
-        });
-}
-
 function loadNotebooks() {
     notebooksGrid.innerHTML = "";
 
@@ -2084,6 +2056,7 @@ async function loadGuessQuestionsData() {
 
     guessQuestions = data;
 
+    updateDashboardContentCounts();
     console.log("Questions Devine ma réponse chargées :", guessQuestions);
 }
 
@@ -2330,297 +2303,369 @@ function getGuessValidationScore(result) {
 }
 
 function updateActivityBox() {
-    activityList.innerHTML = "";
+    if (!activityBox || !activityList || !currentUser) {
+        return;
+    }
 
-    let hasActivities = false;
+    const activities = [];
 
-    if (pendingRankingResults.length > 0) {
-    hasActivities = true;
+    const addActivity = (items, priority, icon, text, action) => {
+        if (!Array.isArray(items) || items.length === 0) {
+            return;
+        }
 
-    const item = document.createElement("p");
-    item.classList.add("mode-notification");
-    item.textContent =
-    "💚 " +
-    pendingRankingResults.length +
-    (pendingRankingResults.length === 1
-        ? " résultat Classement"
-        : " résultats Classements");
+        activities.push({
+            count: items.length,
+            priority,
+            icon,
+            title: text(items.length),
+            action
+        });
+    };
 
-    item.addEventListener("click", () => {
-        currentPendingRankingResultIndex = 0;
-        showPendingRankingResult();
-    });
-
-    activityList.appendChild(item);
-}
-
-    if (pendingRankingChallenges.length > 0) {
-        hasActivities = true;
-
-        const item = document.createElement("p");
-        item.classList.add("mode-notification");
-        item.textContent =
-    "💚 " +
-    pendingRankingChallenges.length +
-    (pendingRankingChallenges.length === 1
-        ? " classement t’attend"
-        : " classements t’attendent");
-
-        item.addEventListener("click", () => {
+    addActivity(
+        pendingRankingChallenges,
+        10,
+        "🌵",
+        (count) => count === 1
+            ? "1 classement t’attend"
+            : count + " classements t’attendent",
+        () => {
             isPlayingPendingChallenges = true;
             currentPendingChallengeIndex = 0;
             startPendingRankingChallenge();
-        });
+        }
+    );
 
-        activityList.appendChild(item);
-    }
-
-    if (pendingGuessAnswers.length > 0) {
-        hasActivities = true;
-
-        const item = document.createElement("p");
-        item.classList.add("mode-notification");
-        item.textContent =
-            "💚 " + pendingGuessAnswers.length + " question(s) Devine ma réponse";
-
-        item.addEventListener("click", () => {
+    addActivity(
+        pendingGuessAnswers,
+        20,
+        "💭",
+        (count) => count === 1
+            ? "1 réponse à écrire"
+            : count + " réponses à écrire",
+        () => {
             currentPendingGuessIndex = 0;
             startPendingGuessAnswer();
-        });
+        }
+    );
 
-        activityList.appendChild(item);
-    }
-
-    if (pendingGuessPredictions.length > 0) {
-        hasActivities = true;
-
-        const item = document.createElement("p");
-        item.classList.add("mode-notification");
-        item.textContent =
-            "💚 " + pendingGuessPredictions.length + " prédiction(s) à faire";
-
-        item.addEventListener("click", () => {
+    addActivity(
+        pendingGuessPredictions,
+        21,
+        "💭",
+        (count) => count === 1
+            ? "1 prédiction à faire"
+            : count + " prédictions à faire",
+        () => {
             currentPendingGuessIndex = 0;
             startPendingGuessPrediction();
-        });
+        }
+    );
 
-        activityList.appendChild(item);
-    }
-
-    if (pendingGuessValidations.length > 0) {
-        hasActivities = true;
-
-        const item = document.createElement("p");
-        item.classList.add("mode-notification");
-        item.textContent =
-            "💚 " + pendingGuessValidations.length + " validation(s) à faire";
-
-        item.addEventListener("click", () => {
+    addActivity(
+        pendingGuessValidations,
+        22,
+        "💭",
+        (count) => count === 1
+            ? "1 réponse à valider"
+            : count + " réponses à valider",
+        () => {
             currentPendingGuessIndex = 0;
             startPendingGuessValidation();
-        });
+        }
+    );
 
-        activityList.appendChild(item);
-    }
+    addActivity(
+        pendingLikelyChallenges,
+        30,
+        "👉",
+        (count) => count === 1
+            ? "1 question Qui est le plus susceptible t’attend"
+            : count + " questions Qui est le plus susceptible t’attendent",
+        () => {
+            currentPendingLikelyIndex = 0;
+            startPendingLikelyChallenge();
+        }
+    );
 
-    if (pendingGuessResults.length > 0) {
-        hasActivities = true;
+    addActivity(
+        pendingOkChallenges,
+        31,
+        "✅",
+        (count) => count === 1
+            ? "1 question OK ou Pas OK t’attend"
+            : count + " questions OK ou Pas OK t’attendent",
+        () => {
+            currentPendingOkIndex = 0;
+            startPendingOkChallenge();
+        }
+    );
 
-        const item = document.createElement("p");
-        item.classList.add("mode-notification");
-        item.textContent =
-            item.textContent =
-    "💭 " + pendingGuessResults.length + " résultat(s) Devine ma réponse";
+    addActivity(
+        pendingGreenFlagChallenges,
+        32,
+        "🚩",
+        (count) => count === 1
+            ? "1 Green Flag ou Red Flag t’attend"
+            : count + " Green Flags ou Red Flags t’attendent",
+        () => {
+            currentPendingGreenFlagIndex = 0;
+            startPendingGreenFlagChallenge();
+        }
+    );
 
-        item.addEventListener("click", () => {
+    addActivity(
+        pendingPrincessChallenges,
+        33,
+        "👑",
+        (count) => count === 1
+            ? "1 Princess Treatment t’attend"
+            : count + " Princess Treatments t’attendent",
+        () => {
+            currentPendingPrincessIndex = 0;
+            startPendingPrincessChallenge();
+        }
+    );
+
+    addActivity(
+        pendingQuestionsChallenges,
+        34,
+        "💬",
+        (count) => count === 1
+            ? "1 question t’attend"
+            : count + " questions t’attendent",
+        () => {
+            currentPendingQuestionsIndex = 0;
+            startPendingQuestionsChallenge();
+        }
+    );
+
+    addActivity(
+        pendingRankingResults,
+        50,
+        "✨",
+        (count) => count === 1
+            ? "1 résultat de classement est disponible"
+            : count + " résultats de classement sont disponibles",
+        () => {
+            currentPendingRankingResultIndex = 0;
+            showPendingRankingResult();
+        }
+    );
+
+    addActivity(
+        pendingGuessResults,
+        51,
+        "✨",
+        (count) => count === 1
+            ? "1 résultat Devine ma réponse est disponible"
+            : count + " résultats Devine ma réponse sont disponibles",
+        () => {
             currentPendingGuessIndex = 0;
             showPendingGuessResult();
-        });
+        }
+    );
 
-        activityList.appendChild(item);
+    addActivity(
+        pendingLikelyResults,
+        52,
+        "✨",
+        (count) => count === 1
+            ? "1 résultat Qui est le plus susceptible est disponible"
+            : count + " résultats Qui est le plus susceptible sont disponibles",
+        () => {
+            currentPendingLikelyIndex = 0;
+            showPendingLikelyResult();
+        }
+    );
+
+    addActivity(
+        pendingOkResults,
+        53,
+        "✨",
+        (count) => count === 1
+            ? "1 résultat OK ou Pas OK est disponible"
+            : count + " résultats OK ou Pas OK sont disponibles",
+        () => {
+            currentPendingOkIndex = 0;
+            showPendingOkResult();
+        }
+    );
+
+    addActivity(
+        pendingGreenFlagResults,
+        54,
+        "✨",
+        (count) => count === 1
+            ? "1 résultat Green Flag ou Red Flag est disponible"
+            : count + " résultats Green Flag ou Red Flag sont disponibles",
+        () => {
+            currentPendingGreenFlagIndex = 0;
+            showPendingGreenFlagResult();
+        }
+    );
+
+    addActivity(
+        pendingPrincessResults,
+        55,
+        "✨",
+        (count) => count === 1
+            ? "1 résultat Princess Treatment est disponible"
+            : count + " résultats Princess Treatment sont disponibles",
+        () => {
+            currentPendingPrincessIndex = 0;
+            showPendingPrincessResult();
+        }
+    );
+
+    addActivity(
+        pendingQuestionsResults,
+        56,
+        "✨",
+        (count) => count === 1
+            ? "1 réponse est à découvrir"
+            : count + " réponses sont à découvrir",
+        () => {
+            currentPendingQuestionsIndex = 0;
+            showPendingQuestionsResult();
+        }
+    );
+
+    if (activities.length > 0) {
+        activities.sort((a, b) => a.priority - b.priority);
+
+        const primaryActivity = activities[0];
+        const remainingCount = activities
+            .slice(1)
+            .reduce((total, activity) => total + activity.count, 0);
+
+        renderDashboardActivity({
+            kicker: "À faire",
+            icon: primaryActivity.icon,
+            title: primaryActivity.title,
+            subtitle: remainingCount > 0
+                ? "+" + remainingCount + " autre" + (remainingCount > 1 ? "s" : "") + " action" + (remainingCount > 1 ? "s" : "")
+                : "Ouvre pour continuer",
+            action: primaryActivity.action
+        });
+        return;
     }
 
-    if (pendingLikelyChallenges.length > 0) {
-    hasActivities = true;
+    const latestActivity = getLatestCompletedActivity();
 
-    const item = document.createElement("p");
-    item.classList.add("mode-notification");
-    item.textContent =
-        "💚 " + pendingLikelyChallenges.length + " question(s) Qui est le plus susceptible";
+    if (latestActivity) {
+        renderDashboardActivity(latestActivity);
+        return;
+    }
 
-    item.addEventListener("click", () => {
-        currentPendingLikelyIndex = 0;
-        startPendingLikelyChallenge();
-    });
-
-    activityList.appendChild(item);
+    activityBox.style.display = "none";
+    activityBox.onclick = null;
 }
 
-if (pendingLikelyResults.length > 0) {
-    hasActivities = true;
+function renderDashboardActivity(activity) {
+    activityList.innerHTML = "";
 
-    const item = document.createElement("p");
-    item.classList.add("mode-notification");
-    item.textContent =
-        "💚 " + pendingLikelyResults.length + " résultat(s) Qui est le plus susceptible";
+    const title = document.createElement("strong");
+    title.className = "dashboard-activity-title";
+    title.textContent = activity.title;
 
-    item.addEventListener("click", () => {
-        currentPendingLikelyIndex = 0;
-        showPendingLikelyResult();
-    });
+    const subtitle = document.createElement("span");
+    subtitle.className = "dashboard-activity-subtitle";
+    subtitle.textContent = activity.subtitle || "";
 
-    activityList.appendChild(item);
+    activityList.appendChild(title);
+    activityList.appendChild(subtitle);
+
+    if (activityKicker) {
+        activityKicker.textContent = activity.kicker;
+    }
+
+    if (activityIcon) {
+        activityIcon.textContent = activity.icon;
+    }
+
+    activityBox.onclick = activity.action || null;
+    activityBox.classList.toggle("is-actionable", Boolean(activity.action));
+    activityBox.style.display = "grid";
 }
 
-if (pendingOkChallenges.length > 0) {
-    hasActivities = true;
+function getLatestCompletedActivity() {
+    if (!currentSpaceData) {
+        return null;
+    }
 
-    const item = document.createElement("p");
-    item.classList.add("mode-notification");
-    item.textContent =
-        "💚 " + pendingOkChallenges.length + " question(s) OK ou Pas OK";
+    const modes = [
+        { key: "rankingChallenges", mode: "ranking", icon: "🌵", label: "un classement" },
+        { key: "guessAnswers", mode: "guess", icon: "💭", label: "Devine ma réponse" },
+        { key: "likelyChallenges", mode: "likely", icon: "👉", label: "Qui est le plus susceptible" },
+        { key: "okChallenges", mode: "ok", icon: "✅", label: "OK ou Pas OK" },
+        { key: "greenFlagChallenges", mode: "greenFlag", icon: "🚩", label: "Green Flag ou Red Flag" },
+        { key: "princessChallenges", mode: "princess", icon: "👑", label: "Princess Treatment" },
+        { key: "questionsChallenges", mode: "questions", icon: "💬", label: "une question" }
+    ];
 
-    item.addEventListener("click", () => {
-        currentPendingOkIndex = 0;
-        startPendingOkChallenge();
+    let latest = null;
+
+    modes.forEach((mode) => {
+        Object.values(currentSpaceData[mode.key] || {}).forEach((challenge) => {
+            if (challenge.status !== "completed") {
+                return;
+            }
+
+            const answers = Object.values(challenge.answers || {});
+            const lastAnswer = answers.reduce((newest, answer) => {
+                if (!newest || (answer.createdAt || 0) > (newest.createdAt || 0)) {
+                    return answer;
+                }
+                return newest;
+            }, null);
+
+            const timestamp = challenge.completedAt || lastAnswer?.createdAt || challenge.createdAt || 0;
+
+            if (!timestamp || (latest && latest.timestamp >= timestamp)) {
+                return;
+            }
+
+            const isMe = lastAnswer && lastAnswer.uid === currentUser.uid;
+            const actor = isMe
+                ? "Tu as"
+                : (lastAnswer?.pseudo || getPartnerPseudo()) + " a";
+
+            latest = {
+                kicker: "Dernière activité",
+                icon: mode.icon,
+                title: actor + " terminé " + mode.label,
+                subtitle: formatRelativeActivityTime(timestamp),
+                timestamp,
+                action: () => openHistoryMode(mode.mode)
+            };
+        });
     });
 
-    activityList.appendChild(item);
+    return latest;
 }
 
-if (pendingOkResults.length > 0) {
-    hasActivities = true;
+function formatRelativeActivityTime(timestamp) {
+    const elapsed = Math.max(0, Date.now() - timestamp);
+    const minutes = Math.floor(elapsed / 60000);
 
-    const item = document.createElement("p");
-    item.classList.add("mode-notification");
-    item.textContent =
-        "💚 " + pendingOkResults.length + " résultat(s) OK ou Pas OK";
+    if (minutes < 1) {
+        return "À l’instant";
+    }
 
-    item.addEventListener("click", () => {
-        currentPendingOkIndex = 0;
-        showPendingOkResult();
-    });
+    if (minutes < 60) {
+        return "Il y a " + minutes + " minute" + (minutes > 1 ? "s" : "");
+    }
 
-    activityList.appendChild(item);
-}
+    const hours = Math.floor(minutes / 60);
 
-if (pendingGreenFlagChallenges.length > 0) {
-    hasActivities = true;
+    if (hours < 24) {
+        return "Il y a " + hours + " heure" + (hours > 1 ? "s" : "");
+    }
 
-    const item = document.createElement("p");
-    item.classList.add("mode-notification");
-    item.textContent =
-        "💚 " + pendingGreenFlagChallenges.length + " question(s) Green Flag / Red Flag";
-
-    item.addEventListener("click", () => {
-        currentPendingGreenFlagIndex = 0;
-        startPendingGreenFlagChallenge();
-    });
-
-    activityList.appendChild(item);
-}
-
-if (pendingGreenFlagResults.length > 0) {
-    hasActivities = true;
-
-    const item = document.createElement("p");
-    item.classList.add("mode-notification");
-    item.textContent =
-        "💚 " + pendingGreenFlagResults.length + " résultat(s) Green Flag / Red Flag";
-
-    item.addEventListener("click", () => {
-        currentPendingGreenFlagIndex = 0;
-        showPendingGreenFlagResult();
-    });
-
-    activityList.appendChild(item);
-}
-
-if (pendingPrincessChallenges.length > 0) {
-
-    hasActivities = true;
-
-    const item =
-        document.createElement("p");
-
-    item.classList.add(
-        "mode-notification"
-    );
-
-    item.textContent =
-        "👑 " +
-        pendingPrincessChallenges.length +
-        " question(s) Princess Treatment";
-
-    item.addEventListener("click", () => {
-
-        currentPendingPrincessIndex = 0;
-
-        startPendingPrincessChallenge();
-    });
-
-    activityList.appendChild(item);
-}
-
-if (pendingPrincessResults.length > 0) {
-
-    hasActivities = true;
-
-    const item =
-        document.createElement("p");
-
-    item.classList.add(
-        "mode-notification"
-    );
-
-    item.textContent =
-        "👑 " +
-        pendingPrincessResults.length +
-        " résultat(s) Princess Treatment";
-
-    item.addEventListener("click", () => {
-
-        currentPendingPrincessIndex = 0;
-
-        showPendingPrincessResult();
-    });
-
-    activityList.appendChild(item);
-}
-
-if (pendingQuestionsChallenges.length > 0) {
-    hasActivities = true;
-
-    const item = document.createElement("p");
-    item.classList.add("mode-notification");
-    item.textContent =
-        "💬 " + pendingQuestionsChallenges.length + " question(s) à répondre";
-
-    item.addEventListener("click", () => {
-        currentPendingQuestionsIndex = 0;
-        startPendingQuestionsChallenge();
-    });
-
-    activityList.appendChild(item);
-}
-
-if (pendingQuestionsResults.length > 0) {
-    hasActivities = true;
-
-    const item = document.createElement("p");
-    item.classList.add("mode-notification");
-    item.textContent =
-        "💬 " + pendingQuestionsResults.length + " réponse(s) à découvrir";
-
-    item.addEventListener("click", () => {
-        currentPendingQuestionsIndex = 0;
-        showPendingQuestionsResult();
-    });
-
-    activityList.appendChild(item);
-}
-
-    activityBox.style.display = hasActivities ? "block" : "none";
+    const days = Math.floor(hours / 24);
+    return "Il y a " + days + " jour" + (days > 1 ? "s" : "");
 }
 
 function markCurrentGuessResultSeen() {
@@ -3601,6 +3646,7 @@ async function loadCoupleQuestionsData() {
     const response = await fetch("data/questions.json");
     coupleQuestions = await response.json();
 
+    updateDashboardContentCounts();
     console.log("Questions chargées :", coupleQuestions);
 }
 
@@ -4363,17 +4409,18 @@ function loadCoupleStats() {
             const stats = snapshot.val() || {};
 
             const compatibility = stats.compatibility || 0;
-            const streak = stats.streak || 0;
-            const answersCount = stats.answersCount || 0;
             const badges = stats.badges || 0;
             const seeds = stats.seeds || 0;
             const level = stats.level || 1;
             const xp = stats.xp || 0;
 
-            compatibilityStat.textContent = compatibility + "%";
-            streakStat.textContent = streak;
-            answersStat.textContent = answersCount;
-            badgesStat.textContent = badges;
+            if (compatibilityStat) {
+                compatibilityStat.textContent = compatibility + "%";
+            }
+
+            if (badgesStat) {
+                badgesStat.textContent = badges;
+            }
 
             if (seedsStat) {
                 seedsStat.textContent = seeds;
@@ -4450,31 +4497,25 @@ function saveStoryData(data) {
         .update(data);
 }
 
-function saveCoupleStory() {
-    database
-        .ref("spaces/" + currentSpaceCode + "/story")
-        .set({
-            relationshipDate: coupleStory.relationshipDate || "",
-            meetingPlace: coupleStory.meetingPlace || "",
-            firstDate: coupleStory.firstDate || "",
-            nicknameMine: coupleStory.nicknameMine || "",
-            nicknamePartner: coupleStory.nicknamePartner || "",
-            song: coupleStory.song || "",
-            relationshipType: coupleStory.relationshipType || "",
-            completedAt: Date.now()
-        })
-        .then(() => {
-            showScreen("dashboard");
-        });
-}
-
 function updateRelationshipDays(story) {
-    if (!relationshipDaysText || !story || !story.relationshipDate) {
+    if (!relationshipDaysText) {
         return;
     }
 
-    const startDate = new Date(story.relationshipDate);
+    const dateValue = story && (story.startDate || story.relationshipDate);
+
+    if (!dateValue) {
+        relationshipDaysText.textContent = "❤️ Votre petit monde à deux";
+        return;
+    }
+
+    const startDate = new Date(dateValue);
     const today = new Date();
+
+    if (Number.isNaN(startDate.getTime())) {
+        relationshipDaysText.textContent = "❤️ Votre petit monde à deux";
+        return;
+    }
 
     startDate.setHours(0, 0, 0, 0);
     today.setHours(0, 0, 0, 0);
@@ -4484,32 +4525,35 @@ function updateRelationshipDays(story) {
 
     if (diffDays <= 0) {
         relationshipDaysText.textContent =
-            "Votre histoire commence aujourd’hui ❤️";
+            "❤️ Votre histoire commence aujourd’hui";
         return;
     }
 
     relationshipDaysText.textContent =
-        "Ensemble depuis " + diffDays + " jours ❤️";
+        "❤️ " + diffDays + " jours ensemble";
 }
 
-function showStoryPage() {
-    const story = currentSpaceData && currentSpaceData.story;
-
-    if (!story) {
-        showScreen("storyIntro");
-        return;
+function getRelationshipDaysText(dateValue) {
+    if (!dateValue) {
+        return "Date à renseigner";
     }
 
-    storyPageContent.innerHTML = `
-        <p><strong>📅 Ensemble depuis :</strong><br>${relationshipDaysText.textContent}</p>
-        <p><strong>📍 Rencontre :</strong><br>${story.meetingPlace || "Non renseigné"}</p>
-        <p><strong>☕ Premier rendez-vous :</strong><br>${story.firstDate || "Non renseigné"}</p>
-        <p><strong>💬 Surnoms :</strong><br>${story.nicknameMine || "—"} / ${story.nicknamePartner || "—"}</p>
-        <p><strong>🎵 Votre chanson :</strong><br>${story.song || "Non renseigné"}</p>
-        <p><strong>🏠 Relation :</strong><br>${story.relationshipType === "distance" ? "À distance" : "Ensemble"}</p>
-    `;
+    const startDate = new Date(dateValue);
+    const today = new Date();
 
-    showScreen("storyPage");
+    if (Number.isNaN(startDate.getTime())) {
+        return "Date à renseigner";
+    }
+
+    startDate.setHours(0, 0, 0, 0);
+    today.setHours(0, 0, 0, 0);
+
+    const diffDays = Math.max(
+        0,
+        Math.floor((today - startDate) / (1000 * 60 * 60 * 24))
+    );
+
+    return diffDays + " jour" + (diffDays > 1 ? "s" : "");
 }
 
 function openStoryPage() {
@@ -4529,7 +4573,7 @@ function openStoryPage() {
                     <span>📅</span>
                     <div>
                         <small>Ensemble depuis</small>
-                        <strong>${getRelationshipDaysText(story.startDate)}</strong>
+                        <strong>${getRelationshipDaysText(story.startDate || story.relationshipDate)}</strong>
                     </div>
                 </div>
 
@@ -4569,7 +4613,7 @@ function openStoryPage() {
                     <span>🏠</span>
                     <div>
                         <small>Situation</small>
-                        <strong>${story.situation === "distance" ? "À distance" : "Ensemble"}</strong>
+                        <strong>${(story.situation || story.relationshipType) === "distance" ? "À distance" : "Ensemble"}</strong>
                     </div>
                 </div>
             `;
@@ -4579,22 +4623,17 @@ function openStoryPage() {
 }
 
 function showDashboardLastActivity(text) {
-    if (!activityBox || !activityList) {
-        return;
-    }
-
     if (!text) {
-        activityBox.style.display = "none";
+        updateActivityBox();
         return;
     }
 
-    activityList.innerHTML = `
-        <strong class="dashboard-activity-title">
-            ${text}
-        </strong>
-    `;
-
-    activityBox.style.display = "grid";
+    renderDashboardActivity({
+        kicker: "Dernière activité",
+        icon: "🪴",
+        title: text,
+        subtitle: ""
+    });
 }
 
 // ====================

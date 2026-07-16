@@ -21,6 +21,11 @@ function hideScreen(screen) {
 }
 
 function showScreenContent(screenName) {
+    document.body.classList.toggle(
+        "dashboard-active",
+        screenName === "dashboard"
+    );
+
     hideScreen(loginScreen);
     hideScreen(pseudoScreen);
     hideScreen(coupleScreen);
@@ -105,11 +110,8 @@ settingsBtn.style.setProperty("display", "none", "important");
         case "dashboard":
             dashboardScreen.style.display = "block";
             loadCoupleStats();
+            updateActivityBox();
             break;
-
-            showDashboardLastActivity(
-    "Lily a terminé un classement"
-);
 
         case "ranking":
             rankingScreen.style.display = "block";
@@ -256,7 +258,7 @@ settingsBtn.style.setProperty("display", "none", "important");
             lastShownScreen = "dashboard";
             break;
     }
-}-
+}
 
 window.addEventListener("popstate", (event) => {
     if (!event.state || !event.state.screen) {

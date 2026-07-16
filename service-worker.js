@@ -1,4 +1,4 @@
-const CACHE_NAME = "cactus-v3";
+const CACHE_NAME = "cactus-v4";
 
 const FILES_TO_CACHE = [
     "./",
@@ -12,6 +12,22 @@ const FILES_TO_CACHE = [
     "./js/rankings.js",
     "./js/questions.js",
     "./data/rankings.json",
+    "./data/guess-my-answer.json",
+    "./data/likely.json",
+    "./data/ok-ou-pas-ok.json",
+    "./data/green-flag-red-flag.json",
+    "./data/princess-treatment.json",
+    "./data/questions.json",
+    "./assets/cactus-main.png",
+    "./assets/cactus-ranking.png",
+    "./assets/cactus-guess.png",
+    "./assets/cactus-questions.png",
+    "./assets/cactus-likely.png",
+    "./assets/cactus-ok.png",
+    "./assets/cactus-greenflag.png",
+    "./assets/cactus-princess.png",
+    "./icons/icon-192.png",
+    "./icons/icon-512.png",
     "./manifest.json"
 ];
 

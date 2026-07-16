@@ -1,11 +1,11 @@
 {
   "name": "Cactus",
   "short_name": "Cactus",
-  "description": "Application pour couples à distance",
+  "description": "Le petit espace complice des couples qui poussent ensemble",
   "start_url": "./index.html",
   "display": "standalone",
-  "background_color": "#F8F9FA",
-  "theme_color": "#2D6A4F",
+  "background_color": "#003E2D",
+  "theme_color": "#003E2D",
   "orientation": "portrait",
   "icons": [
     {
