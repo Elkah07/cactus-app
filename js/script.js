@@ -294,6 +294,27 @@ const historyItemTitle = document.getElementById("historyItemTitle");
 const historyItemContent = document.getElementById("historyItemContent");
 const backToHistoryDetailBtn = document.getElementById("backToHistoryDetailBtn");
 
+const statsScreen = document.getElementById("statsScreen");
+const backFromStatsBtn = document.getElementById("backFromStatsBtn");
+const statsPlayBtn = document.getElementById("statsPlayBtn");
+const statsLoadingState = document.getElementById("statsLoadingState");
+const statsContent = document.getElementById("statsContent");
+const statsHeroMessage = document.getElementById("statsHeroMessage");
+const statsHeroSubtitle = document.getElementById("statsHeroSubtitle");
+const statsTotalGames = document.getElementById("statsTotalGames");
+const statsTotalAnswers = document.getElementById("statsTotalAnswers");
+const statsAverageCompatibility = document.getElementById("statsAverageCompatibility");
+const statsDaysTogether = document.getElementById("statsDaysTogether");
+const statsCompatibilityScore = document.getElementById("statsCompatibilityScore");
+const statsCompatibilityBar = document.getElementById("statsCompatibilityBar");
+const statsCompatibilityLabel = document.getElementById("statsCompatibilityLabel");
+const statsFavoriteMode = document.getElementById("statsFavoriteMode");
+const statsModesBreakdown = document.getElementById("statsModesBreakdown");
+const statsBestScore = document.getElementById("statsBestScore");
+const statsFirstMemory = document.getElementById("statsFirstMemory");
+const statsLastMemory = document.getElementById("statsLastMemory");
+const statsEmptyState = document.getElementById("statsEmptyState");
+
 const guessAnswerTitle =
     document.querySelector("#guessAnswerScreen h1");
 
@@ -301,7 +322,7 @@ const guessPredictTitle =
     document.querySelector("#guessPredictScreen h1");
 
 const compatibilityStat = document.getElementById("compatibilityStat");
-const badgesStat = document.getElementById("badgesStat");
+const completedGamesStat = document.getElementById("completedGamesStat");
 
 const seedsStat = document.getElementById("seedsStat");
 const levelStat = document.getElementById("levelStat");
@@ -397,8 +418,8 @@ const seedsMiniBar =
 const levelMiniBar =
     document.getElementById("levelMiniBar");
 
-const badgesMiniBar =
-    document.getElementById("badgesMiniBar");
+const completedGamesMiniBar =
+    document.getElementById("completedGamesMiniBar");
 
 let pendingGuessValidations = [];
 let saveNotebookTimeout = null;
@@ -482,7 +503,57 @@ let nextAfterAnswerFunction = null;
 let currentHistoryMode = null;
 let currentHistoryItems = []; 
 
-let coupleStats = {compatibility: 0, answersCount: 0, streak: 0, badges: 0};
+const relationStatsModes = [
+    {
+        key: "ranking",
+        label: "Classements",
+        icon: "🌵",
+        path: "rankingChallenges",
+        color: "#66dc91"
+    },
+    {
+        key: "guess",
+        label: "Devine ma réponse",
+        icon: "💭",
+        path: "guessAnswers",
+        color: "#ff8e82"
+    },
+    {
+        key: "questions",
+        label: "Questions",
+        icon: "💬",
+        path: "questionsChallenges",
+        color: "#ffd45c"
+    },
+    {
+        key: "likely",
+        label: "Qui est le plus susceptible",
+        icon: "😂",
+        path: "likelyChallenges",
+        color: "#9be37c"
+    },
+    {
+        key: "ok",
+        label: "OK ou Pas OK",
+        icon: "✅",
+        path: "okChallenges",
+        color: "#73d5c6"
+    },
+    {
+        key: "greenFlag",
+        label: "Green Flag / Red Flag",
+        icon: "🚩",
+        path: "greenFlagChallenges",
+        color: "#ff7385"
+    },
+    {
+        key: "princess",
+        label: "Princess Treatment",
+        icon: "👑",
+        path: "princessChallenges",
+        color: "#d997ff"
+    }
+];
 
 let lastKnownSeeds = null;
 let activeRealtimeSpaceCode = "";
@@ -534,6 +605,13 @@ function listenToCurrentSpace(spaceCodeValue) {
         }
 
         currentSpaceData = spaceData;
+
+        const liveRelationStats = buildRelationStatistics(spaceData);
+        updateDashboardRelationStats(liveRelationStats);
+
+        if (lastShownScreen === "stats") {
+            renderRelationStats(liveRelationStats);
+        }
 
         if (!spaceData.story && lastShownScreen === "dashboard") {
             showScreen("storyIntro");
@@ -1528,6 +1606,14 @@ backToHistoryBtn.addEventListener("click", () => {
 
 backToHistoryDetailBtn.addEventListener("click", () => {
     showScreen("historyDetail");
+});
+
+backFromStatsBtn.addEventListener("click", () => {
+    showScreen("dashboard");
+});
+
+statsPlayBtn.addEventListener("click", () => {
+    showScreen("allGames");
 });
 
 startStoryBtn.addEventListener("click", () => {
@@ -4227,135 +4313,344 @@ function formatHistoryDate(timestamp) {
 }
 
 function openRelationStats() {
-    historyDetailTitle.textContent = "📊 Notre relation";
-    historyDetailList.innerHTML = "";
+    showScreen("stats");
 
-    const modes = [
-        { label: "🌵 Classements", path: "rankingChallenges" },
-        { label: "💭 Devine ma réponse", path: "guessAnswers" },
-        { label: "💬 Questions", path: "questionsChallenges" },
-        { label: "😂 Qui est le plus susceptible", path: "likelyChallenges" },
-        { label: "✅ OK ou Pas OK", path: "okChallenges" },
-        { label: "🚩 Green Flag / Red Flag", path: "greenFlagChallenges" },
-        { label: "👑 Princess Treatment", path: "princessChallenges" }
-    ];
+    statsLoadingState.style.display = "block";
+    statsLoadingState.textContent = "Calcul de vos souvenirs…";
+    statsContent.style.display = "none";
 
-    Promise.all(
-        modes.map((mode) => {
-            return database
-                .ref("spaces/" + currentSpaceCode + "/" + mode.path)
-                .once("value")
-                .then((snapshot) => {
-                    return {
-                        label: mode.label,
-                        items: Object.values(snapshot.val() || {})
-                    };
-                });
+    if (currentSpaceData) {
+        renderRelationStats(buildRelationStatistics(currentSpaceData));
+        return;
+    }
+
+    database
+        .ref("spaces/" + currentSpaceCode)
+        .once("value")
+        .then((snapshot) => {
+            const spaceData = snapshot.val() || {};
+            currentSpaceData = spaceData;
+            renderRelationStats(buildRelationStatistics(spaceData));
         })
-    ).then((results) => {
-        let totalSouvenirs = 0;
-        let totalCompatibility = 0;
-        let compatibilityCount = 0;
-        let bestCompatibility = 0;
+        .catch((error) => {
+            console.error("Impossible de charger les statistiques", error);
+            statsLoadingState.textContent =
+                "Impossible de charger vos statistiques pour le moment.";
+        });
+}
 
-        let favoriteMode = "Aucun pour le moment";
-        let favoriteModeCount = 0;
-
-        let firstMemoryDate = null;
-        let lastMemoryDate = null;
-
-        results.forEach((modeResult) => {
-            const completedItems = modeResult.items.filter((item) => {
-                return item.status === "completed";
-            });
-
-            totalSouvenirs += completedItems.length;
-
-            if (completedItems.length > favoriteModeCount) {
-                favoriteModeCount = completedItems.length;
-                favoriteMode = modeResult.label;
-            }
-
-            completedItems.forEach((item) => {
-                const date = item.completedAt || item.createdAt;
-
-                if (date) {
-                    if (!firstMemoryDate || date < firstMemoryDate) {
-                        firstMemoryDate = date;
-                    }
-
-                    if (!lastMemoryDate || date > lastMemoryDate) {
-                        lastMemoryDate = date;
-                    }
-                }
-
-                if (typeof item.compatibility === "number") {
-                    totalCompatibility += item.compatibility;
-                    compatibilityCount++;
-                    bestCompatibility = Math.max(
-                        bestCompatibility,
-                        item.compatibility
-                    );
-                }
-            });
+function buildRelationStatistics(spaceData) {
+    const modeResults = relationStatsModes.map((mode) => {
+        const items = Object.values(spaceData[mode.path] || {});
+        const completedItems = items.filter((item) => {
+            return item.status === "completed";
         });
 
-        const averageCompatibility =
-            compatibilityCount > 0
-                ? Math.round(totalCompatibility / compatibilityCount)
-                : 0;
+        const answersCount = items.reduce((total, item) => {
+            return total + Object.keys(item.answers || {}).length;
+        }, 0);
 
-        addStatCard("📚 Souvenirs créés", totalSouvenirs);
-        addStatCard("💚 Compatibilité moyenne", averageCompatibility + "%");
-        addStatCard("🏆 Meilleur score", bestCompatibility + "%");
-        addStatCard("🎮 Mode préféré", favoriteMode);
+        const scores = completedItems
+            .map((item) => getCompletedItemCompatibility(mode.key, item))
+            .filter((score) => typeof score === "number");
 
-        addStatCard(
-            "🌱 Premier souvenir",
-            firstMemoryDate
-                ? formatHistoryDate(firstMemoryDate)
-                : "Aucun pour le moment"
-        );
+        return {
+            ...mode,
+            completedCount: completedItems.length,
+            answersCount,
+            completedItems,
+            scores
+        };
+    });
 
-        addStatCard(
-            "✨ Dernier souvenir",
-            lastMemoryDate
-                ? formatHistoryDate(lastMemoryDate)
-                : "Aucun pour le moment"
-        );
+    const totalGames = modeResults.reduce((total, mode) => {
+        return total + mode.completedCount;
+    }, 0);
 
-        results.forEach((modeResult) => {
-            const completedItems = modeResult.items.filter((item) => {
-                return item.status === "completed";
+    const totalAnswers = modeResults.reduce((total, mode) => {
+        return total + mode.answersCount;
+    }, 0);
+
+    const allScores = modeResults.flatMap((mode) => mode.scores);
+    const averageCompatibility = allScores.length > 0
+        ? Math.round(
+            allScores.reduce((total, score) => total + score, 0) /
+            allScores.length
+        )
+        : null;
+
+    const bestScore = allScores.length > 0
+        ? Math.max(...allScores)
+        : null;
+
+    const favoriteMode = modeResults.reduce((favorite, mode) => {
+        if (!favorite || mode.completedCount > favorite.completedCount) {
+            return mode;
+        }
+
+        return favorite;
+    }, null);
+
+    const completedDates = modeResults
+        .flatMap((mode) => mode.completedItems)
+        .map((item) => item.completedAt || item.createdAt)
+        .filter((date) => typeof date === "number")
+        .sort((dateA, dateB) => dateA - dateB);
+
+    return {
+        totalGames,
+        totalAnswers,
+        averageCompatibility,
+        bestScore,
+        scoredGamesCount: allScores.length,
+        favoriteMode:
+            favoriteMode && favoriteMode.completedCount > 0
+                ? favoriteMode
+                : null,
+        firstMemoryDate: completedDates[0] || null,
+        lastMemoryDate: completedDates[completedDates.length - 1] || null,
+        daysTogether: getRelationshipDayCount(spaceData.story),
+        modes: modeResults
+    };
+}
+
+function getCompletedItemCompatibility(modeKey, item) {
+    if (modeKey === "questions") {
+        return null;
+    }
+
+    if (modeKey === "guess") {
+        const validations = Object.values(item.validations || {});
+
+        if (validations.length < 2) {
+            return null;
+        }
+
+        const score = validations.reduce((total, validation) => {
+            return total + getGuessValidationScore(validation.result);
+        }, 0);
+
+        return Math.round((score / validations.length) * 100);
+    }
+
+    if (modeKey === "likely") {
+        return calculateLikelyCompatibility(item.answers);
+    }
+
+    return typeof item.compatibility === "number"
+        ? Math.max(0, Math.min(item.compatibility, 100))
+        : null;
+}
+
+function calculateLikelyCompatibility(answers) {
+    const answerEntries = Object.entries(answers || {});
+
+    if (answerEntries.length < 2) {
+        return null;
+    }
+
+    const selectedTargets = answerEntries.map(([uid, answerData]) => {
+        if (answerData.answer === "Nous deux") {
+            return "both";
+        }
+
+        if (answerData.answer === "Moi") {
+            return uid;
+        }
+
+        if (answerData.answer === "Toi") {
+            const partnerEntry = answerEntries.find(([partnerUid]) => {
+                return partnerUid !== uid;
             });
 
-            addStatCard(
-                modeResult.label,
-                completedItems.length + " souvenir(s)"
-            );
-        });
+            return partnerEntry ? partnerEntry[0] : null;
+        }
 
-        showScreen("historyDetail");
+        return null;
+    });
+
+    if (selectedTargets.some((target) => !target)) {
+        return null;
+    }
+
+    return selectedTargets[0] === selectedTargets[1] ? 100 : 0;
+}
+
+function getRelationshipDayCount(story) {
+    const dateValue = story && (story.startDate || story.relationshipDate);
+
+    if (!dateValue) {
+        return null;
+    }
+
+    const startDate = new Date(dateValue);
+    const today = new Date();
+
+    if (Number.isNaN(startDate.getTime())) {
+        return null;
+    }
+
+    startDate.setHours(0, 0, 0, 0);
+    today.setHours(0, 0, 0, 0);
+
+    return Math.max(
+        0,
+        Math.floor((today - startDate) / (1000 * 60 * 60 * 24))
+    );
+}
+
+function renderRelationStats(relationStats) {
+    statsLoadingState.style.display = "none";
+    statsContent.style.display = "block";
+
+    statsTotalGames.textContent = relationStats.totalGames;
+    statsTotalAnswers.textContent = relationStats.totalAnswers;
+    statsDaysTogether.textContent = relationStats.daysTogether === null
+        ? "—"
+        : relationStats.daysTogether;
+
+    const compatibilityText = relationStats.averageCompatibility === null
+        ? "—"
+        : relationStats.averageCompatibility + "%";
+
+    statsAverageCompatibility.textContent = compatibilityText;
+    statsCompatibilityScore.textContent = compatibilityText;
+    statsCompatibilityBar.style.width =
+        (relationStats.averageCompatibility || 0) + "%";
+
+    if (relationStats.averageCompatibility === null) {
+        statsCompatibilityLabel.textContent =
+            "Terminez un jeu comparable pour découvrir votre score.";
+    } else {
+        statsCompatibilityLabel.textContent =
+            getCompatibilityLabel(relationStats.averageCompatibility) +
+            " · " +
+            relationStats.scoredGamesCount +
+            " partie" +
+            (relationStats.scoredGamesCount > 1 ? "s analysées" : " analysée");
+    }
+
+    statsFavoriteMode.textContent = relationStats.favoriteMode
+        ? relationStats.favoriteMode.icon + " " + relationStats.favoriteMode.label
+        : "À découvrir";
+
+    statsBestScore.textContent = relationStats.bestScore === null
+        ? "—"
+        : relationStats.bestScore + "%";
+    statsFirstMemory.textContent = formatStatsDate(relationStats.firstMemoryDate);
+    statsLastMemory.textContent = formatStatsDate(relationStats.lastMemoryDate);
+
+    if (relationStats.totalGames === 0) {
+        statsHeroMessage.textContent = "Vos souvenirs commencent ici";
+        statsHeroSubtitle.textContent =
+            "Jouez ensemble pour faire pousser vos statistiques.";
+    } else if (relationStats.averageCompatibility !== null) {
+        statsHeroMessage.textContent =
+            getCompatibilityLabel(relationStats.averageCompatibility);
+        statsHeroSubtitle.textContent =
+            relationStats.totalGames +
+            " moment" +
+            (relationStats.totalGames > 1 ? "s partagés" : " partagé") +
+            " dans votre jardin.";
+    } else {
+        statsHeroMessage.textContent = "Votre histoire prend racine";
+        statsHeroSubtitle.textContent =
+            relationStats.totalGames +
+            " souvenir" +
+            (relationStats.totalGames > 1 ? "s créés" : " créé") +
+            " ensemble.";
+    }
+
+    renderStatsModes(relationStats.modes);
+    statsEmptyState.style.display =
+        relationStats.totalGames === 0 ? "flex" : "none";
+
+    updateDashboardRelationStats(relationStats);
+}
+
+function renderStatsModes(modes) {
+    statsModesBreakdown.innerHTML = "";
+
+    const maximumCount = Math.max(
+        1,
+        ...modes.map((mode) => mode.completedCount)
+    );
+
+    modes.forEach((mode) => {
+        const row = document.createElement("article");
+        row.classList.add("stats-mode-row");
+
+        const icon = document.createElement("span");
+        icon.classList.add("stats-mode-icon");
+        icon.textContent = mode.icon;
+
+        const content = document.createElement("div");
+        content.classList.add("stats-mode-content");
+
+        const heading = document.createElement("div");
+        heading.classList.add("stats-mode-heading");
+
+        const label = document.createElement("strong");
+        label.textContent = mode.label;
+
+        const count = document.createElement("small");
+        count.textContent =
+            mode.completedCount +
+            " partie" +
+            (mode.completedCount > 1 ? "s" : "");
+
+        const track = document.createElement("div");
+        track.classList.add("stats-mode-track");
+
+        const progress = document.createElement("div");
+        progress.style.width =
+            ((mode.completedCount / maximumCount) * 100) + "%";
+        progress.style.background = mode.color;
+
+        heading.appendChild(label);
+        heading.appendChild(count);
+        track.appendChild(progress);
+        content.appendChild(heading);
+        content.appendChild(track);
+        row.appendChild(icon);
+        row.appendChild(content);
+        statsModesBreakdown.appendChild(row);
     });
 }
 
+function formatStatsDate(timestamp) {
+    if (!timestamp) {
+        return "Aucun";
+    }
 
-function addStatCard(label, value) {
-    const card = document.createElement("div");
-    card.classList.add("history-card");
+    return new Date(timestamp).toLocaleDateString("fr-FR", {
+        day: "2-digit",
+        month: "short",
+        year: "numeric"
+    });
+}
 
-    const title = document.createElement("h3");
-    title.textContent = label;
+function updateDashboardRelationStats(relationStats) {
+    const compatibility = relationStats.averageCompatibility;
 
-    const number = document.createElement("p");
-    number.textContent = value;
-    number.style.fontSize = "1.8rem";
-    number.style.fontWeight = "900";
+    if (compatibilityStat) {
+        compatibilityStat.textContent = compatibility === null
+            ? "—"
+            : compatibility + "%";
+    }
 
-    card.appendChild(title);
-    card.appendChild(number);
+    if (compatibilityMiniBar) {
+        compatibilityMiniBar.style.width = (compatibility || 0) + "%";
+    }
 
-    historyDetailList.appendChild(card);
+    if (completedGamesStat) {
+        completedGamesStat.textContent = relationStats.totalGames;
+    }
+
+    if (completedGamesMiniBar) {
+        completedGamesMiniBar.style.width =
+            Math.min((relationStats.totalGames / 25) * 100, 100) + "%";
+    }
 }
 
 function getPartnerPseudo() {
@@ -4423,25 +4718,21 @@ function getLikelyChosenTarget(answerData) {
 }
 
 function loadCoupleStats() {
+    if (currentSpaceData) {
+        updateDashboardRelationStats(
+            buildRelationStatistics(currentSpaceData)
+        );
+    }
+
     database
         .ref("spaces/" + currentSpaceCode + "/stats")
         .once("value")
         .then((snapshot) => {
             const stats = snapshot.val() || {};
 
-            const compatibility = stats.compatibility || 0;
-            const badges = stats.badges || 0;
             const seeds = stats.seeds || 0;
             const level = stats.level || 1;
             const xp = stats.xp || 0;
-
-            if (compatibilityStat) {
-                compatibilityStat.textContent = compatibility + "%";
-            }
-
-            if (badgesStat) {
-                badgesStat.textContent = badges;
-            }
 
             if (seedsStat) {
                 seedsStat.textContent = seeds;
@@ -4473,11 +4764,6 @@ function loadCoupleStats() {
                     progressPercent + "%";
             }
 
-            if (compatibilityMiniBar) {
-                compatibilityMiniBar.style.width =
-                    Math.min(compatibility, 100) + "%";
-            }
-
             if (seedsMiniBar) {
                 seedsMiniBar.style.width =
                     Math.min((seeds / 500) * 100, 100) + "%";
@@ -4486,11 +4772,6 @@ function loadCoupleStats() {
             if (levelMiniBar) {
                 levelMiniBar.style.width =
                     Math.min((level / 10) * 100, 100) + "%";
-            }
-
-            if (badgesMiniBar) {
-                badgesMiniBar.style.width =
-                    Math.min((badges / 20) * 100, 100) + "%";
             }
 
             if (

@@ -25,6 +25,10 @@ function showScreenContent(screenName) {
         "dashboard-active",
         screenName === "dashboard"
     );
+    document.body.classList.toggle(
+        "stats-active",
+        screenName === "stats"
+    );
 
     hideScreen(loginScreen);
     hideScreen(pseudoScreen);
@@ -39,6 +43,7 @@ function showScreenContent(screenName) {
     hideScreen(historyScreen);
     hideScreen(historyDetailScreen);
     hideScreen(historyItemScreen);
+    hideScreen(statsScreen);
 
     hideScreen(gardenScreen);
     hideScreen(notebookScreen);
@@ -86,6 +91,7 @@ settingsBtn.style.setProperty("display", "none", "important");
     screenName === "history" ||
     screenName === "historyDetail" ||
     screenName === "historyItem" ||
+    screenName === "stats" ||
     screenName === "garden" ||
     screenName === "settings"
 ) {
@@ -139,6 +145,10 @@ settingsBtn.style.setProperty("display", "none", "important");
 
         case "historyItem":
             historyItemScreen.style.display = "block";
+            break;
+
+        case "stats":
+            statsScreen.style.display = "block";
             break;
 
         case "garden":

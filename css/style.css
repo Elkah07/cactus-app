@@ -2043,7 +2043,7 @@ body.dashboard-active .top-right-btn {
 #compatibilityMiniBar { background: #ff4f7b; }
 #seedsMiniBar { background: #66dc91; }
 #levelMiniBar { background: #ffd45c; }
-#badgesMiniBar { background: #b66cff; }
+#completedGamesMiniBar { background: #b66cff; }
 
 .dashboard-games-section {
     margin-bottom: 12px;
@@ -2295,6 +2295,419 @@ body.dashboard-active .top-right-btn {
     outline-offset: 2px;
 }
 
+/* ====================
+   STATISTIQUES DE LA RELATION
+==================== */
+
+body.stats-active {
+    align-items: flex-start;
+    padding: 18px;
+    background:
+        radial-gradient(circle at 50% 4%, rgba(54, 193, 126, 0.18), transparent 28%),
+        linear-gradient(180deg, #002d22 0%, #004432 48%, #002f24 100%);
+}
+
+body.stats-active .card {
+    max-width: 520px;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid rgba(116, 198, 157, 0.18);
+    background: rgba(2, 51, 38, 0.94);
+    box-shadow: 0 28px 70px rgba(0, 20, 15, 0.34);
+}
+
+body.stats-active .top-left-btn,
+body.stats-active .top-center-btn,
+body.stats-active .top-right-btn {
+    display: none !important;
+}
+
+.relation-stats-screen {
+    min-height: calc(100svh - 38px);
+    padding: 20px 18px calc(28px + env(safe-area-inset-bottom));
+    color: #f5fff8;
+    text-align: left;
+}
+
+.stats-header {
+    display: grid;
+    grid-template-columns: 44px minmax(0, 1fr) 44px;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+    text-align: center;
+}
+
+#statsScreen .stats-back-btn {
+    width: 44px;
+    height: 44px;
+    margin: 0;
+    padding: 0 0 4px;
+    border: 1px solid rgba(116, 198, 157, 0.22);
+    border-radius: 50%;
+    background: rgba(13, 91, 66, 0.7);
+    color: #effff5;
+    font-size: 2rem;
+    line-height: 1;
+}
+
+#statsScreen .stats-back-btn:hover {
+    transform: none;
+    background: rgba(29, 126, 89, 0.82);
+}
+
+.stats-header small,
+.stats-section-heading small,
+.stats-section-title small {
+    color: #79dba5;
+    font-size: 0.68rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.stats-header h1 {
+    margin: 3px 0 0;
+    color: #fff;
+    font-size: 1.38rem;
+    line-height: 1.1;
+}
+
+.stats-header-spacer {
+    width: 44px;
+}
+
+.stats-hero {
+    position: relative;
+    display: grid;
+    min-height: 154px;
+    margin-bottom: 14px;
+    padding: 16px;
+    grid-template-columns: 128px minmax(0, 1fr);
+    align-items: center;
+    gap: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(116, 198, 157, 0.2);
+    border-radius: 26px;
+    background: linear-gradient(135deg, rgba(20, 113, 81, 0.86), rgba(5, 62, 46, 0.9));
+    box-shadow: 0 16px 34px rgba(0, 27, 20, 0.2);
+}
+
+.stats-hero-glow {
+    position: absolute;
+    top: -52px;
+    left: -44px;
+    width: 210px;
+    height: 210px;
+    border-radius: 50%;
+    background: rgba(94, 231, 150, 0.16);
+    filter: blur(10px);
+}
+
+.stats-hero img {
+    position: relative;
+    z-index: 1;
+    width: 128px;
+    height: 128px;
+    object-fit: contain;
+    filter: drop-shadow(0 12px 12px rgba(0, 27, 20, 0.24));
+}
+
+.stats-hero > div:last-child {
+    position: relative;
+    z-index: 1;
+}
+
+.stats-eyebrow {
+    display: block;
+    margin-bottom: 6px;
+    color: #8ce7b3;
+    font-size: 0.68rem;
+    font-weight: 900;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.stats-hero strong {
+    display: block;
+    margin-bottom: 7px;
+    color: #fff;
+    font-size: 1.08rem;
+    line-height: 1.25;
+}
+
+.stats-hero p {
+    color: #caefda;
+    font-size: 0.78rem;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.stats-loading {
+    margin: 28px 0;
+    color: #b8e8cb;
+    font-weight: 800;
+    text-align: center;
+}
+
+.stats-summary-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 8px;
+    margin-bottom: 14px;
+}
+
+.stats-summary-card {
+    min-width: 0;
+    padding: 12px 5px 11px;
+    overflow: hidden;
+    border: 1px solid rgba(116, 198, 157, 0.17);
+    border-radius: 18px;
+    background: rgba(12, 82, 60, 0.72);
+    text-align: center;
+}
+
+.stats-summary-card > span {
+    display: block;
+    min-height: 24px;
+    font-size: 1.2rem;
+}
+
+.stats-summary-card strong {
+    display: block;
+    margin: 3px 0 2px;
+    color: #fff;
+    font-size: 1.18rem;
+    line-height: 1;
+}
+
+.stats-summary-card small {
+    display: block;
+    overflow: hidden;
+    color: #ccefd9;
+    font-size: 0.58rem;
+    font-weight: 800;
+    line-height: 1.15;
+}
+
+.stats-section {
+    margin-bottom: 14px;
+    padding: 17px;
+    border: 1px solid rgba(116, 198, 157, 0.17);
+    border-radius: 24px;
+    background: linear-gradient(150deg, rgba(15, 88, 65, 0.76), rgba(5, 57, 43, 0.82));
+    box-shadow: 0 12px 28px rgba(0, 25, 19, 0.16);
+}
+
+.stats-section-heading,
+.stats-section-title {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.stats-section-heading h2,
+.stats-section-title h2 {
+    margin-top: 3px;
+    color: #fff;
+    font-size: 1.02rem;
+}
+
+.stats-section-heading > strong {
+    color: #ff7997;
+    font-size: 1.75rem;
+    line-height: 1;
+}
+
+.stats-section-title > span {
+    max-width: 52%;
+    padding: 7px 10px;
+    border-radius: 999px;
+    background: rgba(102, 220, 145, 0.13);
+    color: #a9ebc3;
+    font-size: 0.68rem;
+    font-weight: 900;
+    line-height: 1.2;
+    text-align: right;
+}
+
+.stats-progress-track {
+    height: 10px;
+    margin: 15px 0 9px;
+    overflow: hidden;
+    border-radius: 999px;
+    background: rgba(0, 34, 25, 0.76);
+}
+
+#statsCompatibilityBar {
+    width: 0;
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, #ff4f7b, #ff91a9);
+    box-shadow: 0 0 16px rgba(255, 79, 123, 0.42);
+    transition: width 0.4s ease;
+}
+
+.stats-compatibility-panel > p {
+    color: #caefda;
+    font-size: 0.76rem;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.stats-modes-breakdown {
+    display: grid;
+    gap: 13px;
+    margin-top: 18px;
+}
+
+.stats-mode-row {
+    display: grid;
+    grid-template-columns: 34px minmax(0, 1fr);
+    align-items: center;
+    gap: 10px;
+}
+
+.stats-mode-icon {
+    display: flex;
+    width: 34px;
+    height: 34px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 11px;
+    background: rgba(255, 255, 255, 0.07);
+    font-size: 1.05rem;
+}
+
+.stats-mode-content {
+    min-width: 0;
+}
+
+.stats-mode-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 6px;
+}
+
+.stats-mode-heading strong {
+    overflow: hidden;
+    color: #effff5;
+    font-size: 0.76rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.stats-mode-heading small {
+    flex: 0 0 auto;
+    color: #a9d9bc;
+    font-size: 0.64rem;
+    font-weight: 800;
+}
+
+.stats-mode-track {
+    height: 7px;
+    overflow: hidden;
+    border-radius: 999px;
+    background: rgba(0, 34, 25, 0.72);
+}
+
+.stats-mode-track > div {
+    min-width: 0;
+    height: 100%;
+    border-radius: inherit;
+    transition: width 0.4s ease;
+}
+
+.stats-records-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+    margin-bottom: 14px;
+}
+
+.stats-records-grid article {
+    min-width: 0;
+    padding: 14px 8px;
+    border: 1px solid rgba(244, 203, 91, 0.16);
+    border-radius: 18px;
+    background: rgba(10, 73, 54, 0.78);
+    text-align: center;
+}
+
+.stats-records-grid span,
+.stats-records-grid small,
+.stats-records-grid strong {
+    display: block;
+}
+
+.stats-records-grid span {
+    margin-bottom: 5px;
+    font-size: 1.15rem;
+}
+
+.stats-records-grid small {
+    min-height: 25px;
+    color: #b7dfc6;
+    font-size: 0.59rem;
+    font-weight: 800;
+    line-height: 1.15;
+}
+
+.stats-records-grid strong {
+    margin-top: 5px;
+    color: #fff0ad;
+    font-size: 0.7rem;
+    line-height: 1.25;
+    overflow-wrap: anywhere;
+}
+
+.stats-empty-state {
+    padding: 22px 18px;
+    flex-direction: column;
+    align-items: center;
+    border: 1px dashed rgba(116, 198, 157, 0.34);
+    border-radius: 22px;
+    background: rgba(6, 61, 45, 0.64);
+    text-align: center;
+}
+
+.stats-empty-state > span {
+    margin-bottom: 8px;
+    font-size: 2rem;
+}
+
+.stats-empty-state strong {
+    color: #fff;
+    font-size: 0.95rem;
+}
+
+.stats-empty-state p {
+    max-width: 310px;
+    margin: 7px auto 14px;
+    color: #bfe7ce;
+    font-size: 0.75rem;
+    line-height: 1.4;
+}
+
+#statsScreen .stats-empty-state button {
+    width: auto;
+    min-width: 150px;
+    margin: 0;
+    padding: 11px 18px;
+    border-radius: 999px;
+    background: #53cf88;
+    color: #043426;
+    font-size: 0.78rem;
+}
+
+#statsScreen button:focus-visible {
+    outline: 3px solid rgba(134, 239, 172, 0.72);
+    outline-offset: 2px;
+}
+
 /* Écran extensible « Tous les jeux » */
 
 #allGamesScreen .all-games-grid {
@@ -2380,6 +2793,21 @@ body.dashboard-active .top-right-btn {
         padding: 10px;
         font-size: 0.72rem;
     }
+
+    body.stats-active {
+        padding: 0;
+    }
+
+    body.stats-active .card {
+        min-height: 100svh;
+        border: 0;
+        border-radius: 0;
+    }
+
+    .relation-stats-screen {
+        min-height: 100svh;
+        padding: 18px 14px calc(24px + env(safe-area-inset-bottom));
+    }
 }
 
 @media (max-width: 370px) {
@@ -2438,6 +2866,25 @@ body.dashboard-active .top-right-btn {
         padding-left: 5px;
         font-size: 0.54rem;
     }
+
+    .stats-hero {
+        grid-template-columns: 104px minmax(0, 1fr);
+        padding: 14px 12px;
+    }
+
+    .stats-hero img {
+        width: 104px;
+        height: 104px;
+    }
+
+    .stats-summary-card {
+        padding-right: 3px;
+        padding-left: 3px;
+    }
+
+    .stats-section {
+        padding: 15px;
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -2445,6 +2892,12 @@ body.dashboard-active .top-right-btn {
     #dashboardScreen *::before,
     #dashboardScreen *::after {
         scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    #statsScreen *,
+    #statsScreen *::before,
+    #statsScreen *::after {
         transition-duration: 0.01ms !important;
     }
 }

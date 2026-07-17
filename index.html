@@ -165,6 +165,126 @@
     </button>
 </div>
 
+<!-- ÉCRAN STATISTIQUES -->
+<div id="statsScreen" class="relation-stats-screen" style="display:none;">
+    <header class="stats-header">
+        <button
+            type="button"
+            id="backFromStatsBtn"
+            class="stats-back-btn"
+            aria-label="Retour au tableau de bord"
+        >
+            ‹
+        </button>
+
+        <div>
+            <small>Votre petit monde à deux</small>
+            <h1>Notre relation</h1>
+        </div>
+
+        <span class="stats-header-spacer" aria-hidden="true"></span>
+    </header>
+
+    <section class="stats-hero">
+        <div class="stats-hero-glow" aria-hidden="true"></div>
+        <img src="assets/cactus-stats.png" alt="Statistiques de votre relation">
+        <div>
+            <span class="stats-eyebrow">Votre complicité en chiffres</span>
+            <strong id="statsHeroMessage">Vos souvenirs commencent ici</strong>
+            <p id="statsHeroSubtitle">Jouez ensemble pour faire pousser vos statistiques.</p>
+        </div>
+    </section>
+
+    <p id="statsLoadingState" class="stats-loading" aria-live="polite">
+        Calcul de vos souvenirs…
+    </p>
+
+    <section id="statsContent" style="display:none;">
+        <div class="stats-summary-grid">
+            <article class="stats-summary-card stats-summary-games">
+                <span>🎮</span>
+                <strong id="statsTotalGames">0</strong>
+                <small>Parties terminées</small>
+            </article>
+
+            <article class="stats-summary-card stats-summary-answers">
+                <span>💬</span>
+                <strong id="statsTotalAnswers">0</strong>
+                <small>Réponses données</small>
+            </article>
+
+            <article class="stats-summary-card stats-summary-compatibility">
+                <span>💚</span>
+                <strong id="statsAverageCompatibility">—</strong>
+                <small>Compatibilité</small>
+            </article>
+
+            <article class="stats-summary-card stats-summary-days">
+                <span>📅</span>
+                <strong id="statsDaysTogether">—</strong>
+                <small>Jours ensemble</small>
+            </article>
+        </div>
+
+        <section class="stats-section stats-compatibility-panel">
+            <div class="stats-section-heading">
+                <div>
+                    <small>Votre harmonie</small>
+                    <h2>Compatibilité moyenne</h2>
+                </div>
+                <strong id="statsCompatibilityScore">—</strong>
+            </div>
+
+            <div class="stats-progress-track" aria-hidden="true">
+                <div id="statsCompatibilityBar"></div>
+            </div>
+
+            <p id="statsCompatibilityLabel">
+                Terminez un jeu comparable pour découvrir votre score.
+            </p>
+        </section>
+
+        <section class="stats-section">
+            <div class="stats-section-title">
+                <div>
+                    <small>Vos habitudes</small>
+                    <h2>Jeux préférés</h2>
+                </div>
+                <span id="statsFavoriteMode">À découvrir</span>
+            </div>
+
+            <div id="statsModesBreakdown" class="stats-modes-breakdown"></div>
+        </section>
+
+        <section class="stats-records-grid">
+            <article>
+                <span>🏆</span>
+                <small>Meilleur score</small>
+                <strong id="statsBestScore">—</strong>
+            </article>
+
+            <article>
+                <span>🌱</span>
+                <small>Premier souvenir</small>
+                <strong id="statsFirstMemory">Aucun</strong>
+            </article>
+
+            <article>
+                <span>✨</span>
+                <small>Dernier souvenir</small>
+                <strong id="statsLastMemory">Aucun</strong>
+            </article>
+        </section>
+
+        <div id="statsEmptyState" class="stats-empty-state" style="display:none;">
+            <span>🌵</span>
+            <strong>Votre histoire de jeu commence ici</strong>
+            <p>Terminez une première partie à deux pour faire apparaître vos statistiques.</p>
+            <button type="button" id="statsPlayBtn">Choisir un jeu</button>
+        </div>
+    </section>
+</div>
+
             <!-- ÉCRAN ACCUEIL -->
             <div id="loginScreen">
     <h1>🌵 Cactus</h1>
@@ -340,13 +460,13 @@
             </div>
         </article>
 
-        <article class="dashboard-stat-card stat-badges">
-            <span>🏆</span>
-            <strong id="badgesStat">0</strong>
-            <small>Badges</small>
+        <article class="dashboard-stat-card stat-games">
+            <span>🎮</span>
+            <strong id="completedGamesStat">0</strong>
+            <small>Parties</small>
 
             <div class="dashboard-mini-track">
-                <div id="badgesMiniBar"></div>
+                <div id="completedGamesMiniBar"></div>
             </div>
         </article>
 

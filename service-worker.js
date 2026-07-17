@@ -1,4 +1,4 @@
-const CACHE_NAME = "cactus-v5";
+const CACHE_NAME = "cactus-v6";
 
 const FILES_TO_CACHE = [
     "./",
@@ -26,6 +26,7 @@ const FILES_TO_CACHE = [
     "./assets/cactus-ok.png",
     "./assets/cactus-greenflag.png",
     "./assets/cactus-princess.png",
+    "./assets/cactus-stats.png",
     "./icons/icon-192.png",
     "./icons/icon-512.png",
     "./manifest.json"
