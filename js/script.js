@@ -43,6 +43,9 @@ const settingsBtn = document.getElementById("settingsBtn");
 const newPseudo = document.getElementById("newPseudo");
 const saveNewPseudoBtn = document.getElementById("saveNewPseudoBtn");
 const toggleThemeBtn = document.getElementById("toggleThemeBtn");
+const themeSettingIcon = document.getElementById("themeSettingIcon");
+const themeSettingLabel = document.getElementById("themeSettingLabel");
+const themeColorMeta = document.querySelector('meta[name="theme-color"]');
 const backFromSettingsBtn = document.getElementById("backFromSettingsBtn");
 
 const rankingCompatibilityScreen = document.getElementById("rankingCompatibilityScreen");
@@ -1147,12 +1150,37 @@ saveNewPseudoBtn.addEventListener("click", () => {
     alert("Pseudo modifié 🌵");
 });
 
+function applyTheme(theme) {
+    const isDark = theme === "dark";
+    document.body.classList.toggle("dark-theme", isDark);
+    document.documentElement.style.colorScheme = isDark ? "dark" : "light";
+
+    if (themeSettingIcon) {
+        themeSettingIcon.textContent = isDark ? "🌙" : "☀️";
+    }
+
+    if (themeSettingLabel) {
+        themeSettingLabel.textContent = isDark ? "Thème sombre" : "Thème clair";
+    }
+
+    if (toggleThemeBtn) {
+        toggleThemeBtn.textContent = isDark
+            ? "Passer au thème clair"
+            : "Passer au thème sombre";
+    }
+
+    if (themeColorMeta) {
+        themeColorMeta.setAttribute("content", isDark ? "#003e2d" : "#effaf3");
+    }
+}
+
 toggleThemeBtn.addEventListener("click", () => {
-    document.body.classList.toggle("dark-theme");
+    const nextTheme = document.body.classList.contains("dark-theme")
+        ? "light"
+        : "dark";
 
-    const isDark = document.body.classList.contains("dark-theme");
-
-    localStorage.setItem("theme", isDark ? "dark" : "light");
+    localStorage.setItem("theme", nextTheme);
+    applyTheme(nextTheme);
 });
 
 historyBtn.addEventListener("click", () => {
@@ -5244,9 +5272,7 @@ loadRankingsData();
 loadGuessQuestionsData();
 loadLikelyQuestionsData();
 
-if (localStorage.getItem("theme") === "dark") {
-    document.body.classList.add("dark-theme");
-}
+applyTheme(localStorage.getItem("theme") === "dark" ? "dark" : "light");
 
 if ("serviceWorker" in navigator) {
     navigator.serviceWorker.register("service-worker.js");

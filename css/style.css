@@ -1966,6 +1966,402 @@ body.dashboard-active .top-right-btn {
     }
 }
 
+/* Priorité finale des thèmes sur les anciens styles d’écran. */
+#allGamesScreen .all-games-grid {
+    gap: 13px;
+    margin: 0 0 14px;
+}
+
+#allGamesScreen .home-game-card {
+    min-height: 190px;
+    border: 1px solid rgba(255, 255, 255, 0.34);
+    box-shadow: 0 14px 28px var(--app-shadow-soft);
+}
+
+#allGamesScreen .home-game-card img {
+    width: 118px;
+    height: 118px;
+}
+
+body:not(.dark-theme).dashboard-active,
+body:not(.dark-theme).stats-active,
+body:not(.dark-theme).achievements-active {
+    background: var(--app-page-bg);
+}
+
+body:not(.dark-theme).dashboard-active .card,
+body:not(.dark-theme).stats-active .card,
+body:not(.dark-theme).achievements-active .card {
+    border-color: var(--app-border);
+    background: var(--app-shell-bg);
+    box-shadow: 0 24px 60px var(--app-shadow);
+}
+
+body:not(.dark-theme) #dashboardScreen.dashboard-home {
+    --dashboard-ink: #153f30;
+    --dashboard-muted: #648475;
+    --dashboard-line: rgba(42, 119, 80, 0.16);
+    --dashboard-panel: rgba(255, 255, 255, 0.82);
+    --dashboard-panel-strong: rgba(244, 252, 247, 0.96);
+    --dashboard-accent: #24945d;
+    background:
+        radial-gradient(circle at 50% 21%, rgba(115, 220, 159, 0.28), transparent 28%),
+        radial-gradient(circle at 8% 56%, rgba(179, 229, 197, 0.36), transparent 30%),
+        linear-gradient(160deg, #f9fdfb 0%, #e9f7ee 48%, #f5fbf7 100%);
+}
+
+body:not(.dark-theme) .relation-stats-screen,
+body:not(.dark-theme) .achievements-screen {
+    color: var(--app-text);
+    background: var(--app-screen-bg);
+}
+
+body:not(.dark-theme) :is(.stats-hero, .stats-summary-card, .stats-section,
+    .stats-records-grid article, .achievements-hero, .achievement-card.is-unlocked,
+    .achievement-card.is-locked) {
+    border-color: var(--app-border);
+    background: var(--app-panel-bg);
+    box-shadow: 0 10px 25px var(--app-shadow-soft);
+}
+
+body:not(.dark-theme) :is(.stats-header h1, .stats-hero strong, .stats-summary-card strong,
+    .stats-section h2, .stats-records-grid strong, .achievements-header h1,
+    .achievements-hero strong, .achievement-card strong) {
+    color: var(--app-heading);
+}
+
+/* ====================
+   ÉCRANS SECONDAIRES — IDENTITÉ UNIFIÉE
+==================== */
+
+body.secondary-active {
+    align-items: flex-start;
+    padding: 18px;
+    background: var(--app-page-bg);
+}
+
+body.secondary-active .card {
+    max-width: 520px;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid var(--app-border);
+    background: var(--app-shell-bg);
+    box-shadow: 0 28px 70px var(--app-shadow);
+}
+
+body.secondary-active .top-left-btn,
+body.secondary-active .top-center-btn,
+body.secondary-active .top-right-btn {
+    display: none !important;
+}
+
+.secondary-screen {
+    min-height: 100%;
+    padding: 20px;
+    color: var(--app-text);
+    text-align: left;
+    background: var(--app-screen-bg);
+}
+
+.secondary-screen-hero {
+    display: grid;
+    grid-template-columns: 112px minmax(0, 1fr);
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    padding: 14px 16px 14px 8px;
+    border: 1px solid var(--app-border);
+    border-radius: 26px;
+    background: var(--app-panel-bg);
+    box-shadow: 0 16px 34px var(--app-shadow-soft);
+}
+
+.secondary-screen-hero img {
+    width: 112px;
+    height: 112px;
+    object-fit: contain;
+}
+
+.secondary-screen-hero small,
+.settings-panel-heading small {
+    color: var(--app-accent);
+    font-size: 0.66rem;
+    font-weight: 900;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+}
+
+.secondary-screen-hero h1 {
+    margin: 3px 0 5px;
+    color: var(--app-heading);
+    font-size: 1.55rem;
+}
+
+.secondary-screen-hero p {
+    color: var(--app-muted);
+    font-size: 0.76rem;
+    line-height: 1.4;
+}
+
+.secondary-screen > .secondary {
+    margin-top: 10px;
+    border: 1px solid var(--app-border);
+    background: var(--app-secondary-button);
+    color: var(--app-heading);
+}
+
+#allGamesScreen .all-games-grid {
+    gap: 13px;
+    margin: 0 0 14px;
+}
+
+#allGamesScreen .home-game-card {
+    position: relative;
+    min-height: 190px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.34);
+    box-shadow: 0 14px 28px var(--app-shadow-soft);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#allGamesScreen .home-game-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 18px 32px var(--app-shadow);
+}
+
+#allGamesScreen .home-game-card img {
+    width: 118px;
+    height: 118px;
+    filter: drop-shadow(0 10px 10px rgba(25, 70, 48, 0.12));
+}
+
+#allGamesScreen .home-game-card span {
+    max-width: 140px;
+    font-size: 0.8rem;
+}
+
+#historyScreen .history-modes-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 11px;
+}
+
+#historyScreen .history-mode-card {
+    min-height: 92px;
+    margin: 0;
+    padding: 15px 12px;
+    border: 1px solid var(--app-border);
+    border-radius: 20px;
+    background: var(--app-panel-bg);
+    color: var(--app-heading);
+    box-shadow: 0 10px 22px var(--app-shadow-soft);
+    font-size: 0.78rem;
+    line-height: 1.25;
+    text-align: center;
+}
+
+#gardenScreen #showCreateNotebookBtn {
+    margin-bottom: 16px;
+    border: 1px solid rgba(69, 190, 123, 0.28);
+    background: linear-gradient(135deg, #4bd18a, #31b979);
+    color: #073d2d;
+    box-shadow: 0 10px 22px rgba(45, 160, 103, 0.2);
+}
+
+#gardenScreen .create-notebook-box,
+#gardenScreen .notebook-card {
+    border: 1px solid var(--app-border);
+    background: var(--app-panel-bg);
+    color: var(--app-text);
+    box-shadow: 0 10px 22px var(--app-shadow-soft);
+}
+
+.settings-panel {
+    margin-bottom: 14px;
+    padding: 16px;
+    border: 1px solid var(--app-border);
+    border-radius: 22px;
+    background: var(--app-panel-bg);
+    box-shadow: 0 10px 24px var(--app-shadow-soft);
+}
+
+.settings-panel-heading {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    margin-bottom: 14px;
+}
+
+.settings-panel-heading > span {
+    display: grid;
+    width: 42px;
+    height: 42px;
+    place-items: center;
+    border-radius: 14px;
+    background: var(--app-icon-bg);
+    font-size: 1.25rem;
+}
+
+.settings-panel-heading strong {
+    display: block;
+    margin-top: 2px;
+    color: var(--app-heading);
+    font-size: 0.95rem;
+}
+
+.settings-panel input {
+    border-color: var(--app-border-strong);
+    background: var(--app-input-bg);
+    color: var(--app-text);
+}
+
+.settings-account-actions {
+    border-color: var(--app-border);
+}
+
+/* ====================
+   PALETTES GLOBALES CLAIRE / SOMBRE
+==================== */
+
+body:not(.dark-theme) {
+    --app-page-bg: radial-gradient(circle at 50% 0%, #ffffff, #e9f7ee 52%, #dff1e6);
+    --app-shell-bg: #f7fcf9;
+    --app-screen-bg: linear-gradient(180deg, #f7fcf9 0%, #edf8f1 100%);
+    --app-panel-bg: rgba(255, 255, 255, 0.9);
+    --app-secondary-button: #e2f3e8;
+    --app-input-bg: #ffffff;
+    --app-icon-bg: #dff5e7;
+    --app-heading: #163f31;
+    --app-text: #234d3e;
+    --app-muted: #5e7e71;
+    --app-accent: #278c5b;
+    --app-border: rgba(42, 119, 80, 0.15);
+    --app-border-strong: #a9d9ba;
+    --app-shadow: rgba(30, 83, 58, 0.16);
+    --app-shadow-soft: rgba(30, 83, 58, 0.09);
+}
+
+body.dark-theme {
+    --app-page-bg: radial-gradient(circle at 50% 0%, #07513d, #00382a 52%, #00271e);
+    --app-shell-bg: #033b2c;
+    --app-screen-bg: linear-gradient(180deg, #034432 0%, #002b21 100%);
+    --app-panel-bg: linear-gradient(150deg, rgba(15, 96, 68, 0.92), rgba(5, 61, 44, 0.94));
+    --app-secondary-button: #155f47;
+    --app-input-bg: #0c513c;
+    --app-icon-bg: rgba(103, 226, 157, 0.14);
+    --app-heading: #ffffff;
+    --app-text: #e6f8ed;
+    --app-muted: #a9d8bb;
+    --app-accent: #72e6a3;
+    --app-border: rgba(116, 198, 157, 0.23);
+    --app-border-strong: #4caa76;
+    --app-shadow: rgba(0, 20, 14, 0.34);
+    --app-shadow-soft: rgba(0, 20, 14, 0.2);
+}
+
+body:not(.dark-theme).dashboard-active,
+body:not(.dark-theme).stats-active,
+body:not(.dark-theme).achievements-active {
+    background: var(--app-page-bg);
+}
+
+body:not(.dark-theme).dashboard-active .card,
+body:not(.dark-theme).stats-active .card,
+body:not(.dark-theme).achievements-active .card {
+    border-color: var(--app-border);
+    background: var(--app-shell-bg);
+    box-shadow: 0 24px 60px var(--app-shadow);
+}
+
+body:not(.dark-theme) #dashboardScreen.dashboard-home {
+    --dashboard-ink: #153f30;
+    --dashboard-muted: #648475;
+    --dashboard-line: rgba(42, 119, 80, 0.16);
+    --dashboard-panel: rgba(255, 255, 255, 0.82);
+    --dashboard-panel-strong: rgba(244, 252, 247, 0.96);
+    --dashboard-accent: #24945d;
+    background:
+        radial-gradient(circle at 50% 21%, rgba(115, 220, 159, 0.28), transparent 28%),
+        radial-gradient(circle at 8% 56%, rgba(179, 229, 197, 0.36), transparent 30%),
+        linear-gradient(160deg, #f9fdfb 0%, #e9f7ee 48%, #f5fbf7 100%);
+}
+
+body:not(.dark-theme) #dashboardScreen .dashboard-profile-btn,
+body:not(.dark-theme) #dashboardScreen .dashboard-settings-btn,
+body:not(.dark-theme) #dashboardScreen .dashboard-stat-card,
+body:not(.dark-theme) #dashboardScreen .dashboard-activity-card,
+body:not(.dark-theme) #dashboardScreen .dashboard-bottom-nav {
+    background: rgba(255, 255, 255, 0.84);
+    color: #194b38;
+    box-shadow: 0 10px 26px rgba(37, 100, 70, 0.1);
+}
+
+body:not(.dark-theme) #dashboardScreen .dashboard-stat-card strong,
+body:not(.dark-theme) #dashboardScreen .dashboard-game-title,
+body:not(.dark-theme) #dashboardScreen .dashboard-games-section h2,
+body:not(.dark-theme) #dashboardScreen .dashboard-bottom-nav button,
+body:not(.dark-theme) #dashboardScreen .dashboard-activity-card strong {
+    color: #173f31;
+}
+
+body:not(.dark-theme) #dashboardScreen .dashboard-stat-card small,
+body:not(.dark-theme) #dashboardScreen .dashboard-activity-card p {
+    color: #658476;
+}
+
+body:not(.dark-theme) #dashboardScreen .dashboard-cactus-message {
+    border-color: rgba(45, 139, 88, 0.18);
+    background: rgba(255, 255, 255, 0.88);
+    color: #285843;
+}
+
+body:not(.dark-theme) #dashboardScreen .dashboard-xp-track,
+body:not(.dark-theme) #dashboardScreen .dashboard-mini-track {
+    background: #d8eadf;
+}
+
+body:not(.dark-theme) .relation-stats-screen,
+body:not(.dark-theme) .achievements-screen {
+    color: var(--app-text);
+    background: var(--app-screen-bg);
+}
+
+body:not(.dark-theme) :is(.stats-header h1, .stats-hero strong, .stats-summary-card strong,
+    .stats-section h2, .stats-records-grid strong, .achievements-header h1,
+    .achievements-hero strong, .achievement-card strong) {
+    color: var(--app-heading);
+}
+
+body:not(.dark-theme) :is(.stats-hero, .stats-summary-card, .stats-section,
+    .stats-records-grid article, .achievements-hero, .achievement-card.is-unlocked,
+    .achievement-card.is-locked) {
+    border-color: var(--app-border);
+    background: var(--app-panel-bg);
+    box-shadow: 0 10px 25px var(--app-shadow-soft);
+}
+
+body:not(.dark-theme) :is(.stats-header small, .stats-hero p, .stats-summary-card small,
+    .stats-section p, .achievement-card p) {
+    color: var(--app-muted);
+}
+
+@media (max-width: 520px) {
+    body.secondary-active {
+        padding: 0;
+    }
+
+    body.secondary-active .card {
+        min-height: 100svh;
+        border: 0;
+        border-radius: 0;
+    }
+
+    .secondary-screen {
+        min-height: 100svh;
+        padding: 18px 14px calc(24px + env(safe-area-inset-bottom));
+    }
+}
+
 .dashboard-level-badge {
     position: relative;
     z-index: 2;
@@ -3104,3 +3500,83 @@ body.achievements-active .top-right-btn {
         transition-duration: 0.01ms !important;
     }
 }
+
+/* Surcharge terminale : les palettes priment sur les styles historiques. */
+#allGamesScreen .all-games-grid { gap: 13px; margin: 0 0 14px; }
+#allGamesScreen .home-game-card {
+    min-height: 190px;
+    border: 1px solid rgba(255, 255, 255, 0.34);
+    box-shadow: 0 14px 28px var(--app-shadow-soft);
+}
+#allGamesScreen .home-game-card img { width: 118px; height: 118px; }
+
+body:not(.dark-theme).dashboard-active,
+body:not(.dark-theme).stats-active,
+body:not(.dark-theme).achievements-active { background: var(--app-page-bg); }
+
+body:not(.dark-theme).dashboard-active .card,
+body:not(.dark-theme).stats-active .card,
+body:not(.dark-theme).achievements-active .card {
+    border-color: var(--app-border);
+    background: var(--app-shell-bg);
+    box-shadow: 0 24px 60px var(--app-shadow);
+}
+
+body:not(.dark-theme) #dashboardScreen.dashboard-home {
+    --dashboard-ink: #153f30;
+    --dashboard-muted: #648475;
+    --dashboard-line: rgba(42, 119, 80, 0.16);
+    --dashboard-panel: rgba(255, 255, 255, 0.82);
+    --dashboard-panel-strong: rgba(244, 252, 247, 0.96);
+    --dashboard-accent: #24945d;
+    background: radial-gradient(circle at 50% 21%, rgba(115, 220, 159, 0.28), transparent 28%),
+        radial-gradient(circle at 8% 56%, rgba(179, 229, 197, 0.36), transparent 30%),
+        linear-gradient(160deg, #f9fdfb 0%, #e9f7ee 48%, #f5fbf7 100%);
+}
+
+body:not(.dark-theme) #dashboardScreen .dashboard-profile-btn,
+body:not(.dark-theme) #dashboardScreen .dashboard-settings-btn,
+body:not(.dark-theme) #dashboardScreen .dashboard-stat-card,
+body:not(.dark-theme) #dashboardScreen .dashboard-activity-card,
+body:not(.dark-theme) #dashboardScreen .dashboard-bottom-nav {
+    background: rgba(255, 255, 255, 0.86);
+    color: #194b38;
+    box-shadow: 0 10px 26px rgba(37, 100, 70, 0.1);
+}
+
+body:not(.dark-theme) #dashboardScreen :is(.dashboard-stat-card strong,
+    .dashboard-game-title, .dashboard-games-section h2, .dashboard-bottom-nav button,
+    .dashboard-activity-card strong) { color: #173f31; }
+
+body:not(.dark-theme) #dashboardScreen :is(.dashboard-stat-card small,
+    .dashboard-activity-card p) { color: #658476; }
+
+body:not(.dark-theme) #dashboardScreen .dashboard-cactus-message {
+    border-color: rgba(45, 139, 88, 0.18);
+    background: rgba(255, 255, 255, 0.9);
+    color: #285843;
+}
+
+body:not(.dark-theme) #dashboardScreen :is(.dashboard-xp-track, .dashboard-mini-track) {
+    background: #d8eadf;
+}
+
+body:not(.dark-theme) :is(.relation-stats-screen, .achievements-screen) {
+    color: var(--app-text);
+    background: var(--app-screen-bg);
+}
+
+body:not(.dark-theme) :is(.stats-hero, .stats-summary-card, .stats-section,
+    .stats-records-grid article, .achievements-hero, .achievement-card.is-unlocked,
+    .achievement-card.is-locked) {
+    border-color: var(--app-border);
+    background: var(--app-panel-bg);
+    box-shadow: 0 10px 25px var(--app-shadow-soft);
+}
+
+body:not(.dark-theme) :is(.stats-header h1, .stats-hero strong, .stats-summary-card strong,
+    .stats-section h2, .stats-records-grid strong, .achievements-header h1,
+    .achievements-hero strong, .achievement-card strong) { color: var(--app-heading); }
+
+body:not(.dark-theme) :is(.stats-header small, .stats-hero p, .stats-summary-card small,
+    .stats-section p, .achievement-card p) { color: var(--app-muted); }

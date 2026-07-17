@@ -33,6 +33,10 @@ function showScreenContent(screenName) {
         "achievements-active",
         screenName === "achievements"
     );
+    document.body.classList.toggle(
+        "secondary-active",
+        ["allGames", "garden", "history", "settings"].includes(screenName)
+    );
 
     hideScreen(loginScreen);
     hideScreen(pseudoScreen);

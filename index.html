@@ -25,12 +25,15 @@
 </button>
 
 <!-- ÉCRAN NOTRE JARDIN -->
-<div id="gardenScreen" style="display:none;">
-    <h1>🪴 Tous nos carnets</h1>
-
-    <p class="subtitle">
-        Vos notes, listes et idées à deux.
-    </p>
+<div id="gardenScreen" class="secondary-screen garden-library-screen" style="display:none;">
+    <header class="secondary-screen-hero">
+        <img src="assets/cactus-garden.png" alt="Notre jardin Cactus">
+        <div>
+            <small>Notre coin créatif</small>
+            <h1>Notre jardin</h1>
+            <p>Vos carnets, listes et idées à faire pousser ensemble.</p>
+        </div>
+    </header>
 
     <button type="button" id="showCreateNotebookBtn">
         + Nouveau carnet
@@ -100,12 +103,15 @@
 </div>
 
 <!-- ÉCRAN HISTORIQUE -->
-<div id="historyScreen" style="display:none;">
-    <h1>📚 Nos souvenirs</h1>
-
-    <p class="subtitle">
-        Retrouvez vos anciennes réponses par mode de jeu.
-    </p>
+<div id="historyScreen" class="secondary-screen memories-screen" style="display:none;">
+    <header class="secondary-screen-hero">
+        <img src="assets/cactus-history.png" alt="Livre de nos souvenirs">
+        <div>
+            <small>Notre histoire en jeu</small>
+            <h1>Nos souvenirs</h1>
+            <p>Retrouvez vos réponses et vos meilleurs moments par mode.</p>
+        </div>
+    </header>
 
     <div class="history-modes-grid">
         <button type="button" class="history-mode-card" data-history-mode="stats">
@@ -645,12 +651,15 @@
 </div>
 
 <!-- ÉCRAN TOUS LES JEUX -->
-<div id="allGamesScreen" style="display:none;">
-    <h1>🎮 Tous les jeux</h1>
-
-    <p class="subtitle">
-        Choisissez votre prochain terrain de jeu.
-    </p>
+<div id="allGamesScreen" class="secondary-screen games-library-screen" style="display:none;">
+    <header class="secondary-screen-hero">
+        <img src="assets/cactus-playing.png" alt="Manette de jeu Cactus">
+        <div>
+            <small>À vous de jouer</small>
+            <h1>Tous les jeux</h1>
+            <p>Choisissez votre prochain moment à deux.</p>
+        </div>
+    </header>
 
     <div class="home-games-grid all-games-grid">
 
@@ -1258,26 +1267,43 @@
 </div>
 
             <!-- ÉCRAN RÉGLAGES -->
-<div id="settingsScreen" style="display:none;">
-    <h1>⚙️ Réglages</h1>
+<div id="settingsScreen" class="secondary-screen settings-screen" style="display:none;">
+    <header class="secondary-screen-hero">
+        <img src="assets/cactus-profile.png" alt="Profil Cactus">
+        <div>
+            <small>Votre espace</small>
+            <h1>Réglages</h1>
+            <p>Personnalisez votre coin Cactus.</p>
+        </div>
+    </header>
 
-    <p class="subtitle">
-        Personnalise ton coin Cactus.
-    </p>
+    <section class="settings-panel">
+        <div class="settings-panel-heading">
+            <span>👤</span>
+            <div><small>Profil</small><strong>Mon pseudo</strong></div>
+        </div>
 
-    <input
-        type="text"
-        id="newPseudo"
-        placeholder="Nouveau pseudo"
-    >
+        <input
+            type="text"
+            id="newPseudo"
+            placeholder="Nouveau pseudo"
+        >
 
-    <button type="button" id="saveNewPseudoBtn">
-        Modifier mon pseudo
-    </button>
+        <button type="button" id="saveNewPseudoBtn">
+            Modifier mon pseudo
+        </button>
+    </section>
 
-    <button type="button" id="toggleThemeBtn" class="secondary">
-        Changer de thème
-    </button>
+    <section class="settings-panel settings-theme-panel">
+        <div class="settings-panel-heading">
+            <span id="themeSettingIcon">🌙</span>
+            <div><small>Apparence</small><strong id="themeSettingLabel">Thème sombre</strong></div>
+        </div>
+
+        <button type="button" id="toggleThemeBtn" class="secondary">
+            Passer au thème clair
+        </button>
+    </section>
 
     <div class="settings-account-actions">
         <button id="leaveSpaceBtn" type="button" class="secondary">
