@@ -314,6 +314,13 @@ const statsBestScore = document.getElementById("statsBestScore");
 const statsFirstMemory = document.getElementById("statsFirstMemory");
 const statsLastMemory = document.getElementById("statsLastMemory");
 const statsEmptyState = document.getElementById("statsEmptyState");
+const achievementsScreen = document.getElementById("achievementsScreen");
+const dashboardAchievementsBtn = document.getElementById("dashboardAchievementsBtn");
+const backFromAchievementsBtn = document.getElementById("backFromAchievementsBtn");
+const achievementsUnlockedCount = document.getElementById("achievementsUnlockedCount");
+const achievementsProgressBar = document.getElementById("achievementsProgressBar");
+const achievementsLoadingState = document.getElementById("achievementsLoadingState");
+const achievementsGrid = document.getElementById("achievementsGrid");
 
 const guessAnswerTitle =
     document.querySelector("#guessAnswerScreen h1");
@@ -1615,6 +1622,14 @@ backToHistoryDetailBtn.addEventListener("click", () => {
 });
 
 backFromStatsBtn.addEventListener("click", () => {
+    showScreen("dashboard");
+});
+
+dashboardAchievementsBtn.addEventListener("click", () => {
+    openAchievements();
+});
+
+backFromAchievementsBtn.addEventListener("click", () => {
     showScreen("dashboard");
 });
 
@@ -4359,6 +4374,133 @@ function formatHistoryDate(timestamp) {
         month: "long",
         year: "numeric"
     });
+}
+
+const ACHIEVEMENTS = [
+    { id: "firstAnswer", icon: "💬", title: "Premiers mots", description: "Donner une première réponse", metric: "answers", target: 1, unit: "réponse" },
+    { id: "answers10", icon: "🌱", title: "Ça pousse", description: "Donner 10 réponses", metric: "answers", target: 10, unit: "réponses" },
+    { id: "answers50", icon: "🌿", title: "Grande conversation", description: "Donner 50 réponses", metric: "answers", target: 50, unit: "réponses" },
+    { id: "firstGame", icon: "🎮", title: "À deux, c’est mieux", description: "Terminer une première partie", metric: "games", target: 1, unit: "partie" },
+    { id: "games10", icon: "🏅", title: "Duo régulier", description: "Terminer 10 parties", metric: "games", target: 10, unit: "parties" },
+    { id: "games50", icon: "🏆", title: "Duo inséparable", description: "Terminer 50 parties", metric: "games", target: 50, unit: "parties" },
+    { id: "level3", icon: "🌵", title: "Jeune pousse", description: "Atteindre le niveau 3", metric: "level", target: 3, unit: "niveau" },
+    { id: "level10", icon: "💚", title: "Belle complicité", description: "Atteindre le niveau 10", metric: "level", target: 10, unit: "niveau" },
+    { id: "level21", icon: "👑", title: "Cactus légendaire", description: "Atteindre le niveau 21", metric: "level", target: 21, unit: "niveau" },
+    { id: "harmony80", icon: "💕", title: "Sur la même longueur d’onde", description: "Atteindre 80 % de compatibilité moyenne", metric: "compatibility", target: 80, unit: "%" },
+    { id: "explorer", icon: "🧭", title: "Explorateurs", description: "Terminer une partie dans chaque mode", metric: "modes", target: 7, unit: "modes" },
+    { id: "days30", icon: "📅", title: "Un mois de souvenirs", description: "Atteindre 30 jours ensemble", metric: "days", target: 30, unit: "jours" }
+];
+
+function getAchievementMetric(metric, stats, relationStats) {
+    const values = {
+        answers: Math.max(stats.answersCount || 0, relationStats.totalAnswers || 0),
+        games: relationStats.totalGames || 0,
+        level: stats.level || Math.floor((stats.xp || 0) / 100) + 1,
+        compatibility: relationStats.averageCompatibility || 0,
+        modes: relationStats.modes.filter((mode) => mode.completedCount > 0).length,
+        days: relationStats.daysTogether || 0
+    };
+
+    return values[metric] || 0;
+}
+
+function openAchievements() {
+    showScreen("achievements");
+    achievementsLoadingState.style.display = "block";
+    achievementsGrid.style.display = "none";
+
+    database
+        .ref("spaces/" + currentSpaceCode)
+        .once("value")
+        .then((snapshot) => {
+            const spaceData = snapshot.val() || {};
+            const stats = spaceData.stats || {};
+            const relationStats = buildRelationStatistics(spaceData);
+            const unlocked = { ...(stats.achievements || {}) };
+            const newlyUnlocked = {};
+
+            ACHIEVEMENTS.forEach((achievement) => {
+                const current = getAchievementMetric(
+                    achievement.metric,
+                    stats,
+                    relationStats
+                );
+
+                if (current >= achievement.target && !unlocked[achievement.id]) {
+                    unlocked[achievement.id] = true;
+                    newlyUnlocked[achievement.id] = true;
+                }
+            });
+
+            const persistPromise = Object.keys(newlyUnlocked).length > 0
+                ? database
+                    .ref("spaces/" + currentSpaceCode + "/stats/achievements")
+                    .update(newlyUnlocked)
+                : Promise.resolve();
+
+            return persistPromise.then(() => {
+                currentSpaceData = spaceData;
+                renderAchievements(stats, relationStats, unlocked);
+
+                const newCount = Object.keys(newlyUnlocked).length;
+                if (newCount > 0) {
+                    showToast(
+                        "🏆 " + newCount + " nouveau" +
+                        (newCount > 1 ? "x succès débloqués" : " succès débloqué")
+                    );
+                }
+            });
+        })
+        .catch((error) => {
+            console.error("Impossible de charger les succès", error);
+            achievementsLoadingState.textContent =
+                "Impossible de charger vos succès pour le moment.";
+        });
+}
+
+function renderAchievements(stats, relationStats, unlocked) {
+    achievementsGrid.innerHTML = "";
+    const unlockedCount = ACHIEVEMENTS.filter((achievement) => {
+        return Boolean(unlocked[achievement.id]);
+    }).length;
+
+    achievementsUnlockedCount.textContent = unlockedCount;
+    achievementsProgressBar.style.width =
+        ((unlockedCount / ACHIEVEMENTS.length) * 100) + "%";
+
+    ACHIEVEMENTS.forEach((achievement) => {
+        const isUnlocked = Boolean(unlocked[achievement.id]);
+        const current = getAchievementMetric(
+            achievement.metric,
+            stats,
+            relationStats
+        );
+        const card = document.createElement("article");
+        card.className = "achievement-card " +
+            (isUnlocked ? "is-unlocked" : "is-locked");
+
+        const icon = document.createElement("span");
+        icon.className = "achievement-icon";
+        icon.textContent = isUnlocked ? achievement.icon : "🔒";
+
+        const title = document.createElement("strong");
+        title.textContent = achievement.title;
+
+        const description = document.createElement("p");
+        description.textContent = achievement.description;
+
+        const progress = document.createElement("small");
+        progress.textContent = isUnlocked
+            ? "Débloqué ✓"
+            : Math.min(current, achievement.target) + " / " +
+                achievement.target + " " + achievement.unit;
+
+        card.append(icon, title, description, progress);
+        achievementsGrid.appendChild(card);
+    });
+
+    achievementsLoadingState.style.display = "none";
+    achievementsGrid.style.display = "grid";
 }
 
 function openRelationStats() {

@@ -29,6 +29,10 @@ function showScreenContent(screenName) {
         "stats-active",
         screenName === "stats"
     );
+    document.body.classList.toggle(
+        "achievements-active",
+        screenName === "achievements"
+    );
 
     hideScreen(loginScreen);
     hideScreen(pseudoScreen);
@@ -44,6 +48,7 @@ function showScreenContent(screenName) {
     hideScreen(historyDetailScreen);
     hideScreen(historyItemScreen);
     hideScreen(statsScreen);
+    hideScreen(achievementsScreen);
 
     hideScreen(gardenScreen);
     hideScreen(notebookScreen);
@@ -92,6 +97,7 @@ settingsBtn.style.setProperty("display", "none", "important");
     screenName === "historyDetail" ||
     screenName === "historyItem" ||
     screenName === "stats" ||
+    screenName === "achievements" ||
     screenName === "garden" ||
     screenName === "settings"
 ) {
@@ -149,6 +155,10 @@ settingsBtn.style.setProperty("display", "none", "important");
 
         case "stats":
             statsScreen.style.display = "block";
+            break;
+
+        case "achievements":
+            achievementsScreen.style.display = "block";
             break;
 
         case "garden":

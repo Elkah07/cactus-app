@@ -285,6 +285,42 @@
     </section>
 </div>
 
+<!-- ÉCRAN SUCCÈS -->
+<div id="achievementsScreen" class="achievements-screen" style="display:none;">
+    <header class="achievements-header">
+        <button
+            type="button"
+            id="backFromAchievementsBtn"
+            class="achievements-back-btn"
+            aria-label="Retour au tableau de bord"
+        >‹</button>
+
+        <div>
+            <small>Votre aventure à deux</small>
+            <h1>Nos succès</h1>
+        </div>
+
+        <span class="achievements-header-spacer" aria-hidden="true"></span>
+    </header>
+
+    <section class="achievements-hero">
+        <img src="assets/cactus-achievements.png" alt="Trophée des succès Cactus">
+        <div>
+            <span>Collection commune</span>
+            <strong><span id="achievementsUnlockedCount">0</span> / 12 débloqués</strong>
+            <div class="achievements-progress-track" aria-hidden="true">
+                <div id="achievementsProgressBar"></div>
+            </div>
+        </div>
+    </section>
+
+    <p id="achievementsLoadingState" class="achievements-loading" aria-live="polite">
+        Recherche de vos trophées…
+    </p>
+
+    <section id="achievementsGrid" class="achievements-grid" style="display:none;"></section>
+</div>
+
             <!-- ÉCRAN ACCUEIL -->
             <div id="loginScreen">
     <h1>🌵 Cactus</h1>
@@ -450,7 +486,12 @@
             </div>
         </article>
 
-        <article class="dashboard-stat-card stat-level">
+        <button
+            type="button"
+            id="dashboardAchievementsBtn"
+            class="dashboard-stat-card stat-level"
+            aria-label="Ouvrir nos succès"
+        >
             <span>⭐</span>
             <strong id="levelStat">1</strong>
             <small>Niveau</small>
@@ -458,7 +499,7 @@
             <div class="dashboard-mini-track">
                 <div id="levelMiniBar"></div>
             </div>
-        </article>
+        </button>
 
         <article class="dashboard-stat-card stat-games">
             <span>🎮</span>
