@@ -1845,6 +1845,37 @@ function incrementAnswersCount() {
     });
 }
 
+function awardCompletedGameBonus(mode, challengeId) {
+    if (!currentSpaceCode || !challengeId) {
+        return Promise.resolve(false);
+    }
+
+    const rewardKey = (mode + "_" + challengeId).replace(/[.#$\[\]\/]/g, "_");
+    const statsRef = database.ref("spaces/" + currentSpaceCode + "/stats");
+
+    return statsRef.transaction((stats) => {
+        stats = stats || {};
+        stats.completionRewards = stats.completionRewards || {};
+
+        if (stats.completionRewards[rewardKey]) {
+            return;
+        }
+
+        stats.completionRewards[rewardKey] = true;
+        stats.seeds = (stats.seeds || 0) + 10;
+        stats.xp = (stats.xp || 0) + 10;
+        stats.level = Math.floor(stats.xp / 100) + 1;
+
+        return stats;
+    }).then((result) => {
+        if (result.committed) {
+            showToast("🎉 Partie terminée : +10 XP et +10 graines");
+        }
+
+        return result.committed;
+    });
+}
+
 function startRandomRanking() {
     if (rankings.length === 0) {
         alert("Les classements chargent encore 🌵");
@@ -1935,6 +1966,8 @@ function showRankingCompatibilityIfReady(rankingId) {
         myAnswerData.answer,
         partnerAnswerData.answer
     )
+}).then(() => {
+    return awardCompletedGameBonus("ranking", challenge.rankingId);
 });
 
             showRankingCompatibility(
@@ -2900,6 +2933,8 @@ function listenToLikelyChallenges() {
         Object.values(answers)[0].answer,
         Object.values(answers)[1].answer
     )
+}).then(() => {
+    return awardCompletedGameBonus("likely", id);
 });
                 }
             });
@@ -3136,6 +3171,8 @@ function listenToOkChallenges() {
         Object.values(answers)[0].answer,
         Object.values(answers)[1].answer
     )
+}).then(() => {
+    return awardCompletedGameBonus("ok", id);
 });
                 }
             });
@@ -3349,6 +3386,8 @@ function listenToGreenFlagChallenges() {
         Object.values(answers)[0].answer,
         Object.values(answers)[1].answer
     )
+}).then(() => {
+    return awardCompletedGameBonus("greenFlag", id);
 });
                 }
             });
@@ -3572,6 +3611,8 @@ function listenToPrincessChallenges() {
         Object.values(answers)[0].answer,
         Object.values(answers)[1].answer
     )
+}).then(() => {
+    return awardCompletedGameBonus("princess", id);
 });
                 }
             });
@@ -3848,6 +3889,8 @@ function listenToQuestionsChallenges() {
         Object.values(answers)[0].answer,
         Object.values(answers)[1].answer
     )
+}).then(() => {
+    return awardCompletedGameBonus("questions", id);
 });
                 }
             });
@@ -4762,6 +4805,8 @@ const CACTUS_EVOLUTIONS = [
     }
 ];
 
+let lastRenderedCactusStage = null;
+
 function updateCactusEvolution(level) {
     const safeLevel = Math.max(Number(level) || 1, 1);
     const evolution = CACTUS_EVOLUTIONS.find((stage) => {
@@ -4769,8 +4814,20 @@ function updateCactusEvolution(level) {
     });
 
     if (mainCactusImage) {
+        const shouldAnimate =
+            lastRenderedCactusStage !== null &&
+            lastRenderedCactusStage !== evolution.minimumLevel;
+
         mainCactusImage.src = evolution.image;
         mainCactusImage.alt = "Votre cactus, " + evolution.name;
+
+        if (shouldAnimate) {
+            mainCactusImage.classList.remove("is-evolving");
+            void mainCactusImage.offsetWidth;
+            mainCactusImage.classList.add("is-evolving");
+        }
+
+        lastRenderedCactusStage = evolution.minimumLevel;
     }
 
     if (dashboardCactusMessage) {
@@ -5143,6 +5200,9 @@ if (
         .update({
             status: "completed",
             completedAt: Date.now()
+        })
+        .then(() => {
+            return awardCompletedGameBonus("guess", id);
         });
 }
 

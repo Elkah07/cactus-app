@@ -1939,6 +1939,33 @@ body.dashboard-active .top-right-btn {
     filter: drop-shadow(0 18px 20px rgba(0, 18, 13, 0.36));
 }
 
+.dashboard-main-cactus.is-evolving {
+    animation: cactus-evolution-pop 900ms cubic-bezier(0.2, 0.9, 0.3, 1);
+}
+
+@keyframes cactus-evolution-pop {
+    0% {
+        opacity: 0.3;
+        transform: scale(0.78) rotate(-3deg);
+        filter: drop-shadow(0 0 0 rgba(255, 212, 92, 0));
+    }
+    55% {
+        opacity: 1;
+        transform: scale(1.08) rotate(2deg);
+        filter: drop-shadow(0 0 24px rgba(255, 212, 92, 0.8));
+    }
+    100% {
+        transform: scale(1) rotate(0);
+        filter: drop-shadow(0 18px 20px rgba(0, 18, 13, 0.36));
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .dashboard-main-cactus.is-evolving {
+        animation: none;
+    }
+}
+
 .dashboard-level-badge {
     position: relative;
     z-index: 2;
