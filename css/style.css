@@ -3783,3 +3783,210 @@ body:not(.dark-theme) :is(.stats-header small, .stats-hero p, .stats-summary-car
     padding-top: 18px;
     border-top: 1px solid var(--app-border);
 }
+
+/* ====================
+   CENTRE DE NOTIFICATIONS
+==================== */
+
+#dashboardScreen .dashboard-topbar {
+    grid-template-columns: 54px minmax(0, 1fr) 100px;
+}
+
+.dashboard-top-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 7px;
+}
+
+#dashboardScreen .dashboard-top-actions button {
+    position: relative;
+    display: grid;
+    width: 46px;
+    height: 46px;
+    margin: 0;
+    padding: 0;
+    place-items: center;
+    border: 1px solid var(--dashboard-line);
+    border-radius: 50%;
+    background: rgba(11, 76, 55, 0.78);
+    color: #fff;
+    font-size: 1.15rem;
+    box-shadow: 0 8px 24px rgba(0, 19, 14, 0.22);
+}
+
+#dashboardNotificationsBadge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    min-width: 20px;
+    height: 20px;
+    padding: 0 5px;
+    place-items: center;
+    border: 2px solid #003e2d;
+    border-radius: 999px;
+    background: #ff6078;
+    color: #fff;
+    font-size: 0.58rem;
+    font-weight: 900;
+}
+
+body:not(.dark-theme) #dashboardScreen .dashboard-top-actions button {
+    border-color: var(--dashboard-line);
+    background: rgba(255, 255, 255, 0.86);
+    color: #194b38;
+    box-shadow: 0 10px 26px rgba(37, 100, 70, 0.1);
+}
+
+body:not(.dark-theme) #dashboardNotificationsBadge {
+    border-color: #f4fbf7;
+}
+
+.notifications-header {
+    display: grid;
+    grid-template-columns: 44px minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 18px;
+}
+
+.notifications-header > button:first-child {
+    width: 44px;
+    height: 44px;
+    margin: 0;
+    padding: 0;
+    border: 1px solid var(--app-border);
+    border-radius: 50%;
+    background: var(--app-panel-bg);
+    color: var(--app-heading);
+    font-size: 1.8rem;
+}
+
+.notifications-header small {
+    color: var(--app-accent);
+    font-size: 0.62rem;
+    font-weight: 900;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.notifications-header h1 {
+    margin: 2px 0 0;
+    color: var(--app-heading);
+    font-size: 1.35rem;
+}
+
+#markNotificationsReadBtn {
+    width: auto;
+    margin: 0;
+    padding: 7px 9px;
+    border-radius: 999px;
+    background: var(--app-secondary-button);
+    color: var(--app-accent);
+    font-size: 0.62rem;
+}
+
+.notifications-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.notification-card {
+    position: relative;
+    display: grid;
+    grid-template-columns: 48px minmax(0, 1fr);
+    align-items: center;
+    gap: 11px;
+    padding: 13px;
+    border: 1px solid var(--app-border);
+    border-radius: 19px;
+    background: var(--app-panel-bg);
+    box-shadow: 0 8px 20px var(--app-shadow-soft);
+}
+
+.notification-card.is-unread {
+    border-color: rgba(75, 201, 130, 0.48);
+}
+
+.notification-card.is-unread::after {
+    content: "";
+    position: absolute;
+    top: 13px;
+    right: 13px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #54d38b;
+    box-shadow: 0 0 9px rgba(84, 211, 139, 0.7);
+}
+
+.notification-icon {
+    display: grid;
+    width: 48px;
+    height: 48px;
+    place-items: center;
+    border-radius: 16px;
+    background: var(--app-icon-bg);
+    font-size: 1.45rem;
+}
+
+.notification-card strong {
+    display: block;
+    padding-right: 14px;
+    color: var(--app-heading);
+    font-size: 0.82rem;
+}
+
+.notification-card p {
+    margin: 3px 0;
+    color: var(--app-muted);
+    font-size: 0.7rem;
+}
+
+.notification-card small {
+    color: var(--app-accent);
+    font-size: 0.61rem;
+    font-weight: 800;
+}
+
+.notifications-empty-state {
+    min-height: 300px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--app-muted);
+    text-align: center;
+}
+
+.notifications-empty-state > span { font-size: 3.4rem; }
+.notifications-empty-state strong { margin: 10px 0 4px; color: var(--app-heading); }
+.notifications-empty-state p { max-width: 250px; font-size: 0.75rem; line-height: 1.4; }
+
+.notifications-preferences label {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 9px 0;
+    border-top: 1px solid var(--app-border);
+    color: var(--app-text);
+    font-size: 0.78rem;
+    font-weight: 700;
+}
+
+.notifications-preferences input {
+    width: 18px;
+    height: 18px;
+    margin: 0;
+    accent-color: #4ccb86;
+}
+
+@media (max-width: 370px) {
+    #dashboardScreen .dashboard-topbar {
+        grid-template-columns: 42px minmax(0, 1fr) 88px;
+    }
+
+    #dashboardScreen .dashboard-top-actions button {
+        width: 40px;
+        height: 40px;
+    }
+}

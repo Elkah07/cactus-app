@@ -43,6 +43,10 @@ const settingsBtn = document.getElementById("settingsBtn");
 const newPseudo = document.getElementById("newPseudo");
 const saveNewPseudoBtn = document.getElementById("saveNewPseudoBtn");
 const toggleThemeBtn = document.getElementById("toggleThemeBtn");
+const notifyAnswersSetting = document.getElementById("notifyAnswersSetting");
+const notifyGamesSetting = document.getElementById("notifyGamesSetting");
+const notifyAchievementsSetting = document.getElementById("notifyAchievementsSetting");
+const notifyGardenSetting = document.getElementById("notifyGardenSetting");
 const themeSettingIcon = document.getElementById("themeSettingIcon");
 const themeSettingLabel = document.getElementById("themeSettingLabel");
 const themeColorMeta = document.querySelector('meta[name="theme-color"]');
@@ -398,6 +402,16 @@ const dashboardProfileBtn =
 const dashboardSettingsBtn =
     document.getElementById("dashboardSettingsBtn");
 
+const dashboardNotificationsBtn =
+    document.getElementById("dashboardNotificationsBtn");
+const dashboardNotificationsBadge =
+    document.getElementById("dashboardNotificationsBadge");
+const notificationsScreen = document.getElementById("notificationsScreen");
+const backFromNotificationsBtn = document.getElementById("backFromNotificationsBtn");
+const markNotificationsReadBtn = document.getElementById("markNotificationsReadBtn");
+const notificationsList = document.getElementById("notificationsList");
+const notificationsEmptyState = document.getElementById("notificationsEmptyState");
+
 const dashboardSpaceCode =
     document.getElementById("dashboardSpaceCode");
 
@@ -627,6 +641,11 @@ function listenToCurrentSpace(spaceCodeValue) {
         }
 
         currentSpaceData = spaceData;
+        updateNotificationsBadge(spaceData);
+
+        if (lastShownScreen === "notifications") {
+            renderNotifications(spaceData);
+        }
 
         const liveRelationStats = buildRelationStatistics(spaceData);
         updateDashboardRelationStats(liveRelationStats);
@@ -1780,6 +1799,27 @@ dashboardSettingsBtn.addEventListener("click", () => {
     showScreen("settings");
 });
 
+dashboardNotificationsBtn.addEventListener("click", () => {
+    showScreen("notifications");
+});
+
+backFromNotificationsBtn.addEventListener("click", () => {
+    showScreen("dashboard");
+});
+
+markNotificationsReadBtn.addEventListener("click", () => {
+    markAllNotificationsRead();
+});
+
+[notifyAnswersSetting, notifyGamesSetting, notifyAchievementsSetting, notifyGardenSetting].forEach((input) => {
+    input.addEventListener("change", () => {
+        saveNotificationPreferences();
+        if (currentSpaceData) {
+            updateNotificationsBadge(currentSpaceData);
+        }
+    });
+});
+
 dashboardProfileBtn.addEventListener("click", () => {
     openStoryPage();
 });
@@ -2105,6 +2145,230 @@ if (score >= 80) {
     showScreen("rankingCompatibility");
 }
 
+const NOTIFICATION_PREFERENCES_KEY = "cactusNotificationPreferences";
+
+function getNotificationPreferences() {
+    try {
+        return {
+            answers: true,
+            games: true,
+            achievements: true,
+            garden: true,
+            ...JSON.parse(localStorage.getItem(NOTIFICATION_PREFERENCES_KEY) || "{}")
+        };
+    } catch (error) {
+        return { answers: true, games: true, achievements: true, garden: true };
+    }
+}
+
+function loadNotificationPreferences() {
+    const preferences = getNotificationPreferences();
+    notifyAnswersSetting.checked = preferences.answers;
+    notifyGamesSetting.checked = preferences.games;
+    notifyAchievementsSetting.checked = preferences.achievements;
+    notifyGardenSetting.checked = preferences.garden;
+}
+
+function saveNotificationPreferences() {
+    localStorage.setItem(
+        NOTIFICATION_PREFERENCES_KEY,
+        JSON.stringify({
+            answers: notifyAnswersSetting.checked,
+            games: notifyGamesSetting.checked,
+            achievements: notifyAchievementsSetting.checked,
+            garden: notifyGardenSetting.checked
+        })
+    );
+}
+
+function buildNotifications(spaceData) {
+    const preferences = getNotificationPreferences();
+    const notifications = [];
+
+    relationStatsModes.forEach((mode) => {
+        Object.entries(spaceData[mode.path] || {}).forEach(([challengeId, challenge]) => {
+            if (preferences.answers) {
+                Object.values(challenge.answers || {}).forEach((answer) => {
+                    if (
+                        answer.uid !== currentUser.uid &&
+                        typeof answer.createdAt === "number"
+                    ) {
+                        notifications.push({
+                            id: "answer_" + mode.key + "_" + challengeId + "_" + answer.uid,
+                            type: "answer",
+                            icon: "💬",
+                            title: (answer.pseudo || "Votre partenaire") + " a répondu",
+                            message: mode.icon + " " + mode.label,
+                            timestamp: answer.createdAt
+                        });
+                    }
+                });
+            }
+
+            if (
+                preferences.games &&
+                challenge.status === "completed" &&
+                typeof challenge.completedAt === "number"
+            ) {
+                notifications.push({
+                    id: "game_" + mode.key + "_" + challengeId,
+                    type: "game",
+                    icon: "🎉",
+                    title: "Partie terminée à deux",
+                    message: mode.icon + " " + mode.label,
+                    timestamp: challenge.completedAt
+                });
+            }
+        });
+    });
+
+    if (preferences.garden) {
+        Object.entries(spaceData.garden?.items || {}).forEach(([itemId, itemData]) => {
+            const item = GARDEN_CATALOG.find((catalogItem) => catalogItem.id === itemId);
+
+            if (
+                item &&
+                itemData.unlockedBy &&
+                itemData.unlockedBy !== currentUser.uid &&
+                typeof itemData.unlockedAt === "number"
+            ) {
+                notifications.push({
+                    id: "garden_" + itemId,
+                    type: "garden",
+                    icon: item.emoji,
+                    title: "Le jardin s’agrandit",
+                    message: item.name + " a été débloqué",
+                    timestamp: itemData.unlockedAt
+                });
+            }
+        });
+    }
+
+    if (preferences.achievements) {
+        Object.entries(spaceData.stats?.achievements || {}).forEach(([achievementId, data]) => {
+            const achievement = ACHIEVEMENTS.find((item) => item.id === achievementId);
+
+            if (
+                achievement &&
+                typeof data === "object" &&
+                data.unlockedBy !== currentUser.uid &&
+                typeof data.unlockedAt === "number"
+            ) {
+                notifications.push({
+                    id: "achievement_" + achievementId,
+                    type: "achievement",
+                    icon: "🏆",
+                    title: "Nouveau succès commun",
+                    message: achievement.title,
+                    timestamp: data.unlockedAt
+                });
+            }
+        });
+    }
+
+    return notifications
+        .sort((a, b) => b.timestamp - a.timestamp)
+        .slice(0, 50);
+}
+
+function getNotificationsLastReadAt(spaceData) {
+    return spaceData.notificationReads?.[currentUser.uid]?.lastReadAt || 0;
+}
+
+function updateNotificationsBadge(spaceData) {
+    if (!currentUser || !dashboardNotificationsBadge) {
+        return;
+    }
+
+    const lastReadAt = getNotificationsLastReadAt(spaceData);
+    const unreadCount = buildNotifications(spaceData).filter((notification) => {
+        return notification.timestamp > lastReadAt;
+    }).length;
+
+    dashboardNotificationsBadge.textContent = unreadCount > 99 ? "99+" : unreadCount;
+    dashboardNotificationsBadge.style.display = unreadCount > 0 ? "grid" : "none";
+    dashboardNotificationsBtn.setAttribute(
+        "aria-label",
+        unreadCount > 0
+            ? "Notifications, " + unreadCount + " non lue" + (unreadCount > 1 ? "s" : "")
+            : "Notifications"
+    );
+}
+
+function loadNotifications() {
+    if (currentSpaceData) {
+        renderNotifications(currentSpaceData);
+        return;
+    }
+
+    database
+        .ref("spaces/" + currentSpaceCode)
+        .once("value")
+        .then((snapshot) => {
+            currentSpaceData = snapshot.val() || {};
+            renderNotifications(currentSpaceData);
+        });
+}
+
+function renderNotifications(spaceData) {
+    const notifications = buildNotifications(spaceData);
+    const lastReadAt = getNotificationsLastReadAt(spaceData);
+    notificationsList.innerHTML = "";
+    notificationsEmptyState.style.display = notifications.length === 0 ? "flex" : "none";
+
+    notifications.forEach((notification) => {
+        const card = document.createElement("article");
+        card.className = "notification-card" +
+            (notification.timestamp > lastReadAt ? " is-unread" : "");
+
+        const icon = document.createElement("span");
+        icon.className = "notification-icon";
+        icon.textContent = notification.icon;
+
+        const copy = document.createElement("div");
+        const title = document.createElement("strong");
+        title.textContent = notification.title;
+        const message = document.createElement("p");
+        message.textContent = notification.message;
+        const date = document.createElement("small");
+        date.textContent = formatNotificationDate(notification.timestamp);
+
+        copy.append(title, message, date);
+        card.append(icon, copy);
+        notificationsList.appendChild(card);
+    });
+}
+
+function formatNotificationDate(timestamp) {
+    const elapsed = Date.now() - timestamp;
+    const minutes = Math.max(1, Math.floor(elapsed / 60000));
+
+    if (minutes < 60) {
+        return "Il y a " + minutes + " min";
+    }
+
+    const hours = Math.floor(minutes / 60);
+    if (hours < 24) {
+        return "Il y a " + hours + " h";
+    }
+
+    return new Date(timestamp).toLocaleDateString("fr-FR", {
+        day: "2-digit",
+        month: "short"
+    });
+}
+
+function markAllNotificationsRead() {
+    if (!currentSpaceCode || !currentUser) {
+        return;
+    }
+
+    database
+        .ref("spaces/" + currentSpaceCode + "/notificationReads/" + currentUser.uid)
+        .set({ lastReadAt: Date.now() })
+        .then(() => showToast("Notifications marquées comme lues"));
+}
+
 const GARDEN_CATALOG = [
     { id: "tulip", emoji: "🌷", name: "Tulipe corail", cost: 25 },
     { id: "miniCactus", emoji: "🌵", name: "Mini cactus", cost: 50 },
@@ -2222,6 +2486,7 @@ function buyGardenItem(item) {
         spaceData.stats.seeds = seeds - item.cost;
         spaceData.garden.items[item.id] = {
             planted: true,
+            unlockedBy: currentUser.uid,
             unlockedAt: Date.now()
         };
 
@@ -4613,8 +4878,12 @@ function openAchievements() {
                 );
 
                 if (current >= achievement.target && !unlocked[achievement.id]) {
-                    unlocked[achievement.id] = true;
-                    newlyUnlocked[achievement.id] = true;
+                    const unlockData = {
+                        unlockedAt: Date.now(),
+                        unlockedBy: currentUser.uid
+                    };
+                    unlocked[achievement.id] = unlockData;
+                    newlyUnlocked[achievement.id] = unlockData;
                 }
             });
 
@@ -5430,6 +5699,7 @@ loadRankingsData();
 loadGuessQuestionsData();
 loadLikelyQuestionsData();
 
+loadNotificationPreferences();
 applyTheme(localStorage.getItem("theme") === "dark" ? "dark" : "light");
 
 if ("serviceWorker" in navigator) {
