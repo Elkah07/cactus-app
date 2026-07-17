@@ -1,4 +1,4 @@
-const CACHE_NAME = "cactus-v6";
+const CACHE_NAME = "cactus-v7";
 
 const FILES_TO_CACHE = [
     "./",
@@ -19,6 +19,12 @@ const FILES_TO_CACHE = [
     "./data/princess-treatment.json",
     "./data/questions.json",
     "./assets/cactus-main.png",
+    "./assets/cactus-stage-1.png",
+    "./assets/cactus-stage-2.png",
+    "./assets/cactus-stage-3.png",
+    "./assets/cactus-stage-4.png",
+    "./assets/cactus-stage-5.png",
+    "./assets/cactus-stage-6.png",
     "./assets/cactus-ranking.png",
     "./assets/cactus-guess.png",
     "./assets/cactus-questions.png",

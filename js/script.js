@@ -400,6 +400,12 @@ const questionsCountLabel =
 const levelHeroStat =
     document.getElementById("levelHeroStat");
 
+const mainCactusImage =
+    document.getElementById("mainCactusImage");
+
+const dashboardCactusMessage =
+    document.getElementById("dashboardCactusMessage");
+
 const currentXpHero =
     document.getElementById("currentXpHero");
 
@@ -4717,6 +4723,61 @@ function getLikelyChosenTarget(answerData) {
     return null;
 }
 
+const CACTUS_EVOLUTIONS = [
+    {
+        minimumLevel: 21,
+        name: "Cactus légendaire",
+        image: "assets/cactus-stage-6.png",
+        message: "Votre cactus est devenu légendaire ! 👑✨"
+    },
+    {
+        minimumLevel: 15,
+        name: "Cactus épanoui",
+        image: "assets/cactus-stage-5.png",
+        message: "Votre cactus est pleinement épanoui ! 🌸✨"
+    },
+    {
+        minimumLevel: 10,
+        name: "Cactus complice",
+        image: "assets/cactus-stage-4.png",
+        message: "Votre cactus respire la complicité ! 💚"
+    },
+    {
+        minimumLevel: 6,
+        name: "Cactus curieux",
+        image: "assets/cactus-stage-3.png",
+        message: "Votre cactus devient très curieux ! 🔎"
+    },
+    {
+        minimumLevel: 3,
+        name: "Jeune cactus",
+        image: "assets/cactus-stage-2.png",
+        message: "Votre jeune cactus grandit bien ! 🌿"
+    },
+    {
+        minimumLevel: 1,
+        name: "Bébé cactus",
+        image: "assets/cactus-stage-1.png",
+        message: "Votre bébé cactus découvre votre histoire ! 🌱"
+    }
+];
+
+function updateCactusEvolution(level) {
+    const safeLevel = Math.max(Number(level) || 1, 1);
+    const evolution = CACTUS_EVOLUTIONS.find((stage) => {
+        return safeLevel >= stage.minimumLevel;
+    });
+
+    if (mainCactusImage) {
+        mainCactusImage.src = evolution.image;
+        mainCactusImage.alt = "Votre cactus, " + evolution.name;
+    }
+
+    if (dashboardCactusMessage) {
+        dashboardCactusMessage.textContent = evolution.message;
+    }
+}
+
 function loadCoupleStats() {
     if (currentSpaceData) {
         updateDashboardRelationStats(
@@ -4745,6 +4806,8 @@ function loadCoupleStats() {
             if (levelHeroStat) {
                 levelHeroStat.textContent = level;
             }
+
+            updateCactusEvolution(level);
 
             const xpPerLevel = 100;
             const xpInsideCurrentLevel = xp % xpPerLevel;
