@@ -167,6 +167,8 @@ settingsBtn.style.setProperty("display", "none", "important");
 
         case "garden":
             gardenScreen.style.display = "block";
+            loadGarden();
+            loadNotebooks();
             break;
 
         case "notebook":

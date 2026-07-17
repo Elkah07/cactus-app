@@ -80,6 +80,12 @@ const notebookTitle = document.getElementById("notebookTitle");
 const notebookColor = document.getElementById("notebookColor");
 const createNotebookBtn = document.getElementById("createNotebookBtn");
 const notebooksGrid = document.getElementById("notebooksGrid");
+const gardenSeedsBalance = document.getElementById("gardenSeedsBalance");
+const gardenLevelBadge = document.getElementById("gardenLevelBadge");
+const gardenPlantedCount = document.getElementById("gardenPlantedCount");
+const gardenPlot = document.getElementById("gardenPlot");
+const gardenEmptyPlot = document.getElementById("gardenEmptyPlot");
+const gardenShopGrid = document.getElementById("gardenShopGrid");
 
 const notebookScreen = document.getElementById("notebookScreen");
 const openedNotebookTitle = document.getElementById("openedNotebookTitle");
@@ -627,6 +633,10 @@ function listenToCurrentSpace(spaceCodeValue) {
 
         if (lastShownScreen === "stats") {
             renderRelationStats(liveRelationStats);
+        }
+
+        if (lastShownScreen === "garden") {
+            renderGarden(spaceData);
         }
 
         if (!spaceData.story && lastShownScreen === "dashboard") {
@@ -1192,7 +1202,6 @@ backFromHistoryBtn.addEventListener("click", () => {
 });
 
 gardenBtn.addEventListener("click", () => {
-    loadNotebooks();
     showScreen("garden");
 });
 
@@ -2094,6 +2103,155 @@ if (score >= 80) {
     }
 
     showScreen("rankingCompatibility");
+}
+
+const GARDEN_CATALOG = [
+    { id: "tulip", emoji: "🌷", name: "Tulipe corail", cost: 25 },
+    { id: "miniCactus", emoji: "🌵", name: "Mini cactus", cost: 50 },
+    { id: "bush", emoji: "🌿", name: "Buisson tendre", cost: 75 },
+    { id: "mushroom", emoji: "🍄", name: "Champignon", cost: 90 },
+    { id: "fountain", emoji: "⛲", name: "Petite fontaine", cost: 140 },
+    { id: "bench", emoji: "🪑", name: "Banc à deux", cost: 180 },
+    { id: "tree", emoji: "🌳", name: "Arbre complice", cost: 220 },
+    { id: "lantern", emoji: "🏮", name: "Lanterne magique", cost: 300 }
+];
+
+function loadGarden() {
+    if (!currentSpaceCode) {
+        return;
+    }
+
+    database
+        .ref("spaces/" + currentSpaceCode)
+        .once("value")
+        .then((snapshot) => {
+            renderGarden(snapshot.val() || {});
+        })
+        .catch((error) => {
+            console.error("Impossible de charger le jardin", error);
+            showToast("Le jardin ne peut pas être chargé pour le moment");
+        });
+}
+
+function renderGarden(spaceData) {
+    const seeds = spaceData.stats?.seeds || 0;
+    const items = spaceData.garden?.items || {};
+    const unlockedCount = Object.keys(items).length;
+    const plantedItems = GARDEN_CATALOG.filter((item) => {
+        return items[item.id]?.planted !== false && items[item.id];
+    });
+    const gardenLevel = Math.min(4, Math.floor(unlockedCount / 2) + 1);
+
+    gardenSeedsBalance.textContent = seeds;
+    gardenLevelBadge.textContent = "Jardin niveau " + gardenLevel;
+    gardenPlantedCount.textContent =
+        plantedItems.length + " élément" + (plantedItems.length > 1 ? "s" : "");
+    gardenEmptyPlot.style.display = plantedItems.length === 0 ? "block" : "none";
+
+    gardenPlot.querySelectorAll(".garden-planted-item").forEach((element) => {
+        element.remove();
+    });
+
+    plantedItems.forEach((item, index) => {
+        const planted = document.createElement("button");
+        planted.type = "button";
+        planted.className = "garden-planted-item garden-position-" + ((index % 8) + 1);
+        planted.textContent = item.emoji;
+        planted.title = item.name + " · toucher pour ranger";
+        planted.setAttribute("aria-label", item.name + ", ranger cet élément");
+        planted.addEventListener("click", () => toggleGardenItem(item.id, false));
+        gardenPlot.appendChild(planted);
+    });
+
+    gardenShopGrid.innerHTML = "";
+    GARDEN_CATALOG.forEach((item) => {
+        const owned = Boolean(items[item.id]);
+        const planted = owned && items[item.id].planted !== false;
+        const card = document.createElement("article");
+        card.className = "garden-shop-card" + (owned ? " is-owned" : "");
+
+        const icon = document.createElement("span");
+        icon.className = "garden-shop-icon";
+        icon.textContent = item.emoji;
+
+        const name = document.createElement("strong");
+        name.textContent = item.name;
+
+        const action = document.createElement("button");
+        action.type = "button";
+
+        if (owned) {
+            action.textContent = planted ? "Ranger" : "Placer";
+            action.className = "garden-toggle-item";
+            action.addEventListener("click", () => {
+                toggleGardenItem(item.id, !planted);
+            });
+        } else {
+            action.textContent = "🌱 " + item.cost;
+            action.disabled = seeds < item.cost;
+            action.className = "garden-buy-item";
+            action.addEventListener("click", () => buyGardenItem(item));
+        }
+
+        card.append(icon, name, action);
+        gardenShopGrid.appendChild(card);
+    });
+}
+
+function buyGardenItem(item) {
+    const spaceRef = database.ref("spaces/" + currentSpaceCode);
+
+    spaceRef.transaction((spaceData) => {
+        if (!spaceData) {
+            return;
+        }
+
+        spaceData.stats = spaceData.stats || {};
+        spaceData.garden = spaceData.garden || {};
+        spaceData.garden.items = spaceData.garden.items || {};
+
+        if (spaceData.garden.items[item.id]) {
+            return;
+        }
+
+        const seeds = spaceData.stats.seeds || 0;
+        if (seeds < item.cost) {
+            return;
+        }
+
+        spaceData.stats.seeds = seeds - item.cost;
+        spaceData.garden.items[item.id] = {
+            planted: true,
+            unlockedAt: Date.now()
+        };
+
+        return spaceData;
+    }).then((result) => {
+        if (!result.committed) {
+            showToast("Pas assez de graines ou élément déjà débloqué");
+            return;
+        }
+
+        showToast(item.emoji + " " + item.name + " rejoint votre jardin");
+        renderGarden(result.snapshot.val() || {});
+    }).catch((error) => {
+        console.error("Achat impossible", error);
+        showToast("Achat impossible pour le moment");
+    });
+}
+
+function toggleGardenItem(itemId, planted) {
+    database
+        .ref(
+            "spaces/" + currentSpaceCode +
+            "/garden/items/" + itemId + "/planted"
+        )
+        .set(planted)
+        .then(() => loadGarden())
+        .catch((error) => {
+            console.error("Modification du jardin impossible", error);
+            showToast("Impossible de modifier le jardin");
+        });
 }
 
 function loadNotebooks() {
