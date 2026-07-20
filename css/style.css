@@ -2106,6 +2106,43 @@ body.game-details-open { overflow: hidden; }
     .recommended-game p { display: none; }
 }
 
+/* Navigation douce entre les questions */
+.game-question-tools {
+    display: flex;
+    min-height: 34px;
+    margin: -3px 0 12px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.game-question-tools small {
+    color: var(--app-muted);
+    font-size: 0.59rem;
+    font-weight: 750;
+}
+
+.game-question-tools button {
+    width: auto;
+    min-width: max-content;
+    margin: 0;
+    padding: 7px 10px;
+    border: 1px solid var(--app-border);
+    border-radius: 999px;
+    background: var(--app-secondary-button);
+    box-shadow: none;
+    color: var(--app-accent);
+    font-size: 0.59rem;
+    font-weight: 850;
+}
+
+.game-question-tools button:hover { transform: translateY(-1px); }
+.game-question-tools.is-unavailable { display: none; }
+
+@media (max-width: 370px) {
+    .game-question-tools { align-items: flex-start; flex-direction: column; gap: 6px; }
+}
+
 /* Priorité finale des thèmes sur les anciens styles d’écran. */
 #allGamesScreen .all-games-grid {
     gap: 13px;

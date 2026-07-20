@@ -1288,13 +1288,17 @@ rankingBtn.addEventListener("click", () => {
 });
 
 guessBtn.addEventListener("click", () => {
+    startGuessGame();
+});
+
+function startGuessGame() {
     if (guessQuestions.length === 0) {
         alert("Les questions chargent encore 🌵");
         return;
     }
 
     currentGuessQuestion =
-        getRandomItem(guessQuestions);
+        selectFreshGameItem(guessQuestions, "guess", currentGuessQuestion?.id, "guessAnswers");
 
     guessQuestionText.textContent =
         currentGuessQuestion.question;
@@ -1303,8 +1307,10 @@ guessBtn.addEventListener("click", () => {
 
     guessAnswerTitle.textContent = "Écris ta réponse";
 
+    setGameSkipAvailability("guess", true, guessQuestions);
+
     showScreen("guessAnswer");
-});
+}
 
 validateGuessAnswerBtn.addEventListener("click", () => {
     const answer = guessAnswerInput.value.trim();
@@ -2535,6 +2541,90 @@ const GAMES_LIBRARY = {
     }
 };
 
+const RECENT_GAME_HISTORY_PREFIX = "cactus_recent_questions_v1";
+
+function getGameHistoryKey(mode) {
+    return RECENT_GAME_HISTORY_PREFIX + "_" + (currentUser?.uid || "guest") + "_" + mode;
+}
+
+function readGameHistory(mode) {
+    try {
+        const value = JSON.parse(localStorage.getItem(getGameHistoryKey(mode)) || "[]");
+        return Array.isArray(value) ? value.filter(Boolean) : [];
+    } catch (error) {
+        return [];
+    }
+}
+
+function writeGameHistory(mode, history) {
+    localStorage.setItem(getGameHistoryKey(mode), JSON.stringify(history));
+}
+
+function getActiveChallengeIds(path) {
+    if (!path || !currentSpaceData) return new Set();
+    return new Set(
+        Object.entries(currentSpaceData[path] || {})
+            .filter(([, challenge]) => challenge?.status !== "completed")
+            .map(([id]) => String(id))
+    );
+}
+
+function selectFreshGameItem(items, mode, currentId = null, challengePath = null) {
+    if (!Array.isArray(items) || items.length === 0) return null;
+
+    const blockedIds = getActiveChallengeIds(challengePath);
+    let history = readGameHistory(mode).filter((id) => items.some((item) => String(item.id) === String(id)));
+    const eligible = items.filter((item) => {
+        return String(item.id) !== String(currentId || "") && !blockedIds.has(String(item.id));
+    });
+    let fresh = eligible.filter((item) => !history.includes(String(item.id)));
+
+    if (fresh.length === 0) {
+        const recentToKeep = Math.min(12, Math.max(1, Math.floor(items.length * 0.12)));
+        history = history.slice(-recentToKeep);
+        fresh = eligible.filter((item) => !history.includes(String(item.id)));
+    }
+
+    const pool = fresh.length > 0 ? fresh : (eligible.length > 0 ? eligible : items);
+    const selected = pool[Math.floor(Math.random() * pool.length)];
+    history = history.filter((id) => String(id) !== String(selected.id));
+    history.push(String(selected.id));
+    writeGameHistory(mode, history.slice(-items.length));
+    return selected;
+}
+
+function setGameSkipAvailability(mode, available, items = []) {
+    const button = document.querySelector('[data-skip-game="' + mode + '"]');
+    const progress = document.querySelector('[data-game-progress="' + mode + '"]');
+    const toolbar = button?.closest(".game-question-tools");
+    if (!toolbar) return;
+
+    toolbar.classList.toggle("is-unavailable", !available);
+    if (!available || !progress) return;
+
+    const seen = new Set(readGameHistory(mode));
+    const remaining = Math.max(0, items.filter((item) => !seen.has(String(item.id))).length);
+    progress.textContent = remaining > 0
+        ? remaining + " encore inédite" + (remaining > 1 ? "s" : "")
+        : "Catalogue parcouru · nouvelle rotation";
+}
+
+document.querySelectorAll("[data-skip-game]").forEach((button) => {
+    button.addEventListener("click", () => {
+        const actions = {
+            ranking: startRandomRanking,
+            guess: startGuessGame,
+            likely: startLikelyGame,
+            ok: startOkGame,
+            greenFlag: startGreenFlagGame,
+            princess: startPrincessGame,
+            questions: startQuestionsGame
+        };
+        const action = actions[button.dataset.skipGame];
+        if (action) action();
+    });
+});
+
 function normalizeGameSearch(value) {
     return String(value || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim();
 }
@@ -2953,10 +3043,16 @@ function startRandomRanking() {
         return;
     }
 
-    currentRanking = getRandomItem(rankings, lastRankingId);
+    currentRanking = selectFreshGameItem(
+        rankings,
+        "ranking",
+        lastRankingId,
+        "rankingChallenges"
+    );
     lastRankingId = currentRanking.id;
 
     loadRanking(currentRanking);
+    setGameSkipAvailability("ranking", true, rankings);
 
     showScreen("ranking");
 }
@@ -2984,6 +3080,7 @@ function startPendingRankingChallenge() {
     currentRanking = ranking;
 
     loadRanking(currentRanking);
+    setGameSkipAvailability("ranking", false);
 
     showScreen("ranking");
 }
@@ -4892,6 +4989,7 @@ function displayGuessChallenges(challenges) {
 }
 
 function startPendingGuessAnswer() {
+    setGameSkipAvailability("guess", false);
     const challenge =
         pendingGuessAnswers[currentPendingGuessIndex];
 
@@ -5617,18 +5715,20 @@ function startLikelyGame() {
         return;
     }
 
-    const randomQuestion =
-        likelyQuestions[
-            Math.floor(
-                Math.random() * likelyQuestions.length
-            )
-        ];
+    const randomQuestion = selectFreshGameItem(
+        likelyQuestions,
+        "likely",
+        currentLikelyQuestion?.id,
+        "likelyChallenges"
+    );
 
     currentLikelyQuestion = randomQuestion;
     currentLikelyId = randomQuestion.id;
 
     likelyQuestionText.textContent =
         randomQuestion.question;
+
+    setGameSkipAvailability("likely", true, likelyQuestions);
 
     showScreen("likely");
 }
@@ -5736,6 +5836,7 @@ function displayLikelyChallenges(challenges) {
 }
 
 function startPendingLikelyChallenge() {
+    setGameSkipAvailability("likely", false);
     const challenge =
         pendingLikelyChallenges[currentPendingLikelyIndex];
 
@@ -5762,6 +5863,7 @@ function startPendingLikelyChallenge() {
 
 
 function startPendingLikelyChallenge() {
+    setGameSkipAvailability("likely", false);
     const challenge =
         pendingLikelyChallenges[currentPendingLikelyIndex];
 
@@ -5860,13 +5962,19 @@ function startOkGame() {
         return;
     }
 
-    currentOkQuestion =
-        okQuestions[Math.floor(Math.random() * okQuestions.length)];
+    currentOkQuestion = selectFreshGameItem(
+        okQuestions,
+        "ok",
+        currentOkQuestion?.id,
+        "okChallenges"
+    );
 
     currentOkId = currentOkQuestion.id;
 
     okQuestionText.textContent =
         currentOkQuestion.question;
+
+    setGameSkipAvailability("ok", true, okQuestions);
 
     showScreen("ok");
 }
@@ -5974,6 +6082,7 @@ function displayOkChallenges(challenges) {
 }
 
 function startPendingOkChallenge() {
+    setGameSkipAvailability("ok", false);
     const challenge =
         pendingOkChallenges[currentPendingOkIndex];
 
@@ -6073,15 +6182,19 @@ function startGreenFlagGame() {
         return;
     }
 
-    currentGreenFlagQuestion =
-        greenFlagQuestions[
-            Math.floor(Math.random() * greenFlagQuestions.length)
-        ];
+    currentGreenFlagQuestion = selectFreshGameItem(
+        greenFlagQuestions,
+        "greenFlag",
+        currentGreenFlagQuestion?.id,
+        "greenFlagChallenges"
+    );
 
     currentGreenFlagId = currentGreenFlagQuestion.id;
 
     greenFlagQuestionText.textContent =
         currentGreenFlagQuestion.question;
+
+    setGameSkipAvailability("greenFlag", true, greenFlagQuestions);
 
     showScreen("greenFlag");
 }
@@ -6189,6 +6302,7 @@ function displayGreenFlagChallenges(challenges) {
 }
 
 function startPendingGreenFlagChallenge() {
+    setGameSkipAvailability("greenFlag", false);
     const challenge =
         pendingGreenFlagChallenges[currentPendingGreenFlagIndex];
 
@@ -6291,18 +6405,20 @@ async function startPrincessGame() {
         return;
     }
 
-    currentPrincessQuestion =
-        princessQuestions[
-            Math.floor(
-                Math.random() * princessQuestions.length
-            )
-        ];
+    currentPrincessQuestion = selectFreshGameItem(
+        princessQuestions,
+        "princess",
+        currentPrincessQuestion?.id,
+        "princessChallenges"
+    );
 
     currentPrincessId =
         currentPrincessQuestion.id;
 
     princessQuestionText.textContent =
         currentPrincessQuestion.question;
+
+    setGameSkipAvailability("princess", true, princessQuestions);
 
     showScreen("princess");
 }
@@ -6438,6 +6554,7 @@ function displayPrincessChallenges(
 }
 
 function startPendingPrincessChallenge() {
+    setGameSkipAvailability("princess", false);
 
     const challenge =
         pendingPrincessChallenges[
@@ -6578,10 +6695,12 @@ function startQuestionsGame() {
         return;
     }
 
-    currentCoupleQuestion =
-        coupleQuestions[
-            Math.floor(Math.random() * coupleQuestions.length)
-        ];
+    currentCoupleQuestion = selectFreshGameItem(
+        coupleQuestions,
+        "questions",
+        currentCoupleQuestion?.id,
+        "questionsChallenges"
+    );
 
     currentCoupleQuestionId =
         currentCoupleQuestion.id;
@@ -6590,6 +6709,8 @@ function startQuestionsGame() {
         currentCoupleQuestion.question;
 
     questionsAnswerInput.value = "";
+
+    setGameSkipAvailability("questions", true, coupleQuestions);
 
     showScreen("questions");
 }
@@ -6697,6 +6818,7 @@ function displayQuestionsChallenges(challenges) {
 }
 
 function startPendingQuestionsChallenge() {
+    setGameSkipAvailability("questions", false);
     const challenge =
         pendingQuestionsChallenges[currentPendingQuestionsIndex];
 
