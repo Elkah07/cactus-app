@@ -1,7 +1,8 @@
-const CACHE_NAME = "cactus-v17";
+const CACHE_VERSION = "v18";
+const SHELL_CACHE = `cactus-shell-${CACHE_VERSION}`;
+const RUNTIME_CACHE = `cactus-runtime-${CACHE_VERSION}`;
 
-const FILES_TO_CACHE = [
-    "./",
+const APP_SHELL = [
     "./index.html",
     "./css/style.css",
     "./js/firebase.js",
@@ -11,73 +12,89 @@ const FILES_TO_CACHE = [
     "./js/storage.js",
     "./js/rankings.js",
     "./js/questions.js",
-    "./data/rankings.json",
-    "./data/guess-my-answer.json",
-    "./data/likely.json",
-    "./data/ok-ou-pas-ok.json",
-    "./data/green-flag-red-flag.json",
-    "./data/princess-treatment.json",
-    "./data/questions.json",
-    "./assets/cactus-main.png",
-    "./assets/cactus-stage-1.png",
-    "./assets/cactus-stage-2.png",
-    "./assets/cactus-stage-3.png",
-    "./assets/cactus-stage-4.png",
-    "./assets/cactus-stage-5.png",
-    "./assets/cactus-stage-6.png",
-    "./assets/cactus-ranking.png",
-    "./assets/cactus-guess.png",
-    "./assets/cactus-questions.png",
-    "./assets/cactus-likely.png",
-    "./assets/cactus-ok.png",
-    "./assets/cactus-greenflag.png",
-    "./assets/cactus-princess.png",
-    "./assets/cactus-stats.png",
-    "./assets/cactus-achievements.png",
-    "./assets/cactus-playing.png",
-    "./assets/cactus-garden.png",
-    "./assets/cactus-history.png",
-    "./assets/cactus-profile.png",
-    "./assets/cactus-streak.png",
-    "./icons/icon-192.png",
-    "./icons/icon-512.png",
     "./manifest.json"
 ];
 
 self.addEventListener("install", (event) => {
-    self.skipWaiting();
-
     event.waitUntil(
-        caches.open(CACHE_NAME).then((cache) => {
-            return cache.addAll(FILES_TO_CACHE);
-        })
+        caches.open(SHELL_CACHE)
+            .then((cache) => cache.addAll(APP_SHELL))
+            .then(() => self.skipWaiting())
     );
 });
 
 self.addEventListener("activate", (event) => {
-    event.waitUntil(
-        caches.keys().then((cacheNames) => {
-            return Promise.all(
-                cacheNames.map((cacheName) => {
-                    if (cacheName !== CACHE_NAME) {
-                        return caches.delete(cacheName);
-                    }
-                })
-            );
-        })
-    );
+    const currentCaches = [SHELL_CACHE, RUNTIME_CACHE];
 
-    self.clients.claim();
+    event.waitUntil(
+        caches.keys()
+            .then((cacheNames) => {
+                return Promise.all(
+                    cacheNames
+                        .filter((cacheName) => {
+                            return cacheName.startsWith("cactus-") &&
+                                !currentCaches.includes(cacheName);
+                        })
+                        .map((cacheName) => caches.delete(cacheName))
+                );
+            })
+            .then(() => self.clients.claim())
+    );
 });
 
+async function networkFirst(request) {
+    try {
+        const response = await fetch(request);
+
+        if (response.ok) {
+            const cache = await caches.open(RUNTIME_CACHE);
+            cache.put(request, response.clone());
+        }
+
+        return response;
+    } catch (error) {
+        return (await caches.match(request)) ||
+            (await caches.match("./index.html"));
+    }
+}
+
+async function cacheFirstWithRefresh(request) {
+    const cachedResponse = await caches.match(request);
+    const updatePromise = fetch(request)
+        .then(async (response) => {
+            if (response.ok) {
+                const cache = await caches.open(RUNTIME_CACHE);
+                await cache.put(request, response.clone());
+            }
+
+            return response;
+        });
+
+    if (cachedResponse) {
+        updatePromise.catch(() => undefined);
+        return cachedResponse;
+    }
+
+    return updatePromise;
+}
+
 self.addEventListener("fetch", (event) => {
-    if (event.request.method !== "GET") {
+    const request = event.request;
+
+    if (request.method !== "GET") {
         return;
     }
 
-    event.respondWith(
-        fetch(event.request).catch(() => {
-            return caches.match(event.request);
-        })
-    );
+    const requestUrl = new URL(request.url);
+
+    if (requestUrl.origin !== self.location.origin) {
+        return;
+    }
+
+    if (request.mode === "navigate") {
+        event.respondWith(networkFirst(request));
+        return;
+    }
+
+    event.respondWith(cacheFirstWithRefresh(request));
 });
