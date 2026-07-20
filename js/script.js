@@ -8885,7 +8885,10 @@ function applyCoupleProfile(spaceData) {
     dashboardScreen.style.setProperty("--dashboard-accent", accent);
     coupleProfileScreen.style.setProperty("--profile-accent", accent);
     dashboardSpaceName.textContent = spaceName;
-    dashboardProfileBtn.querySelector("span").textContent = myAvatar;
+    dashboardProfileBtn.setAttribute(
+        "aria-label",
+        "Ouvrir le profil du couple" + (players.me.pseudo ? " de " + players.me.pseudo : "")
+    );
     profileMyAvatar.textContent = myAvatar;
     profilePartnerAvatar.textContent = partnerAvatar;
     profileSpaceNamePreview.textContent = spaceName;
