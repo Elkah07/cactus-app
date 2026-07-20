@@ -720,6 +720,7 @@ const cactusHeadAccessory = document.getElementById("cactusHeadAccessory");
 const cactusFaceAccessory = document.getElementById("cactusFaceAccessory");
 const cactusNeckAccessory = document.getElementById("cactusNeckAccessory");
 const openCactusWardrobeBtn = document.getElementById("openCactusWardrobeBtn");
+const cactusWardrobeButtonLabel = document.getElementById("cactusWardrobeButtonLabel");
 const cactusWardrobeModal = document.getElementById("cactusWardrobeModal");
 const closeCactusWardrobeBtn = document.getElementById("closeCactusWardrobeBtn");
 const cactusWardrobeSeeds = document.getElementById("cactusWardrobeSeeds");
@@ -10138,6 +10139,9 @@ function applyCoupleProfile(spaceData) {
     profileCoupleNames.textContent = (players.me.pseudo || pseudo || "Toi") +
         " & " + (players.partner?.pseudo || "Partenaire");
     profileMottoPreview.textContent = profile.motto || "Notre petit monde à deux.";
+    if (cactusWardrobeButtonLabel) {
+        cactusWardrobeButtonLabel.textContent = "Habiller " + (profile.cactusName || "Cactou");
+    }
 
     const relationStats = buildRelationStatistics(spaceData);
     profileLevelSummary.textContent = spaceData.stats?.level || 1;
@@ -10183,12 +10187,32 @@ function saveCoupleProfile() {
         updatedBy: currentUser.uid,
         updatedByPseudo: pseudo
     };
-    updates["avatars/" + currentUser.uid] = profileAvatarInput.value || DEFAULT_PROFILE_AVATAR;
+    const selectedAvatar = profileAvatarInput.value || DEFAULT_PROFILE_AVATAR;
+    updates["avatars/" + currentUser.uid] = selectedAvatar;
 
     database
         .ref("spaces/" + currentSpaceCode + "/profile")
         .update(updates)
         .then(() => {
+            const previousProfile = currentSpaceData?.profile || {};
+            currentSpaceData = {
+                ...(currentSpaceData || {}),
+                profile: {
+                    ...previousProfile,
+                    spaceName,
+                    cactusName,
+                    motto,
+                    accentColor: updates.accentColor,
+                    updatedAt: updates.updatedAt,
+                    updatedBy: updates.updatedBy,
+                    updatedByPseudo: updates.updatedByPseudo,
+                    avatars: {
+                        ...(previousProfile.avatars || {}),
+                        [currentUser.uid]: selectedAvatar
+                    }
+                }
+            };
+            applyCoupleProfile(currentSpaceData);
             showToast("Profil du couple enregistré ✨");
         })
         .catch((error) => {
