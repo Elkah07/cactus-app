@@ -2134,17 +2134,44 @@ body.dashboard-active .top-right-btn {
 }
 
 .dashboard-cactus-character.is-waving .cactus-wave-arm {
-    animation: cactus-rigged-wave 1.6s cubic-bezier(0.42, 0, 0.22, 1);
+    animation: cactus-rigged-wave 1.9s linear both;
 }
 
 @keyframes cactus-rigged-wave {
-    0%, 100% { transform: rotate(0deg); }
-    22% { transform: rotate(82deg); }
-    36% { transform: rotate(98deg); }
-    49% { transform: rotate(78deg); }
-    62% { transform: rotate(99deg); }
-    75% { transform: rotate(80deg); }
-    88% { transform: rotate(28deg); }
+    0% { transform: rotate(0deg); }
+    4% { transform: rotate(-2deg); }
+    8% { transform: rotate(0deg); }
+    12% { transform: rotate(8deg); }
+    16% { transform: rotate(20deg); }
+    20% { transform: rotate(38deg); }
+    24% { transform: rotate(58deg); }
+    28% { transform: rotate(74deg); }
+    32% { transform: rotate(82deg); }
+    34.5% { transform: rotate(90.5deg); }
+    37% { transform: rotate(94deg); }
+    39.5% { transform: rotate(90.5deg); }
+    42% { transform: rotate(82deg); }
+    44.5% { transform: rotate(73.5deg); }
+    47% { transform: rotate(70deg); }
+    49.5% { transform: rotate(73.5deg); }
+    52% { transform: rotate(82deg); }
+    54.5% { transform: rotate(90.5deg); }
+    57% { transform: rotate(94deg); }
+    59.5% { transform: rotate(90.5deg); }
+    62% { transform: rotate(82deg); }
+    64.5% { transform: rotate(73.5deg); }
+    67% { transform: rotate(70deg); }
+    69.5% { transform: rotate(73.5deg); }
+    72% { transform: rotate(82deg); }
+    74.5% { transform: rotate(90.5deg); }
+    77% { transform: rotate(94deg); }
+    79.5% { transform: rotate(90.5deg); }
+    82% { transform: rotate(82deg); }
+    86% { transform: rotate(78deg); }
+    90% { transform: rotate(64deg); }
+    94% { transform: rotate(43deg); }
+    97% { transform: rotate(22deg); }
+    100% { transform: rotate(0deg); }
 }
 
 .dashboard-main-cactus:not(.is-evolving):not(.is-waving) {

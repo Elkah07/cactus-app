@@ -752,7 +752,7 @@ function makeDashboardCactusWave() {
     cactusGreetingTimer = window.setTimeout(() => {
         dashboardCactusCharacter.classList.remove("is-waving");
         dashboardCactusMessage.textContent = previousMessage;
-    }, 1650);
+    }, 2050);
 }
 
 mainCactusImage?.addEventListener("click", makeDashboardCactusWave);
