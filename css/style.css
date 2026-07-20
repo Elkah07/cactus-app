@@ -2129,6 +2129,36 @@ body.dashboard-active .top-right-btn {
     will-change: transform;
 }
 
+.dashboard-cactus-character[data-cactus-stage="2"] .cactus-wave-arm {
+    top: 50%;
+    left: 17%;
+    width: 15%;
+}
+
+.dashboard-cactus-character[data-cactus-stage="3"] .cactus-wave-arm {
+    top: 54%;
+    left: 15%;
+    width: 16%;
+}
+
+.dashboard-cactus-character[data-cactus-stage="4"] .cactus-wave-arm {
+    top: 53%;
+    left: 11%;
+    width: 17%;
+}
+
+.dashboard-cactus-character[data-cactus-stage="5"] .cactus-wave-arm {
+    top: 52%;
+    left: 13%;
+    width: 17%;
+}
+
+.dashboard-cactus-character[data-cactus-stage="6"] .cactus-wave-arm {
+    top: 52%;
+    left: 10%;
+    width: 17%;
+}
+
 .dashboard-cactus-character.is-waving {
     animation: none;
 }

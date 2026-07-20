@@ -9815,36 +9815,47 @@ document.addEventListener("keydown", (event) => {
 
 const CACTUS_EVOLUTIONS = [
     {
+        stageNumber: 6,
         minimumLevel: 21,
         name: "Cactus légendaire",
-        image: "assets/cactus-stage-6.png",
+        image: "assets/cactus-rig/stage-6-body.webp",
+        rigged: true,
         message: "Votre cactus est devenu légendaire !"
     },
     {
+        stageNumber: 5,
         minimumLevel: 15,
         name: "Cactus épanoui",
-        image: "assets/cactus-stage-5.png",
+        image: "assets/cactus-rig/stage-5-body.webp",
+        rigged: true,
         message: "Votre cactus est pleinement épanoui !"
     },
     {
+        stageNumber: 4,
         minimumLevel: 10,
         name: "Cactus complice",
-        image: "assets/cactus-stage-4.png",
+        image: "assets/cactus-rig/stage-4-body.webp",
+        rigged: true,
         message: "Votre cactus respire la complicité !"
     },
     {
+        stageNumber: 3,
         minimumLevel: 6,
         name: "Cactus curieux",
-        image: "assets/cactus-stage-3.png",
+        image: "assets/cactus-rig/stage-3-body.webp",
+        rigged: true,
         message: "Votre cactus devient très curieux !"
     },
     {
+        stageNumber: 2,
         minimumLevel: 3,
         name: "Jeune cactus",
-        image: "assets/cactus-stage-2.png",
+        image: "assets/cactus-rig/stage-2-body.webp",
+        rigged: true,
         message: "Votre jeune cactus grandit bien !"
     },
     {
+        stageNumber: 1,
         minimumLevel: 1,
         name: "Bébé cactus",
         image: "assets/cactus-rig/stage-1-body.webp",
@@ -9868,7 +9879,7 @@ function updateCactusEvolution(level) {
 
         mainCactusImage.src = evolution.image;
         mainCactusImage.dataset.rigged = String(Boolean(evolution.rigged));
-        dashboardCactusCharacter.dataset.cactusStage = String(evolution.minimumLevel);
+        dashboardCactusCharacter.dataset.cactusStage = String(evolution.stageNumber);
         cactusWaveArm.style.display = evolution.rigged ? "block" : "none";
         mainCactusImage.alt = "Votre cactus, " + evolution.name;
 
