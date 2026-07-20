@@ -252,6 +252,8 @@ const notebookEmoji = document.getElementById("notebookEmoji");
 const notebookTitle = document.getElementById("notebookTitle");
 const notebookColor = document.getElementById("notebookColor");
 const notebookColorButton = document.getElementById("notebookColorButton");
+const notebookTitleColor = document.getElementById("notebookTitleColor");
+const notebookTitleColorButton = document.getElementById("notebookTitleColorButton");
 const createNotebookBtn = document.getElementById("createNotebookBtn");
 const notebooksGrid = document.getElementById("notebooksGrid");
 const gardenSeedsBalance = document.getElementById("gardenSeedsBalance");
@@ -284,6 +286,8 @@ const editNotebookEmoji = document.getElementById("editNotebookEmoji");
 const editNotebookTitle = document.getElementById("editNotebookTitle");
 const editNotebookColor = document.getElementById("editNotebookColor");
 const editNotebookColorButton = document.getElementById("editNotebookColorButton");
+const editNotebookTitleColor = document.getElementById("editNotebookTitleColor");
+const editNotebookTitleColorButton = document.getElementById("editNotebookTitleColorButton");
 const closeEditNotebookBtn = document.getElementById("closeEditNotebookBtn");
 const cancelEditNotebookBtn = document.getElementById("cancelEditNotebookBtn");
 const saveEditNotebookBtn = document.getElementById("saveEditNotebookBtn");
@@ -2602,6 +2606,7 @@ createNotebookBtn.addEventListener("click", () => {
             emoji: emoji,
             title: title,
             color: notebookColor.value,
+            titleColor: getSafeProfileColor(notebookTitleColor.value || "#1B4332").toUpperCase(),
             createdBy: pseudo,
             createdByUid: currentUser.uid,
             createdAt: Date.now()
@@ -2642,11 +2647,15 @@ function openEditNotebookModal() {
     }
 
     const color = getSafeProfileColor(currentNotebookData.color || "#D8F3DC").toUpperCase();
+    const titleColor = getSafeProfileColor(currentNotebookData.titleColor || "#1B4332").toUpperCase();
     editNotebookEmoji.value = currentNotebookData.emoji || "📝";
     editNotebookTitle.value = currentNotebookData.title || "";
     editNotebookColor.value = color;
     editNotebookColorButton.style.setProperty("--control-color", color);
     editNotebookColorButton.querySelector("small").textContent = color;
+    editNotebookTitleColor.value = titleColor;
+    editNotebookTitleColorButton.style.setProperty("--control-color", titleColor);
+    editNotebookTitleColorButton.querySelector("small").textContent = titleColor;
     editNotebookModal.style.display = "flex";
     document.body.classList.add("edit-notebook-open");
     window.setTimeout(() => editNotebookTitle.focus(), 60);
@@ -2663,6 +2672,7 @@ saveEditNotebookBtn.addEventListener("click", () => {
     const title = editNotebookTitle.value.trim();
     const emoji = editNotebookEmoji.value.trim() || "📝";
     const color = getSafeProfileColor(editNotebookColor.value || "#D8F3DC").toUpperCase();
+    const titleColor = getSafeProfileColor(editNotebookTitleColor.value || "#1B4332").toUpperCase();
 
     if (!title) {
         showToast("Donne un titre à ton carnet");
@@ -2684,6 +2694,7 @@ saveEditNotebookBtn.addEventListener("click", () => {
             title: title,
             emoji: emoji,
             color: color,
+            titleColor: titleColor,
             updatedAt: Date.now(),
             updatedBy: currentUser.uid,
             updatedByPseudo: pseudo
@@ -2692,9 +2703,11 @@ saveEditNotebookBtn.addEventListener("click", () => {
             currentNotebookData.title = title;
             currentNotebookData.emoji = emoji;
             currentNotebookData.color = color;
+            currentNotebookData.titleColor = titleColor;
 
             openedNotebookTitle.textContent =
                 emoji + " " + title;
+            openedNotebookTitle.style.color = titleColor;
             closeEditNotebookModal();
             showToast("Carnet personnalisé ✨");
         })
@@ -2769,6 +2782,8 @@ function openNotebookColorPicker(target) {
     const configurations = {
         notebook: { input: notebookColor, title: "Couleur du carnet" },
         editNotebook: { input: editNotebookColor, title: "Nouvelle couleur du carnet" },
+        notebookTitle: { input: notebookTitleColor, title: "Couleur du titre" },
+        editNotebookTitle: { input: editNotebookTitleColor, title: "Nouvelle couleur du titre" },
         text: { input: textColorPicker, title: "Couleur du texte" },
         highlight: { input: highlightColorPicker, title: "Couleur du surlignage" }
     };
@@ -2842,6 +2857,8 @@ function updateNotebookColorFromPointer(event) {
 
 notebookColorButton.addEventListener("click", () => openNotebookColorPicker("notebook"));
 editNotebookColorButton.addEventListener("click", () => openNotebookColorPicker("editNotebook"));
+notebookTitleColorButton.addEventListener("click", () => openNotebookColorPicker("notebookTitle"));
+editNotebookTitleColorButton.addEventListener("click", () => openNotebookColorPicker("editNotebookTitle"));
 textColorButton.addEventListener("click", () => openNotebookColorPicker("text"));
 highlightColorButton.addEventListener("click", () => openNotebookColorPicker("highlight"));
 closeNotebookColorBtn.addEventListener("click", closeNotebookColorPicker);
@@ -2886,6 +2903,14 @@ applyNotebookColorBtn.addEventListener("click", () => {
         editNotebookColor.value = pendingNotebookColor;
         editNotebookColorButton.style.setProperty("--control-color", pendingNotebookColor);
         editNotebookColorButton.querySelector("small").textContent = pendingNotebookColor;
+    } else if (activeNotebookColorTarget === "notebookTitle") {
+        notebookTitleColor.value = pendingNotebookColor;
+        notebookTitleColorButton.style.setProperty("--control-color", pendingNotebookColor);
+        notebookTitleColorButton.querySelector("small").textContent = pendingNotebookColor;
+    } else if (activeNotebookColorTarget === "editNotebookTitle") {
+        editNotebookTitleColor.value = pendingNotebookColor;
+        editNotebookTitleColorButton.style.setProperty("--control-color", pendingNotebookColor);
+        editNotebookTitleColorButton.querySelector("small").textContent = pendingNotebookColor;
     } else if (activeNotebookColorTarget === "text") {
         textColorPicker.value = pendingNotebookColor;
         textColorButton.style.setProperty("--control-color", pendingNotebookColor);
@@ -6356,6 +6381,7 @@ function loadNotebooks() {
 
                     const title = document.createElement("h3");
                     title.textContent = notebook.title;
+                    title.style.color = getSafeProfileColor(notebook.titleColor || "#1B4332");
 
                     const meta = document.createElement("small");
                     meta.textContent = "Par " + (notebook.createdBy || "Cactus");
@@ -6381,6 +6407,7 @@ function openNotebook(notebookId, notebook) {
 
     openedNotebookTitle.textContent =
         (notebook.emoji || "📝") + " " + notebook.title;
+    openedNotebookTitle.style.color = getSafeProfileColor(notebook.titleColor || "#1B4332");
 
     loadNotebookContent();
     showScreen("notebook");
