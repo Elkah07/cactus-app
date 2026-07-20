@@ -40,6 +40,13 @@ const authEmail = document.getElementById("authEmail");
 const authPassword = document.getElementById("authPassword");
 const authMessage = document.getElementById("authMessage");
 const connectionStatusBanner = document.getElementById("connectionStatusBanner");
+const retryConnectionBtn = document.getElementById("retryConnectionBtn");
+const appStateOverlay = document.getElementById("appStateOverlay");
+const appStateVisual = document.getElementById("appStateVisual");
+const appStateEyebrow = document.getElementById("appStateEyebrow");
+const appStateTitle = document.getElementById("appStateTitle");
+const appStateMessage = document.getElementById("appStateMessage");
+const appStateRetryBtn = document.getElementById("appStateRetryBtn");
 const logoutBtn = document.getElementById("logoutBtn");
 
 const partnerName = document.getElementById("partnerName");
@@ -584,6 +591,7 @@ let draggedItem = null;
 
 let currentSpaceData = null;
 let activeNotificationFilter = "all";
+let appStateRetryAction = null;
 let pendingRankingChallenges = [];
 let previousScreen = "dashboard";
 
@@ -3091,17 +3099,25 @@ function ensureDailyChallenge() {
 
 function loadDailyRitual() {
     dailyQuestionText.textContent = "Chargement de votre question…";
+    setInlineScreenState(dailyRitualScreen, "loading", {
+        title: "Votre rituel se prépare…",
+        message: "Cactus choisit votre question du jour."
+    });
 
     ensureDailyChallenge()
         .then(() => database.ref("spaces/" + currentSpaceCode).once("value"))
         .then((snapshot) => {
             currentSpaceData = snapshot.val() || {};
             renderDailyRitual(currentSpaceData);
+            setInlineScreenState(dailyRitualScreen, "hidden");
         })
         .catch((error) => {
             console.error("Impossible de charger le rituel", error);
-            dailyQuestionText.textContent =
-                "Impossible de charger la question du jour pour le moment.";
+            setInlineScreenState(dailyRitualScreen, "error", {
+                title: "Le rituel fait une petite pause",
+                message: getFriendlyFirebaseError(error),
+                retry: loadDailyRitual
+            });
         });
 }
 
@@ -3565,6 +3581,7 @@ function updateNotificationsBadge(spaceData) {
 
 function loadNotifications() {
     if (currentSpaceData) {
+        setInlineScreenState(notificationsScreen, "hidden");
         renderNotifications(currentSpaceData);
         return;
     }
@@ -3574,7 +3591,16 @@ function loadNotifications() {
         .once("value")
         .then((snapshot) => {
             currentSpaceData = snapshot.val() || {};
+            setInlineScreenState(notificationsScreen, "hidden");
             renderNotifications(currentSpaceData);
+        })
+        .catch((error) => {
+            console.error("Impossible de charger les notifications", error);
+            setInlineScreenState(notificationsScreen, "error", {
+                title: "Les notifications ne répondent pas",
+                message: getFriendlyFirebaseError(error),
+                retry: loadNotifications
+            });
         });
 }
 
@@ -4071,15 +4097,25 @@ function loadGarden() {
         return;
     }
 
+    setInlineScreenState(gardenScreen, "loading", {
+        title: "Le jardin prend forme…",
+        message: "Nous remettons chaque élément à sa place."
+    });
+
     database
         .ref("spaces/" + currentSpaceCode)
         .once("value")
         .then((snapshot) => {
             renderGarden(snapshot.val() || {});
+            setInlineScreenState(gardenScreen, "hidden");
         })
         .catch((error) => {
             console.error("Impossible de charger le jardin", error);
-            showToast("Le jardin ne peut pas être chargé pour le moment");
+            setInlineScreenState(gardenScreen, "error", {
+                title: "Le jardin ne répond pas",
+                message: getFriendlyFirebaseError(error),
+                retry: loadGarden
+            });
         });
 }
 
@@ -6556,6 +6592,81 @@ function showToast(message) {
     }, 1800);
 }
 
+function showAppLoading(title = "Préparation de votre coin…", message = "Vos souvenirs et vos jeux arrivent.") {
+    appStateRetryAction = null;
+    appStateOverlay.hidden = false;
+    appStateOverlay.classList.remove("is-error");
+    appStateVisual.className = "app-state-visual is-loading";
+    appStateVisual.textContent = "🌵";
+    appStateEyebrow.textContent = "Cactus se réveille";
+    appStateTitle.textContent = title;
+    appStateMessage.textContent = message;
+    appStateRetryBtn.style.display = "none";
+}
+
+function showAppError(error, retryAction) {
+    appStateRetryAction = typeof retryAction === "function" ? retryAction : null;
+    appStateOverlay.hidden = false;
+    appStateOverlay.classList.add("is-error");
+    appStateVisual.className = "app-state-visual";
+    appStateVisual.textContent = "🌵";
+    appStateEyebrow.textContent = "Petit contretemps";
+    appStateTitle.textContent = "Cactus n’a pas réussi à charger";
+    appStateMessage.textContent = getFriendlyFirebaseError(error);
+    appStateRetryBtn.style.display = appStateRetryAction ? "inline-flex" : "none";
+}
+
+function hideAppState() {
+    appStateOverlay.hidden = true;
+    appStateRetryAction = null;
+}
+
+function setInlineScreenState(screen, type, options = {}) {
+    if (!screen) return;
+    let state = screen.querySelector(":scope > .inline-screen-state");
+
+    if (type === "hidden") {
+        state?.remove();
+        screen.removeAttribute("aria-busy");
+        return;
+    }
+
+    if (!state) {
+        state = document.createElement("section");
+        state.className = "inline-screen-state";
+        state.setAttribute("aria-live", "polite");
+        screen.prepend(state);
+    }
+
+    const isLoading = type === "loading";
+    screen.setAttribute("aria-busy", String(isLoading));
+    state.className = "inline-screen-state is-" + type;
+    state.replaceChildren();
+
+    const visual = document.createElement("span");
+    visual.textContent = isLoading ? "🌵" : "🪴";
+    const title = document.createElement("strong");
+    title.textContent = options.title || (isLoading ? "Chargement en cours…" : "Impossible de charger cet espace");
+    const message = document.createElement("p");
+    message.textContent = options.message || (isLoading ? "Cactus rassemble vos contenus." : "Vérifiez votre connexion puis réessayez.");
+    state.append(visual, title, message);
+
+    if (!isLoading && typeof options.retry === "function") {
+        const retry = document.createElement("button");
+        retry.type = "button";
+        retry.textContent = "Réessayer";
+        retry.addEventListener("click", options.retry, { once: true });
+        state.appendChild(retry);
+    }
+}
+
+appStateRetryBtn.addEventListener("click", () => {
+    if (!appStateRetryAction) return;
+    const retry = appStateRetryAction;
+    showAppLoading("Nouvelle tentative…", "Cactus se reconnecte à votre espace.");
+    retry();
+});
+
 function showPendingRankingResult() {
     const challenge =
         pendingRankingResults[currentPendingRankingResultIndex];
@@ -6661,6 +6772,11 @@ function openHistoryMode(mode, focusedChallengeId = null) {
     }
 
     historyDetailTitle.textContent = selectedMode.title;
+    showScreen("historyDetail");
+    setInlineScreenState(historyDetailScreen, "loading", {
+        title: "Ouverture de vos souvenirs…",
+        message: "Cactus rassemble les parties de ce mode."
+    });
 
     database
         .ref(
@@ -6684,10 +6800,10 @@ function openHistoryMode(mode, focusedChallengeId = null) {
                 });
 
             if (currentHistoryItems.length === 0) {
+                setInlineScreenState(historyDetailScreen, "hidden");
                 historyDetailList.innerHTML =
-                    '<p class="empty-text">Aucun souvenir pour ce mode 🌵</p>';
+                    '<div class="empty-text"><span>📖</span><strong>Aucun souvenir pour ce jeu</strong><p>Terminez une première partie pour la retrouver ici.</p></div>';
 
-                showScreen("historyDetail");
                 return;
             }
 
@@ -6703,7 +6819,7 @@ function openHistoryMode(mode, focusedChallengeId = null) {
                 historyDetailList.appendChild(card);
             });
 
-            showScreen("historyDetail");
+            setInlineScreenState(historyDetailScreen, "hidden");
 
             if (focusedChallengeId) {
                 const focusedIndex = currentHistoryItems.findIndex((item) => {
@@ -6714,6 +6830,14 @@ function openHistoryMode(mode, focusedChallengeId = null) {
                     openHistoryItem(focusedIndex);
                 }
             }
+        })
+        .catch((error) => {
+            console.error("Impossible de charger cet historique", error);
+            setInlineScreenState(historyDetailScreen, "error", {
+                title: "Les souvenirs ne répondent pas",
+                message: getFriendlyFirebaseError(error),
+                retry: () => openHistoryMode(mode, focusedChallengeId)
+            });
         });
 }
 
@@ -6942,6 +7066,10 @@ function getAchievementMetric(metric, stats, relationStats) {
 
 function openAchievements() {
     showScreen("achievements");
+    setInlineScreenState(achievementsScreen, "loading", {
+        title: "Recherche de vos trophées…",
+        message: "Cactus vérifie vos dernières réussites."
+    });
     achievementsLoadingState.style.display = "block";
     achievementsGrid.style.display = "none";
 
@@ -6985,6 +7113,7 @@ function openAchievements() {
             return persistPromise.then(() => {
                 currentSpaceData = spaceData;
                 renderAchievements(stats, relationStats, unlocked);
+                setInlineScreenState(achievementsScreen, "hidden");
 
                 const newCount = Object.keys(newlyUnlocked).length;
                 if (newCount > 0) {
@@ -6997,8 +7126,12 @@ function openAchievements() {
         })
         .catch((error) => {
             console.error("Impossible de charger les succès", error);
-            achievementsLoadingState.textContent =
-                "Impossible de charger vos succès pour le moment.";
+            achievementsLoadingState.style.display = "none";
+            setInlineScreenState(achievementsScreen, "error", {
+                title: "Les succès restent cachés",
+                message: getFriendlyFirebaseError(error),
+                retry: openAchievements
+            });
         });
 }
 
@@ -7049,6 +7182,10 @@ function renderAchievements(stats, relationStats, unlocked) {
 
 function openRelationStats() {
     showScreen("stats");
+    setInlineScreenState(statsScreen, "loading", {
+        title: "Calcul de votre complicité…",
+        message: "Cactus rassemble vos réponses et vos parties."
+    });
 
     statsLoadingState.style.display = "block";
     statsLoadingState.textContent = "Calcul de vos souvenirs…";
@@ -7056,6 +7193,7 @@ function openRelationStats() {
 
     if (currentSpaceData) {
         renderRelationStats(buildRelationStatistics(currentSpaceData));
+        setInlineScreenState(statsScreen, "hidden");
         return;
     }
 
@@ -7066,11 +7204,16 @@ function openRelationStats() {
             const spaceData = snapshot.val() || {};
             currentSpaceData = spaceData;
             renderRelationStats(buildRelationStatistics(spaceData));
+            setInlineScreenState(statsScreen, "hidden");
         })
         .catch((error) => {
             console.error("Impossible de charger les statistiques", error);
-            statsLoadingState.textContent =
-                "Impossible de charger vos statistiques pour le moment.";
+            statsLoadingState.style.display = "none";
+            setInlineScreenState(statsScreen, "error", {
+                title: "Les statistiques restent en pause",
+                message: getFriendlyFirebaseError(error),
+                retry: openRelationStats
+            });
         });
 }
 
@@ -7877,6 +8020,7 @@ function startFirebaseConnectionMonitoring() {
                 disconnectTimer = null;
             }
             connectionStatusBanner.hidden = true;
+            document.body.classList.remove("is-offline");
 
             if (hasConnectedOnce && bannerWasShown) {
                 showToast("Connexion rétablie, synchronisation en cours ☁️");
@@ -7893,11 +8037,26 @@ function startFirebaseConnectionMonitoring() {
 
         disconnectTimer = window.setTimeout(() => {
             connectionStatusBanner.hidden = false;
+            document.body.classList.add("is-offline");
             bannerWasShown = true;
             disconnectTimer = null;
         }, 1200);
     });
 }
+
+retryConnectionBtn.addEventListener("click", () => {
+    retryConnectionBtn.disabled = true;
+    retryConnectionBtn.textContent = "Connexion…";
+    database.goOnline();
+
+    window.setTimeout(() => {
+        retryConnectionBtn.disabled = false;
+        retryConnectionBtn.textContent = "Réessayer";
+        if (!connectionStatusBanner.hidden) {
+            showToast("Toujours hors ligne — vos données restent protégées sur cet appareil");
+        }
+    }, 1800);
+});
 
 function clearUnavailableSpace() {
     stopCurrentSpaceListeners();
@@ -7958,6 +8117,7 @@ auth.onAuthStateChanged((user) => {
                 const userData = snapshot.val();
 
                 if (!userData) {
+                    hideAppState();
                     stopCurrentSpaceListeners();
                     showScreen("pseudo");
                     return;
@@ -7967,23 +8127,30 @@ auth.onAuthStateChanged((user) => {
                 displayPseudo.textContent = pseudo;
 
                 if (userData.onboardingCompleted === false) {
+                    hideAppState();
                     stopCurrentSpaceListeners();
                     openOnboarding(0);
                     return;
                 }
 
                 if (userData.spaceCode) {
-                    return restoreUserSpace(userData);
+                    return restoreUserSpace(userData).then(hideAppState);
                 } else {
+                    hideAppState();
                     stopCurrentSpaceListeners();
                     showScreen("couple");
                 }
+            })
+            .catch((error) => {
+                console.error("Chargement du compte impossible", error);
+                showAppError(error, () => window.location.reload());
             });
     } else {
         stopCurrentSpaceListeners();
         currentUser = null;
         updateCreatorToolsVisibility();
         showScreen("login");
+        hideAppState();
     }
 });
 

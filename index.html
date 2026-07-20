@@ -1681,9 +1681,21 @@
         <button type="button" id="installUpdateBtn">Mettre à jour</button>
     </aside>
 
+    <section id="appStateOverlay" class="app-state-overlay" role="status" aria-live="polite">
+        <div class="app-state-card">
+            <div id="appStateVisual" class="app-state-visual is-loading" aria-hidden="true">🌵</div>
+            <small id="appStateEyebrow">Cactus se réveille</small>
+            <strong id="appStateTitle">Préparation de votre coin…</strong>
+            <p id="appStateMessage">Vos souvenirs et vos jeux arrivent.</p>
+            <div class="app-state-skeleton" aria-hidden="true"><i></i><i></i><i></i></div>
+            <button type="button" id="appStateRetryBtn" style="display:none;">Réessayer</button>
+        </div>
+    </section>
+
     <div id="connectionStatusBanner" class="connection-status-banner" role="status" aria-live="polite" hidden>
         <span aria-hidden="true">☁️</span>
         <p><strong>Connexion interrompue</strong><small>Les changements seront synchronisés dès le retour du réseau.</small></p>
+        <button type="button" id="retryConnectionBtn">Réessayer</button>
     </div>
 
     <div id="toastMessage" class="toast-message"></div>

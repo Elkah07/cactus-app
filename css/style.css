@@ -3967,6 +3967,149 @@ body.achievements-active .top-right-btn {
     -webkit-backdrop-filter: blur(18px);
 }
 
+.connection-status-banner button {
+    width: auto;
+    flex: 0 0 auto;
+    margin: 0;
+    padding: 7px 10px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.12);
+    color: inherit;
+    font-size: 0.62rem;
+}
+
+body.is-offline button[type="submit"]:not(.secondary),
+body.is-offline #saveCoupleProfileBtn {
+    filter: saturate(0.75);
+}
+
+.app-state-overlay {
+    position: fixed;
+    z-index: 10020;
+    inset: 0;
+    display: grid;
+    padding: 24px;
+    place-items: center;
+    background: color-mix(in srgb, var(--app-bg) 88%, transparent);
+    backdrop-filter: blur(14px);
+}
+
+.app-state-overlay[hidden] { display: none; }
+
+.app-state-card {
+    width: min(100%, 340px);
+    padding: 28px 24px 24px;
+    border: 1px solid var(--app-border);
+    border-radius: 28px;
+    background: var(--app-panel-bg);
+    box-shadow: 0 24px 70px var(--app-shadow-soft);
+    color: var(--app-text);
+    text-align: center;
+}
+
+.app-state-visual {
+    display: grid;
+    width: 76px;
+    height: 76px;
+    margin: 0 auto 14px;
+    place-items: center;
+    border-radius: 24px;
+    background: var(--app-icon-bg);
+    font-size: 2.5rem;
+}
+
+.app-state-visual.is-loading { animation: cactus-state-breathe 1.35s ease-in-out infinite; }
+.app-state-card > small { color: var(--app-accent); font-size: 0.63rem; font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; }
+.app-state-card > strong { display: block; margin-top: 7px; color: var(--app-heading); font-size: 1rem; }
+.app-state-card > p { margin: 7px auto 0; max-width: 270px; color: var(--app-muted); font-size: 0.72rem; line-height: 1.5; }
+.app-state-card > button { width: auto; margin: 16px auto 0; padding: 10px 18px; }
+
+.app-state-skeleton { display: grid; gap: 7px; margin-top: 18px; }
+.app-state-skeleton i {
+    display: block;
+    height: 9px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--app-icon-bg), rgba(84, 211, 139, 0.24), var(--app-icon-bg));
+    background-size: 220% 100%;
+    animation: cactus-skeleton 1.25s linear infinite;
+}
+.app-state-skeleton i:nth-child(2) { width: 82%; }
+.app-state-skeleton i:nth-child(3) { width: 62%; }
+.app-state-overlay.is-error .app-state-skeleton { display: none; }
+
+.secondary-screen,
+.garden-library-screen,
+.achievements-screen,
+.relation-stats-screen,
+#historyDetailScreen { position: relative; }
+
+.inline-screen-state {
+    position: absolute;
+    z-index: 40;
+    inset: 0;
+    display: flex;
+    min-height: 360px;
+    padding: 70px 24px 40px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    border-radius: inherit;
+    background: color-mix(in srgb, var(--app-bg) 91%, transparent);
+    backdrop-filter: blur(9px);
+    color: var(--app-muted);
+    text-align: center;
+}
+
+.inline-screen-state > span {
+    display: grid;
+    width: 68px;
+    height: 68px;
+    margin-bottom: 13px;
+    place-items: center;
+    border-radius: 22px;
+    background: var(--app-icon-bg);
+    font-size: 2.25rem;
+}
+.inline-screen-state.is-loading > span { animation: cactus-state-breathe 1.35s ease-in-out infinite; }
+.inline-screen-state strong { color: var(--app-heading); font-size: 0.9rem; }
+.inline-screen-state p { max-width: 270px; margin: 6px 0 0; font-size: 0.7rem; line-height: 1.5; }
+.inline-screen-state button { width: auto; margin-top: 15px; padding: 10px 18px; }
+
+#historyDetailList .empty-text {
+    display: flex;
+    min-height: 270px;
+    margin: 0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--app-muted);
+    text-align: center;
+}
+#historyDetailList .empty-text > span { font-size: 3rem; }
+#historyDetailList .empty-text > strong { margin-top: 10px; color: var(--app-heading); font-size: 0.86rem; }
+#historyDetailList .empty-text > p { max-width: 260px; margin: 5px 0 0; font-size: 0.7rem; line-height: 1.5; }
+
+button:disabled,
+input:disabled,
+textarea:disabled { cursor: not-allowed; opacity: 0.58; }
+
+@keyframes cactus-state-breathe {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-5px) scale(1.035); }
+}
+
+@keyframes cactus-skeleton {
+    from { background-position: 110% 0; }
+    to { background-position: -110% 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .app-state-visual.is-loading,
+    .inline-screen-state.is-loading > span,
+    .app-state-skeleton i { animation: none; }
+}
+
 .connection-status-banner[hidden] {
     display: none;
 }
