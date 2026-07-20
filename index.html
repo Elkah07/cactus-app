@@ -162,9 +162,22 @@
         </div>
     </header>
 
+    <section class="unified-timeline-section">
+        <div class="unified-timeline-heading"><div><small>Toute votre aventure</small><h2>Notre chronologie</h2></div><span id="unifiedTimelineCount">0 moment</span></div>
+        <div class="unified-timeline-tools">
+            <label><span aria-hidden="true">⌕</span><input id="timelineSearchInput" type="search" placeholder="Rechercher un souvenir…" autocomplete="off"></label>
+            <select id="timelineYearFilter" aria-label="Filtrer par année"><option value="all">Toutes les années</option></select>
+        </div>
+        <nav class="unified-timeline-filters" aria-label="Types de souvenirs">
+            <button type="button" class="is-active" data-timeline-type="all">Tout</button><button type="button" data-timeline-type="memory">💚 Souvenirs</button><button type="button" data-timeline-type="game">🎮 Jeux</button><button type="button" data-timeline-type="achievement">🏆 Succès</button><button type="button" data-timeline-type="milestone">📖 Étapes</button>
+        </nav>
+        <div id="unifiedTimeline" class="unified-timeline"></div>
+        <div id="unifiedTimelineEmpty" class="unified-timeline-empty" style="display:none;"><span>📚</span><strong>Aucun moment trouvé</strong><p>Modifiez la recherche ou les filtres pour retrouver votre histoire.</p><button type="button" id="resetTimelineFiltersBtn">Tout afficher</button></div>
+    </section>
+
     <section class="memories-timeline-section">
         <div class="memories-timeline-heading">
-            <div><small>Votre chronologie</small><h2>Nos moments à nous</h2></div>
+            <div><small>Écrits par vous</small><h2>Nos souvenirs personnels</h2></div>
             <button type="button" id="showMemoryFormBtn">＋ Ajouter</button>
         </div>
 

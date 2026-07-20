@@ -2243,6 +2243,58 @@ body.question-report-open { overflow: hidden; }
     .creator-content-toolbar button { grid-column: 1 / -1; }
 }
 
+/* Chronologie unifiée des souvenirs */
+.unified-timeline-section {
+    margin-bottom: 18px;
+    padding: 16px;
+    border: 1px solid rgba(84, 211, 139, 0.28);
+    border-radius: 24px;
+    background: linear-gradient(145deg, var(--app-panel-bg), var(--app-icon-bg));
+    box-shadow: 0 12px 30px var(--app-shadow-soft);
+}
+.unified-timeline-heading { display: flex; align-items: flex-end; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
+.unified-timeline-heading small,
+.unified-timeline-heading h2 { display: block; margin: 0; }
+.unified-timeline-heading small { color: var(--app-accent); font-size: 0.58rem; font-weight: 900; letter-spacing: 0.07em; text-transform: uppercase; }
+.unified-timeline-heading h2 { margin-top: 2px; color: var(--app-heading); font-size: 1.05rem; }
+#unifiedTimelineCount { min-width: max-content; padding: 6px 9px; border-radius: 999px; background: rgba(84, 211, 139, 0.14); color: var(--app-accent); font-size: 0.58rem; font-weight: 850; }
+.unified-timeline-tools { display: grid; grid-template-columns: minmax(0, 1fr) 135px; gap: 8px; margin-bottom: 9px; }
+.unified-timeline-tools label { display: grid; grid-template-columns: 22px minmax(0, 1fr); align-items: center; padding: 0 9px; border: 1px solid var(--app-border); border-radius: 14px; background: var(--app-bg); }
+.unified-timeline-tools label span { color: var(--app-accent); font-size: 1.1rem; }
+.unified-timeline-tools input,
+.unified-timeline-tools select { min-width: 0; margin: 0; padding: 9px 5px; border: 0; background: transparent; box-shadow: none; color: var(--app-text); font-size: 0.62rem; }
+.unified-timeline-tools select { padding: 9px; border: 1px solid var(--app-border); border-radius: 14px; background: var(--app-bg); }
+.unified-timeline-filters { display: flex; gap: 6px; margin-bottom: 13px; overflow-x: auto; scrollbar-width: none; }
+.unified-timeline-filters::-webkit-scrollbar { display: none; }
+.unified-timeline-filters button { width: auto; min-width: max-content; margin: 0; padding: 7px 10px; border: 1px solid var(--app-border); border-radius: 999px; background: var(--app-bg); color: var(--app-muted); font-size: 0.58rem; font-weight: 800; }
+.unified-timeline-filters button.is-active { border-color: rgba(84, 211, 139, 0.48); background: rgba(84, 211, 139, 0.16); color: var(--app-accent); }
+.unified-timeline { position: relative; display: grid; gap: 8px; }
+.unified-timeline::before { content: ""; position: absolute; top: 32px; bottom: 12px; left: 24px; width: 2px; border-radius: 999px; background: linear-gradient(var(--app-accent), transparent); opacity: 0.3; }
+.unified-timeline-year { position: relative; z-index: 1; width: max-content; margin: 8px 0 2px 11px; padding: 5px 9px; border-radius: 999px; background: var(--app-accent); color: #073d2d; font-size: 0.62rem; }
+.unified-timeline-card { position: relative; z-index: 1; display: grid; width: 100%; margin: 0; padding: 10px; grid-template-columns: 40px minmax(0, 1fr) 14px; align-items: center; gap: 10px; border: 1px solid var(--app-border); border-radius: 17px; background: var(--app-panel-bg); color: inherit; text-align: left; }
+.unified-timeline-card:hover { border-color: rgba(84, 211, 139, 0.46); transform: translateY(-1px); }
+.unified-timeline-marker { display: grid; width: 40px; height: 40px; place-items: center; border-radius: 14px; background: var(--app-icon-bg); font-size: 1.2rem; }
+.unified-timeline-card > span:nth-child(2),
+.unified-timeline-card small,
+.unified-timeline-card strong,
+.unified-timeline-card p { display: block; min-width: 0; }
+.unified-timeline-card small { color: var(--app-accent); font-size: 0.54rem; font-weight: 800; }
+.unified-timeline-card strong { margin-top: 2px; overflow: hidden; color: var(--app-heading); font-size: 0.72rem; text-overflow: ellipsis; white-space: nowrap; }
+.unified-timeline-card p { display: -webkit-box; margin: 3px 0 0; overflow: hidden; color: var(--app-muted); font-size: 0.6rem; line-height: 1.35; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2; }
+.unified-timeline-card b { color: var(--app-accent); font-size: 1.15rem; }
+.unified-timeline-card.is-favorite { border-color: rgba(255, 205, 76, 0.5); background: linear-gradient(135deg, rgba(255, 205, 76, 0.1), var(--app-panel-bg)); }
+.unified-timeline-card.type-achievement .unified-timeline-marker { background: rgba(255, 205, 76, 0.16); }
+.unified-timeline-card.type-game .unified-timeline-marker { background: rgba(106, 191, 255, 0.14); }
+.unified-timeline-empty { min-height: 260px; flex-direction: column; align-items: center; justify-content: center; color: var(--app-muted); text-align: center; }
+.unified-timeline-empty > span { font-size: 3rem; }
+.unified-timeline-empty strong { margin-top: 8px; color: var(--app-heading); font-size: 0.84rem; }
+.unified-timeline-empty p { max-width: 260px; margin: 4px 0 0; font-size: 0.65rem; line-height: 1.45; }
+.unified-timeline-empty button { width: auto; margin-top: 12px; padding: 8px 13px; }
+
+@media (max-width: 390px) {
+    .unified-timeline-tools { grid-template-columns: 1fr; }
+}
+
 @media (max-width: 390px) {
     .creator-reports-filters { grid-template-columns: 1fr; }
 }

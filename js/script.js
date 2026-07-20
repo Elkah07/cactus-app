@@ -157,6 +157,13 @@ const saveMemoryBtn = document.getElementById("saveMemoryBtn");
 const cancelMemoryBtn = document.getElementById("cancelMemoryBtn");
 const memoriesTimeline = document.getElementById("memoriesTimeline");
 const memoriesEmptyState = document.getElementById("memoriesEmptyState");
+const unifiedTimeline = document.getElementById("unifiedTimeline");
+const unifiedTimelineCount = document.getElementById("unifiedTimelineCount");
+const unifiedTimelineEmpty = document.getElementById("unifiedTimelineEmpty");
+const timelineSearchInput = document.getElementById("timelineSearchInput");
+const timelineYearFilter = document.getElementById("timelineYearFilter");
+const timelineTypeButtons = document.querySelectorAll("[data-timeline-type]");
+const resetTimelineFiltersBtn = document.getElementById("resetTimelineFiltersBtn");
 
 const gardenScreen = document.getElementById("gardenScreen");
 const gardenBtn = document.getElementById("gardenBtn");
@@ -716,6 +723,8 @@ let nextAfterAnswerFunction = null;
 let currentHistoryMode = null;
 let currentHistoryItems = []; 
 let currentEditingMemoryId = null;
+let unifiedTimelineItems = [];
+let activeTimelineType = "all";
 let currentOnboardingStep = 0;
 
 const ONBOARDING_STEPS = [
@@ -875,6 +884,7 @@ function listenToCurrentSpace(spaceCodeValue) {
 
         if (lastShownScreen === "history") {
             renderMemories(spaceData.memories || {});
+            buildUnifiedTimeline(spaceData);
         }
 
         if (!spaceData.story && lastShownScreen === "dashboard") {
@@ -1944,6 +1954,23 @@ memoryEmoji.addEventListener("input", () => {
 memoryForm.addEventListener("submit", (event) => {
     event.preventDefault();
     saveMemory();
+});
+
+timelineSearchInput.addEventListener("input", renderUnifiedTimeline);
+timelineYearFilter.addEventListener("change", renderUnifiedTimeline);
+timelineTypeButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+        activeTimelineType = button.dataset.timelineType;
+        timelineTypeButtons.forEach((item) => item.classList.toggle("is-active", item === button));
+        renderUnifiedTimeline();
+    });
+});
+resetTimelineFiltersBtn.addEventListener("click", () => {
+    timelineSearchInput.value = "";
+    timelineYearFilter.value = "all";
+    activeTimelineType = "all";
+    timelineTypeButtons.forEach((button) => button.classList.toggle("is-active", button.dataset.timelineType === "all"));
+    renderUnifiedTimeline();
 });
 
 backFromHistoryBtn.addEventListener("click", () => {
@@ -4100,6 +4127,19 @@ function buildNotifications(spaceData) {
     });
 
     Object.entries(spaceData.dailyChallenges || {}).forEach(([dateKey, challenge]) => {
+        if (challenge.status !== "completed") return;
+        items.push({
+            id: "daily_" + dateKey,
+            type: "game",
+            icon: "🔥",
+            title: "Rituel quotidien complété",
+            text: challenge.question || "Une question partagée à deux.",
+            timestamp: challenge.completedAt || challenge.createdAt || getTimelineTimestamp(dateKey),
+            action: () => showScreen("dailyRitual")
+        });
+    });
+
+    Object.entries(spaceData.dailyChallenges || {}).forEach(([dateKey, challenge]) => {
         if (preferences.answers) {
             Object.values(challenge.answers || {}).forEach((answer) => {
                 if (
@@ -4668,12 +4708,147 @@ function loadMemories(focusedMemoryId = null) {
         return Promise.resolve();
     }
 
+    setInlineScreenState(historyScreen, "loading", {
+        title: "Votre histoire se rassemble…",
+        message: "Cactus retrouve vos souvenirs, jeux et succès."
+    });
+
     return database
-        .ref("spaces/" + currentSpaceCode + "/memories")
+        .ref("spaces/" + currentSpaceCode)
         .once("value")
         .then((snapshot) => {
-            renderMemories(snapshot.val() || {}, focusedMemoryId);
+            const spaceData = snapshot.val() || {};
+            currentSpaceData = spaceData;
+            renderMemories(spaceData.memories || {}, focusedMemoryId);
+            buildUnifiedTimeline(spaceData);
+            setInlineScreenState(historyScreen, "hidden");
+        })
+        .catch((error) => {
+            console.error("Chargement de la chronologie impossible", error);
+            setInlineScreenState(historyScreen, "error", {
+                title: "Votre histoire ne peut pas être chargée",
+                message: getFriendlyFirebaseError(error),
+                retry: () => loadMemories(focusedMemoryId)
+            });
         });
+}
+
+function getTimelineTimestamp(dateValue, fallback = 0) {
+    if (typeof dateValue === "number") return dateValue;
+    if (typeof dateValue === "string" && dateValue) {
+        const parsed = new Date(dateValue + (dateValue.includes("T") ? "" : "T12:00:00")).getTime();
+        if (Number.isFinite(parsed)) return parsed;
+    }
+    return fallback || 0;
+}
+
+function buildUnifiedTimeline(spaceData) {
+    const items = [];
+    Object.entries(spaceData.memories || {}).forEach(([memoryId, memory]) => {
+        items.push({
+            id: "memory_" + memoryId,
+            type: "memory",
+            icon: memory.emoji || "💚",
+            title: memory.title || "Souvenir à deux",
+            text: memory.text || "",
+            timestamp: getTimelineTimestamp(memory.memoryDate, memory.createdAt),
+            favorite: Boolean(memory.favorite),
+            action: () => {
+                const card = memoriesTimeline.querySelector('[data-memory-id="' + memoryId + '"]');
+                card?.scrollIntoView({ behavior: "smooth", block: "center" });
+                card?.classList.add("is-focused");
+            }
+        });
+    });
+
+    relationStatsModes.forEach((mode) => {
+        Object.entries(spaceData[mode.path] || {}).forEach(([challengeId, challenge]) => {
+            if (challenge.status !== "completed") return;
+            items.push({
+                id: "game_" + mode.key + "_" + challengeId,
+                type: "game",
+                icon: mode.icon,
+                title: mode.label + " terminé",
+                text: challenge.question || challenge.title || "Une partie ajoutée à votre histoire.",
+                timestamp: challenge.completedAt || challenge.createdAt || 0,
+                mode: mode.key,
+                challengeId,
+                action: () => openHistoryMode(mode.key, challengeId)
+            });
+        });
+    });
+
+    Object.entries(spaceData.stats?.achievements || {}).forEach(([achievementId, value]) => {
+        const achievement = ACHIEVEMENTS.find((entry) => entry.id === achievementId);
+        const timestamp = typeof value === "object" ? value.unlockedAt : 0;
+        if (!achievement || !timestamp) return;
+        items.push({
+            id: "achievement_" + achievementId,
+            type: "achievement",
+            icon: achievement.icon || "🏆",
+            title: achievement.title,
+            text: achievement.description,
+            timestamp,
+            action: openAchievements
+        });
+    });
+
+    if (spaceData.story?.startDate) {
+        items.push({
+            id: "milestone_start",
+            type: "milestone",
+            icon: "💞",
+            title: "Le début de votre histoire",
+            text: "Le premier chapitre de votre aventure à deux.",
+            timestamp: getTimelineTimestamp(spaceData.story.startDate),
+            action: openStoryPage
+        });
+    }
+
+    unifiedTimelineItems = items.filter((item) => item.timestamp > 0).sort((a, b) => b.timestamp - a.timestamp);
+    const selectedYear = timelineYearFilter.value;
+    const years = [...new Set(unifiedTimelineItems.map((item) => new Date(item.timestamp).getFullYear()))].sort((a, b) => b - a);
+    timelineYearFilter.innerHTML = '<option value="all">Toutes les années</option>' + years.map((year) => '<option value="' + year + '">' + year + '</option>').join("");
+    timelineYearFilter.value = years.includes(Number(selectedYear)) ? selectedYear : "all";
+    renderUnifiedTimeline();
+}
+
+function renderUnifiedTimeline() {
+    const search = normalizeGameSearch(timelineSearchInput.value);
+    const year = timelineYearFilter.value;
+    const filtered = unifiedTimelineItems.filter((item) => {
+        return (activeTimelineType === "all" || item.type === activeTimelineType) &&
+            (year === "all" || String(new Date(item.timestamp).getFullYear()) === year) &&
+            (!search || normalizeGameSearch(item.title + " " + item.text).includes(search));
+    });
+
+    unifiedTimeline.replaceChildren();
+    unifiedTimelineEmpty.style.display = filtered.length === 0 ? "flex" : "none";
+    unifiedTimelineCount.textContent = filtered.length + " moment" + (filtered.length > 1 ? "s" : "");
+    let displayedYear = null;
+    filtered.slice(0, 200).forEach((item) => {
+        const itemYear = new Date(item.timestamp).getFullYear();
+        if (itemYear !== displayedYear) {
+            displayedYear = itemYear;
+            const yearHeading = document.createElement("h3");
+            yearHeading.className = "unified-timeline-year";
+            yearHeading.textContent = itemYear;
+            unifiedTimeline.appendChild(yearHeading);
+        }
+        const card = document.createElement("button");
+        card.type = "button";
+        card.className = "unified-timeline-card type-" + item.type + (item.favorite ? " is-favorite" : "");
+        const marker = document.createElement("span"); marker.className = "unified-timeline-marker"; marker.textContent = item.icon;
+        const copy = document.createElement("span");
+        const date = document.createElement("small"); date.textContent = new Date(item.timestamp).toLocaleDateString("fr-FR", { day: "numeric", month: "long" });
+        const title = document.createElement("strong"); title.textContent = item.title;
+        const text = document.createElement("p"); text.textContent = item.text;
+        copy.append(date, title, text);
+        const arrow = document.createElement("b"); arrow.textContent = "›"; arrow.setAttribute("aria-hidden", "true");
+        card.append(marker, copy, arrow);
+        if (item.action) card.addEventListener("click", item.action);
+        unifiedTimeline.appendChild(card);
+    });
 }
 
 function formatMemoryDate(dateValue) {
