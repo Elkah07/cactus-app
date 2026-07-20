@@ -8,69 +8,69 @@
 /* Garde-robe du cactus */
 .cactus-accessory.is-equipped { display: block; }
 .cactus-accessory img { display: block; width: 100%; height: auto; }
-.cactus-accessory-face { top: var(--glasses-top); width: var(--glasses-width); }
-.cactus-accessory-head[data-accessory-id="flowerHat"] { top: var(--flower-top); width: var(--flower-width); }
-.cactus-accessory-head[data-accessory-id="partyHat"] { top: var(--party-top); width: var(--party-width); }
-.cactus-accessory-head[data-accessory-id="goldCrown"] { top: var(--crown-top); width: var(--crown-width); }
-.cactus-accessory-neck[data-accessory-id="heartNecklace"] { top: var(--necklace-top); width: var(--necklace-width); }
-.cactus-accessory-neck[data-accessory-id="pinkBow"] { top: var(--bow-top); width: var(--bow-width); }
+.cactus-accessory-face { top: var(--glasses-top); left: var(--glasses-left, 50%); width: var(--glasses-width); }
+.cactus-accessory-head[data-accessory-id="flowerHat"] { top: var(--flower-top); left: var(--flower-left, 50%); width: var(--flower-width); }
+.cactus-accessory-head[data-accessory-id="partyHat"] { top: var(--party-top); left: var(--party-left, 50%); width: var(--party-width); }
+.cactus-accessory-head[data-accessory-id="goldCrown"] { top: var(--crown-top); left: var(--crown-left, 50%); width: var(--crown-width); }
+.cactus-accessory-neck[data-accessory-id="heartNecklace"] { top: var(--necklace-top); left: var(--necklace-left, 50%); width: var(--necklace-width); }
+.cactus-accessory-neck[data-accessory-id="pinkBow"] { top: var(--bow-top); left: var(--bow-left, 50%); width: var(--bow-width); }
 
 .cactus-accessory.is-equipped img {
     filter: drop-shadow(0 6px 4px rgba(0, 34, 23, 0.28));
 }
 
 .dashboard-cactus-character[data-cactus-stage="1"] {
-    --flower-top: 12%; --flower-width: 33%;
-    --party-top: 2%; --party-width: 20%;
-    --crown-top: 9%; --crown-width: 29%;
-    --glasses-top: 42%; --glasses-width: 30%;
-    --necklace-top: 59%; --necklace-width: 34%;
-    --bow-top: 63%; --bow-width: 19%;
+    --flower-top: 12%; --flower-width: 34%;
+    --party-top: 1%; --party-width: 20%;
+    --crown-top: 8%; --crown-width: 30%;
+    --glasses-top: 40%; --glasses-width: 36%;
+    --necklace-top: 53%; --necklace-width: 29%;
+    --bow-top: 60%; --bow-width: 17%;
 }
 
 .dashboard-cactus-character[data-cactus-stage="2"] {
-    --flower-top: 14%; --flower-width: 31%;
+    --flower-top: 14%; --flower-width: 32%;
     --party-top: 6%; --party-width: 19%;
     --crown-top: 11%; --crown-width: 28%;
-    --glasses-top: 43%; --glasses-width: 29%;
-    --necklace-top: 58%; --necklace-width: 32%;
-    --bow-top: 62%; --bow-width: 18%;
+    --glasses-top: 41%; --glasses-width: 34%;
+    --necklace-top: 47%; --necklace-left: 51%; --necklace-width: 24%;
+    --bow-top: 53%; --bow-left: 51%; --bow-width: 16%;
 }
 
 .dashboard-cactus-character[data-cactus-stage="3"] {
-    --flower-top: 5%; --flower-width: 35%;
+    --flower-top: 5%; --flower-width: 36%;
     --party-top: -3%; --party-width: 21%;
-    --crown-top: 2%; --crown-width: 31%;
-    --glasses-top: 36%; --glasses-width: 31%;
-    --necklace-top: 53%; --necklace-width: 34%;
-    --bow-top: 58%; --bow-width: 19%;
+    --crown-top: 2%; --crown-width: 32%;
+    --glasses-top: 34%; --glasses-width: 35%;
+    --necklace-top: 48%; --necklace-left: 48%; --necklace-width: 29%;
+    --bow-top: 53%; --bow-left: 43%; --bow-width: 16%;
 }
 
 .dashboard-cactus-character[data-cactus-stage="4"] {
-    --flower-top: 6%; --flower-width: 37%;
+    --flower-top: 6%; --flower-width: 38%;
     --party-top: -2%; --party-width: 22%;
-    --crown-top: 3%; --crown-width: 33%;
-    --glasses-top: 37%; --glasses-width: 32%;
-    --necklace-top: 55%; --necklace-width: 35%;
-    --bow-top: 60%; --bow-width: 20%;
+    --crown-top: 3%; --crown-width: 34%;
+    --glasses-top: 35%; --glasses-width: 35%;
+    --necklace-top: 46%; --necklace-left: 46%; --necklace-width: 25%;
+    --bow-top: 50%; --bow-left: 42%; --bow-width: 16%;
 }
 
 .dashboard-cactus-character[data-cactus-stage="5"] {
-    --flower-top: 7%; --flower-width: 38%;
+    --flower-top: 7%; --flower-width: 39%;
     --party-top: -1%; --party-width: 23%;
-    --crown-top: 4%; --crown-width: 34%;
-    --glasses-top: 37%; --glasses-width: 33%;
-    --necklace-top: 56%; --necklace-width: 35%;
-    --bow-top: 61%; --bow-width: 20%;
+    --crown-top: 4%; --crown-width: 35%;
+    --glasses-top: 35%; --glasses-width: 36%;
+    --necklace-top: 51%; --necklace-left: 49%; --necklace-width: 31%;
+    --bow-top: 56%; --bow-left: 48%; --bow-width: 18%;
 }
 
 .dashboard-cactus-character[data-cactus-stage="6"] {
-    --flower-top: 8%; --flower-width: 38%;
+    --flower-top: 8%; --flower-width: 39%;
     --party-top: 0%; --party-width: 23%;
-    --crown-top: 5%; --crown-width: 34%;
-    --glasses-top: 38%; --glasses-width: 33%;
-    --necklace-top: 56%; --necklace-width: 35%;
-    --bow-top: 61%; --bow-width: 20%;
+    --crown-top: 5%; --crown-width: 35%;
+    --glasses-top: 36%; --glasses-width: 36%;
+    --necklace-top: 51%; --necklace-left: 49%; --necklace-width: 31%;
+    --bow-top: 56%; --bow-left: 48%; --bow-width: 18%;
 }
 
 .dashboard-cactus-interactions {
