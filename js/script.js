@@ -416,6 +416,9 @@ const backFromAllGamesBtn = document.getElementById("backFromAllGamesBtn");
 const allRankingBtn = document.getElementById("allRankingBtn");
 const allGuessBtn = document.getElementById("allGuessBtn");
 const allQuestionsBtn = document.getElementById("allQuestionsBtn");
+const gameInbox = document.getElementById("gameInbox");
+const gameInboxCount = document.getElementById("gameInboxCount");
+const gameInboxList = document.getElementById("gameInboxList");
 
 const dashboardProfileBtn =
     document.getElementById("dashboardProfileBtn");
@@ -1981,6 +1984,7 @@ backFromStoryPageBtn.addEventListener("click", () => {
 });
 
 openAllGamesBtn.addEventListener("click", () => {
+    renderGameInbox();
     showScreen("allGames");
 });
 
@@ -3991,6 +3995,8 @@ function getGuessValidationScore(result) {
 }
 
 function updateActivityBox() {
+    renderGameInbox();
+
     if (!activityBox || !activityList || !currentUser) {
         return;
     }
@@ -4249,6 +4255,139 @@ function updateActivityBox() {
 
     activityBox.style.display = "none";
     activityBox.onclick = null;
+}
+
+function getGameInboxActivities() {
+    const activities = [];
+    const add = (items, icon, label, state, action) => {
+        if (!Array.isArray(items) || items.length === 0) {
+            return;
+        }
+
+        activities.push({
+            count: items.length,
+            icon,
+            label,
+            state,
+            action
+        });
+    };
+
+    add(pendingRankingChallenges, "🌵", "Classements", "À toi de classer", () => {
+        isPlayingPendingChallenges = true;
+        currentPendingChallengeIndex = 0;
+        startPendingRankingChallenge();
+    });
+    add(pendingGuessAnswers, "💭", "Devine ma réponse", "Ta réponse est attendue", () => {
+        currentPendingGuessIndex = 0;
+        startPendingGuessAnswer();
+    });
+    add(pendingGuessPredictions, "🔮", "Devine ma réponse", "Fais ta prédiction", () => {
+        currentPendingGuessIndex = 0;
+        startPendingGuessPrediction();
+    });
+    add(pendingGuessValidations, "🔎", "Devine ma réponse", "Valide la prédiction", () => {
+        currentPendingGuessIndex = 0;
+        startPendingGuessValidation();
+    });
+    add(pendingLikelyChallenges, "👉", "Qui est le plus susceptible ?", "À toi de choisir", () => {
+        currentPendingLikelyIndex = 0;
+        startPendingLikelyChallenge();
+    });
+    add(pendingOkChallenges, "✅", "OK ou Pas OK ?", "À toi de répondre", () => {
+        currentPendingOkIndex = 0;
+        startPendingOkChallenge();
+    });
+    add(pendingGreenFlagChallenges, "🚩", "Green Flag / Red Flag", "À toi de répondre", () => {
+        currentPendingGreenFlagIndex = 0;
+        startPendingGreenFlagChallenge();
+    });
+    add(pendingPrincessChallenges, "👑", "Princess Treatment", "À toi de répondre", () => {
+        currentPendingPrincessIndex = 0;
+        startPendingPrincessChallenge();
+    });
+    add(pendingQuestionsChallenges, "💬", "Questions", "Ta réponse est attendue", () => {
+        currentPendingQuestionsIndex = 0;
+        startPendingQuestionsChallenge();
+    });
+
+    add(pendingRankingResults, "✨", "Classements", "Résultat disponible", () => {
+        currentPendingRankingResultIndex = 0;
+        showPendingRankingResult();
+    });
+    add(pendingGuessResults, "✨", "Devine ma réponse", "Résultat disponible", () => {
+        currentPendingGuessIndex = 0;
+        showPendingGuessResult();
+    });
+    add(pendingLikelyResults, "✨", "Qui est le plus susceptible ?", "Résultat disponible", () => {
+        currentPendingLikelyIndex = 0;
+        showPendingLikelyResult();
+    });
+    add(pendingOkResults, "✨", "OK ou Pas OK ?", "Résultat disponible", () => {
+        currentPendingOkIndex = 0;
+        showPendingOkResult();
+    });
+    add(pendingGreenFlagResults, "✨", "Green Flag / Red Flag", "Résultat disponible", () => {
+        currentPendingGreenFlagIndex = 0;
+        showPendingGreenFlagResult();
+    });
+    add(pendingPrincessResults, "✨", "Princess Treatment", "Résultat disponible", () => {
+        currentPendingPrincessIndex = 0;
+        showPendingPrincessResult();
+    });
+    add(pendingQuestionsResults, "✨", "Questions", "Réponse à découvrir", () => {
+        currentPendingQuestionsIndex = 0;
+        showPendingQuestionsResult();
+    });
+
+    return activities;
+}
+
+function renderGameInbox() {
+    if (!gameInbox || !gameInboxList || !gameInboxCount) {
+        return;
+    }
+
+    const activities = getGameInboxActivities();
+    const total = activities.reduce((sum, activity) => sum + activity.count, 0);
+
+    gameInbox.style.display = total > 0 ? "block" : "none";
+    gameInboxCount.textContent = total;
+    gameInboxCount.setAttribute(
+        "aria-label",
+        total + " activité" + (total > 1 ? "s" : "") + " à reprendre"
+    );
+    gameInboxList.replaceChildren();
+
+    activities.forEach((activity) => {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "game-inbox-card";
+
+        const icon = document.createElement("span");
+        icon.className = "game-inbox-icon";
+        icon.textContent = activity.icon;
+
+        const copy = document.createElement("span");
+        const state = document.createElement("small");
+        state.textContent = activity.state;
+        const label = document.createElement("strong");
+        label.textContent = activity.label;
+        copy.append(state, label);
+
+        const badge = document.createElement("span");
+        badge.className = "game-inbox-badge";
+        badge.textContent = activity.count;
+
+        const arrow = document.createElement("span");
+        arrow.className = "game-inbox-arrow";
+        arrow.setAttribute("aria-hidden", "true");
+        arrow.textContent = "›";
+
+        button.append(icon, copy, badge, arrow);
+        button.addEventListener("click", activity.action);
+        gameInboxList.appendChild(button);
+    });
 }
 
 function renderDashboardActivity(activity) {
