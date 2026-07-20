@@ -9683,11 +9683,11 @@ function syncCactusBodyForHeadAccessory(equipped = {}) {
     if (!mainCactusImage || !dashboardCactusCharacter) return;
 
     const stage = dashboardCactusCharacter.dataset.cactusStage;
-    if (stage === "1") {
-        mainCactusImage.src = equipped.head
-            ? "assets/cactus-rig/stage-1-body-bare.webp"
-            : "assets/cactus-rig/stage-1-body.webp";
-    }
+    if (!/^[1-6]$/.test(stage)) return;
+
+    mainCactusImage.src = equipped.head
+        ? `assets/cactus-rig/stage-${stage}-body-bare.webp`
+        : `assets/cactus-rig/stage-${stage}-body.webp`;
 }
 
 function renderCactusWardrobe(spaceData = {}) {

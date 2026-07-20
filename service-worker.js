@@ -1,12 +1,12 @@
-const CACHE_VERSION = "v64";
+const CACHE_VERSION = "v65";
 const SHELL_CACHE = `cactus-shell-${CACHE_VERSION}`;
 const RUNTIME_CACHE = `cactus-runtime-${CACHE_VERSION}`;
 
 const APP_SHELL = [
     "./index.html",
-    "./css/style.css?v=64",
+    "./css/style.css?v=65",
     "./js/firebase.js",
-    "./js/script.js?v=64",
+    "./js/script.js?v=65",
     "./js/screens.js?v=61",
     "./js/utils.js",
     "./js/storage.js",
@@ -31,10 +31,15 @@ const APP_SHELL = [
     "./assets/cactus-rig/stage-1-body-bare.webp",
     "./assets/cactus-rig/stage-1-wave-arm.webp",
     "./assets/cactus-rig/stage-2-body.webp",
+    "./assets/cactus-rig/stage-2-body-bare.webp",
     "./assets/cactus-rig/stage-3-body.webp",
+    "./assets/cactus-rig/stage-3-body-bare.webp",
     "./assets/cactus-rig/stage-4-body.webp",
+    "./assets/cactus-rig/stage-4-body-bare.webp",
     "./assets/cactus-rig/stage-5-body.webp",
+    "./assets/cactus-rig/stage-5-body-bare.webp",
     "./assets/cactus-rig/stage-6-body.webp",
+    "./assets/cactus-rig/stage-6-body-bare.webp",
     "./assets/cactus-accessories/flower-hat.webp",
     "./assets/cactus-accessories/party-hat.webp",
     "./assets/cactus-accessories/gold-crown.webp",
