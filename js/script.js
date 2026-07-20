@@ -808,7 +808,10 @@ let editingTaskId = null;
 let editingReminderId = null;
 let editingImportantDateId = null;
 
-const CREATOR_UID = "cJylm27fQTMXd0Esan7YqXkjV762";
+const CREATOR_UIDS = new Set([
+    "cJylm27fQTMXd0Esan7YqXkjV762",
+    "hCu6cHuPPTSmCU4WA539Op9cxYy2"
+]);
 let currentUser = null;
 
 let pseudo = "";
@@ -4609,7 +4612,7 @@ if (score >= 80) {
 }
 
 function isCreatorAccount() {
-    return Boolean(currentUser && currentUser.uid === CREATOR_UID);
+    return Boolean(currentUser && CREATOR_UIDS.has(currentUser.uid));
 }
 
 function updateCreatorToolsVisibility() {
