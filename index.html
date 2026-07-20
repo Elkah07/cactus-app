@@ -874,48 +874,87 @@
         <div id="gameInboxList" class="game-inbox-list"></div>
     </section>
 
-    <div class="home-games-grid all-games-grid">
+    <section id="recommendedGame" class="recommended-game">
+        <div><small>Choisi pour vous</small><strong id="recommendedGameTitle">Questions</strong><p id="recommendedGameCopy">Un moment simple pour commencer à discuter.</p></div>
+        <button type="button" id="recommendedGameBtn">Découvrir <span aria-hidden="true">→</span></button>
+    </section>
 
-        <button type="button" id="allRankingBtn" class="home-game-card card-green">
+    <div class="games-library-tools">
+        <label class="games-search-field">
+            <span aria-hidden="true">⌕</span>
+            <input id="gamesSearchInput" type="search" placeholder="Rechercher un jeu…" autocomplete="off">
+            <button type="button" id="clearGamesSearchBtn" aria-label="Effacer la recherche" style="display:none;">×</button>
+        </label>
+        <nav class="games-category-filters" aria-label="Catégories de jeux">
+            <button type="button" class="is-active" data-game-category="all">Tous</button>
+            <button type="button" data-game-category="discovery">Découverte</button>
+            <button type="button" data-game-category="complicity">Complicité</button>
+            <button type="button" data-game-category="debate">Débats</button>
+            <button type="button" data-game-category="fun">Fun</button>
+        </nav>
+    </div>
+
+    <div class="games-library-heading"><div><small>La collection Cactus</small><h2><span id="visibleGamesCount">7</span> jeux à deux</h2></div></div>
+
+    <div id="allGamesGrid" class="home-games-grid all-games-grid">
+
+        <button type="button" id="allRankingBtn" class="home-game-card card-green" data-game-card data-game-key="ranking" data-game-category="complicity fun">
             <img src="assets/cactus-ranking.png" alt="" loading="lazy" decoding="async">
-            <span>Classements</span>
+            <span>Classements</span><small>80 catégories · 5 min</small><em>Complicité</em>
         </button>
 
-        <button type="button" id="allGuessBtn" class="home-game-card card-purple">
+        <button type="button" id="allGuessBtn" class="home-game-card card-purple" data-game-card data-game-key="guess" data-game-category="discovery complicity">
             <img src="assets/cactus-guess.png" alt="" loading="lazy" decoding="async">
-            <span>Devine ma réponse</span>
+            <span>Devine ma réponse</span><small>350 questions · 4 min</small><em>Découverte</em>
         </button>
 
-        <button type="button" id="likelyBtn" class="home-game-card card-yellow">
+        <button type="button" id="likelyBtn" class="home-game-card card-yellow" data-game-card data-game-key="likely" data-game-category="fun complicity">
             <img src="assets/cactus-likely.png" alt="" loading="lazy" decoding="async">
-            <span>Qui est le plus susceptible ?</span>
+            <span>Qui est le plus susceptible ?</span><small>Partie rapide · 3 min</small><em>Fun</em>
         </button>
 
-        <button type="button" id="okBtn" class="home-game-card card-green">
+        <button type="button" id="okBtn" class="home-game-card card-green" data-game-card data-game-key="ok" data-game-category="debate discovery">
             <img src="assets/cactus-ok.png" alt="" loading="lazy" decoding="async">
-            <span>OK ou Pas OK ?</span>
+            <span>OK ou Pas OK ?</span><small>Choix express · 3 min</small><em>Débats</em>
         </button>
 
-        <button type="button" id="greenFlagBtn" class="home-game-card card-mint">
+        <button type="button" id="greenFlagBtn" class="home-game-card card-mint" data-game-card data-game-key="greenFlag" data-game-category="debate discovery">
     <img src="assets/cactus-greenflag.png" alt="" loading="lazy" decoding="async">
-    <span>Green Flag / Red Flag</span>
+    <span>Green Flag / Red Flag</span><small>Situations de couple · 4 min</small><em>Débats</em>
 </button>
 
-<button type="button" id="princessBtn" class="home-game-card card-pink">
+<button type="button" id="princessBtn" class="home-game-card card-pink" data-game-card data-game-key="princess" data-game-category="fun debate">
     <img src="assets/cactus-princess.png" alt="" loading="lazy" decoding="async">
-    <span>Princess Treatment</span>
+    <span>Princess Treatment</span><small>Attentions à deux · 4 min</small><em>Nouveau</em>
 </button>
 
-        <button type="button" id="allQuestionsBtn" class="home-game-card card-blue">
+        <button type="button" id="allQuestionsBtn" class="home-game-card card-blue" data-game-card data-game-key="questions" data-game-category="discovery complicity">
             <img src="assets/cactus-questions.png" alt="" loading="lazy" decoding="async">
-            <span>Questions</span>
+            <span>Questions</span><small>900 questions · 5 min</small><em>Découverte</em>
         </button>
 
+    </div>
+
+    <div id="gamesSearchEmptyState" class="games-search-empty" style="display:none;">
+        <span>🎮</span><strong>Aucun jeu trouvé</strong><p>Essayez un autre mot ou affichez toutes les catégories.</p><button type="button" id="resetGamesFiltersBtn">Voir tous les jeux</button>
     </div>
 
     <button type="button" id="backFromAllGamesBtn" class="secondary">
         Retour
     </button>
+</div>
+
+<div id="gameDetailsModal" class="game-details-modal" style="display:none;" role="dialog" aria-modal="true" aria-labelledby="gameDetailsTitle">
+    <div class="game-details-backdrop" data-close-game-details></div>
+    <section class="game-details-sheet">
+        <button type="button" id="closeGameDetailsBtn" aria-label="Fermer">×</button>
+        <img id="gameDetailsImage" src="assets/cactus-playing.png" alt="" loading="lazy" decoding="async">
+        <small id="gameDetailsCategory">Complicité</small>
+        <h2 id="gameDetailsTitle">Jeu Cactus</h2>
+        <p id="gameDetailsDescription"></p>
+        <div class="game-details-meta"><span id="gameDetailsDuration">⏱ 5 min</span><span id="gameDetailsPlayers">💚 À deux</span></div>
+        <button type="button" id="startGameFromDetailsBtn">Commencer ce jeu</button>
+    </section>
 </div>
 
 

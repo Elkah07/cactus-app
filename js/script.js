@@ -459,6 +459,24 @@ const allQuestionsBtn = document.getElementById("allQuestionsBtn");
 const gameInbox = document.getElementById("gameInbox");
 const gameInboxCount = document.getElementById("gameInboxCount");
 const gameInboxList = document.getElementById("gameInboxList");
+const allGamesGrid = document.getElementById("allGamesGrid");
+const gamesSearchInput = document.getElementById("gamesSearchInput");
+const clearGamesSearchBtn = document.getElementById("clearGamesSearchBtn");
+const gameCategoryButtons = document.querySelectorAll("[data-game-category]");
+const visibleGamesCount = document.getElementById("visibleGamesCount");
+const gamesSearchEmptyState = document.getElementById("gamesSearchEmptyState");
+const resetGamesFiltersBtn = document.getElementById("resetGamesFiltersBtn");
+const recommendedGameTitle = document.getElementById("recommendedGameTitle");
+const recommendedGameCopy = document.getElementById("recommendedGameCopy");
+const recommendedGameBtn = document.getElementById("recommendedGameBtn");
+const gameDetailsModal = document.getElementById("gameDetailsModal");
+const closeGameDetailsBtn = document.getElementById("closeGameDetailsBtn");
+const gameDetailsImage = document.getElementById("gameDetailsImage");
+const gameDetailsCategory = document.getElementById("gameDetailsCategory");
+const gameDetailsTitle = document.getElementById("gameDetailsTitle");
+const gameDetailsDescription = document.getElementById("gameDetailsDescription");
+const gameDetailsDuration = document.getElementById("gameDetailsDuration");
+const startGameFromDetailsBtn = document.getElementById("startGameFromDetailsBtn");
 
 const dashboardProfileBtn =
     document.getElementById("dashboardProfileBtn");
@@ -592,6 +610,10 @@ let draggedItem = null;
 let currentSpaceData = null;
 let activeNotificationFilter = "all";
 let appStateRetryAction = null;
+let activeGameCategory = "all";
+let selectedGameKey = null;
+let recommendedGameKey = "questions";
+let launchingGameFromDetails = false;
 let pendingRankingChallenges = [];
 let previousScreen = "dashboard";
 
@@ -2460,6 +2482,169 @@ allGuessBtn.addEventListener("click", () => {
 allQuestionsBtn.addEventListener("click", () => {
     startQuestionsGame();
 });
+
+const GAMES_LIBRARY = {
+    ranking: {
+        title: "Classements",
+        category: "Complicité",
+        duration: "5 min",
+        image: "assets/cactus-ranking.png",
+        description: "Classez vos préférences chacun de votre côté, puis comparez vos réponses pour découvrir vos points communs."
+    },
+    guess: {
+        title: "Devine ma réponse",
+        category: "Découverte",
+        duration: "4 min",
+        image: "assets/cactus-guess.png",
+        description: "Répondez à une question puis tentez de deviner ce que votre partenaire a écrit."
+    },
+    likely: {
+        title: "Qui est le plus susceptible ?",
+        category: "Fun",
+        duration: "3 min",
+        image: "assets/cactus-likely.png",
+        description: "Choisissez lequel de vous deux correspond le mieux à chaque situation et découvrez si vous êtes d’accord."
+    },
+    ok: {
+        title: "OK ou Pas OK ?",
+        category: "Débats",
+        duration: "3 min",
+        image: "assets/cactus-ok.png",
+        description: "Donnez votre avis sur des situations du quotidien et ouvrez une discussion sans pression."
+    },
+    greenFlag: {
+        title: "Green Flag / Red Flag",
+        category: "Débats",
+        duration: "4 min",
+        image: "assets/cactus-greenflag.png",
+        description: "Décidez si chaque comportement est rassurant ou préoccupant, puis comparez vos limites."
+    },
+    princess: {
+        title: "Princess Treatment",
+        category: "Fun",
+        duration: "4 min",
+        image: "assets/cactus-princess.png",
+        description: "Évaluez ensemble les petites et grandes attentions qui font vraiment plaisir dans votre couple."
+    },
+    questions: {
+        title: "Questions",
+        category: "Découverte",
+        duration: "5 min",
+        image: "assets/cactus-questions.png",
+        description: "Prenez le temps de répondre à une question pour mieux connaître les envies et les souvenirs de l’autre."
+    }
+};
+
+function normalizeGameSearch(value) {
+    return String(value || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim();
+}
+
+function filterGamesLibrary() {
+    const search = normalizeGameSearch(gamesSearchInput.value);
+    let visibleCount = 0;
+
+    allGamesGrid.querySelectorAll("[data-game-card]").forEach((card) => {
+        const game = GAMES_LIBRARY[card.dataset.gameKey];
+        const categories = String(card.dataset.gameCategory || "").split(" ");
+        const searchable = normalizeGameSearch([
+            game?.title,
+            game?.category,
+            game?.description,
+            card.textContent
+        ].join(" "));
+        const matchesCategory = activeGameCategory === "all" || categories.includes(activeGameCategory);
+        const matchesSearch = !search || searchable.includes(search);
+        const visible = matchesCategory && matchesSearch;
+        card.hidden = !visible;
+        if (visible) visibleCount++;
+    });
+
+    visibleGamesCount.textContent = visibleCount;
+    gamesSearchEmptyState.style.display = visibleCount === 0 ? "flex" : "none";
+    clearGamesSearchBtn.style.display = gamesSearchInput.value ? "grid" : "none";
+}
+
+function resetGamesLibraryFilters() {
+    activeGameCategory = "all";
+    gamesSearchInput.value = "";
+    gameCategoryButtons.forEach((button) => {
+        button.classList.toggle("is-active", button.dataset.gameCategory === "all");
+    });
+    filterGamesLibrary();
+}
+
+function openGameDetails(gameKey) {
+    const game = GAMES_LIBRARY[gameKey];
+    if (!game) return;
+    selectedGameKey = gameKey;
+    gameDetailsImage.src = game.image;
+    gameDetailsCategory.textContent = game.category;
+    gameDetailsTitle.textContent = game.title;
+    gameDetailsDescription.textContent = game.description;
+    gameDetailsDuration.textContent = "⏱ " + game.duration;
+    gameDetailsModal.style.display = "grid";
+    document.body.classList.add("game-details-open");
+    startGameFromDetailsBtn.focus();
+}
+
+function closeGameDetails() {
+    gameDetailsModal.style.display = "none";
+    document.body.classList.remove("game-details-open");
+}
+
+function updateRecommendedGame() {
+    const rotation = ["questions", "guess", "ranking", "likely", "ok", "greenFlag", "princess"];
+    const totalGames = currentSpaceData
+        ? buildRelationStatistics(currentSpaceData).totalGames
+        : 0;
+    recommendedGameKey = rotation[totalGames % rotation.length];
+    const game = GAMES_LIBRARY[recommendedGameKey];
+    recommendedGameTitle.textContent = game.title;
+    recommendedGameCopy.textContent = totalGames === 0
+        ? "Un moment simple pour commencer à discuter."
+        : game.description;
+}
+
+gamesSearchInput.addEventListener("input", filterGamesLibrary);
+clearGamesSearchBtn.addEventListener("click", () => {
+    gamesSearchInput.value = "";
+    gamesSearchInput.focus();
+    filterGamesLibrary();
+});
+resetGamesFiltersBtn.addEventListener("click", resetGamesLibraryFilters);
+gameCategoryButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+        activeGameCategory = button.dataset.gameCategory;
+        gameCategoryButtons.forEach((item) => item.classList.toggle("is-active", item === button));
+        filterGamesLibrary();
+    });
+});
+
+allGamesGrid.addEventListener("click", (event) => {
+    const card = event.target.closest("[data-game-card]");
+    if (!card || launchingGameFromDetails) return;
+    event.preventDefault();
+    event.stopImmediatePropagation();
+    openGameDetails(card.dataset.gameKey);
+}, true);
+
+recommendedGameBtn.addEventListener("click", () => openGameDetails(recommendedGameKey));
+closeGameDetailsBtn.addEventListener("click", closeGameDetails);
+gameDetailsModal.querySelector("[data-close-game-details]").addEventListener("click", closeGameDetails);
+startGameFromDetailsBtn.addEventListener("click", () => {
+    const target = allGamesGrid.querySelector('[data-game-key="' + selectedGameKey + '"]');
+    if (!target) return;
+    closeGameDetails();
+    launchingGameFromDetails = true;
+    target.click();
+    launchingGameFromDetails = false;
+});
+document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && gameDetailsModal.style.display !== "none") closeGameDetails();
+});
+
+filterGamesLibrary();
+updateRecommendedGame();
 
 dashboardSettingsBtn.addEventListener("click", () => {
     previousScreen = "dashboard";
@@ -5260,6 +5445,7 @@ function renderGameInbox() {
     }
 
     const activities = getGameInboxActivities();
+    updateRecommendedGame();
     const total = activities.reduce((sum, activity) => sum + activity.count, 0);
 
     gameInbox.style.display = total > 0 ? "block" : "none";

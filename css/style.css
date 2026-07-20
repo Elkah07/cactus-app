@@ -1979,6 +1979,133 @@ body.dashboard-active .top-right-btn {
     }
 }
 
+/* Bibliothèque de jeux évolutive */
+.recommended-game {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    margin: 0 0 14px;
+    padding: 15px 16px;
+    overflow: hidden;
+    border: 1px solid rgba(84, 211, 139, 0.3);
+    border-radius: 22px;
+    background:
+        radial-gradient(circle at 92% 15%, rgba(255, 211, 87, 0.18), transparent 32%),
+        linear-gradient(135deg, rgba(84, 211, 139, 0.17), var(--app-panel-bg));
+    box-shadow: 0 10px 26px var(--app-shadow-soft);
+}
+.recommended-game div { min-width: 0; }
+.recommended-game small,
+.recommended-game strong,
+.recommended-game p { display: block; margin: 0; }
+.recommended-game small { color: var(--app-accent); font-size: 0.6rem; font-weight: 950; letter-spacing: 0.07em; text-transform: uppercase; }
+.recommended-game strong { margin-top: 3px; color: var(--app-heading); font-size: 0.92rem; }
+.recommended-game p { display: -webkit-box; margin-top: 3px; overflow: hidden; color: var(--app-muted); font-size: 0.65rem; line-height: 1.35; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
+.recommended-game button { width: auto; min-width: max-content; margin: 0; padding: 9px 12px; border-radius: 999px; font-size: 0.65rem; }
+
+.games-library-tools { margin-bottom: 16px; }
+.games-search-field {
+    display: grid;
+    grid-template-columns: 24px minmax(0, 1fr) 30px;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 10px;
+    padding: 4px 7px 4px 12px;
+    border: 1px solid var(--app-border);
+    border-radius: 17px;
+    background: var(--app-panel-bg);
+    box-shadow: 0 7px 20px var(--app-shadow-soft);
+}
+.games-search-field > span { color: var(--app-accent); font-size: 1.3rem; font-weight: 900; }
+.games-search-field input { margin: 0; padding: 10px 2px; border: 0; background: transparent; box-shadow: none; color: var(--app-text); }
+.games-search-field input:focus { outline: 0; }
+.games-search-field button { display: grid; width: 30px; height: 30px; margin: 0; padding: 0; place-items: center; border: 0; border-radius: 10px; background: var(--app-secondary-button); color: var(--app-muted); font-size: 1rem; }
+
+.games-category-filters { display: flex; gap: 7px; overflow-x: auto; scrollbar-width: none; }
+.games-category-filters::-webkit-scrollbar { display: none; }
+.games-category-filters button {
+    width: auto;
+    min-width: max-content;
+    margin: 0;
+    padding: 8px 12px;
+    border: 1px solid var(--app-border);
+    border-radius: 999px;
+    background: var(--app-panel-bg);
+    color: var(--app-muted);
+    font-size: 0.63rem;
+    font-weight: 850;
+}
+.games-category-filters button.is-active { border-color: rgba(84, 211, 139, 0.5); background: rgba(84, 211, 139, 0.16); color: var(--app-accent); }
+
+.games-library-heading { display: flex; align-items: end; justify-content: space-between; margin: 0 2px 10px; }
+.games-library-heading small,
+.games-library-heading h2 { display: block; margin: 0; }
+.games-library-heading small { color: var(--app-accent); font-size: 0.58rem; font-weight: 900; letter-spacing: 0.06em; text-transform: uppercase; }
+.games-library-heading h2 { margin-top: 2px; color: var(--app-heading); font-size: 1rem; }
+
+#allGamesScreen .all-games-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 11px; }
+#allGamesScreen .home-game-card {
+    position: relative;
+    display: grid;
+    min-height: 210px;
+    padding: 10px 9px 12px;
+    grid-template-rows: 118px auto auto auto;
+    align-content: start;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 22px;
+    text-align: center;
+}
+#allGamesScreen .home-game-card[hidden] { display: none !important; }
+#allGamesScreen .home-game-card img { width: 112px; height: 112px; margin: 0 auto; object-fit: contain; }
+#allGamesScreen .home-game-card > span { align-self: center; color: #103c2e; font-size: 0.78rem; line-height: 1.15; }
+#allGamesScreen .home-game-card > small { margin-top: 5px; color: rgba(9, 55, 41, 0.68); font-size: 0.56rem; font-weight: 750; }
+#allGamesScreen .home-game-card > em { justify-self: center; margin-top: 7px; padding: 5px 8px; border-radius: 999px; background: rgba(255, 255, 255, 0.34); color: rgba(7, 50, 37, 0.8); font-size: 0.53rem; font-style: normal; font-weight: 900; }
+
+.games-search-empty { min-height: 300px; flex-direction: column; align-items: center; justify-content: center; color: var(--app-muted); text-align: center; }
+.games-search-empty > span { font-size: 3.2rem; }
+.games-search-empty strong { margin-top: 10px; color: var(--app-heading); font-size: 0.9rem; }
+.games-search-empty p { max-width: 270px; margin: 5px 0 0; font-size: 0.7rem; line-height: 1.5; }
+.games-search-empty button { width: auto; margin-top: 14px; padding: 9px 14px; }
+
+.game-details-modal { position: fixed; z-index: 10030; inset: 0; place-items: end center; }
+.game-details-backdrop { position: absolute; inset: 0; background: rgba(0, 25, 17, 0.72); backdrop-filter: blur(7px); }
+.game-details-sheet {
+    position: relative;
+    z-index: 1;
+    width: min(100%, 480px);
+    padding: 18px 22px max(24px, env(safe-area-inset-bottom));
+    border: 1px solid var(--app-border);
+    border-radius: 30px 30px 0 0;
+    background: var(--app-panel-bg);
+    box-shadow: 0 -18px 60px rgba(0, 20, 14, 0.36);
+    color: var(--app-text);
+    text-align: center;
+    animation: game-sheet-in 0.25s ease-out;
+}
+#closeGameDetailsBtn { position: absolute; top: 14px; right: 14px; display: grid; width: 36px; height: 36px; margin: 0; padding: 0; place-items: center; border-radius: 12px; background: var(--app-secondary-button); color: var(--app-muted); font-size: 1.2rem; }
+.game-details-sheet img { width: 150px; height: 150px; margin: -4px auto 2px; object-fit: contain; }
+.game-details-sheet > small { color: var(--app-accent); font-size: 0.62rem; font-weight: 950; letter-spacing: 0.07em; text-transform: uppercase; }
+.game-details-sheet h2 { margin: 5px 0 0; color: var(--app-heading); font-size: 1.22rem; }
+.game-details-sheet > p { max-width: 350px; margin: 8px auto 0; color: var(--app-muted); font-size: 0.72rem; line-height: 1.5; }
+.game-details-meta { display: flex; justify-content: center; gap: 8px; margin-top: 13px; }
+.game-details-meta span { padding: 7px 10px; border-radius: 999px; background: var(--app-icon-bg); color: var(--app-text); font-size: 0.62rem; font-weight: 800; }
+#startGameFromDetailsBtn { margin: 17px 0 0; }
+body.game-details-open { overflow: hidden; }
+
+@keyframes game-sheet-in { from { transform: translateY(35px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+@media (min-width: 700px) {
+    #allGamesScreen .all-games-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+@media (max-width: 370px) {
+    #allGamesScreen .home-game-card { min-height: 196px; grid-template-rows: 104px auto auto auto; }
+    #allGamesScreen .home-game-card img { width: 100px; height: 100px; }
+    .recommended-game { align-items: flex-end; }
+    .recommended-game p { display: none; }
+}
+
 /* Priorité finale des thèmes sur les anciens styles d’écran. */
 #allGamesScreen .all-games-grid {
     gap: 13px;
