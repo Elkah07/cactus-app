@@ -162,6 +162,42 @@
         </div>
     </header>
 
+    <section class="memories-timeline-section">
+        <div class="memories-timeline-heading">
+            <div><small>Votre chronologie</small><h2>Nos moments à nous</h2></div>
+            <button type="button" id="showMemoryFormBtn">＋ Ajouter</button>
+        </div>
+
+        <form id="memoryForm" class="memory-form" style="display:none;">
+            <div class="memory-form-title">
+                <span id="memoryFormIcon">💚</span>
+                <div><small>Nouveau moment</small><strong id="memoryFormHeading">Ajouter un souvenir</strong></div>
+            </div>
+            <div class="memory-form-row">
+                <input id="memoryEmoji" type="text" maxlength="4" value="💚" aria-label="Emoji du souvenir">
+                <input id="memoryDate" type="date" required aria-label="Date du souvenir">
+            </div>
+            <input id="memoryTitle" type="text" maxlength="80" required placeholder="Titre du souvenir">
+            <textarea id="memoryText" rows="4" maxlength="1000" required placeholder="Racontez ce joli moment…"></textarea>
+            <div class="memory-form-actions">
+                <button type="submit" id="saveMemoryBtn">Enregistrer</button>
+                <button type="button" id="cancelMemoryBtn" class="secondary">Annuler</button>
+            </div>
+        </form>
+
+        <div id="memoriesTimeline" class="memories-timeline"></div>
+        <div id="memoriesEmptyState" class="memories-empty-state">
+            <span>📖</span>
+            <strong>Votre chronologie commence ici</strong>
+            <p>Ajoutez votre premier moment à deux.</p>
+        </div>
+    </section>
+
+    <div class="history-automatic-heading">
+        <small>Souvenirs automatiques</small>
+        <h2>Vos jeux et votre relation</h2>
+    </div>
+
     <div class="history-modes-grid">
         <button type="button" class="history-mode-card" data-history-mode="stats">
     📊 Notre relation

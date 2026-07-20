@@ -4685,6 +4685,270 @@ body:not(.dark-theme) #dashboardNotificationsBadge {
     font-weight: 950;
 }
 
+/* Chronologie des souvenirs créés par le couple. */
+.memories-timeline-section {
+    margin: 2px 0 22px;
+    padding: 16px;
+    border: 1px solid var(--app-border);
+    border-radius: 24px;
+    background: var(--app-panel-bg);
+    box-shadow: 0 12px 30px var(--app-shadow-soft);
+}
+
+.memories-timeline-heading,
+.memory-form-title,
+.memory-form-actions {
+    display: flex;
+    align-items: center;
+}
+
+.memories-timeline-heading {
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.memories-timeline-heading small,
+.memories-timeline-heading h2,
+.history-automatic-heading small,
+.history-automatic-heading h2 {
+    display: block;
+    margin: 0;
+}
+
+.memories-timeline-heading small,
+.history-automatic-heading small {
+    color: var(--app-accent);
+    font-size: 0.62rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.memories-timeline-heading h2,
+.history-automatic-heading h2 {
+    margin-top: 3px;
+    color: var(--app-heading);
+    font-size: 1.02rem;
+}
+
+#showMemoryFormBtn {
+    width: auto;
+    min-width: 94px;
+    margin: 0;
+    padding: 9px 12px;
+    border-radius: 13px;
+    font-size: 0.68rem;
+    white-space: nowrap;
+}
+
+.memory-form {
+    margin-top: 14px;
+    padding: 14px;
+    border: 1px solid var(--app-border);
+    border-radius: 19px;
+    background: var(--app-icon-bg);
+}
+
+.memory-form-title {
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.memory-form-title > span {
+    display: grid;
+    width: 42px;
+    height: 42px;
+    place-items: center;
+    border-radius: 14px;
+    background: var(--app-panel-bg);
+    font-size: 1.3rem;
+}
+
+.memory-form-title small,
+.memory-form-title strong {
+    display: block;
+}
+
+.memory-form-title small {
+    color: var(--app-muted);
+    font-size: 0.61rem;
+}
+
+.memory-form-title strong {
+    color: var(--app-heading);
+    font-size: 0.83rem;
+}
+
+.memory-form-row {
+    display: grid;
+    grid-template-columns: 70px minmax(0, 1fr);
+    gap: 9px;
+}
+
+.memory-form input,
+.memory-form textarea {
+    border-color: var(--app-border-strong);
+    background: var(--app-input-bg);
+    color: var(--app-text);
+}
+
+#memoryEmoji {
+    padding-right: 6px;
+    padding-left: 6px;
+    font-size: 1.15rem;
+    text-align: center;
+}
+
+.memory-form-actions {
+    gap: 8px;
+}
+
+.memory-form-actions button {
+    margin-bottom: 0;
+}
+
+.memories-timeline {
+    position: relative;
+    display: grid;
+    gap: 11px;
+    margin-top: 15px;
+}
+
+.memories-timeline::before {
+    position: absolute;
+    top: 22px;
+    bottom: 22px;
+    left: 22px;
+    width: 2px;
+    background: linear-gradient(var(--app-accent), transparent);
+    content: "";
+    opacity: 0.38;
+}
+
+.memory-timeline-card {
+    position: relative;
+    display: grid;
+    grid-template-columns: 46px minmax(0, 1fr) auto;
+    gap: 10px;
+    padding: 12px;
+    border: 1px solid var(--app-border);
+    border-radius: 18px;
+    background: var(--app-panel-bg);
+    transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.memory-timeline-card.is-favorite {
+    border-color: rgba(238, 184, 63, 0.55);
+    box-shadow: 0 8px 22px rgba(218, 158, 42, 0.12);
+}
+
+.memory-timeline-card.is-focused {
+    border-color: var(--app-accent);
+    transform: scale(1.01);
+    box-shadow: 0 0 0 4px rgba(84, 211, 139, 0.16);
+}
+
+.memory-timeline-marker {
+    z-index: 1;
+    display: grid;
+    width: 46px;
+    height: 46px;
+    place-items: center;
+    border: 3px solid var(--app-panel-bg);
+    border-radius: 15px;
+    background: var(--app-icon-bg);
+    font-size: 1.35rem;
+}
+
+.memory-timeline-body small,
+.memory-timeline-body h3,
+.memory-timeline-body p,
+.memory-author {
+    display: block;
+    margin: 0;
+}
+
+.memory-timeline-body small {
+    color: var(--app-accent);
+    font-size: 0.61rem;
+    font-weight: 850;
+}
+
+.memory-timeline-body h3 {
+    margin-top: 2px;
+    color: var(--app-heading);
+    font-size: 0.86rem;
+}
+
+.memory-timeline-body p {
+    margin-top: 6px;
+    color: var(--app-text);
+    font-size: 0.71rem;
+    line-height: 1.45;
+    white-space: pre-wrap;
+}
+
+.memory-author {
+    margin-top: 8px;
+    color: var(--app-muted);
+    font-size: 0.58rem;
+}
+
+.memory-card-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.memory-card-actions button {
+    display: grid;
+    width: 31px;
+    height: 31px;
+    margin: 0;
+    padding: 0;
+    place-items: center;
+    border: 1px solid var(--app-border);
+    border-radius: 10px;
+    background: var(--app-icon-bg);
+    color: var(--app-heading);
+    box-shadow: none;
+    font-size: 0.78rem;
+}
+
+.memories-empty-state {
+    display: flex;
+    min-height: 170px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--app-muted);
+    text-align: center;
+}
+
+.memories-empty-state span { font-size: 2.7rem; }
+.memories-empty-state strong { margin-top: 8px; color: var(--app-heading); font-size: 0.82rem; }
+.memories-empty-state p { margin: 4px 0 0; font-size: 0.68rem; }
+
+.history-automatic-heading {
+    margin: 0 2px 11px;
+}
+
+@media (max-width: 390px) {
+    .memory-timeline-card {
+        grid-template-columns: 42px minmax(0, 1fr);
+    }
+
+    .memory-timeline-marker {
+        width: 42px;
+        height: 42px;
+    }
+
+    .memory-card-actions {
+        grid-column: 2;
+        flex-direction: row;
+    }
+}
+
 .notifications-empty-state {
     min-height: 300px;
     flex-direction: column;

@@ -82,6 +82,18 @@ const cactusCelebration = document.getElementById("cactusCelebration");
 const historyScreen = document.getElementById("historyScreen");
 const historyBtn = document.getElementById("historyBtn");
 const backFromHistoryBtn = document.getElementById("backFromHistoryBtn");
+const showMemoryFormBtn = document.getElementById("showMemoryFormBtn");
+const memoryForm = document.getElementById("memoryForm");
+const memoryFormIcon = document.getElementById("memoryFormIcon");
+const memoryFormHeading = document.getElementById("memoryFormHeading");
+const memoryEmoji = document.getElementById("memoryEmoji");
+const memoryDate = document.getElementById("memoryDate");
+const memoryTitle = document.getElementById("memoryTitle");
+const memoryText = document.getElementById("memoryText");
+const saveMemoryBtn = document.getElementById("saveMemoryBtn");
+const cancelMemoryBtn = document.getElementById("cancelMemoryBtn");
+const memoriesTimeline = document.getElementById("memoriesTimeline");
+const memoriesEmptyState = document.getElementById("memoriesEmptyState");
 
 const gardenScreen = document.getElementById("gardenScreen");
 const gardenBtn = document.getElementById("gardenBtn");
@@ -587,6 +599,7 @@ let nextAfterAnswerFunction = null;
 
 let currentHistoryMode = null;
 let currentHistoryItems = []; 
+let currentEditingMemoryId = null;
 
 const relationStatsModes = [
     {
@@ -710,6 +723,10 @@ function listenToCurrentSpace(spaceCodeValue) {
 
         if (lastShownScreen === "garden") {
             renderGarden(spaceData);
+        }
+
+        if (lastShownScreen === "history") {
+            renderMemories(spaceData.memories || {});
         }
 
         if (!spaceData.story && lastShownScreen === "dashboard") {
@@ -1386,7 +1403,25 @@ toggleThemeBtn.addEventListener("click", () => {
 });
 
 historyBtn.addEventListener("click", () => {
+    loadMemories();
     showScreen("history");
+});
+
+showMemoryFormBtn.addEventListener("click", () => {
+    openMemoryForm();
+});
+
+cancelMemoryBtn.addEventListener("click", () => {
+    closeMemoryForm();
+});
+
+memoryEmoji.addEventListener("input", () => {
+    memoryFormIcon.textContent = memoryEmoji.value.trim() || "💚";
+});
+
+memoryForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    saveMemory();
 });
 
 backFromHistoryBtn.addEventListener("click", () => {
@@ -2937,6 +2972,29 @@ function buildNotifications(spaceData) {
                 target: { kind: "story" }
             });
         }
+
+        Object.entries(spaceData.memories || {}).forEach(([memoryId, memory]) => {
+            const timestamp = memory.updatedAt || memory.createdAt;
+            const authorUid = memory.updatedBy || memory.createdByUid;
+
+            if (
+                authorUid &&
+                authorUid !== currentUser.uid &&
+                typeof timestamp === "number"
+            ) {
+                notifications.push({
+                    id: "memory_" + memoryId + "_" + timestamp,
+                    type: "garden",
+                    icon: memory.emoji || "💚",
+                    title: memory.updatedAt && memory.updatedAt !== memory.createdAt
+                        ? "Un souvenir a été modifié"
+                        : "Nouveau souvenir à deux",
+                    message: memory.title || "Un joli moment",
+                    timestamp,
+                    target: { kind: "memory", memoryId }
+                });
+            }
+        });
     }
 
     if (preferences.achievements) {
@@ -3151,6 +3209,9 @@ function openNotification(notification) {
             });
     } else if (target.kind === "story") {
         openStoryPage();
+    } else if (target.kind === "memory") {
+        showScreen("history");
+        loadMemories(target.memoryId);
     } else if (target.kind === "achievement") {
         openAchievements();
     }
@@ -3184,6 +3245,227 @@ function markAllNotificationsRead() {
         .ref("spaces/" + currentSpaceCode + "/notificationReads/" + currentUser.uid)
         .set({ lastReadAt: Date.now() })
         .then(() => showToast("Notifications marquées comme lues"));
+}
+
+function getLocalDateInputValue() {
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = String(today.getMonth() + 1).padStart(2, "0");
+    const day = String(today.getDate()).padStart(2, "0");
+    return year + "-" + month + "-" + day;
+}
+
+function openMemoryForm(memoryId = null, memory = null) {
+    currentEditingMemoryId = memoryId;
+    memoryFormHeading.textContent = memory ? "Modifier ce souvenir" : "Ajouter un souvenir";
+    saveMemoryBtn.textContent = memory ? "Enregistrer les modifications" : "Enregistrer";
+    memoryEmoji.value = memory?.emoji || "💚";
+    memoryFormIcon.textContent = memoryEmoji.value;
+    memoryDate.value = memory?.memoryDate || getLocalDateInputValue();
+    memoryTitle.value = memory?.title || "";
+    memoryText.value = memory?.text || "";
+    memoryForm.style.display = "block";
+    memoryTitle.focus();
+    memoryForm.scrollIntoView({ behavior: "smooth", block: "center" });
+}
+
+function closeMemoryForm() {
+    currentEditingMemoryId = null;
+    memoryForm.reset();
+    memoryEmoji.value = "💚";
+    memoryFormIcon.textContent = "💚";
+    memoryForm.style.display = "none";
+    saveMemoryBtn.disabled = false;
+}
+
+function saveMemory() {
+    const title = memoryTitle.value.trim();
+    const text = memoryText.value.trim();
+    const date = memoryDate.value;
+
+    if (!title || !text || !date) {
+        showToast("Complète le titre, la date et le souvenir");
+        return;
+    }
+
+    saveMemoryBtn.disabled = true;
+    saveMemoryBtn.textContent = "Enregistrement…";
+    const timestamp = Date.now();
+    const memoryData = {
+        emoji: memoryEmoji.value.trim() || "💚",
+        title,
+        text,
+        memoryDate: date,
+        updatedAt: timestamp,
+        updatedBy: currentUser.uid,
+        updatedByPseudo: pseudo
+    };
+    let request;
+    const isEditing = Boolean(currentEditingMemoryId);
+
+    if (currentEditingMemoryId) {
+        request = database
+            .ref("spaces/" + currentSpaceCode + "/memories/" + currentEditingMemoryId)
+            .update(memoryData);
+    } else {
+        request = database
+            .ref("spaces/" + currentSpaceCode + "/memories")
+            .push({
+                ...memoryData,
+                createdAt: timestamp,
+                createdByUid: currentUser.uid,
+                createdByPseudo: pseudo
+            });
+    }
+
+    request
+        .then(() => {
+            closeMemoryForm();
+            showToast(isEditing ? "Souvenir modifié ✨" : "Souvenir ajouté ✨");
+            return loadMemories();
+        })
+        .catch((error) => {
+            console.error("Enregistrement du souvenir impossible", error);
+            showToast("Impossible d’enregistrer ce souvenir");
+            saveMemoryBtn.disabled = false;
+            saveMemoryBtn.textContent = currentEditingMemoryId
+                ? "Enregistrer les modifications"
+                : "Enregistrer";
+        });
+}
+
+function loadMemories(focusedMemoryId = null) {
+    if (!currentSpaceCode) {
+        return Promise.resolve();
+    }
+
+    return database
+        .ref("spaces/" + currentSpaceCode + "/memories")
+        .once("value")
+        .then((snapshot) => {
+            renderMemories(snapshot.val() || {}, focusedMemoryId);
+        });
+}
+
+function formatMemoryDate(dateValue) {
+    if (!dateValue) {
+        return "Date inconnue";
+    }
+
+    return new Date(dateValue + "T12:00:00").toLocaleDateString("fr-FR", {
+        day: "numeric",
+        month: "long",
+        year: "numeric"
+    });
+}
+
+function renderMemories(memories, focusedMemoryId = null) {
+    const entries = Object.entries(memories || {}).sort((a, b) => {
+        if (Boolean(a[1].favorite) !== Boolean(b[1].favorite)) {
+            return a[1].favorite ? -1 : 1;
+        }
+
+        return String(b[1].memoryDate || "").localeCompare(
+            String(a[1].memoryDate || "")
+        ) || (b[1].createdAt || 0) - (a[1].createdAt || 0);
+    });
+
+    memoriesTimeline.replaceChildren();
+    memoriesEmptyState.style.display = entries.length === 0 ? "flex" : "none";
+
+    entries.forEach(([memoryId, memory]) => {
+        const article = document.createElement("article");
+        article.className = "memory-timeline-card" + (memory.favorite ? " is-favorite" : "");
+        article.dataset.memoryId = memoryId;
+
+        const marker = document.createElement("span");
+        marker.className = "memory-timeline-marker";
+        marker.textContent = memory.emoji || "💚";
+
+        const body = document.createElement("div");
+        body.className = "memory-timeline-body";
+        const date = document.createElement("small");
+        date.textContent = formatMemoryDate(memory.memoryDate);
+        const title = document.createElement("h3");
+        title.textContent = memory.title || "Souvenir";
+        const text = document.createElement("p");
+        text.textContent = memory.text || "";
+        const author = document.createElement("span");
+        author.className = "memory-author";
+        author.textContent = "Ajouté par " + (memory.createdByPseudo || "Cactus");
+        body.append(date, title, text, author);
+
+        const actions = document.createElement("div");
+        actions.className = "memory-card-actions";
+        const favoriteBtn = document.createElement("button");
+        favoriteBtn.type = "button";
+        favoriteBtn.title = memory.favorite ? "Retirer des favoris" : "Ajouter aux favoris";
+        favoriteBtn.setAttribute("aria-label", favoriteBtn.title);
+        favoriteBtn.textContent = memory.favorite ? "★" : "☆";
+        favoriteBtn.addEventListener("click", () => toggleMemoryFavorite(memoryId, memory));
+        const editBtn = document.createElement("button");
+        editBtn.type = "button";
+        editBtn.title = "Modifier";
+        editBtn.setAttribute("aria-label", "Modifier ce souvenir");
+        editBtn.textContent = "✏️";
+        editBtn.addEventListener("click", () => openMemoryForm(memoryId, memory));
+        const deleteBtn = document.createElement("button");
+        deleteBtn.type = "button";
+        deleteBtn.title = "Supprimer";
+        deleteBtn.setAttribute("aria-label", "Supprimer ce souvenir");
+        deleteBtn.textContent = "🗑️";
+        deleteBtn.addEventListener("click", () => deleteMemory(memoryId));
+        actions.append(favoriteBtn, editBtn, deleteBtn);
+
+        article.append(marker, body, actions);
+        memoriesTimeline.appendChild(article);
+    });
+
+    if (focusedMemoryId) {
+        window.setTimeout(() => {
+            const focusedCard = Array.from(memoriesTimeline.children).find((card) => {
+                return card.dataset.memoryId === focusedMemoryId;
+            });
+            if (focusedCard) {
+                focusedCard.classList.add("is-focused");
+                focusedCard.scrollIntoView({ behavior: "smooth", block: "center" });
+            }
+        }, 50);
+    }
+}
+
+function toggleMemoryFavorite(memoryId, memory) {
+    database
+        .ref("spaces/" + currentSpaceCode + "/memories/" + memoryId)
+        .update({
+            favorite: !memory.favorite,
+            updatedAt: Date.now(),
+            updatedBy: currentUser.uid,
+            updatedByPseudo: pseudo
+        })
+        .then(() => loadMemories())
+        .catch((error) => {
+            console.error("Favori impossible", error);
+            showToast("Impossible de modifier ce favori");
+        });
+}
+
+function deleteMemory(memoryId) {
+    if (!confirm("Supprimer définitivement ce souvenir ?")) {
+        return;
+    }
+
+    database
+        .ref("spaces/" + currentSpaceCode + "/memories/" + memoryId)
+        .remove()
+        .then(() => {
+            showToast("Souvenir supprimé");
+            return loadMemories();
+        })
+        .catch((error) => {
+            console.error("Suppression du souvenir impossible", error);
+            showToast("Impossible de supprimer ce souvenir");
+        });
 }
 
 const GARDEN_CATALOG = [
