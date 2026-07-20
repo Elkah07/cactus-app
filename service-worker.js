@@ -1,20 +1,32 @@
-const CACHE_VERSION = "v55";
+const CACHE_VERSION = "v56";
 const SHELL_CACHE = `cactus-shell-${CACHE_VERSION}`;
 const RUNTIME_CACHE = `cactus-runtime-${CACHE_VERSION}`;
 
 const APP_SHELL = [
     "./index.html",
-    "./css/style.css?v=55",
+    "./css/style.css?v=56",
     "./js/firebase.js",
-    "./js/script.js?v=55",
-    "./js/screens.js?v=55",
+    "./js/script.js?v=56",
+    "./js/screens.js?v=56",
     "./js/utils.js",
     "./js/storage.js",
     "./js/rankings.js",
     "./js/questions.js",
     "./manifest.json",
     "./icons/icon-192-v2.png",
-    "./icons/icon-512-v2.png"
+    "./icons/icon-512-v2.png",
+    "./assets/avatars/avatar-1.webp",
+    "./assets/avatars/avatar-2.webp",
+    "./assets/avatars/avatar-3.webp",
+    "./assets/avatars/avatar-4.webp",
+    "./assets/avatars/avatar-5.webp",
+    "./assets/avatars/avatar-6.webp",
+    "./assets/avatars/avatar-7.webp",
+    "./assets/avatars/avatar-8.webp",
+    "./assets/avatars/avatar-9.webp",
+    "./assets/avatars/avatar-10.webp",
+    "./assets/avatars/avatar-11.webp",
+    "./assets/avatars/avatar-12.webp"
 ];
 
 self.addEventListener("install", (event) => {

@@ -647,6 +647,7 @@ const profileMemoriesSummary = document.getElementById("profileMemoriesSummary")
 const profileGamesSummary = document.getElementById("profileGamesSummary");
 const coupleProfileForm = document.getElementById("coupleProfileForm");
 const profileAvatarInput = document.getElementById("profileAvatarInput");
+const profileAvatarButtons = document.querySelectorAll("[data-profile-avatar]");
 const profileSpaceNameInput = document.getElementById("profileSpaceNameInput");
 const profileCactusNameInput = document.getElementById("profileCactusNameInput");
 const profileMottoInput = document.getElementById("profileMottoInput");
@@ -4166,8 +4167,49 @@ function hexToHsv(hex) {
     };
 }
 
-profileAvatarInput.addEventListener("input", () => {
-    profileMyAvatar.textContent = profileAvatarInput.value.trim() || "🌵";
+const DEFAULT_PROFILE_AVATAR = "assets/avatars/avatar-1.webp";
+
+function isCactusAvatarPath(value) {
+    return /^assets\/avatars\/avatar-(?:[1-9]|1[0-2])\.webp$/.test(value || "");
+}
+
+function renderProfileAvatar(container, value, fallback = DEFAULT_PROFILE_AVATAR) {
+    const avatar = value || fallback;
+    container.replaceChildren();
+
+    if (isCactusAvatarPath(avatar)) {
+        const image = document.createElement("img");
+        image.src = avatar;
+        image.alt = "";
+        image.loading = "lazy";
+        container.appendChild(image);
+        return;
+    }
+
+    // Les anciens profils qui utilisaient encore un emoji restent compatibles.
+    container.textContent = avatar || fallback;
+}
+
+function setSelectedProfileAvatar(value, updatePreview = true) {
+    const avatar = isCactusAvatarPath(value) ? value : DEFAULT_PROFILE_AVATAR;
+    profileAvatarInput.value = avatar;
+
+    profileAvatarButtons.forEach((button) => {
+        const isSelected = button.dataset.profileAvatar === avatar;
+        button.classList.toggle("is-selected", isSelected);
+        button.setAttribute("role", "radio");
+        button.setAttribute("aria-checked", String(isSelected));
+    });
+
+    if (updatePreview) {
+        renderProfileAvatar(profileMyAvatar, avatar);
+    }
+}
+
+profileAvatarButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+        setSelectedProfileAvatar(button.dataset.profileAvatar);
+    });
 });
 
 profileSpaceNameInput.addEventListener("input", () => {
@@ -9798,7 +9840,7 @@ function applyCoupleProfile(spaceData) {
     const profile = spaceData.profile || {};
     const players = getCouplePlayers(spaceData);
     const accent = getSafeProfileColor(profile.accentColor);
-    const myAvatar = profile.avatars?.[currentUser.uid] || "🌵";
+    const myAvatar = profile.avatars?.[currentUser.uid] || DEFAULT_PROFILE_AVATAR;
     const partnerAvatar = players.partner
         ? (profile.avatars?.[players.partner.uid] || "💚")
         : "💚";
@@ -9811,8 +9853,9 @@ function applyCoupleProfile(spaceData) {
         "aria-label",
         "Ouvrir le profil du couple" + (players.me.pseudo ? " de " + players.me.pseudo : "")
     );
-    profileMyAvatar.textContent = myAvatar;
-    profilePartnerAvatar.textContent = partnerAvatar;
+    renderProfileAvatar(dashboardProfileBtn, myAvatar);
+    renderProfileAvatar(profileMyAvatar, myAvatar);
+    renderProfileAvatar(profilePartnerAvatar, partnerAvatar, "💚");
     profileSpaceNamePreview.textContent = spaceName;
     profileCoupleNames.textContent = (players.me.pseudo || pseudo || "Toi") +
         " & " + (players.partner?.pseudo || "Partenaire");
@@ -9833,7 +9876,7 @@ function openCoupleProfile() {
     const profile = spaceData.profile || {};
 
     applyCoupleProfile(spaceData);
-    profileAvatarInput.value = profile.avatars?.[currentUser.uid] || "🌵";
+    setSelectedProfileAvatar(profile.avatars?.[currentUser.uid] || DEFAULT_PROFILE_AVATAR);
     profileSpaceNameInput.value = profile.spaceName || "Notre coin Cactus";
     profileCactusNameInput.value = profile.cactusName || "Cactou";
     profileMottoInput.value = profile.motto || "Notre petit monde à deux.";
@@ -9862,7 +9905,7 @@ function saveCoupleProfile() {
         updatedBy: currentUser.uid,
         updatedByPseudo: pseudo
     };
-    updates["avatars/" + currentUser.uid] = profileAvatarInput.value.trim() || "🌵";
+    updates["avatars/" + currentUser.uid] = profileAvatarInput.value || DEFAULT_PROFILE_AVATAR;
 
     database
         .ref("spaces/" + currentSpaceCode + "/profile")

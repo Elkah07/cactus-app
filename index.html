@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cactus 🌵</title>
-    <link rel="stylesheet" href="css/style.css?v=55">
+    <link rel="stylesheet" href="css/style.css?v=56">
     <link rel="manifest" href="manifest.json?v=2">
     <meta name="theme-color" content="#003E2D">
 </head>
@@ -1218,8 +1218,25 @@
 
     <form id="coupleProfileForm" class="couple-profile-form">
         <div class="profile-form-heading"><span>✨</span><div><small>Personnalisation commune</small><strong>Votre coin Cactus</strong></div></div>
-        <label for="profileAvatarInput">Mon avatar emoji</label>
-        <input id="profileAvatarInput" type="text" maxlength="4" value="🌵">
+        <fieldset class="profile-avatar-picker">
+            <legend>Mon avatar Cactus</legend>
+            <p>Ce choix est personnel : ta partenaire peut choisir le sien.</p>
+            <input id="profileAvatarInput" type="hidden" value="assets/avatars/avatar-1.webp">
+            <div class="profile-avatar-grid" role="radiogroup" aria-label="Choisir mon avatar Cactus">
+                <button type="button" data-profile-avatar="assets/avatars/avatar-1.webp" aria-label="Cactus sportif"><img src="assets/avatars/avatar-1.webp" alt="" loading="lazy"></button>
+                <button type="button" data-profile-avatar="assets/avatars/avatar-2.webp" aria-label="Cactus artiste"><img src="assets/avatars/avatar-2.webp" alt="" loading="lazy"></button>
+                <button type="button" data-profile-avatar="assets/avatars/avatar-3.webp" aria-label="Cactus gamer"><img src="assets/avatars/avatar-3.webp" alt="" loading="lazy"></button>
+                <button type="button" data-profile-avatar="assets/avatars/avatar-4.webp" aria-label="Cactus lecteur"><img src="assets/avatars/avatar-4.webp" alt="" loading="lazy"></button>
+                <button type="button" data-profile-avatar="assets/avatars/avatar-5.webp" aria-label="Cactus rêveur"><img src="assets/avatars/avatar-5.webp" alt="" loading="lazy"></button>
+                <button type="button" data-profile-avatar="assets/avatars/avatar-6.webp" aria-label="Cactus aventurier"><img src="assets/avatars/avatar-6.webp" alt="" loading="lazy"></button>
+                <button type="button" data-profile-avatar="assets/avatars/avatar-7.webp" aria-label="Cactus chic"><img src="assets/avatars/avatar-7.webp" alt="" loading="lazy"></button>
+                <button type="button" data-profile-avatar="assets/avatars/avatar-8.webp" aria-label="Cactus cosy"><img src="assets/avatars/avatar-8.webp" alt="" loading="lazy"></button>
+                <button type="button" data-profile-avatar="assets/avatars/avatar-9.webp" aria-label="Cactus mélomane"><img src="assets/avatars/avatar-9.webp" alt="" loading="lazy"></button>
+                <button type="button" data-profile-avatar="assets/avatars/avatar-10.webp" aria-label="Cactus nature"><img src="assets/avatars/avatar-10.webp" alt="" loading="lazy"></button>
+                <button type="button" data-profile-avatar="assets/avatars/avatar-11.webp" aria-label="Cactus pâtissier"><img src="assets/avatars/avatar-11.webp" alt="" loading="lazy"></button>
+                <button type="button" data-profile-avatar="assets/avatars/avatar-12.webp" aria-label="Cactus magique"><img src="assets/avatars/avatar-12.webp" alt="" loading="lazy"></button>
+            </div>
+        </fieldset>
         <label for="profileSpaceNameInput">Nom de notre espace</label>
         <input id="profileSpaceNameInput" type="text" maxlength="40" placeholder="Notre coin Cactus">
         <label for="profileCactusNameInput">Nom de notre cactus</label>
@@ -2071,12 +2088,12 @@
     <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
 
     <script src="js/firebase.js"></script>
-    <script src="js/screens.js?v=55"></script>
+    <script src="js/screens.js?v=56"></script>
     <script src="js/utils.js"></script>
     <script src="js/storage.js"></script>
     <script src="js/rankings.js"></script>
     <script src="js/questions.js"></script>
-    <script src="js/script.js?v=55"></script>
+    <script src="js/script.js?v=56"></script>
 
 </body>
 </html>
