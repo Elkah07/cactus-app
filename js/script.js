@@ -2259,7 +2259,6 @@ function deleteShoppingItem(itemId, itemName) {
         });
 }
 
-openShoppingListBtn.addEventListener("click", () => showScreen("shopping"));
 backFromShoppingBtn.addEventListener("click", () => {
     resetShoppingForm();
     showScreen("dailyTools");
@@ -2488,9 +2487,6 @@ importantDateForm.addEventListener("submit", (event) => { event.preventDefault()
 cancelImportantDateEditBtn.addEventListener("click", resetImportantDateForm);
 importantDateFilterButtons.forEach((button) => button.addEventListener("click", () => { activeImportantDateFilter = button.dataset.importantDateFilter; importantDateFilterButtons.forEach((item) => item.classList.toggle("is-active", item === button)); renderImportantDates(currentImportantDates); }));
 
-openTasksBtn.addEventListener("click", () => showScreen("tasks"));
-openRemindersBtn.addEventListener("click", () => showScreen("reminders"));
-openImportantDatesBtn.addEventListener("click", () => showScreen("importantDates"));
 backFromTasksBtn.addEventListener("click", () => { resetTaskForm(); showScreen("dailyTools"); });
 backFromRemindersBtn.addEventListener("click", () => { resetReminderForm(); showScreen("dailyTools"); });
 backFromImportantDatesBtn.addEventListener("click", () => { resetImportantDateForm(); showScreen("dailyTools"); });

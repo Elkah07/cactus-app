@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cactus 🌵</title>
-    <link rel="stylesheet" href="css/style.css?v=53">
+    <link rel="stylesheet" href="css/style.css?v=54">
     <link rel="manifest" href="manifest.json?v=2">
     <meta name="theme-color" content="#003E2D">
 </head>
@@ -129,16 +129,16 @@
         <div><small>Premier outil</small><strong>Nos carnets partagés</strong><p>Courses, anniversaires, projets ou idées : écrivez tout ensemble.</p></div>
     </section>
 
-    <button type="button" id="openShoppingListBtn" class="daily-tool-card daily-shopping-card">
+    <button type="button" id="openShoppingListBtn" class="daily-tool-card daily-shopping-card" onclick="showScreen('shopping')">
         <span class="daily-tool-icon"><svg class="cactus-ui-icon" width="46" height="46" aria-hidden="true"><use href="#cactusIconShopping"></use></svg></span>
         <span class="daily-tool-copy"><small>Outil du quotidien</small><strong>Liste de courses</strong><span>Ajoutez et cochez vos achats ensemble.</span></span>
         <span class="daily-tool-arrow" aria-hidden="true">›</span>
     </button>
 
     <div class="daily-tools-grid">
-        <button type="button" id="openTasksBtn" class="daily-tool-card is-compact"><span class="daily-tool-icon"><svg class="cactus-ui-icon" aria-hidden="true"><use href="#cactusIconTasks"></use></svg></span><span class="daily-tool-copy"><small>Organisation</small><strong>Nos tâches</strong><span>À faire ensemble</span></span><span class="daily-tool-arrow">›</span></button>
-        <button type="button" id="openRemindersBtn" class="daily-tool-card is-compact"><span class="daily-tool-icon"><svg class="cactus-ui-icon" aria-hidden="true"><use href="#cactusIconBell"></use></svg></span><span class="daily-tool-copy"><small>À ne pas oublier</small><strong>Nos rappels</strong><span>Date et heure</span></span><span class="daily-tool-arrow">›</span></button>
-        <button type="button" id="openImportantDatesBtn" class="daily-tool-card is-compact"><span class="daily-tool-icon"><svg class="cactus-ui-icon" aria-hidden="true"><use href="#cactusIconCalendar"></use></svg></span><span class="daily-tool-copy"><small>Calendrier</small><strong>Dates importantes</strong><span>Vos événements</span></span><span class="daily-tool-arrow">›</span></button>
+        <button type="button" id="openTasksBtn" class="daily-tool-card is-compact" onclick="showScreen('tasks')"><span class="daily-tool-icon"><svg class="cactus-ui-icon" aria-hidden="true"><use href="#cactusIconTasks"></use></svg></span><span class="daily-tool-copy"><small>Organisation</small><strong>Nos tâches</strong><span>À faire ensemble</span></span><span class="daily-tool-arrow">›</span></button>
+        <button type="button" id="openRemindersBtn" class="daily-tool-card is-compact" onclick="showScreen('reminders')"><span class="daily-tool-icon"><svg class="cactus-ui-icon" aria-hidden="true"><use href="#cactusIconBell"></use></svg></span><span class="daily-tool-copy"><small>À ne pas oublier</small><strong>Nos rappels</strong><span>Date et heure</span></span><span class="daily-tool-arrow">›</span></button>
+        <button type="button" id="openImportantDatesBtn" class="daily-tool-card is-compact" onclick="showScreen('importantDates')"><span class="daily-tool-icon"><svg class="cactus-ui-icon" aria-hidden="true"><use href="#cactusIconCalendar"></use></svg></span><span class="daily-tool-copy"><small>Calendrier</small><strong>Dates importantes</strong><span>Vos événements</span></span><span class="daily-tool-arrow">›</span></button>
     </div>
 
     <div class="garden-notebooks-heading daily-notebooks-heading">
@@ -2055,12 +2055,12 @@
     <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
 
     <script src="js/firebase.js"></script>
-    <script src="js/screens.js"></script>
+    <script src="js/screens.js?v=54"></script>
     <script src="js/utils.js"></script>
     <script src="js/storage.js"></script>
     <script src="js/rankings.js"></script>
     <script src="js/questions.js"></script>
-    <script src="js/script.js?v=53"></script>
+    <script src="js/script.js?v=54"></script>
 
 </body>
 </html>
