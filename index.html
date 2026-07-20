@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cactus 🌵</title>
-    <link rel="stylesheet" href="css/style.css?v=47">
+    <link rel="stylesheet" href="css/style.css?v=48">
     <link rel="manifest" href="manifest.json?v=2">
     <meta name="theme-color" content="#003E2D">
 </head>
@@ -147,30 +147,52 @@
 <!-- ÉCRAN CARNET -->
 
 <div id="notebookScreen" style="display:none;">
-    <h1 id="openedNotebookTitle">📝 Carnet</h1>
+    <header class="notebook-editor-header">
+        <div><small>Notre carnet partagé</small><h1 id="openedNotebookTitle">Carnet</h1></div>
+        <div class="notebook-editor-meta"><span id="notebookSaveStatus">Enregistré</span><span id="notebookWordCount">0 mot</span></div>
+    </header>
 
     <div class="notebook-toolbar">
         <button type="button" id="renameNotebookBtn" class="secondary">Renommer</button>
         <button type="button" id="deleteNotebookBtn" class="danger-btn">Supprimer</button>
     </div>
 
-    <div class="editor-toolbar">
-        <button type="button" id="boldBtn">B</button>
-        <button type="button" id="italicBtn">I</button>
-        <button type="button" id="underlineBtn">U</button>
+    <div class="editor-toolbar" aria-label="Outils de mise en forme">
+        <div class="editor-tool-group">
+            <button type="button" id="undoBtn" aria-label="Annuler" title="Annuler">↶</button>
+            <button type="button" id="redoBtn" aria-label="Rétablir" title="Rétablir">↷</button>
+        </div>
+        <div class="editor-tool-group">
+            <button type="button" id="boldBtn" aria-label="Gras"><strong>B</strong></button>
+            <button type="button" id="italicBtn" aria-label="Italique"><em>I</em></button>
+            <button type="button" id="underlineBtn" aria-label="Souligné"><u>U</u></button>
+        </div>
 
         <input type="hidden" id="textColorPicker" value="#ffffff">
         <input type="hidden" id="highlightColorPicker" value="#fff59d">
         <button type="button" id="textColorButton" class="editor-color-button" style="--control-color:#ffffff" aria-label="Couleur du texte"><span aria-hidden="true">A</span></button>
         <button type="button" id="highlightColorButton" class="editor-color-button is-highlight" style="--control-color:#fff59d" aria-label="Couleur du surlignage"><span aria-hidden="true">A</span></button>
 
-        <button type="button" id="insertCheckboxLineBtn">☑</button>
+        <div class="editor-tool-group">
+            <button type="button" id="bulletListBtn" aria-label="Liste à puces">•≡</button>
+            <button type="button" id="numberListBtn" aria-label="Liste numérotée">1≡</button>
+            <button type="button" id="insertCheckboxLineBtn" aria-label="Case à cocher">✓</button>
+        </div>
+        <div class="editor-tool-group">
+            <button type="button" id="alignLeftBtn" aria-label="Aligner à gauche">≡</button>
+            <button type="button" id="alignCenterBtn" aria-label="Centrer">≡</button>
+            <button type="button" id="alignRightBtn" aria-label="Aligner à droite">≡</button>
+        </div>
     </div>
 
     <div
         id="notebookEditor"
         class="notebook-editor"
         contenteditable="true"
+        data-placeholder="Écris ici…"
+        role="textbox"
+        aria-multiline="true"
+        aria-label="Contenu du carnet"
     ></div>
 
     <button type="button" id="backToGardenBtn" class="secondary">
@@ -728,7 +750,6 @@
 
                 <span class="dashboard-game-title">Classements</span>
 
-                <span id="rankingCountLabel">150 catégories</span>
             </button>
 
             <button
@@ -740,7 +761,6 @@
 
                 <span class="dashboard-game-title">Devine ma réponse</span>
 
-                <span id="guessCountLabel">300 questions</span>
             </button>
 
             <button
@@ -752,7 +772,6 @@
 
                 <span class="dashboard-game-title">Questions</span>
 
-                <span id="questionsCountLabel">385 questions</span>
             </button>
 
         </div>
@@ -956,37 +975,37 @@
 
         <button type="button" id="allRankingBtn" class="home-game-card card-green" data-game-card data-game-key="ranking" data-game-category="complicity fun">
             <img src="assets/cactus-ranking.png" alt="" loading="lazy" decoding="async">
-            <span>Classements</span><small>148 classements · 5 min</small><em>Complicité</em>
+            <span>Classements</span><em>Complicité</em>
         </button>
 
         <button type="button" id="allGuessBtn" class="home-game-card card-purple" data-game-card data-game-key="guess" data-game-category="discovery complicity">
             <img src="assets/cactus-guess.png" alt="" loading="lazy" decoding="async">
-            <span>Devine ma réponse</span><small>300 questions · 4 min</small><em>Découverte</em>
+            <span>Devine ma réponse</span><em>Découverte</em>
         </button>
 
         <button type="button" id="likelyBtn" class="home-game-card card-yellow" data-game-card data-game-key="likely" data-game-category="fun complicity">
             <img src="assets/cactus-likely.png" alt="" loading="lazy" decoding="async">
-            <span>Qui est le plus susceptible ?</span><small>80 situations · 3 min</small><em>Fun</em>
+            <span>Qui est le plus susceptible ?</span><em>Fun</em>
         </button>
 
         <button type="button" id="okBtn" class="home-game-card card-green" data-game-card data-game-key="ok" data-game-category="debate discovery">
             <img src="assets/cactus-ok.png" alt="" loading="lazy" decoding="async">
-            <span>OK ou Pas OK ?</span><small>929 situations · 3 min</small><em>Débats</em>
+            <span>OK ou Pas OK ?</span><em>Débats</em>
         </button>
 
         <button type="button" id="greenFlagBtn" class="home-game-card card-mint" data-game-card data-game-key="greenFlag" data-game-category="debate discovery">
     <img src="assets/cactus-greenflag.png" alt="" loading="lazy" decoding="async">
-    <span>Green Flag / Red Flag</span><small>98 situations · 4 min</small><em>Débats</em>
+    <span>Green Flag / Red Flag</span><em>Débats</em>
 </button>
 
 <button type="button" id="princessBtn" class="home-game-card card-pink" data-game-card data-game-key="princess" data-game-category="fun debate">
     <img src="assets/cactus-princess.png" alt="" loading="lazy" decoding="async">
-    <span>Princess Treatment</span><small>250 attentions · 4 min</small><em>Nouveau</em>
+    <span>Princess Treatment</span><em>Nouveau</em>
 </button>
 
         <button type="button" id="allQuestionsBtn" class="home-game-card card-blue" data-game-card data-game-key="questions" data-game-category="discovery complicity">
             <img src="assets/cactus-questions.png" alt="" loading="lazy" decoding="async">
-            <span>Questions</span><small>385 questions · 5 min</small><em>Découverte</em>
+            <span>Questions</span><em>Découverte</em>
         </button>
 
     </div>
@@ -1008,7 +1027,7 @@
         <small id="gameDetailsCategory">Complicité</small>
         <h2 id="gameDetailsTitle">Jeu Cactus</h2>
         <p id="gameDetailsDescription"></p>
-        <div class="game-details-meta"><span id="gameDetailsDuration">⏱ 5 min</span><span id="gameDetailsPlayers">💚 À deux</span></div>
+        <div class="game-details-meta"><span id="gameDetailsPlayers">À deux</span></div>
         <button type="button" id="startGameFromDetailsBtn">Commencer ce jeu</button>
     </section>
 </div>
@@ -1884,7 +1903,7 @@
     <script src="js/storage.js"></script>
     <script src="js/rankings.js"></script>
     <script src="js/questions.js"></script>
-    <script src="js/script.js?v=47"></script>
+    <script src="js/script.js?v=48"></script>
 
 </body>
 </html>

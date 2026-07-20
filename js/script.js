@@ -197,6 +197,8 @@ const gardenResetLayoutBtn = document.getElementById("gardenResetLayoutBtn");
 
 const notebookScreen = document.getElementById("notebookScreen");
 const openedNotebookTitle = document.getElementById("openedNotebookTitle");
+const notebookSaveStatus = document.getElementById("notebookSaveStatus");
+const notebookWordCount = document.getElementById("notebookWordCount");
 const backToGardenBtn = document.getElementById("backToGardenBtn");
 const renameNotebookBtn = document.getElementById("renameNotebookBtn");
 const deleteNotebookBtn = document.getElementById("deleteNotebookBtn");
@@ -207,6 +209,13 @@ const insertCheckboxLineBtn = document.getElementById("insertCheckboxLineBtn");
 const boldBtn = document.getElementById("boldBtn");
 const italicBtn = document.getElementById("italicBtn");
 const underlineBtn = document.getElementById("underlineBtn");
+const undoBtn = document.getElementById("undoBtn");
+const redoBtn = document.getElementById("redoBtn");
+const bulletListBtn = document.getElementById("bulletListBtn");
+const numberListBtn = document.getElementById("numberListBtn");
+const alignLeftBtn = document.getElementById("alignLeftBtn");
+const alignCenterBtn = document.getElementById("alignCenterBtn");
+const alignRightBtn = document.getElementById("alignRightBtn");
 const textColorPicker = document.getElementById("textColorPicker");
 const highlightColorPicker = document.getElementById("highlightColorPicker");
 const textColorButton = document.getElementById("textColorButton");
@@ -531,7 +540,6 @@ const gameDetailsImage = document.getElementById("gameDetailsImage");
 const gameDetailsCategory = document.getElementById("gameDetailsCategory");
 const gameDetailsTitle = document.getElementById("gameDetailsTitle");
 const gameDetailsDescription = document.getElementById("gameDetailsDescription");
-const gameDetailsDuration = document.getElementById("gameDetailsDuration");
 const startGameFromDetailsBtn = document.getElementById("startGameFromDetailsBtn");
 
 const dashboardProfileBtn =
@@ -603,15 +611,6 @@ const dashboardSpaceCode =
 
 const spaceCodeLabel =
     document.getElementById("spaceCodeLabel");
-
-const rankingCountLabel =
-    document.getElementById("rankingCountLabel");
-
-const guessCountLabel =
-    document.getElementById("guessCountLabel");
-
-const questionsCountLabel =
-    document.getElementById("questionsCountLabel");
 
 const levelHeroStat =
     document.getElementById("levelHeroStat");
@@ -1008,28 +1007,7 @@ async function loadRankingsData() {
     }
     rankings = await applyCreatorContent("ranking", rankings);
 
-    updateDashboardContentCounts();
     console.log("Classements chargés :", rankings);
-}
-
-function updateDashboardContentCounts() {
-    if (rankingCountLabel && rankings.length > 0) {
-        rankingCountLabel.textContent =
-            rankings.length +
-            (rankings.length === 1 ? " catégorie" : " catégories");
-    }
-
-    if (guessCountLabel && guessQuestions.length > 0) {
-        guessCountLabel.textContent =
-            guessQuestions.length +
-            (guessQuestions.length === 1 ? " question" : " questions");
-    }
-
-    if (questionsCountLabel && coupleQuestions.length > 0) {
-        questionsCountLabel.textContent =
-            coupleQuestions.length +
-            (coupleQuestions.length === 1 ? " question" : " questions");
-    }
 }
 
 async function loadLikelyQuestionsData() {
@@ -2166,6 +2144,14 @@ underlineBtn.addEventListener("click", () => {
     keepEditorToolbarOpen();
 });
 
+undoBtn.addEventListener("click", () => runEditorCommand("undo"));
+redoBtn.addEventListener("click", () => runEditorCommand("redo"));
+bulletListBtn.addEventListener("click", () => runEditorCommand("insertUnorderedList"));
+numberListBtn.addEventListener("click", () => runEditorCommand("insertOrderedList"));
+alignLeftBtn.addEventListener("click", () => runEditorCommand("justifyLeft"));
+alignCenterBtn.addEventListener("click", () => runEditorCommand("justifyCenter"));
+alignRightBtn.addEventListener("click", () => runEditorCommand("justifyRight"));
+
 let activeNotebookColorTarget = null;
 let notebookPickerState = { h: 145, s: 61, v: 83 };
 let pendingNotebookColor = "#54D38B";
@@ -3280,7 +3266,6 @@ function openGameDetails(gameKey) {
     gameDetailsCategory.textContent = game.category;
     gameDetailsTitle.textContent = game.title;
     gameDetailsDescription.textContent = game.description;
-    gameDetailsDuration.textContent = "⏱ " + game.duration;
     gameDetailsModal.style.display = "grid";
     document.body.classList.add("game-details-open");
     startGameFromDetailsBtn.focus();
@@ -5675,6 +5660,8 @@ function openNotebook(notebookId, notebook) {
 
 notebookEditor.addEventListener("input", () => {
     clearTimeout(saveNotebookTimeout);
+    updateNotebookEditorMeta();
+    notebookSaveStatus.textContent = "Modification…";
 
     saveNotebookTimeout = setTimeout(() => {
         saveNotebookContent();
@@ -5682,7 +5669,12 @@ notebookEditor.addEventListener("input", () => {
 });
 
 function saveNotebookContent() {
-    database
+    if (!currentNotebookId) {
+        return Promise.resolve();
+    }
+
+    notebookSaveStatus.textContent = "Enregistrement…";
+    return database
         .ref(
             "spaces/" +
             currentSpaceCode +
@@ -5694,14 +5686,29 @@ function saveNotebookContent() {
             updatedAt: Date.now(),
             updatedBy: currentUser.uid,
             updatedByPseudo: pseudo
+        })
+        .then(() => {
+            notebookSaveStatus.textContent = "Enregistré";
+        })
+        .catch((error) => {
+            console.error("Enregistrement du carnet impossible", error);
+            notebookSaveStatus.textContent = "Non enregistré";
         });
+}
+
+function updateNotebookEditorMeta() {
+    const text = notebookEditor.textContent.replace(/[☐☑]/g, " ").trim();
+    const words = text ? text.split(/\s+/u).filter(Boolean).length : 0;
+    notebookWordCount.textContent = words + " mot" + (words > 1 ? "s" : "");
+    notebookEditor.classList.toggle("is-empty", text.length === 0);
 }
 
 function sanitizeNotebookHtml(sourceHtml) {
     const template = document.createElement("template");
     template.innerHTML = sourceHtml || "";
     const allowedTags = new Set([
-        "P", "DIV", "BR", "STRONG", "B", "EM", "I", "U", "SPAN"
+        "P", "DIV", "BR", "STRONG", "B", "EM", "I", "U", "SPAN",
+        "UL", "OL", "LI"
     ]);
     const removedTags = new Set([
         "SCRIPT", "STYLE", "IFRAME", "OBJECT", "EMBED", "SVG", "MATH",
@@ -5721,6 +5728,7 @@ function sanitizeNotebookHtml(sourceHtml) {
 
         const color = element.style.color;
         const backgroundColor = element.style.backgroundColor;
+        const textAlign = element.style.textAlign;
         const safeClasses = Array.from(element.classList).filter((className) => {
             return ["checkbox-line", "fake-checkbox", "checked-item"].includes(className);
         });
@@ -5737,6 +5745,9 @@ function sanitizeNotebookHtml(sourceHtml) {
         }
         if (backgroundColor) {
             element.style.backgroundColor = backgroundColor;
+        }
+        if (["left", "center", "right", "justify"].includes(textAlign)) {
+            element.style.textAlign = textAlign;
         }
         if (safeClasses.includes("fake-checkbox")) {
             element.setAttribute("contenteditable", "false");
@@ -5759,11 +5770,19 @@ function loadNotebookContent() {
         .then((snapshot) => {
             const content = snapshot.val();
 
-            notebookEditor.innerHTML = sanitizeNotebookHtml(
-                content || "<p>Écris ici...</p>"
-            );
+            const sanitizedContent = sanitizeNotebookHtml(content || "");
+            const plainContent = sanitizedContent
+                .replace(/<[^>]+>/g, " ")
+                .replace(/&nbsp;/g, " ")
+                .replace(/\s+/g, " ")
+                .trim();
+            notebookEditor.innerHTML = /^Écris ici\.{3}$/i.test(plainContent)
+                ? ""
+                : sanitizedContent;
 
             restoreCheckboxes();
+            updateNotebookEditorMeta();
+            notebookSaveStatus.textContent = "Enregistré";
         });
 }
 
@@ -5786,6 +5805,7 @@ function restoreCheckboxes() {
 function runEditorCommand(command, value = null) {
     notebookEditor.focus();
     document.execCommand(command, false, value);
+    updateNotebookEditorMeta();
     saveNotebookContent();
     keepEditorToolbarOpen();
 }
@@ -5833,7 +5853,6 @@ async function loadGuessQuestionsData() {
 
     guessQuestions = await applyCreatorContent("guess", data);
 
-    updateDashboardContentCounts();
     console.log("Questions Devine ma réponse chargées :", guessQuestions);
 }
 
@@ -7676,7 +7695,6 @@ async function loadCoupleQuestionsData() {
     const response = await fetch("data/questions.json?v=42");
     coupleQuestions = await applyCreatorContent("questions", await response.json());
 
-    updateDashboardContentCounts();
     console.log("Questions chargées :", coupleQuestions);
 }
 
