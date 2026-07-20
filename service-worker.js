@@ -1,17 +1,20 @@
-const CACHE_VERSION = "v71";
+const CACHE_VERSION = "v72";
 const SHELL_CACHE = `cactus-shell-${CACHE_VERSION}`;
 const RUNTIME_CACHE = `cactus-runtime-${CACHE_VERSION}`;
 
 const APP_SHELL = [
     "./index.html",
-    "./css/style.css?v=69",
+    "./css/style.css?v=72",
     "./js/firebase.js",
-    "./js/script.js?v=71",
-    "./js/screens.js?v=61",
+    "./js/script.js?v=72",
+    "./js/screens.js?v=72",
     "./js/utils.js",
     "./js/storage.js",
     "./js/rankings.js",
     "./js/questions.js",
+    "./data/would-you-rather.json",
+    "./data/three-yes-three-no.json",
+    "./data/couple-dares.json",
     "./manifest.json",
     "./icons/icon-192-v2.png",
     "./icons/icon-512-v2.png",
@@ -45,7 +48,10 @@ const APP_SHELL = [
     "./assets/cactus-accessories/gold-crown.webp",
     "./assets/cactus-accessories/round-glasses.webp",
     "./assets/cactus-accessories/heart-necklace.webp",
-    "./assets/cactus-accessories/pink-bow.webp"
+    "./assets/cactus-accessories/pink-bow.webp",
+    "./assets/cactus-would-rather.webp",
+    "./assets/cactus-three-yes-no.webp",
+    "./assets/cactus-couple-dare.webp"
 ];
 
 self.addEventListener("install", (event) => {

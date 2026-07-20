@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cactus 🌵</title>
-    <link rel="stylesheet" href="css/style.css?v=69">
+    <link rel="stylesheet" href="css/style.css?v=72">
     <link rel="manifest" href="manifest.json?v=2">
     <meta name="theme-color" content="#003E2D">
 </head>
@@ -1172,7 +1172,7 @@
         </nav>
     </div>
 
-    <div class="games-library-heading"><div><small>La collection Cactus</small><h2><span id="visibleGamesCount">7</span> jeux à deux</h2></div></div>
+    <div class="games-library-heading"><div><small>La collection Cactus</small><h2><span id="visibleGamesCount">10</span> jeux à deux</h2></div></div>
 
     <div id="allGamesGrid" class="home-games-grid all-games-grid">
 
@@ -1192,7 +1192,7 @@
         </button>
 
         <button type="button" id="okBtn" class="home-game-card card-green" data-game-card data-game-key="ok" data-game-category="debate discovery">
-            <img src="assets/cactus-ok.png" alt="" loading="lazy" decoding="async">
+            <img src="assets/cactus-would-rather.webp" alt="" loading="lazy" decoding="async">
             <span>OK ou Pas OK ?</span><em>Débats</em>
         </button>
 
@@ -1209,6 +1209,21 @@
         <button type="button" id="allQuestionsBtn" class="home-game-card card-blue" data-game-card data-game-key="questions" data-game-category="discovery complicity">
             <img src="assets/cactus-questions.png" alt="" loading="lazy" decoding="async">
             <span>Questions</span><em>Découverte</em>
+        </button>
+
+        <button type="button" id="wouldRatherBtn" class="home-game-card card-coral" data-game-card data-game-key="wouldRather" data-game-category="fun discovery debate">
+            <img src="assets/cactus-ok.png" alt="" loading="lazy" decoding="async">
+            <span>Tu préfères ?</span><em>Nouveau</em>
+        </button>
+
+        <button type="button" id="threeYesNoBtn" class="home-game-card card-gold" data-game-card data-game-key="threeYesNo" data-game-category="debate discovery fun">
+            <img src="assets/cactus-three-yes-no.webp" alt="" loading="lazy" decoding="async">
+            <span>3 oui / 3 non</span><em>Nouveau</em>
+        </button>
+
+        <button type="button" id="coupleDareBtn" class="home-game-card card-lime" data-game-card data-game-key="coupleDare" data-game-category="fun complicity">
+            <img src="assets/cactus-couple-dare.webp" alt="" loading="lazy" decoding="async">
+            <span>Défis à deux</span><em>Nouveau</em>
         </button>
 
     </div>
@@ -1232,6 +1247,34 @@
         <p id="gameDetailsDescription"></p>
         <div class="game-details-meta"><span id="gameDetailsPlayers">À deux</span></div>
         <button type="button" id="startGameFromDetailsBtn">Commencer ce jeu</button>
+    </section>
+</div>
+
+<!-- ÉCRAN DES NOUVEAUX MODES DE JEU -->
+<div id="newGameScreen" class="new-game-screen" style="display:none;">
+    <header class="new-game-header">
+        <button type="button" id="backFromNewGameBtn" aria-label="Retour aux jeux">‹</button>
+        <div><small id="newGameCategory">Nouveau jeu</small><h1 id="newGameTitle">Jeu Cactus</h1></div>
+        <span id="newGameStepBadge">1 / 1</span>
+    </header>
+
+    <section class="new-game-stage">
+        <div class="new-game-progress"><span id="newGameProgressBar"></span></div>
+        <p id="newGameInstruction">Faites votre choix sans regarder la réponse de l’autre.</p>
+        <article id="newGamePromptCard" class="new-game-prompt-card">
+            <small id="newGamePromptKicker">À toi de choisir</small>
+            <h2 id="newGamePrompt">Chargement…</h2>
+            <p id="newGamePromptDetails"></p>
+        </article>
+
+        <div id="newGameChoices" class="new-game-choices"></div>
+        <div id="newGameStatus" class="new-game-status" style="display:none;"></div>
+        <section id="newGameResult" class="new-game-result" style="display:none;"></section>
+
+        <div class="new-game-actions">
+            <button type="button" id="newGameAgainBtn" style="display:none;">Nouvelle partie</button>
+            <button type="button" id="newGameDoneBtn" style="display:none;">Défi réalisé</button>
+        </div>
     </section>
 </div>
 
@@ -2133,12 +2176,12 @@
     <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
 
     <script src="js/firebase.js"></script>
-    <script src="js/screens.js?v=61"></script>
+    <script src="js/screens.js?v=72"></script>
     <script src="js/utils.js"></script>
     <script src="js/storage.js"></script>
     <script src="js/rankings.js"></script>
     <script src="js/questions.js"></script>
-    <script src="js/script.js?v=71"></script>
+    <script src="js/script.js?v=72"></script>
 
 </body>
 </html>

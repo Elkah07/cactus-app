@@ -634,6 +634,24 @@ const gameDetailsCategory = document.getElementById("gameDetailsCategory");
 const gameDetailsTitle = document.getElementById("gameDetailsTitle");
 const gameDetailsDescription = document.getElementById("gameDetailsDescription");
 const startGameFromDetailsBtn = document.getElementById("startGameFromDetailsBtn");
+const wouldRatherBtn = document.getElementById("wouldRatherBtn");
+const threeYesNoBtn = document.getElementById("threeYesNoBtn");
+const coupleDareBtn = document.getElementById("coupleDareBtn");
+const newGameScreen = document.getElementById("newGameScreen");
+const backFromNewGameBtn = document.getElementById("backFromNewGameBtn");
+const newGameCategory = document.getElementById("newGameCategory");
+const newGameTitle = document.getElementById("newGameTitle");
+const newGameStepBadge = document.getElementById("newGameStepBadge");
+const newGameProgressBar = document.getElementById("newGameProgressBar");
+const newGameInstruction = document.getElementById("newGameInstruction");
+const newGamePromptKicker = document.getElementById("newGamePromptKicker");
+const newGamePrompt = document.getElementById("newGamePrompt");
+const newGamePromptDetails = document.getElementById("newGamePromptDetails");
+const newGameChoices = document.getElementById("newGameChoices");
+const newGameStatus = document.getElementById("newGameStatus");
+const newGameResult = document.getElementById("newGameResult");
+const newGameAgainBtn = document.getElementById("newGameAgainBtn");
+const newGameDoneBtn = document.getElementById("newGameDoneBtn");
 
 const dashboardProfileBtn =
     document.getElementById("dashboardProfileBtn");
@@ -989,12 +1007,39 @@ const relationStatsModes = [
         icon: "👑",
         path: "princessChallenges",
         color: "#d997ff"
+    },
+    {
+        key: "wouldRather",
+        label: "Tu préfères ?",
+        icon: "↔",
+        path: "wouldRatherChallenges",
+        color: "#ff8f88"
+    },
+    {
+        key: "threeYesNo",
+        label: "3 oui / 3 non",
+        icon: "3/3",
+        path: "threeYesNoChallenges",
+        color: "#f5bd55"
+    },
+    {
+        key: "coupleDare",
+        label: "Défis à deux",
+        icon: "★",
+        path: "coupleDareChallenges",
+        color: "#a7dd6f"
     }
 ];
 
 let lastKnownSeeds = null;
 let activeRealtimeSpaceCode = "";
 let activeRealtimeSubscriptions = [];
+let wouldRatherQuestions = [];
+let threeYesNoSituations = [];
+let coupleDares = [];
+let activeNewGameMode = null;
+let activeNewGameId = null;
+let isStartingNewGame = false;
 
 
 // ====================
@@ -1052,6 +1097,10 @@ function listenToCurrentSpace(spaceCodeValue) {
 
         if (lastShownScreen === "dailyRitual") {
             renderDailyRitual(spaceData);
+        }
+
+        if (lastShownScreen === "newGame") {
+            renderNewGame(spaceData);
         }
 
         const liveRelationStats = buildRelationStatistics(spaceData);
@@ -1179,6 +1228,20 @@ async function loadRankingsData() {
     rankings = await applyCreatorContent("ranking", rankings);
 
     console.log("Classements chargés :", rankings);
+}
+
+async function loadNewGamesData() {
+    const [wouldRatherResponse, threeYesNoResponse, daresResponse] = await Promise.all([
+        fetch("data/would-you-rather.json"),
+        fetch("data/three-yes-three-no.json"),
+        fetch("data/couple-dares.json")
+    ]);
+
+    [wouldRatherQuestions, threeYesNoSituations, coupleDares] = await Promise.all([
+        wouldRatherResponse.json(),
+        threeYesNoResponse.json(),
+        daresResponse.json()
+    ]);
 }
 
 async function loadLikelyQuestionsData() {
@@ -3387,7 +3450,7 @@ const GAMES_LIBRARY = {
         title: "OK ou Pas OK ?",
         category: "Débats",
         duration: "3 min",
-        image: "assets/cactus-ok.png",
+        image: "assets/cactus-would-rather.webp",
         description: "Donnez votre avis sur des situations du quotidien et ouvrez une discussion sans pression."
     },
     greenFlag: {
@@ -3410,6 +3473,24 @@ const GAMES_LIBRARY = {
         duration: "5 min",
         image: "assets/cactus-questions.png",
         description: "Prenez le temps de répondre à une question pour mieux connaître les envies et les souvenirs de l’autre."
+    },
+    wouldRather: {
+        title: "Tu préfères ?",
+        category: "Fun & découverte",
+        image: "assets/cactus-ok.png",
+        description: "Choisissez secrètement entre deux possibilités, puis découvrez si vos envies se rejoignent."
+    },
+    threeYesNo: {
+        title: "3 oui / 3 non",
+        category: "Limites & débats",
+        image: "assets/cactus-three-yes-no.webp",
+        description: "Six situations défilent une par une : vous devez en accepter exactement trois et en refuser exactement trois, sans connaître les suivantes."
+    },
+    coupleDare: {
+        title: "Défis à deux",
+        category: "Fun & complicité",
+        image: "assets/cactus-couple-dare.webp",
+        description: "Tirez un défi, acceptez-le ensemble puis marquez votre petite mission comme réalisée."
     }
 };
 
@@ -3925,7 +4006,7 @@ function closeGameDetails() {
 }
 
 function updateRecommendedGame() {
-    const rotation = ["questions", "guess", "ranking", "likely", "ok", "greenFlag", "princess"];
+    const rotation = ["questions", "guess", "ranking", "wouldRather", "likely", "threeYesNo", "ok", "coupleDare", "greenFlag", "princess"];
     const totalGames = currentSpaceData
         ? buildRelationStatistics(currentSpaceData).totalGames
         : 0;
@@ -3974,6 +4055,389 @@ startGameFromDetailsBtn.addEventListener("click", () => {
 document.addEventListener("keydown", (event) => {
     if (event.key === "Escape" && gameDetailsModal.style.display !== "none") closeGameDetails();
 });
+
+const NEW_GAME_MODES = {
+    wouldRather: { path: "wouldRatherChallenges", title: "Tu préfères ?", category: "Choix secret" },
+    threeYesNo: { path: "threeYesNoChallenges", title: "3 oui / 3 non", category: "Tes limites" },
+    coupleDare: { path: "coupleDareChallenges", title: "Défis à deux", category: "Mission commune" }
+};
+
+function shuffleNewGameItems(items) {
+    const copy = [...items];
+    for (let index = copy.length - 1; index > 0; index--) {
+        const swapIndex = Math.floor(Math.random() * (index + 1));
+        [copy[index], copy[swapIndex]] = [copy[swapIndex], copy[index]];
+    }
+    return copy;
+}
+
+function getNewGameChallenges(mode, spaceData = currentSpaceData) {
+    const path = NEW_GAME_MODES[mode]?.path;
+    return path ? (spaceData?.[path] || {}) : {};
+}
+
+function findOpenNewGameChallenge(mode) {
+    return Object.entries(getNewGameChallenges(mode))
+        .filter(([, challenge]) => !["completed", "skipped"].includes(challenge?.status))
+        .sort((a, b) => (b[1].createdAt || 0) - (a[1].createdAt || 0))[0] || null;
+}
+
+function getNewGameSource(mode) {
+    if (mode === "wouldRather") return wouldRatherQuestions;
+    if (mode === "threeYesNo") return threeYesNoSituations;
+    if (mode === "coupleDare") return coupleDares;
+    return [];
+}
+
+function buildNewGameChallenge(mode) {
+    const source = getNewGameSource(mode);
+    if (!source.length) return null;
+    const common = {
+        mode,
+        status: "answering",
+        createdAt: Date.now(),
+        createdBy: currentUser.uid
+    };
+
+    if (mode === "threeYesNo") {
+        return { ...common, situations: shuffleNewGameItems(source).slice(0, 6) };
+    }
+
+    const selected = selectFreshGameItem(
+        source,
+        mode,
+        null,
+        NEW_GAME_MODES[mode].path
+    );
+    return mode === "coupleDare"
+        ? { ...common, dare: selected, votes: {} }
+        : { ...common, prompt: selected, answers: {} };
+}
+
+function createNewGameChoice(label, value, className = "") {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "new-game-choice " + className;
+    button.dataset.choice = value;
+    button.textContent = label;
+    return button;
+}
+
+function resetNewGameStage() {
+    newGameChoices.replaceChildren();
+    newGameResult.replaceChildren();
+    newGameResult.style.display = "none";
+    newGameStatus.style.display = "none";
+    newGameAgainBtn.style.display = "none";
+    newGameDoneBtn.style.display = "none";
+    newGamePromptDetails.textContent = "";
+}
+
+function startNewGame(mode, forceNew = false) {
+    if (!NEW_GAME_MODES[mode] || !currentSpaceCode || isStartingNewGame) return;
+    if (!getNewGameSource(mode).length) {
+        showToast("Le catalogue du jeu charge encore");
+        loadNewGamesData();
+        return;
+    }
+
+    const existing = forceNew ? null : findOpenNewGameChallenge(mode);
+    activeNewGameMode = mode;
+
+    if (existing) {
+        activeNewGameId = existing[0];
+        showScreen("newGame");
+        renderNewGame(currentSpaceData);
+        return;
+    }
+
+    const challenge = buildNewGameChallenge(mode);
+    const reference = database.ref(
+        "spaces/" + currentSpaceCode + "/" + NEW_GAME_MODES[mode].path
+    ).push();
+    activeNewGameId = reference.key;
+    isStartingNewGame = true;
+    showScreen("newGame");
+    newGamePrompt.textContent = "Cactus prépare votre partie…";
+    reference.set(challenge)
+        .then(() => {
+            if (!currentSpaceData[NEW_GAME_MODES[mode].path]) currentSpaceData[NEW_GAME_MODES[mode].path] = {};
+            currentSpaceData[NEW_GAME_MODES[mode].path][activeNewGameId] = challenge;
+            renderNewGame(currentSpaceData);
+        })
+        .catch((error) => {
+            console.error("Création du nouveau jeu impossible", error);
+            showToast(getFriendlyFirebaseError(error));
+            showScreen("allGames");
+        })
+        .finally(() => { isStartingNewGame = false; });
+}
+
+function getActiveNewGameChallenge(spaceData = currentSpaceData) {
+    if (!activeNewGameMode || !activeNewGameId) return null;
+    return getNewGameChallenges(activeNewGameMode, spaceData)[activeNewGameId] || null;
+}
+
+function setNewGameStatus(title, copy) {
+    newGameStatus.replaceChildren();
+    const strong = document.createElement("strong");
+    strong.textContent = title;
+    const paragraph = document.createElement("p");
+    paragraph.textContent = copy;
+    newGameStatus.append(strong, paragraph);
+    newGameStatus.style.display = "block";
+}
+
+function renderWouldRather(challenge) {
+    const prompt = challenge.prompt;
+    const answers = challenge.answers || {};
+    const myAnswer = answers[currentUser.uid];
+    const answerEntries = Object.values(answers);
+    newGameStepBadge.textContent = "1 choix";
+    newGameProgressBar.style.width = myAnswer ? "100%" : "12%";
+    newGameInstruction.textContent = "Choisissez sans regarder la réponse de l’autre.";
+    newGamePromptKicker.textContent = prompt.category || "Tu préfères";
+    newGamePrompt.textContent = prompt.question;
+
+    if (!myAnswer) {
+        const optionA = createNewGameChoice(prompt.optionA, "A", "choice-a");
+        const optionB = createNewGameChoice(prompt.optionB, "B", "choice-b");
+        optionA.addEventListener("click", () => submitWouldRatherAnswer("A"));
+        optionB.addEventListener("click", () => submitWouldRatherAnswer("B"));
+        newGameChoices.append(optionA, optionB);
+        return;
+    }
+
+    if (answerEntries.length < 2) {
+        setNewGameStatus("Réponse enregistrée", "Votre partenaire doit encore faire son choix secret.");
+        return;
+    }
+
+    const same = answerEntries[0].choice === answerEntries[1].choice;
+    const players = getCouplePlayers(currentSpaceData);
+    const resultTitle = document.createElement("h3");
+    resultTitle.textContent = same ? "Même choix 💚" : "Deux envies différentes";
+    const resultCopy = document.createElement("p");
+    resultCopy.textContent = same
+        ? "Vous avez tous les deux choisi la même possibilité."
+        : "Une belle occasion d’expliquer ce qui vous attire dans votre choix.";
+    const list = document.createElement("div");
+    list.className = "new-game-answer-pair";
+    Object.entries(answers).forEach(([uid, answer]) => {
+        const line = document.createElement("span");
+        const name = uid === currentUser.uid ? (players.me.pseudo || "Toi") : (players.partner?.pseudo || "Partenaire");
+        line.textContent = name + " : " + (answer.choice === "A" ? prompt.optionA : prompt.optionB);
+        list.appendChild(line);
+    });
+    newGameResult.append(resultTitle, resultCopy, list);
+    newGameResult.style.display = "block";
+    newGameAgainBtn.style.display = "block";
+}
+
+function submitWouldRatherAnswer(choice) {
+    const path = NEW_GAME_MODES.wouldRather.path;
+    database.ref("spaces/" + currentSpaceCode + "/" + path + "/" + activeNewGameId + "/answers/" + currentUser.uid)
+        .set({ choice, answeredAt: Date.now(), pseudo })
+        .then(() => finalizeNewGameIfReady("wouldRather"))
+        .catch((error) => showToast(getFriendlyFirebaseError(error)));
+}
+
+function countThreeYesNoAnswers(answers) {
+    const values = Object.values(answers || {});
+    return {
+        total: values.length,
+        yes: values.filter((answer) => answer.choice === "yes").length,
+        no: values.filter((answer) => answer.choice === "no").length
+    };
+}
+
+function renderThreeYesNo(challenge) {
+    const situations = challenge.situations || [];
+    const allAnswers = challenge.answers || {};
+    const myAnswers = allAnswers[currentUser.uid] || {};
+    const counts = countThreeYesNoAnswers(myAnswers);
+    newGameStepBadge.textContent = Math.min(counts.total + 1, 6) + " / 6";
+    newGameProgressBar.style.width = Math.round((counts.total / 6) * 100) + "%";
+    newGameInstruction.textContent = "Il vous reste " + (3 - counts.yes) + " oui et " + (3 - counts.no) + " non. Les prochaines situations restent cachées.";
+
+    if (counts.total < 6) {
+        const situation = situations[counts.total];
+        newGamePromptKicker.textContent = situation.category || "Situation";
+        newGamePrompt.textContent = situation.text;
+        const yes = createNewGameChoice("Oui, j’accepte", "yes", "choice-yes");
+        const no = createNewGameChoice("Non, je n’accepte pas", "no", "choice-no");
+        yes.disabled = counts.yes >= 3;
+        no.disabled = counts.no >= 3;
+        yes.addEventListener("click", () => submitThreeYesNoAnswer(counts.total, "yes"));
+        no.addEventListener("click", () => submitThreeYesNoAnswer(counts.total, "no"));
+        newGameChoices.append(yes, no);
+        return;
+    }
+
+    const partnerFinished = Object.entries(allAnswers).some(([uid, answers]) => {
+        return uid !== currentUser.uid && countThreeYesNoAnswers(answers).total === 6;
+    });
+    if (!partnerFinished) {
+        setNewGameStatus("Tes six choix sont verrouillés", "Ton partenaire termine encore sa répartition 3 oui / 3 non.");
+        return;
+    }
+
+    const players = getCouplePlayers(currentSpaceData);
+    const answerSets = Object.entries(allAnswers);
+    let matches = 0;
+    const title = document.createElement("h3");
+    const list = document.createElement("div");
+    list.className = "three-yes-no-results";
+    situations.forEach((situation, index) => {
+        const choices = answerSets.map(([, answers]) => answers[index]?.choice);
+        if (choices[0] && choices[0] === choices[1]) matches++;
+        const row = document.createElement("article");
+        const text = document.createElement("strong");
+        text.textContent = situation.text;
+        const labels = document.createElement("small");
+        labels.textContent = answerSets.map(([uid, answers]) => {
+            const name = uid === currentUser.uid ? (players.me.pseudo || "Toi") : (players.partner?.pseudo || "Partenaire");
+            return name + " : " + (answers[index]?.choice === "yes" ? "Oui" : "Non");
+        }).join(" · ");
+        row.append(text, labels);
+        list.appendChild(row);
+    });
+    title.textContent = matches + " accord" + (matches > 1 ? "s" : "") + " sur 6";
+    newGameResult.append(title, list);
+    newGameResult.style.display = "block";
+    newGameAgainBtn.style.display = "block";
+}
+
+function submitThreeYesNoAnswer(index, choice) {
+    const challenge = getActiveNewGameChallenge();
+    const counts = countThreeYesNoAnswers(challenge?.answers?.[currentUser.uid]);
+    if ((choice === "yes" && counts.yes >= 3) || (choice === "no" && counts.no >= 3)) return;
+    const path = NEW_GAME_MODES.threeYesNo.path;
+    database.ref("spaces/" + currentSpaceCode + "/" + path + "/" + activeNewGameId + "/answers/" + currentUser.uid + "/" + index)
+        .set({ choice, answeredAt: Date.now(), pseudo })
+        .then(() => finalizeNewGameIfReady("threeYesNo"))
+        .catch((error) => showToast(getFriendlyFirebaseError(error)));
+}
+
+function renderCoupleDare(challenge) {
+    const dare = challenge.dare;
+    const votes = challenge.votes || {};
+    const accepted = Object.values(votes).filter((vote) => vote.choice === "accept").length;
+    newGameStepBadge.textContent = challenge.status === "completed" ? "Réalisé" : "Défi";
+    newGameProgressBar.style.width = challenge.status === "completed" ? "100%" : accepted >= 2 ? "72%" : "28%";
+    newGameInstruction.textContent = "Acceptez tous les deux la mission, ou tirez-en une nouvelle.";
+    newGamePromptKicker.textContent = (dare.category || "Défi") + " · " + (dare.difficulty || "Facile");
+    newGamePrompt.textContent = dare.title;
+    newGamePromptDetails.textContent = dare.description;
+
+    if (challenge.status === "completed") {
+        const title = document.createElement("h3");
+        title.textContent = "Défi accompli ✨";
+        const copy = document.createElement("p");
+        copy.textContent = "Cette petite mission rejoint votre histoire Cactus.";
+        newGameResult.append(title, copy);
+        newGameResult.style.display = "block";
+        newGameAgainBtn.style.display = "block";
+        return;
+    }
+
+    if (!votes[currentUser.uid]) {
+        const accept = createNewGameChoice("On le fait !", "accept", "choice-yes");
+        const pass = createNewGameChoice("Un autre défi", "pass", "choice-pass");
+        accept.addEventListener("click", () => submitDareVote("accept"));
+        pass.addEventListener("click", skipCoupleDare);
+        newGameChoices.append(accept, pass);
+        return;
+    }
+
+    if (accepted < 2) {
+        setNewGameStatus("Défi accepté de ton côté", "Ton partenaire doit encore accepter cette mission.");
+        return;
+    }
+
+    setNewGameStatus("Défi lancé !", "Réalisez-le ensemble, puis validez-le ici.");
+    newGameDoneBtn.style.display = "block";
+}
+
+function submitDareVote(choice) {
+    const path = NEW_GAME_MODES.coupleDare.path;
+    database.ref("spaces/" + currentSpaceCode + "/" + path + "/" + activeNewGameId + "/votes/" + currentUser.uid)
+        .set({ choice, answeredAt: Date.now(), pseudo })
+        .catch((error) => showToast(getFriendlyFirebaseError(error)));
+}
+
+function skipCoupleDare() {
+    if (!activeNewGameId) return;
+    const path = NEW_GAME_MODES.coupleDare.path;
+    database.ref("spaces/" + currentSpaceCode + "/" + path + "/" + activeNewGameId)
+        .update({ status: "skipped", skippedAt: Date.now(), skippedBy: currentUser.uid })
+        .then(() => startNewGame("coupleDare", true))
+        .catch((error) => showToast(getFriendlyFirebaseError(error)));
+}
+
+function finalizeNewGameIfReady(mode) {
+    const path = NEW_GAME_MODES[mode].path;
+    const reference = database.ref("spaces/" + currentSpaceCode + "/" + path + "/" + activeNewGameId);
+    return reference.transaction((challenge) => {
+        if (!challenge || challenge.status === "completed") return;
+        const answerSets = Object.values(challenge.answers || {});
+        const ready = mode === "wouldRather"
+            ? answerSets.length >= 2
+            : answerSets.length >= 2 && answerSets.every((answers) => countThreeYesNoAnswers(answers).total === 6);
+        if (!ready) return;
+        challenge.status = "completed";
+        challenge.completedAt = Date.now();
+        if (mode === "wouldRather") {
+            challenge.compatibility = answerSets[0].choice === answerSets[1].choice ? 100 : 0;
+        } else {
+            let matches = 0;
+            for (let index = 0; index < 6; index++) {
+                if (answerSets[0][index]?.choice === answerSets[1][index]?.choice) matches++;
+            }
+            challenge.compatibility = Math.round((matches / 6) * 100);
+        }
+        return challenge;
+    }).then((result) => {
+        if (result.committed) return awardCompletedGameBonus(mode, activeNewGameId);
+        return false;
+    });
+}
+
+function completeCoupleDare() {
+    const path = NEW_GAME_MODES.coupleDare.path;
+    const reference = database.ref("spaces/" + currentSpaceCode + "/" + path + "/" + activeNewGameId);
+    reference.transaction((challenge) => {
+        if (!challenge || challenge.status === "completed") return;
+        const accepted = Object.values(challenge.votes || {}).filter((vote) => vote.choice === "accept").length;
+        if (accepted < 2) return;
+        challenge.status = "completed";
+        challenge.completedAt = Date.now();
+        challenge.completedBy = currentUser.uid;
+        return challenge;
+    }).then((result) => {
+        if (result.committed) return awardCompletedGameBonus("coupleDare", activeNewGameId);
+        return false;
+    }).catch((error) => showToast(getFriendlyFirebaseError(error)));
+}
+
+function renderNewGame(spaceData = currentSpaceData) {
+    const config = NEW_GAME_MODES[activeNewGameMode];
+    const challenge = getActiveNewGameChallenge(spaceData);
+    if (!config || !challenge) return;
+    resetNewGameStage();
+    newGameTitle.textContent = config.title;
+    newGameCategory.textContent = config.category;
+    if (activeNewGameMode === "wouldRather") renderWouldRather(challenge);
+    if (activeNewGameMode === "threeYesNo") renderThreeYesNo(challenge);
+    if (activeNewGameMode === "coupleDare") renderCoupleDare(challenge);
+}
+
+wouldRatherBtn.addEventListener("click", () => startNewGame("wouldRather"));
+threeYesNoBtn.addEventListener("click", () => startNewGame("threeYesNo"));
+coupleDareBtn.addEventListener("click", () => startNewGame("coupleDare"));
+backFromNewGameBtn.addEventListener("click", () => showScreen("allGames"));
+newGameAgainBtn.addEventListener("click", () => startNewGame(activeNewGameMode, true));
+newGameDoneBtn.addEventListener("click", completeCoupleDare);
 
 filterGamesLibrary();
 updateRecommendedGame();
@@ -7218,6 +7682,24 @@ function getGameInboxActivities() {
         showPendingQuestionsResult();
     });
 
+    Object.keys(NEW_GAME_MODES).forEach((mode) => {
+        const open = Object.entries(getNewGameChallenges(mode))
+            .filter(([, challenge]) => !["completed", "skipped"].includes(challenge?.status))
+            .sort((a, b) => (b[1].createdAt || 0) - (a[1].createdAt || 0))[0];
+        if (!open) return;
+        const labels = {
+            wouldRather: ["↔", "Tu préfères ?", open[1].answers?.[currentUser.uid] ? "En attente de l’autre" : "Ton choix est attendu"],
+            threeYesNo: ["3/3", "3 oui / 3 non", countThreeYesNoAnswers(open[1].answers?.[currentUser.uid]).total >= 6 ? "En attente de l’autre" : "Continue tes six choix"],
+            coupleDare: ["★", "Défis à deux", open[1].votes?.[currentUser.uid] ? "Mission en cours" : "Un défi vous attend"]
+        };
+        const [icon, label, state] = labels[mode];
+        add([open], icon, label, state, () => {
+            activeNewGameMode = mode;
+            activeNewGameId = open[0];
+            showScreen("newGame");
+        });
+    });
+
     return activities;
 }
 
@@ -10432,7 +10914,8 @@ auth.onAuthStateChanged((user) => {
             loadOkQuestionsData(),
             loadGreenFlagQuestionsData(),
             loadPrincessQuestionsData(),
-            loadCoupleQuestionsData()
+            loadCoupleQuestionsData(),
+            loadNewGamesData()
         ]).catch((error) => console.warn("Actualisation du catalogue différée", error));
 
         database.ref("users/" + currentUser.uid).once("value")

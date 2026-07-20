@@ -35,7 +35,7 @@ function showScreenContent(screenName) {
     );
     document.body.classList.toggle(
         "secondary-active",
-        ["allGames", "garden", "dailyTools", "shopping", "tasks", "reminders", "importantDates", "history", "storyPage", "settings", "notifications", "dailyRitual", "coupleProfile", "onboarding"].includes(screenName)
+        ["allGames", "newGame", "garden", "dailyTools", "shopping", "tasks", "reminders", "importantDates", "history", "storyPage", "settings", "notifications", "dailyRitual", "coupleProfile", "onboarding"].includes(screenName)
     );
 
     hideScreen(loginScreen);
@@ -100,6 +100,7 @@ function showScreenContent(screenName) {
     hideScreen(coupleProfileScreen);
 
     hideScreen(allGamesScreen);
+    hideScreen(newGameScreen);
 
     historyBtn.style.setProperty("display", "none", "important");
 gardenBtn.style.setProperty("display", "none", "important");
@@ -327,6 +328,11 @@ settingsBtn.style.setProperty("display", "none", "important");
 
                 case "allGames":
             allGamesScreen.style.display = "block";
+            break;
+
+        case "newGame":
+            newGameScreen.style.display = "block";
+            renderNewGame(currentSpaceData);
             break;
 
         case "storyPage":
