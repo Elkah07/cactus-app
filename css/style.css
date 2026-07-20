@@ -6604,3 +6604,198 @@ body:not(.dark-theme) #dashboardNotificationsBadge {
     background: #54d38b;
     box-shadow: 0 3px 10px rgba(0, 20, 14, 0.35);
 }
+
+/* Sélecteur partagé par les carnets et l'éditeur de texte. */
+.notebook-color-button {
+    display: grid;
+    grid-template-columns: 42px minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 10px;
+    text-align: left;
+}
+
+.notebook-color-button > span:first-child {
+    width: 36px;
+    height: 36px;
+    border: 3px solid rgba(255, 255, 255, 0.78);
+    border-radius: 12px;
+    background: var(--control-color);
+    box-shadow: 0 5px 12px rgba(0, 30, 21, 0.16);
+}
+
+.notebook-color-button small { opacity: 0.72; }
+
+.editor-color-button {
+    position: relative;
+    overflow: hidden;
+    border: 2px solid var(--app-border-strong);
+    background: var(--app-panel-bg);
+}
+
+.editor-color-button span {
+    position: relative;
+    z-index: 1;
+    color: var(--control-color);
+    font-weight: 950;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+}
+
+.editor-color-button::after {
+    content: "";
+    position: absolute;
+    right: 5px;
+    bottom: 4px;
+    left: 5px;
+    height: 5px;
+    border-radius: 999px;
+    background: var(--control-color);
+}
+
+.editor-color-button.is-highlight span {
+    padding: 2px 4px;
+    border-radius: 4px;
+    background: var(--control-color);
+    color: #173d2e;
+    text-shadow: none;
+}
+
+body.notebook-color-open { overflow: hidden; }
+
+.notebook-color-modal {
+    position: fixed;
+    z-index: 1200;
+    inset: 0;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 14px;
+}
+
+.notebook-color-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 26, 18, 0.68);
+    backdrop-filter: blur(7px);
+}
+
+.notebook-color-sheet {
+    position: relative;
+    z-index: 1;
+    width: min(100%, 460px);
+    max-height: min(88svh, 720px);
+    padding: 18px;
+    overflow-y: auto;
+    border: 1px solid var(--app-border-strong);
+    border-radius: 28px 28px 22px 22px;
+    background: var(--app-shell-bg);
+    box-shadow: 0 28px 70px rgba(0, 20, 14, 0.38);
+}
+
+.notebook-color-sheet > header {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 38px;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+
+.notebook-color-sheet header small,
+.notebook-color-sheet header h2 { display: block; margin: 0; }
+.notebook-color-sheet header small { color: var(--app-accent); font-size: 0.58rem; font-weight: 900; text-transform: uppercase; }
+.notebook-color-sheet header h2 { margin-top: 2px; color: var(--app-heading); font-size: 1rem; }
+.notebook-color-sheet header button { width: 38px; height: 38px; margin: 0; padding: 0; border-radius: 13px; }
+
+.notebook-color-preview {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 13px;
+    padding: 10px;
+    border: 1px solid var(--app-border);
+    border-radius: 16px;
+    background: var(--app-panel-bg);
+}
+
+.notebook-color-preview > span {
+    width: 42px;
+    height: 42px;
+    border: 3px solid rgba(255, 255, 255, 0.8);
+    border-radius: 13px;
+    background: var(--selected-color);
+    box-shadow: 0 7px 15px color-mix(in srgb, var(--selected-color) 30%, transparent);
+}
+
+.notebook-color-preview strong { color: var(--app-heading); font-size: 0.78rem; letter-spacing: 0.05em; }
+
+.notebook-color-presets {
+    display: grid;
+    grid-template-columns: repeat(8, minmax(0, 1fr));
+    gap: 6px;
+    margin-bottom: 13px;
+}
+
+.notebook-color-presets button {
+    width: 100%;
+    aspect-ratio: 1;
+    min-height: 30px;
+    margin: 0;
+    padding: 0;
+    border: 2px solid rgba(255, 255, 255, 0.62);
+    border-radius: 10px;
+    background: var(--swatch);
+}
+
+.notebook-color-presets button.is-selected { outline: 3px solid var(--app-heading); outline-offset: 2px; }
+.notebook-color-field { height: 160px; margin: 0 0 13px; }
+.notebook-color-sheet .profile-hue-control { margin: 0 0 14px; }
+
+.notebook-color-sheet #notebookHueInput {
+    width: 100%;
+    height: 18px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 999px;
+    appearance: none;
+    background: linear-gradient(to right, #f44, #ff0, #48db71, #42d9e8, #4c5cff, #c94cff, #f44);
+}
+
+.notebook-color-sheet #notebookHueInput::-webkit-slider-thumb {
+    width: 26px;
+    height: 26px;
+    border: 3px solid #fff;
+    border-radius: 50%;
+    appearance: none;
+    background: hsl(var(--picker-hue) 100% 50%);
+    box-shadow: 0 3px 10px rgba(0, 20, 14, 0.35);
+}
+
+.notebook-hex-field {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    color: var(--app-muted);
+    font-size: 0.62rem;
+    font-weight: 800;
+}
+
+.notebook-hex-field > span:last-child {
+    display: flex;
+    width: 120px;
+    height: 42px;
+    align-items: center;
+    gap: 3px;
+    padding: 0 10px;
+    border: 1px solid var(--app-border-strong);
+    border-radius: 13px;
+    background: var(--app-input-bg);
+}
+
+.notebook-hex-field input { width: 100%; margin: 0; padding: 0; border: 0; background: transparent; color: var(--app-heading); font-weight: 900; }
+.notebook-color-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; margin-top: 15px; }
+.notebook-color-actions button { margin: 0; }
+
+@media (max-width: 370px) {
+    .notebook-color-presets { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .notebook-color-sheet { padding: 15px; }
+}

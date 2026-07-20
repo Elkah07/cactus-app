@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cactus 🌵</title>
-    <link rel="stylesheet" href="css/style.css?v=46">
+    <link rel="stylesheet" href="css/style.css?v=47">
     <link rel="manifest" href="manifest.json?v=2">
     <meta name="theme-color" content="#003E2D">
 </head>
@@ -127,11 +127,10 @@
             placeholder="Titre du carnet"
         >
 
-        <input
-    type="color"
-    id="notebookColor"
-    value="#D8F3DC"
->
+        <input type="hidden" id="notebookColor" value="#D8F3DC">
+        <button type="button" id="notebookColorButton" class="notebook-color-button" style="--control-color:#D8F3DC">
+            <span aria-hidden="true"></span><span>Couleur du carnet</span><small>#D8F3DC</small>
+        </button>
 
         <button type="button" id="createNotebookBtn">
             Créer le carnet
@@ -160,8 +159,10 @@
         <button type="button" id="italicBtn">I</button>
         <button type="button" id="underlineBtn">U</button>
 
-        <input type="color" id="textColorPicker" value="#ffffff">
-        <input type="color" id="highlightColorPicker" value="#fff59d">
+        <input type="hidden" id="textColorPicker" value="#ffffff">
+        <input type="hidden" id="highlightColorPicker" value="#fff59d">
+        <button type="button" id="textColorButton" class="editor-color-button" style="--control-color:#ffffff" aria-label="Couleur du texte"><span aria-hidden="true">A</span></button>
+        <button type="button" id="highlightColorButton" class="editor-color-button is-highlight" style="--control-color:#fff59d" aria-label="Couleur du surlignage"><span aria-hidden="true">A</span></button>
 
         <button type="button" id="insertCheckboxLineBtn">☑</button>
     </div>
@@ -175,6 +176,21 @@
     <button type="button" id="backToGardenBtn" class="secondary">
         Retour aux carnets
     </button>
+</div>
+
+<div id="notebookColorModal" class="notebook-color-modal" style="display:none;" role="dialog" aria-modal="true" aria-labelledby="notebookColorModalTitle">
+    <div class="notebook-color-backdrop" data-close-notebook-color></div>
+    <section class="notebook-color-sheet">
+        <header><div><small>Palette Cactus</small><h2 id="notebookColorModalTitle">Choisir une couleur</h2></div><button type="button" id="closeNotebookColorBtn" aria-label="Fermer">×</button></header>
+        <div id="notebookColorPreview" class="notebook-color-preview" style="--selected-color:#54D38B"><span></span><strong>#54D38B</strong></div>
+        <div class="notebook-color-presets" aria-label="Couleurs proposées">
+            <button type="button" data-notebook-color="#54D38B" style="--swatch:#54D38B" aria-label="Vert Cactus"></button><button type="button" data-notebook-color="#FF737D" style="--swatch:#FF737D" aria-label="Corail"></button><button type="button" data-notebook-color="#F5B94C" style="--swatch:#F5B94C" aria-label="Doré"></button><button type="button" data-notebook-color="#73CFD0" style="--swatch:#73CFD0" aria-label="Lagon"></button><button type="button" data-notebook-color="#A88BE2" style="--swatch:#A88BE2" aria-label="Lavande"></button><button type="button" data-notebook-color="#EE8FBD" style="--swatch:#EE8FBD" aria-label="Rose"></button><button type="button" data-notebook-color="#FFFFFF" style="--swatch:#FFFFFF" aria-label="Blanc"></button><button type="button" data-notebook-color="#28352F" style="--swatch:#28352F" aria-label="Encre"></button>
+        </div>
+        <div id="notebookColorField" class="profile-color-field notebook-color-field" style="--picker-hue:145" tabindex="0" aria-label="Saturation et luminosité"><span id="notebookColorCursor" class="profile-color-cursor" aria-hidden="true"></span></div>
+        <label class="profile-hue-control" for="notebookHueInput"><span>Teinte</span><input id="notebookHueInput" type="range" min="0" max="360" value="145"></label>
+        <label class="notebook-hex-field" for="notebookHexInput"><span>Code précis</span><span><strong>#</strong><input id="notebookHexInput" type="text" maxlength="6" value="54D38B" autocomplete="off" spellcheck="false"></span></label>
+        <div class="notebook-color-actions"><button type="button" id="cancelNotebookColorBtn" class="secondary">Annuler</button><button type="button" id="applyNotebookColorBtn">Appliquer</button></div>
+    </section>
 </div>
 
 <!-- ÉCRAN HISTORIQUE -->
@@ -1868,7 +1884,7 @@
     <script src="js/storage.js"></script>
     <script src="js/rankings.js"></script>
     <script src="js/questions.js"></script>
-    <script src="js/script.js?v=46"></script>
+    <script src="js/script.js?v=47"></script>
 
 </body>
 </html>

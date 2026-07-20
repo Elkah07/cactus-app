@@ -174,6 +174,7 @@ const createNotebookBox = document.getElementById("createNotebookBox");
 const notebookEmoji = document.getElementById("notebookEmoji");
 const notebookTitle = document.getElementById("notebookTitle");
 const notebookColor = document.getElementById("notebookColor");
+const notebookColorButton = document.getElementById("notebookColorButton");
 const createNotebookBtn = document.getElementById("createNotebookBtn");
 const notebooksGrid = document.getElementById("notebooksGrid");
 const gardenSeedsBalance = document.getElementById("gardenSeedsBalance");
@@ -208,6 +209,19 @@ const italicBtn = document.getElementById("italicBtn");
 const underlineBtn = document.getElementById("underlineBtn");
 const textColorPicker = document.getElementById("textColorPicker");
 const highlightColorPicker = document.getElementById("highlightColorPicker");
+const textColorButton = document.getElementById("textColorButton");
+const highlightColorButton = document.getElementById("highlightColorButton");
+const notebookColorModal = document.getElementById("notebookColorModal");
+const notebookColorModalTitle = document.getElementById("notebookColorModalTitle");
+const notebookColorPreview = document.getElementById("notebookColorPreview");
+const notebookColorField = document.getElementById("notebookColorField");
+const notebookColorCursor = document.getElementById("notebookColorCursor");
+const notebookHueInput = document.getElementById("notebookHueInput");
+const notebookHexInput = document.getElementById("notebookHexInput");
+const notebookColorPresets = document.querySelectorAll("[data-notebook-color]");
+const closeNotebookColorBtn = document.getElementById("closeNotebookColorBtn");
+const cancelNotebookColorBtn = document.getElementById("cancelNotebookColorBtn");
+const applyNotebookColorBtn = document.getElementById("applyNotebookColorBtn");
 
 const guessBtn = document.getElementById("guessBtn");
 const guessAnswerScreen = document.getElementById("guessAnswerScreen");
@@ -2152,24 +2166,140 @@ underlineBtn.addEventListener("click", () => {
     keepEditorToolbarOpen();
 });
 
-textColorPicker.addEventListener("input", () => {
-    runEditorCommand("foreColor", textColorPicker.value);
-    keepEditorToolbarOpen();
+let activeNotebookColorTarget = null;
+let notebookPickerState = { h: 145, s: 61, v: 83 };
+let pendingNotebookColor = "#54D38B";
+let notebookColorSelectionRange = null;
+
+function openNotebookColorPicker(target) {
+    const configurations = {
+        notebook: { input: notebookColor, title: "Couleur du carnet" },
+        text: { input: textColorPicker, title: "Couleur du texte" },
+        highlight: { input: highlightColorPicker, title: "Couleur du surlignage" }
+    };
+    const configuration = configurations[target];
+    if (!configuration) return;
+
+    activeNotebookColorTarget = target;
+    if (target === "text" || target === "highlight") {
+        const selection = window.getSelection();
+        const range = selection.rangeCount ? selection.getRangeAt(0) : null;
+        notebookColorSelectionRange = range && notebookEditor.contains(range.commonAncestorContainer)
+            ? range.cloneRange()
+            : null;
+    }
+    notebookColorModalTitle.textContent = configuration.title;
+    setPendingNotebookColor(configuration.input.value);
+    notebookColorModal.style.display = "flex";
+    document.body.classList.add("notebook-color-open");
+}
+
+function closeNotebookColorPicker() {
+    notebookColorModal.style.display = "none";
+    document.body.classList.remove("notebook-color-open");
+    activeNotebookColorTarget = null;
+}
+
+function restoreNotebookColorSelection() {
+    if (!notebookColorSelectionRange) return;
+    notebookEditor.focus();
+    const selection = window.getSelection();
+    selection.removeAllRanges();
+    selection.addRange(notebookColorSelectionRange);
+}
+
+function setPendingNotebookColor(value, synchronizePicker = true) {
+    pendingNotebookColor = getSafeProfileColor(value).toUpperCase();
+    notebookColorPreview.style.setProperty("--selected-color", pendingNotebookColor);
+    notebookColorPreview.querySelector("strong").textContent = pendingNotebookColor;
+    notebookHexInput.value = pendingNotebookColor.slice(1);
+
+    if (synchronizePicker) {
+        notebookPickerState = hexToHsv(pendingNotebookColor);
+        notebookHueInput.value = Math.round(notebookPickerState.h);
+        notebookColorField.style.setProperty("--picker-hue", notebookPickerState.h);
+        notebookHueInput.style.setProperty("--picker-hue", notebookPickerState.h);
+        syncNotebookColorCursor();
+    }
+
+    notebookColorPresets.forEach((button) => {
+        button.classList.toggle(
+            "is-selected",
+            button.dataset.notebookColor.toUpperCase() === pendingNotebookColor
+        );
+    });
+}
+
+function syncNotebookColorCursor() {
+    notebookColorCursor.style.left = notebookPickerState.s + "%";
+    notebookColorCursor.style.top = (100 - notebookPickerState.v) + "%";
+}
+
+function updateNotebookColorFromPointer(event) {
+    const rect = notebookColorField.getBoundingClientRect();
+    const x = Math.min(Math.max(event.clientX - rect.left, 0), rect.width);
+    const y = Math.min(Math.max(event.clientY - rect.top, 0), rect.height);
+    notebookPickerState.s = Math.round((x / rect.width) * 100);
+    notebookPickerState.v = Math.round((1 - y / rect.height) * 100);
+    syncNotebookColorCursor();
+    setPendingNotebookColor(hsvToHex(notebookPickerState), false);
+}
+
+notebookColorButton.addEventListener("click", () => openNotebookColorPicker("notebook"));
+textColorButton.addEventListener("click", () => openNotebookColorPicker("text"));
+highlightColorButton.addEventListener("click", () => openNotebookColorPicker("highlight"));
+closeNotebookColorBtn.addEventListener("click", closeNotebookColorPicker);
+cancelNotebookColorBtn.addEventListener("click", closeNotebookColorPicker);
+notebookColorModal.querySelector("[data-close-notebook-color]").addEventListener("click", closeNotebookColorPicker);
+
+notebookColorPresets.forEach((button) => {
+    button.addEventListener("click", () => setPendingNotebookColor(button.dataset.notebookColor));
 });
 
-textColorPicker.addEventListener("click", () => {
-    runEditorCommand("foreColor", textColorPicker.value);
-    keepEditorToolbarOpen();
+notebookHueInput.addEventListener("input", () => {
+    notebookPickerState.h = Number(notebookHueInput.value);
+    notebookColorField.style.setProperty("--picker-hue", notebookPickerState.h);
+    notebookHueInput.style.setProperty("--picker-hue", notebookPickerState.h);
+    setPendingNotebookColor(hsvToHex(notebookPickerState), false);
 });
 
-highlightColorPicker.addEventListener("input", () => {
-    runEditorCommand("hiliteColor", highlightColorPicker.value);
-    keepEditorToolbarOpen();
+notebookHexInput.addEventListener("input", () => {
+    notebookHexInput.value = notebookHexInput.value.replace(/[^0-9a-f]/gi, "").slice(0, 6).toUpperCase();
+    if (notebookHexInput.value.length === 6) {
+        setPendingNotebookColor("#" + notebookHexInput.value);
+    }
 });
 
-highlightColorPicker.addEventListener("click", () => {
-    runEditorCommand("hiliteColor", highlightColorPicker.value);
-    keepEditorToolbarOpen();
+notebookColorField.addEventListener("pointerdown", (event) => {
+    notebookColorField.setPointerCapture(event.pointerId);
+    updateNotebookColorFromPointer(event);
+});
+
+notebookColorField.addEventListener("pointermove", (event) => {
+    if (notebookColorField.hasPointerCapture(event.pointerId)) {
+        updateNotebookColorFromPointer(event);
+    }
+});
+
+applyNotebookColorBtn.addEventListener("click", () => {
+    if (activeNotebookColorTarget === "notebook") {
+        notebookColor.value = pendingNotebookColor;
+        notebookColorButton.style.setProperty("--control-color", pendingNotebookColor);
+        notebookColorButton.querySelector("small").textContent = pendingNotebookColor;
+    } else if (activeNotebookColorTarget === "text") {
+        textColorPicker.value = pendingNotebookColor;
+        textColorButton.style.setProperty("--control-color", pendingNotebookColor);
+        restoreNotebookColorSelection();
+        runEditorCommand("foreColor", pendingNotebookColor);
+        keepEditorToolbarOpen();
+    } else if (activeNotebookColorTarget === "highlight") {
+        highlightColorPicker.value = pendingNotebookColor;
+        highlightColorButton.style.setProperty("--control-color", pendingNotebookColor);
+        restoreNotebookColorSelection();
+        runEditorCommand("hiliteColor", pendingNotebookColor);
+        keepEditorToolbarOpen();
+    }
+    closeNotebookColorPicker();
 });
 
 insertCheckboxLineBtn.addEventListener("click", () => {
