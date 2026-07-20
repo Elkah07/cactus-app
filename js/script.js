@@ -168,6 +168,9 @@ const resetTimelineFiltersBtn = document.getElementById("resetTimelineFiltersBtn
 const gardenScreen = document.getElementById("gardenScreen");
 const gardenBtn = document.getElementById("gardenBtn");
 const backFromGardenBtn = document.getElementById("backFromGardenBtn");
+const gardenDailyShortcutBtn = document.getElementById("gardenDailyShortcutBtn");
+const dailyToolsScreen = document.getElementById("dailyToolsScreen");
+const backFromDailyToolsBtn = document.getElementById("backFromDailyToolsBtn");
 
 const showCreateNotebookBtn = document.getElementById("showCreateNotebookBtn");
 const createNotebookBox = document.getElementById("createNotebookBox");
@@ -512,6 +515,7 @@ const storyPageContent = document.getElementById("storyPageContent");
 
 const editStoryBtn = document.getElementById("editStoryBtn");
 const backFromStoryPageBtn = document.getElementById("backFromStoryPageBtn");
+const storyMemoriesBtn = document.getElementById("storyMemoriesBtn");
 
 const allGamesScreen = document.getElementById("allGamesScreen");
 
@@ -1986,6 +1990,14 @@ backFromGardenBtn.addEventListener("click", () => {
     showScreen("dashboard");
 });
 
+gardenDailyShortcutBtn.addEventListener("click", () => {
+    showScreen("dailyTools");
+});
+
+backFromDailyToolsBtn.addEventListener("click", () => {
+    showScreen("dashboard");
+});
+
 gardenEditBtn.addEventListener("click", () => {
     setGardenEditMode(!gardenEditMode);
 });
@@ -2059,7 +2071,7 @@ backToGardenBtn.addEventListener("click", () => {
     currentNotebookId = null;
     currentNotebookData = null;
 
-    showScreen("garden");
+    showScreen("dailyTools");
 });
 
 
@@ -2125,7 +2137,7 @@ deleteNotebookBtn.addEventListener("click", () => {
             currentNotebookId = null;
             currentNotebookData = null;
 
-            showScreen("garden");
+            showScreen("dailyTools");
         });
 });
 
@@ -2689,6 +2701,10 @@ editStoryBtn.addEventListener("click", () => {
 
 backFromStoryPageBtn.addEventListener("click", () => {
     showScreen("dashboard");
+});
+
+storyMemoriesBtn.addEventListener("click", () => {
+    showScreen("history");
 });
 
 openAllGamesBtn.addEventListener("click", () => {
@@ -4798,7 +4814,6 @@ function openNotification(notification) {
         showScreen("dailyRitual");
     } else if (target.kind === "garden") {
         loadGarden();
-        loadNotebooks();
         showScreen("garden");
     } else if (target.kind === "notebook") {
         database
@@ -4813,7 +4828,7 @@ function openNotification(notification) {
                     openNotebook(target.notebookId, notebook);
                 } else {
                     loadNotebooks();
-                    showScreen("garden");
+                    showScreen("dailyTools");
                     showToast("Ce carnet n’existe plus");
                 }
             });
@@ -9691,3 +9706,4 @@ if (
             displayGuessChallenges(challenges);
     });
 }
+    

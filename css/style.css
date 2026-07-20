@@ -6929,6 +6929,144 @@ body.notebook-color-open { overflow: hidden; }
     font-size: 0.86rem;
 }
 
+/* ====================
+   NOTRE QUOTIDIEN
+==================== */
+.daily-tools-screen {
+    padding-bottom: 18px;
+}
+
+.daily-tools-hero img {
+    object-position: center 28%;
+}
+
+.daily-tools-intro,
+.garden-daily-shortcut,
+.daily-coming-soon {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 14px 0;
+    padding: 14px;
+    border: 1px solid var(--app-border);
+    border-radius: 20px;
+    background: var(--app-panel-bg);
+    box-shadow: 0 12px 26px var(--app-shadow-soft);
+}
+
+.daily-tools-intro > .cactus-ui-icon,
+.garden-daily-shortcut > .cactus-ui-icon {
+    width: 46px;
+    height: 46px;
+    flex: 0 0 46px;
+    padding: 7px;
+    border-radius: 15px;
+    background: rgba(84, 211, 139, 0.14);
+}
+
+.daily-tools-intro div,
+.garden-daily-shortcut div {
+    min-width: 0;
+    flex: 1;
+}
+
+.daily-tools-intro small,
+.daily-tools-intro strong,
+.daily-tools-intro p,
+.garden-daily-shortcut small,
+.garden-daily-shortcut strong,
+.daily-coming-soon small,
+.daily-coming-soon strong {
+    display: block;
+    margin: 0;
+}
+
+.daily-tools-intro small,
+.garden-daily-shortcut small,
+.daily-coming-soon small {
+    color: var(--app-accent);
+    font-size: 0.58rem;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.daily-tools-intro strong,
+.garden-daily-shortcut strong,
+.daily-coming-soon strong {
+    margin-top: 3px;
+    color: var(--app-heading);
+    font-size: 0.78rem;
+    line-height: 1.3;
+}
+
+.daily-tools-intro p {
+    margin-top: 4px;
+    color: var(--app-muted);
+    font-size: 0.63rem;
+    line-height: 1.4;
+}
+
+.daily-notebooks-heading {
+    align-items: center;
+    margin-top: 18px;
+}
+
+.daily-notebooks-heading > button {
+    width: auto;
+    min-width: max-content;
+    margin: 0;
+    padding: 9px 12px;
+    border-radius: 12px;
+    font-size: 0.63rem;
+}
+
+.daily-tools-screen .notebooks-grid {
+    margin-top: 12px;
+}
+
+.daily-tools-screen .notebook-card {
+    min-height: 126px;
+    border: 2px solid rgba(255, 255, 255, 0.58);
+    box-shadow: 0 12px 24px var(--app-shadow-soft);
+}
+
+.daily-coming-soon {
+    align-items: flex-start;
+    flex-direction: column;
+    border-style: dashed;
+    box-shadow: none;
+    opacity: 0.82;
+}
+
+.garden-daily-shortcut > button {
+    display: grid;
+    width: 40px;
+    height: 40px;
+    margin: 0;
+    padding: 0;
+    flex: 0 0 40px;
+    place-items: center;
+    border-radius: 13px;
+    font-size: 1.4rem;
+}
+
+.story-memories-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+}
+
+.story-memories-button .cactus-ui-icon {
+    width: 28px;
+    height: 28px;
+}
+
+@media (max-width: 420px) {
+    .daily-tools-intro { align-items: flex-start; }
+    .daily-tools-screen .notebooks-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
 #alignLeftBtn { text-align: left; }
 #alignCenterBtn { text-align: center; }
 #alignRightBtn { text-align: right; }

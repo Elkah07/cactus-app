@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cactus 🌵</title>
-    <link rel="stylesheet" href="css/style.css?v=49">
+    <link rel="stylesheet" href="css/style.css?v=50">
     <link rel="manifest" href="manifest.json?v=2">
     <meta name="theme-color" content="#003E2D">
 </head>
@@ -106,13 +106,31 @@
         <div id="gardenShopGrid" class="garden-shop-grid"></div>
     </section>
 
-    <div class="garden-notebooks-heading">
-        <div><small>Vos idées à deux</small><h2>Nos carnets</h2></div>
-    </div>
+    <section class="garden-daily-shortcut">
+        <svg class="cactus-ui-icon" width="40" height="40" aria-hidden="true"><use href="#cactusIconTools"></use></svg>
+        <div><small>Besoin de vos listes ?</small><strong>Retrouvez-les dans Notre quotidien</strong></div>
+        <button type="button" id="gardenDailyShortcutBtn" aria-label="Ouvrir Notre quotidien">›</button>
+    </section>
 
-    <button type="button" id="showCreateNotebookBtn">
-        + Nouveau carnet
-    </button>
+    <button type="button" id="backFromGardenBtn" class="secondary">Retour</button>
+</div>
+
+<!-- ÉCRAN NOTRE QUOTIDIEN -->
+<div id="dailyToolsScreen" class="secondary-screen daily-tools-screen" style="display:none;">
+    <header class="secondary-screen-hero daily-tools-hero">
+        <img src="assets/cactus-main.png" alt="Notre quotidien Cactus" loading="lazy" decoding="async">
+        <div><small>Vos outils à deux</small><h1>Notre quotidien</h1><p>Listes, idées et petits outils pratiques toujours à portée de main.</p></div>
+    </header>
+
+    <section class="daily-tools-intro">
+        <svg class="cactus-ui-icon" width="42" height="42" aria-hidden="true"><use href="#cactusIconStory"></use></svg>
+        <div><small>Premier outil</small><strong>Nos carnets partagés</strong><p>Courses, anniversaires, projets ou idées : écrivez tout ensemble.</p></div>
+    </section>
+
+    <div class="garden-notebooks-heading daily-notebooks-heading">
+        <div><small>Vos listes à deux</small><h2>Nos carnets</h2></div>
+        <button type="button" id="showCreateNotebookBtn">+ Nouveau</button>
+    </div>
 
     <div id="createNotebookBox" class="create-notebook-box" style="display:none;">
         <input
@@ -139,9 +157,12 @@
 
     <div id="notebooksGrid" class="notebooks-grid"></div>
 
-    <button type="button" id="backFromGardenBtn" class="secondary">
-        Retour
-    </button>
+    <section class="daily-coming-soon" aria-label="Prochains outils">
+        <small>Le coin peut encore grandir</small>
+        <strong>D’autres outils du quotidien pourront rejoindre vos carnets ici.</strong>
+    </section>
+
+    <button type="button" id="backFromDailyToolsBtn" class="secondary">Retour</button>
 </div>
 
 <!-- ÉCRAN CARNET -->
@@ -196,7 +217,7 @@
     ></div>
 
     <button type="button" id="backToGardenBtn" class="secondary">
-        Retour aux carnets
+        Retour à Notre quotidien
     </button>
 </div>
 
@@ -835,7 +856,7 @@
 
         <button
             type="button"
-            onclick="loadNotebooks(); showScreen('garden');"
+            onclick="showScreen('garden');"
         >
             <span><svg class="cactus-ui-icon" width="30" height="30" aria-hidden="true"><use href="#cactusIconGarden"></use></svg></span>
             <small>Jardin</small>
@@ -851,10 +872,10 @@
 
         <button
             type="button"
-            onclick="showScreen('history')"
+            onclick="showScreen('dailyTools')"
         >
-            <span><svg class="cactus-ui-icon" width="30" height="30" aria-hidden="true"><use href="#cactusIconMemories"></use></svg></span>
-            <small>Souvenirs</small>
+            <span><svg class="cactus-ui-icon" width="30" height="30" aria-hidden="true"><use href="#cactusIconTools"></use></svg></span>
+            <small>Quotidien</small>
         </button>
 
     </nav>
@@ -1214,6 +1235,11 @@
 
     <button type="button" id="editStoryBtn">
         Modifier notre histoire
+    </button>
+
+    <button type="button" id="storyMemoriesBtn" class="story-memories-button">
+        <svg class="cactus-ui-icon" width="28" height="28" aria-hidden="true"><use href="#cactusIconMemories"></use></svg>
+        Voir tous nos souvenirs
     </button>
 
     <button type="button" id="backFromStoryPageBtn" class="secondary">
@@ -1721,7 +1747,7 @@
         <label><input type="checkbox" id="notifyAnswersSetting" checked> Nouvelles réponses</label>
         <label><input type="checkbox" id="notifyGamesSetting" checked> Parties terminées</label>
         <label><input type="checkbox" id="notifyAchievementsSetting" checked> Succès débloqués</label>
-        <label><input type="checkbox" id="notifyGardenSetting" checked> Jardin, carnets et souvenirs</label>
+        <label><input type="checkbox" id="notifyGardenSetting" checked> Quotidien, jardin et souvenirs</label>
     </section>
 
     <section class="settings-panel account-security-panel">
@@ -1903,7 +1929,7 @@
     <script src="js/storage.js"></script>
     <script src="js/rankings.js"></script>
     <script src="js/questions.js"></script>
-    <script src="js/script.js?v=49"></script>
+    <script src="js/script.js?v=50"></script>
 
 </body>
 </html>
