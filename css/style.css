@@ -4239,6 +4239,13 @@ body.achievements-active .top-right-btn {
     transform: translate(-50%, -50%) scale(calc(var(--garden-item-scale, 1) * 1.08));
 }
 
+/* L'illustration Questions possède une toile verticale plus grande que les autres. */
+#dashboardScreen .game-questions img,
+#allGamesScreen #allQuestionsBtn img {
+    object-fit: cover;
+    object-position: center 60%;
+}
+
 /* Mise à jour progressive de l’application. */
 .app-update-banner {
     position: fixed;
