@@ -1907,7 +1907,9 @@ function applyTheme(theme) {
     document.documentElement.style.colorScheme = isDark ? "dark" : "light";
 
     if (themeSettingIcon) {
-        themeSettingIcon.textContent = isDark ? "🌙" : "☀️";
+        themeSettingIcon.replaceChildren(
+            createCactusUiIcon("cactusIconTheme", "cactus-secondary-icon")
+        );
     }
 
     if (themeSettingLabel) {
@@ -4413,7 +4415,9 @@ function renderNotifications(spaceData) {
 
         const icon = document.createElement("span");
         icon.className = "notification-icon";
-        icon.textContent = notification.icon;
+        icon.appendChild(
+            createCactusUiIcon(getNotificationSymbol(notification.type), "cactus-secondary-icon")
+        );
 
         const copy = document.createElement("div");
         const title = document.createElement("strong");
@@ -4442,6 +4446,17 @@ function renderNotifications(spaceData) {
         deleteButton.addEventListener("click", () => dismissNotification(notification));
         notificationsList.appendChild(card);
     });
+}
+
+function getNotificationSymbol(type) {
+    const symbols = {
+        answer: "cactusIconChat",
+        game: "cactusIconGame",
+        garden: "cactusIconGarden",
+        achievement: "cactusIconTrophy"
+    };
+
+    return symbols[type] || "cactusIconBell";
 }
 
 function prioritizeNotificationChallenge(list, challengeId) {
@@ -6265,6 +6280,82 @@ function getDashboardActivitySymbol(icon) {
     }
 
     return "cactusIconGame";
+}
+
+function installSecondaryCactusIcons() {
+    const replaceTargets = [
+        ["#historyBtn", "cactusIconMemories"],
+        ["#settingsBtn", "cactusIconSettings"],
+        ["#gardenBtn", "cactusIconGarden"],
+        ["#unifiedTimelineEmpty > span", "cactusIconMemories"],
+        ["#memoriesEmptyState > span", "cactusIconStory"],
+        [".stats-summary-games > span", "cactusIconGame"],
+        [".stats-summary-answers > span", "cactusIconChat"],
+        [".stats-summary-compatibility > span", "cactusIconHeart"],
+        [".stats-summary-days > span", "cactusIconCalendar"],
+        [".stats-records-grid article:nth-child(1) > span", "cactusIconTrophy"],
+        [".stats-records-grid article:nth-child(2) > span", "cactusIconSeed"],
+        [".stats-records-grid article:nth-child(3) > span", "cactusIconStar"],
+        ["#statsEmptyState > span", "cactusIconStats"],
+        [".notifications-overview > div > span", "cactusIconBell"],
+        ["#notificationsEmptyState > span", "cactusIconBell"],
+        ["#dailyWaitingState > span", "cactusIconHeart"],
+        ["#gamesSearchEmptyState > span", "cactusIconGame"],
+        [".couple-profile-header > span", "cactusIconHeart"],
+        [".couple-profile-summary article:nth-child(1) > span", "cactusIconStar"],
+        [".couple-profile-summary article:nth-child(2) > span", "cactusIconHeart"],
+        [".couple-profile-summary article:nth-child(3) > span", "cactusIconMemories"],
+        [".couple-profile-summary article:nth-child(4) > span", "cactusIconGame"],
+        [".profile-form-heading > span", "cactusIconTools"],
+        [".settings-panel:nth-of-type(1) .settings-panel-heading > span", "cactusIconUser"],
+        ["#themeSettingIcon", "cactusIconTheme"],
+        [".notifications-preferences .settings-panel-heading > span", "cactusIconBell"],
+        [".account-security-panel .settings-panel-heading > span", "cactusIconShield"],
+        [".creator-tools-panel .settings-panel-heading > span", "cactusIconTools"]
+    ];
+
+    replaceTargets.forEach(([selector, symbolId]) => {
+        document.querySelectorAll(selector).forEach((element) => {
+            element.replaceChildren(createCactusUiIcon(symbolId, "cactus-secondary-icon"));
+        });
+    });
+
+    const decorateTargets = [
+        ['[data-timeline-type="memory"]', "cactusIconHeart"],
+        ['[data-timeline-type="game"]', "cactusIconGame"],
+        ['[data-timeline-type="achievement"]', "cactusIconTrophy"],
+        ['[data-timeline-type="milestone"]', "cactusIconStory"],
+        ['[data-history-mode="stats"]', "cactusIconStats"],
+        ['[data-history-mode="ranking"]', "cactusIconTrophy"],
+        ['[data-history-mode="guess"]', "cactusIconChat"],
+        ['[data-history-mode="questions"]', "cactusIconChat"],
+        ['[data-history-mode="likely"]', "cactusIconGame"],
+        ['[data-history-mode="ok"]', "cactusIconShield"],
+        ['[data-history-mode="greenFlag"]', "cactusIconGarden"],
+        ['[data-history-mode="princess"]', "cactusIconStar"]
+    ];
+
+    decorateTargets.forEach(([selector, symbolId]) => {
+        document.querySelectorAll(selector).forEach((element) => {
+            const label = element.textContent
+                .replace(/^[^\p{L}\p{N}]+/u, "")
+                .trim();
+            element.replaceChildren(
+                createCactusUiIcon(symbolId, "cactus-secondary-icon"),
+                document.createTextNode(label)
+            );
+        });
+    });
+
+    const dailyStreak = document.querySelector(".daily-ritual-header > span");
+    if (dailyStreak) {
+        Array.from(dailyStreak.childNodes).forEach((node) => {
+            if (node.nodeType === Node.TEXT_NODE) {
+                node.remove();
+            }
+        });
+        dailyStreak.prepend(createCactusUiIcon("cactusIconFlame", "cactus-secondary-icon"));
+    }
 }
 
 function getLatestCompletedActivity() {
@@ -9116,6 +9207,7 @@ loadLikelyQuestionsData();
 
 loadNotificationPreferences();
 applyTheme(localStorage.getItem("theme") === "dark" ? "dark" : "light");
+installSecondaryCactusIcons();
 startFirebaseConnectionMonitoring();
 
 if ("serviceWorker" in navigator) {

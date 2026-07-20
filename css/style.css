@@ -6269,3 +6269,70 @@ body:not(.dark-theme) #dashboardNotificationsBadge {
 .dashboard-daily-streak .cactus-ui-icon { width: 24px; height: 24px; }
 .dashboard-last-activity-icon .cactus-ui-icon { width: 34px; height: 34px; margin: 0 auto; }
 .game-inbox-icon .cactus-ui-icon { width: 29px; height: 29px; }
+
+/* Pack d'icônes des écrans secondaires. */
+.cactus-secondary-icon {
+    width: 28px;
+    height: 28px;
+    flex: 0 0 28px;
+}
+
+.top-left-btn .cactus-secondary-icon,
+.top-right-btn .cactus-secondary-icon,
+.top-center-btn .cactus-secondary-icon {
+    width: 27px;
+    height: 27px;
+    margin: auto;
+}
+
+.unified-timeline-filters button,
+.history-mode-card {
+    align-items: center;
+    gap: 7px;
+}
+
+.unified-timeline-filters button .cactus-secondary-icon {
+    width: 19px;
+    height: 19px;
+    flex-basis: 19px;
+}
+
+.history-mode-card .cactus-secondary-icon {
+    width: 27px;
+    height: 27px;
+}
+
+.stats-summary-card > span .cactus-secondary-icon,
+.stats-records-grid article > span .cactus-secondary-icon,
+.couple-profile-summary article > span .cactus-secondary-icon {
+    margin: 0 auto;
+}
+
+.notifications-overview .cactus-secondary-icon,
+.settings-panel-heading .cactus-secondary-icon,
+.profile-form-heading .cactus-secondary-icon {
+    width: 30px;
+    height: 30px;
+}
+
+.daily-ritual-header > span {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.daily-ritual-header .cactus-secondary-icon {
+    width: 23px;
+    height: 23px;
+    flex-basis: 23px;
+}
+
+.unified-timeline-empty > span .cactus-secondary-icon,
+.memories-empty-state > span .cactus-secondary-icon,
+.notifications-empty-state > span .cactus-secondary-icon,
+.games-search-empty > span .cactus-secondary-icon,
+.stats-empty-state > span .cactus-secondary-icon {
+    width: 52px;
+    height: 52px;
+    margin: 0 auto;
+}
