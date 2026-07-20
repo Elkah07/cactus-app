@@ -3614,6 +3614,270 @@ body.achievements-active .top-right-btn {
     transform: translate(-50%, -50%) scale(calc(var(--garden-item-scale, 1) * 1.08));
 }
 
+/* ====================
+   RITUEL QUOTIDIEN
+==================== */
+
+#dashboardScreen .dashboard-daily-card {
+    display: grid;
+    grid-template-columns: 64px minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 10px;
+    margin: 0 0 18px;
+    padding: 10px 13px 10px 7px;
+    border: 1px solid rgba(255, 184, 76, 0.28);
+    border-radius: 22px;
+    background: linear-gradient(145deg, rgba(103, 73, 28, 0.54), rgba(12, 78, 56, 0.9));
+    box-shadow: 0 12px 28px rgba(0, 22, 16, 0.22);
+    text-align: left;
+}
+
+#dashboardScreen .dashboard-daily-card.is-completed {
+    border-color: rgba(91, 222, 148, 0.42);
+    background: linear-gradient(145deg, rgba(20, 116, 78, 0.88), rgba(7, 70, 50, 0.94));
+}
+
+.dashboard-daily-card img {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+    transform: scale(1.35);
+}
+
+.dashboard-daily-copy {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+}
+
+.dashboard-daily-copy small {
+    color: #ffcb62;
+    font-size: 0.59rem;
+    font-weight: 900;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.dashboard-daily-copy strong {
+    margin: 3px 0;
+    color: #fff;
+    font-size: 0.82rem;
+}
+
+.dashboard-daily-copy > span {
+    overflow: hidden;
+    color: #b9dfc7;
+    font-size: 0.64rem;
+    line-height: 1.25;
+    text-overflow: ellipsis;
+}
+
+.dashboard-daily-streak {
+    display: flex;
+    min-width: 48px;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    padding: 7px;
+    border-radius: 14px;
+    background: rgba(0, 35, 25, 0.36);
+    color: #ffcf67;
+    font-size: 0.8rem;
+}
+
+body:not(.dark-theme) #dashboardScreen .dashboard-daily-card {
+    border-color: rgba(220, 148, 45, 0.2);
+    background: linear-gradient(145deg, #fff7dd, #f7fcf8);
+    box-shadow: 0 10px 26px rgba(91, 73, 31, 0.1);
+}
+
+body:not(.dark-theme) #dashboardScreen .dashboard-daily-card.is-completed {
+    background: linear-gradient(145deg, #e1f8e9, #f8fcf9);
+}
+
+body:not(.dark-theme) .dashboard-daily-copy strong { color: #264b3b; }
+body:not(.dark-theme) .dashboard-daily-copy > span { color: #698377; }
+body:not(.dark-theme) .dashboard-daily-streak { background: #fff0c7; color: #9b5c13; }
+
+.daily-ritual-header {
+    display: grid;
+    grid-template-columns: 44px minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 18px;
+}
+
+.daily-ritual-header > button {
+    width: 44px;
+    height: 44px;
+    margin: 0;
+    padding: 0;
+    border: 1px solid var(--app-border);
+    border-radius: 50%;
+    background: var(--app-panel-bg);
+    color: var(--app-heading);
+    font-size: 1.8rem;
+}
+
+.daily-ritual-header small,
+.daily-question-card > small,
+.daily-calendar-section > div > small {
+    color: var(--app-accent);
+    font-size: 0.62rem;
+    font-weight: 900;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.daily-ritual-header h1 {
+    margin: 2px 0 0;
+    color: var(--app-heading);
+    font-size: 1.35rem;
+}
+
+.daily-ritual-header > span {
+    padding: 8px 10px;
+    border-radius: 14px;
+    background: var(--app-icon-bg);
+    color: var(--app-heading);
+    font-size: 0.78rem;
+}
+
+.daily-question-card {
+    position: relative;
+    margin-bottom: 18px;
+    padding: 22px 17px 17px;
+    overflow: hidden;
+    border: 1px solid var(--app-border);
+    border-radius: 26px;
+    background: var(--app-panel-bg);
+    box-shadow: 0 16px 34px var(--app-shadow-soft);
+    text-align: center;
+}
+
+.daily-question-card > img {
+    width: 92px;
+    height: 92px;
+    margin: -12px auto -4px;
+    object-fit: contain;
+    transform: scale(1.35);
+}
+
+.daily-question-card h2 {
+    margin: 10px 0 17px;
+    color: var(--app-heading);
+    font-size: 1.08rem;
+    line-height: 1.35;
+}
+
+#dailyAnswerInput {
+    min-height: 112px;
+    resize: vertical;
+    border-color: var(--app-border-strong);
+    background: var(--app-input-bg);
+    color: var(--app-text);
+}
+
+#submitDailyAnswerBtn {
+    background: linear-gradient(135deg, #ffb444, #ff7d45);
+    color: #4c2705;
+}
+
+.daily-waiting-state {
+    min-height: 150px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.daily-waiting-state > span { font-size: 2.6rem; }
+.daily-waiting-state strong { margin: 8px 0 4px; color: var(--app-heading); }
+.daily-waiting-state p { color: var(--app-muted); font-size: 0.74rem; }
+
+.daily-answers-reveal article {
+    margin-bottom: 10px;
+    padding: 13px;
+    border: 1px solid var(--app-border);
+    border-radius: 17px;
+    background: var(--app-icon-bg);
+    text-align: left;
+}
+
+.daily-answers-reveal article small {
+    color: var(--app-accent);
+    font-size: 0.61rem;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.daily-answers-reveal article p {
+    margin-top: 5px;
+    color: var(--app-text);
+    font-size: 0.78rem;
+    line-height: 1.4;
+    white-space: pre-wrap;
+}
+
+.daily-answers-reveal > strong {
+    display: block;
+    margin-top: 12px;
+    color: var(--app-accent);
+    font-size: 0.77rem;
+}
+
+.daily-calendar-section {
+    padding: 15px;
+    border: 1px solid var(--app-border);
+    border-radius: 22px;
+    background: var(--app-panel-bg);
+    box-shadow: 0 10px 24px var(--app-shadow-soft);
+}
+
+.daily-calendar-section h2 {
+    margin: 2px 0 13px;
+    color: var(--app-heading);
+    font-size: 0.95rem;
+}
+
+.daily-calendar {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 6px;
+}
+
+.daily-calendar-day {
+    display: flex;
+    min-width: 0;
+    padding: 7px 2px;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid var(--app-border);
+    border-radius: 12px;
+    background: var(--app-secondary-button);
+    color: var(--app-muted);
+}
+
+.daily-calendar-day small { font-size: 0.5rem; text-transform: uppercase; }
+.daily-calendar-day strong { margin: 2px 0; font-size: 0.7rem; }
+.daily-calendar-day span { font-size: 0.65rem; }
+
+.daily-calendar-day.is-completed {
+    border-color: rgba(75, 201, 130, 0.48);
+    background: rgba(74, 202, 130, 0.18);
+    color: var(--app-accent);
+}
+
+.daily-calendar-day.is-today { outline: 2px solid #ffb44a; outline-offset: 1px; }
+
+@media (max-width: 370px) {
+    #dashboardScreen .dashboard-daily-card {
+        grid-template-columns: 54px minmax(0, 1fr) auto;
+        padding-right: 9px;
+    }
+    .dashboard-daily-card img { width: 54px; height: 54px; }
+    .daily-calendar { gap: 4px; }
+}
+
 .garden-planted-item.is-selected {
     border-radius: 14px;
     outline: 3px solid rgba(255, 255, 255, 0.95);

@@ -581,6 +581,18 @@
     </section>
 
 
+    <!-- RITUEL QUOTIDIEN -->
+    <button type="button" id="dailyRitualCard" class="dashboard-daily-card">
+        <img src="assets/cactus-streak.png" alt="">
+        <span class="dashboard-daily-copy">
+            <small>La question du jour</small>
+            <strong id="dailyRitualDashboardTitle">Votre rituel vous attend</strong>
+            <span id="dailyRitualDashboardStatus">Répondez toutes les deux pour entretenir votre série</span>
+        </span>
+        <span class="dashboard-daily-streak">🔥 <strong id="dailyStreakDashboard">0</strong></span>
+    </button>
+
+
     <!-- JEUX -->
     <section class="dashboard-games-section">
 
@@ -726,6 +738,43 @@
         <strong>Tout est calme</strong>
         <p>Les nouvelles réponses et activités apparaîtront ici.</p>
     </div>
+</div>
+
+<!-- ÉCRAN RITUEL QUOTIDIEN -->
+<div id="dailyRitualScreen" class="secondary-screen daily-ritual-screen" style="display:none;">
+    <header class="daily-ritual-header">
+        <button type="button" id="backFromDailyRitualBtn" aria-label="Retour">‹</button>
+        <div><small>Un moment rien qu’à vous</small><h1>Question du jour</h1></div>
+        <span>🔥 <strong id="dailyStreakScreen">0</strong></span>
+    </header>
+
+    <section class="daily-question-card">
+        <img src="assets/cactus-streak.png" alt="Flamme de votre série">
+        <small id="dailyQuestionDate">Aujourd’hui</small>
+        <h2 id="dailyQuestionText">Chargement de votre question…</h2>
+
+        <div id="dailyAnswerForm">
+            <textarea id="dailyAnswerInput" rows="4" maxlength="600" placeholder="Écris ta réponse ici…"></textarea>
+            <button type="button" id="submitDailyAnswerBtn">Envoyer ma réponse</button>
+        </div>
+
+        <div id="dailyWaitingState" class="daily-waiting-state" style="display:none;">
+            <span>💌</span>
+            <strong>Ta réponse est bien gardée</strong>
+            <p>Elle apparaîtra quand ta partenaire aura répondu.</p>
+        </div>
+
+        <div id="dailyAnswersReveal" class="daily-answers-reveal" style="display:none;">
+            <article><small>Ta réponse</small><p id="dailyMyAnswer"></p></article>
+            <article><small>Sa réponse</small><p id="dailyPartnerAnswer"></p></article>
+            <strong>✨ Rituel complété aujourd’hui</strong>
+        </div>
+    </section>
+
+    <section class="daily-calendar-section">
+        <div><small>Votre régularité</small><h2>Les 14 derniers jours</h2></div>
+        <div id="dailyCalendar" class="daily-calendar"></div>
+    </section>
 </div>
 
 <!-- ÉCRAN TOUS LES JEUX -->

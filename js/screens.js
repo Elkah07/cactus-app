@@ -35,7 +35,7 @@ function showScreenContent(screenName) {
     );
     document.body.classList.toggle(
         "secondary-active",
-        ["allGames", "garden", "history", "settings", "notifications"].includes(screenName)
+        ["allGames", "garden", "history", "settings", "notifications", "dailyRitual"].includes(screenName)
     );
 
     hideScreen(loginScreen);
@@ -54,6 +54,7 @@ function showScreenContent(screenName) {
     hideScreen(statsScreen);
     hideScreen(achievementsScreen);
     hideScreen(notificationsScreen);
+    hideScreen(dailyRitualScreen);
 
     hideScreen(gardenScreen);
     hideScreen(notebookScreen);
@@ -169,6 +170,11 @@ settingsBtn.style.setProperty("display", "none", "important");
         case "notifications":
             notificationsScreen.style.display = "block";
             loadNotifications();
+            break;
+
+        case "dailyRitual":
+            dailyRitualScreen.style.display = "block";
+            loadDailyRitual();
             break;
 
         case "garden":

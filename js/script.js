@@ -422,6 +422,23 @@ const backFromNotificationsBtn = document.getElementById("backFromNotificationsB
 const markNotificationsReadBtn = document.getElementById("markNotificationsReadBtn");
 const notificationsList = document.getElementById("notificationsList");
 const notificationsEmptyState = document.getElementById("notificationsEmptyState");
+const dailyRitualCard = document.getElementById("dailyRitualCard");
+const dailyRitualDashboardTitle = document.getElementById("dailyRitualDashboardTitle");
+const dailyRitualDashboardStatus = document.getElementById("dailyRitualDashboardStatus");
+const dailyStreakDashboard = document.getElementById("dailyStreakDashboard");
+const dailyRitualScreen = document.getElementById("dailyRitualScreen");
+const backFromDailyRitualBtn = document.getElementById("backFromDailyRitualBtn");
+const dailyStreakScreen = document.getElementById("dailyStreakScreen");
+const dailyQuestionDate = document.getElementById("dailyQuestionDate");
+const dailyQuestionText = document.getElementById("dailyQuestionText");
+const dailyAnswerForm = document.getElementById("dailyAnswerForm");
+const dailyAnswerInput = document.getElementById("dailyAnswerInput");
+const submitDailyAnswerBtn = document.getElementById("submitDailyAnswerBtn");
+const dailyWaitingState = document.getElementById("dailyWaitingState");
+const dailyAnswersReveal = document.getElementById("dailyAnswersReveal");
+const dailyMyAnswer = document.getElementById("dailyMyAnswer");
+const dailyPartnerAnswer = document.getElementById("dailyPartnerAnswer");
+const dailyCalendar = document.getElementById("dailyCalendar");
 
 const dashboardSpaceCode =
     document.getElementById("dashboardSpaceCode");
@@ -540,6 +557,7 @@ let pendingPrincessResults = [];
 let currentPendingPrincessIndex = 0;
 
 let coupleQuestions = [];
+let coupleQuestionsLoadPromise = null;
 let currentCoupleQuestion = null;
 let currentCoupleQuestionId = null;
 
@@ -658,9 +676,14 @@ function listenToCurrentSpace(spaceCodeValue) {
 
         currentSpaceData = spaceData;
         updateNotificationsBadge(spaceData);
+        updateDailyRitualDashboard(spaceData);
 
         if (lastShownScreen === "notifications") {
             renderNotifications(spaceData);
+        }
+
+        if (lastShownScreen === "dailyRitual") {
+            renderDailyRitual(spaceData);
         }
 
         const liveRelationStats = buildRelationStatistics(spaceData);
@@ -1851,6 +1874,18 @@ dashboardNotificationsBtn.addEventListener("click", () => {
     showScreen("notifications");
 });
 
+dailyRitualCard.addEventListener("click", () => {
+    showScreen("dailyRitual");
+});
+
+backFromDailyRitualBtn.addEventListener("click", () => {
+    showScreen("dashboard");
+});
+
+submitDailyAnswerBtn.addEventListener("click", () => {
+    submitDailyRitualAnswer();
+});
+
 backFromNotificationsBtn.addEventListener("click", () => {
     showScreen("dashboard");
 });
@@ -2193,6 +2228,239 @@ if (score >= 80) {
     showScreen("rankingCompatibility");
 }
 
+function getParisDateKey(offsetDays = 0) {
+    const date = new Date(Date.now() + offsetDays * 86400000);
+    return new Intl.DateTimeFormat("en-CA", {
+        timeZone: "Europe/Paris",
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit"
+    }).format(date);
+}
+
+function getDailyQuestionForDate(dateKey) {
+    if (!coupleQuestions.length) {
+        return null;
+    }
+
+    const source = currentSpaceCode + "_" + dateKey;
+    let hash = 0;
+    for (let index = 0; index < source.length; index++) {
+        hash = ((hash << 5) - hash + source.charCodeAt(index)) | 0;
+    }
+
+    return coupleQuestions[Math.abs(hash) % coupleQuestions.length];
+}
+
+function ensureDailyChallenge() {
+    const questionsReady = coupleQuestionsLoadPromise || loadCoupleQuestionsData();
+
+    return questionsReady.then(() => {
+        const dateKey = getParisDateKey();
+        const question = getDailyQuestionForDate(dateKey);
+
+        if (!question) {
+            throw new Error("Aucune question quotidienne disponible");
+        }
+
+        const reference = database.ref(
+            "spaces/" + currentSpaceCode + "/dailyChallenges/" + dateKey
+        );
+
+        return reference.transaction((challenge) => {
+            if (challenge) {
+                return;
+            }
+
+            return {
+                dateKey,
+                questionId: question.id || dateKey,
+                question: question.question,
+                status: "answering",
+                createdAt: Date.now()
+            };
+        }).then(() => dateKey);
+    });
+}
+
+function loadDailyRitual() {
+    dailyQuestionText.textContent = "Chargement de votre question…";
+
+    ensureDailyChallenge()
+        .then(() => database.ref("spaces/" + currentSpaceCode).once("value"))
+        .then((snapshot) => {
+            currentSpaceData = snapshot.val() || {};
+            renderDailyRitual(currentSpaceData);
+        })
+        .catch((error) => {
+            console.error("Impossible de charger le rituel", error);
+            dailyQuestionText.textContent =
+                "Impossible de charger la question du jour pour le moment.";
+        });
+}
+
+function submitDailyRitualAnswer() {
+    const answer = dailyAnswerInput.value.trim();
+    if (!answer) {
+        showToast("Écris une réponse avant de l’envoyer");
+        return;
+    }
+
+    submitDailyAnswerBtn.disabled = true;
+    submitDailyAnswerBtn.textContent = "Envoi…";
+
+    ensureDailyChallenge()
+        .then((dateKey) => {
+            return database
+                .ref(
+                    "spaces/" + currentSpaceCode + "/dailyChallenges/" +
+                    dateKey + "/answers/" + currentUser.uid
+                )
+                .set({
+                    uid: currentUser.uid,
+                    pseudo: pseudo,
+                    answer,
+                    createdAt: Date.now()
+                })
+                .then(() => incrementAnswersCount())
+                .then(() => finalizeDailyChallenge(dateKey));
+        })
+        .then(() => {
+            dailyAnswerInput.value = "";
+            showToast("💌 Réponse quotidienne enregistrée");
+            loadDailyRitual();
+        })
+        .catch((error) => {
+            console.error("Réponse quotidienne impossible", error);
+            showToast("Impossible d’enregistrer la réponse");
+        })
+        .finally(() => {
+            submitDailyAnswerBtn.disabled = false;
+            submitDailyAnswerBtn.textContent = "Envoyer ma réponse";
+        });
+}
+
+function finalizeDailyChallenge(dateKey) {
+    const reference = database.ref(
+        "spaces/" + currentSpaceCode + "/dailyChallenges/" + dateKey
+    );
+
+    return reference.transaction((challenge) => {
+        if (
+            !challenge ||
+            Object.keys(challenge.answers || {}).length < 2 ||
+            challenge.status === "completed"
+        ) {
+            return;
+        }
+
+        challenge.status = "completed";
+        challenge.completedAt = Date.now();
+        return challenge;
+    }).then((result) => {
+        const challenge = result.snapshot.val();
+        if (challenge?.status === "completed") {
+            return awardCompletedGameBonus("daily", dateKey);
+        }
+    });
+}
+
+function calculateDailyStreak(dailyChallenges) {
+    const completedDates = new Set(
+        Object.entries(dailyChallenges || {})
+            .filter(([, challenge]) => challenge.status === "completed")
+            .map(([dateKey]) => dateKey)
+    );
+    let offset = completedDates.has(getParisDateKey()) ? 0 : -1;
+    let streak = 0;
+
+    while (streak < 365 && completedDates.has(getParisDateKey(offset))) {
+        streak++;
+        offset--;
+    }
+
+    return streak;
+}
+
+function updateDailyRitualDashboard(spaceData) {
+    if (!currentUser || !dailyRitualCard) {
+        return;
+    }
+
+    const dateKey = getParisDateKey();
+    const challenge = spaceData.dailyChallenges?.[dateKey];
+    const answers = challenge?.answers || {};
+    const myAnswered = Boolean(answers[currentUser.uid]);
+    const streak = calculateDailyStreak(spaceData.dailyChallenges);
+    dailyStreakDashboard.textContent = streak;
+
+    if (challenge?.status === "completed") {
+        dailyRitualDashboardTitle.textContent = "Rituel complété aujourd’hui ✨";
+        dailyRitualDashboardStatus.textContent = "Revenez demain pour continuer votre série";
+        dailyRitualCard.classList.add("is-completed");
+    } else if (myAnswered) {
+        dailyRitualDashboardTitle.textContent = "Ta réponse est envoyée 💌";
+        dailyRitualDashboardStatus.textContent = "En attente de ta partenaire";
+        dailyRitualCard.classList.remove("is-completed");
+    } else {
+        dailyRitualDashboardTitle.textContent = "Votre rituel vous attend";
+        dailyRitualDashboardStatus.textContent = "Une question pour vous rapprocher aujourd’hui";
+        dailyRitualCard.classList.remove("is-completed");
+    }
+}
+
+function renderDailyRitual(spaceData) {
+    const dateKey = getParisDateKey();
+    const challenge = spaceData.dailyChallenges?.[dateKey];
+    const answers = challenge?.answers || {};
+    const myAnswer = answers[currentUser.uid];
+    const partnerAnswer = Object.values(answers).find((answer) => {
+        return answer.uid !== currentUser.uid;
+    });
+    const completed = challenge?.status === "completed" && myAnswer && partnerAnswer;
+
+    dailyQuestionDate.textContent = new Date(dateKey + "T12:00:00").toLocaleDateString(
+        "fr-FR",
+        { weekday: "long", day: "numeric", month: "long" }
+    );
+    dailyQuestionText.textContent = challenge?.question || "Chargement…";
+    dailyStreakScreen.textContent = calculateDailyStreak(spaceData.dailyChallenges);
+    dailyAnswerForm.style.display = !myAnswer ? "block" : "none";
+    dailyWaitingState.style.display = myAnswer && !completed ? "flex" : "none";
+    dailyAnswersReveal.style.display = completed ? "block" : "none";
+
+    if (completed) {
+        dailyMyAnswer.textContent = myAnswer.answer;
+        dailyPartnerAnswer.textContent = partnerAnswer.answer;
+    }
+
+    renderDailyCalendar(spaceData.dailyChallenges || {});
+    updateDailyRitualDashboard(spaceData);
+}
+
+function renderDailyCalendar(dailyChallenges) {
+    dailyCalendar.innerHTML = "";
+
+    for (let offset = -13; offset <= 0; offset++) {
+        const dateKey = getParisDateKey(offset);
+        const challenge = dailyChallenges[dateKey];
+        const day = document.createElement("div");
+        day.className = "daily-calendar-day" +
+            (challenge?.status === "completed" ? " is-completed" : "") +
+            (offset === 0 ? " is-today" : "");
+
+        const date = new Date(dateKey + "T12:00:00");
+        const label = document.createElement("small");
+        label.textContent = date.toLocaleDateString("fr-FR", { weekday: "short" }).slice(0, 2);
+        const number = document.createElement("strong");
+        number.textContent = date.getDate();
+        const status = document.createElement("span");
+        status.textContent = challenge?.status === "completed" ? "✓" : "·";
+        day.append(label, number, status);
+        dailyCalendar.appendChild(day);
+    }
+}
+
 const NOTIFICATION_PREFERENCES_KEY = "cactusNotificationPreferences";
 
 function getNotificationPreferences() {
@@ -2268,6 +2536,41 @@ function buildNotifications(spaceData) {
                 });
             }
         });
+    });
+
+    Object.entries(spaceData.dailyChallenges || {}).forEach(([dateKey, challenge]) => {
+        if (preferences.answers) {
+            Object.values(challenge.answers || {}).forEach((answer) => {
+                if (
+                    answer.uid !== currentUser.uid &&
+                    typeof answer.createdAt === "number"
+                ) {
+                    notifications.push({
+                        id: "daily_answer_" + dateKey + "_" + answer.uid,
+                        type: "answer",
+                        icon: "🔥",
+                        title: (answer.pseudo || "Votre partenaire") + " a répondu au rituel",
+                        message: "La question du jour attend ta réponse",
+                        timestamp: answer.createdAt
+                    });
+                }
+            });
+        }
+
+        if (
+            preferences.games &&
+            challenge.status === "completed" &&
+            typeof challenge.completedAt === "number"
+        ) {
+            notifications.push({
+                id: "daily_completed_" + dateKey,
+                type: "game",
+                icon: "🔥",
+                title: "Rituel quotidien complété",
+                message: "Votre série continue",
+                timestamp: challenge.completedAt
+            });
+        }
     });
 
     if (preferences.garden) {
@@ -4515,7 +4818,7 @@ async function loadCoupleQuestionsData() {
     console.log("Questions chargées :", coupleQuestions);
 }
 
-loadCoupleQuestionsData();
+coupleQuestionsLoadPromise = loadCoupleQuestionsData();
 
 function startQuestionsGame() {
     if (!coupleQuestions.length) {
