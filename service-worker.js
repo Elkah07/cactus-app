@@ -1,13 +1,13 @@
-const CACHE_VERSION = "v60";
+const CACHE_VERSION = "v61";
 const SHELL_CACHE = `cactus-shell-${CACHE_VERSION}`;
 const RUNTIME_CACHE = `cactus-runtime-${CACHE_VERSION}`;
 
 const APP_SHELL = [
     "./index.html",
-    "./css/style.css?v=60",
+    "./css/style.css?v=61",
     "./js/firebase.js",
-    "./js/script.js?v=60",
-    "./js/screens.js?v=60",
+    "./js/script.js?v=61",
+    "./js/screens.js?v=61",
     "./js/utils.js",
     "./js/storage.js",
     "./js/rankings.js",
@@ -28,6 +28,7 @@ const APP_SHELL = [
     "./assets/avatars/avatar-11.webp",
     "./assets/avatars/avatar-12.webp",
     "./assets/cactus-rig/stage-1-body.webp",
+    "./assets/cactus-rig/stage-1-body-bare.webp",
     "./assets/cactus-rig/stage-1-wave-arm.webp",
     "./assets/cactus-accessories/flower-hat.webp",
     "./assets/cactus-accessories/party-hat.webp",

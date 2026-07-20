@@ -15,6 +15,35 @@
 .cactus-accessory-neck[data-accessory-id="heartNecklace"] { top: 53%; width: 48%; }
 .cactus-accessory-neck[data-accessory-id="pinkBow"] { top: 57%; width: 31%; }
 
+.cactus-accessory.is-equipped img {
+    filter: drop-shadow(0 6px 4px rgba(0, 34, 23, 0.28));
+}
+
+.dashboard-cactus-character[data-cactus-stage="1"] .cactus-accessory-head[data-accessory-id="flowerHat"] {
+    top: 6%;
+    width: 46%;
+}
+.dashboard-cactus-character[data-cactus-stage="1"] .cactus-accessory-head[data-accessory-id="partyHat"] {
+    top: -6%;
+    width: 26%;
+}
+.dashboard-cactus-character[data-cactus-stage="1"] .cactus-accessory-head[data-accessory-id="goldCrown"] {
+    top: 2%;
+    width: 38%;
+}
+.dashboard-cactus-character[data-cactus-stage="1"] .cactus-accessory-face[data-accessory-id="roundGlasses"] {
+    top: 40%;
+    width: 38%;
+}
+.dashboard-cactus-character[data-cactus-stage="1"] .cactus-accessory-neck[data-accessory-id="heartNecklace"] {
+    top: 56%;
+    width: 42%;
+}
+.dashboard-cactus-character[data-cactus-stage="1"] .cactus-accessory-neck[data-accessory-id="pinkBow"] {
+    top: 61%;
+    width: 24%;
+}
+
 .dashboard-cactus-interactions {
     z-index: 3;
     display: flex;

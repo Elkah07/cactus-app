@@ -9675,6 +9675,19 @@ function renderEquippedCactusAccessories(wardrobe = {}) {
             container.appendChild(image);
         }
     });
+
+    syncCactusBodyForHeadAccessory(equipped);
+}
+
+function syncCactusBodyForHeadAccessory(equipped = {}) {
+    if (!mainCactusImage || !dashboardCactusCharacter) return;
+
+    const stage = dashboardCactusCharacter.dataset.cactusStage;
+    if (stage === "1") {
+        mainCactusImage.src = equipped.head
+            ? "assets/cactus-rig/stage-1-body-bare.webp"
+            : "assets/cactus-rig/stage-1-body.webp";
+    }
 }
 
 function renderCactusWardrobe(spaceData = {}) {
@@ -9855,8 +9868,15 @@ function updateCactusEvolution(level) {
 
         mainCactusImage.src = evolution.image;
         mainCactusImage.dataset.rigged = String(Boolean(evolution.rigged));
+        dashboardCactusCharacter.dataset.cactusStage = String(evolution.minimumLevel);
         cactusWaveArm.style.display = evolution.rigged ? "block" : "none";
         mainCactusImage.alt = "Votre cactus, " + evolution.name;
+
+        if (evolution.rigged) {
+            syncCactusBodyForHeadAccessory(
+                currentSpaceData?.cactusWardrobe?.equipped || {}
+            );
+        }
 
         if (shouldAnimate) {
             mainCactusImage.classList.remove("is-evolving");
