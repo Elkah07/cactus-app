@@ -1448,6 +1448,7 @@ createNotebookBtn.addEventListener("click", () => {
             title: title,
             color: notebookColor.value,
             createdBy: pseudo,
+            createdByUid: currentUser.uid,
             createdAt: Date.now()
         })
         .then(() => {
@@ -1494,10 +1495,14 @@ renameNotebookBtn.addEventListener("click", () => {
             "spaces/" +
             currentSpaceCode +
             "/garden/notebooks/" +
-            currentNotebookId +
-            "/title"
+            currentNotebookId
         )
-        .set(newTitle.trim())
+        .update({
+            title: newTitle.trim(),
+            updatedAt: Date.now(),
+            updatedBy: currentUser.uid,
+            updatedByPseudo: pseudo
+        })
         .then(() => {
             currentNotebookData.title = newTitle.trim();
 
@@ -2794,7 +2799,13 @@ function buildNotifications(spaceData) {
                             icon: "💬",
                             title: (answer.pseudo || "Votre partenaire") + " a répondu",
                             message: mode.icon + " " + mode.label,
-                            timestamp: answer.createdAt
+                            timestamp: answer.createdAt,
+                            target: {
+                                kind: "game",
+                                mode: mode.key,
+                                challengeId,
+                                completed: challenge.status === "completed"
+                            }
                         });
                     }
                 });
@@ -2811,7 +2822,13 @@ function buildNotifications(spaceData) {
                     icon: "🎉",
                     title: "Partie terminée à deux",
                     message: mode.icon + " " + mode.label,
-                    timestamp: challenge.completedAt
+                    timestamp: challenge.completedAt,
+                    target: {
+                        kind: "game",
+                        mode: mode.key,
+                        challengeId,
+                        completed: true
+                    }
                 });
             }
         });
@@ -2830,7 +2847,8 @@ function buildNotifications(spaceData) {
                         icon: "🔥",
                         title: (answer.pseudo || "Votre partenaire") + " a répondu au rituel",
                         message: "La question du jour attend ta réponse",
-                        timestamp: answer.createdAt
+                        timestamp: answer.createdAt,
+                        target: { kind: "daily" }
                     });
                 }
             });
@@ -2847,7 +2865,8 @@ function buildNotifications(spaceData) {
                 icon: "🔥",
                 title: "Rituel quotidien complété",
                 message: "Votre série continue",
-                timestamp: challenge.completedAt
+                timestamp: challenge.completedAt,
+                target: { kind: "daily" }
             });
         }
     });
@@ -2868,10 +2887,52 @@ function buildNotifications(spaceData) {
                     icon: item.emoji,
                     title: "Le jardin s’agrandit",
                     message: item.name + " a été débloqué",
-                    timestamp: itemData.unlockedAt
+                    timestamp: itemData.unlockedAt,
+                    target: { kind: "garden" }
                 });
             }
         });
+
+        Object.entries(spaceData.garden?.notebooks || {}).forEach(([notebookId, notebook]) => {
+            const timestamp = notebook.updatedAt || notebook.createdAt;
+            const authorUid = notebook.updatedBy || notebook.createdByUid;
+
+            if (
+                authorUid &&
+                authorUid !== currentUser.uid &&
+                typeof timestamp === "number"
+            ) {
+                notifications.push({
+                    id: "notebook_" + notebookId + "_" + timestamp,
+                    type: "garden",
+                    icon: notebook.emoji || "📝",
+                    title: notebook.updatedAt
+                        ? (notebook.updatedByPseudo || "Votre partenaire") + " a modifié un carnet"
+                        : (notebook.createdBy || "Votre partenaire") + " a créé un carnet",
+                    message: notebook.title || "Carnet partagé",
+                    timestamp,
+                    target: { kind: "notebook", notebookId }
+                });
+            }
+        });
+
+        const story = spaceData.story;
+        if (
+            story &&
+            story.updatedBy &&
+            story.updatedBy !== currentUser.uid &&
+            typeof story.updatedAt === "number"
+        ) {
+            notifications.push({
+                id: "story_" + story.updatedAt,
+                type: "garden",
+                icon: "📖",
+                title: "Votre histoire a été mise à jour",
+                message: (story.updatedByPseudo || "Votre partenaire") + " a ajouté un souvenir",
+                timestamp: story.updatedAt,
+                target: { kind: "story" }
+            });
+        }
     }
 
     if (preferences.achievements) {
@@ -2890,7 +2951,8 @@ function buildNotifications(spaceData) {
                     icon: "🏆",
                     title: "Nouveau succès commun",
                     message: achievement.title,
-                    timestamp: data.unlockedAt
+                    timestamp: data.unlockedAt,
+                    target: { kind: "achievement" }
                 });
             }
         });
@@ -2947,7 +3009,8 @@ function renderNotifications(spaceData) {
     notificationsEmptyState.style.display = notifications.length === 0 ? "flex" : "none";
 
     notifications.forEach((notification) => {
-        const card = document.createElement("article");
+        const card = document.createElement("button");
+        card.type = "button";
         card.className = "notification-card" +
             (notification.timestamp > lastReadAt ? " is-unread" : "");
 
@@ -2962,11 +3025,131 @@ function renderNotifications(spaceData) {
         message.textContent = notification.message;
         const date = document.createElement("small");
         date.textContent = formatNotificationDate(notification.timestamp);
+        const arrow = document.createElement("span");
+        arrow.className = "notification-card-arrow";
+        arrow.setAttribute("aria-hidden", "true");
+        arrow.textContent = "›";
 
         copy.append(title, message, date);
-        card.append(icon, copy);
+        card.append(icon, copy, arrow);
+        card.addEventListener("click", () => {
+            openNotification(notification);
+        });
         notificationsList.appendChild(card);
     });
+}
+
+function prioritizeNotificationChallenge(list, challengeId) {
+    const index = list.findIndex((challenge) => {
+        return String(challenge.rankingId) === String(challengeId) ||
+            String(challenge.questionId) === String(challengeId);
+    });
+
+    if (index <= 0) {
+        return index === 0;
+    }
+
+    const [challenge] = list.splice(index, 1);
+    list.unshift(challenge);
+    return true;
+}
+
+function openGameNotification(target) {
+    if (target.completed) {
+        openHistoryMode(target.mode, target.challengeId);
+        return;
+    }
+
+    if (target.mode === "ranking") {
+        currentPendingChallengeIndex = 0;
+        if (prioritizeNotificationChallenge(pendingRankingChallenges, target.challengeId)) {
+            isPlayingPendingChallenges = true;
+            startPendingRankingChallenge();
+            return;
+        }
+    }
+
+    if (target.mode === "guess") {
+        currentPendingGuessIndex = 0;
+        const guessActions = [
+            [pendingGuessAnswers, startPendingGuessAnswer],
+            [pendingGuessPredictions, startPendingGuessPrediction],
+            [pendingGuessValidations, startPendingGuessValidation],
+            [pendingGuessResults, showPendingGuessResult]
+        ];
+
+        const selectedAction = guessActions.find(([list]) => {
+            return prioritizeNotificationChallenge(list, target.challengeId);
+        });
+
+        if (selectedAction) {
+            selectedAction[1]();
+            return;
+        }
+    }
+
+    const modeActions = {
+        likely: [pendingLikelyChallenges, () => { currentPendingLikelyIndex = 0; startPendingLikelyChallenge(); }],
+        ok: [pendingOkChallenges, () => { currentPendingOkIndex = 0; startPendingOkChallenge(); }],
+        greenFlag: [pendingGreenFlagChallenges, () => { currentPendingGreenFlagIndex = 0; startPendingGreenFlagChallenge(); }],
+        princess: [pendingPrincessChallenges, () => { currentPendingPrincessIndex = 0; startPendingPrincessChallenge(); }],
+        questions: [pendingQuestionsChallenges, () => { currentPendingQuestionsIndex = 0; startPendingQuestionsChallenge(); }]
+    };
+    const selectedMode = modeActions[target.mode];
+
+    if (selectedMode && prioritizeNotificationChallenge(selectedMode[0], target.challengeId)) {
+        selectedMode[1]();
+        return;
+    }
+
+    showScreen("allGames");
+    showToast("Cette activité n’attend plus de réponse");
+}
+
+function openNotification(notification) {
+    const target = notification.target || {};
+
+    database
+        .ref("spaces/" + currentSpaceCode + "/notificationReads/" + currentUser.uid)
+        .transaction((readData) => {
+            readData = readData || {};
+            readData.lastReadAt = Math.max(
+                readData.lastReadAt || 0,
+                notification.timestamp || 0
+            );
+            return readData;
+        });
+
+    if (target.kind === "game") {
+        openGameNotification(target);
+    } else if (target.kind === "daily") {
+        showScreen("dailyRitual");
+    } else if (target.kind === "garden") {
+        loadGarden();
+        loadNotebooks();
+        showScreen("garden");
+    } else if (target.kind === "notebook") {
+        database
+            .ref(
+                "spaces/" + currentSpaceCode +
+                "/garden/notebooks/" + target.notebookId
+            )
+            .once("value")
+            .then((snapshot) => {
+                const notebook = snapshot.val();
+                if (notebook) {
+                    openNotebook(target.notebookId, notebook);
+                } else {
+                    loadNotebooks();
+                    showScreen("garden");
+                    showToast("Ce carnet n’existe plus");
+                }
+            });
+    } else if (target.kind === "story") {
+        openStoryPage();
+    } else if (target.kind === "achievement") {
+        openAchievements();
+    }
 }
 
 function formatNotificationDate(timestamp) {
@@ -3415,10 +3598,14 @@ function saveNotebookContent() {
             "spaces/" +
             currentSpaceCode +
             "/garden/notebooks/" +
-            currentNotebookId +
-            "/contentHtml"
+            currentNotebookId
         )
-        .set(sanitizeNotebookHtml(notebookEditor.innerHTML));
+        .update({
+            contentHtml: sanitizeNotebookHtml(notebookEditor.innerHTML),
+            updatedAt: Date.now(),
+            updatedBy: currentUser.uid,
+            updatedByPseudo: pseudo
+        });
 }
 
 function sanitizeNotebookHtml(sourceHtml) {
@@ -5412,7 +5599,7 @@ function showAnswerSentScreen(nextFunction) {
     showScreen("answerSent");
 }
 
-function openHistoryMode(mode) {
+function openHistoryMode(mode, focusedChallengeId = null) {
         if (mode === "stats") {
         openRelationStats();
         return;
@@ -5472,10 +5659,11 @@ function openHistoryMode(mode) {
         .then((snapshot) => {
             const data = snapshot.val() || {};
 
-            currentHistoryItems = Object.values(data)
-                .filter((item) => {
+            currentHistoryItems = Object.entries(data)
+                .filter(([, item]) => {
                     return item.status === "completed";
                 })
+                .map(([challengeId, item]) => ({ ...item, _challengeId: challengeId }))
                 .sort((a, b) => {
                     return (b.completedAt || b.createdAt || 0) -
                         (a.completedAt || a.createdAt || 0);
@@ -5502,6 +5690,16 @@ function openHistoryMode(mode) {
             });
 
             showScreen("historyDetail");
+
+            if (focusedChallengeId) {
+                const focusedIndex = currentHistoryItems.findIndex((item) => {
+                    return item._challengeId === focusedChallengeId;
+                });
+
+                if (focusedIndex >= 0) {
+                    openHistoryItem(focusedIndex);
+                }
+            }
         });
 }
 
@@ -6390,7 +6588,12 @@ function saveStoryData(data) {
 
     return database
         .ref("spaces/" + currentSpaceCode + "/story")
-        .update(data);
+        .update({
+            ...data,
+            updatedAt: Date.now(),
+            updatedBy: currentUser.uid,
+            updatedByPseudo: pseudo
+        });
 }
 
 function updateRelationshipDays(story) {

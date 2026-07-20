@@ -4489,7 +4489,7 @@ body:not(.dark-theme) #dashboardNotificationsBadge {
 .notification-card {
     position: relative;
     display: grid;
-    grid-template-columns: 48px minmax(0, 1fr);
+    grid-template-columns: 48px minmax(0, 1fr) 18px;
     align-items: center;
     gap: 11px;
     padding: 13px;
@@ -4497,6 +4497,21 @@ body:not(.dark-theme) #dashboardNotificationsBadge {
     border-radius: 19px;
     background: var(--app-panel-bg);
     box-shadow: 0 8px 20px var(--app-shadow-soft);
+    width: 100%;
+    margin: 0;
+    color: inherit;
+    text-align: left;
+    cursor: pointer;
+}
+
+.notification-card:hover {
+    border-color: rgba(75, 201, 130, 0.48);
+    transform: translateY(-1px);
+}
+
+.notification-card:focus-visible {
+    outline: 3px solid rgba(84, 211, 139, 0.35);
+    outline-offset: 2px;
 }
 
 .notification-card.is-unread {
@@ -4542,6 +4557,12 @@ body:not(.dark-theme) #dashboardNotificationsBadge {
     color: var(--app-accent);
     font-size: 0.61rem;
     font-weight: 800;
+}
+
+.notification-card-arrow {
+    color: var(--app-accent);
+    font-size: 1.5rem;
+    font-weight: 900;
 }
 
 .notifications-empty-state {
