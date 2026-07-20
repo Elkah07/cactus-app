@@ -186,6 +186,9 @@ const shoppingFormTitle = document.getElementById("shoppingFormTitle");
 const shoppingItemName = document.getElementById("shoppingItemName");
 const shoppingItemQuantity = document.getElementById("shoppingItemQuantity");
 const shoppingItemCategory = document.getElementById("shoppingItemCategory");
+const shoppingItemAssignee = document.getElementById("shoppingItemAssignee");
+const shoppingItemFavorite = document.getElementById("shoppingItemFavorite");
+const showShoppingFormBtn = document.getElementById("showShoppingFormBtn");
 const saveShoppingItemBtn = document.getElementById("saveShoppingItemBtn");
 const cancelShoppingEditBtn = document.getElementById("cancelShoppingEditBtn");
 const shoppingFilterButtons = document.querySelectorAll("[data-shopping-filter]");
@@ -194,6 +197,8 @@ const shoppingCompletedFilterCount = document.getElementById("shoppingCompletedF
 const shoppingItemsList = document.getElementById("shoppingItemsList");
 const shoppingEmptyState = document.getElementById("shoppingEmptyState");
 const clearCompletedShoppingBtn = document.getElementById("clearCompletedShoppingBtn");
+const shoppingHistorySection = document.getElementById("shoppingHistorySection");
+const shoppingHistoryList = document.getElementById("shoppingHistoryList");
 const openTasksBtn = document.getElementById("openTasksBtn");
 const openRemindersBtn = document.getElementById("openRemindersBtn");
 const openImportantDatesBtn = document.getElementById("openImportantDatesBtn");
@@ -245,6 +250,40 @@ const importantDatesCount = document.getElementById("importantDatesCount");
 const importantDatesList = document.getElementById("importantDatesList");
 const importantDatesEmptyState = document.getElementById("importantDatesEmptyState");
 const importantDateFilterButtons = document.querySelectorAll("[data-important-date-filter]");
+const showTaskFormBtn = document.getElementById("showTaskFormBtn");
+const showReminderFormBtn = document.getElementById("showReminderFormBtn");
+const showImportantDateFormBtn = document.getElementById("showImportantDateFormBtn");
+const dashboardTodayWidget = document.getElementById("dashboardTodayWidget");
+const dashboardTodayList = document.getElementById("dashboardTodayList");
+const dashboardTodayEmpty = document.getElementById("dashboardTodayEmpty");
+const dashboardTodayOpenBtn = document.getElementById("dashboardTodayOpenBtn");
+const countdownsScreen = document.getElementById("countdownsScreen");
+const backFromCountdownsBtn = document.getElementById("backFromCountdownsBtn");
+const showCountdownFormBtn = document.getElementById("showCountdownFormBtn");
+const countdownForm = document.getElementById("countdownForm");
+const countdownFormKicker = document.getElementById("countdownFormKicker");
+const countdownFormTitle = document.getElementById("countdownFormTitle");
+const countdownTitleInput = document.getElementById("countdownTitleInput");
+const countdownNotesInput = document.getElementById("countdownNotesInput");
+const countdownDateInput = document.getElementById("countdownDateInput");
+const countdownTimeInput = document.getElementById("countdownTimeInput");
+const countdownCategoryInput = document.getElementById("countdownCategoryInput");
+const saveCountdownBtn = document.getElementById("saveCountdownBtn");
+const cancelCountdownEditBtn = document.getElementById("cancelCountdownEditBtn");
+const countdownsList = document.getElementById("countdownsList");
+const countdownsEmptyState = document.getElementById("countdownsEmptyState");
+const timeCapsulesScreen = document.getElementById("timeCapsulesScreen");
+const backFromTimeCapsulesBtn = document.getElementById("backFromTimeCapsulesBtn");
+const showTimeCapsuleFormBtn = document.getElementById("showTimeCapsuleFormBtn");
+const timeCapsuleForm = document.getElementById("timeCapsuleForm");
+const timeCapsuleTitleInput = document.getElementById("timeCapsuleTitleInput");
+const timeCapsuleMessageInput = document.getElementById("timeCapsuleMessageInput");
+const timeCapsuleOpenDateInput = document.getElementById("timeCapsuleOpenDateInput");
+const timeCapsuleAuthorInput = document.getElementById("timeCapsuleAuthorInput");
+const saveTimeCapsuleBtn = document.getElementById("saveTimeCapsuleBtn");
+const cancelTimeCapsuleBtn = document.getElementById("cancelTimeCapsuleBtn");
+const timeCapsulesList = document.getElementById("timeCapsulesList");
+const timeCapsulesEmptyState = document.getElementById("timeCapsulesEmptyState");
 
 const showCreateNotebookBtn = document.getElementById("showCreateNotebookBtn");
 const createNotebookBox = document.getElementById("createNotebookBox");
@@ -830,6 +869,9 @@ let currentImportantDates = {};
 let editingTaskId = null;
 let editingReminderId = null;
 let editingImportantDateId = null;
+let currentCountdowns = {};
+let currentTimeCapsules = {};
+let editingCountdownId = null;
 
 const CREATOR_UIDS = new Set([
     "cJylm27fQTMXd0Esan7YqXkjV762",
@@ -1090,6 +1132,7 @@ function listenToCurrentSpace(spaceCodeValue) {
         updateNotificationsBadge(spaceData);
         updateDailyRitualDashboard(spaceData);
         renderCactusWardrobe(spaceData);
+        renderDashboardToday(spaceData);
 
         if (lastShownScreen === "notifications") {
             renderNotifications(spaceData);
@@ -1120,6 +1163,8 @@ function listenToCurrentSpace(spaceCodeValue) {
         if (lastShownScreen === "tasks") renderTasks(spaceData.dailyTools?.tasks || {});
         if (lastShownScreen === "reminders") renderReminders(spaceData.dailyTools?.reminders || {});
         if (lastShownScreen === "importantDates") renderImportantDates(spaceData.dailyTools?.importantDates || {});
+        if (lastShownScreen === "countdowns") renderCountdowns(spaceData.dailyTools?.countdowns || {});
+        if (lastShownScreen === "timeCapsules") renderTimeCapsules(spaceData.dailyTools?.timeCapsules || {});
 
         if (lastShownScreen === "history") {
             renderMemories(spaceData.memories || {});
@@ -2229,8 +2274,13 @@ backFromDailyToolsBtn.addEventListener("click", () => {
 });
 
 const SHOPPING_CATEGORIES = {
-    food: { label: "Alimentation", className: "is-food" },
+    produce: { label: "Fruits et légumes", className: "is-produce" },
+    bakery: { label: "Boulangerie", className: "is-bakery" },
+    fresh: { label: "Frais", className: "is-fresh" },
+    frozen: { label: "Surgelés", className: "is-frozen" },
+    food: { label: "Épicerie", className: "is-food" },
     drinks: { label: "Boissons", className: "is-drinks" },
+    hygiene: { label: "Hygiène", className: "is-hygiene" },
     home: { label: "Maison", className: "is-home" },
     party: { label: "Fête", className: "is-party" },
     gifts: { label: "Cadeaux", className: "is-gifts" },
@@ -2245,6 +2295,7 @@ function resetShoppingForm() {
     shoppingFormTitle.textContent = "Que faut-il acheter ?";
     saveShoppingItemBtn.textContent = "Ajouter à la liste";
     cancelShoppingEditBtn.style.display = "none";
+    shoppingItemForm.style.display = "none";
 }
 
 function startShoppingItemEdit(itemId) {
@@ -2255,10 +2306,14 @@ function startShoppingItemEdit(itemId) {
     shoppingItemName.value = item.name || "";
     shoppingItemQuantity.value = item.quantity || "";
     shoppingItemCategory.value = SHOPPING_CATEGORIES[item.category] ? item.category : "other";
+    prepareOrganizerAssignees(shoppingItemAssignee);
+    shoppingItemAssignee.value = item.assignee || "both";
+    shoppingItemFavorite.checked = Boolean(item.favorite);
     shoppingFormKicker.textContent = "Modification";
     shoppingFormTitle.textContent = "Modifier cet article";
     saveShoppingItemBtn.textContent = "Enregistrer les changements";
     cancelShoppingEditBtn.style.display = "block";
+    shoppingItemForm.style.display = "block";
     shoppingItemForm.scrollIntoView({ behavior: "smooth", block: "start" });
     window.setTimeout(() => shoppingItemName.focus(), 250);
 }
@@ -2292,12 +2347,22 @@ function renderShoppingList(items) {
             (activeShoppingFilter === "completed" ? item.completed : !item.completed))
         .sort((a, b) => {
             if (Boolean(a[1].completed) !== Boolean(b[1].completed)) return a[1].completed ? 1 : -1;
-            return (b[1].updatedAt || b[1].createdAt || 0) - (a[1].updatedAt || a[1].createdAt || 0);
+            const categoryA = (SHOPPING_CATEGORIES[a[1].category] || SHOPPING_CATEGORIES.other).label;
+            const categoryB = (SHOPPING_CATEGORIES[b[1].category] || SHOPPING_CATEGORIES.other).label;
+            return categoryA.localeCompare(categoryB, "fr") || (b[1].updatedAt || b[1].createdAt || 0) - (a[1].updatedAt || a[1].createdAt || 0);
         });
 
     const fragment = document.createDocumentFragment();
+    let previousShoppingCategory = "";
     visibleEntries.forEach(([itemId, item]) => {
         const category = SHOPPING_CATEGORIES[item.category] || SHOPPING_CATEGORIES.other;
+        if (category.label !== previousShoppingCategory) {
+            const aisleHeading = document.createElement("h2");
+            aisleHeading.className = "shopping-aisle-heading";
+            aisleHeading.textContent = category.label;
+            fragment.appendChild(aisleHeading);
+            previousShoppingCategory = category.label;
+        }
         const article = document.createElement("article");
         article.className = "shopping-item" + (item.completed ? " is-completed" : "");
 
@@ -2323,6 +2388,18 @@ function renderShoppingList(items) {
             quantity.textContent = item.quantity;
             details.appendChild(quantity);
         }
+        if (item.assignee) {
+            const assignee = document.createElement("span");
+            assignee.className = "shopping-quantity";
+            assignee.textContent = getOrganizerPersonLabel(item.assignee);
+            details.appendChild(assignee);
+        }
+        if (item.favorite) {
+            const favorite = document.createElement("span");
+            favorite.className = "shopping-favorite-badge";
+            favorite.textContent = "★ Favori";
+            details.appendChild(favorite);
+        }
         const meta = document.createElement("small");
         meta.textContent = getShoppingItemMeta(item);
         copy.append(title, details, meta);
@@ -2346,6 +2423,7 @@ function renderShoppingList(items) {
     });
 
     shoppingItemsList.replaceChildren(fragment);
+    renderShoppingHistory(entries, currentSpaceData?.dailyTools?.shopping?.history || {});
     shoppingEmptyState.style.display = visibleEntries.length ? "none" : "flex";
     const emptyTitle = shoppingEmptyState.querySelector("strong");
     const emptyCopy = shoppingEmptyState.querySelector("p");
@@ -2361,8 +2439,35 @@ function renderShoppingList(items) {
     }
 }
 
+function renderShoppingHistory(entries, savedHistory = {}) {
+    const merged = new Map(Object.entries(savedHistory));
+    entries.filter(([, item]) => item.favorite || item.completed).forEach(([id, item]) => merged.set(id, item));
+    const reusable = [...merged.entries()]
+        .filter(([, item]) => item?.name)
+        .sort((a, b) => Number(Boolean(b[1].favorite)) - Number(Boolean(a[1].favorite)) || (b[1].completedAt || 0) - (a[1].completedAt || 0))
+        .slice(0, 10);
+    shoppingHistorySection.style.display = reusable.length ? "block" : "none";
+    shoppingHistoryList.replaceChildren(...reusable.map(([, item]) => {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "shopping-history-chip";
+        button.textContent = (item.favorite ? "★ " : "+ ") + (item.name || "Article") + (item.quantity ? " · " + item.quantity : "");
+        button.addEventListener("click", () => {
+            const now = Date.now();
+            database.ref("spaces/" + currentSpaceCode + "/dailyTools/shopping/items").push({
+                name: item.name || "Article", quantity: item.quantity || "", category: item.category || "other",
+                assignee: item.assignee || "both", favorite: Boolean(item.favorite), completed: false,
+                createdAt: now, createdByUid: currentUser.uid, createdByPseudo: pseudo,
+                updatedAt: now, updatedBy: currentUser.uid, updatedByPseudo: pseudo
+            }).then(() => showToast("Article remis dans la liste"));
+        });
+        return button;
+    }));
+}
+
 function toggleShoppingItem(itemId, completed) {
     if (!currentSpaceCode || !currentUser) return;
+    const item = currentShoppingItems[itemId] || {};
     database.ref("spaces/" + currentSpaceCode + "/dailyTools/shopping/items/" + itemId).update({
         completed,
         completedAt: completed ? Date.now() : null,
@@ -2371,6 +2476,12 @@ function toggleShoppingItem(itemId, completed) {
         updatedAt: Date.now(),
         updatedBy: currentUser.uid,
         updatedByPseudo: pseudo
+    }).then(() => {
+        if (!completed) return null;
+        return database.ref("spaces/" + currentSpaceCode + "/dailyTools/shopping/history/" + itemId).set({
+            name: item.name || "Article", quantity: item.quantity || "", category: item.category || "other",
+            assignee: item.assignee || "both", favorite: Boolean(item.favorite), completedAt: Date.now()
+        });
     }).catch((error) => {
         console.error("Mise à jour de la course impossible", error);
         showToast("Impossible de mettre la liste à jour");
@@ -2395,6 +2506,12 @@ backFromShoppingBtn.addEventListener("click", () => {
     showScreen("dailyTools");
 });
 cancelShoppingEditBtn.addEventListener("click", resetShoppingForm);
+showShoppingFormBtn.addEventListener("click", () => {
+    resetShoppingForm();
+    prepareOrganizerAssignees(shoppingItemAssignee);
+    shoppingItemForm.style.display = "block";
+    window.setTimeout(() => shoppingItemName.focus(), 80);
+});
 
 shoppingFilterButtons.forEach((button) => {
     button.addEventListener("click", () => {
@@ -2419,6 +2536,8 @@ shoppingItemForm.addEventListener("submit", (event) => {
         name,
         quantity: shoppingItemQuantity.value.trim(),
         category: SHOPPING_CATEGORIES[shoppingItemCategory.value] ? shoppingItemCategory.value : "other",
+        assignee: shoppingItemAssignee.value || "both",
+        favorite: shoppingItemFavorite.checked,
         updatedAt: now,
         updatedBy: currentUser.uid,
         updatedByPseudo: pseudo
@@ -2545,9 +2664,38 @@ function createOrganizerItem({ title, details, badges = [], meta, completed = fa
     return article;
 }
 
+function getOrganizerPeriodLabel(timestamp) {
+    if (!Number.isFinite(timestamp)) return "Plus tard";
+    const now = new Date();
+    const start = new Date(now.getFullYear(), now.getMonth(), now.getDate()).getTime();
+    const end = start + 86400000;
+    if (timestamp < start) return "Passés";
+    if (timestamp < end) return "Aujourd’hui";
+    if (timestamp < end + 7 * 86400000) return "Prochainement";
+    return "Plus tard";
+}
+
+function renderOrganizerGroups(container, entries, timestampGetter, itemRenderer) {
+    const fragment = document.createDocumentFragment();
+    let previousLabel = "";
+    entries.forEach((entry) => {
+        const label = getOrganizerPeriodLabel(timestampGetter(entry[1]));
+        if (label !== previousLabel) {
+            const heading = document.createElement("h2");
+            heading.className = "organizer-period-heading";
+            heading.textContent = label;
+            fragment.appendChild(heading);
+            previousLabel = label;
+        }
+        fragment.appendChild(itemRenderer(entry));
+    });
+    container.replaceChildren(fragment);
+}
+
 function resetTaskForm() {
     editingTaskId = null; taskForm.reset(); prepareOrganizerAssignees(taskAssigneeInput); taskPriorityInput.value = "medium";
     taskFormKicker.textContent = "Nouvelle tâche"; taskFormTitle.textContent = "Que faut-il faire ?"; saveTaskBtn.textContent = "Ajouter la tâche"; cancelTaskEditBtn.style.display = "none";
+    taskForm.style.display = "none";
 }
 
 function renderTasks(tasks) {
@@ -2567,7 +2715,7 @@ function renderTasks(tasks) {
         meta: task.completed ? "Terminée par " + (task.completedByPseudo || "Cactus") : "Créée par " + (task.createdByPseudo || "Cactus"),
         completed: task.completed, overdue: !task.completed && isPastDate(task.dueDate),
         onToggle: () => database.ref("spaces/" + currentSpaceCode + "/dailyTools/tasks/" + id).update({ completed: !task.completed, completedAt: !task.completed ? Date.now() : null, completedBy: !task.completed ? currentUser.uid : null, completedByPseudo: !task.completed ? pseudo : null, updatedAt: Date.now(), updatedBy: currentUser.uid }),
-        onEdit: () => { editingTaskId = id; taskTitleInput.value = task.title || ""; taskDetailsInput.value = task.details || ""; prepareOrganizerAssignees(taskAssigneeInput); taskAssigneeInput.value = task.assignee || "both"; taskPriorityInput.value = task.priority || "medium"; taskDueDateInput.value = task.dueDate || ""; taskFormKicker.textContent = "Modification"; taskFormTitle.textContent = "Modifier cette tâche"; saveTaskBtn.textContent = "Enregistrer"; cancelTaskEditBtn.style.display = "block"; taskForm.scrollIntoView({ behavior: "smooth" }); },
+        onEdit: () => { editingTaskId = id; taskTitleInput.value = task.title || ""; taskDetailsInput.value = task.details || ""; prepareOrganizerAssignees(taskAssigneeInput); taskAssigneeInput.value = task.assignee || "both"; taskPriorityInput.value = task.priority || "medium"; taskDueDateInput.value = task.dueDate || ""; taskFormKicker.textContent = "Modification"; taskFormTitle.textContent = "Modifier cette tâche"; saveTaskBtn.textContent = "Enregistrer"; cancelTaskEditBtn.style.display = "block"; taskForm.style.display = "block"; taskForm.scrollIntoView({ behavior: "smooth" }); },
         onDelete: () => { if (confirm("Supprimer cette tâche ?")) database.ref("spaces/" + currentSpaceCode + "/dailyTools/tasks/" + id).remove(); }
     })));
     tasksEmptyState.style.display = visible.length ? "none" : "flex";
@@ -2581,46 +2729,153 @@ taskForm.addEventListener("submit", (event) => {
     saveTaskBtn.disabled = true; request.then(() => { showToast(editingTaskId ? "Tâche modifiée" : "Tâche ajoutée"); resetTaskForm(); }).catch(() => showToast("Impossible d’enregistrer la tâche")).finally(() => { saveTaskBtn.disabled = false; });
 });
 cancelTaskEditBtn.addEventListener("click", resetTaskForm);
+showTaskFormBtn.addEventListener("click", () => { resetTaskForm(); taskForm.style.display = "block"; window.setTimeout(() => taskTitleInput.focus(), 80); });
 taskFilterButtons.forEach((button) => button.addEventListener("click", () => { activeTaskFilter = button.dataset.taskFilter; taskFilterButtons.forEach((item) => item.classList.toggle("is-active", item === button)); renderTasks(currentTasks); }));
 
 function resetReminderForm() {
     editingReminderId = null; reminderForm.reset(); prepareOrganizerAssignees(reminderTargetInput);
     reminderFormKicker.textContent = "Nouveau rappel"; reminderFormTitle.textContent = "Que faut-il retenir ?"; saveReminderBtn.textContent = "Ajouter le rappel"; cancelReminderEditBtn.style.display = "none";
+    reminderForm.style.display = "none";
 }
 
 function getReminderTimestamp(reminder) { return new Date((reminder.date || "9999-12-31") + "T" + (reminder.time || "23:59")).getTime(); }
 function renderReminders(reminders) {
     currentReminders = reminders || {}; const entries = Object.entries(currentReminders); const now = Date.now(); const upcoming = entries.filter(([, item]) => getReminderTimestamp(item) >= now).length; remindersUpcomingCount.textContent = upcoming + " à venir";
     const visible = entries.filter(([, item]) => activeReminderFilter === "all" || (activeReminderFilter === "past" ? getReminderTimestamp(item) < now : getReminderTimestamp(item) >= now)).sort((a, b) => getReminderTimestamp(a[1]) - getReminderTimestamp(b[1]));
-    remindersList.replaceChildren(...visible.map(([id, item]) => createOrganizerItem({ title: item.title, details: item.details, badges: [{ label: formatOrganizerDate(item.date, item.time), className: "is-date" }, { label: getOrganizerPersonLabel(item.target), className: "is-person" }], meta: "Créé par " + (item.createdByPseudo || "Cactus"), overdue: getReminderTimestamp(item) < now,
-        onEdit: () => { editingReminderId = id; reminderTitleInput.value = item.title || ""; reminderDetailsInput.value = item.details || ""; reminderDateInput.value = item.date || ""; reminderTimeInput.value = item.time || ""; prepareOrganizerAssignees(reminderTargetInput); reminderTargetInput.value = item.target || "both"; reminderFormKicker.textContent = "Modification"; reminderFormTitle.textContent = "Modifier ce rappel"; saveReminderBtn.textContent = "Enregistrer"; cancelReminderEditBtn.style.display = "block"; reminderForm.scrollIntoView({ behavior: "smooth" }); },
+    renderOrganizerGroups(remindersList, visible, getReminderTimestamp, ([id, item]) => createOrganizerItem({ title: item.title, details: item.details, badges: [{ label: formatOrganizerDate(item.date, item.time), className: "is-date" }, { label: getOrganizerPersonLabel(item.target), className: "is-person" }], meta: "Créé par " + (item.createdByPseudo || "Cactus"), overdue: getReminderTimestamp(item) < now,
+        onEdit: () => { editingReminderId = id; reminderTitleInput.value = item.title || ""; reminderDetailsInput.value = item.details || ""; reminderDateInput.value = item.date || ""; reminderTimeInput.value = item.time || ""; prepareOrganizerAssignees(reminderTargetInput); reminderTargetInput.value = item.target || "both"; reminderFormKicker.textContent = "Modification"; reminderFormTitle.textContent = "Modifier ce rappel"; saveReminderBtn.textContent = "Enregistrer"; cancelReminderEditBtn.style.display = "block"; reminderForm.style.display = "block"; reminderForm.scrollIntoView({ behavior: "smooth" }); },
         onDelete: () => { if (confirm("Supprimer ce rappel ?")) database.ref("spaces/" + currentSpaceCode + "/dailyTools/reminders/" + id).remove(); }
-    })));
+    }));
     remindersEmptyState.style.display = visible.length ? "none" : "flex";
 }
 reminderForm.addEventListener("submit", (event) => { event.preventDefault(); const title = reminderTitleInput.value.trim(); if (!title || !reminderDateInput.value) return; const now = Date.now(); const payload = { title, details: reminderDetailsInput.value.trim(), date: reminderDateInput.value, time: reminderTimeInput.value || "", target: reminderTargetInput.value || "both", updatedAt: now, updatedBy: currentUser.uid, updatedByPseudo: pseudo }; const base = "spaces/" + currentSpaceCode + "/dailyTools/reminders"; const request = editingReminderId ? database.ref(base + "/" + editingReminderId).update(payload) : database.ref(base).push({ ...payload, createdAt: now, createdByUid: currentUser.uid, createdByPseudo: pseudo }); saveReminderBtn.disabled = true; request.then(() => { showToast(editingReminderId ? "Rappel modifié" : "Rappel ajouté"); resetReminderForm(); }).catch(() => showToast("Impossible d’enregistrer le rappel")).finally(() => { saveReminderBtn.disabled = false; }); });
 cancelReminderEditBtn.addEventListener("click", resetReminderForm);
+showReminderFormBtn.addEventListener("click", () => { resetReminderForm(); reminderForm.style.display = "block"; window.setTimeout(() => reminderTitleInput.focus(), 80); });
 reminderFilterButtons.forEach((button) => button.addEventListener("click", () => { activeReminderFilter = button.dataset.reminderFilter; reminderFilterButtons.forEach((item) => item.classList.toggle("is-active", item === button)); renderReminders(currentReminders); }));
 
 const IMPORTANT_DATE_CATEGORIES = { anniversary: "Anniversaire", appointment: "Rendez-vous", trip: "Voyage", celebration: "Fête", other: "Autre" };
 function getImportantDateNextTimestamp(item) { if (!item.date) return Infinity; if (!item.annual) return new Date(item.date + "T12:00").getTime(); const parts = item.date.split("-"); const now = new Date(); let date = new Date(now.getFullYear(), Number(parts[1]) - 1, Number(parts[2]), 12); if (date.getTime() < Date.now()) date = new Date(now.getFullYear() + 1, Number(parts[1]) - 1, Number(parts[2]), 12); return date.getTime(); }
-function resetImportantDateForm() { editingImportantDateId = null; importantDateForm.reset(); importantDateCategoryInput.value = "anniversary"; importantDateFormKicker.textContent = "Nouvelle date"; importantDateFormTitle.textContent = "Quel événement garder ?"; saveImportantDateBtn.textContent = "Ajouter la date"; cancelImportantDateEditBtn.style.display = "none"; }
+function resetImportantDateForm() { editingImportantDateId = null; importantDateForm.reset(); importantDateCategoryInput.value = "anniversary"; importantDateFormKicker.textContent = "Nouvelle date"; importantDateFormTitle.textContent = "Quel événement garder ?"; saveImportantDateBtn.textContent = "Ajouter la date"; cancelImportantDateEditBtn.style.display = "none"; importantDateForm.style.display = "none"; }
 function renderImportantDates(items) {
     currentImportantDates = items || {}; const entries = Object.entries(currentImportantDates); importantDatesCount.textContent = entries.length + " date" + (entries.length > 1 ? "s" : "");
     const visible = entries.filter(([, item]) => activeImportantDateFilter === "all" || (activeImportantDateFilter === "annual" ? item.annual : getImportantDateNextTimestamp(item) >= Date.now())).sort((a, b) => getImportantDateNextTimestamp(a[1]) - getImportantDateNextTimestamp(b[1]));
-    importantDatesList.replaceChildren(...visible.map(([id, item]) => createOrganizerItem({ title: item.title, details: item.notes, badges: [{ label: formatOrganizerDate(item.date), className: "is-date" }, { label: IMPORTANT_DATE_CATEGORIES[item.category] || "Autre", className: "is-category" }, ...(item.annual ? [{ label: "Chaque année", className: "is-annual" }] : [])], meta: "Ajoutée par " + (item.createdByPseudo || "Cactus"), overdue: !item.annual && getImportantDateNextTimestamp(item) < Date.now(),
-        onEdit: () => { editingImportantDateId = id; importantDateTitleInput.value = item.title || ""; importantDateNotesInput.value = item.notes || ""; importantDateValueInput.value = item.date || ""; importantDateCategoryInput.value = item.category || "other"; importantDateAnnualInput.checked = Boolean(item.annual); importantDateFormKicker.textContent = "Modification"; importantDateFormTitle.textContent = "Modifier cette date"; saveImportantDateBtn.textContent = "Enregistrer"; cancelImportantDateEditBtn.style.display = "block"; importantDateForm.scrollIntoView({ behavior: "smooth" }); },
+    renderOrganizerGroups(importantDatesList, visible, getImportantDateNextTimestamp, ([id, item]) => createOrganizerItem({ title: item.title, details: item.notes, badges: [{ label: formatOrganizerDate(item.date), className: "is-date" }, { label: IMPORTANT_DATE_CATEGORIES[item.category] || "Autre", className: "is-category" }, ...(item.annual ? [{ label: "Chaque année", className: "is-annual" }] : [])], meta: "Ajoutée par " + (item.createdByPseudo || "Cactus"), overdue: !item.annual && getImportantDateNextTimestamp(item) < Date.now(),
+        onEdit: () => { editingImportantDateId = id; importantDateTitleInput.value = item.title || ""; importantDateNotesInput.value = item.notes || ""; importantDateValueInput.value = item.date || ""; importantDateCategoryInput.value = item.category || "other"; importantDateAnnualInput.checked = Boolean(item.annual); importantDateFormKicker.textContent = "Modification"; importantDateFormTitle.textContent = "Modifier cette date"; saveImportantDateBtn.textContent = "Enregistrer"; cancelImportantDateEditBtn.style.display = "block"; importantDateForm.style.display = "block"; importantDateForm.scrollIntoView({ behavior: "smooth" }); },
         onDelete: () => { if (confirm("Supprimer cette date importante ?")) database.ref("spaces/" + currentSpaceCode + "/dailyTools/importantDates/" + id).remove(); }
-    })));
+    }));
     importantDatesEmptyState.style.display = visible.length ? "none" : "flex";
 }
 importantDateForm.addEventListener("submit", (event) => { event.preventDefault(); const title = importantDateTitleInput.value.trim(); if (!title || !importantDateValueInput.value) return; const now = Date.now(); const payload = { title, notes: importantDateNotesInput.value.trim(), date: importantDateValueInput.value, category: importantDateCategoryInput.value, annual: importantDateAnnualInput.checked, updatedAt: now, updatedBy: currentUser.uid, updatedByPseudo: pseudo }; const base = "spaces/" + currentSpaceCode + "/dailyTools/importantDates"; const request = editingImportantDateId ? database.ref(base + "/" + editingImportantDateId).update(payload) : database.ref(base).push({ ...payload, createdAt: now, createdByUid: currentUser.uid, createdByPseudo: pseudo }); saveImportantDateBtn.disabled = true; request.then(() => { showToast(editingImportantDateId ? "Date modifiée" : "Date ajoutée"); resetImportantDateForm(); }).catch(() => showToast("Impossible d’enregistrer cette date")).finally(() => { saveImportantDateBtn.disabled = false; }); });
 cancelImportantDateEditBtn.addEventListener("click", resetImportantDateForm);
+showImportantDateFormBtn.addEventListener("click", () => { resetImportantDateForm(); importantDateForm.style.display = "block"; window.setTimeout(() => importantDateTitleInput.focus(), 80); });
 importantDateFilterButtons.forEach((button) => button.addEventListener("click", () => { activeImportantDateFilter = button.dataset.importantDateFilter; importantDateFilterButtons.forEach((item) => item.classList.toggle("is-active", item === button)); renderImportantDates(currentImportantDates); }));
 
 backFromTasksBtn.addEventListener("click", () => { resetTaskForm(); showScreen("dailyTools"); });
 backFromRemindersBtn.addEventListener("click", () => { resetReminderForm(); showScreen("dailyTools"); });
 backFromImportantDatesBtn.addEventListener("click", () => { resetImportantDateForm(); showScreen("dailyTools"); });
+
+const COUNTDOWN_CATEGORIES = { trip: "Voyage", celebration: "Fête", concert: "Concert", reunion: "Retrouvailles", other: "Autre" };
+
+function getLocalDateKey(date = new Date()) {
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const day = String(date.getDate()).padStart(2, "0");
+    return `${year}-${month}-${day}`;
+}
+
+function getCountdownTimestamp(item) {
+    return new Date((item.date || "9999-12-31") + "T" + (item.time || "12:00")).getTime();
+}
+
+function getCountdownLabel(item) {
+    const difference = getCountdownTimestamp(item) - Date.now();
+    if (difference <= 0) return "C’est aujourd’hui !";
+    const days = Math.ceil(difference / 86400000);
+    if (days === 1) return "Demain";
+    if (days < 31) return "J-" + days;
+    const months = Math.floor(days / 30);
+    return months + " mois et " + (days % 30) + " j";
+}
+
+function resetCountdownForm() {
+    editingCountdownId = null;
+    countdownForm.reset();
+    countdownCategoryInput.value = "trip";
+    countdownFormKicker.textContent = "Nouveau compte à rebours";
+    countdownFormTitle.textContent = "Quel moment attendez-vous ?";
+    saveCountdownBtn.textContent = "Créer le compte à rebours";
+    countdownForm.style.display = "none";
+}
+
+function renderCountdowns(items = {}) {
+    currentCountdowns = items || {};
+    const entries = Object.entries(currentCountdowns).sort((a, b) => getCountdownTimestamp(a[1]) - getCountdownTimestamp(b[1]));
+    countdownsList.replaceChildren(...entries.map(([id, item]) => {
+        const article = document.createElement("article");
+        article.className = "countdown-card" + (getCountdownTimestamp(item) < Date.now() ? " is-reached" : "");
+        const badge = document.createElement("strong"); badge.textContent = getCountdownLabel(item);
+        const copy = document.createElement("div");
+        const title = document.createElement("h2"); title.textContent = item.title || "Notre prochain moment";
+        const meta = document.createElement("p"); meta.textContent = formatOrganizerDate(item.date, item.time) + " · " + (COUNTDOWN_CATEGORIES[item.category] || "Autre");
+        if (item.notes) { const notes = document.createElement("small"); notes.textContent = item.notes; copy.append(title, meta, notes); } else copy.append(title, meta);
+        const actions = document.createElement("div"); actions.className = "organizer-item-actions";
+        const edit = document.createElement("button"); edit.type = "button"; edit.textContent = "Modifier"; edit.addEventListener("click", () => {
+            editingCountdownId = id; countdownTitleInput.value = item.title || ""; countdownNotesInput.value = item.notes || ""; countdownDateInput.value = item.date || ""; countdownTimeInput.value = item.time || ""; countdownCategoryInput.value = item.category || "other"; countdownFormKicker.textContent = "Modification"; countdownFormTitle.textContent = "Modifier ce compte à rebours"; saveCountdownBtn.textContent = "Enregistrer"; countdownForm.style.display = "block"; countdownForm.scrollIntoView({ behavior: "smooth" });
+        });
+        const remove = document.createElement("button"); remove.type = "button"; remove.className = "is-delete"; remove.textContent = "×"; remove.addEventListener("click", () => { if (confirm("Supprimer ce compte à rebours ?")) database.ref("spaces/" + currentSpaceCode + "/dailyTools/countdowns/" + id).remove(); });
+        actions.append(edit, remove); article.append(badge, copy, actions); return article;
+    }));
+    countdownsEmptyState.style.display = entries.length ? "none" : "flex";
+}
+
+showCountdownFormBtn.addEventListener("click", () => { resetCountdownForm(); countdownForm.style.display = "block"; countdownDateInput.min = getLocalDateKey(); window.setTimeout(() => countdownTitleInput.focus(), 80); });
+cancelCountdownEditBtn.addEventListener("click", resetCountdownForm);
+backFromCountdownsBtn.addEventListener("click", () => { resetCountdownForm(); showScreen("dailyTools"); });
+countdownForm.addEventListener("submit", (event) => {
+    event.preventDefault(); const title = countdownTitleInput.value.trim(); if (!title || !countdownDateInput.value) return;
+    const now = Date.now(); const payload = { title, notes: countdownNotesInput.value.trim(), date: countdownDateInput.value, time: countdownTimeInput.value || "", category: countdownCategoryInput.value || "other", updatedAt: now, updatedBy: currentUser.uid, updatedByPseudo: pseudo };
+    const base = "spaces/" + currentSpaceCode + "/dailyTools/countdowns";
+    const request = editingCountdownId ? database.ref(base + "/" + editingCountdownId).update(payload) : database.ref(base).push({ ...payload, createdAt: now, createdByUid: currentUser.uid, createdByPseudo: pseudo });
+    saveCountdownBtn.disabled = true; request.then(() => { showToast(editingCountdownId ? "Compte à rebours modifié" : "Compte à rebours créé"); resetCountdownForm(); }).catch(() => showToast("Impossible d’enregistrer ce compte à rebours")).finally(() => { saveCountdownBtn.disabled = false; });
+});
+
+function renderTimeCapsules(items = {}) {
+    currentTimeCapsules = items || {};
+    const entries = Object.entries(currentTimeCapsules).sort((a, b) => (a[1].openDate || "9999").localeCompare(b[1].openDate || "9999"));
+    timeCapsulesList.replaceChildren(...entries.map(([id, item]) => {
+        const unlocked = !item.openDate || new Date(item.openDate + "T00:00").getTime() <= Date.now();
+        const article = document.createElement("article"); article.className = "time-capsule-card" + (unlocked ? " is-unlocked" : " is-locked");
+        const icon = document.createElement("span"); icon.textContent = unlocked ? "💌" : "🔒";
+        const copy = document.createElement("div"); const title = document.createElement("strong"); title.textContent = item.title || "Capsule sans titre";
+        const date = document.createElement("small"); date.textContent = unlocked ? "Ouverte depuis le " + formatOrganizerDate(item.openDate) : "À ouvrir le " + formatOrganizerDate(item.openDate);
+        const message = document.createElement("p"); message.textContent = unlocked ? (item.message || "Cette capsule est vide.") : "Le message est encore bien gardé…";
+        copy.append(title, date, message);
+        const remove = document.createElement("button"); remove.type = "button"; remove.className = "is-delete"; remove.textContent = "×"; remove.setAttribute("aria-label", "Supprimer"); remove.addEventListener("click", () => { if (confirm("Supprimer définitivement cette capsule ?")) database.ref("spaces/" + currentSpaceCode + "/dailyTools/timeCapsules/" + id).remove(); });
+        article.append(icon, copy, remove); return article;
+    }));
+    timeCapsulesEmptyState.style.display = entries.length ? "none" : "flex";
+}
+
+showTimeCapsuleFormBtn.addEventListener("click", () => { timeCapsuleForm.reset(); prepareOrganizerAssignees(timeCapsuleAuthorInput); timeCapsuleOpenDateInput.min = getLocalDateKey(new Date(Date.now() + 86400000)); timeCapsuleForm.style.display = "block"; window.setTimeout(() => timeCapsuleTitleInput.focus(), 80); });
+cancelTimeCapsuleBtn.addEventListener("click", () => { timeCapsuleForm.reset(); timeCapsuleForm.style.display = "none"; });
+backFromTimeCapsulesBtn.addEventListener("click", () => { timeCapsuleForm.style.display = "none"; showScreen("dailyTools"); });
+timeCapsuleForm.addEventListener("submit", (event) => {
+    event.preventDefault(); const title = timeCapsuleTitleInput.value.trim(); const message = timeCapsuleMessageInput.value.trim(); const openDate = timeCapsuleOpenDateInput.value; if (!title || !message || !openDate) return;
+    const now = Date.now(); saveTimeCapsuleBtn.disabled = true;
+    database.ref("spaces/" + currentSpaceCode + "/dailyTools/timeCapsules").push({ title, message, openDate, author: timeCapsuleAuthorInput.value || currentUser.uid, createdAt: now, createdByUid: currentUser.uid, createdByPseudo: pseudo }).then(() => { showToast("Capsule scellée jusqu’au " + formatOrganizerDate(openDate)); timeCapsuleForm.reset(); timeCapsuleForm.style.display = "none"; }).catch(() => showToast("Impossible de sceller la capsule")).finally(() => { saveTimeCapsuleBtn.disabled = false; });
+});
+
+function renderDashboardToday(spaceData = {}) {
+    if (!dashboardTodayList) return;
+    const today = getLocalDateKey(); const items = [];
+    Object.entries(spaceData.dailyTools?.tasks || {}).forEach(([, task]) => { if (!task.completed && task.dueDate && task.dueDate <= today) items.push({ icon: "✓", title: task.title, meta: task.dueDate < today ? "En retard" : "À faire aujourd’hui", screen: "tasks" }); });
+    Object.entries(spaceData.dailyTools?.reminders || {}).forEach(([, reminder]) => { if (reminder.date === today) items.push({ icon: "🔔", title: reminder.title, meta: reminder.time ? reminder.time.replace(":", "h") : "Aujourd’hui", screen: "reminders" }); });
+    Object.entries(spaceData.dailyTools?.importantDates || {}).forEach(([, item]) => { const dateMatch = item.annual ? (item.date || "").slice(5) === today.slice(5) : item.date === today; if (dateMatch) items.push({ icon: "♡", title: item.title, meta: "Date importante", screen: "importantDates" }); });
+    Object.entries(spaceData.dailyTools?.countdowns || {}).forEach(([, item]) => { if (item.date === today) items.push({ icon: "⏳", title: item.title, meta: "C’est le grand jour", screen: "countdowns" }); });
+    dashboardTodayList.replaceChildren(...items.slice(0, 4).map((item) => { const button = document.createElement("button"); button.type = "button"; button.innerHTML = `<span>${item.icon}</span><span><strong></strong><small></small></span><b>›</b>`; button.querySelector("strong").textContent = item.title || "À voir"; button.querySelector("small").textContent = item.meta; button.addEventListener("click", () => showScreen(item.screen)); return button; }));
+    dashboardTodayEmpty.style.display = items.length ? "none" : "block";
+}
+dashboardTodayOpenBtn.addEventListener("click", () => showScreen("dailyTools"));
 
 gardenEditBtn.addEventListener("click", () => {
     setGardenEditMode(!gardenEditMode);

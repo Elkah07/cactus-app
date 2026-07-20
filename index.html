@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cactus 🌵</title>
-    <link rel="stylesheet" href="css/style.css?v=73">
+    <link rel="stylesheet" href="css/style.css?v=74">
     <link rel="manifest" href="manifest.json?v=2">
     <meta name="theme-color" content="#003E2D">
 </head>
@@ -139,6 +139,8 @@
         <button type="button" id="openTasksBtn" class="daily-tool-card is-compact" onclick="showScreen('tasks')"><span class="daily-tool-icon"><svg class="cactus-ui-icon" aria-hidden="true"><use href="#cactusIconTasks"></use></svg></span><span class="daily-tool-copy"><small>Organisation</small><strong>Nos tâches</strong><span>À faire ensemble</span></span><span class="daily-tool-arrow">›</span></button>
         <button type="button" id="openRemindersBtn" class="daily-tool-card is-compact" onclick="showScreen('reminders')"><span class="daily-tool-icon"><svg class="cactus-ui-icon" aria-hidden="true"><use href="#cactusIconBell"></use></svg></span><span class="daily-tool-copy"><small>À ne pas oublier</small><strong>Nos rappels</strong><span>Date et heure</span></span><span class="daily-tool-arrow">›</span></button>
         <button type="button" id="openImportantDatesBtn" class="daily-tool-card is-compact" onclick="showScreen('importantDates')"><span class="daily-tool-icon"><svg class="cactus-ui-icon" aria-hidden="true"><use href="#cactusIconCalendar"></use></svg></span><span class="daily-tool-copy"><small>Calendrier</small><strong>Dates importantes</strong><span>Vos événements</span></span><span class="daily-tool-arrow">›</span></button>
+        <button type="button" id="openCountdownsBtn" class="daily-tool-card is-compact" onclick="showScreen('countdowns')"><span class="daily-tool-icon daily-tool-symbol" aria-hidden="true">⏳</span><span class="daily-tool-copy"><small>À attendre ensemble</small><strong>Comptes à rebours</strong><span>Voyages, fêtes et grands moments</span></span><span class="daily-tool-arrow">›</span></button>
+        <button type="button" id="openTimeCapsulesBtn" class="daily-tool-card is-compact" onclick="showScreen('timeCapsules')"><span class="daily-tool-icon daily-tool-symbol" aria-hidden="true">💌</span><span class="daily-tool-copy"><small>À ouvrir plus tard</small><strong>Capsules temporelles</strong><span>Des messages gardés jusqu’au bon jour</span></span><span class="daily-tool-arrow">›</span></button>
     </div>
 
     <div class="garden-notebooks-heading daily-notebooks-heading">
@@ -189,7 +191,7 @@
     <header class="shopping-header">
         <button type="button" id="backFromShoppingBtn" aria-label="Retour à Notre quotidien">‹</button>
         <div><small>Notre quotidien</small><h1>Liste de courses</h1></div>
-        <span id="shoppingRemainingCount">0 à acheter</span>
+        <span id="shoppingRemainingCount" hidden>0 à acheter</span><button type="button" id="showShoppingFormBtn" class="organizer-add-button" aria-label="Ajouter un article">+</button>
     </header>
 
     <section class="shopping-summary">
@@ -197,19 +199,28 @@
         <div><small>Synchronisée à deux</small><strong id="shoppingSummaryTitle">Votre panier est prêt</strong><p id="shoppingSummaryText">Ajoutez votre premier article.</p></div>
     </section>
 
-    <form id="shoppingItemForm" class="shopping-item-form">
+    <form id="shoppingItemForm" class="shopping-item-form organizer-creation-panel" style="display:none;">
         <div class="shopping-form-heading"><div><small id="shoppingFormKicker">Nouvel article</small><strong id="shoppingFormTitle">Que faut-il acheter ?</strong></div><button type="button" id="cancelShoppingEditBtn" style="display:none;">Annuler</button></div>
         <input type="text" id="shoppingItemName" maxlength="80" required placeholder="Ex. Jus de fruits" autocomplete="off">
         <div class="shopping-form-row">
             <input type="text" id="shoppingItemQuantity" maxlength="30" placeholder="Quantité (facultatif)" autocomplete="off">
             <select id="shoppingItemCategory" aria-label="Catégorie">
-                <option value="food">Alimentation</option>
+                <option value="produce">Fruits et légumes</option>
+                <option value="bakery">Boulangerie</option>
+                <option value="fresh">Frais</option>
+                <option value="frozen">Surgelés</option>
+                <option value="food">Épicerie</option>
                 <option value="drinks">Boissons</option>
+                <option value="hygiene">Hygiène</option>
                 <option value="home">Maison</option>
                 <option value="party">Fête</option>
                 <option value="gifts">Cadeaux</option>
                 <option value="other">Autre</option>
             </select>
+        </div>
+        <div class="shopping-form-row">
+            <select id="shoppingItemAssignee" aria-label="Personne chargée de l’achat"></select>
+            <label class="shopping-favorite-control"><input type="checkbox" id="shoppingItemFavorite"><span>Article favori</span></label>
         </div>
         <button type="submit" id="saveShoppingItemBtn">Ajouter à la liste</button>
     </form>
@@ -224,13 +235,14 @@
     <div id="shoppingEmptyState" class="shopping-empty-state"><svg class="cactus-ui-icon" width="62" height="62" aria-hidden="true"><use href="#cactusIconShopping"></use></svg><strong>La liste est vide</strong><p>Ajoutez quelque chose à acheter pour commencer.</p></div>
 
     <button type="button" id="clearCompletedShoppingBtn" class="secondary shopping-clear-button" style="display:none;">Supprimer les articles terminés</button>
+    <section id="shoppingHistorySection" class="shopping-history-section" style="display:none;"><div class="organizer-section-heading"><div><small>Réutiliser rapidement</small><strong>Historique et favoris</strong></div></div><div id="shoppingHistoryList" class="shopping-history-list"></div></section>
 </div>
 
 <!-- ÉCRAN TÂCHES -->
 <div id="tasksScreen" class="secondary-screen daily-organizer-screen" style="display:none;">
-    <header class="organizer-header"><button type="button" id="backFromTasksBtn" aria-label="Retour">‹</button><div><small>Notre quotidien</small><h1>Nos tâches</h1></div><span id="tasksPendingCount">0 à faire</span></header>
+    <header class="organizer-header"><button type="button" id="backFromTasksBtn" aria-label="Retour">‹</button><div><small>Notre quotidien</small><h1>Nos tâches</h1></div><span id="tasksPendingCount" hidden>0 à faire</span><button type="button" id="showTaskFormBtn" class="organizer-add-button" aria-label="Ajouter une tâche">+</button></header>
     <section class="organizer-hero"><svg class="cactus-ui-icon" aria-hidden="true"><use href="#cactusIconTasks"></use></svg><div><small>Votre organisation</small><strong>Ce qu’il reste à faire</strong><p>Répartissez vos tâches et avancez ensemble.</p></div></section>
-    <form id="taskForm" class="organizer-form">
+    <form id="taskForm" class="organizer-form organizer-creation-panel" style="display:none;">
         <div class="organizer-form-heading"><div><small id="taskFormKicker">Nouvelle tâche</small><strong id="taskFormTitle">Que faut-il faire ?</strong></div><button type="button" id="cancelTaskEditBtn" style="display:none;">Annuler</button></div>
         <input id="taskTitleInput" type="text" maxlength="100" required placeholder="Titre de la tâche">
         <textarea id="taskDetailsInput" maxlength="500" rows="2" placeholder="Détails facultatifs"></textarea>
@@ -243,9 +255,9 @@
 
 <!-- ÉCRAN RAPPELS -->
 <div id="remindersScreen" class="secondary-screen daily-organizer-screen" style="display:none;">
-    <header class="organizer-header"><button type="button" id="backFromRemindersBtn" aria-label="Retour">‹</button><div><small>Notre quotidien</small><h1>Nos rappels</h1></div><span id="remindersUpcomingCount">0 à venir</span></header>
+    <header class="organizer-header"><button type="button" id="backFromRemindersBtn" aria-label="Retour">‹</button><div><small>Notre quotidien</small><h1>Nos rappels</h1></div><span id="remindersUpcomingCount" hidden>0 à venir</span><button type="button" id="showReminderFormBtn" class="organizer-add-button" aria-label="Ajouter un rappel">+</button></header>
     <section class="organizer-hero is-reminder"><svg class="cactus-ui-icon" aria-hidden="true"><use href="#cactusIconBell"></use></svg><div><small>À ne pas oublier</small><strong>Vos prochains rappels</strong><p>Une date, une heure et Cactus garde l’information.</p></div></section>
-    <form id="reminderForm" class="organizer-form">
+    <form id="reminderForm" class="organizer-form organizer-creation-panel" style="display:none;">
         <div class="organizer-form-heading"><div><small id="reminderFormKicker">Nouveau rappel</small><strong id="reminderFormTitle">Que faut-il retenir ?</strong></div><button type="button" id="cancelReminderEditBtn" style="display:none;">Annuler</button></div>
         <input id="reminderTitleInput" type="text" maxlength="100" required placeholder="Titre du rappel">
         <textarea id="reminderDetailsInput" maxlength="500" rows="2" placeholder="Précisions facultatives"></textarea>
@@ -258,9 +270,9 @@
 
 <!-- ÉCRAN DATES IMPORTANTES -->
 <div id="importantDatesScreen" class="secondary-screen daily-organizer-screen" style="display:none;">
-    <header class="organizer-header"><button type="button" id="backFromImportantDatesBtn" aria-label="Retour">‹</button><div><small>Notre quotidien</small><h1>Dates importantes</h1></div><span id="importantDatesCount">0 date</span></header>
+    <header class="organizer-header"><button type="button" id="backFromImportantDatesBtn" aria-label="Retour">‹</button><div><small>Notre quotidien</small><h1>Dates importantes</h1></div><span id="importantDatesCount" hidden>0 date</span><button type="button" id="showImportantDateFormBtn" class="organizer-add-button" aria-label="Ajouter une date">+</button></header>
     <section class="organizer-hero is-date"><svg class="cactus-ui-icon" aria-hidden="true"><use href="#cactusIconCalendar"></use></svg><div><small>Votre calendrier</small><strong>Les moments qui comptent</strong><p>Anniversaires, rendez-vous et événements à deux.</p></div></section>
-    <form id="importantDateForm" class="organizer-form">
+    <form id="importantDateForm" class="organizer-form organizer-creation-panel" style="display:none;">
         <div class="organizer-form-heading"><div><small id="importantDateFormKicker">Nouvelle date</small><strong id="importantDateFormTitle">Quel événement garder ?</strong></div><button type="button" id="cancelImportantDateEditBtn" style="display:none;">Annuler</button></div>
         <input id="importantDateTitleInput" type="text" maxlength="100" required placeholder="Titre de l’événement">
         <textarea id="importantDateNotesInput" maxlength="500" rows="2" placeholder="Notes facultatives"></textarea>
@@ -269,6 +281,36 @@
     </form>
     <nav class="organizer-filters" aria-label="Filtrer les dates"><button type="button" class="is-active" data-important-date-filter="upcoming">À venir</button><button type="button" data-important-date-filter="annual">Annuelles</button><button type="button" data-important-date-filter="all">Toutes</button></nav>
     <div id="importantDatesList" class="organizer-list"></div><div id="importantDatesEmptyState" class="organizer-empty"><svg class="cactus-ui-icon"><use href="#cactusIconCalendar"></use></svg><strong>Aucune date ici</strong><p>Ajoutez un événement important pour vous deux.</p></div>
+</div>
+
+<!-- ÉCRAN COMPTES À REBOURS -->
+<div id="countdownsScreen" class="secondary-screen daily-organizer-screen" style="display:none;">
+    <header class="organizer-header"><button type="button" id="backFromCountdownsBtn" aria-label="Retour">‹</button><div><small>Notre quotidien</small><h1>Comptes à rebours</h1></div><button type="button" id="showCountdownFormBtn" class="organizer-add-button" aria-label="Ajouter un compte à rebours">+</button></header>
+    <section class="organizer-hero is-countdown"><span class="organizer-hero-symbol">⏳</span><div><small>À attendre ensemble</small><strong>Les prochains grands moments</strong><p>Voyages, anniversaires, concerts et retrouvailles.</p></div></section>
+    <form id="countdownForm" class="organizer-form organizer-creation-panel" style="display:none;">
+        <div class="organizer-form-heading"><div><small id="countdownFormKicker">Nouveau compte à rebours</small><strong id="countdownFormTitle">Quel moment attendez-vous ?</strong></div><button type="button" id="cancelCountdownEditBtn">Annuler</button></div>
+        <input id="countdownTitleInput" type="text" maxlength="100" required placeholder="Ex. Notre voyage à Lisbonne">
+        <textarea id="countdownNotesInput" maxlength="500" rows="2" placeholder="Petit mot facultatif"></textarea>
+        <div class="organizer-form-grid"><label><span>Date</span><input id="countdownDateInput" type="date" required></label><label><span>Heure</span><input id="countdownTimeInput" type="time"></label><select id="countdownCategoryInput" aria-label="Catégorie"><option value="trip">Voyage</option><option value="celebration">Fête</option><option value="concert">Concert</option><option value="reunion">Retrouvailles</option><option value="other">Autre</option></select></div>
+        <button type="submit" id="saveCountdownBtn">Créer le compte à rebours</button>
+    </form>
+    <div id="countdownsList" class="countdowns-list"></div>
+    <div id="countdownsEmptyState" class="organizer-empty"><span class="organizer-empty-symbol">⏳</span><strong>Aucun compte à rebours</strong><p>Ajoutez un moment que vous avez hâte de vivre.</p></div>
+</div>
+
+<!-- ÉCRAN CAPSULES TEMPORELLES -->
+<div id="timeCapsulesScreen" class="secondary-screen daily-organizer-screen" style="display:none;">
+    <header class="organizer-header"><button type="button" id="backFromTimeCapsulesBtn" aria-label="Retour">‹</button><div><small>Notre quotidien</small><h1>Capsules temporelles</h1></div><button type="button" id="showTimeCapsuleFormBtn" class="organizer-add-button" aria-label="Créer une capsule">+</button></header>
+    <section class="organizer-hero is-capsule"><span class="organizer-hero-symbol">💌</span><div><small>Un secret pour plus tard</small><strong>Écrivez aujourd’hui, découvrez demain</strong><p>Le contenu reste caché jusqu’à la date choisie.</p></div></section>
+    <form id="timeCapsuleForm" class="organizer-form organizer-creation-panel" style="display:none;">
+        <div class="organizer-form-heading"><div><small>Nouvelle capsule</small><strong>Que voulez-vous confier au futur ?</strong></div><button type="button" id="cancelTimeCapsuleBtn">Annuler</button></div>
+        <input id="timeCapsuleTitleInput" type="text" maxlength="100" required placeholder="Titre visible de la capsule">
+        <textarea id="timeCapsuleMessageInput" maxlength="2000" rows="6" required placeholder="Votre message secret…"></textarea>
+        <div class="organizer-form-grid"><label><span>Date d’ouverture</span><input id="timeCapsuleOpenDateInput" type="date" required></label><select id="timeCapsuleAuthorInput" aria-label="Signature"></select></div>
+        <button type="submit" id="saveTimeCapsuleBtn">Sceller la capsule</button>
+    </form>
+    <div id="timeCapsulesList" class="time-capsules-list"></div>
+    <div id="timeCapsulesEmptyState" class="organizer-empty"><span class="organizer-empty-symbol">💌</span><strong>Aucune capsule</strong><p>Scellez un message à découvrir dans le futur.</p></div>
 </div>
 
 <!-- ÉCRAN CARNET -->
@@ -922,6 +964,14 @@
             </div>
         </article>
 
+    </section>
+
+
+    <!-- AUJOURD'HUI -->
+    <section id="dashboardTodayWidget" class="dashboard-today-widget">
+        <header><div><small>Aujourd’hui</small><strong>Votre journée à deux</strong></div><button type="button" id="dashboardTodayOpenBtn">Tout voir</button></header>
+        <div id="dashboardTodayList" class="dashboard-today-list"></div>
+        <p id="dashboardTodayEmpty">Rien d’urgent aujourd’hui. Profitez de votre journée 💚</p>
     </section>
 
 
@@ -2176,12 +2226,12 @@
     <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
 
     <script src="js/firebase.js"></script>
-    <script src="js/screens.js?v=73"></script>
+    <script src="js/screens.js?v=74"></script>
     <script src="js/utils.js"></script>
     <script src="js/storage.js"></script>
     <script src="js/rankings.js"></script>
     <script src="js/questions.js"></script>
-    <script src="js/script.js?v=73"></script>
+    <script src="js/script.js?v=74"></script>
 
 </body>
 </html>

@@ -35,7 +35,7 @@ function showScreenContent(screenName) {
     );
     document.body.classList.toggle(
         "secondary-active",
-        ["allGames", "newGame", "garden", "dailyTools", "shopping", "tasks", "reminders", "importantDates", "history", "storyPage", "settings", "notifications", "dailyRitual", "coupleProfile", "onboarding"].includes(screenName)
+        ["allGames", "newGame", "garden", "dailyTools", "shopping", "tasks", "reminders", "importantDates", "countdowns", "timeCapsules", "history", "storyPage", "settings", "notifications", "dailyRitual", "coupleProfile", "onboarding"].includes(screenName)
     );
 
     hideScreen(loginScreen);
@@ -63,6 +63,8 @@ function showScreenContent(screenName) {
     hideScreen(tasksScreen);
     hideScreen(remindersScreen);
     hideScreen(importantDatesScreen);
+    hideScreen(countdownsScreen);
+    hideScreen(timeCapsulesScreen);
     hideScreen(notebookScreen);
 
     hideScreen(guessAnswerScreen);
@@ -118,6 +120,8 @@ settingsBtn.style.setProperty("display", "none", "important");
     screenName === "tasks" ||
     screenName === "reminders" ||
     screenName === "importantDates" ||
+    screenName === "countdowns" ||
+    screenName === "timeCapsules" ||
     screenName === "settings"
 ) {
     historyBtn.style.display = "flex";
@@ -224,6 +228,17 @@ settingsBtn.style.setProperty("display", "none", "important");
         case "importantDates":
             importantDatesScreen.style.display = "block";
             renderImportantDates(currentSpaceData?.dailyTools?.importantDates || {});
+            break;
+
+        case "countdowns":
+            countdownsScreen.style.display = "block";
+            renderCountdowns(currentSpaceData?.dailyTools?.countdowns || {});
+            break;
+
+        case "timeCapsules":
+            timeCapsulesScreen.style.display = "block";
+            prepareOrganizerAssignees(timeCapsuleAuthorInput);
+            renderTimeCapsules(currentSpaceData?.dailyTools?.timeCapsules || {});
             break;
 
         case "notebook":
