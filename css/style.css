@@ -4832,6 +4832,87 @@ body:not(.dark-theme) #dashboardNotificationsBadge {
     font-size: 0.62rem;
 }
 
+#markNotificationsReadBtn:disabled,
+#clearReadNotificationsBtn:disabled { opacity: 0.42; cursor: default; }
+
+.notifications-overview {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 12px;
+    padding: 13px 14px;
+    border: 1px solid rgba(84, 211, 139, 0.26);
+    border-radius: 20px;
+    background: linear-gradient(135deg, rgba(84, 211, 139, 0.14), var(--app-panel-bg));
+}
+
+.notifications-overview > div { display: flex; align-items: center; min-width: 0; gap: 10px; }
+.notifications-overview > div > span {
+    display: grid;
+    width: 40px;
+    height: 40px;
+    flex: 0 0 40px;
+    place-items: center;
+    border-radius: 14px;
+    background: var(--app-icon-bg);
+    font-size: 1.2rem;
+}
+.notifications-overview p,
+.notifications-overview strong,
+.notifications-overview small { display: block; margin: 0; }
+.notifications-overview strong { color: var(--app-heading); font-size: 0.76rem; }
+.notifications-overview small { margin-top: 2px; color: var(--app-muted); font-size: 0.61rem; }
+
+#clearReadNotificationsBtn {
+    width: auto;
+    flex: 0 0 auto;
+    margin: 0;
+    padding: 7px 9px;
+    border: 0;
+    border-radius: 999px;
+    background: var(--app-secondary-button);
+    color: var(--app-muted);
+    font-size: 0.6rem;
+}
+
+.notifications-filters {
+    display: flex;
+    gap: 7px;
+    margin-bottom: 14px;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+.notifications-filters::-webkit-scrollbar { display: none; }
+.notifications-filters button {
+    width: auto;
+    min-width: max-content;
+    margin: 0;
+    padding: 8px 12px;
+    border: 1px solid var(--app-border);
+    border-radius: 999px;
+    background: var(--app-panel-bg);
+    color: var(--app-muted);
+    font-size: 0.65rem;
+    font-weight: 850;
+}
+.notifications-filters button.is-active {
+    border-color: rgba(84, 211, 139, 0.48);
+    background: rgba(84, 211, 139, 0.16);
+    color: var(--app-accent);
+}
+.notifications-filters span {
+    display: inline-grid;
+    min-width: 17px;
+    height: 17px;
+    margin-left: 3px;
+    padding: 0 4px;
+    place-items: center;
+    border-radius: 999px;
+    background: rgba(84, 211, 139, 0.18);
+    font-size: 0.55rem;
+}
+
 .notifications-list {
     display: flex;
     flex-direction: column;
@@ -4841,7 +4922,7 @@ body:not(.dark-theme) #dashboardNotificationsBadge {
 .notification-card {
     position: relative;
     display: grid;
-    grid-template-columns: 48px minmax(0, 1fr) 18px;
+    grid-template-columns: 48px minmax(0, 1fr) 32px;
     align-items: center;
     gap: 11px;
     padding: 13px;
@@ -4859,11 +4940,6 @@ body:not(.dark-theme) #dashboardNotificationsBadge {
 .notification-card:hover {
     border-color: rgba(75, 201, 130, 0.48);
     transform: translateY(-1px);
-}
-
-.notification-card:focus-visible {
-    outline: 3px solid rgba(84, 211, 139, 0.35);
-    outline-offset: 2px;
 }
 
 .notification-card.is-unread {
@@ -4911,11 +4987,25 @@ body:not(.dark-theme) #dashboardNotificationsBadge {
     font-weight: 800;
 }
 
-.notification-card-arrow {
+.notification-card-actions { display: flex; flex-direction: column; align-items: center; gap: 5px; }
+.notification-card-actions button {
+    display: grid;
+    width: 30px;
+    height: 30px;
+    margin: 0;
+    padding: 0;
+    place-items: center;
+    border: 0;
+    border-radius: 10px;
+}
+.notification-open-btn {
+    background: rgba(84, 211, 139, 0.14);
     color: var(--app-accent);
-    font-size: 1.5rem;
+    font-size: 1.35rem;
     font-weight: 900;
 }
+.notification-delete-btn { background: transparent; color: var(--app-muted); font-size: 1.1rem; }
+.notification-delete-btn:hover { background: rgba(244, 93, 115, 0.12); color: #f45d73; }
 
 /* Reprise claire des parties depuis la bibliothèque de jeux. */
 .game-inbox {

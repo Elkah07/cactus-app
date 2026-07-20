@@ -1,4 +1,4 @@
-const CACHE_VERSION = "v27";
+const CACHE_VERSION = "v28";
 const SHELL_CACHE = `cactus-shell-${CACHE_VERSION}`;
 const RUNTIME_CACHE = `cactus-runtime-${CACHE_VERSION}`;
 

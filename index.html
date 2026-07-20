@@ -791,8 +791,23 @@
     <header class="notifications-header">
         <button type="button" id="backFromNotificationsBtn" aria-label="Retour">‹</button>
         <div><small>Votre activité à deux</small><h1>Notifications</h1></div>
-        <button type="button" id="markNotificationsReadBtn">Tout lire</button>
+        <button type="button" id="markNotificationsReadBtn" aria-label="Tout marquer comme lu">Tout lire</button>
     </header>
+
+    <section class="notifications-overview" aria-live="polite">
+        <div>
+            <span aria-hidden="true">🔔</span>
+            <p><strong id="notificationsUnreadCount">0 nouvelle</strong><small>activité dans votre coin Cactus</small></p>
+        </div>
+        <button type="button" id="clearReadNotificationsBtn">Effacer les lues</button>
+    </section>
+
+    <nav class="notifications-filters" aria-label="Filtrer les notifications">
+        <button type="button" class="is-active" data-notification-filter="all">Toutes</button>
+        <button type="button" data-notification-filter="unread">Non lues <span id="notificationsUnreadFilterCount">0</span></button>
+        <button type="button" data-notification-filter="games">Jeux</button>
+        <button type="button" data-notification-filter="moments">Moments</button>
+    </nav>
 
     <div id="notificationsList" class="notifications-list"></div>
 

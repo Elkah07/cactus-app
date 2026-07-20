@@ -487,6 +487,10 @@ const dashboardNotificationsBadge =
 const notificationsScreen = document.getElementById("notificationsScreen");
 const backFromNotificationsBtn = document.getElementById("backFromNotificationsBtn");
 const markNotificationsReadBtn = document.getElementById("markNotificationsReadBtn");
+const clearReadNotificationsBtn = document.getElementById("clearReadNotificationsBtn");
+const notificationsUnreadCount = document.getElementById("notificationsUnreadCount");
+const notificationsUnreadFilterCount = document.getElementById("notificationsUnreadFilterCount");
+const notificationFilterButtons = document.querySelectorAll("[data-notification-filter]");
 const notificationsList = document.getElementById("notificationsList");
 const notificationsEmptyState = document.getElementById("notificationsEmptyState");
 const dailyRitualCard = document.getElementById("dailyRitualCard");
@@ -579,6 +583,7 @@ let lastRankingId = null;
 let draggedItem = null;
 
 let currentSpaceData = null;
+let activeNotificationFilter = "all";
 let pendingRankingChallenges = [];
 let previousScreen = "dashboard";
 
@@ -2501,6 +2506,22 @@ markNotificationsReadBtn.addEventListener("click", () => {
     markAllNotificationsRead();
 });
 
+clearReadNotificationsBtn.addEventListener("click", () => {
+    clearReadNotifications();
+});
+
+notificationFilterButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+        activeNotificationFilter = button.dataset.notificationFilter;
+        notificationFilterButtons.forEach((item) => {
+            item.classList.toggle("is-active", item === button);
+        });
+        if (currentSpaceData) {
+            renderNotifications(currentSpaceData);
+        }
+    });
+});
+
 [notifyAnswersSetting, notifyGamesSetting, notifyAchievementsSetting, notifyGardenSetting].forEach((input) => {
     input.addEventListener("change", () => {
         saveNotificationPreferences();
@@ -3505,8 +3526,22 @@ function buildNotifications(spaceData) {
         .slice(0, 50);
 }
 
-function getNotificationsLastReadAt(spaceData) {
-    return spaceData.notificationReads?.[currentUser.uid]?.lastReadAt || 0;
+function getNotificationState(spaceData) {
+    const state = spaceData.notificationReads?.[currentUser.uid] || {};
+    return {
+        lastReadAt: state.lastReadAt || 0,
+        readIds: state.readIds || {},
+        dismissedIds: state.dismissedIds || {}
+    };
+}
+
+function isNotificationRead(notification, state) {
+    return notification.timestamp <= state.lastReadAt || Boolean(state.readIds[notification.id]);
+}
+
+function getVisibleNotifications(spaceData) {
+    const state = getNotificationState(spaceData);
+    return buildNotifications(spaceData).filter((notification) => !state.dismissedIds[notification.id]);
 }
 
 function updateNotificationsBadge(spaceData) {
@@ -3514,10 +3549,9 @@ function updateNotificationsBadge(spaceData) {
         return;
     }
 
-    const lastReadAt = getNotificationsLastReadAt(spaceData);
-    const unreadCount = buildNotifications(spaceData).filter((notification) => {
-        return notification.timestamp > lastReadAt;
-    }).length;
+    const state = getNotificationState(spaceData);
+    const unreadCount = getVisibleNotifications(spaceData)
+        .filter((notification) => !isNotificationRead(notification, state)).length;
 
     dashboardNotificationsBadge.textContent = unreadCount > 99 ? "99+" : unreadCount;
     dashboardNotificationsBadge.style.display = unreadCount > 0 ? "grid" : "none";
@@ -3545,16 +3579,44 @@ function loadNotifications() {
 }
 
 function renderNotifications(spaceData) {
-    const notifications = buildNotifications(spaceData);
-    const lastReadAt = getNotificationsLastReadAt(spaceData);
+    const state = getNotificationState(spaceData);
+    const allNotifications = getVisibleNotifications(spaceData);
+    const unreadCount = allNotifications.filter((notification) => {
+        return !isNotificationRead(notification, state);
+    }).length;
+    const notifications = allNotifications.filter((notification) => {
+        const isRead = isNotificationRead(notification, state);
+        if (activeNotificationFilter === "unread") return !isRead;
+        if (activeNotificationFilter === "games") return ["answer", "game"].includes(notification.type);
+        if (activeNotificationFilter === "moments") return !["answer", "game"].includes(notification.type);
+        return true;
+    });
+
+    notificationsUnreadCount.textContent = unreadCount + " nouvelle" + (unreadCount > 1 ? "s" : "");
+    notificationsUnreadFilterCount.textContent = unreadCount;
+    markNotificationsReadBtn.disabled = unreadCount === 0;
+    clearReadNotificationsBtn.disabled = allNotifications.length === unreadCount;
     notificationsList.innerHTML = "";
     notificationsEmptyState.style.display = notifications.length === 0 ? "flex" : "none";
 
+    const emptyTitle = notificationsEmptyState.querySelector("strong");
+    const emptyCopy = notificationsEmptyState.querySelector("p");
+    if (activeNotificationFilter === "unread") {
+        emptyTitle.textContent = "Tout est lu";
+        emptyCopy.textContent = "Aucune nouvelle activité ne vous attend.";
+    } else if (activeNotificationFilter !== "all") {
+        emptyTitle.textContent = "Rien dans cette catégorie";
+        emptyCopy.textContent = "Les prochaines activités apparaîtront ici.";
+    } else {
+        emptyTitle.textContent = "Tout est calme";
+        emptyCopy.textContent = "Les nouvelles réponses et activités apparaîtront ici.";
+    }
+
     notifications.forEach((notification) => {
-        const card = document.createElement("button");
-        card.type = "button";
+        const isRead = isNotificationRead(notification, state);
+        const card = document.createElement("article");
         card.className = "notification-card" +
-            (notification.timestamp > lastReadAt ? " is-unread" : "");
+            (!isRead ? " is-unread" : "");
 
         const icon = document.createElement("span");
         icon.className = "notification-icon";
@@ -3567,16 +3629,24 @@ function renderNotifications(spaceData) {
         message.textContent = notification.message;
         const date = document.createElement("small");
         date.textContent = formatNotificationDate(notification.timestamp);
-        const arrow = document.createElement("span");
-        arrow.className = "notification-card-arrow";
-        arrow.setAttribute("aria-hidden", "true");
-        arrow.textContent = "›";
+        const actions = document.createElement("div");
+        actions.className = "notification-card-actions";
+        const openButton = document.createElement("button");
+        openButton.type = "button";
+        openButton.className = "notification-open-btn";
+        openButton.setAttribute("aria-label", "Ouvrir : " + notification.title);
+        openButton.textContent = "›";
+        const deleteButton = document.createElement("button");
+        deleteButton.type = "button";
+        deleteButton.className = "notification-delete-btn";
+        deleteButton.setAttribute("aria-label", "Supprimer cette notification");
+        deleteButton.textContent = "×";
 
         copy.append(title, message, date);
-        card.append(icon, copy, arrow);
-        card.addEventListener("click", () => {
-            openNotification(notification);
-        });
+        actions.append(openButton, deleteButton);
+        card.append(icon, copy, actions);
+        openButton.addEventListener("click", () => openNotification(notification));
+        deleteButton.addEventListener("click", () => dismissNotification(notification));
         notificationsList.appendChild(card);
     });
 }
@@ -3652,15 +3722,8 @@ function openNotification(notification) {
     const target = notification.target || {};
 
     database
-        .ref("spaces/" + currentSpaceCode + "/notificationReads/" + currentUser.uid)
-        .transaction((readData) => {
-            readData = readData || {};
-            readData.lastReadAt = Math.max(
-                readData.lastReadAt || 0,
-                notification.timestamp || 0
-            );
-            return readData;
-        });
+        .ref("spaces/" + currentSpaceCode + "/notificationReads/" + currentUser.uid + "/readIds/" + notification.id)
+        .set(notification.timestamp || Date.now());
 
     if (target.kind === "game") {
         openGameNotification(target);
@@ -3725,8 +3788,39 @@ function markAllNotificationsRead() {
 
     database
         .ref("spaces/" + currentSpaceCode + "/notificationReads/" + currentUser.uid)
-        .set({ lastReadAt: Date.now() })
+        .update({ lastReadAt: Date.now(), readIds: null })
         .then(() => showToast("Notifications marquées comme lues"));
+}
+
+function dismissNotification(notification) {
+    if (!currentSpaceCode || !currentUser) return;
+
+    database
+        .ref("spaces/" + currentSpaceCode + "/notificationReads/" + currentUser.uid + "/dismissedIds/" + notification.id)
+        .set(Date.now())
+        .then(() => showToast("Notification supprimée"));
+}
+
+function clearReadNotifications() {
+    if (!currentSpaceData || !currentSpaceCode || !currentUser) return;
+
+    const state = getNotificationState(currentSpaceData);
+    const updates = {};
+    getVisibleNotifications(currentSpaceData).forEach((notification) => {
+        if (isNotificationRead(notification, state)) {
+            updates[notification.id] = Date.now();
+        }
+    });
+
+    if (Object.keys(updates).length === 0) {
+        showToast("Aucune notification lue à effacer");
+        return;
+    }
+
+    database
+        .ref("spaces/" + currentSpaceCode + "/notificationReads/" + currentUser.uid + "/dismissedIds")
+        .update(updates)
+        .then(() => showToast("Notifications lues effacées"));
 }
 
 function getLocalDateInputValue() {
