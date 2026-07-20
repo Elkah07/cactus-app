@@ -1124,6 +1124,7 @@
                 <h1>🌵 Classements</h1>
 
                 <p id="rankingTitle" class="subtitle"></p>
+                <div class="game-question-tools"><small data-game-progress="ranking"></small><div><button type="button" data-report-game="ranking">⚑ Signaler</button><button type="button" data-skip-game="ranking">↻ Passer</button></div></div>
                 <div class="game-question-tools"><small data-game-progress="ranking"></small><button type="button" data-skip-game="ranking">↻ Passer ce classement</button></div>
 
                 <ul id="rankingList" class="ranking-list"></ul>
@@ -1211,6 +1212,7 @@
     <h1>🌵 Devine ma réponse</h1>
 
     <p id="guessQuestionText" class="subtitle"></p>
+    <div class="game-question-tools"><small data-game-progress="guess"></small><div><button type="button" data-report-game="guess">⚑ Signaler</button><button type="button" data-skip-game="guess">↻ Passer</button></div></div>
     <div class="game-question-tools"><small data-game-progress="guess"></small><button type="button" data-skip-game="guess">↻ Passer cette question</button></div>
 
     <input
@@ -1323,6 +1325,7 @@
     <h1>🌵 Qui est le plus susceptible de...</h1>
 
     <p id="likelyQuestionText" class="subtitle"></p>
+    <div class="game-question-tools"><small data-game-progress="likely"></small><div><button type="button" data-report-game="likely">⚑ Signaler</button><button type="button" data-skip-game="likely">↻ Passer</button></div></div>
     <div class="game-question-tools"><small data-game-progress="likely"></small><button type="button" data-skip-game="likely">↻ Passer cette situation</button></div>
 
     <button type="button" id="likelyMeBtn">Moi</button>
@@ -1367,6 +1370,7 @@
     <h1>🌵 OK ou Pas OK ?</h1>
 
     <p id="okQuestionText" class="subtitle"></p>
+    <div class="game-question-tools"><small data-game-progress="ok"></small><div><button type="button" data-report-game="ok">⚑ Signaler</button><button type="button" data-skip-game="ok">↻ Passer</button></div></div>
     <div class="game-question-tools"><small data-game-progress="ok"></small><button type="button" data-skip-game="ok">↻ Passer cette situation</button></div>
 
     <button type="button" id="okYesBtn">OK</button>
@@ -1411,6 +1415,7 @@
     <h1>🌵 Green Flag / Red Flag</h1>
 
     <p id="greenFlagQuestionText" class="subtitle"></p>
+    <div class="game-question-tools"><small data-game-progress="greenFlag"></small><div><button type="button" data-report-game="greenFlag">⚑ Signaler</button><button type="button" data-skip-game="greenFlag">↻ Passer</button></div></div>
     <div class="game-question-tools"><small data-game-progress="greenFlag"></small><button type="button" data-skip-game="greenFlag">↻ Passer cette situation</button></div>
 
     <button type="button" id="greenFlagYesBtn">
@@ -1463,6 +1468,7 @@
     <h1>👑 Princess Treatment</h1>
 
     <p id="princessQuestionText" class="subtitle"></p>
+    <div class="game-question-tools"><small data-game-progress="princess"></small><div><button type="button" data-report-game="princess">⚑ Signaler</button><button type="button" data-skip-game="princess">↻ Passer</button></div></div>
     <div class="game-question-tools"><small data-game-progress="princess"></small><button type="button" data-skip-game="princess">↻ Passer cette attention</button></div>
 
     <button type="button" id="princessYesBtn">
@@ -1515,6 +1521,7 @@
     <h1>🌵 Questions</h1>
 
     <p id="questionsQuestionText" class="subtitle"></p>
+    <div class="game-question-tools"><small data-game-progress="questions"></small><div><button type="button" data-report-game="questions">⚑ Signaler</button><button type="button" data-skip-game="questions">↻ Passer</button></div></div>
     <div class="game-question-tools"><small data-game-progress="questions"></small><button type="button" data-skip-game="questions">↻ Passer cette question</button></div>
 
     <textarea
@@ -1667,6 +1674,7 @@
         </div>
 
         <div class="creator-tools-grid">
+            <button type="button" id="creatorOpenReportsBtn">🚩 Signalements <span id="creatorReportsCount">0</span></button>
             <button type="button" id="creatorLegendaryBtn">👑 Niveau légendaire</button>
             <button type="button" id="creatorUnlockGardenBtn">🌿 Débloquer le Jardin</button>
             <button type="button" id="creatorUnlockAchievementsBtn">🏆 Débloquer les succès</button>
@@ -1676,6 +1684,32 @@
 
         <p>Ces actions modifient l’espace commun utilisé avec ta partenaire.</p>
     </section>
+
+    <div id="questionReportModal" class="question-report-modal" style="display:none;" role="dialog" aria-modal="true" aria-labelledby="questionReportTitle">
+        <div class="question-report-backdrop" data-close-question-report></div>
+        <form id="questionReportForm" class="question-report-sheet">
+            <button type="button" id="closeQuestionReportBtn" aria-label="Fermer">×</button>
+            <span aria-hidden="true">🚩</span><small>Aidez-nous à améliorer Cactus</small><h2 id="questionReportTitle">Signaler ce contenu</h2>
+            <blockquote id="reportedQuestionPreview"></blockquote>
+            <label for="questionReportReason">Quel est le problème ?</label>
+            <select id="questionReportReason" required>
+                <option value="">Choisir une raison</option><option value="confusing">Formulation confuse</option><option value="duplicate">Question en double</option><option value="mistake">Faute ou erreur</option><option value="sensitive">Contenu sensible</option><option value="offtopic">Hors sujet</option>
+            </select>
+            <label for="questionReportComment">Précision facultative</label>
+            <textarea id="questionReportComment" rows="3" maxlength="500" placeholder="Expliquez ce qui vous gêne…"></textarea>
+            <button type="submit" id="submitQuestionReportBtn">Envoyer le signalement</button>
+        </form>
+    </div>
+
+    <div id="creatorReportsModal" class="creator-reports-modal" style="display:none;" role="dialog" aria-modal="true" aria-labelledby="creatorReportsTitle">
+        <div class="question-report-backdrop" data-close-creator-reports></div>
+        <section class="creator-reports-sheet">
+            <header><div><small>Créatrice uniquement</small><h2 id="creatorReportsTitle">Signalements</h2></div><button type="button" id="closeCreatorReportsBtn" aria-label="Fermer">×</button></header>
+            <div class="creator-reports-filters"><select id="creatorReportsGameFilter"><option value="all">Tous les jeux</option><option value="ranking">Classements</option><option value="guess">Devine ma réponse</option><option value="likely">Qui est le plus susceptible</option><option value="ok">OK ou Pas OK</option><option value="greenFlag">Green / Red Flag</option><option value="princess">Princess Treatment</option><option value="questions">Questions</option></select><select id="creatorReportsReasonFilter"><option value="all">Toutes les raisons</option><option value="confusing">Confuse</option><option value="duplicate">Doublon</option><option value="mistake">Faute</option><option value="sensitive">Sensible</option><option value="offtopic">Hors sujet</option></select><select id="creatorReportsStatusFilter"><option value="open">À traiter</option><option value="resolved">Corrigés</option><option value="ignored">Ignorés</option><option value="all">Tous</option></select></div>
+            <div id="creatorReportsList" class="creator-reports-list"></div>
+            <div id="creatorReportsEmpty" class="creator-reports-empty" style="display:none;"><span>🌵</span><strong>Aucun signalement ici</strong><p>Tout est à jour pour ce filtre.</p></div>
+        </section>
+    </div>
 
     <section class="settings-panel account-danger-panel">
         <div class="settings-panel-heading">

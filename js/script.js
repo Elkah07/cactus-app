@@ -76,6 +76,23 @@ const creatorUnlockGardenBtn = document.getElementById("creatorUnlockGardenBtn")
 const creatorUnlockAchievementsBtn = document.getElementById("creatorUnlockAchievementsBtn");
 const creatorResetAchievementsBtn = document.getElementById("creatorResetAchievementsBtn");
 const creatorResetDailyBtn = document.getElementById("creatorResetDailyBtn");
+const creatorOpenReportsBtn = document.getElementById("creatorOpenReportsBtn");
+const creatorReportsCount = document.getElementById("creatorReportsCount");
+const questionReportModal = document.getElementById("questionReportModal");
+const questionReportForm = document.getElementById("questionReportForm");
+const closeQuestionReportBtn = document.getElementById("closeQuestionReportBtn");
+const reportedQuestionPreview = document.getElementById("reportedQuestionPreview");
+const questionReportReason = document.getElementById("questionReportReason");
+const questionReportComment = document.getElementById("questionReportComment");
+const submitQuestionReportBtn = document.getElementById("submitQuestionReportBtn");
+const creatorReportsModal = document.getElementById("creatorReportsModal");
+const closeCreatorReportsBtn = document.getElementById("closeCreatorReportsBtn");
+const creatorReportsGameFilter = document.getElementById("creatorReportsGameFilter");
+const creatorReportsReasonFilter = document.getElementById("creatorReportsReasonFilter");
+const creatorReportsStatusFilter = document.getElementById("creatorReportsStatusFilter");
+const creatorReportsList = document.getElementById("creatorReportsList");
+const creatorReportsEmpty = document.getElementById("creatorReportsEmpty");
+document.body.append(questionReportModal, creatorReportsModal);
 const themeSettingIcon = document.getElementById("themeSettingIcon");
 const themeSettingLabel = document.getElementById("themeSettingLabel");
 const themeColorMeta = document.querySelector('meta[name="theme-color"]');
@@ -614,6 +631,8 @@ let activeGameCategory = "all";
 let selectedGameKey = null;
 let recommendedGameKey = "questions";
 let launchingGameFromDetails = false;
+let pendingQuestionReport = null;
+let creatorQuestionReports = [];
 let pendingRankingChallenges = [];
 let previousScreen = "dashboard";
 
@@ -2625,6 +2644,287 @@ document.querySelectorAll("[data-skip-game]").forEach((button) => {
     });
 });
 
+const REPORT_REASON_LABELS = {
+    confusing: "Formulation confuse",
+    duplicate: "Question en double",
+    mistake: "Faute ou erreur",
+    sensitive: "Contenu sensible",
+    offtopic: "Hors sujet"
+};
+
+function getCurrentReportableContent(mode) {
+    const content = {
+        ranking: currentRanking ? { id: currentRanking.id, text: currentRanking.title } : null,
+        guess: currentGuessQuestion ? { id: currentGuessQuestion.id, text: currentGuessQuestion.question } : null,
+        likely: currentLikelyQuestion ? { id: currentLikelyQuestion.id, text: currentLikelyQuestion.question } : null,
+        ok: currentOkQuestion ? { id: currentOkQuestion.id, text: currentOkQuestion.question } : null,
+        greenFlag: currentGreenFlagQuestion ? { id: currentGreenFlagQuestion.id, text: currentGreenFlagQuestion.question } : null,
+        princess: currentPrincessQuestion ? { id: currentPrincessQuestion.id, text: currentPrincessQuestion.question } : null,
+        questions: currentCoupleQuestion ? { id: currentCoupleQuestion.id, text: currentCoupleQuestion.question } : null
+    }[mode];
+    return content ? { ...content, mode } : null;
+}
+
+function getQuestionReportId(mode, questionId) {
+    return (mode + "_" + questionId).replace(/[.#$\[\]\/]/g, "_").slice(0, 180);
+}
+
+function openQuestionReport(mode) {
+    const content = getCurrentReportableContent(mode);
+    if (!content || !currentUser) {
+        showToast("Ce contenu ne peut pas être signalé pour le moment");
+        return;
+    }
+
+    pendingQuestionReport = content;
+    reportedQuestionPreview.textContent = content.text;
+    questionReportReason.value = "";
+    questionReportComment.value = "";
+    questionReportModal.style.display = "grid";
+    document.body.classList.add("question-report-open");
+    questionReportReason.focus();
+}
+
+function closeQuestionReport() {
+    questionReportModal.style.display = "none";
+    pendingQuestionReport = null;
+    document.body.classList.remove("question-report-open");
+}
+
+document.querySelectorAll("[data-report-game]").forEach((button) => {
+    button.addEventListener("click", () => openQuestionReport(button.dataset.reportGame));
+});
+closeQuestionReportBtn.addEventListener("click", closeQuestionReport);
+questionReportModal.querySelector("[data-close-question-report]").addEventListener("click", closeQuestionReport);
+
+questionReportForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    if (!pendingQuestionReport || !questionReportReason.value || !currentUser) return;
+
+    const report = pendingQuestionReport;
+    const reportId = getQuestionReportId(report.mode, report.id);
+    const reference = database.ref("questionReports/" + currentUser.uid + "/" + reportId);
+    submitQuestionReportBtn.disabled = true;
+    submitQuestionReportBtn.textContent = "Envoi…";
+
+    reference.once("value")
+        .then((snapshot) => {
+            if (snapshot.exists()) throw new Error("already-reported");
+            return reference.set({
+                reporterUid: currentUser.uid,
+                spaceCode: currentSpaceCode || "",
+                game: report.mode,
+                questionId: String(report.id),
+                questionText: String(report.text).slice(0, 1200),
+                reason: questionReportReason.value,
+                comment: questionReportComment.value.trim().slice(0, 500),
+                status: "open",
+                createdAt: Date.now()
+            });
+        })
+        .then(() => {
+            closeQuestionReport();
+            showToast("Merci, le signalement a été envoyé 🌵");
+        })
+        .catch((error) => {
+            if (error.message === "already-reported") {
+                showToast("Cette question a déjà été signalée depuis ce compte");
+            } else {
+                console.error("Signalement impossible", error);
+                showToast(getFriendlyFirebaseError(error));
+            }
+        })
+        .finally(() => {
+            submitQuestionReportBtn.disabled = false;
+            submitQuestionReportBtn.textContent = "Envoyer le signalement";
+        });
+});
+
+function flattenQuestionReports(data) {
+    return Object.entries(data || {}).flatMap(([ownerUid, reports]) => {
+        return Object.entries(reports || {}).map(([reportId, report]) => ({
+            ...report,
+            ownerUid,
+            reportId
+        }));
+    }).sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0));
+}
+
+function loadCreatorReportsCount() {
+    if (!isCreatorAccount()) return;
+    database.ref("questionReports").once("value").then((snapshot) => {
+        const count = flattenQuestionReports(snapshot.val()).filter((report) => report.status === "open").length;
+        creatorReportsCount.textContent = count > 99 ? "99+" : count;
+        creatorOpenReportsBtn.classList.toggle("has-reports", count > 0);
+    }).catch((error) => console.warn("Compteur des signalements indisponible", error));
+}
+
+function openCreatorReports() {
+    if (!isCreatorAccount()) return;
+    creatorReportsModal.style.display = "grid";
+    document.body.classList.add("question-report-open");
+    creatorReportsEmpty.querySelector("strong").textContent = "Aucun signalement ici";
+    creatorReportsEmpty.querySelector("p").textContent = "Tout est à jour pour ce filtre.";
+    creatorReportsEmpty.style.display = "none";
+    creatorReportsList.innerHTML = '<p class="creator-reports-loading">Chargement des signalements…</p>';
+    database.ref("questionReports").once("value")
+        .then((snapshot) => {
+            creatorQuestionReports = flattenQuestionReports(snapshot.val());
+            renderCreatorReports();
+        })
+        .catch((error) => {
+            creatorReportsList.innerHTML = "";
+            creatorReportsEmpty.style.display = "flex";
+            creatorReportsEmpty.querySelector("strong").textContent = "Chargement impossible";
+            creatorReportsEmpty.querySelector("p").textContent = getFriendlyFirebaseError(error);
+        });
+}
+
+function closeCreatorReports() {
+    creatorReportsModal.style.display = "none";
+    document.body.classList.remove("question-report-open");
+}
+
+function renderCreatorReports() {
+    const game = creatorReportsGameFilter.value;
+    const reason = creatorReportsReasonFilter.value;
+    const status = creatorReportsStatusFilter.value;
+    const reports = creatorQuestionReports.filter((report) => {
+        return (game === "all" || report.game === game) &&
+            (reason === "all" || report.reason === reason) &&
+            (status === "all" || report.status === status);
+    });
+
+    creatorReportsList.replaceChildren();
+    creatorReportsEmpty.style.display = reports.length === 0 ? "flex" : "none";
+    reports.forEach((report) => {
+        const card = document.createElement("article");
+        card.className = "creator-report-card status-" + (report.status || "open");
+        const meta = document.createElement("small");
+        meta.textContent = (GAMES_LIBRARY[report.game]?.title || report.game) + " · " + (REPORT_REASON_LABELS[report.reason] || report.reason);
+        const question = document.createElement("strong");
+        question.textContent = report.questionText || "Contenu indisponible";
+        const comment = document.createElement("p");
+        comment.textContent = report.comment || "Aucune précision ajoutée.";
+        const date = document.createElement("time");
+        date.textContent = formatNotificationDate(report.createdAt || Date.now());
+        const actions = document.createElement("div");
+        if (report.status === "open") {
+            const resolved = document.createElement("button");
+            resolved.type = "button"; resolved.textContent = "✓ Corrigé";
+            resolved.addEventListener("click", () => updateQuestionReportStatus(report, "resolved"));
+            const ignored = document.createElement("button");
+            ignored.type = "button"; ignored.className = "secondary"; ignored.textContent = "Ignorer";
+            ignored.addEventListener("click", () => updateQuestionReportStatus(report, "ignored"));
+            actions.append(resolved, ignored);
+        }
+        card.append(meta, question, comment, date, actions);
+        creatorReportsList.appendChild(card);
+    });
+}
+
+function updateQuestionReportStatus(report, status) {
+    database.ref("questionReports/" + report.ownerUid + "/" + report.reportId).update({
+        status,
+        reviewedAt: Date.now(),
+        reviewedBy: currentUser.uid
+    }).then(() => {
+        report.status = status;
+        renderCreatorReports();
+        loadCreatorReportsCount();
+        showToast(status === "resolved" ? "Signalement marqué comme corrigé" : "Signalement ignoré");
+    }).catch((error) => showToast(getFriendlyFirebaseError(error)));
+}
+
+creatorOpenReportsBtn.addEventListener("click", openCreatorReports);
+closeCreatorReportsBtn.addEventListener("click", closeCreatorReports);
+creatorReportsModal.querySelector("[data-close-creator-reports]").addEventListener("click", closeCreatorReports);
+[creatorReportsGameFilter, creatorReportsReasonFilter, creatorReportsStatusFilter].forEach((filter) => filter.addEventListener("change", renderCreatorReports));
+
+const RECENT_GAME_HISTORY_PREFIX = "cactus_recent_questions_v1";
+
+function getGameHistoryKey(mode) {
+    return RECENT_GAME_HISTORY_PREFIX + "_" + (currentUser?.uid || "guest") + "_" + mode;
+}
+
+function readGameHistory(mode) {
+    try {
+        const value = JSON.parse(localStorage.getItem(getGameHistoryKey(mode)) || "[]");
+        return Array.isArray(value) ? value.filter(Boolean) : [];
+    } catch (error) {
+        return [];
+    }
+}
+
+function writeGameHistory(mode, history) {
+    localStorage.setItem(getGameHistoryKey(mode), JSON.stringify(history));
+}
+
+function getActiveChallengeIds(path) {
+    if (!path || !currentSpaceData) return new Set();
+    return new Set(
+        Object.entries(currentSpaceData[path] || {})
+            .filter(([, challenge]) => challenge?.status !== "completed")
+            .map(([id]) => String(id))
+    );
+}
+
+function selectFreshGameItem(items, mode, currentId = null, challengePath = null) {
+    if (!Array.isArray(items) || items.length === 0) return null;
+
+    const blockedIds = getActiveChallengeIds(challengePath);
+    let history = readGameHistory(mode).filter((id) => items.some((item) => String(item.id) === String(id)));
+    const eligible = items.filter((item) => {
+        return String(item.id) !== String(currentId || "") && !blockedIds.has(String(item.id));
+    });
+    let fresh = eligible.filter((item) => !history.includes(String(item.id)));
+
+    if (fresh.length === 0) {
+        const recentToKeep = Math.min(12, Math.max(1, Math.floor(items.length * 0.12)));
+        history = history.slice(-recentToKeep);
+        fresh = eligible.filter((item) => !history.includes(String(item.id)));
+    }
+
+    const pool = fresh.length > 0 ? fresh : (eligible.length > 0 ? eligible : items);
+    const selected = pool[Math.floor(Math.random() * pool.length)];
+    history = history.filter((id) => String(id) !== String(selected.id));
+    history.push(String(selected.id));
+    writeGameHistory(mode, history.slice(-items.length));
+    return selected;
+}
+
+function setGameSkipAvailability(mode, available, items = []) {
+    const button = document.querySelector('[data-skip-game="' + mode + '"]');
+    const progress = document.querySelector('[data-game-progress="' + mode + '"]');
+    const toolbar = button?.closest(".game-question-tools");
+    if (!toolbar) return;
+
+    toolbar.classList.toggle("is-unavailable", !available);
+    if (!available || !progress) return;
+
+    const seen = new Set(readGameHistory(mode));
+    const remaining = Math.max(0, items.filter((item) => !seen.has(String(item.id))).length);
+    progress.textContent = remaining > 0
+        ? remaining + " encore inédite" + (remaining > 1 ? "s" : "")
+        : "Catalogue parcouru · nouvelle rotation";
+}
+
+document.querySelectorAll("[data-skip-game]").forEach((button) => {
+    button.addEventListener("click", () => {
+        const actions = {
+            ranking: startRandomRanking,
+            guess: startGuessGame,
+            likely: startLikelyGame,
+            ok: startOkGame,
+            greenFlag: startGreenFlagGame,
+            princess: startPrincessGame,
+            questions: startQuestionsGame
+        };
+        const action = actions[button.dataset.skipGame];
+        if (action) action();
+    });
+});
+
 function normalizeGameSearch(value) {
     return String(value || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim();
 }
@@ -3222,6 +3522,7 @@ function isCreatorAccount() {
 
 function updateCreatorToolsVisibility() {
     creatorToolsPanel.style.display = isCreatorAccount() ? "block" : "none";
+    if (isCreatorAccount()) loadCreatorReportsCount();
 }
 
 function canUseCreatorTools() {
