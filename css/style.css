@@ -2118,14 +2118,14 @@ body.dashboard-active .top-right-btn {
     position: absolute;
     z-index: 1;
     top: 54%;
-    left: 9%;
+    left: 15%;
     display: block;
     width: 17%;
     height: auto;
     pointer-events: none;
     transform: rotate(0deg);
     transform-origin: 90% 12%;
-    filter: drop-shadow(0 8px 8px rgba(0, 18, 13, 0.2));
+    filter: none;
     will-change: transform;
 }
 
