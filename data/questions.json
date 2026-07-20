@@ -41,7 +41,7 @@
   },
   {
     "id": "si_on_echangeait_nos_vies_pendant_une",
-    "question": "Si on échangeait nos vies pendant une semaine, pour laquelle de nous ça serait le plus compliqué tu penses?",
+    "question": "Si nous échangions nos vies pendant une semaine, laquelle de nous aurait le plus de difficultés, selon toi ?",
     "category": "relation",
     "spicy": 0,
     "mood": "deep",
@@ -57,7 +57,7 @@
   },
   {
     "id": "quelle_est_la_chose_la_plus_etrange",
-    "question": "Quelle est la chose la plus étrange qui t'attire chez moi?",
+    "question": "Quelle particularité inattendue chez moi t'attire le plus ?",
     "category": "intimacy",
     "spicy": 1,
     "mood": "romantic",
@@ -177,7 +177,7 @@
   },
   {
     "id": "dans_un_debat_tu_penses_que_ton",
-    "question": "Dans un débat, tu penses que ton ou ma meilleure ami·e nous défendrait le mieux ?",
+    "question": "Dans un débat, laquelle de nos meilleures amies défendrait le mieux notre couple ?",
     "category": "relation",
     "spicy": 0,
     "mood": "deep",
@@ -185,7 +185,7 @@
   },
   {
     "id": "quel_est_le_point_faible_de_notre",
-    "question": "Quel est le point faible de notre couple?",
+    "question": "Quel aspect de notre relation mérite le plus d'attention, selon toi ?",
     "category": "relation",
     "spicy": 0,
     "mood": "deep",
@@ -217,7 +217,7 @@
   },
   {
     "id": "si_on_n_etait_pas_ensemble_qui",
-    "question": "Si on n'était pas ensemble Qui trouverait l'autre la plus intimidante ?",
+    "question": "Si nous ne nous connaissions pas encore, laquelle de nous trouverait l'autre la plus intimidante ?",
     "category": "relation",
     "spicy": 0,
     "mood": "deep",
@@ -369,7 +369,7 @@
   },
   {
     "id": "tu_m_aimerais_encore_si_je_devais",
-    "question": "Tu m'aimerais encore si je devais m'absenter plusieurs mois?",
+    "question": "Comment préserverais-tu notre relation si je devais m'absenter plusieurs mois ?",
     "category": "relation",
     "spicy": 0,
     "mood": "deep",
@@ -377,7 +377,7 @@
   },
   {
     "id": "si_on_ne_s_etait_jamais_rencontres",
-    "question": "Si on ne s'était jamais rencontrés, avec quel type de personne tu serais?",
+    "question": "Si nous ne nous étions jamais rencontrées, quel type de personne imagines-tu à tes côtés ?",
     "category": "relation",
     "spicy": 0,
     "mood": "deep",
@@ -425,7 +425,7 @@
   },
   {
     "id": "si_on_se_rencontrait_aujourd_hui_pour",
-    "question": "Si on se rencontrait aujourd'hui pour la première fois, tu tomberais encore amoureux·se·se·se de moi?",
+    "question": "Si nous nous rencontrions aujourd'hui pour la première fois, qu'est-ce qui pourrait te faire tomber amoureuse de moi ?",
     "category": "intimacy",
     "spicy": 1,
     "mood": "romantic",
@@ -433,7 +433,7 @@
   },
   {
     "id": "quelle_est_la_chose_que_je_fait",
-    "question": "Quelle est la chose que je fait qui te rend secrètement jaloux·se ?",
+    "question": "Qu'est-ce que je fais qui peut parfois éveiller ta jalousie ?",
     "category": "jealousy",
     "spicy": 1,
     "mood": "serious",
@@ -449,7 +449,7 @@
   },
   {
     "id": "y_a_t_il_une_partie_de",
-    "question": "Y a t il une partie de toi que tu détestess ?",
+    "question": "Y a-t-il une partie de toi que tu as encore du mal à accepter ?",
     "category": "relation",
     "spicy": 0,
     "mood": "deep",
@@ -465,7 +465,7 @@
   },
   {
     "id": "quel_est_le_sujet_le_plus_difficile",
-    "question": "Quel est le sujet le plus difficile à aborder avec moi?",
+    "question": "Quel est le sujet le plus difficile à aborder avec moi ?",
     "category": "relation",
     "spicy": 0,
     "mood": "deep",
@@ -473,7 +473,7 @@
   },
   {
     "id": "as_tu_parfois_peur_de_ne_pas",
-    "question": "As-tu parfois peur de ne pas être assez pour moi?",
+    "question": "As-tu parfois peur de ne pas être à la hauteur de mes attentes ? Comment puis-je te rassurer ?",
     "category": "deep",
     "spicy": 0,
     "mood": "deep",
@@ -489,7 +489,7 @@
   },
   {
     "id": "quand_tu_nous_imagines_dans_5_ans",
-    "question": "Quand tu nous imagines dans 5 ans, qu'est ce que tu vois?",
+    "question": "Quand tu nous imagines dans cinq ans, quelle scène te vient en premier ?",
     "category": "future",
     "spicy": 0,
     "mood": "serious",
@@ -577,7 +577,7 @@
   },
   {
     "id": "comment_gererais_tu_quelqu_un_qui_essaye",
-    "question": "Comment gérerais tu quelqu'un qui essaye de me séparer de toi ?",
+    "question": "Comment réagirais-tu si quelqu'un essayait de nous éloigner l'une de l'autre ?",
     "category": "relation",
     "spicy": 0,
     "mood": "deep",
@@ -593,7 +593,7 @@
   },
   {
     "id": "qu_est_ce_qui_te_manque_de",
-    "question": "Qu'est ce qui te manque de ton célibat ?",
+    "question": "Quel aspect de ta vie de célibataire aimerais-tu préserver dans notre relation ?",
     "category": "relation",
     "spicy": 0,
     "mood": "deep",
@@ -617,7 +617,7 @@
   },
   {
     "id": "si_notre_relation_s_arretait_demain_qu",
-    "question": "Si notre relation s'arrêtait demain, qu'est ce que tu regretteraiss le plus et qu'est ce que tu regretteraiss le moins ?",
+    "question": "Si notre relation s'arrêtait demain, qu'est-ce que tu regretterais le plus de ne pas avoir vécu avec moi ?",
     "category": "deep",
     "spicy": 0,
     "mood": "deep",
@@ -649,7 +649,7 @@
   },
   {
     "id": "quelle_partie_de_ma_personnalite_t_as",
-    "question": "Quelle partie de ma personnalité t'as fait tomber encore plus amoureux·se·se de moi ?",
+    "question": "Quelle facette de ma personnalité t'a fait tomber encore plus amoureuse de moi ?",
     "category": "intimacy",
     "spicy": 1,
     "mood": "romantic",
@@ -705,7 +705,7 @@
   },
   {
     "id": "si_tu_repenses_a_la_personne_que",
-    "question": "Si tu repenses à la personne que tu étais avant qu'on se rencontre qu'est-ce que notre relation a changé en toi?",
+    "question": "Si tu repenses à la personne que tu étais avant notre rencontre, qu'est-ce que notre relation a changé en toi ?",
     "category": "relation",
     "spicy": 0,
     "mood": "deep",
@@ -721,7 +721,7 @@
   },
   {
     "id": "si_on_devait_definir_ensemble_c_est",
-    "question": "Si on devait définir ensemble, c'est avoir réussir notre vie de couple ?",
+    "question": "Pour nous deux, que signifierait réussir notre vie de couple ?",
     "category": "future",
     "spicy": 0,
     "mood": "serious",
@@ -745,7 +745,7 @@
   },
   {
     "id": "y_a_t_il_quelque_chose_qu",
-    "question": "Y a-t-il quelque chose qu'une ancienne relation faisait mieux que moi, et quelque chose que je fait mieux ?",
+    "question": "Quelle leçon positive d'une ancienne relation aimerais-tu conserver, et qu'est-ce qui te convient mieux avec moi ?",
     "category": "jealousy",
     "spicy": 1,
     "mood": "serious",
@@ -777,7 +777,7 @@
   },
   {
     "id": "si_notre_relation_s_arretait_demain_qu_2",
-    "question": "Si notre relation s'arrêtait demain qu'est ce que tu regretteraiss de jamais m'avoir dit ?",
+    "question": "Quelle chose importante regretterais-tu de ne jamais m'avoir dite ?",
     "category": "deep",
     "spicy": 0,
     "mood": "deep",
@@ -889,7 +889,7 @@
   },
   {
     "id": "cest_quoi_l_objectif_que_tu_veux",
-    "question": "Cest quoi l'objectif que tu veux atteindre dans les prochaines années ?",
+    "question": "Quel objectif aimerais-tu atteindre dans les prochaines années ?",
     "category": "future",
     "spicy": 0,
     "mood": "serious",
@@ -905,7 +905,7 @@
   },
   {
     "id": "si_ton_toi_enfant_te_voyait_aujourd",
-    "question": "Si ton toi enfant te voyait aujourd'hui qu'est ce qui le surprendrait le plus?",
+    "question": "Si l'enfant que tu étais te voyait aujourd'hui, qu'est-ce qui la surprendrait le plus ?",
     "category": "relation",
     "spicy": 0,
     "mood": "deep",
@@ -929,7 +929,7 @@
   },
   {
     "id": "t_as_deja_ecris_un_truc_sur",
-    "question": "T'as déjà écris un truc sur moi dans tes notes ?",
+    "question": "As-tu déjà écrit quelque chose sur moi dans tes notes ? Si oui, quoi ?",
     "category": "relation",
     "spicy": 0,
     "mood": "deep",
@@ -953,7 +953,7 @@
   },
   {
     "id": "qu_est_ce_que_tu_as_remarque",
-    "question": "Qu'est ce que tu as remarqué chez moi depuis qu'on parle ?",
+    "question": "Qu'as-tu découvert chez moi depuis le début de notre relation ?",
     "category": "relation",
     "spicy": 0,
     "mood": "deep",
@@ -969,7 +969,7 @@
   },
   {
     "id": "dis_moi_quelque_chose_que_personne_pourrait",
-    "question": "Dis moi quelque chose que personne pourrait deviner sur toi ?",
+    "question": "Dis-moi quelque chose que personne ne pourrait facilement deviner sur toi.",
     "category": "relation",
     "spicy": 0,
     "mood": "deep",
@@ -985,7 +985,7 @@
   },
   {
     "id": "si_je_me_transformait_en_animal_pendant",
-    "question": "Si je me transformait en animal pendant une journée ce serait quoi ?",
+    "question": "Si je me transformais en animal pendant une journée, lequel serais-je selon toi ?",
     "category": "fun",
     "spicy": 0,
     "mood": "fun",
@@ -993,7 +993,7 @@
   },
   {
     "id": "comment_definis_tu_l_amour_et_est",
-    "question": "Comment définis tu l'amour et est-ce que tu penses l'avoir déjà ressenti·e ?",
+    "question": "Comment définis-tu l'amour, et à quel moment as-tu senti que tu le vivais avec moi ?",
     "category": "intimacy",
     "spicy": 1,
     "mood": "romantic",
@@ -1001,7 +1001,7 @@
   },
   {
     "id": "est_ce_que_je_t_ai_deja",
-    "question": "Est-ce que je t'ai déjà blessé en faisant quelque chose dont je ne suis pas conscient ?",
+    "question": "Est-ce que je t'ai déjà blessée sans m'en rendre compte ? Si oui, comment pourrais-je mieux agir ?",
     "category": "deep",
     "spicy": 0,
     "mood": "deep",
@@ -1057,7 +1057,7 @@
   },
   {
     "id": "cest_quoi_la_derniere_choses_dans_laquelle",
-    "question": "Cest quoi la dernière choses dans laquelle tu as mis vraiment beaucoup d'efforts ?",
+    "question": "Quelle est la dernière chose dans laquelle tu as investi beaucoup d'efforts ?",
     "category": "relation",
     "spicy": 0,
     "mood": "deep",
@@ -1081,7 +1081,7 @@
   },
   {
     "id": "si_on_devait_repartir_de_zero_qu",
-    "question": "Si on devait repartir de zero qu'est ce que tu ferais différemment dans notre histoire ?",
+    "question": "Si nous pouvions recommencer notre histoire, qu'aimerais-tu faire différemment ?",
     "category": "relation",
     "spicy": 0,
     "mood": "deep",
@@ -1089,7 +1089,7 @@
   },
   {
     "id": "quelle_est_la_chose_que_je_fait_2",
-    "question": "Quelle est la chose que je fait sans le savoir qui te fait sentir qu'on est fait l'un pour l'autre ?",
+    "question": "Qu'est-ce que je fais sans le savoir qui te donne le sentiment que nous sommes faites l'une pour l'autre ?",
     "category": "relation",
     "spicy": 0,
     "mood": "deep",
@@ -1113,7 +1113,7 @@
   },
   {
     "id": "quel_trait_de_ma_personnalite_te_font",
-    "question": "Quel trait de ma personnalité te font parfois te demander si on est vraiment fait l'un pour l’autre ?",
+    "question": "Quel trait de ma personnalité peut parfois te faire douter de notre compatibilité ?",
     "category": "communication",
     "spicy": 0,
     "mood": "serious",
@@ -1137,7 +1137,7 @@
   },
   {
     "id": "si_je_te_disais_que_je_venais",
-    "question": "Si je te disais que je venais d'acheter un truc de fou, tu t'imaginerai quoi ?",
+    "question": "Si je te disais que je viens de faire un achat complètement fou, qu'imaginerais-tu ?",
     "category": "relation",
     "spicy": 0,
     "mood": "deep",
@@ -1145,7 +1145,7 @@
   },
   {
     "id": "quel_est_ta_definition_de_l_amour",
-    "question": "Quel est ta définition de l'amour ?",
+    "question": "Quelle est ta définition de l'amour ?",
     "category": "intimacy",
     "spicy": 1,
     "mood": "romantic",
@@ -1153,7 +1153,7 @@
   },
   {
     "id": "est_ce_quil_y_a_quelque_chose",
-    "question": "Est-ce-quil y a quelque chose que tu aimerais que je fasse plus souvent ?",
+    "question": "Y a-t-il quelque chose que tu aimerais que je fasse plus souvent ?",
     "category": "relation",
     "spicy": 0,
     "mood": "deep",
@@ -1169,7 +1169,7 @@
   },
   {
     "id": "qu_est_ce_que_tu_aimes_le",
-    "question": "Qu'est ce que tu aimes le plus chez moi?",
+    "question": "Qu'est-ce que tu aimes le plus chez moi ?",
     "category": "intimacy",
     "spicy": 1,
     "mood": "romantic",
@@ -1177,7 +1177,7 @@
   },
   {
     "id": "qu_est_ce_que_je_fait_qui",
-    "question": "Qu'est ce que je fait qui t'agace le plus?",
+    "question": "Qu'est-ce que je fais qui t'agace le plus, et comment pourrais-je mieux le gérer ?",
     "category": "relation",
     "spicy": 0,
     "mood": "deep",
@@ -1185,7 +1185,7 @@
   },
   {
     "id": "si_quelqu_un_te_demandait_pourquoi_tu",
-    "question": "Si quelqu'un te demandait pourquoi tu sors avec moi tu lui répondrais quoi?",
+    "question": "Si quelqu'un te demandait pourquoi tu as choisi d'être avec moi, que lui répondrais-tu ?",
     "category": "relation",
     "spicy": 0,
     "mood": "deep",
@@ -1217,7 +1217,7 @@
   },
   {
     "id": "si_tu_devais_changer_mon_prenom_legalement",
-    "question": "Si tu devais changer mon prénom légalement tu m'appellerai comment ?",
+    "question": "Si tu devais choisir un autre prénom pour moi, lequel choisirais-tu et pourquoi ?",
     "category": "fun",
     "spicy": 0,
     "mood": "fun",
@@ -1225,7 +1225,7 @@
   },
   {
     "id": "si_tu_pouvais_bannir_une_chose_de",
-    "question": "Si tu pouvais bannir une chose de ma garde robe pour toujours ça serait quoi?",
+    "question": "Si tu pouvais retirer définitivement une chose de ma garde-robe, laquelle choisirais-tu ?",
     "category": "fun",
     "spicy": 0,
     "mood": "fun",
@@ -1273,7 +1273,7 @@
   },
   {
     "id": "est_ce_que_parfois_tu_as_l",
-    "question": "Est-ce que parfois tu as l'impression que je te soutiens pas vraiment ?",
+    "question": "T'arrive-t-il d'avoir l'impression que je ne te soutiens pas suffisamment ? Dans quelle situation ?",
     "category": "relation",
     "spicy": 0,
     "mood": "deep",
@@ -1297,7 +1297,7 @@
   },
   {
     "id": "qu_avons_nous_accomplis_cette_annee_dont",
-    "question": "Qu'avons nous accomplis cette année dont nous sommes fières?",
+    "question": "Qu'avons-nous accompli cette année dont nous sommes les plus fières ?",
     "category": "future",
     "spicy": 0,
     "mood": "serious",
@@ -1369,7 +1369,7 @@
   },
   {
     "id": "les_jeux_de_roles_c_est_un",
-    "question": "Les jeux de rôles c'est un truc qui pourrait te faire kiffer avec moi?",
+    "question": "Est-ce que les jeux de rôle pourraient être une envie à explorer ensemble ?",
     "category": "relation",
     "spicy": 0,
     "mood": "deep",
@@ -1841,7 +1841,7 @@
   },
   {
     "id": "si_je_likais_regulierement_les_photos_d",
-    "question": "Si je likais régulièrement les photos d'une même personne, tu le prendrait comment ?",
+    "question": "Si j'aimais régulièrement les photos d'une même personne, comment le vivrais-tu ?",
     "category": "relation",
     "spicy": 0,
     "mood": "deep",
@@ -2017,7 +2017,7 @@
   },
   {
     "id": "quel_est_le_truc_que_je_fait",
-    "question": "Quel est le truc que je fait qui mérite une amende symbolique ?",
+    "question": "Quelle habitude chez moi mériterait une amende symbolique ?",
     "category": "fun",
     "spicy": 0,
     "mood": "fun",
@@ -2513,7 +2513,7 @@
   },
   {
     "id": "qu_est_ce_que_je_fait_quand",
-    "question": "Qu'est-ce que je fait quand j'aime quelqu'un, selon toi ?",
+    "question": "Qu'est-ce que je fais quand j'aime quelqu'un, selon toi ?",
     "category": "relation",
     "spicy": 0,
     "mood": "deep",
@@ -2798,5 +2798,285 @@
     "spicy": 0,
     "mood": "deep",
     "premium": true
+  },
+  {
+    "id": "nouveau_rituel_cinq_minutes",
+    "question": "Quel petit rituel de cinq minutes pourrions-nous créer dès cette semaine ?",
+    "category": "relation",
+    "spicy": 0,
+    "mood": "romantic",
+    "premium": false
+  },
+  {
+    "id": "detail_journee_aimerais_connaitre",
+    "question": "Quel détail de ta journée aimerais-tu que je pense à te demander plus souvent ?",
+    "category": "communication",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": false
+  },
+  {
+    "id": "signe_besoin_reconfort",
+    "question": "Quel signe discret montre que tu as besoin de réconfort, même quand tu ne le dis pas ?",
+    "category": "communication",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": false
+  },
+  {
+    "id": "phrase_desaccord_securisante",
+    "question": "Quelle phrase pourrait nous aider à nous sentir en sécurité pendant un désaccord ?",
+    "category": "communication",
+    "spicy": 0,
+    "mood": "serious",
+    "premium": false
+  },
+  {
+    "id": "conversation_bien_ecoutee",
+    "question": "Lors de quelle conversation récente t'es-tu sentie particulièrement bien écoutée par moi ?",
+    "category": "communication",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": false
+  },
+  {
+    "id": "journee_theme_absurde",
+    "question": "Si nous organisions une journée sur un thème absurde, quel thème choisirais-tu ?",
+    "category": "fun",
+    "spicy": 0,
+    "mood": "fun",
+    "premium": false
+  },
+  {
+    "id": "talent_inutile_duo",
+    "question": "Quel talent complètement inutile pourrions-nous maîtriser en duo ?",
+    "category": "fun",
+    "spicy": 0,
+    "mood": "fun",
+    "premium": false
+  },
+  {
+    "id": "nom_equipe_emission",
+    "question": "Quel serait notre nom d'équipe dans une émission d'aventure ?",
+    "category": "fun",
+    "spicy": 0,
+    "mood": "fun",
+    "premium": false
+  },
+  {
+    "id": "plat_invente_couple",
+    "question": "Si notre couple était un plat inventé, quels ingrédients contiendrait-il ?",
+    "category": "fun",
+    "spicy": 0,
+    "mood": "fun",
+    "premium": false
+  },
+  {
+    "id": "mission_secrete_weekend",
+    "question": "Quelle mission secrète amusante aimerais-tu que nous réalisions ce week-end ?",
+    "category": "fun",
+    "spicy": 0,
+    "mood": "fun",
+    "premium": false
+  },
+  {
+    "id": "priorite_prochaine_annee",
+    "question": "Quelle priorité aimerais-tu que nous protégions ensemble pendant la prochaine année ?",
+    "category": "future",
+    "spicy": 0,
+    "mood": "serious",
+    "premium": false
+  },
+  {
+    "id": "projet_budget_commun",
+    "question": "Pour quel projet commun aurais-tu envie que nous commencions à économiser ?",
+    "category": "future",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": false
+  },
+  {
+    "id": "chez_nous_ideal_sensation",
+    "question": "Quelle sensation voudrais-tu ressentir en entrant dans notre futur chez-nous ?",
+    "category": "future",
+    "spicy": 0,
+    "mood": "romantic",
+    "premium": false
+  },
+  {
+    "id": "tradition_dans_dix_ans",
+    "question": "Quelle tradition aimerais-tu que nous suivions encore dans dix ans ?",
+    "category": "future",
+    "spicy": 0,
+    "mood": "romantic",
+    "premium": false
+  },
+  {
+    "id": "reussite_individuelle_soutenir",
+    "question": "Quelle réussite personnelle aimerais-tu que je t'aide à atteindre ?",
+    "category": "future",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": false
+  },
+  {
+    "id": "valeur_apprise_famille",
+    "question": "Quelle valeur reçue de ta famille veux-tu transmettre dans notre couple ?",
+    "category": "values",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": false
+  },
+  {
+    "id": "valeur_remise_en_question",
+    "question": "Quelle conviction importante as-tu remise en question depuis notre rencontre ?",
+    "category": "values",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": false
+  },
+  {
+    "id": "justice_decision_couple",
+    "question": "À quoi reconnais-tu qu'une décision est juste pour nous deux ?",
+    "category": "values",
+    "spicy": 0,
+    "mood": "serious",
+    "premium": false
+  },
+  {
+    "id": "independance_importante",
+    "question": "Quelle forme d'indépendance est essentielle à ton équilibre personnel ?",
+    "category": "values",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": false
+  },
+  {
+    "id": "limite_proches_expliquer",
+    "question": "Quelle limite avec nos proches devrions-nous mieux expliquer ou protéger ?",
+    "category": "family",
+    "spicy": 0,
+    "mood": "serious",
+    "premium": false
+  },
+  {
+    "id": "souvenir_famille_partager",
+    "question": "Quel souvenir de ton enfance aimerais-tu me faire vivre ou me raconter en détail ?",
+    "category": "family",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": false
+  },
+  {
+    "id": "fete_famille_inventer",
+    "question": "Quelle fête ou tradition familiale aimerais-tu réinventer à notre manière ?",
+    "category": "family",
+    "spicy": 0,
+    "mood": "fun",
+    "premium": false
+  },
+  {
+    "id": "dimanche_sans_contrainte",
+    "question": "À quoi ressemblerait notre dimanche idéal sans aucune contrainte ?",
+    "category": "lifestyle",
+    "spicy": 0,
+    "mood": "fun",
+    "premium": false
+  },
+  {
+    "id": "habitude_quotidienne_simplifier",
+    "question": "Quelle habitude quotidienne pourrions-nous simplifier pour avoir plus de temps ensemble ?",
+    "category": "lifestyle",
+    "spicy": 0,
+    "mood": "serious",
+    "premium": false
+  },
+  {
+    "id": "temps_seule_ideal",
+    "question": "De combien de temps seule as-tu besoin pour te sentir bien dans une semaine normale ?",
+    "category": "lifestyle",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": false
+  },
+  {
+    "id": "petit_luxe_quotidien",
+    "question": "Quel petit luxe du quotidien aimerais-tu que nous nous offrions plus souvent ?",
+    "category": "lifestyle",
+    "spicy": 0,
+    "mood": "fun",
+    "premium": false
+  },
+  {
+    "id": "moment_fierte_recente",
+    "question": "À quel moment récent as-tu été fière de nous sans forcément me le dire ?",
+    "category": "relation",
+    "spicy": 0,
+    "mood": "romantic",
+    "premium": false
+  },
+  {
+    "id": "geste_reconnexion_rapide",
+    "question": "Quel geste simple nous aide le plus à nous reconnecter après une journée difficile ?",
+    "category": "relation",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": false
+  },
+  {
+    "id": "difference_complementaire",
+    "question": "Quelle différence entre nous te donne le plus l'impression que nous nous complétons ?",
+    "category": "relation",
+    "spicy": 0,
+    "mood": "romantic",
+    "premium": false
+  },
+  {
+    "id": "besoin_mieux_compris",
+    "question": "Quel besoin personnel aimerais-tu que je comprenne mieux, sans avoir à le deviner ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": false
+  },
+  {
+    "id": "peur_transformee_confiance",
+    "question": "Quelle peur liée à notre relation s'est transformée en confiance avec le temps ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": false
+  },
+  {
+    "id": "partie_de_soi_proteger",
+    "question": "Quelle partie sensible de toi aimerais-tu que je protège davantage ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": false
+  },
+  {
+    "id": "ambiance_tendresse_preferee",
+    "question": "Quelle ambiance te donne le plus envie d'un moment tendre avec moi ?",
+    "category": "intimacy",
+    "spicy": 1,
+    "mood": "romantic",
+    "premium": false
+  },
+  {
+    "id": "consentement_facile_exprimer",
+    "question": "Qu'est-ce qui pourrait rendre encore plus facile l'expression de tes envies et de tes limites ?",
+    "category": "intimacy",
+    "spicy": 1,
+    "mood": "serious",
+    "premium": false
+  },
+  {
+    "id": "attention_sensuelle_non_sexuelle",
+    "question": "Quelle attention sensuelle, sans être sexuelle, te fait te sentir particulièrement proche de moi ?",
+    "category": "intimacy",
+    "spicy": 1,
+    "mood": "romantic",
+    "premium": false
   }
 ]

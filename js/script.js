@@ -7399,7 +7399,7 @@ function markCurrentPrincessResultSeen() {
 }
 
 async function loadCoupleQuestionsData() {
-    const response = await fetch("data/questions.json");
+    const response = await fetch("data/questions.json?v=42");
     coupleQuestions = await applyCreatorContent("questions", await response.json());
 
     updateDashboardContentCounts();
