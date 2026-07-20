@@ -205,6 +205,14 @@ const notebookWordCount = document.getElementById("notebookWordCount");
 const backToGardenBtn = document.getElementById("backToGardenBtn");
 const renameNotebookBtn = document.getElementById("renameNotebookBtn");
 const deleteNotebookBtn = document.getElementById("deleteNotebookBtn");
+const editNotebookModal = document.getElementById("editNotebookModal");
+const editNotebookEmoji = document.getElementById("editNotebookEmoji");
+const editNotebookTitle = document.getElementById("editNotebookTitle");
+const editNotebookColor = document.getElementById("editNotebookColor");
+const editNotebookColorButton = document.getElementById("editNotebookColorButton");
+const closeEditNotebookBtn = document.getElementById("closeEditNotebookBtn");
+const cancelEditNotebookBtn = document.getElementById("cancelEditNotebookBtn");
+const saveEditNotebookBtn = document.getElementById("saveEditNotebookBtn");
 
 const notebookEditor = document.getElementById("notebookEditor");
 const insertCheckboxLineBtn = document.getElementById("insertCheckboxLineBtn");
@@ -2075,19 +2083,47 @@ backToGardenBtn.addEventListener("click", () => {
 });
 
 
-renameNotebookBtn.addEventListener("click", () => {
+function closeEditNotebookModal() {
+    editNotebookModal.style.display = "none";
+    document.body.classList.remove("edit-notebook-open");
+}
+
+function openEditNotebookModal() {
     if (!currentNotebookId || !currentNotebookData) {
         return;
     }
 
-    const newTitle = prompt(
-        "Nouveau nom du carnet",
-        currentNotebookData.title
-    );
+    const color = getSafeProfileColor(currentNotebookData.color || "#D8F3DC").toUpperCase();
+    editNotebookEmoji.value = currentNotebookData.emoji || "📝";
+    editNotebookTitle.value = currentNotebookData.title || "";
+    editNotebookColor.value = color;
+    editNotebookColorButton.style.setProperty("--control-color", color);
+    editNotebookColorButton.querySelector("small").textContent = color;
+    editNotebookModal.style.display = "flex";
+    document.body.classList.add("edit-notebook-open");
+    window.setTimeout(() => editNotebookTitle.focus(), 60);
+}
 
-    if (!newTitle || newTitle.trim() === "") {
+renameNotebookBtn.addEventListener("click", openEditNotebookModal);
+closeEditNotebookBtn.addEventListener("click", closeEditNotebookModal);
+cancelEditNotebookBtn.addEventListener("click", closeEditNotebookModal);
+editNotebookModal.querySelector("[data-close-edit-notebook]").addEventListener("click", closeEditNotebookModal);
+
+saveEditNotebookBtn.addEventListener("click", () => {
+    if (!currentNotebookId || !currentNotebookData) return;
+
+    const title = editNotebookTitle.value.trim();
+    const emoji = editNotebookEmoji.value.trim() || "📝";
+    const color = getSafeProfileColor(editNotebookColor.value || "#D8F3DC").toUpperCase();
+
+    if (!title) {
+        showToast("Donne un titre à ton carnet");
+        editNotebookTitle.focus();
         return;
     }
+
+    saveEditNotebookBtn.disabled = true;
+    saveEditNotebookBtn.textContent = "Enregistrement…";
 
     database
         .ref(
@@ -2097,18 +2133,30 @@ renameNotebookBtn.addEventListener("click", () => {
             currentNotebookId
         )
         .update({
-            title: newTitle.trim(),
+            title: title,
+            emoji: emoji,
+            color: color,
             updatedAt: Date.now(),
             updatedBy: currentUser.uid,
             updatedByPseudo: pseudo
         })
         .then(() => {
-            currentNotebookData.title = newTitle.trim();
+            currentNotebookData.title = title;
+            currentNotebookData.emoji = emoji;
+            currentNotebookData.color = color;
 
             openedNotebookTitle.textContent =
-                (currentNotebookData.emoji || "📝") +
-                " " +
-                currentNotebookData.title;
+                emoji + " " + title;
+            closeEditNotebookModal();
+            showToast("Carnet personnalisé ✨");
+        })
+        .catch((error) => {
+            console.error("Modification du carnet impossible", error);
+            showToast("Impossible de modifier le carnet");
+        })
+        .finally(() => {
+            saveEditNotebookBtn.disabled = false;
+            saveEditNotebookBtn.textContent = "Enregistrer";
         });
 });
 
@@ -2172,6 +2220,7 @@ let notebookColorSelectionRange = null;
 function openNotebookColorPicker(target) {
     const configurations = {
         notebook: { input: notebookColor, title: "Couleur du carnet" },
+        editNotebook: { input: editNotebookColor, title: "Nouvelle couleur du carnet" },
         text: { input: textColorPicker, title: "Couleur du texte" },
         highlight: { input: highlightColorPicker, title: "Couleur du surlignage" }
     };
@@ -2244,6 +2293,7 @@ function updateNotebookColorFromPointer(event) {
 }
 
 notebookColorButton.addEventListener("click", () => openNotebookColorPicker("notebook"));
+editNotebookColorButton.addEventListener("click", () => openNotebookColorPicker("editNotebook"));
 textColorButton.addEventListener("click", () => openNotebookColorPicker("text"));
 highlightColorButton.addEventListener("click", () => openNotebookColorPicker("highlight"));
 closeNotebookColorBtn.addEventListener("click", closeNotebookColorPicker);
@@ -2284,6 +2334,10 @@ applyNotebookColorBtn.addEventListener("click", () => {
         notebookColor.value = pendingNotebookColor;
         notebookColorButton.style.setProperty("--control-color", pendingNotebookColor);
         notebookColorButton.querySelector("small").textContent = pendingNotebookColor;
+    } else if (activeNotebookColorTarget === "editNotebook") {
+        editNotebookColor.value = pendingNotebookColor;
+        editNotebookColorButton.style.setProperty("--control-color", pendingNotebookColor);
+        editNotebookColorButton.querySelector("small").textContent = pendingNotebookColor;
     } else if (activeNotebookColorTarget === "text") {
         textColorPicker.value = pendingNotebookColor;
         textColorButton.style.setProperty("--control-color", pendingNotebookColor);
@@ -9706,4 +9760,3 @@ if (
             displayGuessChallenges(challenges);
     });
 }
-    

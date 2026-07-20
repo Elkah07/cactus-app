@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cactus 🌵</title>
-    <link rel="stylesheet" href="css/style.css?v=50">
+    <link rel="stylesheet" href="css/style.css?v=51">
     <link rel="manifest" href="manifest.json?v=2">
     <meta name="theme-color" content="#003E2D">
 </head>
@@ -174,7 +174,7 @@
     </header>
 
     <div class="notebook-toolbar">
-        <button type="button" id="renameNotebookBtn" class="secondary">Renommer</button>
+        <button type="button" id="renameNotebookBtn" class="secondary">Modifier le carnet</button>
         <button type="button" id="deleteNotebookBtn" class="danger-btn">Supprimer</button>
     </div>
 
@@ -219,6 +219,36 @@
     <button type="button" id="backToGardenBtn" class="secondary">
         Retour à Notre quotidien
     </button>
+</div>
+
+<div id="editNotebookModal" class="edit-notebook-modal" style="display:none;" role="dialog" aria-modal="true" aria-labelledby="editNotebookModalTitle">
+    <div class="edit-notebook-backdrop" data-close-edit-notebook></div>
+    <section class="edit-notebook-sheet">
+        <header>
+            <div><small>Personnalisation</small><h2 id="editNotebookModalTitle">Modifier le carnet</h2></div>
+            <button type="button" id="closeEditNotebookBtn" aria-label="Fermer">×</button>
+        </header>
+
+        <label class="edit-notebook-field" for="editNotebookEmoji">
+            <span>Emoji ou symbole</span>
+            <input type="text" id="editNotebookEmoji" maxlength="4" placeholder="📝">
+        </label>
+
+        <label class="edit-notebook-field" for="editNotebookTitle">
+            <span>Titre du carnet</span>
+            <input type="text" id="editNotebookTitle" maxlength="80" placeholder="Notre liste">
+        </label>
+
+        <input type="hidden" id="editNotebookColor" value="#D8F3DC">
+        <button type="button" id="editNotebookColorButton" class="notebook-color-button edit-notebook-color-button" style="--control-color:#D8F3DC">
+            <span aria-hidden="true"></span><span>Couleur du carnet</span><small>#D8F3DC</small>
+        </button>
+
+        <div class="edit-notebook-actions">
+            <button type="button" id="cancelEditNotebookBtn" class="secondary">Annuler</button>
+            <button type="button" id="saveEditNotebookBtn">Enregistrer</button>
+        </div>
+    </section>
 </div>
 
 <div id="notebookColorModal" class="notebook-color-modal" style="display:none;" role="dialog" aria-modal="true" aria-labelledby="notebookColorModalTitle">
@@ -1929,7 +1959,7 @@
     <script src="js/storage.js"></script>
     <script src="js/rankings.js"></script>
     <script src="js/questions.js"></script>
-    <script src="js/script.js?v=50"></script>
+    <script src="js/script.js?v=51"></script>
 
 </body>
 </html>

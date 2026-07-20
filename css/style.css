@@ -6659,7 +6659,108 @@ body:not(.dark-theme) #dashboardNotificationsBadge {
     text-shadow: none;
 }
 
-body.notebook-color-open { overflow: hidden; }
+body.notebook-color-open,
+body.edit-notebook-open { overflow: hidden; }
+
+.edit-notebook-modal {
+    position: fixed;
+    z-index: 1100;
+    inset: 0;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 14px;
+}
+
+.edit-notebook-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 26, 18, 0.68);
+    backdrop-filter: blur(7px);
+}
+
+.edit-notebook-sheet {
+    position: relative;
+    z-index: 1;
+    width: min(100%, 460px);
+    max-height: min(88svh, 620px);
+    padding: 18px;
+    overflow-y: auto;
+    border: 1px solid var(--app-border-strong);
+    border-radius: 28px 28px 22px 22px;
+    background: var(--app-shell-bg);
+    box-shadow: 0 28px 70px rgba(0, 20, 14, 0.42);
+}
+
+.edit-notebook-sheet > header {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 38px;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.edit-notebook-sheet header small,
+.edit-notebook-sheet header h2 {
+    display: block;
+    margin: 0;
+}
+
+.edit-notebook-sheet header small {
+    color: var(--app-accent);
+    font-size: 0.58rem;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.edit-notebook-sheet header h2 {
+    margin-top: 2px;
+    color: var(--app-heading);
+    font-size: 1rem;
+}
+
+.edit-notebook-sheet header button {
+    width: 38px;
+    height: 38px;
+    margin: 0;
+    padding: 0;
+    border-radius: 13px;
+}
+
+.edit-notebook-field {
+    display: block;
+    margin-bottom: 12px;
+}
+
+.edit-notebook-field > span {
+    display: block;
+    margin: 0 0 6px 2px;
+    color: var(--app-muted);
+    font-size: 0.62rem;
+    font-weight: 850;
+}
+
+.edit-notebook-field input {
+    width: 100%;
+    margin: 0;
+    border: 1px solid var(--app-border-strong);
+    background: var(--app-input-bg);
+    color: var(--app-heading);
+}
+
+.edit-notebook-color-button {
+    margin: 2px 0 14px;
+    border: 1px solid var(--app-border-strong);
+    background: var(--app-panel-bg);
+    color: var(--app-heading);
+}
+
+.edit-notebook-actions {
+    display: grid;
+    grid-template-columns: 1fr 1.25fr;
+    gap: 9px;
+}
+
+.edit-notebook-actions button { margin: 0; }
 
 .notebook-color-modal {
     position: fixed;
