@@ -5,6 +5,16 @@
 const loginScreen = document.getElementById("loginScreen");
 const pseudoScreen = document.getElementById("pseudoScreen");
 const coupleScreen = document.getElementById("coupleScreen");
+const onboardingScreen = document.getElementById("onboardingScreen");
+const skipOnboardingBtn = document.getElementById("skipOnboardingBtn");
+const onboardingVisual = document.getElementById("onboardingVisual");
+const onboardingEyebrow = document.getElementById("onboardingEyebrow");
+const onboardingTitle = document.getElementById("onboardingTitle");
+const onboardingText = document.getElementById("onboardingText");
+const onboardingTip = document.getElementById("onboardingTip");
+const onboardingProgress = document.getElementById("onboardingProgress");
+const previousOnboardingBtn = document.getElementById("previousOnboardingBtn");
+const nextOnboardingBtn = document.getElementById("nextOnboardingBtn");
 const dashboardScreen = document.getElementById("dashboardScreen");
 const rankingScreen = document.getElementById("rankingScreen");
 const rankingResultScreen = document.getElementById("rankingResultScreen");
@@ -632,6 +642,38 @@ let nextAfterAnswerFunction = null;
 let currentHistoryMode = null;
 let currentHistoryItems = []; 
 let currentEditingMemoryId = null;
+let currentOnboardingStep = 0;
+
+const ONBOARDING_STEPS = [
+    {
+        visual: "🌵💚",
+        eyebrow: "Bienvenue dans Cactus",
+        title: "Votre petit monde à deux",
+        text: "Jouez, discutez et gardez vos plus jolis souvenirs dans un espace rien qu’à vous.",
+        tip: "Vos contenus sont partagés uniquement avec votre partenaire."
+    },
+    {
+        visual: "🔐🤝",
+        eyebrow: "Un espace privé",
+        title: "Invitez votre partenaire",
+        text: "Créez un espace puis partagez son code sécurisé de 8 caractères. Votre partenaire choisira « Rejoindre ».",
+        tip: "Le code expire après 7 jours et ne peut accueillir qu’une seule autre personne."
+    },
+    {
+        visual: "✨🌵🎨",
+        eyebrow: "À votre image",
+        title: "Personnalisez votre coin",
+        text: "Choisissez vos avatars emoji, le nom du cactus, votre couleur et racontez les débuts de votre histoire.",
+        tip: "Vous pourrez tout modifier plus tard depuis le profil et les réglages."
+    },
+    {
+        visual: "🎮💬🎉",
+        eyebrow: "Prêts à pousser",
+        title: "Lancez votre premier jeu",
+        text: "Une personne répond, l’autre reçoit « À toi de jouer », puis votre résultat commun apparaît.",
+        tip: "Commencez par Questions ou Qui est le plus susceptible : ils sont très simples à découvrir."
+    }
+];
 
 const relationStatsModes = [
     {
@@ -891,16 +933,94 @@ savePseudoBtn.addEventListener("click", () => {
     database.ref("users/" + currentUser.uid).set({
         pseudo: pseudo,
         email: currentUser.email,
-        createdAt: Date.now()
+        createdAt: Date.now(),
+        onboardingCompleted: false
     })
     .then(() => {
         console.log("Pseudo sauvegardé !");
-        showScreen("couple");
+        openOnboarding(0);
     })
     .catch((error) => {
         console.error(error);
         alert(error.message);
     });
+});
+
+function renderOnboardingStep() {
+    const step = ONBOARDING_STEPS[currentOnboardingStep];
+    onboardingVisual.textContent = step.visual;
+    onboardingEyebrow.textContent = step.eyebrow;
+    onboardingTitle.textContent = step.title;
+    onboardingText.textContent = step.text;
+    onboardingTip.textContent = step.tip;
+    previousOnboardingBtn.style.visibility = currentOnboardingStep === 0
+        ? "hidden"
+        : "visible";
+    nextOnboardingBtn.textContent = currentOnboardingStep === ONBOARDING_STEPS.length - 1
+        ? "Créer ou rejoindre notre espace"
+        : "Continuer";
+    onboardingProgress.replaceChildren(
+        ...ONBOARDING_STEPS.map((_, index) => {
+            const dot = document.createElement("span");
+            dot.className = index === currentOnboardingStep ? "is-active" : "";
+            dot.setAttribute("aria-label", "Étape " + (index + 1));
+            return dot;
+        })
+    );
+}
+
+function openOnboarding(step = 0) {
+    currentOnboardingStep = Math.max(
+        0,
+        Math.min(step, ONBOARDING_STEPS.length - 1)
+    );
+    renderOnboardingStep();
+    showScreen("onboarding");
+}
+
+function completeOnboarding() {
+    if (!currentUser) {
+        showScreen("login");
+        return;
+    }
+
+    skipOnboardingBtn.disabled = true;
+    nextOnboardingBtn.disabled = true;
+
+    database.ref("users/" + currentUser.uid + "/onboardingCompleted")
+        .set(true)
+        .then(() => {
+            showScreen("couple");
+        })
+        .catch((error) => {
+            console.error("Finalisation de l’onboarding impossible", error);
+            showToast("Impossible d’enregistrer le tutoriel");
+        })
+        .finally(() => {
+            skipOnboardingBtn.disabled = false;
+            nextOnboardingBtn.disabled = false;
+        });
+}
+
+previousOnboardingBtn.addEventListener("click", () => {
+    if (currentOnboardingStep > 0) {
+        currentOnboardingStep--;
+        renderOnboardingStep();
+    }
+});
+
+nextOnboardingBtn.addEventListener("click", () => {
+    if (currentOnboardingStep < ONBOARDING_STEPS.length - 1) {
+        currentOnboardingStep++;
+        renderOnboardingStep();
+        return;
+    }
+
+    completeOnboarding();
+});
+
+skipOnboardingBtn.addEventListener("click", () => {
+    completeOnboarding();
 });
 
 createSpaceBtn.addEventListener("click", () => {
@@ -4897,6 +5017,23 @@ function updateActivityBox() {
         return;
     }
 
+    if (
+        currentSpaceData &&
+        buildRelationStatistics(currentSpaceData).totalGames === 0
+    ) {
+        renderDashboardActivity({
+            kicker: "Premier pas",
+            icon: "🎮",
+            title: "Lancez votre première partie",
+            subtitle: "Questions est idéal pour commencer",
+            action: () => {
+                renderGameInbox();
+                showScreen("allGames");
+            }
+        });
+        return;
+    }
+
     activityBox.style.display = "none";
     activityBox.onclick = null;
 }
@@ -7734,6 +7871,12 @@ auth.onAuthStateChanged((user) => {
 
                 pseudo = userData.pseudo || "";
                 displayPseudo.textContent = pseudo;
+
+                if (userData.onboardingCompleted === false) {
+                    stopCurrentSpaceListeners();
+                    openOnboarding(0);
+                    return;
+                }
 
                 if (userData.spaceCode) {
                     return restoreUserSpace(userData);

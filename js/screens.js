@@ -35,12 +35,13 @@ function showScreenContent(screenName) {
     );
     document.body.classList.toggle(
         "secondary-active",
-        ["allGames", "garden", "history", "settings", "notifications", "dailyRitual", "coupleProfile"].includes(screenName)
+        ["allGames", "garden", "history", "settings", "notifications", "dailyRitual", "coupleProfile", "onboarding"].includes(screenName)
     );
 
     hideScreen(loginScreen);
     hideScreen(pseudoScreen);
     hideScreen(coupleScreen);
+    hideScreen(onboardingScreen);
     hideScreen(dashboardScreen);
 
     hideScreen(rankingScreen);
@@ -124,6 +125,10 @@ settingsBtn.style.setProperty("display", "none", "important");
 
         case "couple":
             coupleScreen.style.display = "block";
+            break;
+
+        case "onboarding":
+            onboardingScreen.style.display = "block";
             break;
 
         case "dashboard":
