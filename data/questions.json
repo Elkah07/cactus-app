@@ -1,7 +1,7 @@
 [
   {
     "id": "si_on_etait_dans_une_apocalypse_zombie",
-    "question": "Si on était dans une apocalypse zombie, quel rôle j'aurais : leader, personne qui panique ou personne chill qui détend tout le monde ?",
+    "question": "Si nous vivions une apocalypse zombie, quel rôle me donnerais-tu : diriger le groupe, paniquer ou détendre tout le monde ?",
     "category": "fun",
     "spicy": 0,
     "mood": "fun",
@@ -585,7 +585,7 @@
   },
   {
     "id": "quelle_idee_fausse_tu_avais_de_moi",
-    "question": "Quelle idée fausse tu avais de moi au début ?",
+    "question": "Quelle idée fausse avais-tu de moi au début ?",
     "category": "relation",
     "spicy": 0,
     "mood": "deep",
@@ -673,7 +673,7 @@
   },
   {
     "id": "quel_reve_tu_voudrais_qu_on_realise",
-    "question": "Quel rêve tu voudrais qu'on réalise ensemble ?",
+    "question": "Quel rêve voudrais-tu que nous réalisions ensemble ?",
     "category": "future",
     "spicy": 0,
     "mood": "serious",
@@ -697,7 +697,7 @@
   },
   {
     "id": "quel_est_le_mensonge_innocent_que_tu",
-    "question": "Quel est le mensonge innocent que tu me répètes encore aujourd'hui pour pas me vexer ?",
+    "question": "Quel est le mensonge innocent que tu me répètes encore aujourd'hui pour ne pas me vexer ?",
     "category": "values",
     "spicy": 0,
     "mood": "serious",
@@ -729,7 +729,7 @@
   },
   {
     "id": "quelle_est_la_version_de_toi_meme",
-    "question": "Quelle est la version de toi même que tu veux devenir et comment je peux t'accompagner dans cette transformation ?",
+    "question": "Quelle est la version de toi-même que tu veux devenir et comment je peux t'accompagner dans cette transformation ?",
     "category": "relation",
     "spicy": 0,
     "mood": "deep",
@@ -1065,7 +1065,7 @@
   },
   {
     "id": "quelle_est_la_chose_la_plus_surprenante",
-    "question": "Quelle est la chose la plus surprenante que tu aies appris sur moi ?",
+    "question": "Quelle est la chose la plus surprenante que tu aies apprise sur moi ?",
     "category": "relation",
     "spicy": 0,
     "mood": "deep",
@@ -1121,7 +1121,7 @@
   },
   {
     "id": "si_j_oubliais_tout_demain_quelle_serait",
-    "question": "Si j'oubliais tout demain quelle serait la première chose que tu dirais de nous pour que je me rappelle ?",
+    "question": "Si je perdais tous mes souvenirs demain, quelle serait la première chose que tu me raconterais sur notre histoire ?",
     "category": "relation",
     "spicy": 0,
     "mood": "deep",
@@ -1201,7 +1201,7 @@
   },
   {
     "id": "quel_est_la_chose_que_jai_faite",
-    "question": "Quel est la chose que j’ai faite pour toi que tu n’as jamais oublié ?",
+    "question": "Quelle est la chose que j’ai faite pour toi que tu n’as jamais oublié ?",
     "category": "relation",
     "spicy": 0,
     "mood": "deep",
@@ -1209,7 +1209,7 @@
   },
   {
     "id": "quelle_est_la_premiere_impression_de_moi",
-    "question": "Quelle est la première impression de moi que tu as eu qui s'est révélée complètement fausse ?",
+    "question": "Quelle est la première impression de moi que tu as eue et qui s'est révélée complètement fausse ?",
     "category": "relation",
     "spicy": 0,
     "mood": "deep",
@@ -1345,7 +1345,7 @@
   },
   {
     "id": "quel_est_l_endroit_le_plus_risque",
-    "question": "Quel est l'endroit le plus risqué où tu as eu envie de moi et où on a rien fait au final ?",
+    "question": "Quel est l'endroit le plus risqué où tu as eu envie de moi et où nous n’avons finalement rien fait au final ?",
     "category": "sex",
     "spicy": 3,
     "mood": "spicy",
@@ -1681,7 +1681,7 @@
   },
   {
     "id": "quelle_tache_du_quotidien_tu_penses_que",
-    "question": "Quelle tâche du quotidien tu penses que je détestesrais le plus faire toute ma vie ?",
+    "question": "Selon toi, quelle tâche du quotidien détesterais-je le plus faire toute ma vie ?",
     "category": "relation",
     "spicy": 0,
     "mood": "deep",
@@ -1697,7 +1697,7 @@
   },
   {
     "id": "quelle_habitude_de_vie_tu_aimerais_qu",
-    "question": "Quelle habitude de vie tu aimerais qu'on installe ensemble ?",
+    "question": "Quelle habitude de vie aimerais-tu que nous adoptions ensemble ?",
     "category": "future",
     "spicy": 0,
     "mood": "serious",
@@ -1705,7 +1705,7 @@
   },
   {
     "id": "quelle_habitude_de_vie_tu_as_peur",
-    "question": "Quelle habitude de vie tu as peur que je t'impose ?",
+    "question": "Quelle habitude de vie as-tu peur que je t’impose ?",
     "category": "deep",
     "spicy": 0,
     "mood": "deep",
@@ -1769,7 +1769,7 @@
   },
   {
     "id": "quel_reproche_tu_aimerais_pouvoir_me_faire",
-    "question": "Quel reproche tu aimerais pouvoir me faire sans que je le prenne mal ?",
+    "question": "Quel reproche aimerais-tu pouvoir me faire sans que je le prenne mal ?",
     "category": "communication",
     "spicy": 0,
     "mood": "serious",
@@ -1905,7 +1905,7 @@
   },
   {
     "id": "quelle_chose_tu_as_apprise_sur_l",
-    "question": "Quelle chose tu as apprise sur l'amour grâce à nous ?",
+    "question": "Qu’as-tu appris sur l’amour grâce à notre relation ?",
     "category": "intimacy",
     "spicy": 1,
     "mood": "romantic",
@@ -2393,7 +2393,7 @@
   },
   {
     "id": "quelle_erreur_tu_as_peur_de_refaire",
-    "question": "Quelle erreur tu as peur de refaire dans notre relation ?",
+    "question": "Quelle erreur as-tu peur de refaire dans notre relation ?",
     "category": "deep",
     "spicy": 0,
     "mood": "deep",
@@ -2569,7 +2569,7 @@
   },
   {
     "id": "quelle_question_tu_aimerais_que_je_te",
-    "question": "Quelle question tu aimerais que je te pose au moins une fois ?",
+    "question": "Quelle question aimerais-tu que je te pose au moins une fois ?",
     "category": "communication",
     "spicy": 0,
     "mood": "serious",
@@ -2609,7 +2609,7 @@
   },
   {
     "id": "quelle_limite_emotionnelle_tu_aimerais_mieux_poser",
-    "question": "Quelle limite émotionnelle tu aimerais mieux poser avec moi ?",
+    "question": "Quelle limite émotionnelle aimerais-tu mieux poser avec moi ?",
     "category": "values",
     "spicy": 0,
     "mood": "serious",
@@ -2793,7 +2793,7 @@
   },
   {
     "id": "qu_est_ce_qu_on_devrait_arreter",
-    "question": "Qu'est-ce qu'on devrait arrêter de repousser à plus tard ?",
+    "question": "Qu’est-ce que nous devrions arrêter de repousser et faire enfin ensemble ?",
     "category": "relation",
     "spicy": 0,
     "mood": "deep",

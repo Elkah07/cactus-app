@@ -1,7 +1,7 @@
 [
   {
     "id": "festival_avec_meilleure_amie",
-    "question": "Ton partenaire part seul(e) en festival avec sa meilleure amie."
+    "question": "Ton partenaire part en festival avec sa meilleure amie, sans toi."
   },
   {
     "id": "vacances_avec_celibataires",
@@ -9,7 +9,7 @@
   },
   {
     "id": "dormir_chez_une_amie",
-    "question": "Après une soirée, ton partenaire te prévient qu'il ou elle dort chez un(e) ami(e)."
+    "question": "Après une soirée, ton partenaire te prévient qu'il ou elle dort chez un ami ou une amie."
   },
   {
     "id": "accepter_verre_bar",
@@ -21,7 +21,7 @@
   },
   {
     "id": "tatouage_avec_ami",
-    "question": "Ton partenaire fait un tatouage en commun avec un(e) ami(e)."
+    "question": "Ton partenaire fait un tatouage en commun avec un ami ou une amie."
   },
   {
     "id": "aider_ex_en_galere",
@@ -53,7 +53,7 @@
   },
   {
     "id": "heberger_amie_temporairement",
-    "question": "Ton partenaire propose d'héberger un(e) ami(e) chez vous pendant plusieurs semaines."
+    "question": "Ton partenaire propose d'héberger un ami ou une amie chez vous pendant plusieurs semaines."
   },
   {
     "id": "maillot_string_plage",
@@ -97,7 +97,7 @@
   },
   {
     "id": "diner_ex_professionnel",
-    "question": "Ton partenaire dîne seul(e) avec son ex pour parler travail."
+    "question": "Ton partenaire dîne en tête-à-tête avec son ex pour parler de travail."
   },
   {
     "id": "garder_cadeau_ex",
@@ -109,7 +109,7 @@
   },
   {
     "id": "partager_lit_amie",
-    "question": "En voyage, ton partenaire partage un lit avec un(e) ami(e) faute de place."
+    "question": "En voyage, ton partenaire partage un lit avec un ami ou une amie faute de place."
   },
   {
     "id": "weekend_entre_amis",
@@ -125,7 +125,7 @@
   },
   {
     "id": "voyage_seul_etranger",
-    "question": "Ton partenaire décide de partir seul(e) à l'étranger."
+    "question": "Ton partenaire décide de partir en solo à l'étranger."
   },
   {
     "id": "partir_roadtrip",
@@ -145,7 +145,7 @@
   },
   {
     "id": "voyage_meilleur_ami",
-    "question": "Ton partenaire part une semaine avec son ou sa meilleur(e) ami(e)."
+    "question": "Ton partenaire part une semaine avec son meilleur ami ou sa meilleure amie."
   },
   {
     "id": "club_sport_mixte",
@@ -325,7 +325,7 @@
   },
   {
     "id": "partir_weekend_seul",
-    "question": "Ton partenaire s'offre un week-end seul(e) pour se retrouver."
+    "question": "Ton partenaire s'offre un week-end en solo pour se retrouver."
   },
   {
     "id": "journee_sans_message",
@@ -389,11 +389,11 @@
   },
   {
     "id": "colloc_avec_ami",
-    "question": "Ton partenaire décide de prendre un logement avec un(e) ami(e) pendant quelques mois pour économiser."
+    "question": "Ton partenaire décide de prendre un logement avec un ami ou une amie pendant quelques mois pour économiser."
   },
   {
     "id": "ancien_crush_ami",
-    "question": "Ton partenaire devient ami(e) avec une personne pour qui il ou elle a déjà eu un crush."
+    "question": "Ton partenaire devient ami ou amie avec une personne pour qui il ou elle a déjà eu un crush."
   },
   {
     "id": "vacances_avec_ex_et_groupe",
@@ -421,11 +421,11 @@
   },
   {
     "id": "aller_concert_seul",
-    "question": "Ton partenaire va seul(e) à un concert."
+    "question": "Ton partenaire va en solo à un concert."
   },
   {
     "id": "ami_tres_jaloux",
-    "question": "Un(e) ami(e) de ton partenaire critique souvent votre relation."
+    "question": "Un ami ou une amie de ton partenaire critique souvent votre relation."
   },
   {
     "id": "vacances_entre_collegues",
@@ -445,11 +445,11 @@
   },
   {
     "id": "ami_exclusif",
-    "question": "Ton partenaire a un(e) ami(e) à qui il ou elle raconte tout avant toi."
+    "question": "Ton partenaire a un ami ou une amie à qui il ou elle raconte tout avant toi."
   },
   {
     "id": "partage_chambre_hotel",
-    "question": "Ton partenaire partage une chambre d'hôtel avec un(e) ami(e)."
+    "question": "Ton partenaire partage une chambre d'hôtel avec un ami ou une amie."
   },
   {
     "id": "appel_tardif",
@@ -457,7 +457,7 @@
   },
   {
     "id": "resto_tete_a_tete",
-    "question": "Ton partenaire va régulièrement au restaurant seul(e) avec un(e) ami(e)."
+    "question": "Ton partenaire va régulièrement au restaurant en tête-à-tête avec un ami ou une amie."
   },
   {
     "id": "sauver_ex_financierement",
@@ -477,7 +477,7 @@
   },
   {
     "id": "fete_sans_invitation",
-    "question": "Ton partenaire participe à une fête où tu n'es pas invité(e)."
+    "question": "Ton partenaire participe à une fête où tu n'es pas invité ou invitée."
   },
   {
     "id": "boire_avec_ex",
@@ -485,7 +485,7 @@
   },
   {
     "id": "ami_dans_le_lit",
-    "question": "Un(e) ami(e) s'endort dans le même lit que ton partenaire après une soirée."
+    "question": "Un ami ou une amie s'endort dans le même lit que ton partenaire après une soirée."
   },
   {
     "id": "faire_cadeau_ex",
@@ -513,7 +513,7 @@
   },
   {
     "id": "ami_a_la_maison",
-    "question": "Ton partenaire invite un(e) ami(e) à dormir chez vous sans te demander."
+    "question": "Ton partenaire invite un ami ou une amie à dormir chez vous sans te demander."
   },
   {
     "id": "partir_sans_bisou",
@@ -585,7 +585,7 @@
   },
   {
     "id": "offrir_argent_ami",
-    "question": "Ton partenaire donne une grosse somme à un(e) ami(e)."
+    "question": "Ton partenaire donne une grosse somme à un ami ou une amie."
   },
   {
     "id": "quitter_cdi",
@@ -645,11 +645,11 @@
   },
   {
     "id": "amitie_exclusive",
-    "question": "Ton partenaire passe plus de temps avec son ou sa meilleur(e) ami(e) qu'avec toi."
+    "question": "Ton partenaire passe plus de temps avec son meilleur ami ou sa meilleure amie qu'avec toi."
   },
   {
     "id": "vacances_entre_copines",
-    "question": "Ton partenaire part en vacances entre ami(e)s chaque année sans toi."
+    "question": "Ton partenaire part en vacances entre ami ou amies chaque année sans toi."
   },
   {
     "id": "sauver_numero_ex",
@@ -657,11 +657,11 @@
   },
   {
     "id": "dejeuner_collegue",
-    "question": "Ton partenaire déjeune seul(e) chaque semaine avec le même collègue."
+    "question": "Ton partenaire déjeune chaque semaine en tête-à-tête avec le même collègue."
   },
   {
     "id": "partager_confidences",
-    "question": "Ton partenaire raconte vos problèmes de couple à un(e) ami(e)."
+    "question": "Ton partenaire raconte vos problèmes de couple à un ami ou une amie."
   },
   {
     "id": "copain_ami_proche",
@@ -669,7 +669,7 @@
   },
   {
     "id": "sortir_seul_boire",
-    "question": "Ton partenaire aime sortir seul(e) boire un verre."
+    "question": "Ton partenaire aime sortir en solo boire un verre."
   },
   {
     "id": "club_nuit_amis",
@@ -701,7 +701,7 @@
   },
   {
     "id": "garder_secret_ami",
-    "question": "Ton partenaire garde un secret important pour protéger un(e) ami(e)."
+    "question": "Ton partenaire garde un secret important pour protéger un ami ou une amie."
   },
   {
     "id": "faire_credit",
@@ -729,11 +729,11 @@
   },
   {
     "id": "ami_ancien_flirt",
-    "question": "Ton partenaire reste ami(e) avec quelqu'un avec qui il ou elle a flirté."
+    "question": "Ton partenaire reste ami ou amie avec quelqu'un avec qui il ou elle a flirté."
   },
   {
     "id": "nouveau_coloc",
-    "question": "Ton partenaire propose à un(e) ami(e) de devenir votre colocataire."
+    "question": "Ton partenaire propose à un ami ou une amie de devenir votre colocataire."
   },
   {
     "id": "voyage_improvise",
@@ -765,7 +765,7 @@
   },
   {
     "id": "promesse_ami_avant_couple",
-    "question": "Ton partenaire respecte une promesse faite à un(e) ami(e) avant votre relation, même si cela te déplaît."
+    "question": "Ton partenaire respecte une promesse faite à un ami ou une amie avant votre relation, même si cela te déplaît."
   },
   {
     "id": "revoir_amour_jeunesse",
@@ -773,11 +773,11 @@
   },
   {
     "id": "weekend_collegue_seul",
-    "question": "Ton partenaire part en week-end avec un(e) collègue pour assister à un événement."
+    "question": "Ton partenaire part en week-end avec un collègue ou une collègue pour assister à un événement."
   },
   {
     "id": "ami_douche_maison",
-    "question": "Un(e) ami(e) de ton partenaire prend sa douche chez vous régulièrement."
+    "question": "Un ami ou une amie de ton partenaire prend sa douche chez vous régulièrement."
   },
   {
     "id": "garder_animal_ex",
@@ -789,7 +789,7 @@
   },
   {
     "id": "partager_position_ami",
-    "question": "Ton partenaire partage sa localisation avec un(e) ami(e) mais pas avec toi."
+    "question": "Ton partenaire partage sa localisation avec un ami ou une amie mais pas avec toi."
   },
   {
     "id": "soirée_costumee_sans_toi",
@@ -801,7 +801,7 @@
   },
   {
     "id": "appel_video_quotidien",
-    "question": "Ton partenaire fait un appel vidéo quotidien avec un(e) ami(e)."
+    "question": "Ton partenaire fait un appel vidéo quotidien avec un ami ou une amie."
   },
   {
     "id": "voyage_travail_plusieurs_semaines",
@@ -809,11 +809,11 @@
   },
   {
     "id": "fete_ex_present",
-    "question": "Ton partenaire va à une fête où son ex sera présent(e)."
+    "question": "Ton partenaire va à une fête où son ex sera présent ou présente."
   },
   {
     "id": "sortie_plage_ami",
-    "question": "Ton partenaire passe la journée à la plage avec un(e) ami(e)."
+    "question": "Ton partenaire passe la journée à la plage avec un ami ou une amie."
   },
   {
     "id": "suivre_compte_ex",
@@ -821,7 +821,7 @@
   },
   {
     "id": "ami_appelle_mon_coeur",
-    "question": "Un(e) ami(e) appelle ton partenaire par un surnom affectueux."
+    "question": "Un ami ou une amie appelle ton partenaire par un surnom affectueux."
   },
   {
     "id": "partager_photos_enfance",
@@ -837,7 +837,7 @@
   },
   {
     "id": "ami_clef_maison",
-    "question": "Ton partenaire donne un double des clés à un(e) ami(e)."
+    "question": "Ton partenaire donne un double des clés à un ami ou une amie."
   },
   {
     "id": "partager_compte_streaming",
@@ -845,19 +845,19 @@
   },
   {
     "id": "photo_profil_avec_ami",
-    "question": "Ton partenaire met une photo avec un(e) ami(e) en photo de profil."
+    "question": "Ton partenaire met une photo avec un ami ou une amie en photo de profil."
   },
   {
     "id": "partir_randonnee_seul",
-    "question": "Ton partenaire part deux jours seul(e) en randonnée."
+    "question": "Ton partenaire part deux jours en randonnée en solo."
   },
   {
     "id": "inviter_ami_vacances",
-    "question": "Ton partenaire invite un(e) ami(e) à se joindre à vos vacances."
+    "question": "Ton partenaire invite un ami ou une amie à se joindre à vos vacances."
   },
   {
     "id": "cadeau_saint_valentin_ami",
-    "question": "Ton partenaire offre un cadeau à un(e) ami(e) pour la Saint-Valentin par plaisanterie."
+    "question": "Ton partenaire offre un cadeau à un ami ou une amie pour la Saint-Valentin par plaisanterie."
   },
   {
     "id": "refuser_appel",
@@ -869,7 +869,7 @@
   },
   {
     "id": "ami_dort_canape",
-    "question": "Un(e) ami(e) dort plusieurs nuits sur votre canapé."
+    "question": "Un ami ou une amie dort plusieurs nuits sur votre canapé."
   },
   {
     "id": "groupe_amis_inconnu",
@@ -893,11 +893,11 @@
   },
   {
     "id": "fleurs_collegue",
-    "question": "Un(e) collègue offre un bouquet à ton partenaire."
+    "question": "Un collègue ou une collègue offre un bouquet à ton partenaire."
   },
   {
     "id": "voyage_solo_annuel",
-    "question": "Ton partenaire souhaite partir seul(e) une semaine chaque année."
+    "question": "Ton partenaire souhaite partir en solo une semaine chaque année."
   },
   {
     "id": "garder_secret_famille",
@@ -921,7 +921,7 @@
   },
   {
     "id": "pret_voiture_ami",
-    "question": "Ton partenaire prête sa voiture à un(e) ami(e)."
+    "question": "Ton partenaire prête sa voiture à un ami ou une amie."
   },
   {
     "id": "achat_billet_concert",
@@ -929,7 +929,7 @@
   },
   {
     "id": "sejour_hotel_seul",
-    "question": "Ton partenaire réserve une nuit d'hôtel seul(e) pour se reposer."
+    "question": "Ton partenaire réserve une nuit d'hôtel en solo pour se reposer."
   },
   {
     "id": "changer_mot_de_passe",
@@ -1065,7 +1065,7 @@
   },
   {
     "id": "meilleur_ami_prioritaire",
-    "question": "Ton partenaire annule souvent des plans avec toi pour son ou sa meilleur(e) ami(e)."
+    "question": "Ton partenaire annule souvent des plans avec toi pour son meilleur ami ou sa meilleure amie."
   },
   {
     "id": "voyage_annuel_amis",
@@ -1085,7 +1085,7 @@
   },
   {
     "id": "roadtrip_ami_unique",
-    "question": "Ton partenaire part en road trip avec un(e) seul(e) ami(e)."
+    "question": "Ton partenaire part en road trip avec un seul ami ou une seule amie."
   },
   {
     "id": "accepter_massage",
@@ -1117,7 +1117,7 @@
   },
   {
     "id": "rentrer_ville_ancienne_relation",
-    "question": "Ton partenaire retourne seul(e) dans une ville liée à une ancienne histoire."
+    "question": "Ton partenaire retourne en solo dans une ville liée à une ancienne histoire."
   },
   {
     "id": "revoir_premier_amour",
@@ -1153,7 +1153,7 @@
   },
   {
     "id": "surnom_affectueux_ami",
-    "question": "Ton partenaire utilise un surnom affectueux avec un(e) ami(e)."
+    "question": "Ton partenaire utilise un surnom affectueux avec un ami ou une amie."
   },
   {
     "id": "cadeau_recu_inconnu",
@@ -1169,7 +1169,7 @@
   },
   {
     "id": "demenager_seul",
-    "question": "Ton partenaire souhaite vivre seul(e) pendant quelques mois."
+    "question": "Ton partenaire souhaite vivre en solo pendant quelques mois."
   },
   {
     "id": "garder_chat_ex",
@@ -1205,11 +1205,11 @@
   },
   {
     "id": "partir_weekend_reflexion",
-    "question": "Ton partenaire veut partir seul(e) réfléchir quelques jours."
+    "question": "Ton partenaire veut partir en solo réfléchir quelques jours."
   },
   {
     "id": "ami_ancien_ex",
-    "question": "Le ou la meilleur(e) ami(e) de ton partenaire est aussi son ex."
+    "question": "Le meilleur ami ou la meilleure amie de ton partenaire est aussi son ex."
   },
   {
     "id": "changer_numero",
@@ -1221,15 +1221,11 @@
   },
   {
     "id": "vacances_ex_present",
-    "question": "Ton partenaire participe à des vacances de groupe où son ex est présent(e)."
+    "question": "Ton partenaire participe à des vacances de groupe où son ex est présent ou présente."
   },
   {
     "id": "abonnement_application_rencontre",
     "question": "Ton partenaire paie un abonnement sur une application de rencontres pour regarder."
-  },
-  {
-    "id": "partager_chambre_collegue",
-    "question": "Ton partenaire partage une chambre avec un collègue lors d'un déplacement."
   },
   {
     "id": "sortie_nocturne_improvisee",
@@ -1241,7 +1237,7 @@
   },
   {
     "id": "rentrer_chez_ami_apres_soiree",
-    "question": "Ton partenaire dort chez un(e) ami(e) après une soirée alors qu'il ou elle pouvait rentrer."
+    "question": "Ton partenaire dort chez un ami ou une amie après une soirée alors qu'il ou elle pouvait rentrer."
   },
   {
     "id": "supprimer_statut_couple",
@@ -1253,7 +1249,7 @@
   },
   {
     "id": "ami_trop_present",
-    "question": "Un(e) ami(e) de ton partenaire est présent(e) à presque toutes vos sorties."
+    "question": "Un ami ou une amie de ton partenaire est présent ou présente à presque toutes vos sorties."
   },
   {
     "id": "revoir_ancien_flirt",
@@ -1277,7 +1273,7 @@
   },
   {
     "id": "partir_festival_seul",
-    "question": "Ton partenaire part seul(e) à un festival pendant plusieurs jours."
+    "question": "Ton partenaire part en solo à un festival pendant plusieurs jours."
   },
   {
     "id": "partager_lit_hotel_groupe",
@@ -1349,7 +1345,7 @@
   },
   {
     "id": "ami_qui_flirte",
-    "question": "Un(e) ami(e) de ton partenaire flirte régulièrement avec lui ou elle sans être recadré(e)."
+    "question": "Un ami ou une amie de ton partenaire flirte régulièrement avec lui ou elle sans être recadré ou recadrée."
   },
   {
     "id": "message_bon_matin",
@@ -1365,7 +1361,7 @@
   },
   {
     "id": "weekend_spa_amie",
-    "question": "Ton partenaire part en week-end spa avec un(e) ami(e)."
+    "question": "Ton partenaire part en week-end spa avec un ami ou une amie."
   },
   {
     "id": "photo_portefeuille_ex",
@@ -1377,7 +1373,7 @@
   },
   {
     "id": "invitation_mariage_ex",
-    "question": "Ton partenaire assiste seul(e) au mariage de son ex."
+    "question": "Ton partenaire assiste en solo au mariage de son ex."
   },
   {
     "id": "partage_meme_bungalow",
@@ -1413,7 +1409,7 @@
   },
   {
     "id": "inviter_ami_nuit",
-    "question": "Ton partenaire invite un(e) ami(e) à dormir chez vous alors que tu es absent(e)."
+    "question": "Ton partenaire invite un ami ou une amie à dormir chez vous alors que tu es absent ou absente."
   },
   {
     "id": "sport_binome_unique",
@@ -1425,11 +1421,11 @@
   },
   {
     "id": "dejeuner_seul_superieur",
-    "question": "Ton partenaire déjeune régulièrement seul(e) avec son supérieur."
+    "question": "Ton partenaire déjeune régulièrement en tête-à-tête avec son supérieur."
   },
   {
     "id": "ami_trop_physique",
-    "question": "Un(e) ami(e) de ton partenaire est très tactile avec lui ou elle."
+    "question": "Un ami ou une amie de ton partenaire est très tactile avec lui ou elle."
   },
   {
     "id": "roadtrip_collegue",
@@ -1469,7 +1465,7 @@
   },
   {
     "id": "pret_appartement",
-    "question": "Ton partenaire prête votre logement à un(e) ami(e) pendant votre absence."
+    "question": "Ton partenaire prête votre logement à un ami ou une amie pendant votre absence."
   },
   {
     "id": "partager_compte_bancaire_famille",
@@ -1545,19 +1541,19 @@
   },
   {
     "id": "collegue_texte_weekend",
-    "question": "Un(e) collègue écrit à ton partenaire tous les week-ends."
+    "question": "Un collègue ou une collègue écrit à ton partenaire tous les week-ends."
   },
   {
     "id": "sortie_cinema_collegue",
-    "question": "Ton partenaire va régulièrement au cinéma avec un(e) collègue."
+    "question": "Ton partenaire va régulièrement au cinéma avec un collègue ou une collègue."
   },
   {
     "id": "ami_clef_voiture",
-    "question": "Ton partenaire prête les clés de sa voiture à un(e) ami(e)."
+    "question": "Ton partenaire prête les clés de sa voiture à un ami ou une amie."
   },
   {
     "id": "revoir_ex_seul",
-    "question": "Ton partenaire revoit seul(e) son ex pour prendre de ses nouvelles."
+    "question": "Ton partenaire revoit son ex en tête-à-tête pour prendre de ses nouvelles."
   },
   {
     "id": "voyage_amis_sans_chambre",
@@ -1589,7 +1585,7 @@
   },
   {
     "id": "ami_appelle_tous_les_jours",
-    "question": "Un(e) ami(e) appelle ton partenaire tous les jours."
+    "question": "Un ami ou une amie appelle ton partenaire tous les jours."
   },
   {
     "id": "message_bonne_nuit_autre",
@@ -1613,7 +1609,7 @@
   },
   {
     "id": "cadeau_personnel_ami",
-    "question": "Ton partenaire offre un cadeau très personnel à un(e) ami(e)."
+    "question": "Ton partenaire offre un cadeau très personnel à un ami ou une amie."
   },
   {
     "id": "photo_tres_complice",
@@ -1629,7 +1625,7 @@
   },
   {
     "id": "ami_priorite_urgence",
-    "question": "Ton partenaire annule un moment prévu avec toi pour aider un(e) ami(e)."
+    "question": "Ton partenaire annule un moment prévu avec toi pour aider un ami ou une amie."
   },
   {
     "id": "voyage_annuel_solo",
@@ -1637,7 +1633,7 @@
   },
   {
     "id": "ami_reste_plusieurs_semaines",
-    "question": "Un(e) ami(e) reste vivre chez vous pendant plusieurs semaines."
+    "question": "Un ami ou une amie reste vivre chez vous pendant plusieurs semaines."
   },
   {
     "id": "roadtrip_inconnu_reseau",
@@ -1657,7 +1653,7 @@
   },
   {
     "id": "partager_meme_netflix_ami",
-    "question": "Ton partenaire partage un abonnement avec un(e) ami(e) proche."
+    "question": "Ton partenaire partage un abonnement avec un ami ou une amie proche."
   },
   {
     "id": "supprimer_conversation_precise",
@@ -1677,7 +1673,7 @@
   },
   {
     "id": "rencontrer_contact_internet",
-    "question": "Ton partenaire rencontre seul(e) une personne connue uniquement en ligne."
+    "question": "Ton partenaire rencontre en solo une personne connue uniquement en ligne."
   },
   {
     "id": "payer_loyer_parent",
@@ -1749,7 +1745,7 @@
   },
   {
     "id": "collegue_confidences_personnelles",
-    "question": "Ton partenaire partage ses problèmes personnels avec un(e) collègue."
+    "question": "Ton partenaire partage ses problèmes personnels avec un collègue ou une collègue."
   },
   {
     "id": "partir_ski_amis",
@@ -1757,11 +1753,11 @@
   },
   {
     "id": "dormir_chambre_ami",
-    "question": "Ton partenaire dort dans la chambre d'un(e) ami(e) lors d'un voyage."
+    "question": "Ton partenaire dort dans la chambre d'un ami ou une amie lors d'un voyage."
   },
   {
     "id": "inviter_collegue_maison",
-    "question": "Ton partenaire invite un(e) collègue à la maison pendant ton absence."
+    "question": "Ton partenaire invite un collègue ou une collègue à la maison pendant ton absence."
   },
   {
     "id": "accepter_demande_numero",
@@ -1773,7 +1769,7 @@
   },
   {
     "id": "sortie_bowling_collegue",
-    "question": "Ton partenaire va souvent au bowling avec un(e) collègue."
+    "question": "Ton partenaire va souvent au bowling avec un collègue ou une collègue."
   },
   {
     "id": "cadeau_noel_ex",
@@ -1781,7 +1777,7 @@
   },
   {
     "id": "ami_tres_protecteur",
-    "question": "Un(e) ami(e) est extrêmement protecteur ou protectrice avec ton partenaire."
+    "question": "Un ami ou une amie est extrêmement protecteur ou protectrice avec ton partenaire."
   },
   {
     "id": "vacances_bungalow_mixte",
@@ -1805,7 +1801,7 @@
   },
   {
     "id": "ami_connait_tout",
-    "question": "Un(e) ami(e) connaît tous les détails de votre relation."
+    "question": "Un ami ou une amie connaît tous les détails de votre relation."
   },
   {
     "id": "roadtrip_sans_itineraire",
@@ -1825,11 +1821,11 @@
   },
   {
     "id": "ami_dort_dans_chambre",
-    "question": "Un(e) ami(e) dort dans votre chambre pendant que tu es absent(e)."
+    "question": "Un ami ou une amie dort dans votre chambre pendant que tu es absent ou absente."
   },
   {
     "id": "voyage_collegue_unique",
-    "question": "Ton partenaire voyage seul(e) avec un collègue pour un salon professionnel."
+    "question": "Ton partenaire voyage avec un seul collègue pour un salon professionnel."
   },
   {
     "id": "message_supprime_direct",
@@ -1877,7 +1873,7 @@
   },
   {
     "id": "payer_voyage_ami",
-    "question": "Ton partenaire finance une partie du voyage d'un(e) ami(e)."
+    "question": "Ton partenaire finance une partie du voyage d'un ami ou une amie."
   },
   {
     "id": "investissement_risque_important",
@@ -1945,7 +1941,7 @@
   },
   {
     "id": "sortie_parc_attraction_ami",
-    "question": "Ton partenaire passe la journée dans un parc d'attractions avec un(e) ami(e)."
+    "question": "Ton partenaire passe la journée dans un parc d'attractions avec un ami ou une amie."
   },
   {
     "id": "partir_concert_autre_personne",
@@ -1957,7 +1953,7 @@
   },
   {
     "id": "ami_ancien_amour",
-    "question": "Le ou la meilleur(e) ami(e) de ton partenaire est un ancien amour."
+    "question": "Le meilleur ami ou la meilleure amie de ton partenaire est un ancien amour."
   },
   {
     "id": "weekend_location_groupe",
@@ -1973,15 +1969,15 @@
   },
   {
     "id": "voyage_photo_ami",
-    "question": "Ton partenaire part plusieurs jours avec un(e) ami(e) pour faire de la photo."
+    "question": "Ton partenaire part plusieurs jours avec un ami ou une amie pour faire de la photo."
   },
   {
     "id": "ami_compte_bancaire",
-    "question": "Ton partenaire se porte garant ou garante pour un(e) ami(e)."
+    "question": "Ton partenaire se porte garant ou garante pour un ami ou une amie."
   },
   {
     "id": "dejeuner_tete_tete_recurrent",
-    "question": "Ton partenaire déjeune chaque semaine seul(e) avec la même personne."
+    "question": "Ton partenaire déjeune chaque semaine en tête-à-tête avec la même personne."
   },
   {
     "id": "retour_ex_aide_demenagement",
@@ -2009,7 +2005,7 @@
   },
   {
     "id": "ami_surnom_amoureux",
-    "question": "Un(e) ami(e) utilise avec ton partenaire un surnom qui pourrait sembler ambigu."
+    "question": "Un ami ou une amie utilise avec ton partenaire un surnom qui pourrait sembler ambigu."
   },
   {
     "id": "weekend_sans_itineraire",
@@ -2021,7 +2017,7 @@
   },
   {
     "id": "rentrer_chez_ami_apres_bar",
-    "question": "Ton partenaire préfère dormir chez un(e) ami(e) après un bar plutôt que rentrer."
+    "question": "Ton partenaire préfère dormir chez un ami ou une amie après un bar plutôt que rentrer."
   },
   {
     "id": "partager_story_autre_personne",
@@ -2045,7 +2041,7 @@
   },
   {
     "id": "rencontrer_ami_virtuel",
-    "question": "Ton partenaire part rencontrer seul(e) un ami virtuel."
+    "question": "Ton partenaire part rencontrer en solo un ami virtuel."
   },
   {
     "id": "compte_secondaire_anonyme",
@@ -2073,7 +2069,7 @@
   },
   {
     "id": "investir_immobilier",
-    "question": "Ton partenaire investit seul(e) dans l'immobilier."
+    "question": "Ton partenaire investit en solo dans l'immobilier."
   },
   {
     "id": "acheter_moto_sportive",
@@ -2093,7 +2089,7 @@
   },
   {
     "id": "ouvrir_entreprise_ami",
-    "question": "Ton partenaire crée une entreprise avec un(e) ami(e)."
+    "question": "Ton partenaire crée une entreprise avec un ami ou une amie."
   },
   {
     "id": "acheter_bateau_plaisance",
@@ -2145,11 +2141,11 @@
   },
   {
     "id": "soirée_chez_collegue",
-    "question": "Ton partenaire passe la soirée chez un(e) collègue après le travail."
+    "question": "Ton partenaire passe la soirée chez un collègue ou une collègue après le travail."
   },
   {
     "id": "ami_vient_tous_weekends",
-    "question": "Le ou la meilleur(e) ami(e) de ton partenaire est présent(e) presque tous les week-ends."
+    "question": "Le meilleur ami ou la meilleure amie de ton partenaire est présent ou présente presque tous les week-ends."
   },
   {
     "id": "voyage_avec_photographe",
@@ -2157,7 +2153,7 @@
   },
   {
     "id": "message_coeur_collegue",
-    "question": "Un(e) collègue envoie souvent des emojis cœur à ton partenaire."
+    "question": "Un collègue ou une collègue envoie souvent des emojis cœur à ton partenaire."
   },
   {
     "id": "revoir_ex_cafe_annuel",
@@ -2169,7 +2165,7 @@
   },
   {
     "id": "ami_connait_code_telephone",
-    "question": "Un(e) ami(e) connaît le code du téléphone de ton partenaire."
+    "question": "Un ami ou une amie connaît le code du téléphone de ton partenaire."
   },
   {
     "id": "sortie_restaurant_ancien_crush",
@@ -2229,7 +2225,7 @@
   },
   {
     "id": "partager_mot_de_passe_ami",
-    "question": "Ton partenaire partage certains mots de passe avec un(e) ami(e)."
+    "question": "Ton partenaire partage certains mots de passe avec un ami ou une amie."
   },
   {
     "id": "compte_cache_aux_proches",
@@ -2277,7 +2273,7 @@
   },
   {
     "id": "aider_ami_financierement",
-    "question": "Ton partenaire aide régulièrement un(e) ami(e) financièrement."
+    "question": "Ton partenaire aide régulièrement un ami ou une amie financièrement."
   },
   {
     "id": "acheter_montre_luxe",
@@ -2306,10 +2302,6 @@
   {
     "id": "partir_six_mois_etranger",
     "question": "Ton partenaire veut partir six mois à l'étranger."
-  },
-  {
-    "id": "reprise_etudes_longues",
-    "question": "Ton partenaire veut reprendre plusieurs années d'études."
   },
   {
     "id": "ouvrir_camping",
@@ -2361,15 +2353,11 @@
   },
   {
     "id": "ami_dort_chaque_semaine",
-    "question": "Un(e) ami(e) dort régulièrement chez vous."
+    "question": "Un ami ou une amie dort régulièrement chez vous."
   },
   {
     "id": "voyage_photo_duo",
     "question": "Ton partenaire part en voyage avec une seule personne pour pratiquer une passion commune."
-  },
-  {
-    "id": "partage_tente_festival",
-    "question": "Ton partenaire partage une tente avec plusieurs amis pendant un festival."
   },
   {
     "id": "appel_video_collegue",
@@ -2377,7 +2365,7 @@
   },
   {
     "id": "ami_vient_vacances",
-    "question": "Ton partenaire invite un(e) ami(e) à rejoindre vos vacances."
+    "question": "Ton partenaire invite un ami ou une amie à rejoindre vos vacances."
   },
   {
     "id": "anniversaire_ex_message",
@@ -2385,7 +2373,7 @@
   },
   {
     "id": "weekend_bien_etre_solo",
-    "question": "Ton partenaire part seul(e) en retraite bien-être."
+    "question": "Ton partenaire part en retraite bien-être en solo."
   },
   {
     "id": "sortie_plage_sans_toi",
@@ -2393,7 +2381,7 @@
   },
   {
     "id": "ami_connait_disputes",
-    "question": "Le ou la meilleur(e) ami(e) de ton partenaire connaît tous vos conflits."
+    "question": "Le meilleur ami ou la meilleure amie de ton partenaire connaît tous vos conflits."
   },
   {
     "id": "groupe_vacances_mixte",
@@ -2409,7 +2397,7 @@
   },
   {
     "id": "ami_offre_bijou",
-    "question": "Un(e) ami(e) offre un bijou à ton partenaire."
+    "question": "Un ami ou une amie offre un bijou à ton partenaire."
   },
   {
     "id": "retour_ancien_groupe_amis",
@@ -2549,7 +2537,7 @@
   },
   {
     "id": "ami_connait_mdp_wifi",
-    "question": "Un(e) ami(e) de ton partenaire a un accès permanent à votre logement."
+    "question": "Un ami ou une amie de ton partenaire a un accès permanent à votre logement."
   },
   {
     "id": "weekend_annule_amis",
@@ -2577,7 +2565,7 @@
   },
   {
     "id": "partage_chambre_ami_voyage",
-    "question": "Ton partenaire partage une chambre avec un(e) ami(e) pour économiser pendant un voyage."
+    "question": "Ton partenaire partage une chambre avec un ami ou une amie pour économiser pendant un voyage."
   },
   {
     "id": "appel_ex_urgence_frequente",
@@ -2593,7 +2581,7 @@
   },
   {
     "id": "ami_vient_chez_nous_seul",
-    "question": "Un(e) ami(e) vient souvent chez vous lorsque tu n'es pas là."
+    "question": "Un ami ou une amie vient souvent chez vous lorsque tu n'es pas là."
   },
   {
     "id": "revoir_ex_sans_prevenir",
@@ -2613,7 +2601,7 @@
   },
   {
     "id": "roadtrip_solo_spontane",
-    "question": "Ton partenaire part seul(e) en road trip sur un coup de tête."
+    "question": "Ton partenaire part en road trip en solo sur un coup de tête."
   },
   {
     "id": "retour_ex_dans_groupe",
@@ -2677,7 +2665,7 @@
   },
   {
     "id": "investir_avec_ami",
-    "question": "Ton partenaire investit dans un projet avec un(e) ami(e)."
+    "question": "Ton partenaire investit dans un projet avec un ami ou une amie."
   },
   {
     "id": "offrir_voiture_parent",
@@ -2749,7 +2737,7 @@
   },
   {
     "id": "sortie_restaurant_tardive",
-    "question": "Ton partenaire va dîner seul(e) avec quelqu'un jusqu'à tard dans la nuit."
+    "question": "Ton partenaire dîne en tête-à-tête avec quelqu’un jusqu’à tard dans la nuit."
   },
   {
     "id": "weekend_amis_sans_reseau",
@@ -2789,7 +2777,7 @@
   },
   {
     "id": "ami_passe_avant_rendezvous",
-    "question": "Ton partenaire annule un rendez-vous amoureux pour aider un(e) ami(e)."
+    "question": "Ton partenaire annule un rendez-vous amoureux pour aider un ami ou une amie."
   },
   {
     "id": "voyage_collegues_etranger",
@@ -2809,7 +2797,7 @@
   },
   {
     "id": "weekend_improvise_ami",
-    "question": "Ton partenaire part en week-end sur un coup de tête avec un(e) ami(e)."
+    "question": "Ton partenaire part en week-end sur un coup de tête avec un ami ou une amie."
   },
   {
     "id": "partager_souvenirs_ex",
@@ -2817,7 +2805,7 @@
   },
   {
     "id": "rentrer_chez_ami_frequent",
-    "question": "Ton partenaire dort régulièrement chez un(e) ami(e) après les soirées."
+    "question": "Ton partenaire dort régulièrement chez un ami ou une amie après les soirées."
   },
   {
     "id": "discussion_jusqua_aube",
@@ -2861,7 +2849,7 @@
   },
   {
     "id": "partager_photos_privees_ami",
-    "question": "Ton partenaire partage énormément de photos personnelles avec un(e) ami(e)."
+    "question": "Ton partenaire partage énormément de photos personnelles avec un ami ou une amie."
   },
   {
     "id": "acheter_residence_secondaire_secret",
@@ -2957,7 +2945,7 @@
   },
   {
     "id": "ami_vient_cles_maison",
-    "question": "Un(e) ami(e) possède les clés de votre logement et peut venir librement."
+    "question": "Un ami ou une amie possède les clés de votre logement et peut venir librement."
   },
   {
     "id": "sortie_camping_mixte",
@@ -3001,7 +2989,7 @@
   },
   {
     "id": "cadeau_symbolique_ami",
-    "question": "Ton partenaire offre un cadeau très symbolique à un(e) ami(e)."
+    "question": "Ton partenaire offre un cadeau très symbolique à un ami ou une amie."
   },
   {
     "id": "partager_souvenirs_enfance",
@@ -3010,10 +2998,6 @@
   {
     "id": "sortie_sport_duo",
     "question": "Ton partenaire pratique régulièrement une activité en duo avec la même personne."
-  },
-  {
-    "id": "message_des_reveil",
-    "question": "Ton partenaire est la première personne à qui quelqu'un écrit chaque matin."
   },
   {
     "id": "dejeuner_plusieurs_heures",
@@ -3116,7 +3100,7 @@
     "question": "Ton partenaire aimerait vivre sur un bateau pendant plusieurs années."
   },
   {
-    "id": "demenager_pres_famille",
+    "id": "demenager_pres_famille_alternative",
     "question": "Ton partenaire veut déménager pour se rapprocher de sa famille."
   },
   {
@@ -3153,7 +3137,7 @@
   },
   {
     "id": "ami_passe_avant_toi",
-    "question": "Ton partenaire considère son ou sa meilleur(e) ami(e) comme sa priorité absolue."
+    "question": "Ton partenaire considère son meilleur ami ou sa meilleure amie comme sa priorité absolue."
   },
   {
     "id": "revoir_ex_pour_cloture",
@@ -3192,7 +3176,7 @@
     "question": "Ton partenaire se confie beaucoup à une personne rencontrée en ligne."
   },
   {
-    "id": "sortie_nocturne_improvisee",
+    "id": "sortie_nocturne_improvisee_alternative",
     "question": "Ton partenaire décide à minuit de sortir rejoindre des amis."
   },
   {
@@ -3201,7 +3185,7 @@
   },
   {
     "id": "ami_tres_tactile_public",
-    "question": "Un(e) ami(e) de ton partenaire est très tactile en public."
+    "question": "Un ami ou une amie de ton partenaire est très tactile en public."
   },
   {
     "id": "partager_tente_personne_unique",
@@ -3312,10 +3296,6 @@
     "question": "Ton partenaire souhaite déménager sur un autre continent."
   },
   {
-    "id": "avoir_enfant_unique",
-    "question": "Ton partenaire ne souhaite avoir qu'un seul enfant."
-  },
-  {
     "id": "aucun_enfant_finalement",
     "question": "Ton partenaire change d'avis et ne veut plus d'enfant."
   },
@@ -3345,11 +3325,11 @@
   },
   {
     "id": "vacances_avec_collegue_unique",
-    "question": "Ton partenaire prolonge des vacances pour rester quelques jours avec un(e) collègue."
+    "question": "Ton partenaire prolonge des vacances pour rester quelques jours avec un collègue ou une collègue."
   },
   {
     "id": "ami_priorite_appel",
-    "question": "Ton partenaire quitte un dîner en amoureux pour répondre à un(e) ami(e)."
+    "question": "Ton partenaire quitte un dîner en amoureux pour répondre à un ami ou une amie."
   },
   {
     "id": "dejeuner_personne_attirante",
@@ -3385,15 +3365,15 @@
   },
   {
     "id": "ami_toujours_invite",
-    "question": "Le ou la meilleur(e) ami(e) de ton partenaire est invité(e) à presque toutes vos sorties."
+    "question": "Le meilleur ami ou la meilleure amie de ton partenaire est invité ou invitée à presque toutes vos sorties."
   },
   {
     "id": "retour_maison_apres_soiree_ami",
-    "question": "Ton partenaire dort chez un(e) ami(e) après chaque grosse soirée."
+    "question": "Ton partenaire dort chez un ami ou une amie après chaque grosse soirée."
   },
   {
     "id": "cadeau_couteux_ami",
-    "question": "Ton partenaire offre un cadeau très coûteux à un(e) ami(e)."
+    "question": "Ton partenaire offre un cadeau très coûteux à un ami ou une amie."
   },
   {
     "id": "partager_souvenirs_relation",
@@ -3413,7 +3393,7 @@
   },
   {
     "id": "ex_present_evenements",
-    "question": "L'ex de ton partenaire est présent(e) à la plupart des événements de son groupe d'amis."
+    "question": "L'ex de ton partenaire est présent ou présente à la plupart des événements de son groupe d'amis."
   },
   {
     "id": "message_fin_soiree",
@@ -3492,10 +3472,6 @@
     "question": "Ton partenaire rêve d'ouvrir un hôtel ou une maison d'hôtes."
   },
   {
-    "id": "acheter_terrain_grand_projet",
-    "question": "Ton partenaire veut acheter un terrain pour un projet futur."
-  },
-  {
     "id": "retour_etudes_cinq_ans",
     "question": "Ton partenaire souhaite reprendre plusieurs années d'études."
   },
@@ -3545,7 +3521,7 @@
   },
   {
     "id": "laisser_telephone_deverrouille_ami",
-    "question": "Ton partenaire laisse régulièrement son téléphone déverrouillé à un(e) ami(e)."
+    "question": "Ton partenaire laisse régulièrement son téléphone déverrouillé à un ami ou une amie."
   },
   {
     "id": "voyage_spontane_personne_unique",
@@ -3553,7 +3529,7 @@
   },
   {
     "id": "diner_aux_chandelles_ami",
-    "question": "Ton partenaire se retrouve dans un restaurant très romantique avec un(e) ami(e)."
+    "question": "Ton partenaire se retrouve dans un restaurant très romantique avec un ami ou une amie."
   },
   {
     "id": "partager_chambre_exception",
@@ -3561,7 +3537,7 @@
   },
   {
     "id": "ami_connait_compte_bancaire",
-    "question": "Un(e) ami(e) connaît en détail la situation financière de ton partenaire."
+    "question": "Un ami ou une amie connaît en détail la situation financière de ton partenaire."
   },
   {
     "id": "annuler_vacances_couple",
@@ -3621,7 +3597,7 @@
   },
   {
     "id": "ami_dort_maison_absence",
-    "question": "Un(e) ami(e) dort chez vous pendant que tu es absent(e)."
+    "question": "Un ami ou une amie dort chez vous pendant que tu es absent ou absente."
   },
   {
     "id": "supprimer_toutes_conversations",
@@ -3644,10 +3620,6 @@
     "question": "Ton partenaire partage davantage son quotidien avec quelqu'un qu'avec toi."
   },
   {
-    "id": "reagir_toutes_stories_personne",
-    "question": "Ton partenaire réagit à presque toutes les stories d'une même personne."
-  },
-  {
     "id": "masquer_abonnes",
     "question": "Ton partenaire masque volontairement sa liste d'abonnés."
   },
@@ -3661,7 +3633,7 @@
   },
   {
     "id": "partager_humour_exclusif",
-    "question": "Ton partenaire a un humour et des références que toi seul(e) ne comprends pas dans son groupe proche."
+    "question": "Dans son groupe proche, ton partenaire partage un humour et des références que tu es la seule personne à ne pas comprendre."
   },
   {
     "id": "acheter_maison_sans_consultation",
@@ -3704,7 +3676,7 @@
     "question": "Ton partenaire veut vivre au bord de la mer pour toujours."
   },
   {
-    "id": "demenager_etranger_retraite",
+    "id": "demenager_etranger_retraite_alternative",
     "question": "Ton partenaire prévoit de passer sa retraite à l'étranger."
   },
   {

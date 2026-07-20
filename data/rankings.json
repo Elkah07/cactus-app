@@ -2,7 +2,7 @@
   "version": 1,
   "app": "Cactus",
   "type": "ranking_library",
-  "total": 150,
+  "total": 148,
   "duplicate_ids": [],
   "rankings": [
     {
@@ -34,12 +34,12 @@
     },
     {
       "id": "preuve_affection",
-      "title": "Classe ces gestes selon ceux qui te font te sentir le plus aimé(e).",
+      "title": "Classe ces gestes selon ceux qui te font te sentir le plus aimé ou aimée.",
       "items": [
         "Recevoir un long message",
         "Passer du temps ensemble",
         "Recevoir une surprise",
-        "Être pris(e) dans les bras",
+        "Être pris ou prise dans les bras",
         "Recevoir de l'aide",
         "Recevoir un compliment"
       ],
@@ -645,7 +645,7 @@
         "Courir un marathon",
         "Changer de carrière",
         "Créer un projet rentable",
-        "Voyager seul(e)",
+        "Voyager en solo",
         "Achever un projet personnel"
       ],
       "category": "futur_projets_vie"
@@ -792,32 +792,6 @@
         "Avoir laissé une trace positive"
       ],
       "category": "futur_projets_vie"
-    },
-    {
-      "id": "bouton_magique",
-      "title": "Classe ces améliorations selon celle que tu choisirais en priorité.",
-      "items": [
-        "Une santé parfaite",
-        "Ne plus jamais être stressé(e)",
-        "Avoir toujours assez d'argent",
-        "Avoir plus de temps libre",
-        "Avoir une confiance totale en toi",
-        "Avoir des relations parfaites"
-      ],
-      "category": "dilemmes_debats_revelateurs"
-    },
-    {
-      "id": "voyage_temporel",
-      "title": "Classe ces possibilités selon celle que tu choisirais en premier.",
-      "items": [
-        "Voir ton futur",
-        "Revoir ton passé",
-        "Rencontrer tes ancêtres",
-        "Rencontrer tes descendants",
-        "Voir la Terre dans 500 ans",
-        "Revivre une journée de ta vie"
-      ],
-      "category": "dilemmes_debats_revelateurs"
     },
     {
       "id": "verite_absolue",
@@ -1660,7 +1634,7 @@
         "Regarder des vidéos sans écouteurs",
         "Travailler",
         "Passer des appels",
-        "Regarder une série seul(e)"
+        "Regarder une série en solo"
       ],
       "category": "couple_debats"
     },
@@ -1708,7 +1682,7 @@
       "title": "Classe ces situations selon celles qui pourraient le plus te rendre jaloux(se).",
       "items": [
         "Messages fréquents avec un ex",
-        "Sortie seul(e) avec quelqu'un d'attirant",
+        "Sortie en solo avec quelqu'un d'attirant",
         "Flirt léger en soirée",
         "Cacher certaines conversations",
         "Recevoir beaucoup d'attention en ligne",
@@ -1816,7 +1790,7 @@
         "Passer du temps avec des amis",
         "Regarder un film",
         "Faire du sport",
-        "Vouloir être seul(e)"
+        "Vouloir être en solo"
       ],
       "category": "couple_debats"
     },
@@ -1993,12 +1967,12 @@
       },
       {
         "id": "preuve_affection",
-        "title": "Classe ces gestes selon ceux qui te font te sentir le plus aimé(e).",
+        "title": "Classe ces gestes selon ceux qui te font te sentir le plus aimé ou aimée.",
         "items": [
           "Recevoir un long message",
           "Passer du temps ensemble",
           "Recevoir une surprise",
-          "Être pris(e) dans les bras",
+          "Être pris ou prise dans les bras",
           "Recevoir de l'aide",
           "Recevoir un compliment"
         ]
@@ -2562,7 +2536,7 @@
           "Courir un marathon",
           "Changer de carrière",
           "Créer un projet rentable",
-          "Voyager seul(e)",
+          "Voyager en solo",
           "Achever un projet personnel"
         ]
       },
@@ -2700,30 +2674,6 @@
       }
     ],
     "dilemmes_debats_revelateurs": [
-      {
-        "id": "bouton_magique",
-        "title": "Classe ces améliorations selon celle que tu choisirais en priorité.",
-        "items": [
-          "Une santé parfaite",
-          "Ne plus jamais être stressé(e)",
-          "Avoir toujours assez d'argent",
-          "Avoir plus de temps libre",
-          "Avoir une confiance totale en toi",
-          "Avoir des relations parfaites"
-        ]
-      },
-      {
-        "id": "voyage_temporel",
-        "title": "Classe ces possibilités selon celle que tu choisirais en premier.",
-        "items": [
-          "Voir ton futur",
-          "Revoir ton passé",
-          "Rencontrer tes ancêtres",
-          "Rencontrer tes descendants",
-          "Voir la Terre dans 500 ans",
-          "Revivre une journée de ta vie"
-        ]
-      },
       {
         "id": "verite_absolue",
         "title": "Classe ces vérités selon celle que tu voudrais le plus connaître.",
@@ -3505,7 +3455,7 @@
           "Regarder des vidéos sans écouteurs",
           "Travailler",
           "Passer des appels",
-          "Regarder une série seul(e)"
+          "Regarder une série en solo"
         ]
       },
       {
@@ -3549,7 +3499,7 @@
         "title": "Classe ces situations selon celles qui pourraient le plus te rendre jaloux(se).",
         "items": [
           "Messages fréquents avec un ex",
-          "Sortie seul(e) avec quelqu'un d'attirant",
+          "Sortie en solo avec quelqu'un d'attirant",
           "Flirt léger en soirée",
           "Cacher certaines conversations",
           "Recevoir beaucoup d'attention en ligne",
@@ -3649,7 +3599,7 @@
           "Passer du temps avec des amis",
           "Regarder un film",
           "Faire du sport",
-          "Vouloir être seul(e)"
+          "Vouloir être en solo"
         ]
       },
       {
