@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cactus 🌵</title>
-    <link rel="stylesheet" href="css/style.css?v=74">
+    <link rel="stylesheet" href="css/style.css?v=75">
     <link rel="manifest" href="manifest.json?v=2">
     <meta name="theme-color" content="#003E2D">
 </head>
@@ -34,6 +34,8 @@
         <symbol id="cactusIconTools" viewBox="0 0 64 64"><path fill="#ffd45c" stroke="#8b5a27" stroke-width="3" d="M14 46 43 17l7 7-29 29H14v-7Z"/><path fill="#83d99b" stroke="#277052" stroke-width="3" d="M38 12c5-6 13-5 17-1l-9 8 4 4 8-9c4 8-2 17-11 17l-8-8c-1-4-1-8-1-11Z"/></symbol>
         <symbol id="cactusIconShopping" viewBox="0 0 64 64"><path d="M12 18h7l5 25h27l5-18H22" fill="#fff2cf" stroke="#276f4e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path fill="#83d99b" d="M25 28h27l-3 11H27l-2-11Z"/><circle cx="29" cy="51" r="5" fill="#ff737d" stroke="#8b4050" stroke-width="2.5"/><circle cx="47" cy="51" r="5" fill="#ffd45c" stroke="#9a6317" stroke-width="2.5"/><path d="m31 12 5 6 10-10" fill="none" stroke="#73d98c" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
         <symbol id="cactusIconTasks" viewBox="0 0 64 64"><rect x="10" y="7" width="44" height="50" rx="8" fill="#fff2cf" stroke="#276f4e" stroke-width="3"/><path d="m17 22 4 4 7-9M17 38l4 4 7-9M34 22h13M34 38h13" fill="none" stroke="#73d98c" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/><path fill="#ff737d" d="M44 55c-5-4-8-6-8-10 0-5 6-6 8-2 2-4 8-3 8 2 0 4-3 6-8 10Z"/></symbol>
+        <symbol id="cactusIconCountdown" viewBox="0 0 64 64"><path d="M18 8h28M18 56h28" fill="none" stroke="#8b5a27" stroke-width="5" stroke-linecap="round"/><path fill="#fff2cf" stroke="#8b5a27" stroke-width="3" d="M20 11h24c0 11-4 17-12 21 8 4 12 10 12 21H20c0-11 4-17 12-21-8-4-12-10-12-21Z"/><path fill="#ffd45c" d="M25 17h14c-1 6-3 9-7 11-4-2-6-5-7-11Zm7 19c5 3 7 7 7 12H25c0-5 2-9 7-12Z"/><path fill="#ff737d" d="M32 50c-4-3-7-5-7-8 0-4 5-5 7-1 2-4 7-3 7 1 0 3-3 5-7 8Z"/></symbol>
+        <symbol id="cactusIconCapsule" viewBox="0 0 64 64"><rect x="8" y="14" width="48" height="38" rx="8" fill="#fff2cf" stroke="#8b5a27" stroke-width="3"/><path d="m10 19 22 18 22-18" fill="#ffd9ca" stroke="#8b5a27" stroke-width="3" stroke-linejoin="round"/><path fill="#ff737d" d="M32 47c-6-4-10-7-10-12 0-6 7-7 10-2 3-5 10-4 10 2 0 5-4 8-10 12Z"/><circle cx="51" cy="13" r="8" fill="#73d98c" stroke="#276f4e" stroke-width="3"/><path d="M51 9v5l3 2" fill="none" stroke="#fff2cf" stroke-width="2.5" stroke-linecap="round"/></symbol>
         <symbol id="cactusIconTheme" viewBox="0 0 64 64"><path fill="#ffd45c" stroke="#8b5a27" stroke-width="3" d="M43 49A23 23 0 0 1 20 10c-1 19 11 31 30 29-2 4-4 7-7 10Z"/><path fill="#fff2a8" d="m48 10 2 5 6 2-6 2-2 6-2-6-6-2 6-2 2-5Z"/></symbol>
     </defs>
 </svg>
@@ -139,8 +141,8 @@
         <button type="button" id="openTasksBtn" class="daily-tool-card is-compact" onclick="showScreen('tasks')"><span class="daily-tool-icon"><svg class="cactus-ui-icon" aria-hidden="true"><use href="#cactusIconTasks"></use></svg></span><span class="daily-tool-copy"><small>Organisation</small><strong>Nos tâches</strong><span>À faire ensemble</span></span><span class="daily-tool-arrow">›</span></button>
         <button type="button" id="openRemindersBtn" class="daily-tool-card is-compact" onclick="showScreen('reminders')"><span class="daily-tool-icon"><svg class="cactus-ui-icon" aria-hidden="true"><use href="#cactusIconBell"></use></svg></span><span class="daily-tool-copy"><small>À ne pas oublier</small><strong>Nos rappels</strong><span>Date et heure</span></span><span class="daily-tool-arrow">›</span></button>
         <button type="button" id="openImportantDatesBtn" class="daily-tool-card is-compact" onclick="showScreen('importantDates')"><span class="daily-tool-icon"><svg class="cactus-ui-icon" aria-hidden="true"><use href="#cactusIconCalendar"></use></svg></span><span class="daily-tool-copy"><small>Calendrier</small><strong>Dates importantes</strong><span>Vos événements</span></span><span class="daily-tool-arrow">›</span></button>
-        <button type="button" id="openCountdownsBtn" class="daily-tool-card is-compact" onclick="showScreen('countdowns')"><span class="daily-tool-icon daily-tool-symbol" aria-hidden="true">⏳</span><span class="daily-tool-copy"><small>À attendre ensemble</small><strong>Comptes à rebours</strong><span>Voyages, fêtes et grands moments</span></span><span class="daily-tool-arrow">›</span></button>
-        <button type="button" id="openTimeCapsulesBtn" class="daily-tool-card is-compact" onclick="showScreen('timeCapsules')"><span class="daily-tool-icon daily-tool-symbol" aria-hidden="true">💌</span><span class="daily-tool-copy"><small>À ouvrir plus tard</small><strong>Capsules temporelles</strong><span>Des messages gardés jusqu’au bon jour</span></span><span class="daily-tool-arrow">›</span></button>
+        <button type="button" id="openCountdownsBtn" class="daily-tool-card is-compact" onclick="showScreen('countdowns')"><span class="daily-tool-icon"><svg class="cactus-ui-icon" aria-hidden="true"><use href="#cactusIconCountdown"></use></svg></span><span class="daily-tool-copy"><small>À attendre ensemble</small><strong>Comptes à rebours</strong><span>Voyages, fêtes et grands moments</span></span><span class="daily-tool-arrow">›</span></button>
+        <button type="button" id="openTimeCapsulesBtn" class="daily-tool-card is-compact" onclick="showScreen('timeCapsules')"><span class="daily-tool-icon"><svg class="cactus-ui-icon" aria-hidden="true"><use href="#cactusIconCapsule"></use></svg></span><span class="daily-tool-copy"><small>À ouvrir plus tard</small><strong>Capsules temporelles</strong><span>Des messages gardés jusqu’au bon jour</span></span><span class="daily-tool-arrow">›</span></button>
     </div>
 
     <div class="garden-notebooks-heading daily-notebooks-heading">
@@ -152,7 +154,7 @@
         <input
             type="text"
             id="notebookEmoji"
-            placeholder="Emoji du carnet ex : 👶"
+            placeholder="Symbole ou punaise du carnet"
         >
 
         <input
@@ -286,7 +288,7 @@
 <!-- ÉCRAN COMPTES À REBOURS -->
 <div id="countdownsScreen" class="secondary-screen daily-organizer-screen" style="display:none;">
     <header class="organizer-header"><button type="button" id="backFromCountdownsBtn" aria-label="Retour">‹</button><div><small>Notre quotidien</small><h1>Comptes à rebours</h1></div><button type="button" id="showCountdownFormBtn" class="organizer-add-button" aria-label="Ajouter un compte à rebours">+</button></header>
-    <section class="organizer-hero is-countdown"><span class="organizer-hero-symbol">⏳</span><div><small>À attendre ensemble</small><strong>Les prochains grands moments</strong><p>Voyages, anniversaires, concerts et retrouvailles.</p></div></section>
+    <section class="organizer-hero is-countdown"><svg class="cactus-ui-icon" aria-hidden="true"><use href="#cactusIconCountdown"></use></svg><div><small>À attendre ensemble</small><strong>Les prochains grands moments</strong><p>Voyages, anniversaires, concerts et retrouvailles.</p></div></section>
     <form id="countdownForm" class="organizer-form organizer-creation-panel" style="display:none;">
         <div class="organizer-form-heading"><div><small id="countdownFormKicker">Nouveau compte à rebours</small><strong id="countdownFormTitle">Quel moment attendez-vous ?</strong></div><button type="button" id="cancelCountdownEditBtn">Annuler</button></div>
         <input id="countdownTitleInput" type="text" maxlength="100" required placeholder="Ex. Notre voyage à Lisbonne">
@@ -295,13 +297,13 @@
         <button type="submit" id="saveCountdownBtn">Créer le compte à rebours</button>
     </form>
     <div id="countdownsList" class="countdowns-list"></div>
-    <div id="countdownsEmptyState" class="organizer-empty"><span class="organizer-empty-symbol">⏳</span><strong>Aucun compte à rebours</strong><p>Ajoutez un moment que vous avez hâte de vivre.</p></div>
+    <div id="countdownsEmptyState" class="organizer-empty"><svg class="cactus-ui-icon" aria-hidden="true"><use href="#cactusIconCountdown"></use></svg><strong>Aucun compte à rebours</strong><p>Ajoutez un moment que vous avez hâte de vivre.</p></div>
 </div>
 
 <!-- ÉCRAN CAPSULES TEMPORELLES -->
 <div id="timeCapsulesScreen" class="secondary-screen daily-organizer-screen" style="display:none;">
     <header class="organizer-header"><button type="button" id="backFromTimeCapsulesBtn" aria-label="Retour">‹</button><div><small>Notre quotidien</small><h1>Capsules temporelles</h1></div><button type="button" id="showTimeCapsuleFormBtn" class="organizer-add-button" aria-label="Créer une capsule">+</button></header>
-    <section class="organizer-hero is-capsule"><span class="organizer-hero-symbol">💌</span><div><small>Un secret pour plus tard</small><strong>Écrivez aujourd’hui, découvrez demain</strong><p>Le contenu reste caché jusqu’à la date choisie.</p></div></section>
+    <section class="organizer-hero is-capsule"><svg class="cactus-ui-icon" aria-hidden="true"><use href="#cactusIconCapsule"></use></svg><div><small>Un secret pour plus tard</small><strong>Écrivez aujourd’hui, découvrez demain</strong><p>Le contenu reste caché jusqu’à la date choisie.</p></div></section>
     <form id="timeCapsuleForm" class="organizer-form organizer-creation-panel" style="display:none;">
         <div class="organizer-form-heading"><div><small>Nouvelle capsule</small><strong>Que voulez-vous confier au futur ?</strong></div><button type="button" id="cancelTimeCapsuleBtn">Annuler</button></div>
         <input id="timeCapsuleTitleInput" type="text" maxlength="100" required placeholder="Titre visible de la capsule">
@@ -310,7 +312,7 @@
         <button type="submit" id="saveTimeCapsuleBtn">Sceller la capsule</button>
     </form>
     <div id="timeCapsulesList" class="time-capsules-list"></div>
-    <div id="timeCapsulesEmptyState" class="organizer-empty"><span class="organizer-empty-symbol">💌</span><strong>Aucune capsule</strong><p>Scellez un message à découvrir dans le futur.</p></div>
+    <div id="timeCapsulesEmptyState" class="organizer-empty"><svg class="cactus-ui-icon" aria-hidden="true"><use href="#cactusIconCapsule"></use></svg><strong>Aucune capsule</strong><p>Scellez un message à découvrir dans le futur.</p></div>
 </div>
 
 <!-- ÉCRAN CARNET -->
@@ -971,7 +973,7 @@
     <section id="dashboardTodayWidget" class="dashboard-today-widget">
         <header><div><small>Aujourd’hui</small><strong>Votre journée à deux</strong></div><button type="button" id="dashboardTodayOpenBtn">Tout voir</button></header>
         <div id="dashboardTodayList" class="dashboard-today-list"></div>
-        <p id="dashboardTodayEmpty">Rien d’urgent aujourd’hui. Profitez de votre journée 💚</p>
+        <p id="dashboardTodayEmpty">Rien d’urgent aujourd’hui. Profitez de votre journée à deux.</p>
     </section>
 
 
@@ -2226,12 +2228,12 @@
     <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
 
     <script src="js/firebase.js"></script>
-    <script src="js/screens.js?v=74"></script>
+    <script src="js/screens.js?v=75"></script>
     <script src="js/utils.js"></script>
     <script src="js/storage.js"></script>
     <script src="js/rankings.js"></script>
     <script src="js/questions.js"></script>
-    <script src="js/script.js?v=74"></script>
+    <script src="js/script.js?v=75"></script>
 
 </body>
 </html>

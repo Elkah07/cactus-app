@@ -2784,7 +2784,7 @@ function getLocalDateKey(date = new Date()) {
 }
 
 function getCountdownTimestamp(item) {
-    return new Date((item.date || "9999-12-31") + "T" + (item.time || "12:00")).getTime();
+    return new Date((item.date || "9999-12-31") + "T" + (item.time || "00:00")).getTime();
 }
 
 function getCountdownLabel(item) {
@@ -2845,7 +2845,8 @@ function renderTimeCapsules(items = {}) {
     timeCapsulesList.replaceChildren(...entries.map(([id, item]) => {
         const unlocked = !item.openDate || new Date(item.openDate + "T00:00").getTime() <= Date.now();
         const article = document.createElement("article"); article.className = "time-capsule-card" + (unlocked ? " is-unlocked" : " is-locked");
-        const icon = document.createElement("span"); icon.textContent = unlocked ? "💌" : "🔒";
+        const icon = document.createElement("span");
+        icon.appendChild(createCactusUiIcon(unlocked ? "cactusIconCapsule" : "cactusIconShield", "cactus-secondary-icon"));
         const copy = document.createElement("div"); const title = document.createElement("strong"); title.textContent = item.title || "Capsule sans titre";
         const date = document.createElement("small"); date.textContent = unlocked ? "Ouverte depuis le " + formatOrganizerDate(item.openDate) : "À ouvrir le " + formatOrganizerDate(item.openDate);
         const message = document.createElement("p"); message.textContent = unlocked ? (item.message || "Cette capsule est vide.") : "Le message est encore bien gardé…";
@@ -2868,11 +2869,17 @@ timeCapsuleForm.addEventListener("submit", (event) => {
 function renderDashboardToday(spaceData = {}) {
     if (!dashboardTodayList) return;
     const today = getLocalDateKey(); const items = [];
-    Object.entries(spaceData.dailyTools?.tasks || {}).forEach(([, task]) => { if (!task.completed && task.dueDate && task.dueDate <= today) items.push({ icon: "✓", title: task.title, meta: task.dueDate < today ? "En retard" : "À faire aujourd’hui", screen: "tasks" }); });
-    Object.entries(spaceData.dailyTools?.reminders || {}).forEach(([, reminder]) => { if (reminder.date === today) items.push({ icon: "🔔", title: reminder.title, meta: reminder.time ? reminder.time.replace(":", "h") : "Aujourd’hui", screen: "reminders" }); });
-    Object.entries(spaceData.dailyTools?.importantDates || {}).forEach(([, item]) => { const dateMatch = item.annual ? (item.date || "").slice(5) === today.slice(5) : item.date === today; if (dateMatch) items.push({ icon: "♡", title: item.title, meta: "Date importante", screen: "importantDates" }); });
-    Object.entries(spaceData.dailyTools?.countdowns || {}).forEach(([, item]) => { if (item.date === today) items.push({ icon: "⏳", title: item.title, meta: "C’est le grand jour", screen: "countdowns" }); });
-    dashboardTodayList.replaceChildren(...items.slice(0, 4).map((item) => { const button = document.createElement("button"); button.type = "button"; button.innerHTML = `<span>${item.icon}</span><span><strong></strong><small></small></span><b>›</b>`; button.querySelector("strong").textContent = item.title || "À voir"; button.querySelector("small").textContent = item.meta; button.addEventListener("click", () => showScreen(item.screen)); return button; }));
+    Object.entries(spaceData.dailyTools?.tasks || {}).forEach(([, task]) => { if (!task.completed && task.dueDate && task.dueDate <= today) items.push({ icon: "cactusIconTasks", title: task.title, meta: task.dueDate < today ? "En retard" : "À faire aujourd’hui", screen: "tasks" }); });
+    Object.entries(spaceData.dailyTools?.reminders || {}).forEach(([, reminder]) => { if (reminder.date === today) items.push({ icon: "cactusIconBell", title: reminder.title, meta: reminder.time ? reminder.time.replace(":", "h") : "Aujourd’hui", screen: "reminders" }); });
+    Object.entries(spaceData.dailyTools?.importantDates || {}).forEach(([, item]) => { const dateMatch = item.annual ? (item.date || "").slice(5) === today.slice(5) : item.date === today; if (dateMatch) items.push({ icon: "cactusIconCalendar", title: item.title, meta: "Date importante", screen: "importantDates" }); });
+    Object.entries(spaceData.dailyTools?.countdowns || {}).forEach(([, item]) => { if (item.date === today) items.push({ icon: "cactusIconCountdown", title: item.title, meta: "C’est le grand jour", screen: "countdowns" }); });
+    dashboardTodayList.replaceChildren(...items.slice(0, 4).map((item) => {
+        const button = document.createElement("button"); button.type = "button";
+        const icon = document.createElement("span"); icon.appendChild(createCactusUiIcon(item.icon, "cactus-secondary-icon"));
+        const copy = document.createElement("span"); const title = document.createElement("strong"); title.textContent = item.title || "À voir"; const meta = document.createElement("small"); meta.textContent = item.meta; copy.append(title, meta);
+        const arrow = document.createElement("b"); arrow.textContent = "›"; button.append(icon, copy, arrow);
+        button.addEventListener("click", () => showScreen(item.screen)); return button;
+    }));
     dashboardTodayEmpty.style.display = items.length ? "none" : "block";
 }
 dashboardTodayOpenBtn.addEventListener("click", () => showScreen("dailyTools"));
@@ -5796,19 +5803,6 @@ function buildNotifications(spaceData) {
     });
 
     Object.entries(spaceData.dailyChallenges || {}).forEach(([dateKey, challenge]) => {
-        if (challenge.status !== "completed") return;
-        items.push({
-            id: "daily_" + dateKey,
-            type: "game",
-            icon: "🔥",
-            title: "Rituel quotidien complété",
-            text: challenge.question || "Une question partagée à deux.",
-            timestamp: challenge.completedAt || challenge.createdAt || getTimelineTimestamp(dateKey),
-            action: () => showScreen("dailyRitual")
-        });
-    });
-
-    Object.entries(spaceData.dailyChallenges || {}).forEach(([dateKey, challenge]) => {
         if (preferences.answers) {
             Object.values(challenge.answers || {}).forEach((answer) => {
                 if (
@@ -5940,6 +5934,54 @@ function buildNotifications(spaceData) {
                     message: item.title || "Un rappel vous attend",
                     timestamp: scheduledAt,
                     target: { kind: "reminder", itemId, screen: "reminders" }
+                });
+            }
+        });
+
+        Object.entries(spaceData.dailyTools?.countdowns || {}).forEach(([itemId, item]) => {
+            if (item.createdByUid && item.createdByUid !== currentUser.uid && typeof item.createdAt === "number") {
+                notifications.push({
+                    id: "countdown_created_" + itemId + "_" + item.createdAt,
+                    type: "countdown",
+                    title: "Nouveau compte à rebours",
+                    message: item.title || "Un moment à attendre ensemble",
+                    timestamp: item.createdAt,
+                    target: { kind: "countdown", itemId, screen: "countdowns" }
+                });
+            }
+            const scheduledAt = getCountdownTimestamp(item);
+            if (scheduledAt <= Date.now() && scheduledAt > Date.now() - 7 * 86400000) {
+                notifications.push({
+                    id: "countdown_due_" + itemId + "_" + scheduledAt,
+                    type: "countdown",
+                    title: "Le grand jour est arrivé",
+                    message: item.title || "Votre compte à rebours est terminé",
+                    timestamp: scheduledAt,
+                    target: { kind: "countdown", itemId, screen: "countdowns" }
+                });
+            }
+        });
+
+        Object.entries(spaceData.dailyTools?.timeCapsules || {}).forEach(([itemId, item]) => {
+            if (item.createdByUid && item.createdByUid !== currentUser.uid && typeof item.createdAt === "number") {
+                notifications.push({
+                    id: "capsule_created_" + itemId + "_" + item.createdAt,
+                    type: "capsule",
+                    title: "Une capsule a été scellée",
+                    message: item.title || "Un message vous attend dans le futur",
+                    timestamp: item.createdAt,
+                    target: { kind: "capsule", itemId, screen: "timeCapsules" }
+                });
+            }
+            const openAt = item.openDate ? new Date(item.openDate + "T00:00").getTime() : Infinity;
+            if (openAt <= Date.now() && openAt > Date.now() - 30 * 86400000) {
+                notifications.push({
+                    id: "capsule_open_" + itemId + "_" + openAt,
+                    type: "capsule",
+                    title: "Votre capsule peut être ouverte",
+                    message: item.title || "Un message du passé vous attend",
+                    timestamp: openAt,
+                    target: { kind: "capsule", itemId, screen: "timeCapsules" }
                 });
             }
         });
@@ -6175,6 +6217,8 @@ function getNotificationSymbol(type) {
         game: "cactusIconGame",
         garden: "cactusIconGarden",
         dailyTools: "cactusIconShopping",
+        countdown: "cactusIconCountdown",
+        capsule: "cactusIconCapsule",
         achievement: "cactusIconTrophy"
     };
 
@@ -6281,7 +6325,7 @@ function openNotification(notification) {
             });
     } else if (target.kind === "shopping") {
         showScreen("shopping");
-    } else if (["task", "reminder", "importantDate"].includes(target.kind)) {
+    } else if (["task", "reminder", "importantDate", "countdown", "capsule"].includes(target.kind)) {
         showScreen(target.screen || "dailyTools");
     } else if (target.kind === "story") {
         openStoryPage();
