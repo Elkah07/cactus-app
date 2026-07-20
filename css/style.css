@@ -7556,9 +7556,107 @@ body.edit-notebook-open { overflow: hidden; }
 }
 
 .daily-tools-screen .notebook-card {
+    position: relative;
+    isolation: isolate;
     min-height: 126px;
+    overflow: visible;
+    padding: 31px 17px 16px;
     border: 2px solid rgba(255, 255, 255, 0.58);
-    box-shadow: 0 12px 24px var(--app-shadow-soft);
+    border-radius: 21px 21px 28px 21px;
+    box-shadow:
+        0 4px 0 rgba(255, 255, 255, 0.28) inset,
+        0 -5px 0 rgba(14, 73, 54, 0.09) inset,
+        0 15px 26px rgba(0, 32, 23, 0.23),
+        0 4px 7px rgba(0, 20, 14, 0.14);
+    transform: rotate(-0.7deg) translateY(0);
+    transform-origin: 50% 14%;
+    transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.daily-tools-screen .notebook-card:nth-child(even) {
+    transform: rotate(0.8deg) translateY(2px);
+}
+
+.daily-tools-screen .notebook-card:nth-child(3n) {
+    transform: rotate(-0.35deg) translateY(1px);
+}
+
+.daily-tools-screen .notebook-card::before {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    inset: 1px;
+    border-radius: inherit;
+    pointer-events: none;
+    background:
+        linear-gradient(128deg, rgba(255, 255, 255, 0.34) 0%, rgba(255, 255, 255, 0.08) 32%, transparent 53%),
+        radial-gradient(circle at 18% 8%, rgba(255, 255, 255, 0.32), transparent 35%);
+}
+
+.daily-tools-screen .notebook-card::after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    right: -2px;
+    bottom: -2px;
+    width: 25px;
+    height: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    border-radius: 4px 0 24px 0;
+    pointer-events: none;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.5), rgba(13, 68, 51, 0.13));
+    box-shadow: -4px -4px 8px rgba(0, 40, 28, 0.08);
+}
+
+.daily-tools-screen .notebook-card > h3,
+.daily-tools-screen .notebook-card > small {
+    position: relative;
+    z-index: 2;
+}
+
+.daily-tools-screen .notebook-card .notebook-emoji {
+    position: absolute;
+    z-index: 4;
+    top: -16px;
+    right: 12px;
+    display: grid;
+    width: 48px;
+    height: 48px;
+    place-items: center;
+    margin: 0;
+    border: 2px solid rgba(255, 255, 255, 0.82);
+    border-radius: 50% 50% 48% 48%;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.92), rgba(220, 249, 232, 0.72));
+    box-shadow:
+        0 4px 0 rgba(255, 255, 255, 0.5) inset,
+        0 6px 10px rgba(0, 45, 31, 0.28);
+    font-size: 1.55rem;
+    line-height: 1;
+    transform: rotate(8deg);
+}
+
+.daily-tools-screen .notebook-card .notebook-emoji::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: 50%;
+    bottom: -9px;
+    width: 10px;
+    height: 17px;
+    border-radius: 2px 2px 8px 8px;
+    background: linear-gradient(90deg, #b87b25, #ffe39a 47%, #9d6017);
+    box-shadow: 0 3px 4px rgba(0, 35, 24, 0.24);
+    transform: translateX(-50%) rotate(4deg);
+}
+
+@media (hover: hover) {
+    .daily-tools-screen .notebook-card:hover {
+        transform: rotate(0deg) translateY(-4px);
+        box-shadow:
+            0 4px 0 rgba(255, 255, 255, 0.3) inset,
+            0 -5px 0 rgba(14, 73, 54, 0.08) inset,
+            0 20px 32px rgba(0, 32, 23, 0.28);
+    }
 }
 
 .daily-coming-soon {
