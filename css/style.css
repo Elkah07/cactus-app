@@ -6741,7 +6741,10 @@ body.notebook-color-open { overflow: hidden; }
     padding: 0;
     border: 2px solid rgba(255, 255, 255, 0.62);
     border-radius: 10px;
-    background: var(--swatch);
+    /* Les pastilles gardent leur propre teinte, même avec le thème sombre. */
+    background-color: var(--swatch) !important;
+    background-image: none !important;
+    box-shadow: inset 0 0 0 1px rgba(0, 35, 25, 0.12), 0 5px 12px rgba(0, 35, 25, 0.14);
 }
 
 .notebook-color-presets button.is-selected { outline: 3px solid var(--app-heading); outline-offset: 2px; }
