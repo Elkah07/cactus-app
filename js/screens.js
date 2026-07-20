@@ -35,7 +35,7 @@ function showScreenContent(screenName) {
     );
     document.body.classList.toggle(
         "secondary-active",
-        ["allGames", "garden", "history", "settings", "notifications", "dailyRitual"].includes(screenName)
+        ["allGames", "garden", "history", "settings", "notifications", "dailyRitual", "coupleProfile"].includes(screenName)
     );
 
     hideScreen(loginScreen);
@@ -91,6 +91,7 @@ function showScreenContent(screenName) {
     hideScreen(storyDistanceScreen);
     hideScreen(storyFinalScreen);
     hideScreen(storyPageScreen);
+    hideScreen(coupleProfileScreen);
 
     hideScreen(allGamesScreen);
 
@@ -289,6 +290,10 @@ settingsBtn.style.setProperty("display", "none", "important");
 
         case "storyPage":
             storyPageScreen.style.display = "block";
+            break;
+
+        case "coupleProfile":
+            coupleProfileScreen.style.display = "block";
             break;
 
         default:

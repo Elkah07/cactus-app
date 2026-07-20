@@ -482,12 +482,13 @@
             id="dashboardProfileBtn"
             type="button"
             class="dashboard-profile-btn"
-            aria-label="Ouvrir notre histoire"
+            aria-label="Ouvrir le profil du couple"
         >
             <span aria-hidden="true">❤️</span>
         </button>
 
         <div class="dashboard-couple-title">
+            <small id="dashboardSpaceName" class="dashboard-space-name">Notre coin Cactus</small>
             <h1>
                 <span id="displayPseudo">...</span>
                 <span aria-hidden="true">☀️ 💚</span>
@@ -878,6 +879,52 @@
     </button>
 </div>
 
+
+<!-- ÉCRAN PROFIL DU COUPLE -->
+<div id="coupleProfileScreen" class="secondary-screen couple-profile-screen" style="display:none;">
+    <header class="couple-profile-header">
+        <button type="button" id="backFromCoupleProfileBtn" aria-label="Retour">‹</button>
+        <div><small>Votre identité à deux</small><h1>Profil du couple</h1></div>
+        <span aria-hidden="true">💚</span>
+    </header>
+
+    <section class="couple-profile-hero">
+        <div class="couple-avatar-pair">
+            <span id="profileMyAvatar">🌵</span>
+            <span id="profilePartnerAvatar">💚</span>
+        </div>
+        <small id="profileSpaceNamePreview">Notre coin Cactus</small>
+        <h2 id="profileCoupleNames">Vous deux</h2>
+        <p id="profileMottoPreview">Notre petit monde à deux.</p>
+    </section>
+
+    <section class="couple-profile-summary">
+        <article><span>🌵</span><strong id="profileLevelSummary">1</strong><small>Niveau</small></article>
+        <article><span>💚</span><strong id="profileCompatibilitySummary">—</strong><small>Compatibilité</small></article>
+        <article><span>📖</span><strong id="profileMemoriesSummary">0</strong><small>Souvenirs</small></article>
+        <article><span>🎮</span><strong id="profileGamesSummary">0</strong><small>Parties</small></article>
+    </section>
+
+    <form id="coupleProfileForm" class="couple-profile-form">
+        <div class="profile-form-heading"><span>✨</span><div><small>Personnalisation commune</small><strong>Votre coin Cactus</strong></div></div>
+        <label for="profileAvatarInput">Mon avatar emoji</label>
+        <input id="profileAvatarInput" type="text" maxlength="4" value="🌵">
+        <label for="profileSpaceNameInput">Nom de notre espace</label>
+        <input id="profileSpaceNameInput" type="text" maxlength="40" placeholder="Notre coin Cactus">
+        <label for="profileCactusNameInput">Nom de notre cactus</label>
+        <input id="profileCactusNameInput" type="text" maxlength="30" placeholder="Cactou">
+        <label for="profileMottoInput">Notre petite phrase</label>
+        <input id="profileMottoInput" type="text" maxlength="100" placeholder="Notre petit monde à deux.">
+        <label for="profileAccentInput">Notre couleur</label>
+        <div class="profile-color-row">
+            <input id="profileAccentInput" type="color" value="#54d38b">
+            <span id="profileAccentValue">#54D38B</span>
+        </div>
+        <button type="submit" id="saveCoupleProfileBtn">Enregistrer notre profil</button>
+    </form>
+
+    <button type="button" id="openStoryFromProfileBtn" class="secondary">📖 Voir notre histoire</button>
+</div>
 
 <!-- ÉCRAN INTRO NOTRE HISTOIRE -->
 <div id="storyIntroScreen" style="display:none;">

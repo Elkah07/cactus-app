@@ -1807,6 +1807,19 @@ body.dashboard-active .top-right-btn {
     text-align: center;
 }
 
+.dashboard-space-name {
+    display: block;
+    margin-bottom: 3px;
+    overflow: hidden;
+    color: var(--dashboard-accent);
+    font-size: 0.6rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    text-overflow: ellipsis;
+    letter-spacing: 0.08em;
+    white-space: nowrap;
+}
+
 #dashboardScreen .dashboard-couple-title h1 {
     display: flex;
     flex-wrap: wrap;
@@ -4931,6 +4944,249 @@ body:not(.dark-theme) #dashboardNotificationsBadge {
 
 .history-automatic-heading {
     margin: 0 2px 11px;
+}
+
+/* Profil personnalisable du couple. */
+.couple-profile-screen {
+    --profile-accent: #54d38b;
+    color: var(--app-text);
+}
+
+.couple-profile-header {
+    display: grid;
+    grid-template-columns: 42px minmax(0, 1fr) 42px;
+    margin-bottom: 14px;
+    align-items: center;
+    gap: 10px;
+}
+
+.couple-profile-header button,
+.couple-profile-header > span {
+    display: grid;
+    width: 42px;
+    height: 42px;
+    margin: 0;
+    padding: 0;
+    place-items: center;
+    border: 1px solid var(--app-border);
+    border-radius: 14px;
+    background: var(--app-icon-bg);
+    color: var(--app-heading);
+    box-shadow: none;
+    font-size: 1.35rem;
+}
+
+.couple-profile-header small,
+.couple-profile-header h1 {
+    display: block;
+    margin: 0;
+}
+
+.couple-profile-header small {
+    color: var(--profile-accent);
+    font-size: 0.62rem;
+    font-weight: 850;
+}
+
+.couple-profile-header h1 {
+    color: var(--app-heading);
+    font-size: 1.2rem;
+}
+
+.couple-profile-hero {
+    position: relative;
+    margin-bottom: 12px;
+    padding: 25px 18px 20px;
+    overflow: hidden;
+    border: 1px solid var(--app-border);
+    border-radius: 27px;
+    background: var(--app-panel-bg);
+    box-shadow: 0 14px 34px var(--app-shadow-soft);
+    text-align: center;
+}
+
+.couple-profile-hero::before {
+    position: absolute;
+    top: -70px;
+    left: 50%;
+    width: 210px;
+    height: 150px;
+    border-radius: 50%;
+    background: var(--profile-accent);
+    content: "";
+    filter: blur(45px);
+    opacity: 0.24;
+    transform: translateX(-50%);
+}
+
+.couple-avatar-pair {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.couple-avatar-pair span {
+    display: grid;
+    width: 76px;
+    height: 76px;
+    place-items: center;
+    border: 4px solid var(--app-panel-bg);
+    border-radius: 25px;
+    background: var(--app-icon-bg);
+    box-shadow: 0 10px 24px var(--app-shadow-soft);
+    font-size: 2.35rem;
+}
+
+.couple-avatar-pair span + span {
+    margin-left: -15px;
+    transform: rotate(5deg);
+}
+
+.couple-avatar-pair span:first-child {
+    transform: rotate(-5deg);
+}
+
+.couple-profile-hero > small {
+    display: block;
+    margin-top: 13px;
+    color: var(--profile-accent);
+    font-size: 0.64rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.couple-profile-hero h2 {
+    margin: 3px 0 5px;
+    color: var(--app-heading);
+    font-size: 1.35rem;
+}
+
+.couple-profile-hero p {
+    margin: 0;
+    color: var(--app-muted);
+    font-size: 0.74rem;
+}
+
+.couple-profile-summary {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 7px;
+    margin-bottom: 12px;
+}
+
+.couple-profile-summary article {
+    padding: 10px 4px;
+    border: 1px solid var(--app-border);
+    border-radius: 17px;
+    background: var(--app-panel-bg);
+    text-align: center;
+}
+
+.couple-profile-summary span,
+.couple-profile-summary strong,
+.couple-profile-summary small {
+    display: block;
+}
+
+.couple-profile-summary strong {
+    margin: 3px 0 1px;
+    color: var(--app-heading);
+    font-size: 0.88rem;
+}
+
+.couple-profile-summary small {
+    overflow: hidden;
+    color: var(--app-muted);
+    font-size: 0.55rem;
+    text-overflow: ellipsis;
+}
+
+.couple-profile-form {
+    margin-bottom: 11px;
+    padding: 16px;
+    border: 1px solid var(--app-border);
+    border-radius: 23px;
+    background: var(--app-panel-bg);
+    box-shadow: 0 10px 26px var(--app-shadow-soft);
+}
+
+.profile-form-heading {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+
+.profile-form-heading > span {
+    display: grid;
+    width: 42px;
+    height: 42px;
+    place-items: center;
+    border-radius: 14px;
+    background: var(--app-icon-bg);
+    font-size: 1.25rem;
+}
+
+.profile-form-heading small,
+.profile-form-heading strong {
+    display: block;
+}
+
+.profile-form-heading small {
+    color: var(--profile-accent);
+    font-size: 0.6rem;
+}
+
+.profile-form-heading strong {
+    color: var(--app-heading);
+    font-size: 0.9rem;
+}
+
+.couple-profile-form > label {
+    display: block;
+    margin: 10px 2px 5px;
+    color: var(--app-muted);
+    font-size: 0.65rem;
+    font-weight: 800;
+}
+
+.couple-profile-form input {
+    border-color: var(--app-border-strong);
+    background: var(--app-input-bg);
+    color: var(--app-text);
+}
+
+.profile-color-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#profileAccentInput {
+    width: 64px;
+    height: 45px;
+    margin: 0;
+    padding: 4px;
+}
+
+#profileAccentValue {
+    color: var(--app-heading);
+    font-size: 0.72rem;
+    font-weight: 850;
+}
+
+#saveCoupleProfileBtn {
+    margin-top: 14px;
+    background: var(--profile-accent);
+    color: #073d2d;
+}
+
+@media (max-width: 370px) {
+    .couple-profile-summary {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
 }
 
 @media (max-width: 390px) {

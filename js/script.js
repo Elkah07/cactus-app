@@ -434,6 +434,27 @@ const gameInboxList = document.getElementById("gameInboxList");
 
 const dashboardProfileBtn =
     document.getElementById("dashboardProfileBtn");
+const dashboardSpaceName = document.getElementById("dashboardSpaceName");
+const coupleProfileScreen = document.getElementById("coupleProfileScreen");
+const backFromCoupleProfileBtn = document.getElementById("backFromCoupleProfileBtn");
+const profileMyAvatar = document.getElementById("profileMyAvatar");
+const profilePartnerAvatar = document.getElementById("profilePartnerAvatar");
+const profileSpaceNamePreview = document.getElementById("profileSpaceNamePreview");
+const profileCoupleNames = document.getElementById("profileCoupleNames");
+const profileMottoPreview = document.getElementById("profileMottoPreview");
+const profileLevelSummary = document.getElementById("profileLevelSummary");
+const profileCompatibilitySummary = document.getElementById("profileCompatibilitySummary");
+const profileMemoriesSummary = document.getElementById("profileMemoriesSummary");
+const profileGamesSummary = document.getElementById("profileGamesSummary");
+const coupleProfileForm = document.getElementById("coupleProfileForm");
+const profileAvatarInput = document.getElementById("profileAvatarInput");
+const profileSpaceNameInput = document.getElementById("profileSpaceNameInput");
+const profileCactusNameInput = document.getElementById("profileCactusNameInput");
+const profileMottoInput = document.getElementById("profileMottoInput");
+const profileAccentInput = document.getElementById("profileAccentInput");
+const profileAccentValue = document.getElementById("profileAccentValue");
+const saveCoupleProfileBtn = document.getElementById("saveCoupleProfileBtn");
+const openStoryFromProfileBtn = document.getElementById("openStoryFromProfileBtn");
 
 const dashboardSettingsBtn =
     document.getElementById("dashboardSettingsBtn");
@@ -735,6 +756,7 @@ function listenToCurrentSpace(spaceCodeValue) {
         }
 
         updateRelationshipDays(spaceData.story);
+        applyCoupleProfile(spaceData);
 
         let partner = null;
 
@@ -2117,7 +2139,37 @@ creatorResetDailyBtn.addEventListener("click", () => {
 });
 
 dashboardProfileBtn.addEventListener("click", () => {
+    openCoupleProfile();
+});
+
+backFromCoupleProfileBtn.addEventListener("click", () => {
+    showScreen("dashboard");
+});
+
+openStoryFromProfileBtn.addEventListener("click", () => {
     openStoryPage();
+});
+
+profileAccentInput.addEventListener("input", () => {
+    profileAccentValue.textContent = profileAccentInput.value.toUpperCase();
+    coupleProfileScreen.style.setProperty("--profile-accent", profileAccentInput.value);
+});
+
+profileAvatarInput.addEventListener("input", () => {
+    profileMyAvatar.textContent = profileAvatarInput.value.trim() || "🌵";
+});
+
+profileSpaceNameInput.addEventListener("input", () => {
+    profileSpaceNamePreview.textContent = profileSpaceNameInput.value.trim() || "Notre coin Cactus";
+});
+
+profileMottoInput.addEventListener("input", () => {
+    profileMottoPreview.textContent = profileMottoInput.value.trim() || "Notre petit monde à deux.";
+});
+
+coupleProfileForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    saveCoupleProfile();
 });
 
 dashboardSpaceCode.addEventListener("click", async () => {
@@ -2995,6 +3047,24 @@ function buildNotifications(spaceData) {
                 });
             }
         });
+
+        const profile = spaceData.profile;
+        if (
+            profile &&
+            profile.updatedBy &&
+            profile.updatedBy !== currentUser.uid &&
+            typeof profile.updatedAt === "number"
+        ) {
+            notifications.push({
+                id: "profile_" + profile.updatedAt,
+                type: "garden",
+                icon: "✨",
+                title: "Votre profil a été personnalisé",
+                message: (profile.updatedByPseudo || "Votre partenaire") + " a modifié votre coin Cactus",
+                timestamp: profile.updatedAt,
+                target: { kind: "profile" }
+            });
+        }
     }
 
     if (preferences.achievements) {
@@ -3212,6 +3282,8 @@ function openNotification(notification) {
     } else if (target.kind === "memory") {
         showScreen("history");
         loadMemories(target.memoryId);
+    } else if (target.kind === "profile") {
+        openCoupleProfile();
     } else if (target.kind === "achievement") {
         openAchievements();
     }
@@ -6924,7 +6996,10 @@ function updateCactusEvolution(level) {
     }
 
     if (dashboardCactusMessage) {
-        dashboardCactusMessage.textContent = evolution.message;
+        const cactusName = currentSpaceData?.profile?.cactusName;
+        dashboardCactusMessage.textContent = cactusName
+            ? cactusName + " — " + evolution.message
+            : evolution.message;
     }
 }
 
@@ -7074,6 +7149,109 @@ function getRelationshipDaysText(dateValue) {
     );
 
     return diffDays + " jour" + (diffDays > 1 ? "s" : "");
+}
+
+function getCouplePlayers(spaceData) {
+    const players = [spaceData.player1, spaceData.player2].filter(Boolean);
+    return {
+        me: players.find((player) => player.uid === currentUser.uid) || {
+            uid: currentUser.uid,
+            pseudo
+        },
+        partner: players.find((player) => player.uid !== currentUser.uid) || null
+    };
+}
+
+function getSafeProfileColor(value) {
+    return /^#[0-9a-f]{6}$/i.test(value || "") ? value : "#54d38b";
+}
+
+function applyCoupleProfile(spaceData) {
+    if (!spaceData || !currentUser) {
+        return;
+    }
+
+    const profile = spaceData.profile || {};
+    const players = getCouplePlayers(spaceData);
+    const accent = getSafeProfileColor(profile.accentColor);
+    const myAvatar = profile.avatars?.[currentUser.uid] || "🌵";
+    const partnerAvatar = players.partner
+        ? (profile.avatars?.[players.partner.uid] || "💚")
+        : "💚";
+    const spaceName = profile.spaceName || "Notre coin Cactus";
+
+    dashboardScreen.style.setProperty("--dashboard-accent", accent);
+    coupleProfileScreen.style.setProperty("--profile-accent", accent);
+    dashboardSpaceName.textContent = spaceName;
+    dashboardProfileBtn.querySelector("span").textContent = myAvatar;
+    profileMyAvatar.textContent = myAvatar;
+    profilePartnerAvatar.textContent = partnerAvatar;
+    profileSpaceNamePreview.textContent = spaceName;
+    profileCoupleNames.textContent = (players.me.pseudo || pseudo || "Toi") +
+        " & " + (players.partner?.pseudo || "Partenaire");
+    profileMottoPreview.textContent = profile.motto || "Notre petit monde à deux.";
+
+    const relationStats = buildRelationStatistics(spaceData);
+    profileLevelSummary.textContent = spaceData.stats?.level || 1;
+    profileCompatibilitySummary.textContent = relationStats.totalGames > 0
+        ? relationStats.averageCompatibility + "%"
+        : "—";
+    profileMemoriesSummary.textContent = Object.keys(spaceData.memories || {}).length;
+    profileGamesSummary.textContent = relationStats.totalGames || 0;
+    updateCactusEvolution(spaceData.stats?.level || 1);
+}
+
+function openCoupleProfile() {
+    const spaceData = currentSpaceData || {};
+    const profile = spaceData.profile || {};
+
+    applyCoupleProfile(spaceData);
+    profileAvatarInput.value = profile.avatars?.[currentUser.uid] || "🌵";
+    profileSpaceNameInput.value = profile.spaceName || "Notre coin Cactus";
+    profileCactusNameInput.value = profile.cactusName || "Cactou";
+    profileMottoInput.value = profile.motto || "Notre petit monde à deux.";
+    profileAccentInput.value = getSafeProfileColor(profile.accentColor);
+    profileAccentValue.textContent = profileAccentInput.value.toUpperCase();
+    showScreen("coupleProfile");
+}
+
+function saveCoupleProfile() {
+    const spaceName = profileSpaceNameInput.value.trim();
+    const cactusName = profileCactusNameInput.value.trim();
+    const motto = profileMottoInput.value.trim();
+
+    if (!spaceName || !cactusName || !motto) {
+        showToast("Complète les informations du profil");
+        return;
+    }
+
+    saveCoupleProfileBtn.disabled = true;
+    saveCoupleProfileBtn.textContent = "Enregistrement…";
+    const updates = {
+        spaceName,
+        cactusName,
+        motto,
+        accentColor: getSafeProfileColor(profileAccentInput.value),
+        updatedAt: Date.now(),
+        updatedBy: currentUser.uid,
+        updatedByPseudo: pseudo
+    };
+    updates["avatars/" + currentUser.uid] = profileAvatarInput.value.trim() || "🌵";
+
+    database
+        .ref("spaces/" + currentSpaceCode + "/profile")
+        .update(updates)
+        .then(() => {
+            showToast("Profil du couple enregistré ✨");
+        })
+        .catch((error) => {
+            console.error("Enregistrement du profil impossible", error);
+            showToast("Impossible d’enregistrer le profil");
+        })
+        .finally(() => {
+            saveCoupleProfileBtn.disabled = false;
+            saveCoupleProfileBtn.textContent = "Enregistrer notre profil";
+        });
 }
 
 function openStoryPage() {
