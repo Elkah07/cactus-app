@@ -1,4 +1,4 @@
-const CACHE_NAME = "cactus-v15";
+const CACHE_NAME = "cactus-v16";
 
 const FILES_TO_CACHE = [
     "./",
@@ -71,6 +71,10 @@ self.addEventListener("activate", (event) => {
 });
 
 self.addEventListener("fetch", (event) => {
+    if (event.request.method !== "GET") {
+        return;
+    }
+
     event.respondWith(
         fetch(event.request).catch(() => {
             return caches.match(event.request);

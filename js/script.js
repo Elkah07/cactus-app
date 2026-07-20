@@ -850,30 +850,61 @@ savePseudoBtn.addEventListener("click", () => {
 });
 
 createSpaceBtn.addEventListener("click", () => {
-    currentSpaceCode = generateSpaceCode();
-    localStorage.setItem("currentSpaceCode", currentSpaceCode);
+    createSpaceBtn.disabled = true;
+    createSpaceBtn.textContent = "Création…";
 
-    database.ref("spaces/" + currentSpaceCode).set({
-        code: currentSpaceCode,
-        createdAt: Date.now(),
-        player1: {
-            uid: currentUser.uid,
-            pseudo: pseudo
-        },
-        player2: null
-    }).then(() => {
-        return database.ref("users/" + currentUser.uid).update({
-            spaceCode: currentSpaceCode
+    createUniqueSpace()
+        .then((spaceCodeValue) => {
+            currentSpaceCode = spaceCodeValue;
+            localStorage.setItem("currentSpaceCode", currentSpaceCode);
+
+            return database.ref("users/" + currentUser.uid).update({
+                spaceCode: currentSpaceCode
+            });
+        })
+        .then(() => {
+            displayPseudo.textContent = pseudo;
+            spaceCode.textContent = currentSpaceCode;
+            listenToCurrentSpace(currentSpaceCode);
+            showScreen("dashboard");
+        })
+        .catch((error) => {
+            console.error("Création de l’espace impossible", error);
+            showToast("Impossible de créer l’espace pour le moment");
+        })
+        .finally(() => {
+            createSpaceBtn.disabled = false;
+            createSpaceBtn.textContent = "Créer un espace";
         });
-    }).then(() => {
-        displayPseudo.textContent = pseudo;
-        spaceCode.textContent = currentSpaceCode;
-
-        listenToCurrentSpace(currentSpaceCode);
-
-        showScreen("dashboard");
-    });
 });
+
+function createUniqueSpace(attempt = 0) {
+    if (attempt >= 12) {
+        return Promise.reject(new Error("Aucun code espace disponible"));
+    }
+
+    const candidate = generateSpaceCode();
+    const reference = database.ref("spaces/" + candidate);
+
+    return reference.transaction((existingSpace) => {
+        if (existingSpace) {
+            return;
+        }
+
+        return {
+            code: candidate,
+            createdAt: Date.now(),
+            player1: { uid: currentUser.uid, pseudo },
+            player2: null
+        };
+    }).then((result) => {
+        if (result.committed) {
+            return candidate;
+        }
+
+        return createUniqueSpace(attempt + 1);
+    });
+}
 
 joinSpaceBtn.addEventListener("click", () => {
     const joinCode = document.getElementById("joinCode").value.trim().toUpperCase();
@@ -883,63 +914,68 @@ joinSpaceBtn.addEventListener("click", () => {
         return;
     }
 
-    database.ref("spaces/" + joinCode).once("value")
-        .then((snapshot) => {
-            if (!snapshot.exists()) {
-                alert("Cet espace n'existe pas 🌵");
-                return;
-            }
+    joinSpaceBtn.disabled = true;
+    joinSpaceBtn.textContent = "Connexion…";
 
-            const spaceData = snapshot.val();
+    const spaceReference = database.ref("spaces/" + joinCode);
+    spaceReference.transaction((spaceData) => {
+        if (!spaceData) {
+            return;
+        }
 
-            const isPlayer1 =
-                spaceData.player1 &&
-                spaceData.player1.uid === currentUser.uid;
+        const alreadyMember = [spaceData.player1, spaceData.player2].some((player) => {
+            return player?.uid === currentUser.uid;
+        });
 
-            const isPlayer2 =
-                spaceData.player2 &&
-                spaceData.player2.uid === currentUser.uid;
+        if (alreadyMember) {
+            return spaceData;
+        }
 
-            if (isPlayer1 || isPlayer2) {
-                return database.ref("users/" + currentUser.uid).update({
-                    spaceCode: joinCode
-                }).then(() => {
-                    currentSpaceCode = joinCode;
-                    localStorage.setItem("currentSpaceCode", currentSpaceCode);
-                    spaceCode.textContent = currentSpaceCode;
-                    displayPseudo.textContent = pseudo;
+        if (spaceData.player1 && spaceData.player2) {
+            return;
+        }
 
-                    listenToCurrentSpace(currentSpaceCode);
-                    showScreen("dashboard");
-                });
-            }
+        const playerSlot = spaceData.player1 ? "player2" : "player1";
+        spaceData[playerSlot] = { uid: currentUser.uid, pseudo };
+        return spaceData;
+    }).then((result) => {
+        const spaceData = result.snapshot.val();
+        if (!spaceData) {
+            alert("Cet espace n'existe pas 🌵");
+            return false;
+        }
 
-            if (spaceData.player1 && spaceData.player2) {
-                alert("Cet espace est déjà complet 🌵");
-                return;
-            }
+        const joined = [spaceData.player1, spaceData.player2].some((player) => {
+            return player?.uid === currentUser.uid;
+        });
 
-            const playerSlot = spaceData.player1 ? "player2" : "player1";
+        if (!joined) {
+            alert("Cet espace est déjà complet 🌵");
+            return false;
+        }
 
-            return database.ref("spaces/" + joinCode + "/" + playerSlot).set({
-                uid: currentUser.uid,
-                pseudo: pseudo
-            }).then(() => {
-                return database.ref("users/" + currentUser.uid).update({
-                    spaceCode: joinCode
-                });
-            }).then(() => {
-                currentSpaceCode = joinCode;
-                spaceCode.textContent = currentSpaceCode;
-                displayPseudo.textContent = pseudo;
+        return database.ref("users/" + currentUser.uid).update({
+            spaceCode: joinCode
+        }).then(() => true);
+    }).then((joined) => {
+        if (!joined) {
+            return;
+        }
 
-                listenToCurrentSpace(currentSpaceCode);
-                showScreen("dashboard");
-            });
-        })
+        currentSpaceCode = joinCode;
+        localStorage.setItem("currentSpaceCode", currentSpaceCode);
+        spaceCode.textContent = currentSpaceCode;
+        displayPseudo.textContent = pseudo;
+        listenToCurrentSpace(currentSpaceCode);
+        showScreen("dashboard");
+    })
         .catch((error) => {
             console.error(error);
             alert(error.message);
+        })
+        .finally(() => {
+            joinSpaceBtn.disabled = false;
+            joinSpaceBtn.textContent = "Rejoindre un espace";
         });
 });
 
@@ -3296,7 +3332,56 @@ function saveNotebookContent() {
             currentNotebookId +
             "/contentHtml"
         )
-        .set(notebookEditor.innerHTML);
+        .set(sanitizeNotebookHtml(notebookEditor.innerHTML));
+}
+
+function sanitizeNotebookHtml(sourceHtml) {
+    const template = document.createElement("template");
+    template.innerHTML = sourceHtml || "";
+    const allowedTags = new Set([
+        "P", "DIV", "BR", "STRONG", "B", "EM", "I", "U", "SPAN"
+    ]);
+    const removedTags = new Set([
+        "SCRIPT", "STYLE", "IFRAME", "OBJECT", "EMBED", "SVG", "MATH",
+        "LINK", "META", "FORM", "INPUT", "BUTTON", "TEXTAREA", "SELECT"
+    ]);
+
+    Array.from(template.content.querySelectorAll("*")).forEach((element) => {
+        if (removedTags.has(element.tagName)) {
+            element.remove();
+            return;
+        }
+
+        if (!allowedTags.has(element.tagName)) {
+            element.replaceWith(...element.childNodes);
+            return;
+        }
+
+        const color = element.style.color;
+        const backgroundColor = element.style.backgroundColor;
+        const safeClasses = Array.from(element.classList).filter((className) => {
+            return ["checkbox-line", "fake-checkbox", "checked-item"].includes(className);
+        });
+
+        Array.from(element.attributes).forEach((attribute) => {
+            element.removeAttribute(attribute.name);
+        });
+
+        if (safeClasses.length > 0) {
+            element.className = safeClasses.join(" ");
+        }
+        if (color) {
+            element.style.color = color;
+        }
+        if (backgroundColor) {
+            element.style.backgroundColor = backgroundColor;
+        }
+        if (safeClasses.includes("fake-checkbox")) {
+            element.setAttribute("contenteditable", "false");
+        }
+    });
+
+    return template.innerHTML;
 }
 
 function loadNotebookContent() {
@@ -3312,8 +3397,9 @@ function loadNotebookContent() {
         .then((snapshot) => {
             const content = snapshot.val();
 
-            notebookEditor.innerHTML =
-                content || "<p>Écris ici...</p>";
+            notebookEditor.innerHTML = sanitizeNotebookHtml(
+                content || "<p>Écris ici...</p>"
+            );
 
             restoreCheckboxes();
         });
@@ -5376,11 +5462,9 @@ function createHistoryCard(mode, item) {
                     ? "Toi"
                     : "Partenaire";
 
-            p.innerHTML =
-                "<strong>" +
-                label +
-                " :</strong> " +
-                (answer.answer || "Pas de réponse");
+            const strong = document.createElement("strong");
+            strong.textContent = label + " :";
+            p.append(strong, " " + (answer.answer || "Pas de réponse"));
 
             card.appendChild(p);
         });
@@ -6294,55 +6378,31 @@ function openStoryPage() {
                 return;
             }
 
-            storyPageContent.innerHTML = `
-                <div class="story-info-card">
-                    <span>📅</span>
-                    <div>
-                        <small>Ensemble depuis</small>
-                        <strong>${getRelationshipDaysText(story.startDate || story.relationshipDate)}</strong>
-                    </div>
-                </div>
+            const cards = [
+                ["📅", "Ensemble depuis", getRelationshipDaysText(story.startDate || story.relationshipDate)],
+                ["📍", "Rencontre", story.meetingPlace || "Non renseigné"],
+                ["☕", "Premier rendez-vous", story.firstDate || "Non renseigné"],
+                ["💬", "Vos surnoms", (story.nicknameMine || "—") + " / " + (story.nicknamePartner || "—")],
+                ["🎵", "Votre chanson", story.song || "Non renseigné"],
+                ["🏠", "Situation", (story.situation || story.relationshipType) === "distance" ? "À distance" : "Ensemble"]
+            ];
 
-                <div class="story-info-card">
-                    <span>📍</span>
-                    <div>
-                        <small>Rencontre</small>
-                        <strong>${story.meetingPlace || "Non renseigné"}</strong>
-                    </div>
-                </div>
-
-                <div class="story-info-card">
-                    <span>☕</span>
-                    <div>
-                        <small>Premier rendez-vous</small>
-                        <strong>${story.firstDate || "Non renseigné"}</strong>
-                    </div>
-                </div>
-
-                <div class="story-info-card">
-                    <span>💬</span>
-                    <div>
-                        <small>Vos surnoms</small>
-                        <strong>${story.nicknameMine || "—"} / ${story.nicknamePartner || "—"}</strong>
-                    </div>
-                </div>
-
-                <div class="story-info-card">
-                    <span>🎵</span>
-                    <div>
-                        <small>Votre chanson</small>
-                        <strong>${story.song || "Non renseigné"}</strong>
-                    </div>
-                </div>
-
-                <div class="story-info-card">
-                    <span>🏠</span>
-                    <div>
-                        <small>Situation</small>
-                        <strong>${(story.situation || story.relationshipType) === "distance" ? "À distance" : "Ensemble"}</strong>
-                    </div>
-                </div>
-            `;
+            storyPageContent.replaceChildren(
+                ...cards.map(([icon, label, value]) => {
+                    const card = document.createElement("div");
+                    card.className = "story-info-card";
+                    const iconElement = document.createElement("span");
+                    iconElement.textContent = icon;
+                    const content = document.createElement("div");
+                    const small = document.createElement("small");
+                    small.textContent = label;
+                    const strong = document.createElement("strong");
+                    strong.textContent = value;
+                    content.append(small, strong);
+                    card.append(iconElement, content);
+                    return card;
+                })
+            );
 
             showScreen("storyPage");
         });
