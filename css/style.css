@@ -3878,6 +3878,76 @@ body:not(.dark-theme) .dashboard-daily-streak { background: #fff0c7; color: #9b5
     .daily-calendar { gap: 4px; }
 }
 
+/* Outils privés de la créatrice */
+.creator-tools-panel {
+    border-color: rgba(255, 183, 74, 0.42);
+    background:
+        linear-gradient(145deg, rgba(255, 187, 78, 0.08), transparent),
+        var(--app-panel-bg);
+}
+
+.creator-tool-row {
+    margin-bottom: 12px;
+}
+
+.creator-tool-row > label {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--app-muted);
+    font-size: 0.67rem;
+    font-weight: 800;
+}
+
+.creator-tool-row > div {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 7px;
+}
+
+.creator-tool-row input {
+    min-width: 0;
+    margin: 0;
+}
+
+.creator-tool-row button {
+    width: auto;
+    margin: 0;
+    padding: 10px 12px;
+    background: #ffbd58;
+    color: #4b2c06;
+    font-size: 0.7rem;
+}
+
+.creator-tools-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 7px;
+}
+
+.creator-tools-grid button {
+    min-height: 58px;
+    margin: 0;
+    padding: 9px 7px;
+    border: 1px solid var(--app-border);
+    background: var(--app-secondary-button);
+    color: var(--app-heading);
+    font-size: 0.66rem;
+    line-height: 1.25;
+}
+
+#creatorResetAchievementsBtn,
+#creatorResetDailyBtn {
+    color: #ff9090;
+}
+
+.creator-tools-panel > p {
+    margin: 12px 0 0;
+    color: var(--app-muted);
+    font-size: 0.62rem;
+    line-height: 1.35;
+    text-align: center;
+}
+
 .garden-planted-item.is-selected {
     border-radius: 14px;
     outline: 3px solid rgba(255, 255, 255, 0.95);

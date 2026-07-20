@@ -47,6 +47,16 @@ const notifyAnswersSetting = document.getElementById("notifyAnswersSetting");
 const notifyGamesSetting = document.getElementById("notifyGamesSetting");
 const notifyAchievementsSetting = document.getElementById("notifyAchievementsSetting");
 const notifyGardenSetting = document.getElementById("notifyGardenSetting");
+const creatorToolsPanel = document.getElementById("creatorToolsPanel");
+const creatorSeedsAmount = document.getElementById("creatorSeedsAmount");
+const creatorSetSeedsBtn = document.getElementById("creatorSetSeedsBtn");
+const creatorXpAmount = document.getElementById("creatorXpAmount");
+const creatorSetXpBtn = document.getElementById("creatorSetXpBtn");
+const creatorLegendaryBtn = document.getElementById("creatorLegendaryBtn");
+const creatorUnlockGardenBtn = document.getElementById("creatorUnlockGardenBtn");
+const creatorUnlockAchievementsBtn = document.getElementById("creatorUnlockAchievementsBtn");
+const creatorResetAchievementsBtn = document.getElementById("creatorResetAchievementsBtn");
+const creatorResetDailyBtn = document.getElementById("creatorResetDailyBtn");
 const themeSettingIcon = document.getElementById("themeSettingIcon");
 const themeSettingLabel = document.getElementById("themeSettingLabel");
 const themeColorMeta = document.querySelector('meta[name="theme-color"]');
@@ -496,6 +506,7 @@ let gardenEditMode = false;
 let selectedGardenItemId = null;
 let currentGardenItems = {};
 
+const CREATOR_UID = "cJylm27fQTMXd0Esan7YqXkjV762";
 let currentUser = null;
 
 let pseudo = "";
@@ -1903,6 +1914,44 @@ markNotificationsReadBtn.addEventListener("click", () => {
     });
 });
 
+creatorSetSeedsBtn.addEventListener("click", () => {
+    setCreatorStatValue("seeds", Number(creatorSeedsAmount.value));
+});
+
+creatorSetXpBtn.addEventListener("click", () => {
+    setCreatorXp(Number(creatorXpAmount.value));
+});
+
+creatorLegendaryBtn.addEventListener("click", () => {
+    if (confirm("Passer l’espace au niveau 21 avec 2 000 XP ?")) {
+        setCreatorXp(2000);
+    }
+});
+
+creatorUnlockGardenBtn.addEventListener("click", () => {
+    if (confirm("Débloquer gratuitement tous les objets du Jardin ?")) {
+        creatorUnlockEntireGarden();
+    }
+});
+
+creatorUnlockAchievementsBtn.addEventListener("click", () => {
+    if (confirm("Débloquer les 12 succès pour cet espace ?")) {
+        creatorSetAllAchievements(true);
+    }
+});
+
+creatorResetAchievementsBtn.addEventListener("click", () => {
+    if (confirm("Reverrouiller tous les succès de cet espace ?")) {
+        creatorSetAllAchievements(false);
+    }
+});
+
+creatorResetDailyBtn.addEventListener("click", () => {
+    if (confirm("Supprimer les deux réponses et le bonus du rituel d’aujourd’hui ?")) {
+        creatorResetTodayDailyRitual();
+    }
+});
+
 dashboardProfileBtn.addEventListener("click", () => {
     openStoryPage();
 });
@@ -2226,6 +2275,114 @@ if (score >= 80) {
     }
 
     showScreen("rankingCompatibility");
+}
+
+function isCreatorAccount() {
+    return Boolean(currentUser && currentUser.uid === CREATOR_UID);
+}
+
+function updateCreatorToolsVisibility() {
+    creatorToolsPanel.style.display = isCreatorAccount() ? "block" : "none";
+}
+
+function canUseCreatorTools() {
+    if (!isCreatorAccount() || !currentSpaceCode) {
+        showToast("Outils créatrice indisponibles");
+        return false;
+    }
+
+    return true;
+}
+
+function setCreatorStatValue(statName, value) {
+    if (!canUseCreatorTools() || !Number.isFinite(value) || value < 0) {
+        showToast("Entre une valeur valide");
+        return;
+    }
+
+    database
+        .ref("spaces/" + currentSpaceCode + "/stats/" + statName)
+        .set(Math.floor(value))
+        .then(() => showToast("🛠️ Valeur de test appliquée"));
+}
+
+function setCreatorXp(value) {
+    if (!canUseCreatorTools() || !Number.isFinite(value) || value < 0) {
+        showToast("Entre une valeur d’XP valide");
+        return;
+    }
+
+    const xp = Math.floor(value);
+    database
+        .ref("spaces/" + currentSpaceCode + "/stats")
+        .update({ xp, level: Math.floor(xp / 100) + 1 })
+        .then(() => showToast("⭐ XP et niveau mis à jour"));
+}
+
+function creatorUnlockEntireGarden() {
+    if (!canUseCreatorTools()) {
+        return;
+    }
+
+    const reference = database.ref("spaces/" + currentSpaceCode + "/garden/items");
+    reference.transaction((items) => {
+        items = items || {};
+
+        GARDEN_CATALOG.forEach((item) => {
+            items[item.id] = items[item.id] || {
+                planted: true,
+                unlockedBy: currentUser.uid,
+                unlockedAt: Date.now()
+            };
+        });
+
+        return items;
+    }).then(() => showToast("🌿 Tous les objets du Jardin sont débloqués"));
+}
+
+function creatorSetAllAchievements(unlock) {
+    if (!canUseCreatorTools()) {
+        return;
+    }
+
+    const reference = database.ref("spaces/" + currentSpaceCode + "/stats");
+
+    if (!unlock) {
+        reference.update({
+            achievements: null,
+            creatorForceLockedAchievements: true
+        }).then(() => showToast("🔒 Succès verrouillés pour les tests"));
+        return;
+    }
+
+    const achievements = {};
+    ACHIEVEMENTS.forEach((achievement) => {
+        achievements[achievement.id] = {
+            unlockedAt: Date.now(),
+            unlockedBy: currentUser.uid
+        };
+    });
+
+    reference.update({
+        achievements,
+        creatorForceLockedAchievements: null
+    }).then(() => showToast("🏆 Tous les succès sont débloqués"));
+}
+
+function creatorResetTodayDailyRitual() {
+    if (!canUseCreatorTools()) {
+        return;
+    }
+
+    const dateKey = getParisDateKey();
+    const updates = {};
+    updates["dailyChallenges/" + dateKey] = null;
+    updates["stats/completionRewards/daily_" + dateKey] = null;
+
+    database
+        .ref("spaces/" + currentSpaceCode)
+        .update(updates)
+        .then(() => showToast("🔥 Rituel d’aujourd’hui réinitialisé"));
 }
 
 function getParisDateKey(offsetDays = 0) {
@@ -5423,7 +5580,11 @@ function openAchievements() {
                     relationStats
                 );
 
-                if (current >= achievement.target && !unlocked[achievement.id]) {
+                if (
+                    !stats.creatorForceLockedAchievements &&
+                    current >= achievement.target &&
+                    !unlocked[achievement.id]
+                ) {
                     const unlockData = {
                         unlockedAt: Date.now(),
                         unlockedBy: currentUser.uid
@@ -6208,6 +6369,7 @@ function showDashboardLastActivity(text) {
 auth.onAuthStateChanged((user) => {
     if (user) {
         currentUser = user;
+        updateCreatorToolsVisibility();
 
         database.ref("users/" + currentUser.uid).once("value")
             .then((snapshot) => {
@@ -6237,6 +6399,7 @@ auth.onAuthStateChanged((user) => {
     } else {
         stopCurrentSpaceListeners();
         currentUser = null;
+        updateCreatorToolsVisibility();
         showScreen("login");
     }
 });

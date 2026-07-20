@@ -1444,6 +1444,33 @@
         <label><input type="checkbox" id="notifyGardenSetting" checked> Activité du jardin</label>
     </section>
 
+    <section id="creatorToolsPanel" class="settings-panel creator-tools-panel" style="display:none;">
+        <div class="settings-panel-heading">
+            <span>🛠️</span>
+            <div><small>Créatrice uniquement</small><strong>Outils de test</strong></div>
+        </div>
+
+        <div class="creator-tool-row">
+            <label for="creatorSeedsAmount">Graines communes</label>
+            <div><input type="number" id="creatorSeedsAmount" min="0" step="50" value="2000"><button type="button" id="creatorSetSeedsBtn">Appliquer</button></div>
+        </div>
+
+        <div class="creator-tool-row">
+            <label for="creatorXpAmount">XP commun</label>
+            <div><input type="number" id="creatorXpAmount" min="0" step="100" value="2000"><button type="button" id="creatorSetXpBtn">Appliquer</button></div>
+        </div>
+
+        <div class="creator-tools-grid">
+            <button type="button" id="creatorLegendaryBtn">👑 Niveau légendaire</button>
+            <button type="button" id="creatorUnlockGardenBtn">🌿 Débloquer le Jardin</button>
+            <button type="button" id="creatorUnlockAchievementsBtn">🏆 Débloquer les succès</button>
+            <button type="button" id="creatorResetAchievementsBtn">🔒 Réinitialiser les succès</button>
+            <button type="button" id="creatorResetDailyBtn">🔥 Réinitialiser aujourd’hui</button>
+        </div>
+
+        <p>Ces actions modifient l’espace commun utilisé avec ta partenaire.</p>
+    </section>
+
     <div class="settings-account-actions">
         <button id="leaveSpaceBtn" type="button" class="secondary">
             Quitter cet espace
