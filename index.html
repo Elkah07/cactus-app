@@ -13,6 +13,9 @@
 <svg class="cactus-icon-sprite" width="0" height="0" style="position:absolute;overflow:hidden" aria-hidden="true">
     <defs>
         <symbol id="cactusIconHeart" viewBox="0 0 64 64"><path fill="#ff737d" stroke="#a93f4c" stroke-width="3" d="M32 54C20 45 8 36 8 22A13 13 0 0 1 32 15 13 13 0 0 1 56 22c0 14-12 23-24 32Z"/><path fill="#ffd3c4" d="M17 18c4-5 9-4 11 0-5-2-8 0-10 4-2 3-5 0-1-4Z"/></symbol>
+        <symbol id="cactusIconCouple" viewBox="0 0 64 64"><path fill="#74d58d" stroke="#246b49" stroke-width="3" d="M7 47V29c0-10 6-17 15-17s15 7 15 17v18H7Z"/><path fill="#9be36f" stroke="#246b49" stroke-width="3" d="M28 48V31c0-9 6-16 15-16s15 7 15 16v17H28Z"/><circle cx="18" cy="29" r="2.5" fill="#173f2f"/><circle cx="29" cy="29" r="2.5" fill="#173f2f"/><circle cx="40" cy="31" r="2.5" fill="#173f2f"/><circle cx="51" cy="31" r="2.5" fill="#173f2f"/><path d="M20 37c3 3 6 3 9 0M41 39c3 3 6 3 9 0" fill="none" stroke="#173f2f" stroke-width="2.5" stroke-linecap="round"/><path fill="#ff737d" d="M32 57c-6-4-10-7-10-12 0-6 7-7 10-2 3-5 10-4 10 2 0 5-4 8-10 12Z"/></symbol>
+        <symbol id="cactusIconLinkedHearts" viewBox="0 0 64 64"><path fill="#ff8c91" stroke="#a93f4c" stroke-width="3" d="M25 49C16 42 8 36 8 26c0-12 15-15 20-5 5-10 20-7 20 5 0 10-8 16-17 23l-3 2-3-2Z"/><path fill="#7bd993" stroke="#276f4e" stroke-width="3" d="M39 52c-8-6-15-11-15-20 0-10 13-13 17-4 5-9 18-6 18 4 0 9-7 14-15 20l-3 2-2-2Z"/><path fill="#ffd8c6" d="M16 22c3-4 7-4 9-1-4 0-6 2-7 5-2 2-5-1-2-4Z"/></symbol>
+        <symbol id="cactusIconCompatibility" viewBox="0 0 64 64"><path fill="#ff737d" stroke="#a93f4c" stroke-width="3" d="M23 52C14 45 6 38 6 27c0-12 15-15 20-5 5-10 20-7 20 5 0 11-8 18-18 25l-2 2-3-2Z"/><path fill="#ffd2bf" stroke="#a93f4c" stroke-width="3" d="M41 50c-7-5-13-10-13-18 0-10 12-12 16-4 4-8 16-6 16 4 0 8-6 13-13 18l-3 2-3-2Z"/><path d="m49 7 2 6 6 2-6 2-2 6-2-6-6-2 6-2 2-6Z" fill="#ffd45c"/></symbol>
         <symbol id="cactusIconBell" viewBox="0 0 64 64"><path fill="#ffd45c" stroke="#8a5b16" stroke-width="3" d="M14 45h36l-5-8V27c0-8-5-14-13-14s-13 6-13 14v10l-5 8Z"/><path fill="#ff9c55" d="M25 48h14c-1 6-4 8-7 8s-6-2-7-8Z"/><circle cx="32" cy="10" r="4" fill="#73d98c"/></symbol>
         <symbol id="cactusIconSettings" viewBox="0 0 64 64"><path fill="#84dca1" stroke="#236b4a" stroke-width="3" d="m27 7 10 0 2 7 6 3 7-2 5 9-5 5v7l5 5-5 9-7-2-6 3-2 7H27l-2-7-6-3-7 2-5-9 5-5v-7l-5-5 5-9 7 2 6-3 2-7Z"/><circle cx="32" cy="32" r="9" fill="#fff5d8" stroke="#236b4a" stroke-width="3"/></symbol>
         <symbol id="cactusIconSeed" viewBox="0 0 64 64"><path fill="#7cda79" stroke="#367a3e" stroke-width="3" d="M31 55C26 39 28 25 42 10c8 17 4 31-11 45Z"/><path fill="#a7ec77" stroke="#367a3e" stroke-width="3" d="M29 48C14 44 8 35 10 20c16 3 23 12 19 28Z"/><path d="M31 54c0-14 5-26 12-36M29 47c-4-9-10-15-17-21" fill="none" stroke="#367a3e" stroke-width="3" stroke-linecap="round"/></symbol>
@@ -544,19 +547,19 @@
             class="dashboard-profile-btn"
             aria-label="Ouvrir le profil du couple"
         >
-            <svg class="cactus-ui-icon" width="30" height="30" aria-hidden="true"><use href="#cactusIconHeart"></use></svg>
+            <svg class="cactus-ui-icon" width="30" height="30" aria-hidden="true"><use href="#cactusIconCouple"></use></svg>
         </button>
 
         <div class="dashboard-couple-title">
             <small id="dashboardSpaceName" class="dashboard-space-name">Notre coin Cactus</small>
             <h1>
                 <span id="displayPseudo">...</span>
-                <span class="dashboard-title-mark" aria-hidden="true"><svg class="cactus-ui-icon" width="30" height="30"><use href="#cactusIconHeart"></use></svg></span>
+                <span class="dashboard-title-mark" aria-hidden="true"><svg class="cactus-ui-icon" width="30" height="30"><use href="#cactusIconLinkedHearts"></use></svg></span>
                 <span id="partnerName">En attente...</span>
             </h1>
 
             <p id="relationshipDaysText">
-                <svg class="cactus-ui-icon" width="30" height="30" aria-hidden="true"><use href="#cactusIconHeart"></use></svg>
+                <svg class="cactus-ui-icon" width="30" height="30" aria-hidden="true"><use href="#cactusIconCalendar"></use></svg>
                 <span>Votre petit monde à deux</span>
             </p>
         </div>
@@ -634,7 +637,7 @@
     <section class="dashboard-stats-grid">
 
         <article class="dashboard-stat-card stat-compatibility">
-            <span><svg class="cactus-ui-icon" width="30" height="30" aria-hidden="true"><use href="#cactusIconHeart"></use></svg></span>
+            <span><svg class="cactus-ui-icon" width="30" height="30" aria-hidden="true"><use href="#cactusIconCompatibility"></use></svg></span>
             <strong id="compatibilityStat">0%</strong>
             <small>Compatibilité</small>
 
@@ -1838,7 +1841,7 @@
     <script src="js/storage.js"></script>
     <script src="js/rankings.js"></script>
     <script src="js/questions.js"></script>
-    <script src="js/script.js?v=43"></script>
+    <script src="js/script.js?v=44"></script>
 
 </body>
 </html>

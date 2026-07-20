@@ -6291,7 +6291,7 @@ function installSecondaryCactusIcons() {
         ["#memoriesEmptyState > span", "cactusIconStory"],
         [".stats-summary-games > span", "cactusIconGame"],
         [".stats-summary-answers > span", "cactusIconChat"],
-        [".stats-summary-compatibility > span", "cactusIconHeart"],
+        [".stats-summary-compatibility > span", "cactusIconCompatibility"],
         [".stats-summary-days > span", "cactusIconCalendar"],
         [".stats-records-grid article:nth-child(1) > span", "cactusIconTrophy"],
         [".stats-records-grid article:nth-child(2) > span", "cactusIconSeed"],
@@ -6301,9 +6301,9 @@ function installSecondaryCactusIcons() {
         ["#notificationsEmptyState > span", "cactusIconBell"],
         ["#dailyWaitingState > span", "cactusIconHeart"],
         ["#gamesSearchEmptyState > span", "cactusIconGame"],
-        [".couple-profile-header > span", "cactusIconHeart"],
+        [".couple-profile-header > span", "cactusIconCouple"],
         [".couple-profile-summary article:nth-child(1) > span", "cactusIconStar"],
-        [".couple-profile-summary article:nth-child(2) > span", "cactusIconHeart"],
+        [".couple-profile-summary article:nth-child(2) > span", "cactusIconCompatibility"],
         [".couple-profile-summary article:nth-child(3) > span", "cactusIconMemories"],
         [".couple-profile-summary article:nth-child(4) > span", "cactusIconGame"],
         [".profile-form-heading > span", "cactusIconTools"],
@@ -8825,7 +8825,7 @@ function renderRelationshipDaysText(label) {
     const text = document.createElement("span");
     text.textContent = label;
     relationshipDaysText.replaceChildren(
-        createCactusUiIcon("cactusIconHeart"),
+        createCactusUiIcon("cactusIconCalendar"),
         text
     );
 }
