@@ -7163,6 +7163,191 @@ body.edit-notebook-open { overflow: hidden; }
     height: 28px;
 }
 
+/* ====================
+   LISTE DE COURSES PARTAGÉE
+==================== */
+.daily-tools-screen .daily-tool-card {
+    display: grid;
+    grid-template-columns: 54px minmax(0, 1fr) 30px;
+    align-items: center;
+    gap: 12px;
+    margin: 14px 0 20px;
+    padding: 14px;
+    border: 1px solid var(--app-border-strong);
+    border-radius: 21px;
+    background: linear-gradient(135deg, rgba(84, 211, 139, 0.2), rgba(115, 207, 208, 0.1));
+    color: var(--app-heading);
+    text-align: left;
+    box-shadow: 0 13px 28px var(--app-shadow-soft);
+}
+
+.daily-tools-screen .daily-tool-card:hover { background: linear-gradient(135deg, rgba(84, 211, 139, 0.28), rgba(115, 207, 208, 0.15)); }
+.daily-tool-icon { display: grid; width: 54px; height: 54px; place-items: center; border-radius: 17px; background: var(--app-panel-bg); }
+.daily-tool-icon .cactus-ui-icon { width: 43px; height: 43px; }
+.daily-tool-copy small,
+.daily-tool-copy strong,
+.daily-tool-copy > span { display: block; margin: 0; }
+.daily-tool-copy small { color: var(--app-accent); font-size: 0.55rem; font-weight: 900; text-transform: uppercase; }
+.daily-tool-copy strong { margin-top: 3px; font-size: 0.86rem; }
+.daily-tool-copy > span { margin-top: 3px; color: var(--app-muted); font-size: 0.61rem; font-weight: 650; line-height: 1.35; }
+.daily-tool-arrow { color: var(--app-accent); font-size: 1.7rem; text-align: center; }
+
+.shopping-list-screen {
+    min-height: 100svh;
+    padding: 16px 14px calc(28px + env(safe-area-inset-bottom));
+}
+
+.shopping-header {
+    display: grid;
+    grid-template-columns: 42px minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+
+.shopping-header > button {
+    width: 42px;
+    height: 42px;
+    margin: 0;
+    padding: 0;
+    border-radius: 14px;
+    font-size: 1.35rem;
+}
+
+.shopping-header small,
+.shopping-header h1 { display: block; margin: 0; }
+.shopping-header small { color: var(--app-accent); font-size: 0.56rem; font-weight: 900; text-transform: uppercase; }
+.shopping-header h1 { margin-top: 2px; color: var(--app-heading); font-size: 1.06rem; }
+.shopping-header > span { padding: 7px 9px; border-radius: 999px; background: rgba(84, 211, 139, 0.15); color: var(--app-accent); font-size: 0.58rem; font-weight: 900; }
+
+.shopping-summary {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    margin-bottom: 14px;
+    padding: 15px;
+    border: 1px solid var(--app-border);
+    border-radius: 22px;
+    background: linear-gradient(135deg, var(--app-panel-bg), rgba(84, 211, 139, 0.12));
+    box-shadow: 0 14px 30px var(--app-shadow-soft);
+}
+
+.shopping-summary > .cactus-ui-icon { width: 58px; height: 58px; flex: 0 0 58px; }
+.shopping-summary small,
+.shopping-summary strong,
+.shopping-summary p { display: block; margin: 0; }
+.shopping-summary small { color: var(--app-accent); font-size: 0.55rem; font-weight: 900; text-transform: uppercase; }
+.shopping-summary strong { margin-top: 3px; color: var(--app-heading); font-size: 0.82rem; }
+.shopping-summary p { margin-top: 3px; color: var(--app-muted); font-size: 0.61rem; line-height: 1.35; }
+
+.shopping-item-form {
+    margin-bottom: 14px;
+    padding: 14px;
+    border: 1px solid var(--app-border);
+    border-radius: 22px;
+    background: var(--app-panel-bg);
+    box-shadow: 0 12px 28px var(--app-shadow-soft);
+}
+
+.shopping-form-heading { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 11px; }
+.shopping-form-heading small,
+.shopping-form-heading strong { display: block; margin: 0; }
+.shopping-form-heading small { color: var(--app-accent); font-size: 0.55rem; font-weight: 900; text-transform: uppercase; }
+.shopping-form-heading strong { margin-top: 2px; color: var(--app-heading); font-size: 0.76rem; }
+.shopping-form-heading button { width: auto; margin: 0; padding: 7px 10px; border-radius: 10px; background: var(--app-secondary-button); color: var(--app-heading); font-size: 0.57rem; }
+
+.shopping-item-form input,
+.shopping-item-form select {
+    width: 100%;
+    margin: 0 0 9px;
+    border: 1px solid var(--app-border-strong);
+    background: var(--app-input-bg);
+    color: var(--app-heading);
+}
+
+.shopping-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; }
+.shopping-item-form > button[type="submit"] { margin: 1px 0 0; }
+
+.shopping-filters {
+    display: grid;
+    grid-template-columns: 1fr 1fr 0.7fr;
+    gap: 7px;
+    margin: 0 0 13px;
+}
+
+.shopping-filters button {
+    min-width: 0;
+    margin: 0;
+    padding: 9px 6px;
+    border: 1px solid var(--app-border);
+    border-radius: 12px;
+    background: var(--app-panel-bg);
+    color: var(--app-muted);
+    font-size: 0.58rem;
+}
+
+.shopping-filters button span { display: inline-grid; min-width: 18px; height: 18px; margin-left: 3px; place-items: center; border-radius: 999px; background: var(--app-secondary-button); font-size: 0.52rem; }
+.shopping-filters button.is-active { border-color: var(--app-accent); background: rgba(84, 211, 139, 0.16); color: var(--app-heading); }
+
+.shopping-items-list { display: flex; flex-direction: column; gap: 9px; }
+.shopping-item {
+    display: grid;
+    grid-template-columns: 38px minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 10px;
+    padding: 11px;
+    border: 1px solid var(--app-border);
+    border-radius: 17px;
+    background: var(--app-panel-bg);
+    box-shadow: 0 8px 20px var(--app-shadow-soft);
+}
+
+.shopping-list-screen .shopping-check {
+    width: 36px;
+    height: 36px;
+    margin: 0;
+    padding: 0;
+    border: 2px solid var(--app-accent);
+    border-radius: 12px;
+    background: transparent;
+    color: #123d2e;
+    font-size: 1rem;
+}
+
+.shopping-list-screen .shopping-item.is-completed .shopping-check { background: var(--app-accent); }
+.shopping-item-copy { min-width: 0; }
+.shopping-item-copy > strong { display: block; overflow-wrap: anywhere; color: var(--app-heading); font-size: 0.73rem; }
+.shopping-item.is-completed .shopping-item-copy > strong { opacity: 0.58; text-decoration: line-through; }
+.shopping-item-copy > div { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 5px; }
+.shopping-item-copy > small { display: block; margin-top: 5px; color: var(--app-muted); font-size: 0.52rem; }
+.shopping-category,
+.shopping-quantity { padding: 3px 7px; border-radius: 999px; font-size: 0.49rem; font-weight: 850; }
+.shopping-category { color: #173d2e; }
+.shopping-category.is-food { background: #9be36f; }
+.shopping-category.is-drinks { background: #73cfd0; }
+.shopping-category.is-home { background: #f5cf78; }
+.shopping-category.is-party { background: #ee8fbd; }
+.shopping-category.is-gifts { background: #a88be2; color: #fff; }
+.shopping-category.is-other { background: #d8e5dc; }
+.shopping-quantity { background: var(--app-secondary-button); color: var(--app-heading); }
+
+.shopping-item-actions { display: flex; align-items: center; gap: 5px; }
+.shopping-item-actions button { width: auto; margin: 0; padding: 7px 8px; border-radius: 9px; background: var(--app-secondary-button); color: var(--app-heading); font-size: 0.51rem; }
+.shopping-item-actions button.is-delete { width: 30px; height: 30px; padding: 0; background: rgba(255, 115, 125, 0.16); color: #ff737d; font-size: 1rem; }
+
+.shopping-empty-state { display: flex; min-height: 190px; align-items: center; justify-content: center; flex-direction: column; padding: 22px; border: 1px dashed var(--app-border-strong); border-radius: 21px; color: var(--app-muted); text-align: center; }
+.shopping-empty-state .cactus-ui-icon { opacity: 0.72; }
+.shopping-empty-state strong { margin-top: 5px; color: var(--app-heading); font-size: 0.78rem; }
+.shopping-empty-state p { max-width: 260px; margin: 5px 0 0; font-size: 0.6rem; line-height: 1.4; }
+.shopping-clear-button { margin: 14px 0 0; }
+
+@media (max-width: 420px) {
+    .shopping-form-row { grid-template-columns: 1fr; gap: 0; }
+    .shopping-item { grid-template-columns: 36px minmax(0, 1fr); }
+    .shopping-item-actions { grid-column: 2; justify-content: flex-end; }
+    .shopping-header > span { padding: 6px 7px; font-size: 0.52rem; }
+}
+
 @media (max-width: 420px) {
     .daily-tools-intro { align-items: flex-start; }
     .daily-tools-screen .notebooks-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }

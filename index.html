@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cactus 🌵</title>
-    <link rel="stylesheet" href="css/style.css?v=51">
+    <link rel="stylesheet" href="css/style.css?v=52">
     <link rel="manifest" href="manifest.json?v=2">
     <meta name="theme-color" content="#003E2D">
 </head>
@@ -32,6 +32,7 @@
         <symbol id="cactusIconUser" viewBox="0 0 64 64"><circle cx="32" cy="22" r="13" fill="#ffd3c4" stroke="#277052" stroke-width="3"/><path fill="#83d99b" stroke="#277052" stroke-width="3" d="M10 57c1-13 9-20 22-20s21 7 22 20H10Z"/></symbol>
         <symbol id="cactusIconShield" viewBox="0 0 64 64"><path fill="#83d99b" stroke="#277052" stroke-width="3" d="m32 6 22 8v15c0 14-8 23-22 29C18 52 10 43 10 29V14l22-8Z"/><path d="m21 32 8 8 15-17" fill="none" stroke="#fff2cf" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
         <symbol id="cactusIconTools" viewBox="0 0 64 64"><path fill="#ffd45c" stroke="#8b5a27" stroke-width="3" d="M14 46 43 17l7 7-29 29H14v-7Z"/><path fill="#83d99b" stroke="#277052" stroke-width="3" d="M38 12c5-6 13-5 17-1l-9 8 4 4 8-9c4 8-2 17-11 17l-8-8c-1-4-1-8-1-11Z"/></symbol>
+        <symbol id="cactusIconShopping" viewBox="0 0 64 64"><path d="M12 18h7l5 25h27l5-18H22" fill="#fff2cf" stroke="#276f4e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path fill="#83d99b" d="M25 28h27l-3 11H27l-2-11Z"/><circle cx="29" cy="51" r="5" fill="#ff737d" stroke="#8b4050" stroke-width="2.5"/><circle cx="47" cy="51" r="5" fill="#ffd45c" stroke="#9a6317" stroke-width="2.5"/><path d="m31 12 5 6 10-10" fill="none" stroke="#73d98c" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
         <symbol id="cactusIconTheme" viewBox="0 0 64 64"><path fill="#ffd45c" stroke="#8b5a27" stroke-width="3" d="M43 49A23 23 0 0 1 20 10c-1 19 11 31 30 29-2 4-4 7-7 10Z"/><path fill="#fff2a8" d="m48 10 2 5 6 2-6 2-2 6-2-6-6-2 6-2 2-5Z"/></symbol>
     </defs>
 </svg>
@@ -127,6 +128,12 @@
         <div><small>Premier outil</small><strong>Nos carnets partagés</strong><p>Courses, anniversaires, projets ou idées : écrivez tout ensemble.</p></div>
     </section>
 
+    <button type="button" id="openShoppingListBtn" class="daily-tool-card daily-shopping-card">
+        <span class="daily-tool-icon"><svg class="cactus-ui-icon" width="46" height="46" aria-hidden="true"><use href="#cactusIconShopping"></use></svg></span>
+        <span class="daily-tool-copy"><small>Outil du quotidien</small><strong>Liste de courses</strong><span>Ajoutez et cochez vos achats ensemble.</span></span>
+        <span class="daily-tool-arrow" aria-hidden="true">›</span>
+    </button>
+
     <div class="garden-notebooks-heading daily-notebooks-heading">
         <div><small>Vos listes à deux</small><h2>Nos carnets</h2></div>
         <button type="button" id="showCreateNotebookBtn">+ Nouveau</button>
@@ -163,6 +170,48 @@
     </section>
 
     <button type="button" id="backFromDailyToolsBtn" class="secondary">Retour</button>
+</div>
+
+<!-- ÉCRAN LISTE DE COURSES -->
+<div id="shoppingListScreen" class="secondary-screen shopping-list-screen" style="display:none;">
+    <header class="shopping-header">
+        <button type="button" id="backFromShoppingBtn" aria-label="Retour à Notre quotidien">‹</button>
+        <div><small>Notre quotidien</small><h1>Liste de courses</h1></div>
+        <span id="shoppingRemainingCount">0 à acheter</span>
+    </header>
+
+    <section class="shopping-summary">
+        <svg class="cactus-ui-icon" width="58" height="58" aria-hidden="true"><use href="#cactusIconShopping"></use></svg>
+        <div><small>Synchronisée à deux</small><strong id="shoppingSummaryTitle">Votre panier est prêt</strong><p id="shoppingSummaryText">Ajoutez votre premier article.</p></div>
+    </section>
+
+    <form id="shoppingItemForm" class="shopping-item-form">
+        <div class="shopping-form-heading"><div><small id="shoppingFormKicker">Nouvel article</small><strong id="shoppingFormTitle">Que faut-il acheter ?</strong></div><button type="button" id="cancelShoppingEditBtn" style="display:none;">Annuler</button></div>
+        <input type="text" id="shoppingItemName" maxlength="80" required placeholder="Ex. Jus de fruits" autocomplete="off">
+        <div class="shopping-form-row">
+            <input type="text" id="shoppingItemQuantity" maxlength="30" placeholder="Quantité (facultatif)" autocomplete="off">
+            <select id="shoppingItemCategory" aria-label="Catégorie">
+                <option value="food">Alimentation</option>
+                <option value="drinks">Boissons</option>
+                <option value="home">Maison</option>
+                <option value="party">Fête</option>
+                <option value="gifts">Cadeaux</option>
+                <option value="other">Autre</option>
+            </select>
+        </div>
+        <button type="submit" id="saveShoppingItemBtn">Ajouter à la liste</button>
+    </form>
+
+    <nav class="shopping-filters" aria-label="Filtrer la liste">
+        <button type="button" class="is-active" data-shopping-filter="pending">À acheter <span id="shoppingPendingFilterCount">0</span></button>
+        <button type="button" data-shopping-filter="completed">Terminés <span id="shoppingCompletedFilterCount">0</span></button>
+        <button type="button" data-shopping-filter="all">Tout</button>
+    </nav>
+
+    <div id="shoppingItemsList" class="shopping-items-list" aria-live="polite"></div>
+    <div id="shoppingEmptyState" class="shopping-empty-state"><svg class="cactus-ui-icon" width="62" height="62" aria-hidden="true"><use href="#cactusIconShopping"></use></svg><strong>La liste est vide</strong><p>Ajoutez quelque chose à acheter pour commencer.</p></div>
+
+    <button type="button" id="clearCompletedShoppingBtn" class="secondary shopping-clear-button" style="display:none;">Supprimer les articles terminés</button>
 </div>
 
 <!-- ÉCRAN CARNET -->
@@ -1959,7 +2008,7 @@
     <script src="js/storage.js"></script>
     <script src="js/rankings.js"></script>
     <script src="js/questions.js"></script>
-    <script src="js/script.js?v=51"></script>
+    <script src="js/script.js?v=52"></script>
 
 </body>
 </html>

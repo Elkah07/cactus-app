@@ -171,6 +171,26 @@ const backFromGardenBtn = document.getElementById("backFromGardenBtn");
 const gardenDailyShortcutBtn = document.getElementById("gardenDailyShortcutBtn");
 const dailyToolsScreen = document.getElementById("dailyToolsScreen");
 const backFromDailyToolsBtn = document.getElementById("backFromDailyToolsBtn");
+const openShoppingListBtn = document.getElementById("openShoppingListBtn");
+const shoppingListScreen = document.getElementById("shoppingListScreen");
+const backFromShoppingBtn = document.getElementById("backFromShoppingBtn");
+const shoppingRemainingCount = document.getElementById("shoppingRemainingCount");
+const shoppingSummaryTitle = document.getElementById("shoppingSummaryTitle");
+const shoppingSummaryText = document.getElementById("shoppingSummaryText");
+const shoppingItemForm = document.getElementById("shoppingItemForm");
+const shoppingFormKicker = document.getElementById("shoppingFormKicker");
+const shoppingFormTitle = document.getElementById("shoppingFormTitle");
+const shoppingItemName = document.getElementById("shoppingItemName");
+const shoppingItemQuantity = document.getElementById("shoppingItemQuantity");
+const shoppingItemCategory = document.getElementById("shoppingItemCategory");
+const saveShoppingItemBtn = document.getElementById("saveShoppingItemBtn");
+const cancelShoppingEditBtn = document.getElementById("cancelShoppingEditBtn");
+const shoppingFilterButtons = document.querySelectorAll("[data-shopping-filter]");
+const shoppingPendingFilterCount = document.getElementById("shoppingPendingFilterCount");
+const shoppingCompletedFilterCount = document.getElementById("shoppingCompletedFilterCount");
+const shoppingItemsList = document.getElementById("shoppingItemsList");
+const shoppingEmptyState = document.getElementById("shoppingEmptyState");
+const clearCompletedShoppingBtn = document.getElementById("clearCompletedShoppingBtn");
 
 const showCreateNotebookBtn = document.getElementById("showCreateNotebookBtn");
 const createNotebookBox = document.getElementById("createNotebookBox");
@@ -664,6 +684,10 @@ let isCreatingNotebook = false;
 let gardenEditMode = false;
 let selectedGardenItemId = null;
 let currentGardenItems = {};
+let activeShoppingFilter = "pending";
+let currentShoppingItems = {};
+let editingShoppingItemId = null;
+let isSavingShoppingItem = false;
 
 const CREATOR_UID = "cJylm27fQTMXd0Esan7YqXkjV762";
 let currentUser = null;
@@ -911,6 +935,10 @@ function listenToCurrentSpace(spaceCodeValue) {
 
         if (lastShownScreen === "garden") {
             renderGarden(spaceData);
+        }
+
+        if (lastShownScreen === "shopping") {
+            renderShoppingList(spaceData.dailyTools?.shopping?.items || {});
         }
 
         if (lastShownScreen === "history") {
@@ -2004,6 +2032,243 @@ gardenDailyShortcutBtn.addEventListener("click", () => {
 
 backFromDailyToolsBtn.addEventListener("click", () => {
     showScreen("dashboard");
+});
+
+const SHOPPING_CATEGORIES = {
+    food: { label: "Alimentation", className: "is-food" },
+    drinks: { label: "Boissons", className: "is-drinks" },
+    home: { label: "Maison", className: "is-home" },
+    party: { label: "Fête", className: "is-party" },
+    gifts: { label: "Cadeaux", className: "is-gifts" },
+    other: { label: "Autre", className: "is-other" }
+};
+
+function resetShoppingForm() {
+    editingShoppingItemId = null;
+    shoppingItemForm.reset();
+    shoppingItemCategory.value = "food";
+    shoppingFormKicker.textContent = "Nouvel article";
+    shoppingFormTitle.textContent = "Que faut-il acheter ?";
+    saveShoppingItemBtn.textContent = "Ajouter à la liste";
+    cancelShoppingEditBtn.style.display = "none";
+}
+
+function startShoppingItemEdit(itemId) {
+    const item = currentShoppingItems[itemId];
+    if (!item) return;
+
+    editingShoppingItemId = itemId;
+    shoppingItemName.value = item.name || "";
+    shoppingItemQuantity.value = item.quantity || "";
+    shoppingItemCategory.value = SHOPPING_CATEGORIES[item.category] ? item.category : "other";
+    shoppingFormKicker.textContent = "Modification";
+    shoppingFormTitle.textContent = "Modifier cet article";
+    saveShoppingItemBtn.textContent = "Enregistrer les changements";
+    cancelShoppingEditBtn.style.display = "block";
+    shoppingItemForm.scrollIntoView({ behavior: "smooth", block: "start" });
+    window.setTimeout(() => shoppingItemName.focus(), 250);
+}
+
+function getShoppingItemMeta(item) {
+    if (item.completed) {
+        return "Coché par " + (item.completedByPseudo || "votre partenaire");
+    }
+    return "Ajouté par " + (item.createdByPseudo || "Cactus");
+}
+
+function renderShoppingList(items) {
+    currentShoppingItems = items || {};
+    const entries = Object.entries(currentShoppingItems);
+    const pendingCount = entries.filter(([, item]) => !item.completed).length;
+    const completedCount = entries.length - pendingCount;
+
+    shoppingRemainingCount.textContent = pendingCount + " à acheter";
+    shoppingPendingFilterCount.textContent = pendingCount;
+    shoppingCompletedFilterCount.textContent = completedCount;
+    shoppingSummaryTitle.textContent = pendingCount
+        ? pendingCount + " article" + (pendingCount > 1 ? "s" : "") + " à acheter"
+        : entries.length ? "Tout est dans le panier" : "Votre panier est prêt";
+    shoppingSummaryText.textContent = pendingCount
+        ? "Votre liste est synchronisée sur vos deux comptes."
+        : entries.length ? "Vous avez terminé cette liste de courses." : "Ajoutez votre premier article.";
+    clearCompletedShoppingBtn.style.display = completedCount ? "block" : "none";
+
+    const visibleEntries = entries
+        .filter(([, item]) => activeShoppingFilter === "all" ||
+            (activeShoppingFilter === "completed" ? item.completed : !item.completed))
+        .sort((a, b) => {
+            if (Boolean(a[1].completed) !== Boolean(b[1].completed)) return a[1].completed ? 1 : -1;
+            return (b[1].updatedAt || b[1].createdAt || 0) - (a[1].updatedAt || a[1].createdAt || 0);
+        });
+
+    const fragment = document.createDocumentFragment();
+    visibleEntries.forEach(([itemId, item]) => {
+        const category = SHOPPING_CATEGORIES[item.category] || SHOPPING_CATEGORIES.other;
+        const article = document.createElement("article");
+        article.className = "shopping-item" + (item.completed ? " is-completed" : "");
+
+        const checkButton = document.createElement("button");
+        checkButton.type = "button";
+        checkButton.className = "shopping-check";
+        checkButton.setAttribute("aria-label", item.completed ? "Remettre à acheter" : "Marquer comme acheté");
+        checkButton.textContent = item.completed ? "✓" : "";
+        checkButton.addEventListener("click", () => toggleShoppingItem(itemId, !item.completed));
+
+        const copy = document.createElement("div");
+        copy.className = "shopping-item-copy";
+        const title = document.createElement("strong");
+        title.textContent = item.name || "Article";
+        const details = document.createElement("div");
+        const categoryBadge = document.createElement("span");
+        categoryBadge.className = "shopping-category " + category.className;
+        categoryBadge.textContent = category.label;
+        details.appendChild(categoryBadge);
+        if (item.quantity) {
+            const quantity = document.createElement("span");
+            quantity.className = "shopping-quantity";
+            quantity.textContent = item.quantity;
+            details.appendChild(quantity);
+        }
+        const meta = document.createElement("small");
+        meta.textContent = getShoppingItemMeta(item);
+        copy.append(title, details, meta);
+
+        const actions = document.createElement("div");
+        actions.className = "shopping-item-actions";
+        const editButton = document.createElement("button");
+        editButton.type = "button";
+        editButton.textContent = "Modifier";
+        editButton.addEventListener("click", () => startShoppingItemEdit(itemId));
+        const deleteButton = document.createElement("button");
+        deleteButton.type = "button";
+        deleteButton.className = "is-delete";
+        deleteButton.setAttribute("aria-label", "Supprimer " + (item.name || "cet article"));
+        deleteButton.textContent = "×";
+        deleteButton.addEventListener("click", () => deleteShoppingItem(itemId, item.name));
+        actions.append(editButton, deleteButton);
+
+        article.append(checkButton, copy, actions);
+        fragment.appendChild(article);
+    });
+
+    shoppingItemsList.replaceChildren(fragment);
+    shoppingEmptyState.style.display = visibleEntries.length ? "none" : "flex";
+    const emptyTitle = shoppingEmptyState.querySelector("strong");
+    const emptyCopy = shoppingEmptyState.querySelector("p");
+    if (!entries.length) {
+        emptyTitle.textContent = "La liste est vide";
+        emptyCopy.textContent = "Ajoutez quelque chose à acheter pour commencer.";
+    } else if (activeShoppingFilter === "completed") {
+        emptyTitle.textContent = "Rien de terminé";
+        emptyCopy.textContent = "Les articles cochés apparaîtront ici.";
+    } else {
+        emptyTitle.textContent = "Tout est acheté";
+        emptyCopy.textContent = "Votre liste en cours est terminée.";
+    }
+}
+
+function toggleShoppingItem(itemId, completed) {
+    if (!currentSpaceCode || !currentUser) return;
+    database.ref("spaces/" + currentSpaceCode + "/dailyTools/shopping/items/" + itemId).update({
+        completed,
+        completedAt: completed ? Date.now() : null,
+        completedBy: completed ? currentUser.uid : null,
+        completedByPseudo: completed ? pseudo : null,
+        updatedAt: Date.now(),
+        updatedBy: currentUser.uid,
+        updatedByPseudo: pseudo
+    }).catch((error) => {
+        console.error("Mise à jour de la course impossible", error);
+        showToast("Impossible de mettre la liste à jour");
+    });
+}
+
+function deleteShoppingItem(itemId, itemName) {
+    if (!confirm("Supprimer « " + (itemName || "cet article") + " » de la liste ?")) return;
+    database.ref("spaces/" + currentSpaceCode + "/dailyTools/shopping/items/" + itemId).remove()
+        .then(() => {
+            if (editingShoppingItemId === itemId) resetShoppingForm();
+            showToast("Article supprimé");
+        })
+        .catch((error) => {
+            console.error("Suppression de la course impossible", error);
+            showToast("Impossible de supprimer cet article");
+        });
+}
+
+openShoppingListBtn.addEventListener("click", () => showScreen("shopping"));
+backFromShoppingBtn.addEventListener("click", () => {
+    resetShoppingForm();
+    showScreen("dailyTools");
+});
+cancelShoppingEditBtn.addEventListener("click", resetShoppingForm);
+
+shoppingFilterButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+        activeShoppingFilter = button.dataset.shoppingFilter;
+        shoppingFilterButtons.forEach((item) => item.classList.toggle("is-active", item === button));
+        renderShoppingList(currentShoppingItems);
+    });
+});
+
+shoppingItemForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    if (isSavingShoppingItem || !currentSpaceCode || !currentUser) return;
+    const name = shoppingItemName.value.trim();
+    if (!name) return;
+
+    isSavingShoppingItem = true;
+    saveShoppingItemBtn.disabled = true;
+    saveShoppingItemBtn.textContent = "Enregistrement…";
+    const now = Date.now();
+    const basePath = "spaces/" + currentSpaceCode + "/dailyTools/shopping/items";
+    const payload = {
+        name,
+        quantity: shoppingItemQuantity.value.trim(),
+        category: SHOPPING_CATEGORIES[shoppingItemCategory.value] ? shoppingItemCategory.value : "other",
+        updatedAt: now,
+        updatedBy: currentUser.uid,
+        updatedByPseudo: pseudo
+    };
+    let request;
+    if (editingShoppingItemId) {
+        request = database.ref(basePath + "/" + editingShoppingItemId).update(payload);
+    } else {
+        request = database.ref(basePath).push({
+            ...payload,
+            completed: false,
+            createdAt: now,
+            createdByUid: currentUser.uid,
+            createdByPseudo: pseudo
+        });
+    }
+
+    request.then(() => {
+        showToast(editingShoppingItemId ? "Article modifié" : "Article ajouté à la liste");
+        resetShoppingForm();
+    }).catch((error) => {
+        console.error("Enregistrement de la course impossible", error);
+        showToast("Impossible d’enregistrer cet article");
+    }).finally(() => {
+        isSavingShoppingItem = false;
+        saveShoppingItemBtn.disabled = false;
+        if (!editingShoppingItemId) saveShoppingItemBtn.textContent = "Ajouter à la liste";
+    });
+});
+
+clearCompletedShoppingBtn.addEventListener("click", () => {
+    const completedIds = Object.entries(currentShoppingItems)
+        .filter(([, item]) => item.completed)
+        .map(([itemId]) => itemId);
+    if (!completedIds.length || !confirm("Supprimer tous les articles terminés ?")) return;
+    const updates = {};
+    completedIds.forEach((itemId) => { updates[itemId] = null; });
+    database.ref("spaces/" + currentSpaceCode + "/dailyTools/shopping/items").update(updates)
+        .then(() => showToast("Articles terminés supprimés"))
+        .catch((error) => {
+            console.error("Nettoyage de la liste impossible", error);
+            showToast("Impossible de nettoyer la liste");
+        });
 });
 
 gardenEditBtn.addEventListener("click", () => {
@@ -4552,6 +4817,24 @@ function buildNotifications(spaceData) {
             }
         });
 
+        Object.entries(spaceData.dailyTools?.shopping?.items || {}).forEach(([itemId, item]) => {
+            if (
+                item.createdByUid &&
+                item.createdByUid !== currentUser.uid &&
+                typeof item.createdAt === "number"
+            ) {
+                notifications.push({
+                    id: "shopping_" + itemId + "_" + item.createdAt,
+                    type: "dailyTools",
+                    icon: "shopping",
+                    title: (item.createdByPseudo || "Votre partenaire") + " a ajouté une course",
+                    message: item.name || "Nouvel article",
+                    timestamp: item.createdAt,
+                    target: { kind: "shopping", itemId }
+                });
+            }
+        });
+
         const story = spaceData.story;
         if (
             story &&
@@ -4782,6 +5065,7 @@ function getNotificationSymbol(type) {
         answer: "cactusIconChat",
         game: "cactusIconGame",
         garden: "cactusIconGarden",
+        dailyTools: "cactusIconShopping",
         achievement: "cactusIconTrophy"
     };
 
@@ -4886,6 +5170,8 @@ function openNotification(notification) {
                     showToast("Ce carnet n’existe plus");
                 }
             });
+    } else if (target.kind === "shopping") {
+        showScreen("shopping");
     } else if (target.kind === "story") {
         openStoryPage();
     } else if (target.kind === "memory") {

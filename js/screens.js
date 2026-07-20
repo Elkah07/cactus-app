@@ -35,7 +35,7 @@ function showScreenContent(screenName) {
     );
     document.body.classList.toggle(
         "secondary-active",
-        ["allGames", "garden", "dailyTools", "history", "settings", "notifications", "dailyRitual", "coupleProfile", "onboarding"].includes(screenName)
+        ["allGames", "garden", "dailyTools", "shopping", "history", "settings", "notifications", "dailyRitual", "coupleProfile", "onboarding"].includes(screenName)
     );
 
     hideScreen(loginScreen);
@@ -59,6 +59,7 @@ function showScreenContent(screenName) {
 
     hideScreen(gardenScreen);
     hideScreen(dailyToolsScreen);
+    hideScreen(shoppingListScreen);
     hideScreen(notebookScreen);
 
     hideScreen(guessAnswerScreen);
@@ -109,6 +110,7 @@ settingsBtn.style.setProperty("display", "none", "important");
     screenName === "achievements" ||
     screenName === "garden" ||
     screenName === "dailyTools" ||
+    screenName === "shopping" ||
     screenName === "settings"
 ) {
     historyBtn.style.display = "flex";
@@ -193,6 +195,11 @@ settingsBtn.style.setProperty("display", "none", "important");
         case "dailyTools":
             dailyToolsScreen.style.display = "block";
             loadNotebooks();
+            break;
+
+        case "shopping":
+            shoppingListScreen.style.display = "block";
+            renderShoppingList(currentSpaceData?.dailyTools?.shopping?.items || {});
             break;
 
         case "notebook":
