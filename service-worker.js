@@ -1,4 +1,4 @@
-const CACHE_VERSION = "v36";
+const CACHE_VERSION = "v37";
 const SHELL_CACHE = `cactus-shell-${CACHE_VERSION}`;
 const RUNTIME_CACHE = `cactus-runtime-${CACHE_VERSION}`;
 
@@ -12,7 +12,9 @@ const APP_SHELL = [
     "./js/storage.js",
     "./js/rankings.js",
     "./js/questions.js",
-    "./manifest.json"
+    "./manifest.json",
+    "./icons/icon-192-v2.png",
+    "./icons/icon-512-v2.png"
 ];
 
 self.addEventListener("install", (event) => {
