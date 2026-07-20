@@ -191,6 +191,57 @@ const shoppingCompletedFilterCount = document.getElementById("shoppingCompletedF
 const shoppingItemsList = document.getElementById("shoppingItemsList");
 const shoppingEmptyState = document.getElementById("shoppingEmptyState");
 const clearCompletedShoppingBtn = document.getElementById("clearCompletedShoppingBtn");
+const openTasksBtn = document.getElementById("openTasksBtn");
+const openRemindersBtn = document.getElementById("openRemindersBtn");
+const openImportantDatesBtn = document.getElementById("openImportantDatesBtn");
+const tasksScreen = document.getElementById("tasksScreen");
+const remindersScreen = document.getElementById("remindersScreen");
+const importantDatesScreen = document.getElementById("importantDatesScreen");
+const backFromTasksBtn = document.getElementById("backFromTasksBtn");
+const backFromRemindersBtn = document.getElementById("backFromRemindersBtn");
+const backFromImportantDatesBtn = document.getElementById("backFromImportantDatesBtn");
+const taskForm = document.getElementById("taskForm");
+const taskFormKicker = document.getElementById("taskFormKicker");
+const taskFormTitle = document.getElementById("taskFormTitle");
+const taskTitleInput = document.getElementById("taskTitleInput");
+const taskDetailsInput = document.getElementById("taskDetailsInput");
+const taskAssigneeInput = document.getElementById("taskAssigneeInput");
+const taskPriorityInput = document.getElementById("taskPriorityInput");
+const taskDueDateInput = document.getElementById("taskDueDateInput");
+const saveTaskBtn = document.getElementById("saveTaskBtn");
+const cancelTaskEditBtn = document.getElementById("cancelTaskEditBtn");
+const tasksPendingCount = document.getElementById("tasksPendingCount");
+const tasksList = document.getElementById("tasksList");
+const tasksEmptyState = document.getElementById("tasksEmptyState");
+const taskFilterButtons = document.querySelectorAll("[data-task-filter]");
+const reminderForm = document.getElementById("reminderForm");
+const reminderFormKicker = document.getElementById("reminderFormKicker");
+const reminderFormTitle = document.getElementById("reminderFormTitle");
+const reminderTitleInput = document.getElementById("reminderTitleInput");
+const reminderDetailsInput = document.getElementById("reminderDetailsInput");
+const reminderDateInput = document.getElementById("reminderDateInput");
+const reminderTimeInput = document.getElementById("reminderTimeInput");
+const reminderTargetInput = document.getElementById("reminderTargetInput");
+const saveReminderBtn = document.getElementById("saveReminderBtn");
+const cancelReminderEditBtn = document.getElementById("cancelReminderEditBtn");
+const remindersUpcomingCount = document.getElementById("remindersUpcomingCount");
+const remindersList = document.getElementById("remindersList");
+const remindersEmptyState = document.getElementById("remindersEmptyState");
+const reminderFilterButtons = document.querySelectorAll("[data-reminder-filter]");
+const importantDateForm = document.getElementById("importantDateForm");
+const importantDateFormKicker = document.getElementById("importantDateFormKicker");
+const importantDateFormTitle = document.getElementById("importantDateFormTitle");
+const importantDateTitleInput = document.getElementById("importantDateTitleInput");
+const importantDateNotesInput = document.getElementById("importantDateNotesInput");
+const importantDateValueInput = document.getElementById("importantDateValueInput");
+const importantDateCategoryInput = document.getElementById("importantDateCategoryInput");
+const importantDateAnnualInput = document.getElementById("importantDateAnnualInput");
+const saveImportantDateBtn = document.getElementById("saveImportantDateBtn");
+const cancelImportantDateEditBtn = document.getElementById("cancelImportantDateEditBtn");
+const importantDatesCount = document.getElementById("importantDatesCount");
+const importantDatesList = document.getElementById("importantDatesList");
+const importantDatesEmptyState = document.getElementById("importantDatesEmptyState");
+const importantDateFilterButtons = document.querySelectorAll("[data-important-date-filter]");
 
 const showCreateNotebookBtn = document.getElementById("showCreateNotebookBtn");
 const createNotebookBox = document.getElementById("createNotebookBox");
@@ -688,6 +739,15 @@ let activeShoppingFilter = "pending";
 let currentShoppingItems = {};
 let editingShoppingItemId = null;
 let isSavingShoppingItem = false;
+let activeTaskFilter = "pending";
+let activeReminderFilter = "upcoming";
+let activeImportantDateFilter = "upcoming";
+let currentTasks = {};
+let currentReminders = {};
+let currentImportantDates = {};
+let editingTaskId = null;
+let editingReminderId = null;
+let editingImportantDateId = null;
 
 const CREATOR_UID = "cJylm27fQTMXd0Esan7YqXkjV762";
 let currentUser = null;
@@ -940,6 +1000,9 @@ function listenToCurrentSpace(spaceCodeValue) {
         if (lastShownScreen === "shopping") {
             renderShoppingList(spaceData.dailyTools?.shopping?.items || {});
         }
+        if (lastShownScreen === "tasks") renderTasks(spaceData.dailyTools?.tasks || {});
+        if (lastShownScreen === "reminders") renderReminders(spaceData.dailyTools?.reminders || {});
+        if (lastShownScreen === "importantDates") renderImportantDates(spaceData.dailyTools?.importantDates || {});
 
         if (lastShownScreen === "history") {
             renderMemories(spaceData.memories || {});
@@ -2270,6 +2333,167 @@ clearCompletedShoppingBtn.addEventListener("click", () => {
             showToast("Impossible de nettoyer la liste");
         });
 });
+
+function prepareOrganizerAssignees(select) {
+    if (!select || !currentUser) return;
+    const players = [currentSpaceData?.player1, currentSpaceData?.player2].filter(Boolean);
+    const partner = players.find((player) => player.uid !== currentUser.uid);
+    const options = [
+        ["both", "Nous deux"],
+        [currentUser.uid, pseudo || "Moi"]
+    ];
+    if (partner?.uid) options.push([partner.uid, partner.pseudo || "Partenaire"]);
+    const previous = select.value;
+    select.replaceChildren(...options.map(([value, label]) => {
+        const option = document.createElement("option");
+        option.value = value;
+        option.textContent = label;
+        return option;
+    }));
+    select.value = options.some(([value]) => value === previous) ? previous : "both";
+}
+
+function getOrganizerPersonLabel(value) {
+    if (!value || value === "both") return "Nous deux";
+    const players = [currentSpaceData?.player1, currentSpaceData?.player2].filter(Boolean);
+    return players.find((player) => player.uid === value)?.pseudo || (value === currentUser?.uid ? pseudo : "Partenaire");
+}
+
+function formatOrganizerDate(value, includeTime = "") {
+    if (!value) return "Sans échéance";
+    const date = new Date(value + "T" + (includeTime || "12:00"));
+    if (Number.isNaN(date.getTime())) return value;
+    return date.toLocaleDateString("fr-FR", { day: "numeric", month: "short", year: "numeric" }) + (includeTime ? " à " + includeTime.replace(":", "h") : "");
+}
+
+function isPastDate(value, time = "23:59") {
+    if (!value) return false;
+    return new Date(value + "T" + (time || "23:59")).getTime() < Date.now();
+}
+
+function createOrganizerItem({ title, details, badges = [], meta, completed = false, overdue = false, onToggle, onEdit, onDelete }) {
+    const article = document.createElement("article");
+    article.className = "organizer-item" + (completed ? " is-completed" : "") + (overdue ? " is-overdue" : "");
+    if (onToggle) {
+        const check = document.createElement("button");
+        check.type = "button";
+        check.className = "organizer-item-check";
+        check.textContent = completed ? "✓" : "";
+        check.setAttribute("aria-label", completed ? "Rouvrir" : "Terminer");
+        check.addEventListener("click", onToggle);
+        article.appendChild(check);
+    }
+    const copy = document.createElement("div");
+    copy.className = "organizer-item-copy";
+    const heading = document.createElement("strong");
+    heading.textContent = title || "Sans titre";
+    copy.appendChild(heading);
+    if (details) {
+        const paragraph = document.createElement("p");
+        paragraph.textContent = details;
+        copy.appendChild(paragraph);
+    }
+    const badgesRow = document.createElement("div");
+    badges.forEach(({ label, className = "" }) => {
+        const badge = document.createElement("span");
+        badge.className = "organizer-badge " + className;
+        badge.textContent = label;
+        badgesRow.appendChild(badge);
+    });
+    copy.appendChild(badgesRow);
+    const small = document.createElement("small");
+    small.textContent = meta || "Partagé dans Cactus";
+    copy.appendChild(small);
+    const actions = document.createElement("div");
+    actions.className = "organizer-item-actions";
+    const edit = document.createElement("button");
+    edit.type = "button"; edit.textContent = "Modifier"; edit.addEventListener("click", onEdit);
+    const remove = document.createElement("button");
+    remove.type = "button"; remove.className = "is-delete"; remove.textContent = "×"; remove.setAttribute("aria-label", "Supprimer"); remove.addEventListener("click", onDelete);
+    actions.append(edit, remove);
+    article.append(copy, actions);
+    return article;
+}
+
+function resetTaskForm() {
+    editingTaskId = null; taskForm.reset(); prepareOrganizerAssignees(taskAssigneeInput); taskPriorityInput.value = "medium";
+    taskFormKicker.textContent = "Nouvelle tâche"; taskFormTitle.textContent = "Que faut-il faire ?"; saveTaskBtn.textContent = "Ajouter la tâche"; cancelTaskEditBtn.style.display = "none";
+}
+
+function renderTasks(tasks) {
+    currentTasks = tasks || {};
+    const entries = Object.entries(currentTasks);
+    const pending = entries.filter(([, task]) => !task.completed).length;
+    tasksPendingCount.textContent = pending + " à faire";
+    const visible = entries.filter(([, task]) => activeTaskFilter === "all" || (activeTaskFilter === "completed" ? task.completed : !task.completed))
+        .sort((a, b) => Number(a[1].completed) - Number(b[1].completed) || (a[1].dueDate || "9999").localeCompare(b[1].dueDate || "9999") || (b[1].createdAt || 0) - (a[1].createdAt || 0));
+    tasksList.replaceChildren(...visible.map(([id, task]) => createOrganizerItem({
+        title: task.title, details: task.details,
+        badges: [
+            { label: getOrganizerPersonLabel(task.assignee), className: "is-person" },
+            { label: ({ low: "Tranquille", medium: "Importante", high: "Urgente" })[task.priority] || "Importante", className: "is-priority-" + (task.priority || "medium") },
+            ...(task.dueDate ? [{ label: formatOrganizerDate(task.dueDate), className: "is-date" }] : [])
+        ],
+        meta: task.completed ? "Terminée par " + (task.completedByPseudo || "Cactus") : "Créée par " + (task.createdByPseudo || "Cactus"),
+        completed: task.completed, overdue: !task.completed && isPastDate(task.dueDate),
+        onToggle: () => database.ref("spaces/" + currentSpaceCode + "/dailyTools/tasks/" + id).update({ completed: !task.completed, completedAt: !task.completed ? Date.now() : null, completedBy: !task.completed ? currentUser.uid : null, completedByPseudo: !task.completed ? pseudo : null, updatedAt: Date.now(), updatedBy: currentUser.uid }),
+        onEdit: () => { editingTaskId = id; taskTitleInput.value = task.title || ""; taskDetailsInput.value = task.details || ""; prepareOrganizerAssignees(taskAssigneeInput); taskAssigneeInput.value = task.assignee || "both"; taskPriorityInput.value = task.priority || "medium"; taskDueDateInput.value = task.dueDate || ""; taskFormKicker.textContent = "Modification"; taskFormTitle.textContent = "Modifier cette tâche"; saveTaskBtn.textContent = "Enregistrer"; cancelTaskEditBtn.style.display = "block"; taskForm.scrollIntoView({ behavior: "smooth" }); },
+        onDelete: () => { if (confirm("Supprimer cette tâche ?")) database.ref("spaces/" + currentSpaceCode + "/dailyTools/tasks/" + id).remove(); }
+    })));
+    tasksEmptyState.style.display = visible.length ? "none" : "flex";
+}
+
+taskForm.addEventListener("submit", (event) => {
+    event.preventDefault(); const title = taskTitleInput.value.trim(); if (!title) return;
+    const now = Date.now(); const payload = { title, details: taskDetailsInput.value.trim(), assignee: taskAssigneeInput.value || "both", priority: taskPriorityInput.value, dueDate: taskDueDateInput.value || "", updatedAt: now, updatedBy: currentUser.uid, updatedByPseudo: pseudo };
+    const base = "spaces/" + currentSpaceCode + "/dailyTools/tasks";
+    const request = editingTaskId ? database.ref(base + "/" + editingTaskId).update(payload) : database.ref(base).push({ ...payload, completed: false, createdAt: now, createdByUid: currentUser.uid, createdByPseudo: pseudo });
+    saveTaskBtn.disabled = true; request.then(() => { showToast(editingTaskId ? "Tâche modifiée" : "Tâche ajoutée"); resetTaskForm(); }).catch(() => showToast("Impossible d’enregistrer la tâche")).finally(() => { saveTaskBtn.disabled = false; });
+});
+cancelTaskEditBtn.addEventListener("click", resetTaskForm);
+taskFilterButtons.forEach((button) => button.addEventListener("click", () => { activeTaskFilter = button.dataset.taskFilter; taskFilterButtons.forEach((item) => item.classList.toggle("is-active", item === button)); renderTasks(currentTasks); }));
+
+function resetReminderForm() {
+    editingReminderId = null; reminderForm.reset(); prepareOrganizerAssignees(reminderTargetInput);
+    reminderFormKicker.textContent = "Nouveau rappel"; reminderFormTitle.textContent = "Que faut-il retenir ?"; saveReminderBtn.textContent = "Ajouter le rappel"; cancelReminderEditBtn.style.display = "none";
+}
+
+function getReminderTimestamp(reminder) { return new Date((reminder.date || "9999-12-31") + "T" + (reminder.time || "23:59")).getTime(); }
+function renderReminders(reminders) {
+    currentReminders = reminders || {}; const entries = Object.entries(currentReminders); const now = Date.now(); const upcoming = entries.filter(([, item]) => getReminderTimestamp(item) >= now).length; remindersUpcomingCount.textContent = upcoming + " à venir";
+    const visible = entries.filter(([, item]) => activeReminderFilter === "all" || (activeReminderFilter === "past" ? getReminderTimestamp(item) < now : getReminderTimestamp(item) >= now)).sort((a, b) => getReminderTimestamp(a[1]) - getReminderTimestamp(b[1]));
+    remindersList.replaceChildren(...visible.map(([id, item]) => createOrganizerItem({ title: item.title, details: item.details, badges: [{ label: formatOrganizerDate(item.date, item.time), className: "is-date" }, { label: getOrganizerPersonLabel(item.target), className: "is-person" }], meta: "Créé par " + (item.createdByPseudo || "Cactus"), overdue: getReminderTimestamp(item) < now,
+        onEdit: () => { editingReminderId = id; reminderTitleInput.value = item.title || ""; reminderDetailsInput.value = item.details || ""; reminderDateInput.value = item.date || ""; reminderTimeInput.value = item.time || ""; prepareOrganizerAssignees(reminderTargetInput); reminderTargetInput.value = item.target || "both"; reminderFormKicker.textContent = "Modification"; reminderFormTitle.textContent = "Modifier ce rappel"; saveReminderBtn.textContent = "Enregistrer"; cancelReminderEditBtn.style.display = "block"; reminderForm.scrollIntoView({ behavior: "smooth" }); },
+        onDelete: () => { if (confirm("Supprimer ce rappel ?")) database.ref("spaces/" + currentSpaceCode + "/dailyTools/reminders/" + id).remove(); }
+    })));
+    remindersEmptyState.style.display = visible.length ? "none" : "flex";
+}
+reminderForm.addEventListener("submit", (event) => { event.preventDefault(); const title = reminderTitleInput.value.trim(); if (!title || !reminderDateInput.value) return; const now = Date.now(); const payload = { title, details: reminderDetailsInput.value.trim(), date: reminderDateInput.value, time: reminderTimeInput.value || "", target: reminderTargetInput.value || "both", updatedAt: now, updatedBy: currentUser.uid, updatedByPseudo: pseudo }; const base = "spaces/" + currentSpaceCode + "/dailyTools/reminders"; const request = editingReminderId ? database.ref(base + "/" + editingReminderId).update(payload) : database.ref(base).push({ ...payload, createdAt: now, createdByUid: currentUser.uid, createdByPseudo: pseudo }); saveReminderBtn.disabled = true; request.then(() => { showToast(editingReminderId ? "Rappel modifié" : "Rappel ajouté"); resetReminderForm(); }).catch(() => showToast("Impossible d’enregistrer le rappel")).finally(() => { saveReminderBtn.disabled = false; }); });
+cancelReminderEditBtn.addEventListener("click", resetReminderForm);
+reminderFilterButtons.forEach((button) => button.addEventListener("click", () => { activeReminderFilter = button.dataset.reminderFilter; reminderFilterButtons.forEach((item) => item.classList.toggle("is-active", item === button)); renderReminders(currentReminders); }));
+
+const IMPORTANT_DATE_CATEGORIES = { anniversary: "Anniversaire", appointment: "Rendez-vous", trip: "Voyage", celebration: "Fête", other: "Autre" };
+function getImportantDateNextTimestamp(item) { if (!item.date) return Infinity; if (!item.annual) return new Date(item.date + "T12:00").getTime(); const parts = item.date.split("-"); const now = new Date(); let date = new Date(now.getFullYear(), Number(parts[1]) - 1, Number(parts[2]), 12); if (date.getTime() < Date.now()) date = new Date(now.getFullYear() + 1, Number(parts[1]) - 1, Number(parts[2]), 12); return date.getTime(); }
+function resetImportantDateForm() { editingImportantDateId = null; importantDateForm.reset(); importantDateCategoryInput.value = "anniversary"; importantDateFormKicker.textContent = "Nouvelle date"; importantDateFormTitle.textContent = "Quel événement garder ?"; saveImportantDateBtn.textContent = "Ajouter la date"; cancelImportantDateEditBtn.style.display = "none"; }
+function renderImportantDates(items) {
+    currentImportantDates = items || {}; const entries = Object.entries(currentImportantDates); importantDatesCount.textContent = entries.length + " date" + (entries.length > 1 ? "s" : "");
+    const visible = entries.filter(([, item]) => activeImportantDateFilter === "all" || (activeImportantDateFilter === "annual" ? item.annual : getImportantDateNextTimestamp(item) >= Date.now())).sort((a, b) => getImportantDateNextTimestamp(a[1]) - getImportantDateNextTimestamp(b[1]));
+    importantDatesList.replaceChildren(...visible.map(([id, item]) => createOrganizerItem({ title: item.title, details: item.notes, badges: [{ label: formatOrganizerDate(item.date), className: "is-date" }, { label: IMPORTANT_DATE_CATEGORIES[item.category] || "Autre", className: "is-category" }, ...(item.annual ? [{ label: "Chaque année", className: "is-annual" }] : [])], meta: "Ajoutée par " + (item.createdByPseudo || "Cactus"), overdue: !item.annual && getImportantDateNextTimestamp(item) < Date.now(),
+        onEdit: () => { editingImportantDateId = id; importantDateTitleInput.value = item.title || ""; importantDateNotesInput.value = item.notes || ""; importantDateValueInput.value = item.date || ""; importantDateCategoryInput.value = item.category || "other"; importantDateAnnualInput.checked = Boolean(item.annual); importantDateFormKicker.textContent = "Modification"; importantDateFormTitle.textContent = "Modifier cette date"; saveImportantDateBtn.textContent = "Enregistrer"; cancelImportantDateEditBtn.style.display = "block"; importantDateForm.scrollIntoView({ behavior: "smooth" }); },
+        onDelete: () => { if (confirm("Supprimer cette date importante ?")) database.ref("spaces/" + currentSpaceCode + "/dailyTools/importantDates/" + id).remove(); }
+    })));
+    importantDatesEmptyState.style.display = visible.length ? "none" : "flex";
+}
+importantDateForm.addEventListener("submit", (event) => { event.preventDefault(); const title = importantDateTitleInput.value.trim(); if (!title || !importantDateValueInput.value) return; const now = Date.now(); const payload = { title, notes: importantDateNotesInput.value.trim(), date: importantDateValueInput.value, category: importantDateCategoryInput.value, annual: importantDateAnnualInput.checked, updatedAt: now, updatedBy: currentUser.uid, updatedByPseudo: pseudo }; const base = "spaces/" + currentSpaceCode + "/dailyTools/importantDates"; const request = editingImportantDateId ? database.ref(base + "/" + editingImportantDateId).update(payload) : database.ref(base).push({ ...payload, createdAt: now, createdByUid: currentUser.uid, createdByPseudo: pseudo }); saveImportantDateBtn.disabled = true; request.then(() => { showToast(editingImportantDateId ? "Date modifiée" : "Date ajoutée"); resetImportantDateForm(); }).catch(() => showToast("Impossible d’enregistrer cette date")).finally(() => { saveImportantDateBtn.disabled = false; }); });
+cancelImportantDateEditBtn.addEventListener("click", resetImportantDateForm);
+importantDateFilterButtons.forEach((button) => button.addEventListener("click", () => { activeImportantDateFilter = button.dataset.importantDateFilter; importantDateFilterButtons.forEach((item) => item.classList.toggle("is-active", item === button)); renderImportantDates(currentImportantDates); }));
+
+openTasksBtn.addEventListener("click", () => showScreen("tasks"));
+openRemindersBtn.addEventListener("click", () => showScreen("reminders"));
+openImportantDatesBtn.addEventListener("click", () => showScreen("importantDates"));
+backFromTasksBtn.addEventListener("click", () => { resetTaskForm(); showScreen("dailyTools"); });
+backFromRemindersBtn.addEventListener("click", () => { resetReminderForm(); showScreen("dailyTools"); });
+backFromImportantDatesBtn.addEventListener("click", () => { resetImportantDateForm(); showScreen("dailyTools"); });
 
 gardenEditBtn.addEventListener("click", () => {
     setGardenEditMode(!gardenEditMode);
@@ -4835,6 +5059,42 @@ function buildNotifications(spaceData) {
             }
         });
 
+        [
+            ["tasks", "task", "cactusIconTasks", "Nouvelle tâche partagée", "tasks"],
+            ["reminders", "reminder", "cactusIconBell", "Nouveau rappel partagé", "reminders"],
+            ["importantDates", "importantDate", "cactusIconCalendar", "Nouvelle date importante", "importantDates"]
+        ].forEach(([path, kind, icon, title, screen]) => {
+            Object.entries(spaceData.dailyTools?.[path] || {}).forEach(([itemId, item]) => {
+                if (item.createdByUid && item.createdByUid !== currentUser.uid && typeof item.createdAt === "number") {
+                    notifications.push({
+                        id: kind + "_" + itemId + "_" + item.createdAt,
+                        type: "dailyTools",
+                        icon,
+                        title,
+                        message: item.title || "Nouvel élément",
+                        timestamp: item.createdAt,
+                        target: { kind, itemId, screen }
+                    });
+                }
+            });
+        });
+
+        Object.entries(spaceData.dailyTools?.reminders || {}).forEach(([itemId, item]) => {
+            const scheduledAt = getReminderTimestamp(item);
+            const concernsMe = !item.target || item.target === "both" || item.target === currentUser.uid;
+            if (concernsMe && scheduledAt <= Date.now() && scheduledAt > Date.now() - 7 * 86400000) {
+                notifications.push({
+                    id: "reminder_due_" + itemId + "_" + scheduledAt,
+                    type: "dailyTools",
+                    icon: "cactusIconBell",
+                    title: "Rappel Cactus",
+                    message: item.title || "Un rappel vous attend",
+                    timestamp: scheduledAt,
+                    target: { kind: "reminder", itemId, screen: "reminders" }
+                });
+            }
+        });
+
         const story = spaceData.story;
         if (
             story &&
@@ -5172,6 +5432,8 @@ function openNotification(notification) {
             });
     } else if (target.kind === "shopping") {
         showScreen("shopping");
+    } else if (["task", "reminder", "importantDate"].includes(target.kind)) {
+        showScreen(target.screen || "dailyTools");
     } else if (target.kind === "story") {
         openStoryPage();
     } else if (target.kind === "memory") {

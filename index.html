@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cactus 🌵</title>
-    <link rel="stylesheet" href="css/style.css?v=52">
+    <link rel="stylesheet" href="css/style.css?v=53">
     <link rel="manifest" href="manifest.json?v=2">
     <meta name="theme-color" content="#003E2D">
 </head>
@@ -33,6 +33,7 @@
         <symbol id="cactusIconShield" viewBox="0 0 64 64"><path fill="#83d99b" stroke="#277052" stroke-width="3" d="m32 6 22 8v15c0 14-8 23-22 29C18 52 10 43 10 29V14l22-8Z"/><path d="m21 32 8 8 15-17" fill="none" stroke="#fff2cf" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
         <symbol id="cactusIconTools" viewBox="0 0 64 64"><path fill="#ffd45c" stroke="#8b5a27" stroke-width="3" d="M14 46 43 17l7 7-29 29H14v-7Z"/><path fill="#83d99b" stroke="#277052" stroke-width="3" d="M38 12c5-6 13-5 17-1l-9 8 4 4 8-9c4 8-2 17-11 17l-8-8c-1-4-1-8-1-11Z"/></symbol>
         <symbol id="cactusIconShopping" viewBox="0 0 64 64"><path d="M12 18h7l5 25h27l5-18H22" fill="#fff2cf" stroke="#276f4e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path fill="#83d99b" d="M25 28h27l-3 11H27l-2-11Z"/><circle cx="29" cy="51" r="5" fill="#ff737d" stroke="#8b4050" stroke-width="2.5"/><circle cx="47" cy="51" r="5" fill="#ffd45c" stroke="#9a6317" stroke-width="2.5"/><path d="m31 12 5 6 10-10" fill="none" stroke="#73d98c" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+        <symbol id="cactusIconTasks" viewBox="0 0 64 64"><rect x="10" y="7" width="44" height="50" rx="8" fill="#fff2cf" stroke="#276f4e" stroke-width="3"/><path d="m17 22 4 4 7-9M17 38l4 4 7-9M34 22h13M34 38h13" fill="none" stroke="#73d98c" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/><path fill="#ff737d" d="M44 55c-5-4-8-6-8-10 0-5 6-6 8-2 2-4 8-3 8 2 0 4-3 6-8 10Z"/></symbol>
         <symbol id="cactusIconTheme" viewBox="0 0 64 64"><path fill="#ffd45c" stroke="#8b5a27" stroke-width="3" d="M43 49A23 23 0 0 1 20 10c-1 19 11 31 30 29-2 4-4 7-7 10Z"/><path fill="#fff2a8" d="m48 10 2 5 6 2-6 2-2 6-2-6-6-2 6-2 2-5Z"/></symbol>
     </defs>
 </svg>
@@ -134,6 +135,12 @@
         <span class="daily-tool-arrow" aria-hidden="true">›</span>
     </button>
 
+    <div class="daily-tools-grid">
+        <button type="button" id="openTasksBtn" class="daily-tool-card is-compact"><span class="daily-tool-icon"><svg class="cactus-ui-icon" aria-hidden="true"><use href="#cactusIconTasks"></use></svg></span><span class="daily-tool-copy"><small>Organisation</small><strong>Nos tâches</strong><span>À faire ensemble</span></span><span class="daily-tool-arrow">›</span></button>
+        <button type="button" id="openRemindersBtn" class="daily-tool-card is-compact"><span class="daily-tool-icon"><svg class="cactus-ui-icon" aria-hidden="true"><use href="#cactusIconBell"></use></svg></span><span class="daily-tool-copy"><small>À ne pas oublier</small><strong>Nos rappels</strong><span>Date et heure</span></span><span class="daily-tool-arrow">›</span></button>
+        <button type="button" id="openImportantDatesBtn" class="daily-tool-card is-compact"><span class="daily-tool-icon"><svg class="cactus-ui-icon" aria-hidden="true"><use href="#cactusIconCalendar"></use></svg></span><span class="daily-tool-copy"><small>Calendrier</small><strong>Dates importantes</strong><span>Vos événements</span></span><span class="daily-tool-arrow">›</span></button>
+    </div>
+
     <div class="garden-notebooks-heading daily-notebooks-heading">
         <div><small>Vos listes à deux</small><h2>Nos carnets</h2></div>
         <button type="button" id="showCreateNotebookBtn">+ Nouveau</button>
@@ -212,6 +219,51 @@
     <div id="shoppingEmptyState" class="shopping-empty-state"><svg class="cactus-ui-icon" width="62" height="62" aria-hidden="true"><use href="#cactusIconShopping"></use></svg><strong>La liste est vide</strong><p>Ajoutez quelque chose à acheter pour commencer.</p></div>
 
     <button type="button" id="clearCompletedShoppingBtn" class="secondary shopping-clear-button" style="display:none;">Supprimer les articles terminés</button>
+</div>
+
+<!-- ÉCRAN TÂCHES -->
+<div id="tasksScreen" class="secondary-screen daily-organizer-screen" style="display:none;">
+    <header class="organizer-header"><button type="button" id="backFromTasksBtn" aria-label="Retour">‹</button><div><small>Notre quotidien</small><h1>Nos tâches</h1></div><span id="tasksPendingCount">0 à faire</span></header>
+    <section class="organizer-hero"><svg class="cactus-ui-icon" aria-hidden="true"><use href="#cactusIconTasks"></use></svg><div><small>Votre organisation</small><strong>Ce qu’il reste à faire</strong><p>Répartissez vos tâches et avancez ensemble.</p></div></section>
+    <form id="taskForm" class="organizer-form">
+        <div class="organizer-form-heading"><div><small id="taskFormKicker">Nouvelle tâche</small><strong id="taskFormTitle">Que faut-il faire ?</strong></div><button type="button" id="cancelTaskEditBtn" style="display:none;">Annuler</button></div>
+        <input id="taskTitleInput" type="text" maxlength="100" required placeholder="Titre de la tâche">
+        <textarea id="taskDetailsInput" maxlength="500" rows="2" placeholder="Détails facultatifs"></textarea>
+        <div class="organizer-form-grid"><select id="taskAssigneeInput" aria-label="Personne assignée"></select><select id="taskPriorityInput" aria-label="Priorité"><option value="low">Tranquille</option><option value="medium" selected>Importante</option><option value="high">Urgente</option></select><label><span>Échéance</span><input id="taskDueDateInput" type="date"></label></div>
+        <button type="submit" id="saveTaskBtn">Ajouter la tâche</button>
+    </form>
+    <nav class="organizer-filters" aria-label="Filtrer les tâches"><button type="button" class="is-active" data-task-filter="pending">À faire</button><button type="button" data-task-filter="completed">Terminées</button><button type="button" data-task-filter="all">Toutes</button></nav>
+    <div id="tasksList" class="organizer-list"></div><div id="tasksEmptyState" class="organizer-empty"><svg class="cactus-ui-icon"><use href="#cactusIconTasks"></use></svg><strong>Aucune tâche ici</strong><p>Ajoutez votre première tâche partagée.</p></div>
+</div>
+
+<!-- ÉCRAN RAPPELS -->
+<div id="remindersScreen" class="secondary-screen daily-organizer-screen" style="display:none;">
+    <header class="organizer-header"><button type="button" id="backFromRemindersBtn" aria-label="Retour">‹</button><div><small>Notre quotidien</small><h1>Nos rappels</h1></div><span id="remindersUpcomingCount">0 à venir</span></header>
+    <section class="organizer-hero is-reminder"><svg class="cactus-ui-icon" aria-hidden="true"><use href="#cactusIconBell"></use></svg><div><small>À ne pas oublier</small><strong>Vos prochains rappels</strong><p>Une date, une heure et Cactus garde l’information.</p></div></section>
+    <form id="reminderForm" class="organizer-form">
+        <div class="organizer-form-heading"><div><small id="reminderFormKicker">Nouveau rappel</small><strong id="reminderFormTitle">Que faut-il retenir ?</strong></div><button type="button" id="cancelReminderEditBtn" style="display:none;">Annuler</button></div>
+        <input id="reminderTitleInput" type="text" maxlength="100" required placeholder="Titre du rappel">
+        <textarea id="reminderDetailsInput" maxlength="500" rows="2" placeholder="Précisions facultatives"></textarea>
+        <div class="organizer-form-grid"><label><span>Date</span><input id="reminderDateInput" type="date" required></label><label><span>Heure</span><input id="reminderTimeInput" type="time"></label><select id="reminderTargetInput" aria-label="Personne concernée"></select></div>
+        <button type="submit" id="saveReminderBtn">Ajouter le rappel</button>
+    </form>
+    <nav class="organizer-filters" aria-label="Filtrer les rappels"><button type="button" class="is-active" data-reminder-filter="upcoming">À venir</button><button type="button" data-reminder-filter="past">Passés</button><button type="button" data-reminder-filter="all">Tous</button></nav>
+    <div id="remindersList" class="organizer-list"></div><div id="remindersEmptyState" class="organizer-empty"><svg class="cactus-ui-icon"><use href="#cactusIconBell"></use></svg><strong>Aucun rappel ici</strong><p>Créez un rappel partagé pour commencer.</p></div>
+</div>
+
+<!-- ÉCRAN DATES IMPORTANTES -->
+<div id="importantDatesScreen" class="secondary-screen daily-organizer-screen" style="display:none;">
+    <header class="organizer-header"><button type="button" id="backFromImportantDatesBtn" aria-label="Retour">‹</button><div><small>Notre quotidien</small><h1>Dates importantes</h1></div><span id="importantDatesCount">0 date</span></header>
+    <section class="organizer-hero is-date"><svg class="cactus-ui-icon" aria-hidden="true"><use href="#cactusIconCalendar"></use></svg><div><small>Votre calendrier</small><strong>Les moments qui comptent</strong><p>Anniversaires, rendez-vous et événements à deux.</p></div></section>
+    <form id="importantDateForm" class="organizer-form">
+        <div class="organizer-form-heading"><div><small id="importantDateFormKicker">Nouvelle date</small><strong id="importantDateFormTitle">Quel événement garder ?</strong></div><button type="button" id="cancelImportantDateEditBtn" style="display:none;">Annuler</button></div>
+        <input id="importantDateTitleInput" type="text" maxlength="100" required placeholder="Titre de l’événement">
+        <textarea id="importantDateNotesInput" maxlength="500" rows="2" placeholder="Notes facultatives"></textarea>
+        <div class="organizer-form-grid"><label><span>Date</span><input id="importantDateValueInput" type="date" required></label><select id="importantDateCategoryInput" aria-label="Catégorie"><option value="anniversary">Anniversaire</option><option value="appointment">Rendez-vous</option><option value="trip">Voyage</option><option value="celebration">Fête</option><option value="other">Autre</option></select><label class="organizer-checkbox"><input id="importantDateAnnualInput" type="checkbox"><span>Répéter chaque année</span></label></div>
+        <button type="submit" id="saveImportantDateBtn">Ajouter la date</button>
+    </form>
+    <nav class="organizer-filters" aria-label="Filtrer les dates"><button type="button" class="is-active" data-important-date-filter="upcoming">À venir</button><button type="button" data-important-date-filter="annual">Annuelles</button><button type="button" data-important-date-filter="all">Toutes</button></nav>
+    <div id="importantDatesList" class="organizer-list"></div><div id="importantDatesEmptyState" class="organizer-empty"><svg class="cactus-ui-icon"><use href="#cactusIconCalendar"></use></svg><strong>Aucune date ici</strong><p>Ajoutez un événement important pour vous deux.</p></div>
 </div>
 
 <!-- ÉCRAN CARNET -->
@@ -2008,7 +2060,7 @@
     <script src="js/storage.js"></script>
     <script src="js/rankings.js"></script>
     <script src="js/questions.js"></script>
-    <script src="js/script.js?v=52"></script>
+    <script src="js/script.js?v=53"></script>
 
 </body>
 </html>

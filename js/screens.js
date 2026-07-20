@@ -35,7 +35,7 @@ function showScreenContent(screenName) {
     );
     document.body.classList.toggle(
         "secondary-active",
-        ["allGames", "garden", "dailyTools", "shopping", "history", "settings", "notifications", "dailyRitual", "coupleProfile", "onboarding"].includes(screenName)
+        ["allGames", "garden", "dailyTools", "shopping", "tasks", "reminders", "importantDates", "history", "settings", "notifications", "dailyRitual", "coupleProfile", "onboarding"].includes(screenName)
     );
 
     hideScreen(loginScreen);
@@ -60,6 +60,9 @@ function showScreenContent(screenName) {
     hideScreen(gardenScreen);
     hideScreen(dailyToolsScreen);
     hideScreen(shoppingListScreen);
+    hideScreen(tasksScreen);
+    hideScreen(remindersScreen);
+    hideScreen(importantDatesScreen);
     hideScreen(notebookScreen);
 
     hideScreen(guessAnswerScreen);
@@ -111,6 +114,9 @@ settingsBtn.style.setProperty("display", "none", "important");
     screenName === "garden" ||
     screenName === "dailyTools" ||
     screenName === "shopping" ||
+    screenName === "tasks" ||
+    screenName === "reminders" ||
+    screenName === "importantDates" ||
     screenName === "settings"
 ) {
     historyBtn.style.display = "flex";
@@ -200,6 +206,23 @@ settingsBtn.style.setProperty("display", "none", "important");
         case "shopping":
             shoppingListScreen.style.display = "block";
             renderShoppingList(currentSpaceData?.dailyTools?.shopping?.items || {});
+            break;
+
+        case "tasks":
+            tasksScreen.style.display = "block";
+            prepareOrganizerAssignees(taskAssigneeInput);
+            renderTasks(currentSpaceData?.dailyTools?.tasks || {});
+            break;
+
+        case "reminders":
+            remindersScreen.style.display = "block";
+            prepareOrganizerAssignees(reminderTargetInput);
+            renderReminders(currentSpaceData?.dailyTools?.reminders || {});
+            break;
+
+        case "importantDates":
+            importantDatesScreen.style.display = "block";
+            renderImportantDates(currentSpaceData?.dailyTools?.importantDates || {});
             break;
 
         case "notebook":
