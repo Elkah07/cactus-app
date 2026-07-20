@@ -511,6 +511,7 @@ let currentUser = null;
 
 let pseudo = "";
 let currentSpaceCode = "";
+let currentInviteCode = "";
 
 let rankings = [];
 let currentRanking = null;
@@ -737,7 +738,7 @@ function listenToCurrentSpace(spaceCodeValue) {
             partnerName.textContent = "En attente...";
         }
 
-        spaceCode.textContent = spaceCodeValue;
+        spaceCode.textContent = currentInviteCode || spaceCodeValue;
 
         if (spaceCodeLabel) {
             spaceCodeLabel.textContent = partner
@@ -854,17 +855,19 @@ createSpaceBtn.addEventListener("click", () => {
     createSpaceBtn.textContent = "Création…";
 
     createUniqueSpace()
-        .then((spaceCodeValue) => {
-            currentSpaceCode = spaceCodeValue;
+        .then(({ spaceId, inviteCode }) => {
+            currentSpaceCode = spaceId;
+            currentInviteCode = inviteCode;
             localStorage.setItem("currentSpaceCode", currentSpaceCode);
 
             return database.ref("users/" + currentUser.uid).update({
-                spaceCode: currentSpaceCode
+                spaceCode: currentSpaceCode,
+                inviteCode: currentInviteCode
             });
         })
         .then(() => {
             displayPseudo.textContent = pseudo;
-            spaceCode.textContent = currentSpaceCode;
+            spaceCode.textContent = currentInviteCode;
             listenToCurrentSpace(currentSpaceCode);
             showScreen("dashboard");
         })
@@ -883,26 +886,40 @@ function createUniqueSpace(attempt = 0) {
         return Promise.reject(new Error("Aucun code espace disponible"));
     }
 
-    const candidate = generateSpaceCode();
-    const reference = database.ref("spaces/" + candidate);
+    const inviteCode = generateSpaceCode();
+    const spaceReference = database.ref("spaces").push();
+    const spaceId = spaceReference.key;
+    const invitationReference = database.ref("invitations/" + inviteCode);
+    const expiresAt = Date.now() + (7 * 24 * 60 * 60 * 1000);
 
-    return reference.transaction((existingSpace) => {
-        if (existingSpace) {
+    return invitationReference.transaction((existingInvitation) => {
+        if (existingInvitation) {
             return;
         }
 
         return {
-            code: candidate,
+            spaceId,
+            createdBy: currentUser.uid,
+            createdAt: Date.now(),
+            expiresAt
+        };
+    }).then((result) => {
+        if (!result.committed) {
+            return createUniqueSpace(attempt + 1);
+        }
+
+        return spaceReference.set({
+            code: inviteCode,
+            inviteCode,
             createdAt: Date.now(),
             player1: { uid: currentUser.uid, pseudo },
             player2: null
-        };
-    }).then((result) => {
-        if (result.committed) {
-            return candidate;
-        }
-
-        return createUniqueSpace(attempt + 1);
+        }).then(() => ({ spaceId, inviteCode }))
+            .catch((error) => {
+                return invitationReference.remove().then(() => {
+                    throw error;
+                });
+            });
     });
 }
 
@@ -917,8 +934,47 @@ joinSpaceBtn.addEventListener("click", () => {
     joinSpaceBtn.disabled = true;
     joinSpaceBtn.textContent = "Connexion…";
 
-    const spaceReference = database.ref("spaces/" + joinCode);
-    spaceReference.transaction((spaceData) => {
+    const invitationReference = database.ref("invitations/" + joinCode);
+    let joinedSpaceId = "";
+
+    invitationReference.transaction((invitation) => {
+        if (!invitation || invitation.expiresAt <= Date.now()) {
+            return;
+        }
+
+        if (invitation.claimedBy && invitation.claimedBy !== currentUser.uid) {
+            return;
+        }
+
+        invitation.claimedBy = currentUser.uid;
+        invitation.claimedAt = Date.now();
+        return invitation;
+    }).then((claimResult) => {
+        const invitation = claimResult.snapshot.val();
+
+        if (!invitation) {
+            throw new Error("CODE_INVALIDE");
+        }
+
+        if (invitation.expiresAt <= Date.now()) {
+            throw new Error("CODE_EXPIRE");
+        }
+
+        if (!claimResult.committed || invitation.claimedBy !== currentUser.uid) {
+            throw new Error("ESPACE_COMPLET");
+        }
+
+        joinedSpaceId = invitation.spaceId;
+
+        return database.ref(
+            "joinRequests/" + joinedSpaceId + "/" + currentUser.uid
+        ).set({
+            inviteCode: joinCode,
+            createdAt: Date.now()
+        });
+    }).then(() => {
+        const spaceReference = database.ref("spaces/" + joinedSpaceId);
+        return spaceReference.transaction((spaceData) => {
         if (!spaceData) {
             return;
         }
@@ -938,6 +994,7 @@ joinSpaceBtn.addEventListener("click", () => {
         const playerSlot = spaceData.player1 ? "player2" : "player1";
         spaceData[playerSlot] = { uid: currentUser.uid, pseudo };
         return spaceData;
+        });
     }).then((result) => {
         const spaceData = result.snapshot.val();
         if (!spaceData) {
@@ -955,23 +1012,46 @@ joinSpaceBtn.addEventListener("click", () => {
         }
 
         return database.ref("users/" + currentUser.uid).update({
-            spaceCode: joinCode
+            spaceCode: joinedSpaceId,
+            inviteCode: joinCode
         }).then(() => true);
     }).then((joined) => {
         if (!joined) {
             return;
         }
 
-        currentSpaceCode = joinCode;
+        currentSpaceCode = joinedSpaceId;
+        currentInviteCode = joinCode;
         localStorage.setItem("currentSpaceCode", currentSpaceCode);
-        spaceCode.textContent = currentSpaceCode;
+        spaceCode.textContent = currentInviteCode;
         displayPseudo.textContent = pseudo;
         listenToCurrentSpace(currentSpaceCode);
         showScreen("dashboard");
     })
         .catch((error) => {
             console.error(error);
-            alert(error.message);
+
+            const messages = {
+                CODE_INVALIDE: "Ce code d’invitation est invalide 🌵",
+                CODE_EXPIRE: "Cette invitation a expiré 🌵",
+                ESPACE_COMPLET: "Cet espace est déjà complet 🌵"
+            };
+
+            const message = messages[error.message] || error.message;
+
+            return invitationReference.transaction((invitation) => {
+                if (!invitation || invitation.claimedBy !== currentUser.uid) {
+                    return invitation;
+                }
+
+                delete invitation.claimedBy;
+                delete invitation.claimedAt;
+                return invitation;
+            }).catch((releaseError) => {
+                console.warn("Libération de l’invitation impossible", releaseError);
+            }).then(() => {
+                alert(message);
+            });
         })
         .finally(() => {
             joinSpaceBtn.disabled = false;
@@ -1189,11 +1269,15 @@ leaveSpaceBtn.addEventListener("click", () => {
             }
         })
         .then(() => {
-            return database.ref("users/" + currentUser.uid + "/spaceCode").remove();
+            return database.ref("users/" + currentUser.uid).update({
+                spaceCode: null,
+                inviteCode: null
+            });
         })
         .then(() => {
             stopCurrentSpaceListeners();
             currentSpaceCode = "";
+            currentInviteCode = "";
             currentSpaceData = null;
 
             spaceCode.textContent = "CACTUS-0000";
@@ -1993,16 +2077,18 @@ dashboardProfileBtn.addEventListener("click", () => {
 });
 
 dashboardSpaceCode.addEventListener("click", async () => {
-    if (!currentSpaceCode) {
+    const codeToCopy = currentInviteCode || currentSpaceCode;
+
+    if (!codeToCopy) {
         return;
     }
 
     try {
-        await navigator.clipboard.writeText(currentSpaceCode);
+        await navigator.clipboard.writeText(codeToCopy);
         showToast("Code de l’espace copié 🌵");
     } catch (error) {
         console.warn("Copie du code indisponible", error);
-        showToast("Code : " + currentSpaceCode);
+        showToast("Code : " + codeToCopy);
     }
 });
 
@@ -6446,7 +6532,8 @@ auth.onAuthStateChanged((user) => {
 
                 if (userData.spaceCode) {
                     currentSpaceCode = userData.spaceCode;
-                    spaceCode.textContent = currentSpaceCode;
+                    currentInviteCode = userData.inviteCode || userData.spaceCode;
+                    spaceCode.textContent = currentInviteCode;
 
                     listenToCurrentSpace(currentSpaceCode);
 

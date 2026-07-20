@@ -1,9 +1,14 @@
 function generateSpaceCode() {
-    const randomNumber = Math.floor(
-        1000 + Math.random() * 9000
-    );
+    const alphabet = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+    const randomValues = new Uint32Array(8);
 
-    return `CACTUS-${randomNumber}`;
+    crypto.getRandomValues(randomValues);
+
+    const code = Array.from(randomValues, (value) => {
+        return alphabet[value % alphabet.length];
+    }).join("");
+
+    return `CACTUS-${code.slice(0, 4)}-${code.slice(4)}`;
 }
 
 function getRandomItem(items, excludedId = null) {
