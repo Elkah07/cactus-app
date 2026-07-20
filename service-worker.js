@@ -136,3 +136,4 @@ self.addEventListener("fetch", (event) => {
 
     event.respondWith(cacheFirstWithRefresh(request));
 });
+
