@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cactus 🌵</title>
-    <link rel="stylesheet" href="css/style.css?v=41">
+    <link rel="stylesheet" href="css/style.css?v=45">
     <link rel="manifest" href="manifest.json?v=2">
     <meta name="theme-color" content="#003E2D">
 </head>
@@ -1033,11 +1033,28 @@
         <input id="profileCactusNameInput" type="text" maxlength="30" placeholder="Cactou">
         <label for="profileMottoInput">Notre petite phrase</label>
         <input id="profileMottoInput" type="text" maxlength="100" placeholder="Notre petit monde à deux.">
-        <label for="profileAccentInput">Notre couleur</label>
-        <div class="profile-color-row">
-            <input id="profileAccentInput" type="color" value="#54d38b">
-            <span id="profileAccentValue">#54D38B</span>
-        </div>
+        <fieldset class="profile-color-picker">
+            <legend>Notre couleur</legend>
+            <div class="profile-color-preview-row">
+                <span id="profileAccentPreview" class="profile-color-preview" style="--selected-color:#54d38b" aria-hidden="true"></span>
+                <span><small>Aperçu de votre univers</small><strong id="profileAccentValue">#54D38B</strong></span>
+            </div>
+            <div class="profile-color-palette" role="radiogroup" aria-label="Couleurs Cactus">
+                <button type="button" class="is-selected" data-profile-color="#54d38b" style="--swatch:#54d38b" aria-label="Vert Cactus" aria-checked="true" role="radio"></button>
+                <button type="button" data-profile-color="#ff737d" style="--swatch:#ff737d" aria-label="Corail" aria-checked="false" role="radio"></button>
+                <button type="button" data-profile-color="#f5b94c" style="--swatch:#f5b94c" aria-label="Doré" aria-checked="false" role="radio"></button>
+                <button type="button" data-profile-color="#73cfd0" style="--swatch:#73cfd0" aria-label="Lagon" aria-checked="false" role="radio"></button>
+                <button type="button" data-profile-color="#a88be2" style="--swatch:#a88be2" aria-label="Lavande" aria-checked="false" role="radio"></button>
+                <button type="button" data-profile-color="#ee8fbd" style="--swatch:#ee8fbd" aria-label="Rose" aria-checked="false" role="radio"></button>
+                <button type="button" data-profile-color="#78b7ee" style="--swatch:#78b7ee" aria-label="Ciel" aria-checked="false" role="radio"></button>
+                <button type="button" data-profile-color="#a7cf62" style="--swatch:#a7cf62" aria-label="Pistache" aria-checked="false" role="radio"></button>
+            </div>
+            <label class="profile-custom-color" for="profileAccentHexInput">
+                <span>Couleur personnalisée</span>
+                <span class="profile-hex-field"><strong>#</strong><input id="profileAccentHexInput" type="text" value="54D38B" maxlength="6" inputmode="text" autocomplete="off" spellcheck="false" aria-label="Code couleur hexadécimal"></span>
+            </label>
+            <input id="profileAccentInput" type="hidden" value="#54d38b">
+        </fieldset>
         <button type="submit" id="saveCoupleProfileBtn">Enregistrer notre profil</button>
     </form>
 
@@ -1841,7 +1858,7 @@
     <script src="js/storage.js"></script>
     <script src="js/rankings.js"></script>
     <script src="js/questions.js"></script>
-    <script src="js/script.js?v=44"></script>
+    <script src="js/script.js?v=45"></script>
 
 </body>
 </html>

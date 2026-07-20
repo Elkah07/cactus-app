@@ -541,6 +541,9 @@ const profileCactusNameInput = document.getElementById("profileCactusNameInput")
 const profileMottoInput = document.getElementById("profileMottoInput");
 const profileAccentInput = document.getElementById("profileAccentInput");
 const profileAccentValue = document.getElementById("profileAccentValue");
+const profileAccentPreview = document.getElementById("profileAccentPreview");
+const profileAccentHexInput = document.getElementById("profileAccentHexInput");
+const profileColorButtons = document.querySelectorAll("[data-profile-color]");
 const saveCoupleProfileBtn = document.getElementById("saveCoupleProfileBtn");
 const openStoryFromProfileBtn = document.getElementById("openStoryFromProfileBtn");
 
@@ -3337,10 +3340,42 @@ openStoryFromProfileBtn.addEventListener("click", () => {
     openStoryPage();
 });
 
-profileAccentInput.addEventListener("input", () => {
-    profileAccentValue.textContent = profileAccentInput.value.toUpperCase();
-    coupleProfileScreen.style.setProperty("--profile-accent", profileAccentInput.value);
+profileColorButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+        setProfileAccentColor(button.dataset.profileColor);
+    });
 });
+
+profileAccentHexInput.addEventListener("input", () => {
+    const value = "#" + profileAccentHexInput.value.replace(/[^0-9a-f]/gi, "").slice(0, 6);
+    profileAccentHexInput.value = value.slice(1).toUpperCase();
+
+    if (/^#[0-9a-f]{6}$/i.test(value)) {
+        setProfileAccentColor(value, false);
+    }
+});
+
+profileAccentHexInput.addEventListener("blur", () => {
+    profileAccentHexInput.value = profileAccentInput.value.slice(1).toUpperCase();
+});
+
+function setProfileAccentColor(value, synchronizeHex = true) {
+    const color = getSafeProfileColor(value).toUpperCase();
+    profileAccentInput.value = color;
+    profileAccentValue.textContent = color;
+    profileAccentPreview.style.setProperty("--selected-color", color);
+    coupleProfileScreen.style.setProperty("--profile-accent", color);
+
+    if (synchronizeHex) {
+        profileAccentHexInput.value = color.slice(1);
+    }
+
+    profileColorButtons.forEach((button) => {
+        const selected = button.dataset.profileColor.toUpperCase() === color;
+        button.classList.toggle("is-selected", selected);
+        button.setAttribute("aria-checked", selected ? "true" : "false");
+    });
+}
 
 profileAvatarInput.addEventListener("input", () => {
     profileMyAvatar.textContent = profileAvatarInput.value.trim() || "🌵";
@@ -8915,8 +8950,7 @@ function openCoupleProfile() {
     profileSpaceNameInput.value = profile.spaceName || "Notre coin Cactus";
     profileCactusNameInput.value = profile.cactusName || "Cactou";
     profileMottoInput.value = profile.motto || "Notre petit monde à deux.";
-    profileAccentInput.value = getSafeProfileColor(profile.accentColor);
-    profileAccentValue.textContent = profileAccentInput.value.toUpperCase();
+    setProfileAccentColor(getSafeProfileColor(profile.accentColor));
     showScreen("coupleProfile");
 }
 

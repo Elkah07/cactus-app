@@ -1,12 +1,12 @@
-const CACHE_VERSION = "v44";
+const CACHE_VERSION = "v45";
 const SHELL_CACHE = `cactus-shell-${CACHE_VERSION}`;
 const RUNTIME_CACHE = `cactus-runtime-${CACHE_VERSION}`;
 
 const APP_SHELL = [
     "./index.html",
-    "./css/style.css?v=41",
+    "./css/style.css?v=45",
     "./js/firebase.js",
-    "./js/script.js?v=44",
+    "./js/script.js?v=45",
     "./js/screens.js",
     "./js/utils.js",
     "./js/storage.js",

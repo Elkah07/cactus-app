@@ -6336,3 +6336,156 @@ body:not(.dark-theme) #dashboardNotificationsBadge {
     height: 52px;
     margin: 0 auto;
 }
+
+/* Sélecteur de couleur Cactus, sans fenêtre système. */
+.profile-color-picker {
+    min-width: 0;
+    margin: 14px 0 0;
+    padding: 14px;
+    border: 1px solid var(--app-border);
+    border-radius: 20px;
+    background: linear-gradient(145deg, var(--app-icon-bg), var(--app-panel-bg));
+}
+
+.profile-color-picker legend {
+    padding: 0 7px;
+    color: var(--app-muted);
+    font-size: 0.65rem;
+    font-weight: 850;
+}
+
+.profile-color-preview-row {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    margin-bottom: 14px;
+}
+
+.profile-color-preview {
+    position: relative;
+    width: 54px;
+    height: 54px;
+    flex: 0 0 54px;
+    border: 3px solid rgba(255, 255, 255, 0.76);
+    border-radius: 18px;
+    background:
+        radial-gradient(circle at 30% 25%, rgba(255, 255, 255, 0.72), transparent 24%),
+        var(--selected-color);
+    box-shadow: 0 9px 20px color-mix(in srgb, var(--selected-color) 34%, transparent);
+}
+
+.profile-color-preview::after {
+    content: "";
+    position: absolute;
+    right: 7px;
+    bottom: 7px;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.88);
+}
+
+.profile-color-preview-row small,
+.profile-color-preview-row strong {
+    display: block;
+}
+
+.profile-color-preview-row small {
+    color: var(--app-muted);
+    font-size: 0.59rem;
+}
+
+#profileAccentValue {
+    margin-top: 3px;
+    color: var(--app-heading);
+    font-size: 0.83rem;
+    letter-spacing: 0.06em;
+}
+
+.profile-color-palette {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 9px;
+}
+
+.couple-profile-form .profile-color-palette button {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1.35;
+    min-height: 42px;
+    margin: 0;
+    padding: 0;
+    border: 2px solid transparent;
+    border-radius: 14px;
+    background: var(--swatch);
+    box-shadow: inset 0 1px rgba(255, 255, 255, 0.45), 0 6px 14px rgba(0, 35, 25, 0.12);
+    transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.couple-profile-form .profile-color-palette button:hover {
+    transform: translateY(-2px);
+}
+
+.couple-profile-form .profile-color-palette button.is-selected {
+    border-color: var(--app-heading);
+    box-shadow: 0 0 0 3px var(--app-panel-bg), 0 0 0 5px var(--swatch), 0 9px 18px rgba(0, 35, 25, 0.18);
+}
+
+.couple-profile-form .profile-color-palette button.is-selected::after {
+    content: "✓";
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    display: grid;
+    width: 19px;
+    height: 19px;
+    place-items: center;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.92);
+    color: #174a37;
+    font-size: 0.68rem;
+    font-weight: 950;
+}
+
+.profile-custom-color {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 15px;
+    color: var(--app-muted);
+    font-size: 0.62rem;
+    font-weight: 800;
+}
+
+.profile-hex-field {
+    display: flex;
+    width: 116px;
+    height: 42px;
+    align-items: center;
+    gap: 3px;
+    padding: 0 10px;
+    border: 1px solid var(--app-border-strong);
+    border-radius: 13px;
+    background: var(--app-input-bg);
+}
+
+.profile-hex-field strong {
+    color: var(--app-muted);
+    font-size: 0.78rem;
+}
+
+.couple-profile-form .profile-hex-field input {
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    color: var(--app-heading);
+    font-size: 0.72rem;
+    font-weight: 900;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
