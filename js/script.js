@@ -29,6 +29,7 @@ const forgotPasswordBtn = document.getElementById("forgotPasswordBtn");
 const authEmail = document.getElementById("authEmail");
 const authPassword = document.getElementById("authPassword");
 const authMessage = document.getElementById("authMessage");
+const connectionStatusBanner = document.getElementById("connectionStatusBanner");
 const logoutBtn = document.getElementById("logoutBtn");
 
 const partnerName = document.getElementById("partnerName");
@@ -1066,6 +1067,13 @@ joinSpaceBtn.addEventListener("click", () => {
         return database.ref("users/" + currentUser.uid).update({
             spaceCode: joinedSpaceId,
             inviteCode: joinCode
+        }).then(() => {
+            return database
+                .ref("joinRequests/" + joinedSpaceId + "/" + currentUser.uid)
+                .remove()
+                .catch((cleanupError) => {
+                    console.warn("Nettoyage de la demande différé", cleanupError);
+                });
         }).then(() => true);
     }).then((joined) => {
         if (!joined) {
@@ -1089,19 +1097,28 @@ joinSpaceBtn.addEventListener("click", () => {
                 ESPACE_COMPLET: "Cet espace est déjà complet 🌵"
             };
 
-            const message = messages[error.message] || error.message;
+            const message = messages[error.message] || getFriendlyFirebaseError(error);
+            const invitationCleanup = error.message === "CODE_EXPIRE"
+                ? invitationReference.remove()
+                : invitationReference.transaction((invitation) => {
+                    if (!invitation || invitation.claimedBy !== currentUser.uid) {
+                        return invitation;
+                    }
 
-            return invitationReference.transaction((invitation) => {
-                if (!invitation || invitation.claimedBy !== currentUser.uid) {
+                    delete invitation.claimedBy;
+                    delete invitation.claimedAt;
                     return invitation;
-                }
+                });
+            const joinRequestCleanup = joinedSpaceId
+                ? database.ref(
+                    "joinRequests/" + joinedSpaceId + "/" + currentUser.uid
+                ).remove()
+                : Promise.resolve();
 
-                delete invitation.claimedBy;
-                delete invitation.claimedAt;
-                return invitation;
-            }).catch((releaseError) => {
-                console.warn("Libération de l’invitation impossible", releaseError);
-            }).then(() => {
+            return Promise.all([invitationCleanup, joinRequestCleanup])
+                .catch((cleanupError) => {
+                    console.warn("Nettoyage de la jonction impossible", cleanupError);
+                }).then(() => {
                 alert(message);
             });
         })
@@ -1265,7 +1282,7 @@ signupBtn.addEventListener("click", () => {
             showScreen("pseudo");
         })
         .catch((error) => {
-            authMessage.textContent = error.message;
+            authMessage.textContent = getFriendlyFirebaseError(error);
         });
 });
 
@@ -1284,7 +1301,7 @@ loginBtn.addEventListener("click", () => {
     console.log("Connecté :", currentUser.uid);
 })
         .catch((error) => {
-            authMessage.textContent = error.message;
+            authMessage.textContent = getFriendlyFirebaseError(error);
         });
 });
 
@@ -7587,6 +7604,119 @@ function showDashboardLastActivity(text) {
 // LANCEMENT
 // ====================
 
+function getFriendlyFirebaseError(error) {
+    const code = String(error?.code || "").toLowerCase();
+
+    if (code.includes("network") || code.includes("disconnected")) {
+        return "La connexion est interrompue. Réessaie dans un instant 🌵";
+    }
+    if (code.includes("permission")) {
+        return "Cet accès n’est plus autorisé. Reconnecte-toi puis réessaie.";
+    }
+    if (code.includes("too-many-requests")) {
+        return "Trop de tentatives. Attends quelques minutes avant de réessayer.";
+    }
+    if (code.includes("invalid-email")) {
+        return "Cette adresse e-mail n’est pas valide.";
+    }
+    if (code.includes("email-already-in-use")) {
+        return "Un compte utilise déjà cette adresse e-mail.";
+    }
+    if (code.includes("weak-password")) {
+        return "Choisis un mot de passe plus sécurisé.";
+    }
+    if (code.includes("wrong-password") || code.includes("invalid-credential")) {
+        return "L’adresse e-mail ou le mot de passe est incorrect.";
+    }
+
+    return "Une erreur Firebase est survenue. Réessaie dans un instant.";
+}
+
+function startFirebaseConnectionMonitoring() {
+    let disconnectTimer = null;
+    let hasConnectedOnce = false;
+    let bannerWasShown = false;
+
+    database.ref(".info/connected").on("value", (snapshot) => {
+        const connected = snapshot.val() === true;
+
+        if (connected) {
+            if (disconnectTimer) {
+                window.clearTimeout(disconnectTimer);
+                disconnectTimer = null;
+            }
+            connectionStatusBanner.hidden = true;
+
+            if (hasConnectedOnce && bannerWasShown) {
+                showToast("Connexion rétablie, synchronisation en cours ☁️");
+            }
+
+            hasConnectedOnce = true;
+            bannerWasShown = false;
+            return;
+        }
+
+        if (disconnectTimer) {
+            return;
+        }
+
+        disconnectTimer = window.setTimeout(() => {
+            connectionStatusBanner.hidden = false;
+            bannerWasShown = true;
+            disconnectTimer = null;
+        }, 1200);
+    });
+}
+
+function clearUnavailableSpace() {
+    stopCurrentSpaceListeners();
+
+    return database.ref("users/" + currentUser.uid).update({
+        spaceCode: null,
+        inviteCode: null
+    }).then(() => {
+        currentSpaceCode = "";
+        currentInviteCode = "";
+        currentSpaceData = null;
+        localStorage.removeItem("currentSpaceCode");
+        showScreen("couple");
+        showToast("Cet espace n’est plus disponible");
+    });
+}
+
+function restoreUserSpace(userData) {
+    currentSpaceCode = userData.spaceCode;
+    currentInviteCode = userData.inviteCode || userData.spaceCode;
+    spaceCode.textContent = currentInviteCode;
+
+    return database.ref("spaces/" + currentSpaceCode).once("value")
+        .then((snapshot) => {
+            const spaceData = snapshot.val();
+            const isMember = spaceData && [spaceData.player1, spaceData.player2].some((player) => {
+                return player?.uid === currentUser.uid;
+            });
+
+            if (!isMember) {
+                return clearUnavailableSpace();
+            }
+
+            currentSpaceData = spaceData;
+            listenToCurrentSpace(currentSpaceCode);
+            showScreen("dashboard");
+        })
+        .catch((error) => {
+            const code = String(error?.code || "").toLowerCase();
+
+            if (code.includes("permission")) {
+                return clearUnavailableSpace();
+            }
+
+            console.warn("Vérification de l’espace différée", error);
+            listenToCurrentSpace(currentSpaceCode);
+            showScreen("dashboard");
+        });
+}
+
 auth.onAuthStateChanged((user) => {
     if (user) {
         currentUser = user;
@@ -7606,13 +7736,7 @@ auth.onAuthStateChanged((user) => {
                 displayPseudo.textContent = pseudo;
 
                 if (userData.spaceCode) {
-                    currentSpaceCode = userData.spaceCode;
-                    currentInviteCode = userData.inviteCode || userData.spaceCode;
-                    spaceCode.textContent = currentInviteCode;
-
-                    listenToCurrentSpace(currentSpaceCode);
-
-                    showScreen("dashboard");
+                    return restoreUserSpace(userData);
                 } else {
                     stopCurrentSpaceListeners();
                     showScreen("couple");
@@ -7632,6 +7756,7 @@ loadLikelyQuestionsData();
 
 loadNotificationPreferences();
 applyTheme(localStorage.getItem("theme") === "dark" ? "dark" : "light");
+startFirebaseConnectionMonitoring();
 
 if ("serviceWorker" in navigator) {
     const updateBanner = document.getElementById("appUpdateBanner");

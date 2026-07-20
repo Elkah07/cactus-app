@@ -3806,6 +3806,53 @@ body.achievements-active .top-right-btn {
     display: none;
 }
 
+.connection-status-banner {
+    position: fixed;
+    top: max(12px, env(safe-area-inset-top));
+    right: max(12px, env(safe-area-inset-right));
+    left: max(12px, env(safe-area-inset-left));
+    z-index: 10001;
+    display: flex;
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 10px 13px;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid rgba(230, 172, 66, 0.45);
+    border-radius: 17px;
+    background: var(--app-panel-bg);
+    color: var(--app-text);
+    box-shadow: 0 12px 34px var(--app-shadow);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+}
+
+.connection-status-banner[hidden] {
+    display: none;
+}
+
+.connection-status-banner > span {
+    font-size: 1.35rem;
+}
+
+.connection-status-banner p,
+.connection-status-banner strong,
+.connection-status-banner small {
+    display: block;
+    margin: 0;
+}
+
+.connection-status-banner strong {
+    color: var(--app-heading);
+    font-size: 0.73rem;
+}
+
+.connection-status-banner small {
+    margin-top: 2px;
+    color: var(--app-muted);
+    font-size: 0.61rem;
+}
+
 .app-update-banner > div {
     display: flex;
     min-width: 0;
