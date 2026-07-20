@@ -3438,6 +3438,69 @@ body.achievements-active .top-right-btn {
     margin: 0;
 }
 
+.account-danger-panel {
+    border-color: rgba(204, 73, 73, 0.28);
+}
+
+.account-danger-panel > p,
+.delete-account-confirm-box > p {
+    color: var(--app-muted);
+    font-size: 0.67rem;
+    line-height: 1.45;
+}
+
+.danger-outline-btn {
+    border: 1px solid rgba(204, 73, 73, 0.5);
+    background: transparent;
+    color: #d45e5e;
+    box-shadow: none;
+}
+
+.danger-outline-btn:hover {
+    background: rgba(204, 73, 73, 0.1);
+}
+
+.delete-account-confirm-box {
+    margin-top: 13px;
+    padding: 13px;
+    border: 1px solid rgba(204, 73, 73, 0.34);
+    border-radius: 17px;
+    background: rgba(178, 49, 49, 0.08);
+}
+
+.delete-account-confirm-box > strong {
+    display: block;
+    color: #d45e5e;
+    font-size: 0.82rem;
+}
+
+.delete-account-confirm-box input {
+    border-color: rgba(204, 73, 73, 0.45);
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.delete-account-confirm-box > div {
+    display: grid;
+    grid-template-columns: 1fr 0.7fr;
+    gap: 8px;
+}
+
+.delete-account-confirm-box button {
+    min-height: 46px;
+    margin: 0;
+    padding: 9px;
+    font-size: 0.65rem;
+}
+
+@media (max-width: 390px) {
+    .delete-account-confirm-box > div {
+        grid-template-columns: 1fr;
+    }
+}
+
 .account-export-box small {
     color: var(--app-accent);
     font-size: 0.59rem;

@@ -66,6 +66,11 @@ const currentAccountEmail = document.getElementById("currentAccountEmail");
 const newAccountPassword = document.getElementById("newAccountPassword");
 const changePasswordBtn = document.getElementById("changePasswordBtn");
 const exportDataBtn = document.getElementById("exportDataBtn");
+const showDeleteAccountBtn = document.getElementById("showDeleteAccountBtn");
+const deleteAccountConfirmBox = document.getElementById("deleteAccountConfirmBox");
+const deleteAccountConfirmation = document.getElementById("deleteAccountConfirmation");
+const confirmDeleteAccountBtn = document.getElementById("confirmDeleteAccountBtn");
+const cancelDeleteAccountBtn = document.getElementById("cancelDeleteAccountBtn");
 
 const rankingCompatibilityScreen = document.getElementById("rankingCompatibilityScreen");
 const rankingCompatibilityTitle = document.getElementById("rankingCompatibilityTitle");
@@ -1422,6 +1427,105 @@ function exportAccountData() {
         });
 }
 
+async function hasRecentAuthentication(user) {
+    const tokenResult = await user.getIdTokenResult();
+    const authenticationTime = Date.parse(tokenResult.authTime);
+
+    return Number.isFinite(authenticationTime) &&
+        Date.now() - authenticationTime < 5 * 60 * 1000;
+}
+
+async function deleteCurrentAccount() {
+    if (deleteAccountConfirmation.value.trim() !== "SUPPRIMER") {
+        showToast("Écris exactement SUPPRIMER pour confirmer");
+        deleteAccountConfirmation.focus();
+        return;
+    }
+
+    const user = auth.currentUser;
+    if (!user) {
+        showToast("Reconnecte-toi avant de supprimer ton compte");
+        return;
+    }
+
+    confirmDeleteAccountBtn.disabled = true;
+    cancelDeleteAccountBtn.disabled = true;
+    confirmDeleteAccountBtn.textContent = "Vérification…";
+    let databaseDataRemoved = false;
+
+    try {
+        const isRecent = await hasRecentAuthentication(user);
+
+        if (!isRecent) {
+            showToast("Déconnecte-toi puis reconnecte-toi avant de confirmer la suppression");
+            return;
+        }
+
+        const userUid = user.uid;
+        const spaceReference = currentSpaceCode
+            ? database.ref("spaces/" + currentSpaceCode).once("value")
+            : Promise.resolve(null);
+        const invitationReference = currentInviteCode
+            ? database.ref("invitations/" + currentInviteCode).once("value")
+            : Promise.resolve(null);
+        const [spaceSnapshot, invitationSnapshot] = await Promise.all([
+            spaceReference,
+            invitationReference
+        ]);
+        const spaceData = spaceSnapshot ? spaceSnapshot.val() : null;
+        const invitationData = invitationSnapshot ? invitationSnapshot.val() : null;
+        const updates = {};
+        updates["users/" + userUid] = null;
+
+        if (spaceData && currentSpaceCode) {
+            const mySlot = spaceData.player1?.uid === userUid
+                ? "player1"
+                : (spaceData.player2?.uid === userUid ? "player2" : null);
+            const partnerExists = [spaceData.player1, spaceData.player2].some((player) => {
+                return player && player.uid !== userUid;
+            });
+
+            if (mySlot && partnerExists) {
+                updates["spaces/" + currentSpaceCode + "/" + mySlot] = null;
+            } else if (mySlot) {
+                if (invitationData && invitationData.spaceId === currentSpaceCode) {
+                    updates["invitations/" + currentInviteCode] = null;
+                }
+                updates["joinRequests/" + currentSpaceCode + "/" + userUid] = null;
+                updates["spaces/" + currentSpaceCode] = null;
+            }
+        }
+
+        confirmDeleteAccountBtn.textContent = "Suppression…";
+        await database.ref().update(updates);
+        databaseDataRemoved = true;
+        await user.delete();
+
+        stopCurrentSpaceListeners();
+        localStorage.clear();
+        sessionStorage.clear();
+        currentSpaceCode = "";
+        currentInviteCode = "";
+        currentSpaceData = null;
+        showScreen("login");
+        authMessage.textContent = "Ton compte Cactus a été supprimé.";
+    } catch (error) {
+        console.error("Suppression du compte impossible", error);
+
+        if (error.code === "auth/requires-recent-login") {
+            showToast("Déconnecte-toi puis reconnecte-toi avant de réessayer");
+        } else if (databaseDataRemoved) {
+            showToast("Les données ont été retirées, mais Firebase n’a pas supprimé la connexion. Reconnecte-toi et contacte la créatrice.");
+        } else {
+            showToast("Impossible de supprimer le compte pour le moment");
+        }
+    } finally {
+        confirmDeleteAccountBtn.disabled = false;
+        cancelDeleteAccountBtn.disabled = false;
+        confirmDeleteAccountBtn.textContent = "Confirmer la suppression";
+    }
+}
+
 logoutBtn.addEventListener("click", () => {
     auth.signOut();
 });
@@ -2219,6 +2323,21 @@ changePasswordBtn.addEventListener("click", () => {
 
 exportDataBtn.addEventListener("click", () => {
     exportAccountData();
+});
+
+showDeleteAccountBtn.addEventListener("click", () => {
+    deleteAccountConfirmBox.style.display = "block";
+    deleteAccountConfirmation.value = "";
+    deleteAccountConfirmation.focus();
+});
+
+cancelDeleteAccountBtn.addEventListener("click", () => {
+    deleteAccountConfirmBox.style.display = "none";
+    deleteAccountConfirmation.value = "";
+});
+
+confirmDeleteAccountBtn.addEventListener("click", () => {
+    deleteCurrentAccount();
 });
 
 dashboardNotificationsBtn.addEventListener("click", () => {

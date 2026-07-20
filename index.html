@@ -1596,6 +1596,25 @@
         <p>Ces actions modifient l’espace commun utilisé avec ta partenaire.</p>
     </section>
 
+    <section class="settings-panel account-danger-panel">
+        <div class="settings-panel-heading">
+            <span>⚠️</span>
+            <div><small>Zone sensible</small><strong>Supprimer mon compte</strong></div>
+        </div>
+        <p>Ton profil personnel sera supprimé. Les souvenirs communs resteront accessibles à ton partenaire.</p>
+        <button type="button" id="showDeleteAccountBtn" class="danger-outline-btn">Supprimer mon compte…</button>
+
+        <div id="deleteAccountConfirmBox" class="delete-account-confirm-box" style="display:none;">
+            <strong>Cette action est définitive</strong>
+            <p>Exporte tes données si nécessaire, puis écris <b>SUPPRIMER</b> ci-dessous.</p>
+            <input id="deleteAccountConfirmation" type="text" maxlength="9" autocomplete="off" placeholder="SUPPRIMER">
+            <div>
+                <button type="button" id="confirmDeleteAccountBtn" class="danger-btn">Confirmer la suppression</button>
+                <button type="button" id="cancelDeleteAccountBtn" class="secondary">Annuler</button>
+            </div>
+        </div>
+    </section>
+
     <div class="settings-account-actions">
         <button id="leaveSpaceBtn" type="button" class="secondary">
             Quitter cet espace
