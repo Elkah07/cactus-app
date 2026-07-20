@@ -544,6 +544,9 @@ const profileAccentValue = document.getElementById("profileAccentValue");
 const profileAccentPreview = document.getElementById("profileAccentPreview");
 const profileAccentHexInput = document.getElementById("profileAccentHexInput");
 const profileColorButtons = document.querySelectorAll("[data-profile-color]");
+const profileColorField = document.getElementById("profileColorField");
+const profileColorCursor = document.getElementById("profileColorCursor");
+const profileHueInput = document.getElementById("profileHueInput");
 const saveCoupleProfileBtn = document.getElementById("saveCoupleProfileBtn");
 const openStoryFromProfileBtn = document.getElementById("openStoryFromProfileBtn");
 
@@ -3359,7 +3362,53 @@ profileAccentHexInput.addEventListener("blur", () => {
     profileAccentHexInput.value = profileAccentInput.value.slice(1).toUpperCase();
 });
 
-function setProfileAccentColor(value, synchronizeHex = true) {
+let profilePickerState = { h: 145, s: 61, v: 83 };
+
+profileHueInput.addEventListener("input", () => {
+    profilePickerState.h = Number(profileHueInput.value);
+    profileColorField.style.setProperty("--picker-hue", profilePickerState.h);
+    profileHueInput.style.setProperty("--picker-hue", profilePickerState.h);
+    setProfileAccentColor(hsvToHex(profilePickerState), true, false);
+});
+
+function updateProfileColorFromPointer(event) {
+    const rect = profileColorField.getBoundingClientRect();
+    const x = Math.min(Math.max(event.clientX - rect.left, 0), rect.width);
+    const y = Math.min(Math.max(event.clientY - rect.top, 0), rect.height);
+    profilePickerState.s = Math.round((x / rect.width) * 100);
+    profilePickerState.v = Math.round((1 - y / rect.height) * 100);
+    syncProfileColorCursor();
+    setProfileAccentColor(hsvToHex(profilePickerState), true, false);
+}
+
+profileColorField.addEventListener("pointerdown", (event) => {
+    profileColorField.setPointerCapture(event.pointerId);
+    updateProfileColorFromPointer(event);
+});
+
+profileColorField.addEventListener("pointermove", (event) => {
+    if (profileColorField.hasPointerCapture(event.pointerId)) {
+        updateProfileColorFromPointer(event);
+    }
+});
+
+profileColorField.addEventListener("keydown", (event) => {
+    const directions = {
+        ArrowLeft: [-2, 0],
+        ArrowRight: [2, 0],
+        ArrowUp: [0, 2],
+        ArrowDown: [0, -2]
+    };
+    const movement = directions[event.key];
+    if (!movement) return;
+    event.preventDefault();
+    profilePickerState.s = Math.min(100, Math.max(0, profilePickerState.s + movement[0]));
+    profilePickerState.v = Math.min(100, Math.max(0, profilePickerState.v + movement[1]));
+    syncProfileColorCursor();
+    setProfileAccentColor(hsvToHex(profilePickerState), true, false);
+});
+
+function setProfileAccentColor(value, synchronizeHex = true, synchronizePicker = true) {
     const color = getSafeProfileColor(value).toUpperCase();
     profileAccentInput.value = color;
     profileAccentValue.textContent = color;
@@ -3370,11 +3419,71 @@ function setProfileAccentColor(value, synchronizeHex = true) {
         profileAccentHexInput.value = color.slice(1);
     }
 
+    if (synchronizePicker) {
+        profilePickerState = hexToHsv(color);
+        profileHueInput.value = Math.round(profilePickerState.h);
+        profileColorField.style.setProperty("--picker-hue", profilePickerState.h);
+        profileHueInput.style.setProperty("--picker-hue", profilePickerState.h);
+        syncProfileColorCursor();
+    }
+
     profileColorButtons.forEach((button) => {
         const selected = button.dataset.profileColor.toUpperCase() === color;
         button.classList.toggle("is-selected", selected);
         button.setAttribute("aria-checked", selected ? "true" : "false");
     });
+}
+
+function syncProfileColorCursor() {
+    profileColorCursor.style.left = profilePickerState.s + "%";
+    profileColorCursor.style.top = (100 - profilePickerState.v) + "%";
+}
+
+function hsvToHex({ h, s, v }) {
+    const saturation = s / 100;
+    const value = v / 100;
+    const chroma = value * saturation;
+    const section = h / 60;
+    const second = chroma * (1 - Math.abs((section % 2) - 1));
+    const offset = value - chroma;
+    let rgb = [0, 0, 0];
+
+    if (section < 1) rgb = [chroma, second, 0];
+    else if (section < 2) rgb = [second, chroma, 0];
+    else if (section < 3) rgb = [0, chroma, second];
+    else if (section < 4) rgb = [0, second, chroma];
+    else if (section < 5) rgb = [second, 0, chroma];
+    else rgb = [chroma, 0, second];
+
+    return "#" + rgb.map((channel) => {
+        return Math.round((channel + offset) * 255)
+            .toString(16)
+            .padStart(2, "0");
+    }).join("").toUpperCase();
+}
+
+function hexToHsv(hex) {
+    const value = parseInt(hex.slice(1), 16);
+    const red = ((value >> 16) & 255) / 255;
+    const green = ((value >> 8) & 255) / 255;
+    const blue = (value & 255) / 255;
+    const maximum = Math.max(red, green, blue);
+    const minimum = Math.min(red, green, blue);
+    const delta = maximum - minimum;
+    let hue = 0;
+
+    if (delta) {
+        if (maximum === red) hue = 60 * (((green - blue) / delta) % 6);
+        else if (maximum === green) hue = 60 * (((blue - red) / delta) + 2);
+        else hue = 60 * (((red - green) / delta) + 4);
+    }
+
+    if (hue < 0) hue += 360;
+    return {
+        h: hue,
+        s: maximum === 0 ? 0 : (delta / maximum) * 100,
+        v: maximum * 100
+    };
 }
 
 profileAvatarInput.addEventListener("input", () => {

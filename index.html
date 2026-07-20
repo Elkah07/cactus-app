@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cactus 🌵</title>
-    <link rel="stylesheet" href="css/style.css?v=45">
+    <link rel="stylesheet" href="css/style.css?v=46">
     <link rel="manifest" href="manifest.json?v=2">
     <meta name="theme-color" content="#003E2D">
 </head>
@@ -1049,6 +1049,16 @@
                 <button type="button" data-profile-color="#78b7ee" style="--swatch:#78b7ee" aria-label="Ciel" aria-checked="false" role="radio"></button>
                 <button type="button" data-profile-color="#a7cf62" style="--swatch:#a7cf62" aria-label="Pistache" aria-checked="false" role="radio"></button>
             </div>
+            <details class="profile-visual-picker">
+                <summary>Créer ma couleur</summary>
+                <div id="profileColorField" class="profile-color-field" style="--picker-hue:145" role="application" tabindex="0" aria-label="Choisir la saturation et la luminosité">
+                    <span id="profileColorCursor" class="profile-color-cursor" aria-hidden="true"></span>
+                </div>
+                <label class="profile-hue-control" for="profileHueInput">
+                    <span>Teinte</span>
+                    <input id="profileHueInput" type="range" min="0" max="360" value="145" aria-label="Teinte de la couleur">
+                </label>
+            </details>
             <label class="profile-custom-color" for="profileAccentHexInput">
                 <span>Couleur personnalisée</span>
                 <span class="profile-hex-field"><strong>#</strong><input id="profileAccentHexInput" type="text" value="54D38B" maxlength="6" inputmode="text" autocomplete="off" spellcheck="false" aria-label="Code couleur hexadécimal"></span>
@@ -1858,7 +1868,7 @@
     <script src="js/storage.js"></script>
     <script src="js/rankings.js"></script>
     <script src="js/questions.js"></script>
-    <script src="js/script.js?v=45"></script>
+    <script src="js/script.js?v=46"></script>
 
 </body>
 </html>

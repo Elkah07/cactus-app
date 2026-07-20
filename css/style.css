@@ -6489,3 +6489,118 @@ body:not(.dark-theme) #dashboardNotificationsBadge {
     letter-spacing: 0.05em;
     text-transform: uppercase;
 }
+
+.profile-visual-picker {
+    margin-top: 15px;
+    padding: 0;
+    border: 1px solid var(--app-border);
+    border-radius: 16px;
+    background: var(--app-panel-bg);
+    overflow: hidden;
+}
+
+.profile-visual-picker summary {
+    position: relative;
+    padding: 12px 38px 12px 13px;
+    color: var(--app-heading);
+    font-size: 0.68rem;
+    font-weight: 900;
+    cursor: pointer;
+    list-style: none;
+}
+
+.profile-visual-picker summary::-webkit-details-marker { display: none; }
+
+.profile-visual-picker summary::after {
+    content: "+";
+    position: absolute;
+    top: 50%;
+    right: 13px;
+    display: grid;
+    width: 22px;
+    height: 22px;
+    place-items: center;
+    border-radius: 8px;
+    background: var(--app-icon-bg);
+    color: var(--app-accent);
+    transform: translateY(-50%);
+}
+
+.profile-visual-picker[open] summary::after { content: "−"; }
+
+.profile-color-field {
+    position: relative;
+    height: 154px;
+    margin: 0 13px 13px;
+    overflow: hidden;
+    border: 2px solid rgba(255, 255, 255, 0.38);
+    border-radius: 16px;
+    background:
+        linear-gradient(to top, #000, transparent),
+        linear-gradient(to right, #fff, hsl(var(--picker-hue) 100% 50%));
+    box-shadow: inset 0 0 0 1px rgba(0, 35, 25, 0.15), 0 8px 20px var(--app-shadow-soft);
+    cursor: crosshair;
+    touch-action: none;
+}
+
+.profile-color-field:focus-visible {
+    outline: 3px solid var(--app-accent);
+    outline-offset: 2px;
+}
+
+.profile-color-cursor {
+    position: absolute;
+    top: 17%;
+    left: 61%;
+    width: 22px;
+    height: 22px;
+    border: 3px solid #fff;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5), inset 0 0 0 1px rgba(0, 0, 0, 0.22);
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+.profile-hue-control {
+    display: block;
+    margin: 0 13px 14px;
+    color: var(--app-muted);
+    font-size: 0.59rem;
+    font-weight: 850;
+}
+
+.profile-hue-control > span {
+    display: block;
+    margin-bottom: 7px;
+}
+
+.couple-profile-form #profileHueInput {
+    width: 100%;
+    height: 18px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 999px;
+    appearance: none;
+    background: linear-gradient(to right, #f44, #ff0, #48db71, #42d9e8, #4c5cff, #c94cff, #f44);
+    cursor: pointer;
+}
+
+.couple-profile-form #profileHueInput::-webkit-slider-thumb {
+    width: 26px;
+    height: 26px;
+    border: 3px solid #fff;
+    border-radius: 50%;
+    appearance: none;
+    background: hsl(var(--picker-hue) 100% 50%);
+    box-shadow: 0 3px 10px rgba(0, 20, 14, 0.35);
+}
+
+.couple-profile-form #profileHueInput::-moz-range-thumb {
+    width: 22px;
+    height: 22px;
+    border: 3px solid #fff;
+    border-radius: 50%;
+    background: #54d38b;
+    box-shadow: 0 3px 10px rgba(0, 20, 14, 0.35);
+}
