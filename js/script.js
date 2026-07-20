@@ -6559,7 +6559,89 @@ loadNotificationPreferences();
 applyTheme(localStorage.getItem("theme") === "dark" ? "dark" : "light");
 
 if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.register("service-worker.js");
+    const updateBanner = document.getElementById("appUpdateBanner");
+    const installUpdateBtn = document.getElementById("installUpdateBtn");
+    let waitingServiceWorker = null;
+    let updateActivationRequested = false;
+
+    const showUpdateBanner = (worker) => {
+        waitingServiceWorker = worker;
+
+        if (updateBanner) {
+            updateBanner.hidden = false;
+        }
+    };
+
+    navigator.serviceWorker.addEventListener("controllerchange", () => {
+        if (!updateActivationRequested) {
+            return;
+        }
+
+        updateActivationRequested = false;
+        sessionStorage.setItem("cactusUpdateInstalled", "true");
+        window.location.reload();
+    });
+
+    navigator.serviceWorker.register("service-worker.js", {
+        updateViaCache: "none"
+    }).then((registration) => {
+        if (registration.waiting && navigator.serviceWorker.controller) {
+            showUpdateBanner(registration.waiting);
+        }
+
+        registration.addEventListener("updatefound", () => {
+            const installingWorker = registration.installing;
+
+            if (!installingWorker) {
+                return;
+            }
+
+            installingWorker.addEventListener("statechange", () => {
+                if (
+                    installingWorker.state === "installed" &&
+                    navigator.serviceWorker.controller
+                ) {
+                    showUpdateBanner(installingWorker);
+                }
+            });
+        });
+
+        const checkForUpdate = () => {
+            registration.update().catch((error) => {
+                console.warn("Vérification de mise à jour impossible", error);
+            });
+        };
+
+        document.addEventListener("visibilitychange", () => {
+            if (document.visibilityState === "visible") {
+                checkForUpdate();
+            }
+        });
+
+        window.setInterval(checkForUpdate, 60 * 60 * 1000);
+    }).catch((error) => {
+        console.warn("Service worker indisponible", error);
+    });
+
+    if (installUpdateBtn) {
+        installUpdateBtn.addEventListener("click", () => {
+            if (!waitingServiceWorker) {
+                return;
+            }
+
+            updateActivationRequested = true;
+            installUpdateBtn.disabled = true;
+            installUpdateBtn.textContent = "Installation…";
+            waitingServiceWorker.postMessage({ type: "SKIP_WAITING" });
+        });
+    }
+
+    if (sessionStorage.getItem("cactusUpdateInstalled") === "true") {
+        sessionStorage.removeItem("cactusUpdateInstalled");
+        window.setTimeout(() => {
+            showToast("Application mise à jour ✨");
+        }, 500);
+    }
 }
 
 function displayRankingChallenges(challenges) {
