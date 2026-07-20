@@ -3370,6 +3370,95 @@ body.achievements-active .top-right-btn {
     color: #fff;
 }
 
+.auth-text-button {
+    width: auto;
+    margin: 4px auto 0;
+    padding: 8px 12px;
+    border: 0;
+    background: transparent;
+    color: var(--app-accent, #278c5b);
+    box-shadow: none;
+    font-size: 0.7rem;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.auth-text-button:hover {
+    background: transparent;
+    box-shadow: none;
+    transform: none;
+}
+
+.account-security-panel > label {
+    display: block;
+    margin: 13px 2px 5px;
+    color: var(--app-muted);
+    font-size: 0.66rem;
+    font-weight: 800;
+}
+
+.account-email-row {
+    margin-bottom: 12px;
+    padding: 11px 12px;
+    overflow: hidden;
+    border: 1px solid var(--app-border);
+    border-radius: 15px;
+    background: var(--app-icon-bg);
+}
+
+.account-email-row small,
+.account-email-row strong {
+    display: block;
+}
+
+.account-email-row small {
+    color: var(--app-muted);
+    font-size: 0.59rem;
+}
+
+.account-email-row strong {
+    margin-top: 2px;
+    overflow: hidden;
+    color: var(--app-heading);
+    font-size: 0.76rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.account-export-box {
+    margin-top: 16px;
+    padding-top: 15px;
+    border-top: 1px solid var(--app-border);
+}
+
+.account-export-box small,
+.account-export-box strong,
+.account-export-box p {
+    display: block;
+    margin: 0;
+}
+
+.account-export-box small {
+    color: var(--app-accent);
+    font-size: 0.59rem;
+    font-weight: 850;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.account-export-box strong {
+    margin-top: 2px;
+    color: var(--app-heading);
+    font-size: 0.83rem;
+}
+
+.account-export-box p {
+    margin: 5px 0 10px;
+    color: var(--app-muted);
+    font-size: 0.66rem;
+    line-height: 1.4;
+}
+
 @media (max-width: 520px) {
     body.dashboard-active .card {
         border-radius: 0;

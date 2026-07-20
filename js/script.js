@@ -25,6 +25,7 @@ const rankingTitle = document.getElementById("rankingTitle");
 const rankingList = document.getElementById("rankingList");
 const signupBtn = document.getElementById("signupBtn");
 const loginBtn = document.getElementById("loginBtn");
+const forgotPasswordBtn = document.getElementById("forgotPasswordBtn");
 const authEmail = document.getElementById("authEmail");
 const authPassword = document.getElementById("authPassword");
 const authMessage = document.getElementById("authMessage");
@@ -61,6 +62,10 @@ const themeSettingIcon = document.getElementById("themeSettingIcon");
 const themeSettingLabel = document.getElementById("themeSettingLabel");
 const themeColorMeta = document.querySelector('meta[name="theme-color"]');
 const backFromSettingsBtn = document.getElementById("backFromSettingsBtn");
+const currentAccountEmail = document.getElementById("currentAccountEmail");
+const newAccountPassword = document.getElementById("newAccountPassword");
+const changePasswordBtn = document.getElementById("changePasswordBtn");
+const exportDataBtn = document.getElementById("exportDataBtn");
 
 const rankingCompatibilityScreen = document.getElementById("rankingCompatibilityScreen");
 const rankingCompatibilityTitle = document.getElementById("rankingCompatibilityTitle");
@@ -1278,6 +1283,145 @@ loginBtn.addEventListener("click", () => {
         });
 });
 
+forgotPasswordBtn.addEventListener("click", () => {
+    sendPasswordReset();
+});
+
+function sendPasswordReset() {
+    const email = authEmail.value.trim();
+
+    if (!email) {
+        authMessage.textContent = "Entre d’abord ton adresse e-mail 🌵";
+        authEmail.focus();
+        return;
+    }
+
+    forgotPasswordBtn.disabled = true;
+    forgotPasswordBtn.textContent = "Envoi…";
+    authMessage.textContent = "";
+
+    auth.sendPasswordResetEmail(email)
+        .then(() => {
+            authMessage.textContent = "Si cette adresse correspond à un compte, un e-mail vient d’être envoyé 💌";
+        })
+        .catch((error) => {
+            console.warn("Réinitialisation du mot de passe impossible", error);
+            authMessage.textContent = error.code === "auth/invalid-email"
+                ? "Cette adresse e-mail n’est pas valide."
+                : "Impossible d’envoyer l’e-mail pour le moment.";
+        })
+        .finally(() => {
+            forgotPasswordBtn.disabled = false;
+            forgotPasswordBtn.textContent = "Mot de passe oublié ?";
+        });
+}
+
+function prepareAccountSettings() {
+    currentAccountEmail.textContent = currentUser?.email || "Adresse indisponible";
+    newAccountPassword.value = "";
+}
+
+function changeAccountPassword() {
+    const password = newAccountPassword.value;
+
+    if (!currentUser) {
+        showToast("Reconnecte-toi pour modifier ton mot de passe");
+        return;
+    }
+
+    if (password.length < 8) {
+        showToast("Choisis au moins 8 caractères");
+        newAccountPassword.focus();
+        return;
+    }
+
+    changePasswordBtn.disabled = true;
+    changePasswordBtn.textContent = "Modification…";
+
+    currentUser.updatePassword(password)
+        .then(() => {
+            newAccountPassword.value = "";
+            showToast("Mot de passe modifié 🔐");
+        })
+        .catch((error) => {
+            console.warn("Modification du mot de passe impossible", error);
+
+            if (error.code === "auth/requires-recent-login") {
+                showToast("Pour ta sécurité, déconnecte-toi puis reconnecte-toi avant de réessayer");
+                return;
+            }
+
+            if (error.code === "auth/weak-password") {
+                showToast("Ce mot de passe est trop faible");
+                return;
+            }
+
+            showToast("Impossible de modifier le mot de passe");
+        })
+        .finally(() => {
+            changePasswordBtn.disabled = false;
+            changePasswordBtn.textContent = "Modifier mon mot de passe";
+        });
+}
+
+function createExportFilename() {
+    const date = new Date().toISOString().slice(0, 10);
+    return "cactus-export-" + date + ".json";
+}
+
+function exportAccountData() {
+    if (!currentUser) {
+        showToast("Reconnecte-toi pour exporter tes données");
+        return;
+    }
+
+    exportDataBtn.disabled = true;
+    exportDataBtn.textContent = "Préparation…";
+
+    const userRequest = database
+        .ref("users/" + currentUser.uid)
+        .once("value");
+    const spaceRequest = currentSpaceCode
+        ? database.ref("spaces/" + currentSpaceCode).once("value")
+        : Promise.resolve(null);
+
+    Promise.all([userRequest, spaceRequest])
+        .then(([userSnapshot, spaceSnapshot]) => {
+            const exportData = {
+                format: "cactus-account-export",
+                version: 1,
+                exportedAt: new Date().toISOString(),
+                account: {
+                    uid: currentUser.uid,
+                    email: currentUser.email,
+                    profile: userSnapshot.val() || null
+                },
+                coupleSpace: spaceSnapshot ? (spaceSnapshot.val() || null) : null
+            };
+            const blob = new Blob(
+                [JSON.stringify(exportData, null, 2)],
+                { type: "application/json;charset=utf-8" }
+            );
+            const downloadUrl = URL.createObjectURL(blob);
+            const link = document.createElement("a");
+            link.href = downloadUrl;
+            link.download = createExportFilename();
+            document.body.appendChild(link);
+            link.click();
+            link.remove();
+            window.setTimeout(() => URL.revokeObjectURL(downloadUrl), 1000);
+            showToast("Export téléchargé 📦");
+        })
+        .catch((error) => {
+            console.error("Export des données impossible", error);
+            showToast("Impossible de préparer l’export");
+        })
+        .finally(() => {
+            exportDataBtn.disabled = false;
+            exportDataBtn.textContent = "Télécharger l’export";
+        });
+}
+
 logoutBtn.addEventListener("click", () => {
     auth.signOut();
 });
@@ -1346,6 +1490,7 @@ backToLoginBtn.addEventListener("click", () => {
 
 settingsBtn.addEventListener("click", () => {
     previousScreen = "dashboard";
+    prepareAccountSettings();
     showScreen("settings");
 });
 
@@ -2064,7 +2209,16 @@ allQuestionsBtn.addEventListener("click", () => {
 
 dashboardSettingsBtn.addEventListener("click", () => {
     previousScreen = "dashboard";
+    prepareAccountSettings();
     showScreen("settings");
+});
+
+changePasswordBtn.addEventListener("click", () => {
+    changeAccountPassword();
+});
+
+exportDataBtn.addEventListener("click", () => {
+    exportAccountData();
 });
 
 dashboardNotificationsBtn.addEventListener("click", () => {

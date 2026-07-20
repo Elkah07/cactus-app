@@ -441,6 +441,10 @@
         Se connecter
     </button>
 
+    <button type="button" id="forgotPasswordBtn" class="auth-text-button">
+        Mot de passe oublié ?
+    </button>
+
     <p id="authMessage"></p>
 </div>
             <!-- ÉCRAN PSEUDO -->
@@ -1535,6 +1539,34 @@
         <label><input type="checkbox" id="notifyGamesSetting" checked> Parties terminées</label>
         <label><input type="checkbox" id="notifyAchievementsSetting" checked> Succès débloqués</label>
         <label><input type="checkbox" id="notifyGardenSetting" checked> Jardin, carnets et souvenirs</label>
+    </section>
+
+    <section class="settings-panel account-security-panel">
+        <div class="settings-panel-heading">
+            <span>🔐</span>
+            <div><small>Compte</small><strong>Sécurité et données</strong></div>
+        </div>
+
+        <div class="account-email-row">
+            <small>Compte connecté</small>
+            <strong id="currentAccountEmail">—</strong>
+        </div>
+
+        <label for="newAccountPassword">Nouveau mot de passe</label>
+        <input
+            id="newAccountPassword"
+            type="password"
+            minlength="8"
+            maxlength="128"
+            autocomplete="new-password"
+            placeholder="8 caractères minimum"
+        >
+        <button type="button" id="changePasswordBtn">Modifier mon mot de passe</button>
+
+        <div class="account-export-box">
+            <div><small>Copie personnelle</small><strong>Exporter mes données</strong><p>Télécharge les données de ton compte et de votre espace en JSON.</p></div>
+            <button type="button" id="exportDataBtn" class="secondary">Télécharger l’export</button>
+        </div>
     </section>
 
     <section id="creatorToolsPanel" class="settings-panel creator-tools-panel" style="display:none;">
