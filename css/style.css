@@ -3486,6 +3486,190 @@ body.achievements-active .top-right-btn {
     }
 }
 
+/* Jardin aménageable */
+#gardenEditBtn {
+    width: auto;
+    margin: 0;
+    padding: 7px 10px;
+    border-radius: 999px;
+    background: var(--app-secondary-button);
+    color: var(--app-accent);
+    font-size: 0.64rem;
+}
+
+#gardenEditBtn.is-active {
+    background: #52cf88;
+    color: #073d2d;
+}
+
+.garden-level-progress {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 120px;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 9px;
+}
+
+.garden-level-progress > div:first-child {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+}
+
+.garden-level-progress span,
+.garden-level-progress small {
+    color: var(--app-muted);
+    font-size: 0.61rem;
+    font-weight: 800;
+}
+
+.garden-level-track {
+    height: 7px;
+    overflow: hidden;
+    border-radius: 999px;
+    background: var(--app-secondary-button);
+}
+
+#gardenLevelProgressBar {
+    width: 0;
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, #4bcf84, #ffd45c);
+    transition: width 0.35s ease;
+}
+
+.garden-plot {
+    isolation: isolate;
+}
+
+.garden-plot::before {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    right: -8%;
+    bottom: 34px;
+    left: -8%;
+    height: 82px;
+    border-radius: 50% 50% 0 0;
+    background: rgba(63, 153, 78, 0.28);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.garden-plot.garden-level-2 {
+    background: linear-gradient(180deg, #9fe6f3 0%, #e1f8ee 54%, #84d177 55%, #459653 100%);
+}
+
+.garden-plot.garden-level-3::before,
+.garden-plot.garden-level-4::before,
+.garden-plot.garden-level-5::before,
+.garden-plot.garden-level-6::before { opacity: 1; }
+
+.garden-plot.garden-level-4 {
+    background: linear-gradient(180deg, #8edff1 0%, #dff7e8 51%, #79ca6f 52%, #3f8d4d 100%);
+}
+
+.garden-plot.garden-level-5,
+.garden-plot.garden-level-6 {
+    background:
+        radial-gradient(circle at 15% 15%, rgba(255, 255, 255, 0.8) 0 2px, transparent 3px),
+        radial-gradient(circle at 72% 22%, rgba(255, 246, 163, 0.9) 0 2px, transparent 3px),
+        linear-gradient(180deg, #86d9ef 0%, #ddf6e4 49%, #71c76a 50%, #378849 100%);
+}
+
+.garden-plot.garden-level-6 {
+    box-shadow: inset 0 -20px 35px rgba(30, 91, 45, 0.18),
+        0 14px 28px var(--app-shadow-soft), 0 0 22px rgba(255, 212, 92, 0.2);
+}
+
+.garden-plot.is-editing {
+    outline: 3px dashed rgba(61, 186, 116, 0.65);
+    outline-offset: 3px;
+}
+
+.garden-plot.is-editing::after {
+    content: "Faites glisser les éléments";
+    position: absolute;
+    z-index: 40;
+    top: 8px;
+    left: 50%;
+    padding: 5px 9px;
+    transform: translateX(-50%);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.78);
+    color: #285844;
+    font-size: 0.58rem;
+    font-weight: 900;
+    pointer-events: none;
+}
+
+.garden-planted-item {
+    bottom: auto;
+    transform: translate(-50%, -50%) scale(var(--garden-item-scale, 1));
+    touch-action: none;
+    user-select: none;
+}
+
+.garden-planted-item:hover {
+    transform: translate(-50%, -50%) scale(calc(var(--garden-item-scale, 1) * 1.08));
+}
+
+.garden-planted-item.is-selected {
+    border-radius: 14px;
+    outline: 3px solid rgba(255, 255, 255, 0.95);
+    outline-offset: 4px;
+}
+
+.garden-planted-item.is-dragging {
+    cursor: grabbing;
+    filter: drop-shadow(0 12px 10px rgba(29, 72, 38, 0.35));
+}
+
+.garden-edit-toolbar {
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid var(--app-border);
+    border-radius: 18px;
+    background: var(--app-panel-bg);
+    box-shadow: 0 8px 18px var(--app-shadow-soft);
+}
+
+.garden-edit-toolbar > strong {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--app-heading);
+    font-size: 0.72rem;
+    text-align: center;
+}
+
+.garden-edit-toolbar > div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px;
+}
+
+.garden-edit-toolbar button {
+    width: auto;
+    min-width: 36px;
+    margin: 0;
+    padding: 7px 9px;
+    border-radius: 10px;
+    background: var(--app-secondary-button);
+    color: var(--app-heading);
+    font-size: 0.65rem;
+}
+
+.garden-edit-toolbar button:disabled {
+    cursor: not-allowed;
+    opacity: 0.4;
+}
+
+@media (max-width: 370px) {
+    .garden-level-progress { grid-template-columns: 1fr; }
+    .garden-level-track { width: 100%; }
+}
+
 @media (prefers-reduced-motion: reduce) {
     #dashboardScreen *,
     #dashboardScreen *::before,
@@ -3989,4 +4173,17 @@ body:not(.dark-theme) #dashboardNotificationsBadge {
         width: 40px;
         height: 40px;
     }
+}
+
+/* Priorité finale du déplacement libre du jardin. */
+.garden-planted-item {
+    right: auto;
+    bottom: auto;
+    transform: translate(-50%, -50%) scale(var(--garden-item-scale, 1));
+    touch-action: none;
+    user-select: none;
+}
+
+.garden-planted-item:hover {
+    transform: translate(-50%, -50%) scale(calc(var(--garden-item-scale, 1) * 1.08));
 }

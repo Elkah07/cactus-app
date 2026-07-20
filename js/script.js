@@ -87,9 +87,20 @@ const notebooksGrid = document.getElementById("notebooksGrid");
 const gardenSeedsBalance = document.getElementById("gardenSeedsBalance");
 const gardenLevelBadge = document.getElementById("gardenLevelBadge");
 const gardenPlantedCount = document.getElementById("gardenPlantedCount");
+const gardenNextLevelText = document.getElementById("gardenNextLevelText");
+const gardenLevelProgressBar = document.getElementById("gardenLevelProgressBar");
 const gardenPlot = document.getElementById("gardenPlot");
 const gardenEmptyPlot = document.getElementById("gardenEmptyPlot");
 const gardenShopGrid = document.getElementById("gardenShopGrid");
+const gardenEditBtn = document.getElementById("gardenEditBtn");
+const gardenEditToolbar = document.getElementById("gardenEditToolbar");
+const gardenSelectedItemLabel = document.getElementById("gardenSelectedItemLabel");
+const gardenSmallerBtn = document.getElementById("gardenSmallerBtn");
+const gardenLargerBtn = document.getElementById("gardenLargerBtn");
+const gardenBackwardBtn = document.getElementById("gardenBackwardBtn");
+const gardenForwardBtn = document.getElementById("gardenForwardBtn");
+const gardenStoreSelectedBtn = document.getElementById("gardenStoreSelectedBtn");
+const gardenResetLayoutBtn = document.getElementById("gardenResetLayoutBtn");
 
 const notebookScreen = document.getElementById("notebookScreen");
 const openedNotebookTitle = document.getElementById("openedNotebookTitle");
@@ -462,6 +473,11 @@ let saveNotebookTimeout = null;
 
 let currentNotebookId = null;
 let currentNotebookData = null;
+let notebooksLoadRequestId = 0;
+let isCreatingNotebook = false;
+let gardenEditMode = false;
+let selectedGardenItemId = null;
+let currentGardenItems = {};
 
 let currentUser = null;
 
@@ -1225,8 +1241,25 @@ gardenBtn.addEventListener("click", () => {
 });
 
 backFromGardenBtn.addEventListener("click", () => {
+    setGardenEditMode(false);
     showScreen("dashboard");
 });
+
+gardenEditBtn.addEventListener("click", () => {
+    setGardenEditMode(!gardenEditMode);
+});
+
+gardenSmallerBtn.addEventListener("click", () => resizeSelectedGardenItem(-0.1));
+gardenLargerBtn.addEventListener("click", () => resizeSelectedGardenItem(0.1));
+gardenBackwardBtn.addEventListener("click", () => changeSelectedGardenDepth(-1));
+gardenForwardBtn.addEventListener("click", () => changeSelectedGardenDepth(1));
+gardenStoreSelectedBtn.addEventListener("click", () => {
+    if (selectedGardenItemId) {
+        toggleGardenItem(selectedGardenItemId, false);
+        selectGardenItem(null);
+    }
+});
+gardenResetLayoutBtn.addEventListener("click", () => resetGardenLayout());
 
 
 showCreateNotebookBtn.addEventListener("click", () => {
@@ -1238,6 +1271,10 @@ showCreateNotebookBtn.addEventListener("click", () => {
 });
 
 createNotebookBtn.addEventListener("click", () => {
+    if (isCreatingNotebook) {
+        return;
+    }
+
     const emoji = notebookEmoji.value.trim() || "📝";
     const title = notebookTitle.value.trim();
 
@@ -1245,6 +1282,10 @@ createNotebookBtn.addEventListener("click", () => {
         alert("Donne un titre à ton carnet 🌵");
         return;
     }
+
+    isCreatingNotebook = true;
+    createNotebookBtn.disabled = true;
+    createNotebookBtn.textContent = "Création…";
 
     database
         .ref("spaces/" + currentSpaceCode + "/garden/notebooks")
@@ -1259,7 +1300,16 @@ createNotebookBtn.addEventListener("click", () => {
             notebookEmoji.value = "";
             notebookTitle.value = "";
             createNotebookBox.style.display = "none";
-            loadNotebooks();
+            return loadNotebooks();
+        })
+        .catch((error) => {
+            console.error("Création du carnet impossible", error);
+            showToast("Impossible de créer le carnet");
+        })
+        .finally(() => {
+            isCreatingNotebook = false;
+            createNotebookBtn.disabled = false;
+            createNotebookBtn.textContent = "Créer le carnet";
         });
 });
 
@@ -1267,7 +1317,6 @@ backToGardenBtn.addEventListener("click", () => {
     currentNotebookId = null;
     currentNotebookData = null;
 
-    loadNotebooks();
     showScreen("garden");
 });
 
@@ -1330,7 +1379,6 @@ deleteNotebookBtn.addEventListener("click", () => {
             currentNotebookId = null;
             currentNotebookData = null;
 
-            loadNotebooks();
             showScreen("garden");
         });
 });
@@ -2374,10 +2422,21 @@ const GARDEN_CATALOG = [
     { id: "miniCactus", emoji: "🌵", name: "Mini cactus", cost: 50 },
     { id: "bush", emoji: "🌿", name: "Buisson tendre", cost: 75 },
     { id: "mushroom", emoji: "🍄", name: "Champignon", cost: 90 },
+    { id: "bee", emoji: "🐝", name: "Petite abeille", cost: 110 },
     { id: "fountain", emoji: "⛲", name: "Petite fontaine", cost: 140 },
     { id: "bench", emoji: "🪑", name: "Banc à deux", cost: 180 },
     { id: "tree", emoji: "🌳", name: "Arbre complice", cost: 220 },
-    { id: "lantern", emoji: "🏮", name: "Lanterne magique", cost: 300 }
+    { id: "pond", emoji: "💧", name: "Bassin paisible", cost: 260 },
+    { id: "lantern", emoji: "🏮", name: "Lanterne magique", cost: 300 },
+    { id: "flowerArch", emoji: "💐", name: "Arche fleurie", cost: 380 },
+    { id: "cottage", emoji: "🏡", name: "Maison du jardin", cost: 500 }
+];
+
+const DEFAULT_GARDEN_LAYOUTS = [
+    { x: 14, y: 72 }, { x: 31, y: 78 }, { x: 50, y: 67 },
+    { x: 72, y: 76 }, { x: 83, y: 36 }, { x: 25, y: 48 },
+    { x: 55, y: 82 }, { x: 78, y: 56 }, { x: 43, y: 45 },
+    { x: 66, y: 34 }, { x: 18, y: 30 }, { x: 50, y: 27 }
 ];
 
 function loadGarden() {
@@ -2400,30 +2459,62 @@ function loadGarden() {
 function renderGarden(spaceData) {
     const seeds = spaceData.stats?.seeds || 0;
     const items = spaceData.garden?.items || {};
+    currentGardenItems = items;
     const unlockedCount = Object.keys(items).length;
     const plantedItems = GARDEN_CATALOG.filter((item) => {
         return items[item.id]?.planted !== false && items[item.id];
     });
-    const gardenLevel = Math.min(4, Math.floor(unlockedCount / 2) + 1);
+    const gardenLevel = Math.min(6, Math.floor(unlockedCount / 2) + 1);
+    const nextLevelTarget = Math.min(gardenLevel * 2, GARDEN_CATALOG.length);
+    const levelStart = (gardenLevel - 1) * 2;
+    const levelProgress = gardenLevel === 6
+        ? 100
+        : ((unlockedCount - levelStart) / 2) * 100;
 
     gardenSeedsBalance.textContent = seeds;
     gardenLevelBadge.textContent = "Jardin niveau " + gardenLevel;
     gardenPlantedCount.textContent =
         plantedItems.length + " élément" + (plantedItems.length > 1 ? "s" : "");
+    gardenNextLevelText.textContent = gardenLevel === 6
+        ? "Jardin au niveau maximal ✨"
+        : "Encore " + (nextLevelTarget - unlockedCount) + " objet" +
+            (nextLevelTarget - unlockedCount > 1 ? "s" : "") +
+            " pour le niveau " + (gardenLevel + 1);
+    gardenLevelProgressBar.style.width = Math.max(0, levelProgress) + "%";
     gardenEmptyPlot.style.display = plantedItems.length === 0 ? "block" : "none";
+    gardenPlot.className =
+        "garden-plot garden-level-" + gardenLevel +
+        (gardenEditMode ? " is-editing" : "");
 
     gardenPlot.querySelectorAll(".garden-planted-item").forEach((element) => {
         element.remove();
     });
 
-    plantedItems.forEach((item, index) => {
+    plantedItems.forEach((item) => {
+        const catalogIndex = GARDEN_CATALOG.findIndex((entry) => entry.id === item.id);
+        const itemData = items[item.id] || {};
+        const defaultLayout = DEFAULT_GARDEN_LAYOUTS[catalogIndex] || { x: 50, y: 65 };
+        const layout = { ...defaultLayout, ...(itemData.layout || {}) };
         const planted = document.createElement("button");
         planted.type = "button";
-        planted.className = "garden-planted-item garden-position-" + ((index % 8) + 1);
+        planted.className = "garden-planted-item" +
+            (selectedGardenItemId === item.id ? " is-selected" : "");
         planted.textContent = item.emoji;
-        planted.title = item.name + " · toucher pour ranger";
-        planted.setAttribute("aria-label", item.name + ", ranger cet élément");
-        planted.addEventListener("click", () => toggleGardenItem(item.id, false));
+        planted.title = gardenEditMode
+            ? item.name + " · faites glisser pour déplacer"
+            : item.name;
+        planted.setAttribute("aria-label", item.name);
+        planted.dataset.itemId = item.id;
+        planted.style.left = layout.x + "%";
+        planted.style.top = layout.y + "%";
+        planted.style.zIndex = layout.z || catalogIndex + 2;
+        planted.style.setProperty("--garden-item-scale", layout.size || 1);
+        planted.addEventListener("pointerdown", startGardenItemDrag);
+        planted.addEventListener("click", () => {
+            if (gardenEditMode) {
+                selectGardenItem(item.id);
+            }
+        });
         gardenPlot.appendChild(planted);
     });
 
@@ -2460,6 +2551,149 @@ function renderGarden(spaceData) {
         card.append(icon, name, action);
         gardenShopGrid.appendChild(card);
     });
+}
+
+function setGardenEditMode(enabled) {
+    gardenEditMode = enabled;
+    gardenEditBtn.textContent = enabled ? "✓ Terminer" : "✋ Aménager";
+    gardenEditBtn.classList.toggle("is-active", enabled);
+    gardenEditToolbar.style.display = enabled ? "block" : "none";
+    gardenPlot.classList.toggle("is-editing", enabled);
+
+    if (!enabled || !selectedGardenItemId) {
+        selectGardenItem(null);
+    }
+}
+
+function selectGardenItem(itemId) {
+    selectedGardenItemId = itemId;
+    gardenPlot.querySelectorAll(".garden-planted-item").forEach((element) => {
+        element.classList.toggle("is-selected", element.dataset.itemId === itemId);
+    });
+
+    const item = GARDEN_CATALOG.find((catalogItem) => catalogItem.id === itemId);
+    gardenSelectedItemLabel.textContent = item
+        ? item.emoji + " " + item.name
+        : "Choisissez un élément";
+
+    [gardenSmallerBtn, gardenLargerBtn, gardenBackwardBtn,
+        gardenForwardBtn, gardenStoreSelectedBtn].forEach((button) => {
+        button.disabled = !item;
+    });
+}
+
+function getGardenItemLayout(itemId) {
+    const catalogIndex = GARDEN_CATALOG.findIndex((item) => item.id === itemId);
+    return {
+        ...(DEFAULT_GARDEN_LAYOUTS[catalogIndex] || { x: 50, y: 65 }),
+        ...(currentGardenItems[itemId]?.layout || {})
+    };
+}
+
+function startGardenItemDrag(event) {
+    if (!gardenEditMode) {
+        return;
+    }
+
+    event.preventDefault();
+    const element = event.currentTarget;
+    const itemId = element.dataset.itemId;
+    const rect = gardenPlot.getBoundingClientRect();
+    selectGardenItem(itemId);
+    element.setPointerCapture(event.pointerId);
+    element.classList.add("is-dragging");
+
+    const move = (moveEvent) => {
+        const x = Math.min(95, Math.max(5,
+            ((moveEvent.clientX - rect.left) / rect.width) * 100));
+        const y = Math.min(90, Math.max(12,
+            ((moveEvent.clientY - rect.top) / rect.height) * 100));
+        element.style.left = x + "%";
+        element.style.top = y + "%";
+    };
+
+    const end = (endEvent) => {
+        element.removeEventListener("pointermove", move);
+        element.removeEventListener("pointerup", end);
+        element.removeEventListener("pointercancel", end);
+        element.classList.remove("is-dragging");
+
+        const x = Number.parseFloat(element.style.left);
+        const y = Number.parseFloat(element.style.top);
+        saveGardenItemLayout(itemId, { x, y });
+
+        if (element.hasPointerCapture(endEvent.pointerId)) {
+            element.releasePointerCapture(endEvent.pointerId);
+        }
+    };
+
+    element.addEventListener("pointermove", move);
+    element.addEventListener("pointerup", end);
+    element.addEventListener("pointercancel", end);
+}
+
+function saveGardenItemLayout(itemId, changes) {
+    const previousLayout = currentGardenItems[itemId]?.layout || {};
+    currentGardenItems[itemId] = currentGardenItems[itemId] || {};
+    currentGardenItems[itemId].layout = { ...previousLayout, ...changes };
+
+    return database
+        .ref("spaces/" + currentSpaceCode + "/garden/items/" + itemId + "/layout")
+        .update(changes)
+        .catch((error) => {
+            console.error("Sauvegarde de la disposition impossible", error);
+            showToast("Impossible de sauvegarder la disposition");
+        });
+}
+
+function resizeSelectedGardenItem(delta) {
+    if (!selectedGardenItemId) {
+        return;
+    }
+
+    const layout = getGardenItemLayout(selectedGardenItemId);
+    const size = Math.min(1.6, Math.max(0.6, (layout.size || 1) + delta));
+    const element = gardenPlot.querySelector(
+        '[data-item-id="' + selectedGardenItemId + '"]'
+    );
+    element?.style.setProperty("--garden-item-scale", size);
+    saveGardenItemLayout(selectedGardenItemId, { size });
+}
+
+function changeSelectedGardenDepth(delta) {
+    if (!selectedGardenItemId) {
+        return;
+    }
+
+    const layout = getGardenItemLayout(selectedGardenItemId);
+    const z = Math.min(30, Math.max(2, (layout.z || 5) + delta));
+    const element = gardenPlot.querySelector(
+        '[data-item-id="' + selectedGardenItemId + '"]'
+    );
+    if (element) {
+        element.style.zIndex = z;
+    }
+    saveGardenItemLayout(selectedGardenItemId, { z });
+}
+
+function resetGardenLayout() {
+    if (!confirm("Réinitialiser la disposition de tous les éléments du jardin ?")) {
+        return;
+    }
+
+    const updates = {};
+
+    Object.keys(currentGardenItems).forEach((itemId) => {
+        updates[itemId + "/layout"] = null;
+    });
+
+    database
+        .ref("spaces/" + currentSpaceCode + "/garden/items")
+        .update(updates)
+        .then(() => {
+            selectGardenItem(null);
+            showToast("Disposition du jardin réinitialisée");
+        });
 }
 
 function buyGardenItem(item) {
@@ -2520,18 +2754,25 @@ function toggleGardenItem(itemId, planted) {
 }
 
 function loadNotebooks() {
-    notebooksGrid.innerHTML = "";
+    const requestId = ++notebooksLoadRequestId;
 
-    database
+    return database
         .ref("spaces/" + currentSpaceCode + "/garden/notebooks")
         .once("value")
         .then((snapshot) => {
+            if (requestId !== notebooksLoadRequestId) {
+                return;
+            }
+
             const notebooks = snapshot.val() || {};
             const notebooksArray = Object.entries(notebooks);
+            const fragment = document.createDocumentFragment();
 
             if (notebooksArray.length === 0) {
-                notebooksGrid.innerHTML =
-                    '<p class="empty-text">Aucun carnet pour le moment 🪴</p>';
+                const empty = document.createElement("p");
+                empty.className = "empty-text";
+                empty.textContent = "Aucun carnet pour le moment 🪴";
+                notebooksGrid.replaceChildren(empty);
                 return;
             }
 
@@ -2560,8 +2801,10 @@ function loadNotebooks() {
                         openNotebook(notebookId, notebook);
                     });
 
-                    notebooksGrid.appendChild(card);
+                    fragment.appendChild(card);
                 });
+
+            notebooksGrid.replaceChildren(fragment);
         });
 }
 

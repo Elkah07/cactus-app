@@ -46,13 +46,30 @@
     <section class="garden-plot-section">
         <div class="garden-section-heading">
             <div><small>Votre création</small><h2>Le jardin du couple</h2></div>
-            <span id="gardenPlantedCount">0 élément</span>
+            <button type="button" id="gardenEditBtn">✋ Aménager</button>
+        </div>
+
+        <div class="garden-level-progress">
+            <div><span id="gardenPlantedCount">0 élément</span><small id="gardenNextLevelText">Encore 2 objets pour le niveau 2</small></div>
+            <div class="garden-level-track"><div id="gardenLevelProgressBar"></div></div>
         </div>
 
         <div id="gardenPlot" class="garden-plot">
             <div class="garden-sun" aria-hidden="true">☀️</div>
             <div class="garden-ground" aria-hidden="true"></div>
             <p id="gardenEmptyPlot">Débloquez votre première plante pour commencer 🌱</p>
+        </div>
+
+        <div id="gardenEditToolbar" class="garden-edit-toolbar" style="display:none;">
+            <strong id="gardenSelectedItemLabel">Choisissez un élément</strong>
+            <div>
+                <button type="button" id="gardenSmallerBtn" aria-label="Réduire">−</button>
+                <button type="button" id="gardenLargerBtn" aria-label="Agrandir">＋</button>
+                <button type="button" id="gardenBackwardBtn" aria-label="Reculer">↓</button>
+                <button type="button" id="gardenForwardBtn" aria-label="Avancer">↑</button>
+                <button type="button" id="gardenStoreSelectedBtn">Ranger</button>
+                <button type="button" id="gardenResetLayoutBtn">Réinitialiser</button>
+            </div>
         </div>
     </section>
 
