@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cactus 🌵</title>
-    <link rel="stylesheet" href="css/style.css?v=56">
+    <link rel="stylesheet" href="css/style.css?v=57">
     <link rel="manifest" href="manifest.json?v=2">
     <meta name="theme-color" content="#003E2D">
 </head>
@@ -794,14 +794,22 @@
         <div class="dashboard-cactus-glow"></div>
         <div class="dashboard-cactus-heart" aria-hidden="true"></div>
 
-        <img
-            id="mainCactusImage"
-            src="assets/cactus-stage-1.png"
-            alt="Votre cactus, Bébé cactus"
-            class="dashboard-main-cactus"
-            loading="lazy"
-            decoding="async"
-        >
+        <div class="dashboard-cactus-character">
+            <img
+                id="mainCactusImage"
+                src="assets/cactus-stage-1.png"
+                alt="Votre cactus, Bébé cactus"
+                class="dashboard-main-cactus"
+                loading="lazy"
+                decoding="async"
+                role="button"
+                tabindex="0"
+                aria-label="Faire coucou à votre cactus"
+            >
+            <span id="cactusHeadAccessory" class="cactus-accessory cactus-accessory-head" aria-hidden="true"></span>
+            <span id="cactusNeckAccessory" class="cactus-accessory cactus-accessory-neck" aria-hidden="true"></span>
+        </div>
+        <p class="dashboard-cactus-interaction-hint">Touche ton cactus pour lui faire dire coucou</p>
 
         <div class="dashboard-level-badge">
             <svg class="cactus-ui-icon" width="30" height="30" aria-hidden="true"><use href="#cactusIconStar"></use></svg>
@@ -2088,12 +2096,12 @@
     <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
 
     <script src="js/firebase.js"></script>
-    <script src="js/screens.js?v=56"></script>
+    <script src="js/screens.js?v=57"></script>
     <script src="js/utils.js"></script>
     <script src="js/storage.js"></script>
     <script src="js/rankings.js"></script>
     <script src="js/questions.js"></script>
-    <script src="js/script.js?v=56"></script>
+    <script src="js/script.js?v=57"></script>
 
 </body>
 </html>

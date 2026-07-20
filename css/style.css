@@ -1950,6 +1950,78 @@ body.dashboard-active .top-right-btn {
     margin: 0 auto -3px;
     object-fit: contain;
     filter: drop-shadow(0 18px 20px rgba(0, 18, 13, 0.36));
+    cursor: pointer;
+    transform-origin: 50% 88%;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.dashboard-cactus-character {
+    position: relative;
+    z-index: 2;
+    width: 242px;
+    height: 242px;
+}
+
+.dashboard-main-cactus:not(.is-evolving):not(.is-waving) {
+    animation: cactus-idle-breathe 3.8s ease-in-out infinite;
+}
+
+.dashboard-main-cactus.is-waving {
+    animation: cactus-friendly-wave 1.35s cubic-bezier(0.2, 0.8, 0.25, 1);
+}
+
+.dashboard-main-cactus:focus-visible {
+    border-radius: 42%;
+    outline: 3px solid #8ff0ba;
+    outline-offset: 4px;
+}
+
+.dashboard-cactus-interaction-hint {
+    z-index: 3;
+    margin: -3px 0 7px;
+    padding: 5px 10px;
+    border: 1px solid rgba(126, 231, 173, 0.18);
+    border-radius: 999px;
+    color: rgba(231, 255, 241, 0.76);
+    background: rgba(3, 61, 44, 0.54);
+    font-size: 0.62rem;
+    font-weight: 800;
+    backdrop-filter: blur(6px);
+}
+
+.cactus-accessory {
+    position: absolute;
+    z-index: 4;
+    left: 50%;
+    display: none;
+    pointer-events: none;
+    transform: translateX(-50%);
+}
+
+.cactus-accessory-head {
+    top: 8%;
+    width: 42%;
+}
+
+.cactus-accessory-neck {
+    top: 55%;
+    width: 35%;
+}
+
+@keyframes cactus-idle-breathe {
+    0%, 100% { transform: translateY(0) scale(1); }
+    45% { transform: translateY(-3px) scale(1.015, 1.025); }
+    55% { transform: translateY(-3px) scale(1.012, 1.02); }
+}
+
+@keyframes cactus-friendly-wave {
+    0%, 100% { transform: translateY(0) rotate(0) scale(1); }
+    12% { transform: translateY(-7px) rotate(-4deg) scale(1.025); }
+    27% { transform: translateY(-11px) rotate(7deg) scale(1.04); }
+    42% { transform: translateY(-9px) rotate(-7deg) scale(1.04); }
+    57% { transform: translateY(-11px) rotate(7deg) scale(1.04); }
+    72% { transform: translateY(-7px) rotate(-4deg) scale(1.025); }
+    86% { transform: translateY(-2px) rotate(2deg) scale(1.01); }
 }
 
 .dashboard-main-cactus.is-evolving {
@@ -1974,7 +2046,9 @@ body.dashboard-active .top-right-btn {
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .dashboard-main-cactus.is-evolving {
+    .dashboard-main-cactus,
+    .dashboard-main-cactus.is-evolving,
+    .dashboard-main-cactus.is-waving {
         animation: none;
     }
 }
@@ -3999,7 +4073,8 @@ body.achievements-active .top-right-btn {
         min-height: 318px;
     }
 
-    .dashboard-main-cactus {
+    .dashboard-main-cactus,
+    .dashboard-cactus-character {
         width: 226px;
         height: 226px;
     }
@@ -4055,7 +4130,8 @@ body.achievements-active .top-right-btn {
         min-height: 295px;
     }
 
-    .dashboard-main-cactus {
+    .dashboard-main-cactus,
+    .dashboard-cactus-character {
         width: 205px;
         height: 205px;
     }

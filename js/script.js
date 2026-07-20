@@ -711,6 +711,42 @@ const mainCactusImage =
 const dashboardCactusMessage =
     document.getElementById("dashboardCactusMessage");
 
+let cactusGreetingTimer = null;
+
+function makeDashboardCactusWave() {
+    if (!mainCactusImage || !dashboardCactusMessage) {
+        return;
+    }
+
+    const cactusName = currentSpaceData?.profile?.cactusName || "Cactou";
+    const greetings = [
+        "Coucou ! Je suis content de te voir 💚",
+        "Oh, une petite visite ! 🌵",
+        "Je vous envoie plein de bonnes ondes ✨",
+        "Coucou de la part de " + cactusName + " !"
+    ];
+    const previousMessage = dashboardCactusMessage.textContent;
+
+    window.clearTimeout(cactusGreetingTimer);
+    mainCactusImage.classList.remove("is-evolving", "is-waving");
+    void mainCactusImage.offsetWidth;
+    mainCactusImage.classList.add("is-waving");
+    dashboardCactusMessage.textContent = greetings[Math.floor(Math.random() * greetings.length)];
+
+    cactusGreetingTimer = window.setTimeout(() => {
+        mainCactusImage.classList.remove("is-waving");
+        dashboardCactusMessage.textContent = previousMessage;
+    }, 2200);
+}
+
+mainCactusImage?.addEventListener("click", makeDashboardCactusWave);
+mainCactusImage?.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        makeDashboardCactusWave();
+    }
+});
+
 const currentXpHero =
     document.getElementById("currentXpHero");
 
