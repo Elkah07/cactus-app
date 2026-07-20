@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cactus 🌵</title>
-    <link rel="stylesheet" href="css/style.css?v=54">
+    <link rel="stylesheet" href="css/style.css?v=55">
     <link rel="manifest" href="manifest.json?v=2">
     <meta name="theme-color" content="#003E2D">
 </head>
@@ -378,6 +378,12 @@
         </div>
     </header>
 
+    <section class="history-overview" aria-label="Résumé de vos souvenirs">
+        <article><svg class="cactus-ui-icon" aria-hidden="true"><use href="#cactusIconMemories"></use></svg><div><strong id="historyPersonalCount">0</strong><small>Souvenirs écrits</small></div></article>
+        <article><svg class="cactus-ui-icon" aria-hidden="true"><use href="#cactusIconStar"></use></svg><div><strong id="historyFavoritesCount">0</strong><small>Favoris</small></div></article>
+        <article><svg class="cactus-ui-icon" aria-hidden="true"><use href="#cactusIconStory"></use></svg><div><strong id="historyTotalCount">0</strong><small>Moments au total</small></div></article>
+    </section>
+
     <section class="unified-timeline-section">
         <div class="unified-timeline-heading"><div><small>Toute votre aventure</small><h2>Notre chronologie</h2></div><span id="unifiedTimelineCount">0 moment</span></div>
         <div class="unified-timeline-tools">
@@ -385,10 +391,10 @@
             <select id="timelineYearFilter" aria-label="Filtrer par année"><option value="all">Toutes les années</option></select>
         </div>
         <nav class="unified-timeline-filters" aria-label="Types de souvenirs">
-            <button type="button" class="is-active" data-timeline-type="all">Tout</button><button type="button" data-timeline-type="memory">💚 Souvenirs</button><button type="button" data-timeline-type="game">🎮 Jeux</button><button type="button" data-timeline-type="achievement">🏆 Succès</button><button type="button" data-timeline-type="milestone">📖 Étapes</button>
+            <button type="button" class="is-active" data-timeline-type="all">Tout</button><button type="button" data-timeline-type="memory"><svg class="cactus-secondary-icon" aria-hidden="true"><use href="#cactusIconMemories"></use></svg> Souvenirs</button><button type="button" data-timeline-type="game"><svg class="cactus-secondary-icon" aria-hidden="true"><use href="#cactusIconGame"></use></svg> Jeux</button><button type="button" data-timeline-type="achievement"><svg class="cactus-secondary-icon" aria-hidden="true"><use href="#cactusIconTrophy"></use></svg> Succès</button><button type="button" data-timeline-type="milestone"><svg class="cactus-secondary-icon" aria-hidden="true"><use href="#cactusIconStory"></use></svg> Étapes</button>
         </nav>
         <div id="unifiedTimeline" class="unified-timeline"></div>
-        <div id="unifiedTimelineEmpty" class="unified-timeline-empty" style="display:none;"><span>📚</span><strong>Aucun moment trouvé</strong><p>Modifiez la recherche ou les filtres pour retrouver votre histoire.</p><button type="button" id="resetTimelineFiltersBtn">Tout afficher</button></div>
+        <div id="unifiedTimelineEmpty" class="unified-timeline-empty" style="display:none;"><span><svg class="cactus-secondary-icon" aria-hidden="true"><use href="#cactusIconStory"></use></svg></span><strong>Aucun moment trouvé</strong><p>Modifiez la recherche ou les filtres pour retrouver votre histoire.</p><button type="button" id="resetTimelineFiltersBtn">Tout afficher</button></div>
     </section>
 
     <section class="memories-timeline-section">
@@ -416,7 +422,7 @@
 
         <div id="memoriesTimeline" class="memories-timeline"></div>
         <div id="memoriesEmptyState" class="memories-empty-state">
-            <span>📖</span>
+            <span><svg class="cactus-secondary-icon" aria-hidden="true"><use href="#cactusIconMemories"></use></svg></span>
             <strong>Votre chronologie commence ici</strong>
             <p>Ajoutez votre premier moment à deux.</p>
         </div>
@@ -1359,11 +1365,20 @@
 </div>
 
 <!-- ÉCRAN PAGE NOTRE HISTOIRE -->
-<div id="storyPageScreen" style="display:none;">
-    <h1>❤️ Notre histoire</h1>
+<div id="storyPageScreen" class="secondary-screen story-page-screen" style="display:none;">
+    <header class="story-page-header"><button type="button" id="storyPageBackTopBtn" aria-label="Retour">‹</button><div><small>Votre aventure à deux</small><h1>Notre histoire</h1></div><span aria-hidden="true"></span></header>
+
+    <section class="story-page-hero">
+        <div class="story-page-glow" aria-hidden="true"></div>
+        <img src="assets/cactus-compatibility.png" alt="Deux cœurs pour votre histoire" loading="lazy" decoding="async">
+        <div><small>Votre petit monde</small><strong id="storyPageHeroTitle">Une histoire rien qu’à vous</strong><p id="storyPageHeroText">Retrouvez ici les repères qui racontent votre couple.</p></div>
+    </section>
+
+    <div class="story-page-section-heading"><div><small>Vos grands repères</small><h2>Votre histoire en quelques détails</h2></div></div>
 
     <div id="storyPageContent" class="story-page-content"></div>
 
+    <div class="story-page-actions">
     <button type="button" id="editStoryBtn">
         Modifier notre histoire
     </button>
@@ -1372,6 +1387,7 @@
         <svg class="cactus-ui-icon" width="28" height="28" aria-hidden="true"><use href="#cactusIconMemories"></use></svg>
         Voir tous nos souvenirs
     </button>
+    </div>
 
     <button type="button" id="backFromStoryPageBtn" class="secondary">
         Retour
@@ -2055,12 +2071,12 @@
     <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
 
     <script src="js/firebase.js"></script>
-    <script src="js/screens.js?v=54"></script>
+    <script src="js/screens.js?v=55"></script>
     <script src="js/utils.js"></script>
     <script src="js/storage.js"></script>
     <script src="js/rankings.js"></script>
     <script src="js/questions.js"></script>
-    <script src="js/script.js?v=54"></script>
+    <script src="js/script.js?v=55"></script>
 
 </body>
 </html>

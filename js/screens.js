@@ -35,7 +35,7 @@ function showScreenContent(screenName) {
     );
     document.body.classList.toggle(
         "secondary-active",
-        ["allGames", "garden", "dailyTools", "shopping", "tasks", "reminders", "importantDates", "history", "settings", "notifications", "dailyRitual", "coupleProfile", "onboarding"].includes(screenName)
+        ["allGames", "garden", "dailyTools", "shopping", "tasks", "reminders", "importantDates", "history", "storyPage", "settings", "notifications", "dailyRitual", "coupleProfile", "onboarding"].includes(screenName)
     );
 
     hideScreen(loginScreen);

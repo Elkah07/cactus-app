@@ -159,6 +159,9 @@ const memoriesTimeline = document.getElementById("memoriesTimeline");
 const memoriesEmptyState = document.getElementById("memoriesEmptyState");
 const unifiedTimeline = document.getElementById("unifiedTimeline");
 const unifiedTimelineCount = document.getElementById("unifiedTimelineCount");
+const historyPersonalCount = document.getElementById("historyPersonalCount");
+const historyFavoritesCount = document.getElementById("historyFavoritesCount");
+const historyTotalCount = document.getElementById("historyTotalCount");
 const unifiedTimelineEmpty = document.getElementById("unifiedTimelineEmpty");
 const timelineSearchInput = document.getElementById("timelineSearchInput");
 const timelineYearFilter = document.getElementById("timelineYearFilter");
@@ -591,6 +594,9 @@ const relationshipDaysText =
 
     const storyPageScreen = document.getElementById("storyPageScreen");
 const storyPageContent = document.getElementById("storyPageContent");
+const storyPageBackTopBtn = document.getElementById("storyPageBackTopBtn");
+const storyPageHeroTitle = document.getElementById("storyPageHeroTitle");
+const storyPageHeroText = document.getElementById("storyPageHeroText");
 
 const editStoryBtn = document.getElementById("editStoryBtn");
 const backFromStoryPageBtn = document.getElementById("backFromStoryPageBtn");
@@ -3242,6 +3248,10 @@ backFromStoryPageBtn.addEventListener("click", () => {
     showScreen("dashboard");
 });
 
+storyPageBackTopBtn.addEventListener("click", () => {
+    showScreen("dashboard");
+});
+
 storyMemoriesBtn.addEventListener("click", () => {
     showScreen("history");
 });
@@ -5693,6 +5703,7 @@ function buildUnifiedTimeline(spaceData) {
     }
 
     unifiedTimelineItems = items.filter((item) => item.timestamp > 0).sort((a, b) => b.timestamp - a.timestamp);
+    historyTotalCount.textContent = unifiedTimelineItems.length;
     const selectedYear = timelineYearFilter.value;
     const years = [...new Set(unifiedTimelineItems.map((item) => new Date(item.timestamp).getFullYear()))].sort((a, b) => b - a);
     timelineYearFilter.innerHTML = '<option value="all">Toutes les années</option>' + years.map((year) => '<option value="' + year + '">' + year + '</option>').join("");
@@ -5725,7 +5736,11 @@ function renderUnifiedTimeline() {
         const card = document.createElement("button");
         card.type = "button";
         card.className = "unified-timeline-card type-" + item.type + (item.favorite ? " is-favorite" : "");
-        const marker = document.createElement("span"); marker.className = "unified-timeline-marker"; marker.textContent = item.icon;
+        const marker = document.createElement("span");
+        marker.className = "unified-timeline-marker";
+        const timelineIconMap = { game: "cactusIconGame", achievement: "cactusIconTrophy", milestone: "cactusIconStory" };
+        if (timelineIconMap[item.type]) marker.appendChild(createCactusUiIcon(timelineIconMap[item.type], "timeline-cactus-icon"));
+        else marker.textContent = item.icon;
         const copy = document.createElement("span");
         const date = document.createElement("small"); date.textContent = new Date(item.timestamp).toLocaleDateString("fr-FR", { day: "numeric", month: "long" });
         const title = document.createElement("strong"); title.textContent = item.title;
@@ -5762,6 +5777,8 @@ function renderMemories(memories, focusedMemoryId = null) {
     });
 
     memoriesTimeline.replaceChildren();
+    historyPersonalCount.textContent = entries.length;
+    historyFavoritesCount.textContent = entries.filter(([, memory]) => memory.favorite).length;
     memoriesEmptyState.style.display = entries.length === 0 ? "flex" : "none";
 
     entries.forEach(([memoryId, memory]) => {
@@ -5798,13 +5815,13 @@ function renderMemories(memories, focusedMemoryId = null) {
         editBtn.type = "button";
         editBtn.title = "Modifier";
         editBtn.setAttribute("aria-label", "Modifier ce souvenir");
-        editBtn.textContent = "✏️";
+        editBtn.textContent = "Modifier";
         editBtn.addEventListener("click", () => openMemoryForm(memoryId, memory));
         const deleteBtn = document.createElement("button");
         deleteBtn.type = "button";
         deleteBtn.title = "Supprimer";
         deleteBtn.setAttribute("aria-label", "Supprimer ce souvenir");
-        deleteBtn.textContent = "🗑️";
+        deleteBtn.textContent = "×";
         deleteBtn.addEventListener("click", () => deleteMemory(memoryId));
         actions.append(favoriteBtn, editBtn, deleteBtn);
 
@@ -9875,21 +9892,28 @@ function openStoryPage() {
                 return;
             }
 
+            const players = [currentSpaceData?.player1, currentSpaceData?.player2].filter(Boolean);
+            const firstName = players[0]?.pseudo || pseudo || "Vous";
+            const secondName = players[1]?.pseudo || "Votre partenaire";
+            const daysText = getRelationshipDaysText(story.startDate || story.relationshipDate);
+            storyPageHeroTitle.textContent = firstName + " & " + secondName;
+            storyPageHeroText.textContent = daysText + " de souvenirs, de jeux et de petits moments à deux.";
+
             const cards = [
-                ["📅", "Ensemble depuis", getRelationshipDaysText(story.startDate || story.relationshipDate)],
-                ["📍", "Rencontre", story.meetingPlace || "Non renseigné"],
-                ["☕", "Premier rendez-vous", story.firstDate || "Non renseigné"],
-                ["💬", "Vos surnoms", (story.nicknameMine || "—") + " / " + (story.nicknamePartner || "—")],
-                ["🎵", "Votre chanson", story.song || "Non renseigné"],
-                ["🏠", "Situation", (story.situation || story.relationshipType) === "distance" ? "À distance" : "Ensemble"]
+                ["cactusIconCalendar", "Ensemble depuis", daysText],
+                ["cactusIconGarden", "Votre rencontre", story.meetingPlace || "Non renseigné"],
+                ["cactusIconStory", "Premier rendez-vous", story.firstDate || "Non renseigné"],
+                ["cactusIconChat", "Vos surnoms", (story.nicknameMine || "—") + " / " + (story.nicknamePartner || "—")],
+                ["cactusIconLinkedHearts", "Votre chanson", story.song || "Non renseigné"],
+                ["cactusIconCouple", "Votre situation", (story.situation || story.relationshipType) === "distance" ? "À distance" : "Ensemble"]
             ];
 
             storyPageContent.replaceChildren(
-                ...cards.map(([icon, label, value]) => {
-                    const card = document.createElement("div");
+                ...cards.map(([iconId, label, value]) => {
+                    const card = document.createElement("article");
                     card.className = "story-info-card";
                     const iconElement = document.createElement("span");
-                    iconElement.textContent = icon;
+                    iconElement.appendChild(createCactusUiIcon(iconId, "story-info-icon"));
                     const content = document.createElement("div");
                     const small = document.createElement("small");
                     small.textContent = label;
