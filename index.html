@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cactus 🌵</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css?v=38">
     <link rel="manifest" href="manifest.json?v=2">
     <meta name="theme-color" content="#003E2D">
 </head>
 <body>
 
-<svg class="cactus-icon-sprite" aria-hidden="true">
+<svg class="cactus-icon-sprite" width="0" height="0" style="position:absolute;overflow:hidden" aria-hidden="true">
     <defs>
         <symbol id="cactusIconHeart" viewBox="0 0 64 64"><path fill="#ff737d" stroke="#a93f4c" stroke-width="3" d="M32 54C20 45 8 36 8 22A13 13 0 0 1 32 15 13 13 0 0 1 56 22c0 14-12 23-24 32Z"/><path fill="#ffd3c4" d="M17 18c4-5 9-4 11 0-5-2-8 0-10 4-2 3-5 0-1-4Z"/></symbol>
         <symbol id="cactusIconBell" viewBox="0 0 64 64"><path fill="#ffd45c" stroke="#8a5b16" stroke-width="3" d="M14 45h36l-5-8V27c0-8-5-14-13-14s-13 6-13 14v10l-5 8Z"/><path fill="#ff9c55" d="M25 48h14c-1 6-4 8-7 8s-6-2-7-8Z"/><circle cx="32" cy="10" r="4" fill="#73d98c"/></symbol>
@@ -536,7 +536,7 @@
             class="dashboard-profile-btn"
             aria-label="Ouvrir le profil du couple"
         >
-            <svg class="cactus-ui-icon" aria-hidden="true"><use href="#cactusIconHeart"></use></svg>
+            <svg class="cactus-ui-icon" width="30" height="30" aria-hidden="true"><use href="#cactusIconHeart"></use></svg>
         </button>
 
         <div class="dashboard-couple-title">
@@ -560,7 +560,7 @@
                 class="dashboard-notifications-btn"
                 aria-label="Notifications"
             >
-                <svg class="cactus-ui-icon" aria-hidden="true"><use href="#cactusIconBell"></use></svg>
+                <svg class="cactus-ui-icon" width="30" height="30" aria-hidden="true"><use href="#cactusIconBell"></use></svg>
                 <span id="dashboardNotificationsBadge" style="display:none;">0</span>
             </button>
 
@@ -570,7 +570,7 @@
                 class="dashboard-settings-btn"
                 aria-label="Réglages"
             >
-                <svg class="cactus-ui-icon" aria-hidden="true"><use href="#cactusIconSettings"></use></svg>
+                <svg class="cactus-ui-icon" width="30" height="30" aria-hidden="true"><use href="#cactusIconSettings"></use></svg>
             </button>
         </div>
 
@@ -625,7 +625,7 @@
     <section class="dashboard-stats-grid">
 
         <article class="dashboard-stat-card stat-compatibility">
-            <span><svg class="cactus-ui-icon" aria-hidden="true"><use href="#cactusIconHeart"></use></svg></span>
+            <span><svg class="cactus-ui-icon" width="30" height="30" aria-hidden="true"><use href="#cactusIconHeart"></use></svg></span>
             <strong id="compatibilityStat">0%</strong>
             <small>Compatibilité</small>
 
@@ -635,7 +635,7 @@
         </article>
 
         <article class="dashboard-stat-card stat-seeds">
-            <span><svg class="cactus-ui-icon" aria-hidden="true"><use href="#cactusIconSeed"></use></svg></span>
+            <span><svg class="cactus-ui-icon" width="30" height="30" aria-hidden="true"><use href="#cactusIconSeed"></use></svg></span>
             <strong id="seedsStat">0</strong>
             <small>Graines</small>
 
@@ -650,7 +650,7 @@
             class="dashboard-stat-card stat-level"
             aria-label="Ouvrir nos succès"
         >
-            <span><svg class="cactus-ui-icon" aria-hidden="true"><use href="#cactusIconStar"></use></svg></span>
+            <span><svg class="cactus-ui-icon" width="30" height="30" aria-hidden="true"><use href="#cactusIconStar"></use></svg></span>
             <strong id="levelStat">1</strong>
             <small>Niveau</small>
 
@@ -660,7 +660,7 @@
         </button>
 
         <article class="dashboard-stat-card stat-games">
-            <span><svg class="cactus-ui-icon" aria-hidden="true"><use href="#cactusIconGame"></use></svg></span>
+            <span><svg class="cactus-ui-icon" width="30" height="30" aria-hidden="true"><use href="#cactusIconGame"></use></svg></span>
             <strong id="completedGamesStat">0</strong>
             <small>Parties</small>
 
@@ -782,7 +782,7 @@
             type="button"
             onclick="openStoryPage()"
         >
-            <span><svg class="cactus-ui-icon" aria-hidden="true"><use href="#cactusIconStory"></use></svg></span>
+            <span><svg class="cactus-ui-icon" width="30" height="30" aria-hidden="true"><use href="#cactusIconStory"></use></svg></span>
             <small>Notre histoire</small>
         </button>
 
@@ -790,7 +790,7 @@
             type="button"
             onclick="loadNotebooks(); showScreen('garden');"
         >
-            <span><svg class="cactus-ui-icon" aria-hidden="true"><use href="#cactusIconGarden"></use></svg></span>
+            <span><svg class="cactus-ui-icon" width="30" height="30" aria-hidden="true"><use href="#cactusIconGarden"></use></svg></span>
             <small>Jardin</small>
         </button>
 
@@ -798,7 +798,7 @@
             type="button"
             onclick="openHistoryMode('stats')"
         >
-            <span><svg class="cactus-ui-icon" aria-hidden="true"><use href="#cactusIconStats"></use></svg></span>
+            <span><svg class="cactus-ui-icon" width="30" height="30" aria-hidden="true"><use href="#cactusIconStats"></use></svg></span>
             <small>Stats</small>
         </button>
 
@@ -806,7 +806,7 @@
             type="button"
             onclick="showScreen('history')"
         >
-            <span><svg class="cactus-ui-icon" aria-hidden="true"><use href="#cactusIconMemories"></use></svg></span>
+            <span><svg class="cactus-ui-icon" width="30" height="30" aria-hidden="true"><use href="#cactusIconMemories"></use></svg></span>
             <small>Souvenirs</small>
         </button>
 
