@@ -1,10 +1,10 @@
-const CACHE_VERSION = "v67";
+const CACHE_VERSION = "v68";
 const SHELL_CACHE = `cactus-shell-${CACHE_VERSION}`;
 const RUNTIME_CACHE = `cactus-runtime-${CACHE_VERSION}`;
 
 const APP_SHELL = [
     "./index.html",
-    "./css/style.css?v=67",
+    "./css/style.css?v=68",
     "./js/firebase.js",
     "./js/script.js?v=66",
     "./js/screens.js?v=61",
@@ -136,4 +136,3 @@ self.addEventListener("fetch", (event) => {
 
     event.respondWith(cacheFirstWithRefresh(request));
 });
-
