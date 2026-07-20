@@ -1967,7 +1967,7 @@ body.dashboard-active .top-right-btn {
 }
 
 .dashboard-main-cactus.is-waving {
-    animation: cactus-friendly-wave 1.35s cubic-bezier(0.2, 0.8, 0.25, 1);
+    animation: none;
 }
 
 .dashboard-main-cactus:focus-visible {
@@ -2012,16 +2012,6 @@ body.dashboard-active .top-right-btn {
     0%, 100% { transform: translateY(0) scale(1); }
     45% { transform: translateY(-3px) scale(1.015, 1.025); }
     55% { transform: translateY(-3px) scale(1.012, 1.02); }
-}
-
-@keyframes cactus-friendly-wave {
-    0%, 100% { transform: translateY(0) rotate(0) scale(1); }
-    12% { transform: translateY(-7px) rotate(-4deg) scale(1.025); }
-    27% { transform: translateY(-11px) rotate(7deg) scale(1.04); }
-    42% { transform: translateY(-9px) rotate(-7deg) scale(1.04); }
-    57% { transform: translateY(-11px) rotate(7deg) scale(1.04); }
-    72% { transform: translateY(-7px) rotate(-4deg) scale(1.025); }
-    86% { transform: translateY(-2px) rotate(2deg) scale(1.01); }
 }
 
 .dashboard-main-cactus.is-evolving {
