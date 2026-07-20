@@ -2001,7 +2001,7 @@ body.dashboard-active .top-right-btn {
 .recommended-game p { display: block; margin: 0; }
 .recommended-game small { color: var(--app-accent); font-size: 0.6rem; font-weight: 950; letter-spacing: 0.07em; text-transform: uppercase; }
 .recommended-game strong { margin-top: 3px; color: var(--app-heading); font-size: 0.92rem; }
-.recommended-game p { display: -webkit-box; margin-top: 3px; overflow: hidden; color: var(--app-muted); font-size: 0.65rem; line-height: 1.35; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
+.recommended-game p { display: -webkit-box; margin-top: 3px; overflow: hidden; color: var(--app-muted); font-size: 0.65rem; line-height: 1.35; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2; }
 .recommended-game button { width: auto; min-width: max-content; margin: 0; padding: 9px 12px; border-radius: 999px; font-size: 0.65rem; }
 
 .games-library-tools { margin-bottom: 16px; }
@@ -2147,10 +2147,12 @@ body.game-details-open { overflow: hidden; }
 
 /* Signalements de contenu */
 .question-report-modal,
-.creator-reports-modal { position: fixed; z-index: 10040; inset: 0; place-items: end center; }
+.creator-reports-modal,
+.creator-content-modal { position: fixed; z-index: 10040; inset: 0; place-items: end center; }
 .question-report-backdrop { position: absolute; inset: 0; background: rgba(0, 24, 17, 0.74); backdrop-filter: blur(7px); }
 .question-report-sheet,
-.creator-reports-sheet {
+.creator-reports-sheet,
+.creator-content-sheet {
     position: relative;
     z-index: 1;
     width: min(100%, 500px);
@@ -2203,45 +2205,46 @@ body.question-report-open { overflow: hidden; }
 .creator-reports-empty strong { margin-top: 8px; color: var(--app-heading); font-size: 0.84rem; }
 .creator-reports-empty p { margin: 4px 0 0; font-size: 0.66rem; }
 
+.creator-content-sheet header { position: relative; padding-right: 44px; }
+.creator-content-sheet header small { color: var(--app-accent); font-size: 0.6rem; font-weight: 900; letter-spacing: 0.07em; text-transform: uppercase; }
+.creator-content-sheet header h2 { margin: 4px 0 14px; color: var(--app-heading); font-size: 1.16rem; }
+#closeCreatorContentBtn { position: absolute; top: -7px; right: -7px; display: grid; width: 36px; height: 36px; margin: 0; padding: 0; place-items: center; border-radius: 12px; background: var(--app-secondary-button); color: var(--app-muted); font-size: 1.2rem; }
+.creator-content-toolbar { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto; gap: 7px; margin-bottom: 12px; }
+.creator-content-toolbar select,
+.creator-content-toolbar input { min-width: 0; margin: 0; padding: 9px; font-size: 0.62rem; }
+.creator-content-toolbar button { width: auto; min-width: max-content; margin: 0; padding: 8px 10px; font-size: 0.62rem; }
+.creator-content-list { display: grid; gap: 7px; max-height: 45vh; overflow-y: auto; }
+.creator-content-card { display: grid; width: 100%; margin: 0; padding: 11px 12px; grid-template-columns: minmax(0, 1fr) 16px; align-items: center; gap: 8px; border: 1px solid var(--app-border); border-radius: 15px; background: var(--app-icon-bg); color: inherit; text-align: left; }
+.creator-content-card span,
+.creator-content-card strong,
+.creator-content-card small { display: block; }
+.creator-content-card strong { color: var(--app-heading); font-size: 0.7rem; line-height: 1.35; }
+.creator-content-card small { margin-top: 4px; color: var(--app-muted); font-size: 0.55rem; }
+.creator-content-card b { color: var(--app-accent); font-size: 1.2rem; }
+.creator-content-card.is-edited { border-color: rgba(84, 211, 139, 0.42); }
+.creator-content-card.is-disabled { opacity: 0.55; filter: grayscale(0.4); }
+.creator-content-form { margin-top: 13px; padding: 14px; border: 1px solid rgba(84, 211, 139, 0.34); border-radius: 18px; background: var(--app-icon-bg); }
+.creator-content-form-heading { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+.creator-content-form-heading small,
+.creator-content-form-heading strong { display: block; }
+.creator-content-form-heading small { color: var(--app-accent); font-size: 0.56rem; font-weight: 900; text-transform: uppercase; }
+.creator-content-form-heading strong { margin-top: 2px; color: var(--app-heading); font-size: 0.8rem; }
+.creator-content-form-heading button { display: grid; width: 30px; height: 30px; margin: 0; padding: 0; place-items: center; border-radius: 9px; background: var(--app-secondary-button); color: var(--app-muted); }
+.creator-content-form > label,
+#creatorRankingItemsBox label { display: block; margin: 9px 0 5px; color: var(--app-text); font-size: 0.63rem; font-weight: 800; }
+.creator-content-form textarea { width: 100%; margin: 0; resize: vertical; }
+.creator-content-form .creator-content-enabled { display: flex; align-items: center; gap: 8px; }
+.creator-content-enabled input { width: 18px; height: 18px; margin: 0; accent-color: #4ccb86; }
+.creator-content-form-actions { display: flex; gap: 7px; margin-top: 12px; }
+.creator-content-form-actions button { margin: 0; }
+
+@media (max-width: 460px) {
+    .creator-content-toolbar { grid-template-columns: 1fr 1fr; }
+    .creator-content-toolbar button { grid-column: 1 / -1; }
+}
+
 @media (max-width: 390px) {
     .creator-reports-filters { grid-template-columns: 1fr; }
-}
-
-/* Navigation douce entre les questions */
-.game-question-tools {
-    display: flex;
-    min-height: 34px;
-    margin: -3px 0 12px;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-}
-
-.game-question-tools small {
-    color: var(--app-muted);
-    font-size: 0.59rem;
-    font-weight: 750;
-}
-
-.game-question-tools button {
-    width: auto;
-    min-width: max-content;
-    margin: 0;
-    padding: 7px 10px;
-    border: 1px solid var(--app-border);
-    border-radius: 999px;
-    background: var(--app-secondary-button);
-    box-shadow: none;
-    color: var(--app-accent);
-    font-size: 0.59rem;
-    font-weight: 850;
-}
-
-.game-question-tools button:hover { transform: translateY(-1px); }
-.game-question-tools.is-unavailable { display: none; }
-
-@media (max-width: 370px) {
-    .game-question-tools { align-items: flex-start; flex-direction: column; gap: 6px; }
 }
 
 /* Priorité finale des thèmes sur les anciens styles d’écran. */

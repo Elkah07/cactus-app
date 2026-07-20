@@ -92,7 +92,25 @@ const creatorReportsReasonFilter = document.getElementById("creatorReportsReason
 const creatorReportsStatusFilter = document.getElementById("creatorReportsStatusFilter");
 const creatorReportsList = document.getElementById("creatorReportsList");
 const creatorReportsEmpty = document.getElementById("creatorReportsEmpty");
-document.body.append(questionReportModal, creatorReportsModal);
+const creatorOpenContentBtn = document.getElementById("creatorOpenContentBtn");
+const creatorContentModal = document.getElementById("creatorContentModal");
+const closeCreatorContentBtn = document.getElementById("closeCreatorContentBtn");
+const creatorContentGameFilter = document.getElementById("creatorContentGameFilter");
+const creatorContentSearch = document.getElementById("creatorContentSearch");
+const creatorNewContentBtn = document.getElementById("creatorNewContentBtn");
+const creatorContentList = document.getElementById("creatorContentList");
+const creatorContentForm = document.getElementById("creatorContentForm");
+const closeCreatorContentFormBtn = document.getElementById("closeCreatorContentFormBtn");
+const creatorContentFormMode = document.getElementById("creatorContentFormMode");
+const creatorContentFormTitle = document.getElementById("creatorContentFormTitle");
+const creatorContentId = document.getElementById("creatorContentId");
+const creatorContentText = document.getElementById("creatorContentText");
+const creatorRankingItemsBox = document.getElementById("creatorRankingItemsBox");
+const creatorRankingItems = document.getElementById("creatorRankingItems");
+const creatorContentEnabled = document.getElementById("creatorContentEnabled");
+const saveCreatorContentBtn = document.getElementById("saveCreatorContentBtn");
+const restoreCreatorContentBtn = document.getElementById("restoreCreatorContentBtn");
+document.body.append(questionReportModal, creatorReportsModal, creatorContentModal);
 const themeSettingIcon = document.getElementById("themeSettingIcon");
 const themeSettingLabel = document.getElementById("themeSettingLabel");
 const themeColorMeta = document.querySelector('meta[name="theme-color"]');
@@ -633,6 +651,8 @@ let recommendedGameKey = "questions";
 let launchingGameFromDetails = false;
 let pendingQuestionReport = null;
 let creatorQuestionReports = [];
+let creatorManagedContent = [];
+let creatorEditingContent = null;
 let pendingRankingChallenges = [];
 let previousScreen = "dashboard";
 
@@ -913,6 +933,40 @@ function listenToCurrentSpace(spaceCodeValue) {
 
 
 
+async function applyCreatorContent(mode, baseItems) {
+    let snapshot;
+    try {
+        snapshot = await database.ref("questionContent/" + mode).once("value");
+    } catch (error) {
+        console.warn("Personnalisations indisponibles pour " + mode, error);
+        return baseItems || [];
+    }
+    const overrides = snapshot.val() || {};
+    const merged = (baseItems || []).map((item) => {
+        const override = overrides[item.id];
+        if (!override) return { ...item };
+        const copy = { ...item };
+        if (override.text) {
+            if (mode === "ranking") copy.title = override.text;
+            else copy.question = override.text;
+        }
+        if (mode === "ranking" && Array.isArray(override.items) && override.items.length >= 2) copy.items = override.items;
+        copy.creatorDisabled = override.disabled === true;
+        copy.creatorEdited = true;
+        return copy;
+    }).filter((item) => !item.creatorDisabled);
+
+    Object.entries(overrides).forEach(([id, override]) => {
+        if (!override.custom || override.disabled || merged.some((item) => item.id === id)) return;
+        if (mode === "ranking") {
+            if (Array.isArray(override.items) && override.items.length >= 2) merged.push({ id, title: override.text, items: override.items, category: override.category || "creator", creatorEdited: true });
+        } else {
+            merged.push({ id, question: override.text, category: override.category || "creator", creatorEdited: true });
+        }
+    });
+    return merged;
+}
+
 async function loadRankingsData() {
     const response = await fetch("data/rankings.json");
     const data = await response.json();
@@ -922,6 +976,7 @@ async function loadRankingsData() {
     } else {
         rankings = data.rankings || [];
     }
+    rankings = await applyCreatorContent("ranking", rankings);
 
     updateDashboardContentCounts();
     console.log("Classements chargés :", rankings);
@@ -951,8 +1006,7 @@ async function loadLikelyQuestionsData() {
     const response =
         await fetch("data/likely.json");
 
-    likelyQuestions =
-        await response.json();
+    likelyQuestions = await applyCreatorContent("likely", await response.json());
 
     console.log(
         "Questions Likely chargées :",
@@ -962,7 +1016,7 @@ async function loadLikelyQuestionsData() {
 
 async function loadOkQuestionsData() {
     const response = await fetch("data/ok-ou-pas-ok.json");
-    okQuestions = await response.json();
+    okQuestions = await applyCreatorContent("ok", await response.json());
 
     console.log("Questions OK ou Pas OK chargées :", okQuestions);
 }
@@ -2809,6 +2863,10 @@ function renderCreatorReports() {
         const date = document.createElement("time");
         date.textContent = formatNotificationDate(report.createdAt || Date.now());
         const actions = document.createElement("div");
+        const edit = document.createElement("button");
+        edit.type = "button"; edit.className = "secondary"; edit.textContent = "✏️ Modifier";
+        edit.addEventListener("click", () => openCreatorContent(report.game, report.questionId));
+        actions.append(edit);
         if (report.status === "open") {
             const resolved = document.createElement("button");
             resolved.type = "button"; resolved.textContent = "✓ Corrigé";
@@ -2822,6 +2880,176 @@ function renderCreatorReports() {
         creatorReportsList.appendChild(card);
     });
 }
+
+const CREATOR_CONTENT_SOURCES = {
+    ranking: "data/rankings.json",
+    guess: "data/guess-my-answer.json",
+    likely: "data/likely.json",
+    ok: "data/ok-ou-pas-ok.json",
+    greenFlag: "data/green-flag-red-flag.json",
+    princess: "data/princess-treatment.json",
+    questions: "data/questions.json"
+};
+
+async function loadCreatorManagedContent(mode) {
+    const [response, snapshot] = await Promise.all([
+        fetch(CREATOR_CONTENT_SOURCES[mode]),
+        database.ref("questionContent/" + mode).once("value")
+    ]);
+    const raw = await response.json();
+    const baseItems = mode === "ranking" ? (raw.rankings || raw) : raw;
+    const overrides = snapshot.val() || {};
+    const items = baseItems.map((item) => {
+        const override = overrides[item.id] || {};
+        return {
+            id: item.id,
+            text: override.text || (mode === "ranking" ? item.title : item.question),
+            items: override.items || item.items || [],
+            originalText: mode === "ranking" ? item.title : item.question,
+            originalItems: item.items || [],
+            disabled: override.disabled === true,
+            custom: false,
+            edited: Boolean(overrides[item.id])
+        };
+    });
+    Object.entries(overrides).forEach(([id, override]) => {
+        if (!override.custom) return;
+        items.push({ id, text: override.text, items: override.items || [], originalText: "", originalItems: [], disabled: override.disabled === true, custom: true, edited: true });
+    });
+    creatorManagedContent = items;
+    renderCreatorManagedContent();
+}
+
+function renderCreatorManagedContent() {
+    const search = normalizeGameSearch(creatorContentSearch.value);
+    const filtered = creatorManagedContent.filter((item) => normalizeGameSearch(item.text).includes(search));
+    creatorContentList.replaceChildren();
+    if (!filtered.length) {
+        creatorContentList.innerHTML = '<p class="creator-reports-loading">Aucun contenu trouvé.</p>';
+        return;
+    }
+    filtered.forEach((item) => {
+        const card = document.createElement("button");
+        card.type = "button";
+        card.className = "creator-content-card" + (item.disabled ? " is-disabled" : "") + (item.edited ? " is-edited" : "");
+        const copy = document.createElement("span");
+        const title = document.createElement("strong"); title.textContent = item.text;
+        const meta = document.createElement("small");
+        meta.textContent = [item.custom ? "Ajout personnel" : item.edited ? "Modifié" : "JSON", item.disabled ? "Désactivé" : "Actif"].join(" · ");
+        copy.append(title, meta);
+        const arrow = document.createElement("b"); arrow.textContent = "›";
+        card.append(copy, arrow);
+        card.addEventListener("click", () => openCreatorContentForm(item));
+        creatorContentList.appendChild(card);
+    });
+}
+
+function openCreatorContent(mode = "questions", contentId = null) {
+    if (!isCreatorAccount()) return;
+    closeCreatorReports();
+    creatorContentGameFilter.value = CREATOR_CONTENT_SOURCES[mode] ? mode : "questions";
+    creatorContentSearch.value = "";
+    creatorContentModal.style.display = "grid";
+    document.body.classList.add("question-report-open");
+    creatorContentForm.style.display = "none";
+    creatorContentList.innerHTML = '<p class="creator-reports-loading">Chargement du catalogue…</p>';
+    loadCreatorManagedContent(creatorContentGameFilter.value).then(() => {
+        if (contentId) {
+            const item = creatorManagedContent.find((entry) => String(entry.id) === String(contentId));
+            openCreatorContentForm(item || { id: contentId, text: "", items: [], originalText: "", originalItems: [], custom: false, edited: false, disabled: false });
+        }
+    }).catch((error) => {
+        creatorContentList.innerHTML = '<p class="creator-reports-loading">' + getFriendlyFirebaseError(error) + '</p>';
+    });
+}
+
+function closeCreatorContent() {
+    creatorContentModal.style.display = "none";
+    document.body.classList.remove("question-report-open");
+    creatorEditingContent = null;
+}
+
+function openCreatorContentForm(item = null) {
+    const mode = creatorContentGameFilter.value;
+    creatorEditingContent = item;
+    creatorContentForm.style.display = "block";
+    creatorContentFormMode.textContent = GAMES_LIBRARY[mode]?.title || mode;
+    creatorContentFormTitle.textContent = item ? "Modifier ce contenu" : "Nouveau contenu";
+    creatorContentId.value = item?.id || "";
+    creatorContentText.value = item?.text || "";
+    creatorRankingItems.value = (item?.items || []).join("\n");
+    creatorRankingItemsBox.style.display = mode === "ranking" ? "block" : "none";
+    creatorContentEnabled.checked = item ? !item.disabled : true;
+    restoreCreatorContentBtn.style.display = item?.edited ? "inline-flex" : "none";
+    restoreCreatorContentBtn.textContent = item?.custom ? "Supprimer cet ajout" : "Restaurer le JSON";
+    creatorContentForm.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+function reloadGameContent(mode) {
+    const loaders = { ranking: loadRankingsData, guess: loadGuessQuestionsData, likely: loadLikelyQuestionsData, ok: loadOkQuestionsData, greenFlag: loadGreenFlagQuestionsData, princess: loadPrincessQuestionsData, questions: loadCoupleQuestionsData };
+    return loaders[mode] ? loaders[mode]() : Promise.resolve();
+}
+
+creatorContentForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const mode = creatorContentGameFilter.value;
+    const text = creatorContentText.value.trim();
+    const items = creatorRankingItems.value.split("\n").map((item) => item.trim()).filter(Boolean);
+    if (!text || (mode === "ranking" && items.length < 2)) {
+        showToast(mode === "ranking" ? "Ajoute au moins deux choix" : "Écris le contenu à enregistrer");
+        return;
+    }
+    const isCustom = !creatorEditingContent;
+    const id = creatorEditingContent?.id || ("custom_" + Date.now().toString(36));
+    const reference = database.ref("questionContent/" + mode + "/" + getQuestionReportId(mode, id).replace(mode + "_", ""));
+    saveCreatorContentBtn.disabled = true;
+    saveCreatorContentBtn.textContent = "Enregistrement…";
+    reference.transaction((current) => {
+        current = current || {};
+        const history = current.history || {};
+        if (current.text || creatorEditingContent?.originalText) {
+            history["v_" + Date.now()] = {
+                text: current.text || creatorEditingContent.originalText,
+                items: current.items || creatorEditingContent.originalItems || [],
+                disabled: current.disabled === true,
+                savedAt: Date.now()
+            };
+        }
+        return {
+            ...current,
+            text,
+            items: mode === "ranking" ? items : null,
+            disabled: !creatorContentEnabled.checked,
+            custom: current.custom === true || isCustom,
+            updatedAt: Date.now(),
+            updatedBy: currentUser.uid,
+            history
+        };
+    }).then(() => reloadGameContent(mode))
+        .then(() => loadCreatorManagedContent(mode))
+        .then(() => {
+            creatorContentForm.style.display = "none";
+            showToast("Contenu Cactus enregistré ✨");
+        }).catch((error) => showToast(getFriendlyFirebaseError(error)))
+        .finally(() => { saveCreatorContentBtn.disabled = false; saveCreatorContentBtn.textContent = "Enregistrer"; });
+});
+
+restoreCreatorContentBtn.addEventListener("click", () => {
+    if (!creatorEditingContent || !confirm(creatorEditingContent.custom ? "Supprimer définitivement cet ajout ?" : "Restaurer la version du JSON ?")) return;
+    const mode = creatorContentGameFilter.value;
+    database.ref("questionContent/" + mode + "/" + creatorEditingContent.id).remove()
+        .then(() => reloadGameContent(mode)).then(() => loadCreatorManagedContent(mode))
+        .then(() => { creatorContentForm.style.display = "none"; showToast("Version d’origine restaurée"); })
+        .catch((error) => showToast(getFriendlyFirebaseError(error)));
+});
+
+creatorOpenContentBtn.addEventListener("click", () => openCreatorContent());
+closeCreatorContentBtn.addEventListener("click", closeCreatorContent);
+creatorContentModal.querySelector("[data-close-creator-content]").addEventListener("click", closeCreatorContent);
+closeCreatorContentFormBtn.addEventListener("click", () => { creatorContentForm.style.display = "none"; creatorEditingContent = null; });
+creatorContentGameFilter.addEventListener("change", () => { creatorContentForm.style.display = "none"; loadCreatorManagedContent(creatorContentGameFilter.value); });
+creatorContentSearch.addEventListener("input", renderCreatorManagedContent);
+creatorNewContentBtn.addEventListener("click", () => openCreatorContentForm());
 
 function updateQuestionReportStatus(report, status) {
     database.ref("questionReports/" + report.ownerUid + "/" + report.reportId).update({
@@ -2840,90 +3068,6 @@ creatorOpenReportsBtn.addEventListener("click", openCreatorReports);
 closeCreatorReportsBtn.addEventListener("click", closeCreatorReports);
 creatorReportsModal.querySelector("[data-close-creator-reports]").addEventListener("click", closeCreatorReports);
 [creatorReportsGameFilter, creatorReportsReasonFilter, creatorReportsStatusFilter].forEach((filter) => filter.addEventListener("change", renderCreatorReports));
-
-const RECENT_GAME_HISTORY_PREFIX = "cactus_recent_questions_v1";
-
-function getGameHistoryKey(mode) {
-    return RECENT_GAME_HISTORY_PREFIX + "_" + (currentUser?.uid || "guest") + "_" + mode;
-}
-
-function readGameHistory(mode) {
-    try {
-        const value = JSON.parse(localStorage.getItem(getGameHistoryKey(mode)) || "[]");
-        return Array.isArray(value) ? value.filter(Boolean) : [];
-    } catch (error) {
-        return [];
-    }
-}
-
-function writeGameHistory(mode, history) {
-    localStorage.setItem(getGameHistoryKey(mode), JSON.stringify(history));
-}
-
-function getActiveChallengeIds(path) {
-    if (!path || !currentSpaceData) return new Set();
-    return new Set(
-        Object.entries(currentSpaceData[path] || {})
-            .filter(([, challenge]) => challenge?.status !== "completed")
-            .map(([id]) => String(id))
-    );
-}
-
-function selectFreshGameItem(items, mode, currentId = null, challengePath = null) {
-    if (!Array.isArray(items) || items.length === 0) return null;
-
-    const blockedIds = getActiveChallengeIds(challengePath);
-    let history = readGameHistory(mode).filter((id) => items.some((item) => String(item.id) === String(id)));
-    const eligible = items.filter((item) => {
-        return String(item.id) !== String(currentId || "") && !blockedIds.has(String(item.id));
-    });
-    let fresh = eligible.filter((item) => !history.includes(String(item.id)));
-
-    if (fresh.length === 0) {
-        const recentToKeep = Math.min(12, Math.max(1, Math.floor(items.length * 0.12)));
-        history = history.slice(-recentToKeep);
-        fresh = eligible.filter((item) => !history.includes(String(item.id)));
-    }
-
-    const pool = fresh.length > 0 ? fresh : (eligible.length > 0 ? eligible : items);
-    const selected = pool[Math.floor(Math.random() * pool.length)];
-    history = history.filter((id) => String(id) !== String(selected.id));
-    history.push(String(selected.id));
-    writeGameHistory(mode, history.slice(-items.length));
-    return selected;
-}
-
-function setGameSkipAvailability(mode, available, items = []) {
-    const button = document.querySelector('[data-skip-game="' + mode + '"]');
-    const progress = document.querySelector('[data-game-progress="' + mode + '"]');
-    const toolbar = button?.closest(".game-question-tools");
-    if (!toolbar) return;
-
-    toolbar.classList.toggle("is-unavailable", !available);
-    if (!available || !progress) return;
-
-    const seen = new Set(readGameHistory(mode));
-    const remaining = Math.max(0, items.filter((item) => !seen.has(String(item.id))).length);
-    progress.textContent = remaining > 0
-        ? remaining + " encore inédite" + (remaining > 1 ? "s" : "")
-        : "Catalogue parcouru · nouvelle rotation";
-}
-
-document.querySelectorAll("[data-skip-game]").forEach((button) => {
-    button.addEventListener("click", () => {
-        const actions = {
-            ranking: startRandomRanking,
-            guess: startGuessGame,
-            likely: startLikelyGame,
-            ok: startOkGame,
-            greenFlag: startGreenFlagGame,
-            princess: startPrincessGame,
-            questions: startQuestionsGame
-        };
-        const action = actions[button.dataset.skipGame];
-        if (action) action();
-    });
-});
 
 function normalizeGameSearch(value) {
     return String(value || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim();
@@ -5223,7 +5367,7 @@ async function loadGuessQuestionsData() {
     const response = await fetch("data/guess-my-answer.json");
     const data = await response.json();
 
-    guessQuestions = data;
+    guessQuestions = await applyCreatorContent("guess", data);
 
     updateDashboardContentCounts();
     console.log("Questions Devine ma réponse chargées :", guessQuestions);
@@ -6158,33 +6302,6 @@ function startPendingLikelyChallenge() {
 
     showScreen("likely");
 }
-
-
-
-
-
-function startPendingLikelyChallenge() {
-    setGameSkipAvailability("likely", false);
-    const challenge =
-        pendingLikelyChallenges[currentPendingLikelyIndex];
-
-    if (!challenge) {
-        showScreen("dashboard");
-        return;
-    }
-
-    currentLikelyId = challenge.questionId;
-
-    currentLikelyQuestion = {
-        id: challenge.questionId,
-        question: challenge.question
-    };
-
-    likelyQuestionText.textContent = challenge.question;
-
-    showScreen("likely");
-}
-
 function showPendingLikelyResult() {
     const challenge =
         pendingLikelyResults[currentPendingLikelyIndex];
@@ -6470,7 +6587,7 @@ function markCurrentOkResultSeen() {
 
 async function loadGreenFlagQuestionsData() {
     const response = await fetch("data/green-flag-red-flag.json");
-    greenFlagQuestions = await response.json();
+    greenFlagQuestions = await applyCreatorContent("greenFlag", await response.json());
 
     console.log("Questions Green Flag chargées :", greenFlagQuestions);
 }
@@ -6693,7 +6810,7 @@ function markCurrentGreenFlagResultSeen() {
 
 async function loadPrincessQuestionsData() {
     const response = await fetch("data/princess-treatment.json");
-    princessQuestions = await response.json();
+    princessQuestions = await applyCreatorContent("princess", await response.json());
 
     console.log("Questions Princess Treatment chargées :", princessQuestions);
 }
@@ -6982,7 +7099,7 @@ function markCurrentPrincessResultSeen() {
 
 async function loadCoupleQuestionsData() {
     const response = await fetch("data/questions.json");
-    coupleQuestions = await response.json();
+    coupleQuestions = await applyCreatorContent("questions", await response.json());
 
     updateDashboardContentCounts();
     console.log("Questions chargées :", coupleQuestions);
@@ -8720,6 +8837,15 @@ auth.onAuthStateChanged((user) => {
     if (user) {
         currentUser = user;
         updateCreatorToolsVisibility();
+        Promise.all([
+            loadRankingsData(),
+            loadGuessQuestionsData(),
+            loadLikelyQuestionsData(),
+            loadOkQuestionsData(),
+            loadGreenFlagQuestionsData(),
+            loadPrincessQuestionsData(),
+            loadCoupleQuestionsData()
+        ]).catch((error) => console.warn("Actualisation du catalogue différée", error));
 
         database.ref("users/" + currentUser.uid).once("value")
             .then((snapshot) => {
