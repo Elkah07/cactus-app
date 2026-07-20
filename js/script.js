@@ -710,6 +710,15 @@ const mainCactusImage =
 
 const dashboardCactusMessage =
     document.getElementById("dashboardCactusMessage");
+const cactusHeadAccessory = document.getElementById("cactusHeadAccessory");
+const cactusFaceAccessory = document.getElementById("cactusFaceAccessory");
+const cactusNeckAccessory = document.getElementById("cactusNeckAccessory");
+const openCactusWardrobeBtn = document.getElementById("openCactusWardrobeBtn");
+const cactusWardrobeModal = document.getElementById("cactusWardrobeModal");
+const closeCactusWardrobeBtn = document.getElementById("closeCactusWardrobeBtn");
+const cactusWardrobeSeeds = document.getElementById("cactusWardrobeSeeds");
+const cactusWardrobeGrid = document.getElementById("cactusWardrobeGrid");
+const removeCactusAccessoriesBtn = document.getElementById("removeCactusAccessoriesBtn");
 
 let cactusGreetingTimer = null;
 let cactusWaveTimers = [];
@@ -1041,6 +1050,7 @@ function listenToCurrentSpace(spaceCodeValue) {
         currentSpaceData = spaceData;
         updateNotificationsBadge(spaceData);
         updateDailyRitualDashboard(spaceData);
+        renderCactusWardrobe(spaceData);
 
         if (lastShownScreen === "notifications") {
             renderNotifications(spaceData);
@@ -9642,6 +9652,167 @@ function getLikelyChosenTarget(answerData) {
 
     return null;
 }
+
+const CACTUS_ACCESSORY_CATALOG = [
+    { id: "flowerHat", name: "Chapeau fleuri", slot: "head", cost: 120, image: "assets/cactus-accessories/flower-hat.webp" },
+    { id: "partyHat", name: "Chapeau de fête", slot: "head", cost: 90, image: "assets/cactus-accessories/party-hat.webp" },
+    { id: "goldCrown", name: "Couronne cœur", slot: "head", cost: 300, image: "assets/cactus-accessories/gold-crown.webp" },
+    { id: "roundGlasses", name: "Lunettes dorées", slot: "face", cost: 150, image: "assets/cactus-accessories/round-glasses.webp" },
+    { id: "heartNecklace", name: "Collier cœur", slot: "neck", cost: 180, image: "assets/cactus-accessories/heart-necklace.webp" },
+    { id: "pinkBow", name: "Nœud corail", slot: "neck", cost: 110, image: "assets/cactus-accessories/pink-bow.webp" }
+];
+
+const CACTUS_ACCESSORY_SLOTS = {
+    head: cactusHeadAccessory,
+    face: cactusFaceAccessory,
+    neck: cactusNeckAccessory
+};
+
+function renderEquippedCactusAccessories(wardrobe = {}) {
+    const equipped = wardrobe.equipped || {};
+
+    Object.entries(CACTUS_ACCESSORY_SLOTS).forEach(([slot, container]) => {
+        if (!container) return;
+
+        const item = CACTUS_ACCESSORY_CATALOG.find((entry) => {
+            return entry.id === equipped[slot] && entry.slot === slot;
+        });
+        container.replaceChildren();
+        container.classList.toggle("is-equipped", Boolean(item));
+        delete container.dataset.accessoryId;
+
+        if (item) {
+            const image = document.createElement("img");
+            image.src = item.image;
+            image.alt = "";
+            container.dataset.accessoryId = item.id;
+            container.appendChild(image);
+        }
+    });
+}
+
+function renderCactusWardrobe(spaceData = {}) {
+    const seeds = Number(spaceData.stats?.seeds) || 0;
+    const wardrobe = spaceData.cactusWardrobe || {};
+    const owned = wardrobe.owned || {};
+    const equipped = wardrobe.equipped || {};
+
+    renderEquippedCactusAccessories(wardrobe);
+    cactusWardrobeSeeds.textContent = seeds;
+    cactusWardrobeGrid.replaceChildren();
+
+    CACTUS_ACCESSORY_CATALOG.forEach((item) => {
+        const isOwned = Boolean(owned[item.id]);
+        const isEquipped = equipped[item.slot] === item.id;
+        const card = document.createElement("article");
+        card.className = "cactus-wardrobe-card" +
+            (isOwned ? " is-owned" : "") +
+            (isEquipped ? " is-equipped" : "");
+
+        const preview = document.createElement("div");
+        preview.className = "cactus-wardrobe-preview";
+        const image = document.createElement("img");
+        image.src = item.image;
+        image.alt = item.name;
+        image.loading = "lazy";
+        preview.appendChild(image);
+
+        const name = document.createElement("strong");
+        name.textContent = item.name;
+        const slot = document.createElement("small");
+        slot.textContent = item.slot === "head" ? "Tête" :
+            item.slot === "face" ? "Visage" : "Cou";
+
+        const action = document.createElement("button");
+        action.type = "button";
+        if (!isOwned) {
+            action.textContent = "Acheter · " + item.cost + " graines";
+            action.disabled = seeds < item.cost;
+            action.addEventListener("click", () => buyCactusAccessory(item));
+        } else {
+            action.textContent = isEquipped ? "Équipé ✓" : "Équiper";
+            action.className = isEquipped ? "is-equipped" : "";
+            action.addEventListener("click", () => equipCactusAccessory(item, !isEquipped));
+        }
+
+        card.append(preview, name, slot, action);
+        cactusWardrobeGrid.appendChild(card);
+    });
+}
+
+function buyCactusAccessory(item) {
+    if (!currentSpaceCode || !currentUser) return;
+
+    database.ref("spaces/" + currentSpaceCode).transaction((spaceData) => {
+        if (!spaceData) return;
+
+        spaceData.stats = spaceData.stats || {};
+        spaceData.cactusWardrobe = spaceData.cactusWardrobe || {};
+        spaceData.cactusWardrobe.owned = spaceData.cactusWardrobe.owned || {};
+        spaceData.cactusWardrobe.equipped = spaceData.cactusWardrobe.equipped || {};
+
+        if (spaceData.cactusWardrobe.owned[item.id]) return;
+        const seeds = Number(spaceData.stats.seeds) || 0;
+        if (seeds < item.cost) return;
+
+        spaceData.stats.seeds = seeds - item.cost;
+        spaceData.cactusWardrobe.owned[item.id] = {
+            purchasedAt: Date.now(),
+            purchasedBy: currentUser.uid
+        };
+        spaceData.cactusWardrobe.equipped[item.slot] = item.id;
+        return spaceData;
+    }).then((result) => {
+        if (!result.committed) {
+            showToast("Pas assez de graines ou accessoire déjà acheté");
+            return;
+        }
+        showToast(item.name + " acheté et équipé ✨");
+        renderCactusWardrobe(result.snapshot.val() || {});
+    }).catch((error) => {
+        console.error("Achat de l’accessoire impossible", error);
+        showToast("Achat impossible pour le moment");
+    });
+}
+
+function equipCactusAccessory(item, shouldEquip) {
+    const value = shouldEquip ? item.id : null;
+    database.ref(
+        "spaces/" + currentSpaceCode + "/cactusWardrobe/equipped/" + item.slot
+    ).set(value).then(() => {
+        showToast(shouldEquip ? item.name + " équipé" : item.name + " retiré");
+    }).catch((error) => {
+        console.error("Équipement impossible", error);
+        showToast("Impossible de modifier la tenue");
+    });
+}
+
+function openCactusWardrobe() {
+    renderCactusWardrobe(currentSpaceData || {});
+    cactusWardrobeModal.style.display = "flex";
+    closeCactusWardrobeBtn.focus();
+}
+
+function closeCactusWardrobe() {
+    cactusWardrobeModal.style.display = "none";
+}
+
+openCactusWardrobeBtn.addEventListener("click", openCactusWardrobe);
+closeCactusWardrobeBtn.addEventListener("click", closeCactusWardrobe);
+cactusWardrobeModal.querySelector("[data-close-cactus-wardrobe]")
+    .addEventListener("click", closeCactusWardrobe);
+removeCactusAccessoriesBtn.addEventListener("click", () => {
+    database.ref("spaces/" + currentSpaceCode + "/cactusWardrobe/equipped")
+        .remove()
+        .then(() => showToast("Accessoires retirés"))
+        .catch(() => showToast("Impossible de retirer les accessoires"));
+});
+
+document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && cactusWardrobeModal.style.display !== "none") {
+        closeCactusWardrobe();
+    }
+});
 
 const CACTUS_EVOLUTIONS = [
     {

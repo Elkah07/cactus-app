@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cactus 🌵</title>
-    <link rel="stylesheet" href="css/style.css?v=58">
+    <link rel="stylesheet" href="css/style.css?v=59">
     <link rel="manifest" href="manifest.json?v=2">
     <meta name="theme-color" content="#003E2D">
 </head>
@@ -807,9 +807,15 @@
                 aria-label="Faire coucou à votre cactus"
             >
             <span id="cactusHeadAccessory" class="cactus-accessory cactus-accessory-head" aria-hidden="true"></span>
+            <span id="cactusFaceAccessory" class="cactus-accessory cactus-accessory-face" aria-hidden="true"></span>
             <span id="cactusNeckAccessory" class="cactus-accessory cactus-accessory-neck" aria-hidden="true"></span>
         </div>
-        <p class="dashboard-cactus-interaction-hint">Touche ton cactus pour lui faire dire coucou</p>
+        <div class="dashboard-cactus-interactions">
+            <p class="dashboard-cactus-interaction-hint">Touche ton cactus pour lui faire dire coucou</p>
+            <button type="button" id="openCactusWardrobeBtn" class="dashboard-cactus-wardrobe-btn">
+                <img src="assets/cactus-accessories/gold-crown.webp" alt="" aria-hidden="true"> Habiller Cactou
+            </button>
+        </div>
 
         <div class="dashboard-level-badge">
             <svg class="cactus-ui-icon" width="30" height="30" aria-hidden="true"><use href="#cactusIconStar"></use></svg>
@@ -835,6 +841,20 @@
         </div>
 
     </section>
+
+    <div id="cactusWardrobeModal" class="cactus-wardrobe-modal" style="display:none;" role="dialog" aria-modal="true" aria-labelledby="cactusWardrobeTitle">
+        <div class="cactus-wardrobe-backdrop" data-close-cactus-wardrobe></div>
+        <section class="cactus-wardrobe-sheet">
+            <header>
+                <div><small>La garde-robe commune</small><h2 id="cactusWardrobeTitle">Habiller votre cactus</h2></div>
+                <button type="button" id="closeCactusWardrobeBtn" aria-label="Fermer">×</button>
+            </header>
+            <div class="cactus-wardrobe-wallet"><span>Votre réserve</span><strong><span id="cactusWardrobeSeeds">0</span> graines</strong></div>
+            <p class="cactus-wardrobe-help">Achetez un accessoire une seule fois, puis équipez-le ou retirez-le quand vous voulez.</p>
+            <div id="cactusWardrobeGrid" class="cactus-wardrobe-grid"></div>
+            <button type="button" id="removeCactusAccessoriesBtn" class="secondary cactus-remove-accessories">Tout retirer</button>
+        </section>
+    </div>
 
 
     <!-- STATS -->
@@ -2096,12 +2116,12 @@
     <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
 
     <script src="js/firebase.js"></script>
-    <script src="js/screens.js?v=58"></script>
+    <script src="js/screens.js?v=59"></script>
     <script src="js/utils.js"></script>
     <script src="js/storage.js"></script>
     <script src="js/rankings.js"></script>
     <script src="js/questions.js"></script>
-    <script src="js/script.js?v=58"></script>
+    <script src="js/script.js?v=59"></script>
 
 </body>
 </html>

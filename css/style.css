@@ -5,6 +5,127 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+/* Garde-robe du cactus */
+.cactus-accessory.is-equipped { display: block; }
+.cactus-accessory img { display: block; width: 100%; height: auto; }
+.cactus-accessory-face { top: 36%; width: 46%; }
+.cactus-accessory-head[data-accessory-id="flowerHat"] { top: -2%; width: 58%; }
+.cactus-accessory-head[data-accessory-id="partyHat"] { top: -13%; width: 31%; }
+.cactus-accessory-head[data-accessory-id="goldCrown"] { top: -5%; width: 48%; }
+.cactus-accessory-neck[data-accessory-id="heartNecklace"] { top: 53%; width: 48%; }
+.cactus-accessory-neck[data-accessory-id="pinkBow"] { top: 57%; width: 31%; }
+
+.dashboard-cactus-interactions {
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: -3px 0 7px;
+}
+.dashboard-cactus-interactions .dashboard-cactus-interaction-hint { margin: 0; }
+.dashboard-cactus-wardrobe-btn {
+    display: inline-flex;
+    width: auto;
+    min-height: 29px;
+    align-items: center;
+    gap: 5px;
+    margin: 0;
+    padding: 4px 9px;
+    border: 1px solid rgba(245, 185, 76, 0.32);
+    border-radius: 999px;
+    color: #fff1bd;
+    background: rgba(78, 61, 13, 0.52);
+    font-size: 0.62rem;
+    font-weight: 900;
+    box-shadow: none;
+}
+.dashboard-cactus-wardrobe-btn img { width: 23px; height: 18px; object-fit: contain; }
+
+.cactus-wardrobe-modal {
+    position: fixed;
+    z-index: 1300;
+    inset: 0;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 12px;
+}
+.cactus-wardrobe-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 28, 19, 0.76);
+    backdrop-filter: blur(8px);
+}
+.cactus-wardrobe-sheet {
+    position: relative;
+    z-index: 1;
+    width: min(100%, 480px);
+    max-height: min(90svh, 720px);
+    padding: 18px;
+    overflow-y: auto;
+    border: 1px solid var(--app-border-strong);
+    border-radius: 30px 30px 22px 22px;
+    background: var(--app-shell-bg);
+    box-shadow: 0 28px 70px rgba(0, 20, 14, 0.5);
+}
+.cactus-wardrobe-sheet > header {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 40px;
+    align-items: center;
+    gap: 12px;
+}
+.cactus-wardrobe-sheet header small,
+.cactus-wardrobe-sheet header h2 { display: block; margin: 0; }
+.cactus-wardrobe-sheet header small {
+    color: #f5b94c;
+    font-size: 0.57rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+.cactus-wardrobe-sheet header h2 { margin-top: 2px; color: var(--app-heading); font-size: 1rem; }
+.cactus-wardrobe-sheet header button { width: 40px; height: 40px; margin: 0; padding: 0; border-radius: 14px; }
+.cactus-wardrobe-wallet {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 14px;
+    padding: 11px 13px;
+    border: 1px solid rgba(245, 185, 76, 0.25);
+    border-radius: 16px;
+    background: rgba(245, 185, 76, 0.09);
+}
+.cactus-wardrobe-wallet span { color: var(--app-muted); font-size: 0.64rem; font-weight: 800; }
+.cactus-wardrobe-wallet strong { color: #f5b94c; font-size: 0.76rem; }
+.cactus-wardrobe-help { margin: 10px 2px 14px; color: var(--app-muted); font-size: 0.62rem; line-height: 1.45; }
+.cactus-wardrobe-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.cactus-wardrobe-card {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    padding: 10px;
+    border: 1px solid var(--app-border-soft);
+    border-radius: 18px;
+    background: var(--app-panel-bg);
+}
+.cactus-wardrobe-card.is-equipped { border-color: #f5b94c; box-shadow: 0 0 0 2px rgba(245, 185, 76, 0.13); }
+.cactus-wardrobe-preview {
+    display: grid;
+    height: 86px;
+    place-items: center;
+    margin-bottom: 7px;
+    border-radius: 14px;
+    background: radial-gradient(circle, rgba(109, 221, 155, 0.17), transparent 68%);
+}
+.cactus-wardrobe-preview img { max-width: 90%; max-height: 78px; object-fit: contain; }
+.cactus-wardrobe-card > strong { overflow: hidden; color: var(--app-heading); font-size: 0.7rem; text-overflow: ellipsis; white-space: nowrap; }
+.cactus-wardrobe-card > small { margin: 2px 0 8px; color: var(--app-muted); font-size: 0.52rem; }
+.cactus-wardrobe-card > button { min-height: 36px; margin: auto 0 0; padding: 7px 6px; border-radius: 11px; font-size: 0.56rem; }
+.cactus-wardrobe-card > button.is-equipped { color: #143d2d; background: #f5cf78; }
+.cactus-wardrobe-card > button:disabled { opacity: 0.45; }
+.cactus-remove-accessories { margin: 12px 0 0; }
+
 body {
     background: #F8F9FA;
     min-height: 100vh;
@@ -1960,10 +2081,17 @@ body.dashboard-active .top-right-btn {
     z-index: 2;
     width: 242px;
     height: 242px;
+    transform-origin: 50% 88%;
+    animation: cactus-idle-breathe 3.8s ease-in-out infinite;
 }
 
 .dashboard-main-cactus:not(.is-evolving):not(.is-waving) {
-    animation: cactus-idle-breathe 3.8s ease-in-out infinite;
+    animation: none;
+}
+
+.dashboard-cactus-character:has(.dashboard-main-cactus.is-evolving),
+.dashboard-cactus-character:has(.dashboard-main-cactus.is-waving) {
+    animation: none;
 }
 
 .dashboard-main-cactus.is-waving {
@@ -2037,6 +2165,7 @@ body.dashboard-active .top-right-btn {
 
 @media (prefers-reduced-motion: reduce) {
     .dashboard-main-cactus,
+    .dashboard-cactus-character,
     .dashboard-main-cactus.is-evolving,
     .dashboard-main-cactus.is-waving {
         animation: none;
