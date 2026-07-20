@@ -3971,11 +3971,11 @@ function updateDailyRitualDashboard(spaceData) {
     dailyStreakDashboard.textContent = streak;
 
     if (challenge?.status === "completed") {
-        dailyRitualDashboardTitle.textContent = "Rituel complété aujourd’hui ✨";
+        dailyRitualDashboardTitle.textContent = "Rituel complété aujourd’hui";
         dailyRitualDashboardStatus.textContent = "Revenez demain pour continuer votre série";
         dailyRitualCard.classList.add("is-completed");
     } else if (myAnswered) {
-        dailyRitualDashboardTitle.textContent = "Ta réponse est envoyée 💌";
+        dailyRitualDashboardTitle.textContent = "Ta réponse est envoyée";
         dailyRitualDashboardStatus.textContent = "En attente de ta partenaire";
         dailyRitualCard.classList.remove("is-completed");
     } else {
@@ -6181,7 +6181,7 @@ function renderGameInbox() {
 
         const icon = document.createElement("span");
         icon.className = "game-inbox-icon";
-        icon.textContent = activity.icon;
+        icon.appendChild(createCactusUiIcon(getDashboardActivitySymbol(activity.icon)));
 
         const copy = document.createElement("span");
         const state = document.createElement("small");
@@ -6224,12 +6224,47 @@ function renderDashboardActivity(activity) {
     }
 
     if (activityIcon) {
-        activityIcon.textContent = activity.icon;
+        activityIcon.replaceChildren(
+            createCactusUiIcon(getDashboardActivitySymbol(activity.icon))
+        );
     }
 
     activityBox.onclick = activity.action || null;
     activityBox.classList.toggle("is-actionable", Boolean(activity.action));
     activityBox.style.display = "grid";
+}
+
+function createCactusUiIcon(symbolId, className = "") {
+    const svgNamespace = "http://www.w3.org/2000/svg";
+    const xlinkNamespace = "http://www.w3.org/1999/xlink";
+    const svg = document.createElementNS(svgNamespace, "svg");
+    const use = document.createElementNS(svgNamespace, "use");
+
+    svg.setAttribute("class", "cactus-ui-icon" + (className ? " " + className : ""));
+    svg.setAttribute("width", "30");
+    svg.setAttribute("height", "30");
+    svg.setAttribute("aria-hidden", "true");
+    use.setAttribute("href", "#" + symbolId);
+    use.setAttributeNS(xlinkNamespace, "xlink:href", "#" + symbolId);
+    svg.appendChild(use);
+
+    return svg;
+}
+
+function getDashboardActivitySymbol(icon) {
+    if (icon === "✨" || icon === "⭐") {
+        return "cactusIconStar";
+    }
+
+    if (icon === "🌱" || icon === "🌿") {
+        return "cactusIconSeed";
+    }
+
+    if (icon === "🪴") {
+        return "cactusIconGarden";
+    }
+
+    return "cactusIconGame";
 }
 
 function getLatestCompletedActivity() {
@@ -8501,37 +8536,37 @@ const CACTUS_EVOLUTIONS = [
         minimumLevel: 21,
         name: "Cactus légendaire",
         image: "assets/cactus-stage-6.png",
-        message: "Votre cactus est devenu légendaire ! 👑✨"
+        message: "Votre cactus est devenu légendaire !"
     },
     {
         minimumLevel: 15,
         name: "Cactus épanoui",
         image: "assets/cactus-stage-5.png",
-        message: "Votre cactus est pleinement épanoui ! 🌸✨"
+        message: "Votre cactus est pleinement épanoui !"
     },
     {
         minimumLevel: 10,
         name: "Cactus complice",
         image: "assets/cactus-stage-4.png",
-        message: "Votre cactus respire la complicité ! 💚"
+        message: "Votre cactus respire la complicité !"
     },
     {
         minimumLevel: 6,
         name: "Cactus curieux",
         image: "assets/cactus-stage-3.png",
-        message: "Votre cactus devient très curieux ! 🔎"
+        message: "Votre cactus devient très curieux !"
     },
     {
         minimumLevel: 3,
         name: "Jeune cactus",
         image: "assets/cactus-stage-2.png",
-        message: "Votre jeune cactus grandit bien ! 🌿"
+        message: "Votre jeune cactus grandit bien !"
     },
     {
         minimumLevel: 1,
         name: "Bébé cactus",
         image: "assets/cactus-stage-1.png",
-        message: "Votre bébé cactus découvre votre histoire ! 🌱"
+        message: "Votre bébé cactus découvre votre histoire !"
     }
 ];
 
@@ -8665,7 +8700,7 @@ function updateRelationshipDays(story) {
     const dateValue = story && (story.startDate || story.relationshipDate);
 
     if (!dateValue) {
-        relationshipDaysText.textContent = "❤️ Votre petit monde à deux";
+        renderRelationshipDaysText("Votre petit monde à deux");
         return;
     }
 
@@ -8673,7 +8708,7 @@ function updateRelationshipDays(story) {
     const today = new Date();
 
     if (Number.isNaN(startDate.getTime())) {
-        relationshipDaysText.textContent = "❤️ Votre petit monde à deux";
+        renderRelationshipDaysText("Votre petit monde à deux");
         return;
     }
 
@@ -8684,13 +8719,24 @@ function updateRelationshipDays(story) {
     const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
 
     if (diffDays <= 0) {
-        relationshipDaysText.textContent =
-            "❤️ Votre histoire commence aujourd’hui";
+        renderRelationshipDaysText("Votre histoire commence aujourd’hui");
         return;
     }
 
-    relationshipDaysText.textContent =
-        "❤️ " + diffDays + " jours ensemble";
+    renderRelationshipDaysText(diffDays + " jours ensemble");
+}
+
+function renderRelationshipDaysText(label) {
+    if (!relationshipDaysText) {
+        return;
+    }
+
+    const text = document.createElement("span");
+    text.textContent = label;
+    relationshipDaysText.replaceChildren(
+        createCactusUiIcon("cactusIconHeart"),
+        text
+    );
 }
 
 function getRelationshipDaysText(dateValue) {

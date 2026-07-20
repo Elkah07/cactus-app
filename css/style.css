@@ -4239,6 +4239,57 @@ body.achievements-active .top-right-btn {
     transform: translate(-50%, -50%) scale(calc(var(--garden-item-scale, 1) * 1.08));
 }
 
+/* Deuxième lot d'icônes du dashboard. */
+#dashboardScreen .dashboard-title-mark .cactus-ui-icon {
+    width: 25px;
+    height: 25px;
+}
+
+#relationshipDaysText {
+    gap: 6px;
+}
+
+#relationshipDaysText .cactus-ui-icon {
+    width: 19px;
+    height: 19px;
+    flex: 0 0 19px;
+}
+
+#relationshipDaysText > span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.dashboard-level-badge,
+#dashboardScreen .dashboard-games-section h2 {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.dashboard-level-badge .cactus-ui-icon,
+#dashboardScreen .dashboard-games-section h2 .cactus-ui-icon {
+    width: 25px;
+    height: 25px;
+}
+
+.dashboard-daily-streak .cactus-ui-icon {
+    width: 24px;
+    height: 24px;
+}
+
+.dashboard-last-activity-icon .cactus-ui-icon {
+    width: 34px;
+    height: 34px;
+    margin: 0 auto;
+}
+
+.game-inbox-icon .cactus-ui-icon {
+    width: 29px;
+    height: 29px;
+}
+
 /* L'illustration Questions possède une toile verticale plus grande que les autres. */
 #dashboardScreen .game-questions img,
 #allGamesScreen #allQuestionsBtn img {
@@ -6205,3 +6256,16 @@ body:not(.dark-theme) #dashboardNotificationsBadge {
 .garden-planted-item:hover {
     transform: translate(-50%, -50%) scale(calc(var(--garden-item-scale, 1) * 1.08));
 }
+
+/* Priorité terminale des icônes secondaires du dashboard. */
+#dashboardScreen .dashboard-title-mark .cactus-ui-icon { width: 25px; height: 25px; }
+#relationshipDaysText { gap: 6px; }
+#relationshipDaysText .cactus-ui-icon { width: 19px; height: 19px; flex: 0 0 19px; }
+#relationshipDaysText > span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.dashboard-level-badge,
+#dashboardScreen .dashboard-games-section h2 { display: inline-flex; align-items: center; gap: 6px; }
+.dashboard-level-badge .cactus-ui-icon,
+#dashboardScreen .dashboard-games-section h2 .cactus-ui-icon { width: 25px; height: 25px; }
+.dashboard-daily-streak .cactus-ui-icon { width: 24px; height: 24px; }
+.dashboard-last-activity-icon .cactus-ui-icon { width: 34px; height: 34px; margin: 0 auto; }
+.game-inbox-icon .cactus-ui-icon { width: 29px; height: 29px; }
