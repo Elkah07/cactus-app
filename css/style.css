@@ -2085,6 +2085,39 @@ body.dashboard-active .top-right-btn {
     animation: cactus-idle-breathe 3.8s ease-in-out infinite;
 }
 
+.cactus-wave-arm {
+    position: absolute;
+    z-index: 1;
+    top: 54%;
+    left: 9%;
+    display: block;
+    width: 17%;
+    height: auto;
+    pointer-events: none;
+    transform: rotate(0deg);
+    transform-origin: 90% 12%;
+    filter: drop-shadow(0 8px 8px rgba(0, 18, 13, 0.2));
+    will-change: transform;
+}
+
+.dashboard-cactus-character.is-waving {
+    animation: none;
+}
+
+.dashboard-cactus-character.is-waving .cactus-wave-arm {
+    animation: cactus-rigged-wave 1.6s cubic-bezier(0.42, 0, 0.22, 1);
+}
+
+@keyframes cactus-rigged-wave {
+    0%, 100% { transform: rotate(0deg); }
+    22% { transform: rotate(82deg); }
+    36% { transform: rotate(98deg); }
+    49% { transform: rotate(78deg); }
+    62% { transform: rotate(99deg); }
+    75% { transform: rotate(80deg); }
+    88% { transform: rotate(28deg); }
+}
+
 .dashboard-main-cactus:not(.is-evolving):not(.is-waving) {
     animation: none;
 }
@@ -2166,6 +2199,7 @@ body.dashboard-active .top-right-btn {
 @media (prefers-reduced-motion: reduce) {
     .dashboard-main-cactus,
     .dashboard-cactus-character,
+    .cactus-wave-arm,
     .dashboard-main-cactus.is-evolving,
     .dashboard-main-cactus.is-waving {
         animation: none;

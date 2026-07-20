@@ -710,6 +710,8 @@ const mainCactusImage =
 
 const dashboardCactusMessage =
     document.getElementById("dashboardCactusMessage");
+const dashboardCactusCharacter = document.querySelector(".dashboard-cactus-character");
+const cactusWaveArm = document.getElementById("cactusWaveArm");
 const cactusHeadAccessory = document.getElementById("cactusHeadAccessory");
 const cactusFaceAccessory = document.getElementById("cactusFaceAccessory");
 const cactusNeckAccessory = document.getElementById("cactusNeckAccessory");
@@ -721,7 +723,6 @@ const cactusWardrobeGrid = document.getElementById("cactusWardrobeGrid");
 const removeCactusAccessoriesBtn = document.getElementById("removeCactusAccessoriesBtn");
 
 let cactusGreetingTimer = null;
-let cactusWaveTimers = [];
 
 function makeDashboardCactusWave() {
     if (!mainCactusImage || !dashboardCactusMessage) {
@@ -735,38 +736,23 @@ function makeDashboardCactusWave() {
         "Je vous envoie plein de bonnes ondes ✨",
         "Coucou de la part de " + cactusName + " !"
     ];
-    const previousMessage = dashboardCactusMessage.textContent;
-    const restingImage = mainCactusImage.dataset.restImage || mainCactusImage.src;
-    const wavingImage = mainCactusImage.dataset.waveImage;
-
-    if (!wavingImage) {
+    if (mainCactusImage.dataset.rigged !== "true") {
+        showToast("Le coucou animé arrive bientôt pour cette évolution");
         return;
     }
 
+    const previousMessage = dashboardCactusMessage.textContent;
     window.clearTimeout(cactusGreetingTimer);
-    cactusWaveTimers.forEach((timer) => window.clearTimeout(timer));
-    cactusWaveTimers = [];
-    mainCactusImage.classList.remove("is-evolving", "is-waving");
-    mainCactusImage.classList.add("is-waving");
+    mainCactusImage.classList.remove("is-evolving");
+    dashboardCactusCharacter.classList.remove("is-waving");
+    void dashboardCactusCharacter.offsetWidth;
+    dashboardCactusCharacter.classList.add("is-waving");
     dashboardCactusMessage.textContent = greetings[Math.floor(Math.random() * greetings.length)];
 
-    [
-        [0, wavingImage],
-        [360, restingImage],
-        [650, wavingImage],
-        [980, restingImage]
-    ].forEach(([delay, source]) => {
-        cactusWaveTimers.push(window.setTimeout(() => {
-            mainCactusImage.src = source;
-        }, delay));
-    });
-
     cactusGreetingTimer = window.setTimeout(() => {
-        mainCactusImage.src = restingImage;
-        mainCactusImage.classList.remove("is-waving");
+        dashboardCactusCharacter.classList.remove("is-waving");
         dashboardCactusMessage.textContent = previousMessage;
-        cactusWaveTimers = [];
-    }, 1800);
+    }, 1650);
 }
 
 mainCactusImage?.addEventListener("click", makeDashboardCactusWave);
@@ -9819,42 +9805,37 @@ const CACTUS_EVOLUTIONS = [
         minimumLevel: 21,
         name: "Cactus légendaire",
         image: "assets/cactus-stage-6.png",
-        waveImage: "assets/cactus-animation/cactus-stage-6-wave.webp",
         message: "Votre cactus est devenu légendaire !"
     },
     {
         minimumLevel: 15,
         name: "Cactus épanoui",
         image: "assets/cactus-stage-5.png",
-        waveImage: "assets/cactus-animation/cactus-stage-5-wave.webp",
         message: "Votre cactus est pleinement épanoui !"
     },
     {
         minimumLevel: 10,
         name: "Cactus complice",
         image: "assets/cactus-stage-4.png",
-        waveImage: "assets/cactus-animation/cactus-stage-4-wave.webp",
         message: "Votre cactus respire la complicité !"
     },
     {
         minimumLevel: 6,
         name: "Cactus curieux",
         image: "assets/cactus-stage-3.png",
-        waveImage: "assets/cactus-animation/cactus-stage-3-wave.webp",
         message: "Votre cactus devient très curieux !"
     },
     {
         minimumLevel: 3,
         name: "Jeune cactus",
         image: "assets/cactus-stage-2.png",
-        waveImage: "assets/cactus-animation/cactus-stage-2-wave.webp",
         message: "Votre jeune cactus grandit bien !"
     },
     {
         minimumLevel: 1,
         name: "Bébé cactus",
-        image: "assets/cactus-stage-1.png",
-        waveImage: "assets/cactus-animation/cactus-stage-1-wave.webp",
+        image: "assets/cactus-rig/stage-1-body.webp",
+        rigged: true,
         message: "Votre bébé cactus découvre votre histoire !"
     }
 ];
@@ -9873,12 +9854,9 @@ function updateCactusEvolution(level) {
             lastRenderedCactusStage !== evolution.minimumLevel;
 
         mainCactusImage.src = evolution.image;
-        mainCactusImage.dataset.restImage = evolution.image;
-        mainCactusImage.dataset.waveImage = evolution.waveImage;
+        mainCactusImage.dataset.rigged = String(Boolean(evolution.rigged));
+        cactusWaveArm.style.display = evolution.rigged ? "block" : "none";
         mainCactusImage.alt = "Votre cactus, " + evolution.name;
-
-        const wavingFrame = new Image();
-        wavingFrame.src = evolution.waveImage;
 
         if (shouldAnimate) {
             mainCactusImage.classList.remove("is-evolving");
