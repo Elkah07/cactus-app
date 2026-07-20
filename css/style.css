@@ -4246,6 +4246,53 @@ body.achievements-active .top-right-btn {
     object-position: center 60%;
 }
 
+/* Icônes Cactus : rendu identique sur tous les systèmes. */
+.cactus-icon-sprite {
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.cactus-ui-icon {
+    display: block;
+    width: 1em;
+    height: 1em;
+    overflow: visible;
+}
+
+#dashboardScreen .dashboard-profile-btn .cactus-ui-icon,
+#dashboardScreen .dashboard-top-actions .cactus-ui-icon {
+    width: 28px;
+    height: 28px;
+}
+
+#dashboardScreen .dashboard-stat-card > span .cactus-ui-icon {
+    width: 28px;
+    height: 28px;
+    margin: 0 auto;
+}
+
+#dashboardScreen .dashboard-bottom-nav .cactus-ui-icon {
+    width: 30px;
+    height: 30px;
+    filter: drop-shadow(0 4px 5px rgba(0, 22, 15, 0.22));
+}
+
+@media (max-width: 370px) {
+    #dashboardScreen .dashboard-profile-btn .cactus-ui-icon,
+    #dashboardScreen .dashboard-top-actions .cactus-ui-icon {
+        width: 25px;
+        height: 25px;
+    }
+
+    #dashboardScreen .dashboard-bottom-nav .cactus-ui-icon {
+        width: 27px;
+        height: 27px;
+    }
+}
+
 /* Mise à jour progressive de l’application. */
 .app-update-banner {
     position: fixed;

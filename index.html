@@ -10,6 +10,21 @@
 </head>
 <body>
 
+<svg class="cactus-icon-sprite" aria-hidden="true">
+    <defs>
+        <symbol id="cactusIconHeart" viewBox="0 0 64 64"><path fill="#ff737d" stroke="#a93f4c" stroke-width="3" d="M32 54C20 45 8 36 8 22A13 13 0 0 1 32 15 13 13 0 0 1 56 22c0 14-12 23-24 32Z"/><path fill="#ffd3c4" d="M17 18c4-5 9-4 11 0-5-2-8 0-10 4-2 3-5 0-1-4Z"/></symbol>
+        <symbol id="cactusIconBell" viewBox="0 0 64 64"><path fill="#ffd45c" stroke="#8a5b16" stroke-width="3" d="M14 45h36l-5-8V27c0-8-5-14-13-14s-13 6-13 14v10l-5 8Z"/><path fill="#ff9c55" d="M25 48h14c-1 6-4 8-7 8s-6-2-7-8Z"/><circle cx="32" cy="10" r="4" fill="#73d98c"/></symbol>
+        <symbol id="cactusIconSettings" viewBox="0 0 64 64"><path fill="#84dca1" stroke="#236b4a" stroke-width="3" d="m27 7 10 0 2 7 6 3 7-2 5 9-5 5v7l5 5-5 9-7-2-6 3-2 7H27l-2-7-6-3-7 2-5-9 5-5v-7l-5-5 5-9 7 2 6-3 2-7Z"/><circle cx="32" cy="32" r="9" fill="#fff5d8" stroke="#236b4a" stroke-width="3"/></symbol>
+        <symbol id="cactusIconSeed" viewBox="0 0 64 64"><path fill="#7cda79" stroke="#367a3e" stroke-width="3" d="M31 55C26 39 28 25 42 10c8 17 4 31-11 45Z"/><path fill="#a7ec77" stroke="#367a3e" stroke-width="3" d="M29 48C14 44 8 35 10 20c16 3 23 12 19 28Z"/><path d="M31 54c0-14 5-26 12-36M29 47c-4-9-10-15-17-21" fill="none" stroke="#367a3e" stroke-width="3" stroke-linecap="round"/></symbol>
+        <symbol id="cactusIconStar" viewBox="0 0 64 64"><path fill="#ffd45c" stroke="#a66b12" stroke-width="3" stroke-linejoin="round" d="m32 7 7 15 17 2-12 12 3 17-15-8-15 8 3-17L8 24l17-2 7-15Z"/><path fill="#fff4b3" d="m30 14 3 9-8 7 3-11 2-5Z"/></symbol>
+        <symbol id="cactusIconGame" viewBox="0 0 64 64"><path fill="#8fdc9f" stroke="#246d4b" stroke-width="3" d="M18 20h28c8 0 13 6 14 17l1 10c1 8-8 11-13 5l-7-8H23l-7 8C11 58 2 55 3 47l1-10c1-11 6-17 14-17Z"/><path d="M18 29v12M12 35h12" stroke="#fff8dc" stroke-width="4" stroke-linecap="round"/><circle cx="45" cy="31" r="3" fill="#ff737d"/><circle cx="51" cy="38" r="3" fill="#ffd45c"/></symbol>
+        <symbol id="cactusIconStory" viewBox="0 0 64 64"><path fill="#fff2cf" stroke="#8b5a27" stroke-width="3" d="M6 13c10-3 19-1 26 5v37c-7-6-16-8-26-5V13Zm52 0c-10-3-19-1-26 5v37c7-6 16-8 26-5V13Z"/><path fill="#ff737d" d="M32 43c-7-5-12-9-12-15 0-7 9-9 12-3 3-6 12-4 12 3 0 6-5 10-12 15Z"/></symbol>
+        <symbol id="cactusIconGarden" viewBox="0 0 64 64"><path fill="#83d99b" stroke="#276f4e" stroke-width="3" d="M31 47V26c-11 1-17-5-18-15 11-1 18 5 18 15 1-13 8-20 20-19 0 12-7 19-20 20"/><path fill="#df8a48" stroke="#874921" stroke-width="3" d="M13 42h38l-5 16H18l-5-16Z"/><path fill="#ff737d" d="M32 51c-5-4-8-6-8-10 0-5 6-6 8-2 2-4 8-3 8 2 0 4-3 6-8 10Z"/></symbol>
+        <symbol id="cactusIconStats" viewBox="0 0 64 64"><circle cx="32" cy="32" r="25" fill="#fff2cf" stroke="#276f4e" stroke-width="3"/><path fill="#73d98c" d="M32 7a25 25 0 0 1 24 19H32V7Z"/><path fill="#6fcbd0" d="M56 29a25 25 0 0 1-15 26l-9-23V29h24Z"/><path fill="#ffd45c" d="M38 57A25 25 0 0 1 8 37h21l9 20Z"/><path d="M32 8v24h24M32 32l9 23M32 32 9 20" fill="none" stroke="#276f4e" stroke-width="2"/></symbol>
+        <symbol id="cactusIconMemories" viewBox="0 0 64 64"><path fill="#fff2cf" stroke="#8b5a27" stroke-width="3" d="M10 10h44v45H10z"/><path fill="#ff737d" d="M32 44c-8-6-14-11-14-18 0-8 10-10 14-3 4-7 14-5 14 3 0 7-6 12-14 18Z"/><path d="M18 16h28" stroke="#73d98c" stroke-width="4" stroke-linecap="round"/></symbol>
+    </defs>
+</svg>
+
     <div class="container">
         <div class="card">
 
@@ -521,7 +536,7 @@
             class="dashboard-profile-btn"
             aria-label="Ouvrir le profil du couple"
         >
-            <span aria-hidden="true">❤️</span>
+            <svg class="cactus-ui-icon" aria-hidden="true"><use href="#cactusIconHeart"></use></svg>
         </button>
 
         <div class="dashboard-couple-title">
@@ -545,7 +560,7 @@
                 class="dashboard-notifications-btn"
                 aria-label="Notifications"
             >
-                🔔
+                <svg class="cactus-ui-icon" aria-hidden="true"><use href="#cactusIconBell"></use></svg>
                 <span id="dashboardNotificationsBadge" style="display:none;">0</span>
             </button>
 
@@ -555,7 +570,7 @@
                 class="dashboard-settings-btn"
                 aria-label="Réglages"
             >
-                ⚙️
+                <svg class="cactus-ui-icon" aria-hidden="true"><use href="#cactusIconSettings"></use></svg>
             </button>
         </div>
 
@@ -610,7 +625,7 @@
     <section class="dashboard-stats-grid">
 
         <article class="dashboard-stat-card stat-compatibility">
-            <span>❤️</span>
+            <span><svg class="cactus-ui-icon" aria-hidden="true"><use href="#cactusIconHeart"></use></svg></span>
             <strong id="compatibilityStat">0%</strong>
             <small>Compatibilité</small>
 
@@ -620,7 +635,7 @@
         </article>
 
         <article class="dashboard-stat-card stat-seeds">
-            <span>🌱</span>
+            <span><svg class="cactus-ui-icon" aria-hidden="true"><use href="#cactusIconSeed"></use></svg></span>
             <strong id="seedsStat">0</strong>
             <small>Graines</small>
 
@@ -635,7 +650,7 @@
             class="dashboard-stat-card stat-level"
             aria-label="Ouvrir nos succès"
         >
-            <span>⭐</span>
+            <span><svg class="cactus-ui-icon" aria-hidden="true"><use href="#cactusIconStar"></use></svg></span>
             <strong id="levelStat">1</strong>
             <small>Niveau</small>
 
@@ -645,7 +660,7 @@
         </button>
 
         <article class="dashboard-stat-card stat-games">
-            <span>🎮</span>
+            <span><svg class="cactus-ui-icon" aria-hidden="true"><use href="#cactusIconGame"></use></svg></span>
             <strong id="completedGamesStat">0</strong>
             <small>Parties</small>
 
@@ -767,7 +782,7 @@
             type="button"
             onclick="openStoryPage()"
         >
-            <span>📖</span>
+            <span><svg class="cactus-ui-icon" aria-hidden="true"><use href="#cactusIconStory"></use></svg></span>
             <small>Notre histoire</small>
         </button>
 
@@ -775,7 +790,7 @@
             type="button"
             onclick="loadNotebooks(); showScreen('garden');"
         >
-            <span>🪴</span>
+            <span><svg class="cactus-ui-icon" aria-hidden="true"><use href="#cactusIconGarden"></use></svg></span>
             <small>Jardin</small>
         </button>
 
@@ -783,7 +798,7 @@
             type="button"
             onclick="openHistoryMode('stats')"
         >
-            <span>📊</span>
+            <span><svg class="cactus-ui-icon" aria-hidden="true"><use href="#cactusIconStats"></use></svg></span>
             <small>Stats</small>
         </button>
 
@@ -791,7 +806,7 @@
             type="button"
             onclick="showScreen('history')"
         >
-            <span>📚</span>
+            <span><svg class="cactus-ui-icon" aria-hidden="true"><use href="#cactusIconMemories"></use></svg></span>
             <small>Souvenirs</small>
         </button>
 
