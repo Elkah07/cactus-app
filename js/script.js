@@ -308,7 +308,18 @@ const timeCapsuleStyleChoices = document.getElementById("timeCapsuleStyleChoices
 const timeCapsuleSymbolChoices = document.getElementById("timeCapsuleSymbolChoices");
 const timeCapsuleEffectChoices = document.getElementById("timeCapsuleEffectChoices");
 const timeCapsuleCustomColorInput = document.getElementById("timeCapsuleCustomColorInput");
+const timeCapsuleCustomColorButton = document.getElementById("timeCapsuleCustomColorButton");
 const clearTimeCapsuleCustomColorBtn = document.getElementById("clearTimeCapsuleCustomColorBtn");
+const openTimeCapsuleEmojiPickerBtn = document.getElementById("openTimeCapsuleEmojiPickerBtn");
+const timeCapsuleEmojiPickerCurrent = document.getElementById("timeCapsuleEmojiPickerCurrent");
+const timeCapsuleEmojiModal = document.getElementById("timeCapsuleEmojiModal");
+const closeTimeCapsuleEmojiPickerBtn = document.getElementById("closeTimeCapsuleEmojiPickerBtn");
+const timeCapsuleEmojiCategoryTabs = document.getElementById("timeCapsuleEmojiCategoryTabs");
+const timeCapsuleEmojiGrid = document.getElementById("timeCapsuleEmojiGrid");
+const timeCapsuleEmojiSelectedPreview = document.getElementById("timeCapsuleEmojiSelectedPreview");
+const timeCapsuleEmojiSelectedLabel = document.getElementById("timeCapsuleEmojiSelectedLabel");
+const timeCapsuleCustomEmojiInput = document.getElementById("timeCapsuleCustomEmojiInput");
+const useTimeCapsuleCustomEmojiBtn = document.getElementById("useTimeCapsuleCustomEmojiBtn");
 const timeCapsulePreviewCard = document.getElementById("timeCapsulePreviewCard");
 const timeCapsulePreviewObject = document.getElementById("timeCapsulePreviewObject");
 const timeCapsulePreviewSymbol = document.getElementById("timeCapsulePreviewSymbol");
@@ -2897,24 +2908,50 @@ const TIME_CAPSULE_THEMES = {
 };
 
 const TIME_CAPSULE_STYLES = {
-    capsule: { label: "Capsule futuriste", glyph: "◉" },
-    letter: { label: "Lettre scellée", glyph: "✉" },
-    bottle: { label: "Bouteille à la mer", glyph: "⚗" },
-    chest: { label: "Coffre à souvenirs", glyph: "▣" },
-    polaroid: { label: "Polaroid temporel", glyph: "▤" },
-    galaxy: { label: "Étoile du futur", glyph: "✦" },
-    cactus: { label: "Cactus magique", glyph: "🌵" }
+    capsule: { label: "Capsule constellation", glyph: "◉", description: "Une capsule de verre cerclée de lumière." },
+    letter: { label: "Lettre au cachet de cire", glyph: "✉️", description: "Une enveloppe précieuse fermée pour le futur." },
+    bottle: { label: "Bouteille étoilée", glyph: "🍾", description: "Un message roulé dans une bouteille enchantée." },
+    chest: { label: "Coffre à souvenirs", glyph: "🗝️", description: "Un petit coffre précieux avec son verrou." },
+    polaroid: { label: "Polaroid temporel", glyph: "📸", description: "Un instant figé qui attend son heure." },
+    galaxy: { label: "Orbe céleste", glyph: "🔮", description: "Une sphère cosmique entourée d’un anneau." },
+    cactus: { label: "Cactus gardien", glyph: "🌵", description: "Un cactus magique qui veille sur le message." },
+    book: { label: "Livre du futur", glyph: "📖", description: "Un livre relié dont les pages restent scellées." },
+    heart: { label: "Reliquaire du cœur", glyph: "💗", description: "Un écrin en forme de cœur pour les mots précieux." },
+    lantern: { label: "Lanterne des souvenirs", glyph: "🏮", description: "Une petite lumière qui attend de se rallumer." }
 };
 
 const TIME_CAPSULE_SYMBOLS = ["🌵", "❤️", "✨", "🌙", "🦋", "🔐", "🥹", "🏠", "✈️", "🌸", "☀️", "♾️"];
 
+const TIME_CAPSULE_EMOJI_CATEGORIES = {
+    recents: { label: "Récents", icon: "🕘", emojis: [] },
+    smileys: { label: "Visages", icon: "😀", emojis: "😀 😃 😄 😁 😆 😅 😂 🤣 🥲 😊 😇 🙂 🙃 😉 😌 😍 🥰 😘 😗 😙 😚 😋 😛 😝 😜 🤪 🤨 🧐 🤓 😎 🥸 🤩 🥳 🙂‍↕️ 😏 😒 🙂‍↔️ 😞 😔 😟 😕 🙁 ☹️ 😣 😖 😫 😩 🥺 😢 😭 😮‍💨 😤 😠 😡 🤬 🤯 😳 🥵 🥶 😱 😨 😰 😥 😓 🤗 🤔 🫣 🤭 🫢 🫡 🤫 🫠 🤥 😶 😶‍🌫️ 😐 😑 😬 🫨 🫥 😯 😦 😧 😮 😲 🥱 😴 🤤 😪 😵 😵‍💫 🤐 🥴 🤢 🤮 🤧 😷 🤒 🤕 🤑 🤠 😈 👿 👹 👺 🤡 💩 👻 💀 ☠️ 👽 👾 🤖 🎃".split(" ") },
+    gestures: { label: "Gestes", icon: "🫶", emojis: "👋 🤚 🖐️ ✋ 🖖 🫱 🫲 🫳 🫴 🫷 🫸 👌 🤌 🤏 ✌️ 🤞 🫰 🤟 🤘 🤙 👈 👉 👆 👇 ☝️ 🫵 👍 👎 ✊ 👊 🤛 🤜 👏 🙌 🫶 👐 🤲 🤝 🙏 ✍️ 💅 🤳 💪 🦾 🦿 🦵 🦶 👂 🦻 👃 🧠 🫀 🫁 🦷 🦴 👀 👁️ 👅 👄 🫦 💋 🩸".split(" ") },
+    hearts: { label: "Cœurs", icon: "💗", emojis: "❤️ 🩷 🧡 💛 💚 💙 🩵 💜 🤎 🖤 🩶 🤍 💔 ❤️‍🔥 ❤️‍🩹 ❣️ 💕 💞 💓 💗 💖 💘 💝 💟 ♥️ 🫶 💌 💋 🌹 🥀 🌷 🌸 🌺 🌻 🌼 🪷 💐".split(" ") },
+    animals: { label: "Animaux", icon: "🐾", emojis: "🐶 🐱 🐭 🐹 🐰 🦊 🐻 🐼 🐻‍❄️ 🐨 🐯 🦁 🐮 🐷 🐽 🐸 🐵 🙈 🙉 🙊 🐒 🐔 🐧 🐦 🐦‍⬛ 🐤 🐣 🐥 🦆 🦅 🦉 🦇 🐺 🐗 🐴 🦄 🫎 🐝 🪲 🐛 🦋 🐌 🐞 🐜 🪰 🪱 🦟 🦗 🕷️ 🦂 🐢 🐍 🦎 🦖 🦕 🐙 🦑 🪼 🦀 🦞 🦐 🐠 🐟 🐡 🦈 🐬 🐳 🐋 🦭 🐊 🐆 🐅 🦬 🐂 🐄 🐎 🐖 🐏 🐑 🦙 🐐 🦌 🐕 🐩 🦮 🐕‍🦺 🐈 🐈‍⬛ 🪶 🪽 🐓 🦃 🦚 🦜 🦢 🪿 🦩 🕊️ 🐇 🦝 🦨 🦡 🦫 🦦 🦥 🐁 🐀 🐿️ 🦔".split(" ") },
+    nature: { label: "Nature", icon: "🌿", emojis: "🌵 🎄 🌲 🌳 🌴 🪵 🌱 🌿 ☘️ 🍀 🎍 🪴 🎋 🍃 🍂 🍁 🪺 🪹 🍄 🍄‍🟫 🐚 🪸 🪨 🌾 💐 🌷 🌹 🥀 🪻 🌺 🌸 🪷 🌼 🌻 🌞 🌝 🌚 🌕 🌖 🌗 🌘 🌑 🌒 🌓 🌔 🌙 🌎 🌍 🌏 🪐 💫 ⭐️ 🌟 ✨ ⚡️ ☄️ 💥 🔥 🌪️ 🌈 ☀️ 🌤️ ⛅️ 🌥️ ☁️ 🌦️ 🌧️ ⛈️ 🌩️ 🌨️ ❄️ ☃️ ⛄️ 🌬️ 💨 💧 💦 ☔️ ☂️ 🌊".split(" ") },
+    food: { label: "Miam", icon: "🍓", emojis: "🍏 🍎 🍐 🍊 🍋 🍋‍🟩 🍌 🍉 🍇 🍓 🫐 🍈 🍒 🍑 🥭 🍍 🥥 🥝 🍅 🍆 🥑 🥦 🫛 🥬 🥒 🌶️ 🫑 🌽 🥕 🫒 🧄 🧅 🥔 🍠 🫚 🥐 🥯 🍞 🥖 🥨 🧀 🥚 🍳 🧈 🥞 🧇 🥓 🥩 🍗 🍖 🌭 🍔 🍟 🍕 🫓 🥪 🥙 🧆 🌮 🌯 🫔 🥗 🥘 🫕 🥫 🍝 🍜 🍲 🍛 🍣 🍱 🥟 🦪 🍤 🍙 🍚 🍘 🍥 🥠 🥮 🍢 🍡 🍧 🍨 🍦 🥧 🧁 🍰 🎂 🍮 🍭 🍬 🍫 🍿 🍩 🍪 🌰 🥜 🍯 🥛 🍼 ☕️ 🫖 🍵 🧃 🥤 🧋 🍶 🍺 🍻 🥂 🍷 🥃 🍸 🍹 🧉 🍾 🧊".split(" ") },
+    activities: { label: "Activités", icon: "🎉", emojis: "⚽️ 🏀 🏈 ⚾️ 🥎 🎾 🏐 🏉 🥏 🎱 🪀 🏓 🏸 🏒 🏑 🥍 🏏 🪃 🥅 ⛳️ 🪁 🛝 🏹 🎣 🤿 🥊 🥋 🎽 🛹 🛼 🛷 ⛸️ 🥌 🎿 ⛷️ 🏂 🪂 🏋️ 🤸 🤺 🤾 🏌️ 🏇 🧘 🏄 🏊 🤽 🚣 🧗 🚵 🚴 🏆 🥇 🥈 🥉 🏅 🎖️ 🏵️ 🎗️ 🎫 🎟️ 🎪 🤹 🎭 🩰 🎨 🎬 🎤 🎧 🎼 🎹 🥁 🪘 🎷 🎺 🪗 🎸 🪕 🎻 🪈 🎲 ♟️ 🎯 🎳 🎮 🕹️ 🎰 🧩".split(" ") },
+    travel: { label: "Voyages", icon: "✈️", emojis: "🚗 🚕 🚙 🚌 🚎 🏎️ 🚓 🚑 🚒 🚐 🛻 🚚 🚛 🚜 🏍️ 🛵 🦽 🩼 🚲 🛴 🛹 🛼 🚨 🚔 🚍 🚘 🚖 🚡 🚠 🚟 🚃 🚋 🚞 🚝 🚄 🚅 🚈 🚂 🚆 🚇 🚊 🚉 ✈️ 🛫 🛬 🛩️ 💺 🛰️ 🚀 🛸 🚁 🛶 ⛵️ 🚤 🛥️ 🛳️ ⛴️ 🚢 ⚓️ 🛟 ⛽️ 🚧 🚦 🚥 🗺️ 🗿 🗽 🗼 🏰 🏯 🏟️ 🎡 🎢 🎠 ⛲️ ⛱️ 🏖️ 🏝️ 🏜️ 🌋 ⛰️ 🏔️ 🗻 🏕️ ⛺️ 🛖 🏠 🏡 🏘️ 🏚️ 🏗️ 🏭 🏢 🏬 🏣 🏤 🏥 🏦 🏨 🏪 🏫 🏩 💒 🏛️ ⛪️ 🕌 🕍 🛕 🕋 ⛩️ 🛤️ 🛣️ 🗾 🎑 🏞️ 🌅 🌄 🌠 🎇 🎆 🌇 🌆 🏙️ 🌃 🌌 🌉 🌁".split(" ") },
+    objects: { label: "Objets", icon: "🎁", emojis: "⌚️ 📱 📲 💻 ⌨️ 🖥️ 🖨️ 🖱️ 🖲️ 🕹️ 🗜️ 💽 💾 💿 📀 📼 📷 📸 📹 🎥 📽️ 🎞️ 📞 ☎️ 📟 📠 📺 📻 🎙️ 🎚️ 🎛️ 🧭 ⏱️ ⏲️ ⏰ 🕰️ ⌛️ ⏳ 📡 🔋 🪫 🔌 💡 🔦 🕯️ 🪔 🧯 🛢️ 💸 💵 💴 💶 💷 🪙 💰 💳 💎 ⚖️ 🪜 🧰 🪛 🔧 🔨 ⚒️ 🛠️ ⛏️ 🪚 🔩 ⚙️ 🪤 🧱 ⛓️ ⛓️‍💥 🧲 🔫 💣 🧨 🪓 🔪 🗡️ ⚔️ 🛡️ 🚬 ⚰️ 🪦 ⚱️ 🏺 🔮 📿 🧿 🪬 💈 ⚗️ 🔭 🔬 🕳️ 🩹 🩺 🩻 🩼 💊 💉 🩸 🧬 🦠 🧫 🧪 🌡️ 🧹 🪠 🧺 🧻 🚽 🚿 🛁 🪥 🪒 🧴 🧼 🫧 🪮 🧽 🪣 🧷 🧵 🪡 🧶 🪢 👓 🕶️ 🥽 🥼 🦺 👔 👕 👖 🧣 🧤 🧥 🧦 👗 👘 🥻 🩱 🩲 🩳 👙 👚 🪭 👛 👜 👝 🛍️ 🎒 🩴 👞 👟 🥾 🥿 👠 👡 🩰 👢 🪮 👑 👒 🎩 🎓 🧢 🪖 ⛑️ 📿 💄 💍 💎 🎁 🎈 🎀 🪄 🪅 🎊 🎉".split(" ") },
+    symbols: { label: "Symboles", icon: "✨", emojis: "✅ ☑️ ✔️ ❌ ❎ ➕ ➖ ➗ ✖️ ♾️ ‼️ ⁉️ ❓ ❔ ❕ ❗️ 〰️ 💱 💲 ⚕️ ♻️ ⚜️ 🔱 📛 🔰 ⭕️ ☢️ ☣️ 📴 📳 🈶 🈚️ 🈸 🈺 🈷️ ✴️ 🆚 🉑 💮 🉐 ㊙️ ㊗️ 🈴 🈵 🈹 🈲 🅰️ 🅱️ 🆎 🆑 🅾️ 🆘 ❌ ⛔️ 🛑 📛 🚫 💯 💢 ♨️ 🚷 🚯 🚳 🚱 🔞 📵 🚭 ❗️ ❕ ❓ ❔ ‼️ ⁉️ 🔅 🔆 〽️ ⚠️ 🚸 🔱 ⚜️ 🔰 ♻️ ✅ 🈯️ 💹 ❇️ ✳️ ❎ 🌐 💠 Ⓜ️ 🌀 💤 🏧 🚾 ♿️ 🅿️ 🛗 🈳 🈂️ 🛂 🛃 🛄 🛅 🚹 🚺 🚼 ⚧️ 🚻 🚮 🎦 📶 🈁 🔣 ℹ️ 🔤 🔡 🔠 🆖 🆗 🆙 🆒 🆕 🆓 0️⃣ 1️⃣ 2️⃣ 3️⃣ 4️⃣ 5️⃣ 6️⃣ 7️⃣ 8️⃣ 9️⃣ 🔟 🔢 ▶️ ⏸️ ⏯️ ⏹️ ⏺️ ⏭️ ⏮️ ⏩️ ⏪️ 🔀 🔁 🔂 ◀️ 🔼 🔽 ⏫️ ⏬️ ➡️ ⬅️ ⬆️ ⬇️ ↗️ ↘️ ↙️ ↖️ ↕️ ↔️ ↪️ ↩️ ⤴️ ⤵️ #️⃣ *️⃣ ℹ️ 🔤 🔡 🔠 🔣 🎵 🎶 〽️ ➰ ➿ ✔️ ☑️ 🔘 🔴 🟠 🟡 🟢 🔵 🟣 🟤 ⚫️ ⚪️ 🟥 🟧 🟨 🟩 🟦 🟪 🟫 ⬛️ ⬜️ ◼️ ◻️ ◾️ ◽️ ▪️ ▫️ 🔶 🔷 🔸 🔹 🔺 🔻 💠 🔘 🔳 🔲".split(" ") },
+    flags: { label: "Drapeaux", icon: "🏳️", emojis: "🏁 🚩 🎌 🏴 🏳️ 🏳️‍🌈 🏳️‍⚧️ 🏴‍☠️ 🇫🇷 🇧🇪 🇨🇭 🇨🇦 🇺🇸 🇬🇧 🇮🇪 🇪🇸 🇵🇹 🇮🇹 🇩🇪 🇳🇱 🇱🇺 🇦🇹 🇬🇷 🇩🇰 🇸🇪 🇳🇴 🇫🇮 🇮🇸 🇵🇱 🇨🇿 🇭🇺 🇷🇴 🇧🇬 🇭🇷 🇷🇸 🇺🇦 🇹🇷 🇲🇦 🇩🇿 🇹🇳 🇸🇳 🇨🇮 🇨🇲 🇨🇩 🇿🇦 🇪🇬 🇲🇬 🇲🇺 🇯🇵 🇨🇳 🇰🇷 🇮🇳 🇹🇭 🇻🇳 🇮🇩 🇵🇭 🇸🇬 🇦🇺 🇳🇿 🇧🇷 🇦🇷 🇲🇽 🇨🇴 🇵🇪 🇨🇱 🇨🇺 🇯🇲 🇩🇴".split(" ") }
+};
+
 const TIME_CAPSULE_EFFECTS = {
     stars: { label: "Pluie d’étoiles", icon: "✦", particles: ["✦", "✧", "⋆"] },
-    confetti: { label: "Confettis", icon: "▦", particles: ["●", "■", "▲", "◆"] },
-    petals: { label: "Pétales", icon: "❀", particles: ["❀", "✿", "•"] },
-    cactus: { label: "Feuilles Cactus", icon: "🌿", particles: ["🌿", "✦", "·"] },
-    gold: { label: "Lumière dorée", icon: "☀", particles: ["✦", "✧", "✺"] },
-    galaxy: { label: "Galaxie", icon: "☾", particles: ["✦", "☾", "•", "⋆"] }
+    confetti: { label: "Confettis", icon: "🎊", particles: ["●", "■", "▲", "◆"] },
+    petals: { label: "Pétales dansants", icon: "🌸", particles: ["🌸", "❀", "✿"] },
+    cactus: { label: "Feuilles Cactus", icon: "🌿", particles: ["🌿", "🍃", "✦"] },
+    gold: { label: "Lumière dorée", icon: "☀️", particles: ["✦", "✧", "✺"] },
+    galaxy: { label: "Galaxie", icon: "🌌", particles: ["✦", "☾", "🪐", "⋆"] },
+    hearts: { label: "Pluie de cœurs", icon: "💗", particles: ["💗", "💕", "💖", "♡"] },
+    bubbles: { label: "Bulles de rêve", icon: "🫧", particles: ["○", "◌", "◦", "🫧"] },
+    snow: { label: "Neige magique", icon: "❄️", particles: ["❄", "❅", "❆", "✧"] },
+    fireworks: { label: "Feux d’artifice", icon: "🎆", particles: ["✹", "✺", "✦", "✧"] },
+    butterflies: { label: "Envol de papillons", icon: "🦋", particles: ["🦋", "✦", "·"] },
+    fireflies: { label: "Lucioles", icon: "✨", particles: ["•", "✦", "·", "✧"] },
+    rainbow: { label: "Arc-en-ciel", icon: "🌈", particles: ["🌈", "✦", "●", "♡"] },
+    comets: { label: "Comètes", icon: "☄️", particles: ["☄", "✦", "⋆", "·"] }
 };
 
 const DEFAULT_TIME_CAPSULE_DESIGN = {
@@ -2927,12 +2964,52 @@ const DEFAULT_TIME_CAPSULE_DESIGN = {
 
 let timeCapsuleDraftDesign = { ...DEFAULT_TIME_CAPSULE_DESIGN };
 
+const TIME_CAPSULE_EMOJI_RECENTS_KEY = "cactus_time_capsule_recent_emojis";
+const TIME_CAPSULE_EMOJI_REGEX = /(?:\p{Extended_Pictographic}|\p{Regional_Indicator})/u;
+let activeTimeCapsuleEmojiCategory = "smileys";
+
+function getFirstGrapheme(value) {
+    const text = String(value || "").trim();
+    if (!text) return "";
+    try {
+        if (typeof Intl !== "undefined" && Intl.Segmenter) {
+            const segmenter = new Intl.Segmenter("fr", { granularity: "grapheme" });
+            const first = segmenter.segment(text)[Symbol.iterator]().next().value;
+            return first?.segment || "";
+        }
+    } catch (error) {}
+    return Array.from(text)[0] || "";
+}
+
+function normalizeTimeCapsuleEmoji(value, fallback = DEFAULT_TIME_CAPSULE_DESIGN.symbol) {
+    const grapheme = getFirstGrapheme(value);
+    if (!grapheme) return fallback;
+    if (TIME_CAPSULE_EMOJI_REGEX.test(grapheme) || /[0-9#*]\uFE0F?\u20E3/u.test(grapheme)) return grapheme;
+    return fallback;
+}
+
+function getRecentTimeCapsuleEmojis() {
+    try {
+        const value = JSON.parse(localStorage.getItem(TIME_CAPSULE_EMOJI_RECENTS_KEY) || "[]");
+        return Array.isArray(value) ? value.map((item) => normalizeTimeCapsuleEmoji(item, "")).filter(Boolean).slice(0, 24) : [];
+    } catch (error) {
+        return [];
+    }
+}
+
+function rememberTimeCapsuleEmoji(emoji) {
+    const normalized = normalizeTimeCapsuleEmoji(emoji, "");
+    if (!normalized) return;
+    const values = [normalized, ...getRecentTimeCapsuleEmojis().filter((item) => item !== normalized)].slice(0, 24);
+    try { localStorage.setItem(TIME_CAPSULE_EMOJI_RECENTS_KEY, JSON.stringify(values)); } catch (error) {}
+}
+
 function normalizeTimeCapsuleDesign(value = {}) {
     const design = value?.design && typeof value.design === "object" ? value.design : value;
     return {
         theme: TIME_CAPSULE_THEMES[design?.theme] ? design.theme : DEFAULT_TIME_CAPSULE_DESIGN.theme,
         style: TIME_CAPSULE_STYLES[design?.style] ? design.style : DEFAULT_TIME_CAPSULE_DESIGN.style,
-        symbol: TIME_CAPSULE_SYMBOLS.includes(design?.symbol) ? design.symbol : DEFAULT_TIME_CAPSULE_DESIGN.symbol,
+        symbol: normalizeTimeCapsuleEmoji(design?.symbol),
         effect: TIME_CAPSULE_EFFECTS[design?.effect] ? design.effect : DEFAULT_TIME_CAPSULE_DESIGN.effect,
         customColor: /^#[0-9a-f]{6}$/i.test(design?.customColor || "") ? design.customColor : ""
     };
@@ -2997,7 +3074,22 @@ function renderTimeCapsuleCustomizerChoices() {
 
     if (timeCapsuleStyleChoices && !timeCapsuleStyleChoices.childElementCount) {
         Object.entries(TIME_CAPSULE_STYLES).forEach(([key, style]) => {
-            const button = buildTimeCapsuleChoiceButton(key, style.label, "is-style", style.glyph);
+            const button = buildTimeCapsuleChoiceButton(key, style.label, "is-style", "");
+            button.title = style.description || style.label;
+            const visual = button.querySelector(".time-capsule-choice-visual");
+            if (visual) {
+                visual.classList.add("time-capsule-style-mini", "capsule-style-" + key);
+                const miniSymbol = document.createElement("span");
+                miniSymbol.className = "time-capsule-style-mini-symbol";
+                miniSymbol.textContent = style.glyph;
+                visual.appendChild(miniSymbol);
+            }
+            const copy = button.querySelector(".time-capsule-choice-copy");
+            if (copy && style.description) {
+                const description = document.createElement("small");
+                description.textContent = style.description;
+                copy.appendChild(description);
+            }
             button.addEventListener("click", () => {
                 timeCapsuleDraftDesign.style = key;
                 updateTimeCapsuleCustomizer();
@@ -3018,6 +3110,7 @@ function renderTimeCapsuleCustomizerChoices() {
             button.textContent = symbol;
             button.addEventListener("click", () => {
                 timeCapsuleDraftDesign.symbol = symbol;
+                rememberTimeCapsuleEmoji(symbol);
                 updateTimeCapsuleCustomizer();
             });
             timeCapsuleSymbolChoices.appendChild(button);
@@ -3036,12 +3129,94 @@ function renderTimeCapsuleCustomizerChoices() {
     }
 }
 
+
+function getTimeCapsuleEmojiCategoryItems(key) {
+    if (key === "recents") return getRecentTimeCapsuleEmojis();
+    return TIME_CAPSULE_EMOJI_CATEGORIES[key]?.emojis || [];
+}
+
+function renderTimeCapsuleEmojiCategories() {
+    if (!timeCapsuleEmojiCategoryTabs) return;
+    const buttons = [];
+    Object.entries(TIME_CAPSULE_EMOJI_CATEGORIES).forEach(([key, category]) => {
+        if (key === "recents" && !getRecentTimeCapsuleEmojis().length) return;
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "time-capsule-emoji-category";
+        button.dataset.emojiCategory = key;
+        button.setAttribute("role", "tab");
+        button.setAttribute("aria-selected", activeTimeCapsuleEmojiCategory === key ? "true" : "false");
+        button.classList.toggle("is-active", activeTimeCapsuleEmojiCategory === key);
+        button.innerHTML = `<span aria-hidden="true">${category.icon}</span><small>${category.label}</small>`;
+        button.addEventListener("click", () => {
+            activeTimeCapsuleEmojiCategory = key;
+            renderTimeCapsuleEmojiCategories();
+            renderTimeCapsuleEmojiGrid();
+        });
+        buttons.push(button);
+    });
+    if (!buttons.some((button) => button.dataset.emojiCategory === activeTimeCapsuleEmojiCategory)) {
+        activeTimeCapsuleEmojiCategory = "smileys";
+        return renderTimeCapsuleEmojiCategories();
+    }
+    timeCapsuleEmojiCategoryTabs.replaceChildren(...buttons);
+}
+
+function selectTimeCapsuleEmoji(emoji, closePicker = true) {
+    const normalized = normalizeTimeCapsuleEmoji(emoji, "");
+    if (!normalized) {
+        showToast("Choisis un emoji valide");
+        return false;
+    }
+    timeCapsuleDraftDesign.symbol = normalized;
+    rememberTimeCapsuleEmoji(normalized);
+    updateTimeCapsuleCustomizer();
+    if (closePicker) closeTimeCapsuleEmojiPicker();
+    return true;
+}
+
+function renderTimeCapsuleEmojiGrid() {
+    if (!timeCapsuleEmojiGrid) return;
+    const values = getTimeCapsuleEmojiCategoryItems(activeTimeCapsuleEmojiCategory);
+    const buttons = values.map((emoji) => {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "time-capsule-emoji-option";
+        button.textContent = emoji;
+        button.setAttribute("role", "gridcell");
+        button.setAttribute("aria-label", "Choisir " + emoji);
+        button.classList.toggle("is-selected", emoji === timeCapsuleDraftDesign.symbol);
+        button.addEventListener("click", () => selectTimeCapsuleEmoji(emoji));
+        return button;
+    });
+    timeCapsuleEmojiGrid.replaceChildren(...buttons);
+}
+
+function openTimeCapsuleEmojiPicker() {
+    if (!timeCapsuleEmojiModal) return;
+    const recents = getRecentTimeCapsuleEmojis();
+    activeTimeCapsuleEmojiCategory = recents.length ? "recents" : "smileys";
+    if (timeCapsuleCustomEmojiInput) timeCapsuleCustomEmojiInput.value = "";
+    renderTimeCapsuleEmojiCategories();
+    renderTimeCapsuleEmojiGrid();
+    updateTimeCapsuleCustomizer();
+    timeCapsuleEmojiModal.style.display = "grid";
+    document.body.classList.add("time-capsule-emoji-open");
+}
+
+function closeTimeCapsuleEmojiPicker() {
+    if (!timeCapsuleEmojiModal) return;
+    timeCapsuleEmojiModal.style.display = "none";
+    document.body.classList.remove("time-capsule-emoji-open");
+}
+
 function fillTimeCapsuleParticles(container, effectKey, count = 10, preview = false) {
     if (!container) return;
     const effect = TIME_CAPSULE_EFFECTS[effectKey] || TIME_CAPSULE_EFFECTS.stars;
     const particles = [];
     for (let index = 0; index < count; index++) {
         const particle = document.createElement("span");
+        particle.className = "time-capsule-particle particle-effect-" + effectKey;
         particle.textContent = effect.particles[index % effect.particles.length];
         particle.style.setProperty("--particle-x", ((index * 37) % 92 + 4) + "%");
         particle.style.setProperty("--particle-delay", ((index * 0.13) % 1.2).toFixed(2) + "s");
@@ -3065,6 +3240,15 @@ function updateTimeCapsuleCustomizer() {
     if (timeCapsulePreviewCard) applyTimeCapsuleDesign(timeCapsulePreviewCard, design);
     if (timeCapsulePreviewObject) applyTimeCapsuleDesign(timeCapsulePreviewObject, design, false);
     if (timeCapsulePreviewSymbol) timeCapsulePreviewSymbol.textContent = design.symbol;
+    if (timeCapsuleEmojiPickerCurrent) timeCapsuleEmojiPickerCurrent.textContent = design.symbol;
+    if (timeCapsuleEmojiSelectedPreview) timeCapsuleEmojiSelectedPreview.textContent = design.symbol;
+    if (timeCapsuleEmojiSelectedLabel) timeCapsuleEmojiSelectedLabel.textContent = design.symbol;
+    if (timeCapsuleCustomColorButton) {
+        const shownColor = (design.customColor || TIME_CAPSULE_THEMES[design.theme].accent).toUpperCase();
+        timeCapsuleCustomColorButton.style.setProperty("--control-color", shownColor);
+        const label = timeCapsuleCustomColorButton.querySelector("small");
+        if (label) label.textContent = design.customColor ? shownColor : "Choisir";
+    }
     if (timeCapsulePreviewThemeName) {
         timeCapsulePreviewThemeName.textContent = design.customColor ? "Couleur personnalisée" : TIME_CAPSULE_THEMES[design.theme].label;
     }
@@ -3080,7 +3264,8 @@ function updateTimeCapsuleCustomizer() {
 
 function resetTimeCapsuleCustomizer() {
     timeCapsuleDraftDesign = { ...DEFAULT_TIME_CAPSULE_DESIGN };
-    if (timeCapsuleCustomColorInput) timeCapsuleCustomColorInput.value = TIME_CAPSULE_THEMES.cactus.accent;
+    if (timeCapsuleCustomColorInput) timeCapsuleCustomColorInput.value = TIME_CAPSULE_THEMES.cactus.accent.toUpperCase();
+    if (timeCapsuleCustomEmojiInput) timeCapsuleCustomEmojiInput.value = "";
     renderTimeCapsuleCustomizerChoices();
     updateTimeCapsuleCustomizer();
 }
@@ -3311,14 +3496,24 @@ if (timeCapsuleRevealModal) timeCapsuleRevealModal.querySelector("[data-close-ti
 
 timeCapsuleTitleInput?.addEventListener("input", updateTimeCapsuleCustomizer);
 timeCapsuleOpenDateInput?.addEventListener("change", updateTimeCapsuleCustomizer);
-timeCapsuleCustomColorInput?.addEventListener("input", () => {
-    timeCapsuleDraftDesign.customColor = timeCapsuleCustomColorInput.value;
-    updateTimeCapsuleCustomizer();
-});
 clearTimeCapsuleCustomColorBtn?.addEventListener("click", () => {
     timeCapsuleDraftDesign.customColor = "";
-    timeCapsuleCustomColorInput.value = TIME_CAPSULE_THEMES[timeCapsuleDraftDesign.theme].accent;
+    timeCapsuleCustomColorInput.value = TIME_CAPSULE_THEMES[timeCapsuleDraftDesign.theme].accent.toUpperCase();
     updateTimeCapsuleCustomizer();
+});
+openTimeCapsuleEmojiPickerBtn?.addEventListener("click", openTimeCapsuleEmojiPicker);
+closeTimeCapsuleEmojiPickerBtn?.addEventListener("click", closeTimeCapsuleEmojiPicker);
+timeCapsuleEmojiModal?.querySelector("[data-close-time-capsule-emoji]")?.addEventListener("click", closeTimeCapsuleEmojiPicker);
+useTimeCapsuleCustomEmojiBtn?.addEventListener("click", () => {
+    if (!selectTimeCapsuleEmoji(timeCapsuleCustomEmojiInput?.value || "")) {
+        timeCapsuleCustomEmojiInput?.focus();
+    }
+});
+timeCapsuleCustomEmojiInput?.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+        event.preventDefault();
+        useTimeCapsuleCustomEmojiBtn?.click();
+    }
 });
 
 timeCapsuleForm.addEventListener("submit", (event) => {
@@ -3607,7 +3802,8 @@ function openNotebookColorPicker(target) {
         notebookTitle: { input: notebookTitleColor, title: "Couleur du titre" },
         editNotebookTitle: { input: editNotebookTitleColor, title: "Nouvelle couleur du titre" },
         text: { input: textColorPicker, title: "Couleur du texte" },
-        highlight: { input: highlightColorPicker, title: "Couleur du surlignage" }
+        highlight: { input: highlightColorPicker, title: "Couleur du surlignage" },
+        timeCapsule: { input: timeCapsuleCustomColorInput, title: "Couleur personnalisée de la capsule" }
     };
     const configuration = configurations[target];
     if (!configuration) return;
@@ -3683,6 +3879,7 @@ notebookTitleColorButton.addEventListener("click", () => openNotebookColorPicker
 editNotebookTitleColorButton.addEventListener("click", () => openNotebookColorPicker("editNotebookTitle"));
 textColorButton.addEventListener("click", () => openNotebookColorPicker("text"));
 highlightColorButton.addEventListener("click", () => openNotebookColorPicker("highlight"));
+timeCapsuleCustomColorButton?.addEventListener("click", () => openNotebookColorPicker("timeCapsule"));
 closeNotebookColorBtn.addEventListener("click", closeNotebookColorPicker);
 cancelNotebookColorBtn.addEventListener("click", closeNotebookColorPicker);
 notebookColorModal.querySelector("[data-close-notebook-color]").addEventListener("click", closeNotebookColorPicker);
@@ -3745,6 +3942,15 @@ applyNotebookColorBtn.addEventListener("click", () => {
         restoreNotebookColorSelection();
         runEditorCommand("hiliteColor", pendingNotebookColor);
         keepEditorToolbarOpen();
+    } else if (activeNotebookColorTarget === "timeCapsule") {
+        timeCapsuleCustomColorInput.value = pendingNotebookColor;
+        timeCapsuleDraftDesign.customColor = pendingNotebookColor;
+        if (timeCapsuleCustomColorButton) {
+            timeCapsuleCustomColorButton.style.setProperty("--control-color", pendingNotebookColor);
+            const label = timeCapsuleCustomColorButton.querySelector("small");
+            if (label) label.textContent = pendingNotebookColor;
+        }
+        updateTimeCapsuleCustomizer();
     }
     closeNotebookColorPicker();
 });
@@ -7378,8 +7584,8 @@ async function showCreatorTestNotification() {
         body: getPushWorkerUrl()
             ? "Le test distant n’a pas répondu, mais les notifications locales fonctionnent."
             : "Ton téléphone peut afficher les notifications. Le Worker Cloudflare reste à connecter.",
-        icon: "./icons/icon-192-v2.png",
-        badge: "./icons/icon-192-v2.png",
+        icon: new URL("assets/cactus-main.png", document.baseURI).href,
+        badge: new URL("icons/notification-badge.png", document.baseURI).href,
         tag: "cactus-creator-test",
         data: { url: "./" }
     });

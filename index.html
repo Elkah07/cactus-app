@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cactus 🌵</title>
-    <link rel="stylesheet" href="css/style.css?v=88">
+    <link rel="stylesheet" href="css/style.css?v=89">
     <link rel="manifest" href="manifest.json?v=2">
     <meta name="theme-color" content="#003E2D">
 </head>
@@ -338,7 +338,13 @@
                     <fieldset class="time-capsule-choice-group">
                         <legend>Ambiance</legend>
                         <div id="timeCapsuleThemeChoices" class="time-capsule-choice-grid theme-grid" role="radiogroup" aria-label="Couleur de la capsule"></div>
-                        <label class="time-capsule-custom-color"><span>Ou une couleur rien qu’à vous</span><input id="timeCapsuleCustomColorInput" type="color" value="#72d59d"><button type="button" id="clearTimeCapsuleCustomColorBtn">Réinitialiser</button></label>
+                        <div class="time-capsule-custom-color">
+                            <input id="timeCapsuleCustomColorInput" type="hidden" value="#72D59D">
+                            <button type="button" id="timeCapsuleCustomColorButton" class="notebook-color-button time-capsule-custom-color-button" style="--control-color:#72D59D">
+                                <span aria-hidden="true"></span><span>Créer ma propre couleur</span><small>#72D59D</small>
+                            </button>
+                            <button type="button" id="clearTimeCapsuleCustomColorBtn" class="time-capsule-reset-color">Revenir au thème</button>
+                        </div>
                     </fieldset>
 
                     <fieldset class="time-capsule-choice-group">
@@ -348,7 +354,12 @@
 
                     <fieldset class="time-capsule-choice-group">
                         <legend>Votre symbole</legend>
-                        <div id="timeCapsuleSymbolChoices" class="time-capsule-symbol-grid" role="radiogroup" aria-label="Symbole de la capsule"></div>
+                        <div id="timeCapsuleSymbolChoices" class="time-capsule-symbol-grid" role="radiogroup" aria-label="Symboles favoris"></div>
+                        <button type="button" id="openTimeCapsuleEmojiPickerBtn" class="time-capsule-emoji-picker-button">
+                            <span id="timeCapsuleEmojiPickerCurrent" class="time-capsule-emoji-picker-current" aria-hidden="true">🌵</span>
+                            <span><strong>Choisir parmi tous les emojis</strong><small>Animaux, voyages, objets, symboles, drapeaux… ou le clavier de ton téléphone.</small></span>
+                            <b aria-hidden="true">›</b>
+                        </button>
                     </fieldset>
 
                     <fieldset class="time-capsule-choice-group">
@@ -401,6 +412,24 @@
         <blockquote id="timeCapsuleRevealMessage"></blockquote>
         <div id="timeCapsuleCreatorPreviewBadge" class="time-capsule-creator-preview-badge" style="display:none;">🛠️ Aperçu créateur · la capsule reste réellement verrouillée</div>
         <button type="button" id="timeCapsuleRevealDoneBtn">Refermer ce souvenir</button>
+    </section>
+</div>
+
+
+<div id="timeCapsuleEmojiModal" class="time-capsule-emoji-modal" style="display:none;" role="dialog" aria-modal="true" aria-labelledby="timeCapsuleEmojiModalTitle">
+    <div class="time-capsule-emoji-backdrop" data-close-time-capsule-emoji></div>
+    <section class="time-capsule-emoji-sheet">
+        <header>
+            <div><small>Votre symbole</small><h2 id="timeCapsuleEmojiModalTitle">Choisir un emoji</h2></div>
+            <button type="button" id="closeTimeCapsuleEmojiPickerBtn" aria-label="Fermer">×</button>
+        </header>
+        <div class="time-capsule-emoji-selected"><span id="timeCapsuleEmojiSelectedPreview">🌵</span><div><small>Symbole actuel</small><strong id="timeCapsuleEmojiSelectedLabel">🌵</strong></div></div>
+        <div id="timeCapsuleEmojiCategoryTabs" class="time-capsule-emoji-category-tabs" role="tablist" aria-label="Catégories d’emojis"></div>
+        <div id="timeCapsuleEmojiGrid" class="time-capsule-emoji-full-grid" role="grid" aria-label="Emojis disponibles"></div>
+        <div class="time-capsule-emoji-custom">
+            <div><strong>Un emoji précis ?</strong><small>Ouvre le clavier emoji de ton téléphone et colle celui que tu veux, même s’il n’est pas dans la liste.</small></div>
+            <div><input id="timeCapsuleCustomEmojiInput" type="text" inputmode="text" autocomplete="off" maxlength="16" placeholder="🫶"><button type="button" id="useTimeCapsuleCustomEmojiBtn">Utiliser</button></div>
+        </div>
     </section>
 </div>
 
@@ -2422,7 +2451,7 @@
     <script src="js/storage.js"></script>
     <script src="js/rankings.js"></script>
     <script src="js/questions.js"></script>
-    <script src="js/script.js?v=88"></script>
+    <script src="js/script.js?v=89"></script>
 
 </body>
 </html>

@@ -1,18 +1,45 @@
+function getCactusAppScope() {
+    try {
+        return new URL(self.registration.scope).href;
+    } catch (error) {
+        return self.location.origin + "/";
+    }
+}
+
+function resolveCactusNotificationTarget(rawTarget) {
+    const scope = getCactusAppScope();
+    if (!rawTarget || rawTarget === "." || rawTarget === "./" || rawTarget === "/") return scope;
+    try {
+        const candidate = new URL(rawTarget, scope);
+        const scopeUrl = new URL(scope);
+        // Ne jamais envoyer la PWA en dehors de son propre sous-dossier GitHub Pages.
+        if (candidate.origin !== scopeUrl.origin || !candidate.pathname.startsWith(scopeUrl.pathname)) return scope;
+        return candidate.href;
+    } catch (error) {
+        return scope;
+    }
+}
+
 self.addEventListener("notificationclick", (event) => {
     event.notification.close();
-    const targetUrl = event.notification?.data?.url || "./";
+    const targetUrl = resolveCactusNotificationTarget(event.notification?.data?.url);
+    const requestedScreen = event.notification?.data?.screen || "";
+
     event.waitUntil(
-        self.clients.matchAll({ type: "window", includeUncontrolled: true }).then((clients) => {
-            const absoluteTarget = new URL(targetUrl, self.location.origin).href;
-            for (const client of clients) {
-                if (client.url.startsWith(self.location.origin) && "focus" in client) {
-                    if ("navigate" in client && client.url !== absoluteTarget) {
-                        return client.navigate(absoluteTarget).then(() => client.focus());
-                    }
-                    return client.focus();
+        self.clients.matchAll({ type: "window", includeUncontrolled: true }).then(async (clients) => {
+            const scope = getCactusAppScope();
+            const existingClient = clients.find((client) => client.url.startsWith(scope));
+
+            if (existingClient) {
+                if (requestedScreen && "postMessage" in existingClient) {
+                    existingClient.postMessage({ type: "CACTUS_NOTIFICATION_CLICK", screen: requestedScreen });
                 }
+                // On ne navigue plus un client existant vers la racine du domaine : sur GitHub Pages
+                // cela pouvait sortir du sous-dossier de l'app et provoquer une page 404.
+                if ("focus" in existingClient) return existingClient.focus();
             }
-            return self.clients.openWindow ? self.clients.openWindow(absoluteTarget) : undefined;
+
+            return self.clients.openWindow ? self.clients.openWindow(targetUrl) : undefined;
         })
     );
 });
@@ -35,12 +62,17 @@ try {
         // Les payloads avec `notification` sont déjà affichés automatiquement par FCM.
         if (payload?.notification) return;
         const title = payload?.data?.title || "Cactus 🌵";
+        const scope = getCactusAppScope();
         const options = {
             body: payload?.data?.body || "Une nouveauté vous attend.",
-            icon: "./icons/icon-192-v2.png",
-            badge: "./icons/icon-192-v2.png",
+            icon: new URL("assets/cactus-main.png", scope).href,
+            badge: new URL("icons/notification-badge.png", scope).href,
             tag: payload?.data?.tag || "cactus-update",
-            data: { url: payload?.data?.url || "./" }
+            renotify: false,
+            data: {
+                url: resolveCactusNotificationTarget(payload?.data?.url),
+                screen: payload?.data?.screen || ""
+            }
         };
         return self.registration.showNotification(title, options);
     });
@@ -48,15 +80,15 @@ try {
     console.warn("Firebase Messaging indisponible dans le service worker", error);
 }
 
-const CACHE_VERSION = "v88";
+const CACHE_VERSION = "v89";
 const SHELL_CACHE = `cactus-shell-${CACHE_VERSION}`;
 const RUNTIME_CACHE = `cactus-runtime-${CACHE_VERSION}`;
 
 const APP_SHELL = [
     "./index.html",
-    "./css/style.css?v=88",
+    "./css/style.css?v=89",
     "./js/firebase.js?v=86",
-    "./js/script.js?v=88",
+    "./js/script.js?v=89",
     "./js/screens.js?v=84",
     "./js/utils.js",
     "./js/storage.js",
@@ -76,6 +108,7 @@ const APP_SHELL = [
     "./manifest.json",
     "./icons/icon-192-v2.png",
     "./icons/icon-512-v2.png",
+    "./icons/notification-badge.png",
     "./assets/avatars/avatar-1.webp",
     "./assets/avatars/avatar-2.webp",
     "./assets/avatars/avatar-3.webp",
