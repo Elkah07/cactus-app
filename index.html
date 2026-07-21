@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cactus 🌵</title>
-    <link rel="stylesheet" href="css/style.css?v=94">
+    <link rel="stylesheet" href="css/style.css?v=95">
     <link rel="manifest" href="manifest.json?v=2">
     <meta name="theme-color" content="#003E2D">
 </head>
@@ -126,45 +126,56 @@
         <div><small>Votre vie à deux</small><h1>Notre quotidien</h1><p>Le calendrier de votre histoire, vos petites organisations et tout ce que vous construisez ensemble.</p></div>
     </header>
 
-    <section class="daily-life-hub" aria-labelledby="dailyLifeHubTitle">
-        <div class="daily-life-hub-decor" aria-hidden="true"><span>✦</span><span>💚</span><span>✧</span><span>🌵</span></div>
-        <div class="daily-life-hub-copy">
-            <small>Votre vie à deux</small>
-            <h2 id="dailyLifeHubTitle">Les petits jours et les grands moments, réunis ici.</h2>
-            <p>Votre calendrier, vos projets, vos listes et les souvenirs qui arrivent bientôt vivent maintenant dans le même coin.</p>
+    <section class="daily-calendar-overview" aria-labelledby="dailyCalendarOverviewTitle">
+        <button type="button" id="openImportantDatesBtn" class="daily-calendar-entry" onclick="showScreen('importantDates')">
+            <span class="daily-calendar-entry-icon"><svg class="cactus-ui-icon" aria-hidden="true"><use href="#cactusIconCalendar"></use></svg></span>
+            <span class="daily-calendar-entry-copy">
+                <small>Votre histoire, au même endroit</small>
+                <strong id="dailyCalendarOverviewTitle">Notre calendrier</strong>
+                <span>Dates, retrouvailles, projets et comptes à rebours.</span>
+            </span>
+            <span class="daily-calendar-entry-arrow" aria-hidden="true">›</span>
+        </button>
+
+        <div class="daily-calendar-upcoming-inline">
+            <div class="daily-calendar-inline-heading">
+                <div><small>À l’horizon</small><strong>Les prochains moments</strong></div>
+                <button type="button" onclick="showScreen('importantDates')">Tout voir</button>
+            </div>
+            <div id="dailyUpcomingMoments" class="daily-upcoming-moments daily-upcoming-moments-inline"></div>
+            <p id="dailyUpcomingEmpty" class="daily-upcoming-empty">Aucun moment prévu pour l’instant ✨</p>
         </div>
     </section>
 
-    <button type="button" id="openImportantDatesBtn" class="daily-tool-card daily-calendar-main-card" onclick="showScreen('importantDates')">
-        <span class="daily-tool-icon"><svg class="cactus-ui-icon" width="50" height="50" aria-hidden="true"><use href="#cactusIconCalendar"></use></svg></span>
-        <span class="daily-tool-copy"><small>Votre vie sur une ligne du temps</small><strong>Notre calendrier</strong><span>Dates importantes, retrouvailles, voyages, anniversaires et comptes à rebours au même endroit.</span></span>
-        <span class="daily-calendar-main-preview" id="dailyCalendarMainPreview" aria-hidden="true"><i></i><i></i><i></i></span>
-        <span class="daily-tool-arrow" aria-hidden="true">›</span>
-    </button>
-
-    <section class="daily-upcoming-section">
-        <div class="daily-section-heading"><div><small>À l’horizon</small><h2>Vos prochains moments</h2></div><button type="button" onclick="showScreen('importantDates')">Tout voir</button></div>
-        <div id="dailyUpcomingMoments" class="daily-upcoming-moments"></div>
-        <p id="dailyUpcomingEmpty" class="daily-upcoming-empty">Aucun grand moment programmé pour l’instant. Votre calendrier est une page blanche ✨</p>
+    <section class="daily-quick-section" aria-labelledby="dailyQuickTitle">
+        <div class="daily-compact-heading">
+            <div><small>À portée de main</small><h2 id="dailyQuickTitle">Nos essentiels</h2></div>
+        </div>
+        <div class="daily-quick-grid">
+            <button type="button" id="openShoppingListBtn" class="daily-quick-card" onclick="showScreen('shopping')">
+                <span class="daily-quick-icon"><svg class="cactus-ui-icon" aria-hidden="true"><use href="#cactusIconShopping"></use></svg></span>
+                <span><strong>Courses</strong><small>La liste partagée</small></span><b>›</b>
+            </button>
+            <button type="button" id="openTasksBtn" class="daily-quick-card" onclick="showScreen('tasks')">
+                <span class="daily-quick-icon"><svg class="cactus-ui-icon" aria-hidden="true"><use href="#cactusIconTasks"></use></svg></span>
+                <span><strong>Tâches</strong><small>À faire ensemble</small></span><b>›</b>
+            </button>
+            <button type="button" id="openRemindersBtn" class="daily-quick-card" onclick="showScreen('reminders')">
+                <span class="daily-quick-icon"><svg class="cactus-ui-icon" aria-hidden="true"><use href="#cactusIconBell"></use></svg></span>
+                <span><strong>Rappels</strong><small>À ne pas oublier</small></span><b>›</b>
+            </button>
+            <button type="button" id="openTimeCapsulesBtn" class="daily-quick-card daily-quick-card-capsule" onclick="showScreen('timeCapsules')">
+                <span class="daily-quick-icon"><svg class="cactus-ui-icon" aria-hidden="true"><use href="#cactusIconCapsule"></use></svg></span>
+                <span><strong>Capsules</strong><small>Pour plus tard</small></span><b>›</b>
+            </button>
+        </div>
     </section>
 
-    <button type="button" id="openShoppingListBtn" class="daily-tool-card daily-shopping-card" onclick="showScreen('shopping')">
-        <span class="daily-tool-icon"><svg class="cactus-ui-icon" width="46" height="46" aria-hidden="true"><use href="#cactusIconShopping"></use></svg></span>
-        <span class="daily-tool-copy"><small>Outil du quotidien</small><strong>Liste de courses</strong><span>Ajoutez et cochez vos achats ensemble.</span></span>
-        <span class="daily-tool-arrow" aria-hidden="true">›</span>
-    </button>
-
-    <div class="daily-tools-grid daily-tools-grid-refined">
-        <button type="button" id="openTasksBtn" class="daily-tool-card is-compact" onclick="showScreen('tasks')"><span class="daily-tool-icon"><svg class="cactus-ui-icon" aria-hidden="true"><use href="#cactusIconTasks"></use></svg></span><span class="daily-tool-copy"><small>Organisation</small><strong>Nos tâches</strong><span>À faire ensemble</span></span><span class="daily-tool-arrow">›</span></button>
-        <button type="button" id="openRemindersBtn" class="daily-tool-card is-compact" onclick="showScreen('reminders')"><span class="daily-tool-icon"><svg class="cactus-ui-icon" aria-hidden="true"><use href="#cactusIconBell"></use></svg></span><span class="daily-tool-copy"><small>À ne pas oublier</small><strong>Nos rappels</strong><span>Les petites choses ponctuelles</span></span><span class="daily-tool-arrow">›</span></button>
-        <button type="button" id="openTimeCapsulesBtn" class="daily-tool-card is-compact" onclick="showScreen('timeCapsules')"><span class="daily-tool-icon"><svg class="cactus-ui-icon" aria-hidden="true"><use href="#cactusIconCapsule"></use></svg></span><span class="daily-tool-copy"><small>À ouvrir plus tard</small><strong>Capsules temporelles</strong><span>Des messages gardés jusqu’au bon jour</span></span><span class="daily-tool-arrow">›</span></button>
-    </div>
-
-    <div class="garden-notebooks-heading daily-notebooks-heading">
-        <div><small>Vos listes à deux</small><h2>Nos carnets</h2></div>
-        <button type="button" id="showCreateNotebookBtn">+ Nouveau</button>
-    </div>
-
+    <section class="daily-notebooks-section" aria-labelledby="dailyNotebooksTitle">
+        <div class="garden-notebooks-heading daily-notebooks-heading">
+            <div><small>Vos idées et listes libres</small><h2 id="dailyNotebooksTitle">Nos carnets</h2></div>
+            <button type="button" id="showCreateNotebookBtn">+ Nouveau</button>
+        </div>
     <div id="createNotebookBox" class="create-notebook-box" style="display:none;">
         <input
             type="text"
@@ -193,11 +204,7 @@
         </button>
     </div>
 
-    <div id="notebooksGrid" class="notebooks-grid"></div>
-
-    <section class="daily-coming-soon" aria-label="Prochains outils">
-        <small>Le coin peut encore grandir</small>
-        <strong>D’autres outils du quotidien pourront rejoindre vos carnets ici.</strong>
+        <div id="notebooksGrid" class="notebooks-grid daily-notebooks-strip"></div>
     </section>
 
     <button type="button" id="backFromDailyToolsBtn" class="secondary">Retour</button>
@@ -2573,7 +2580,7 @@
     <script src="js/storage.js"></script>
     <script src="js/rankings.js"></script>
     <script src="js/questions.js"></script>
-    <script src="js/script.js?v=94"></script>
+    <script src="js/script.js?v=95"></script>
 
 </body>
 </html>
