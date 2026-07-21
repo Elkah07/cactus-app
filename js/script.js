@@ -3785,7 +3785,7 @@ const GAMES_LIBRARY = {
     limitReached: {
         title: "Limite atteinte",
         category: "Limites & découverte",
-        image: "assets/cactus-ok.png",
+        image: "assets/cactus-limit-reached.webp",
         description: "Avancez chacun à votre rythme dans une situation qui s'intensifie. Arrêtez-vous dès que votre limite est atteinte, puis découvrez jusqu'où l'autre serait allé."
     },
     coupleDare: {
