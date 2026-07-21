@@ -19,7 +19,7 @@ window.CACTUS_FCM_VAPID_KEY = window.CACTUS_FCM_VAPID_KEY || "BPZE2JidgLMj6wQDKU
 
 // URL du Cloudflare Worker chargé d'envoyer les notifications automatiques.
 // Après le premier déploiement du Worker, colle son URL workers.dev ici.
-window.CACTUS_PUSH_WORKER_URL = window.CACTUS_PUSH_WORKER_URL || "";
+window.CACTUS_PUSH_WORKER_URL = window.CACTUS_PUSH_WORKER_URL || "https://cactus-push.kathie-lopes-pro.workers.dev";
 let messaging = null;
 
 if ("Notification" in window && "serviceWorker" in navigator && firebase.messaging) {
