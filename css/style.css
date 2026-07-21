@@ -8892,3 +8892,75 @@ body.time-capsule-emoji-open { overflow:hidden; }
     .time-capsule-custom-color { grid-template-columns:1fr; }
     .time-capsule-reset-color { min-height:38px !important; }
 }
+
+
+/* =========================================================
+   V90 — Capsules rangées, teasing temporel et mouvement doux
+   ========================================================= */
+.time-capsule-view-switch {
+    display:grid; grid-template-columns:1fr 1fr; gap:7px; margin:14px 0 12px; padding:5px;
+    border:1px solid var(--app-border); border-radius:18px; background:color-mix(in srgb,var(--app-panel-bg) 88%,var(--app-icon-bg));
+}
+.time-capsule-view-switch button {
+    min-height:42px; margin:0; padding:8px 10px; display:flex; align-items:center; justify-content:center; gap:7px;
+    border-radius:13px; border:1px solid transparent; background:transparent; color:var(--app-muted); box-shadow:none; font-size:.58rem;
+}
+.time-capsule-view-switch button span { display:grid; min-width:22px; height:22px; padding:0 6px; place-items:center; border-radius:99px; background:var(--app-icon-bg); color:var(--app-heading); font-size:.47rem; font-weight:900; }
+.time-capsule-view-switch button.is-active { background:var(--app-panel-bg); color:var(--app-heading); border-color:color-mix(in srgb,var(--app-accent) 25%,var(--app-border)); box-shadow:0 7px 16px var(--app-shadow-soft); }
+.time-capsule-view-switch button.is-active span { background:color-mix(in srgb,var(--app-accent) 18%,var(--app-icon-bg)); color:var(--app-accent); }
+.time-capsule-card.is-archived { opacity:.9; }
+.time-capsule-card.is-archived .time-capsule-card-visual { filter:saturate(.82); }
+.time-capsule-card.is-mystery .time-capsule-card-topline strong::after { content:" ✦"; color:var(--capsule-card-accent); }
+.time-capsule-secondary-action { width:auto !important; min-width:72px; margin:0 !important; padding:9px 12px !important; border-radius:12px !important; background:var(--app-icon-bg) !important; color:var(--app-heading) !important; border:1px solid var(--app-border) !important; box-shadow:none !important; font-size:.49rem !important; }
+.time-capsule-secondary-action.is-archive::before { content:"↘ "; }
+.time-capsule-secondary-action.is-restore::before { content:"↗ "; }
+
+.dashboard-cactus-section { position:relative; }
+.dashboard-time-capsule-ready {
+    position:absolute; z-index:8; right:6px; top:78px; width:min(160px,42%); margin:0; padding:8px 9px;
+    display:grid; grid-template-columns:46px minmax(0,1fr); align-items:center; gap:7px; text-align:left;
+    border:1px solid rgba(255,211,111,.55); border-radius:19px; color:#4d3a14; background:linear-gradient(145deg,rgba(255,252,230,.96),rgba(255,226,139,.94)); box-shadow:0 15px 34px rgba(127,88,15,.19); overflow:visible; animation:cactusCapsuleCalloutFloat 3.8s ease-in-out infinite;
+}
+.dashboard-time-capsule-ready-object { position:relative; z-index:2; display:grid; width:46px; height:46px; place-items:center; border-radius:15px; background:rgba(255,255,255,.76); box-shadow:0 7px 18px rgba(123,84,11,.16); animation:cactusCapsuleObjectFloat 2.8s ease-in-out infinite; }
+.dashboard-time-capsule-ready-object .cactus-ui-icon { width:36px; height:36px; }
+.dashboard-time-capsule-ready-orbit { position:absolute; left:5px; top:3px; width:54px; height:54px; border:1px solid rgba(255,183,40,.5); border-radius:50%; animation:cactusCapsuleOrbitSpin 7s linear infinite; }
+.dashboard-time-capsule-ready-orbit::after { content:"✦"; position:absolute; right:-3px; top:7px; color:#f3a91d; font-size:.62rem; }
+.dashboard-time-capsule-ready-copy { min-width:0; display:grid; gap:2px; }
+.dashboard-time-capsule-ready-copy small { color:#9a6c13; font-size:.42rem; font-weight:900; text-transform:uppercase; }
+.dashboard-time-capsule-ready-copy strong { color:#523c0f; font-size:.56rem; line-height:1.25; }
+
+.dashboard-time-capsule-teaser { width:100%; margin:12px 0 15px; padding:11px 12px; grid-template-columns:48px minmax(0,1fr) 18px; align-items:center; gap:10px; border-radius:20px; border:1px solid color-mix(in srgb,var(--capsule-teaser-accent,#8d8be8) 34%,var(--app-border)); background:linear-gradient(135deg,color-mix(in srgb,var(--capsule-teaser-accent,#8d8be8) 13%,var(--app-panel-bg)),var(--app-panel-bg)); color:var(--app-heading); text-align:left; box-shadow:0 11px 25px var(--app-shadow-soft); overflow:hidden; }
+.dashboard-time-capsule-teaser-symbol { display:grid; width:48px; height:48px; place-items:center; border-radius:16px; font-size:1.5rem; background:color-mix(in srgb,var(--capsule-teaser-accent,#8d8be8) 18%,var(--app-icon-bg)); animation:cactusSoftFloat 4.6s ease-in-out infinite; }
+.dashboard-time-capsule-teaser-copy { min-width:0; display:grid; gap:2px; }
+.dashboard-time-capsule-teaser-copy small { color:var(--capsule-teaser-accent,var(--app-accent)); font-size:.46rem; font-weight:900; text-transform:uppercase; }
+.dashboard-time-capsule-teaser-copy strong { color:var(--app-heading); font-size:.64rem; line-height:1.25; }
+.dashboard-time-capsule-teaser-copy span { color:var(--app-muted); font-size:.48rem; line-height:1.35; }
+.dashboard-time-capsule-teaser-arrow { color:var(--capsule-teaser-accent,var(--app-accent)); font-size:1.2rem; }
+
+.dashboard-featured-games .dashboard-game-card img { animation:cactusSoftFloat 5.4s ease-in-out infinite; }
+.dashboard-featured-games .dashboard-game-card:nth-child(2) img { animation-delay:-1.8s; }
+.dashboard-featured-games .dashboard-game-card:nth-child(3) img { animation-delay:-3.4s; }
+.daily-tools-screen .daily-tool-card .daily-tool-icon { animation:cactusIconBreathe 5.8s ease-in-out infinite; }
+.daily-tools-screen .daily-tool-card:nth-of-type(2n) .daily-tool-icon { animation-delay:-2.1s; }
+.dashboard-stats-grid .dashboard-stat-card > span:first-child { animation:cactusIconBreathe 4.8s ease-in-out infinite; }
+.secondary-screen-hero > img { animation:cactusSoftFloat 6.2s ease-in-out infinite; }
+.dashboard-time-capsule-teaser:hover .dashboard-time-capsule-teaser-symbol, .daily-tools-screen .daily-tool-card:hover .daily-tool-icon { animation-duration:1.8s; }
+
+@keyframes cactusSoftFloat { 0%,100%{transform:translateY(0) rotate(0)} 50%{transform:translateY(-5px) rotate(1deg)} }
+@keyframes cactusIconBreathe { 0%,100%{transform:translateY(0) scale(1)} 50%{transform:translateY(-2px) scale(1.045)} }
+@keyframes cactusCapsuleCalloutFloat { 0%,100%{transform:translateY(0) rotate(-1deg)} 50%{transform:translateY(-7px) rotate(1deg)} }
+@keyframes cactusCapsuleObjectFloat { 0%,100%{transform:translateY(0) rotate(-2deg)} 50%{transform:translateY(-4px) rotate(2deg)} }
+@keyframes cactusCapsuleOrbitSpin { to{transform:rotate(360deg)} }
+
+@media (max-width:420px) {
+    .dashboard-time-capsule-ready { right:2px; top:82px; width:43%; padding:7px; grid-template-columns:40px minmax(0,1fr); }
+    .dashboard-time-capsule-ready-object { width:40px; height:40px; }
+    .dashboard-time-capsule-ready-object .cactus-ui-icon { width:31px; height:31px; }
+    .dashboard-time-capsule-ready-orbit { width:47px; height:47px; }
+    .dashboard-time-capsule-ready-copy strong { font-size:.5rem; }
+    .time-capsule-card-footer { flex-wrap:wrap; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .dashboard-time-capsule-ready, .dashboard-time-capsule-ready-object, .dashboard-time-capsule-ready-orbit, .dashboard-time-capsule-teaser-symbol, .dashboard-featured-games .dashboard-game-card img, .daily-tools-screen .daily-tool-card .daily-tool-icon, .dashboard-stats-grid .dashboard-stat-card > span:first-child, .secondary-screen-hero > img { animation:none !important; }
+}

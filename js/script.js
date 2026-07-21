@@ -265,6 +265,12 @@ const dashboardTodayWidget = document.getElementById("dashboardTodayWidget");
 const dashboardTodayList = document.getElementById("dashboardTodayList");
 const dashboardTodayEmpty = document.getElementById("dashboardTodayEmpty");
 const dashboardTodayOpenBtn = document.getElementById("dashboardTodayOpenBtn");
+const dashboardTimeCapsuleReady = document.getElementById("dashboardTimeCapsuleReady");
+const dashboardTimeCapsuleReadyTitle = document.getElementById("dashboardTimeCapsuleReadyTitle");
+const dashboardTimeCapsuleTeaser = document.getElementById("dashboardTimeCapsuleTeaser");
+const dashboardTimeCapsuleTeaserSymbol = document.getElementById("dashboardTimeCapsuleTeaserSymbol");
+const dashboardTimeCapsuleTeaserTitle = document.getElementById("dashboardTimeCapsuleTeaserTitle");
+const dashboardTimeCapsuleTeaserMeta = document.getElementById("dashboardTimeCapsuleTeaserMeta");
 const countdownsScreen = document.getElementById("countdownsScreen");
 const backFromCountdownsBtn = document.getElementById("backFromCountdownsBtn");
 const showCountdownFormBtn = document.getElementById("showCountdownFormBtn");
@@ -295,6 +301,10 @@ const timeCapsulesEmptyState = document.getElementById("timeCapsulesEmptyState")
 const timeCapsuleLockedCount = document.getElementById("timeCapsuleLockedCount");
 const timeCapsuleReadyCount = document.getElementById("timeCapsuleReadyCount");
 const timeCapsuleOpenedCount = document.getElementById("timeCapsuleOpenedCount");
+const timeCapsuleActiveTab = document.getElementById("timeCapsuleActiveTab");
+const timeCapsuleArchiveTab = document.getElementById("timeCapsuleArchiveTab");
+const timeCapsuleActiveTabCount = document.getElementById("timeCapsuleActiveTabCount");
+const timeCapsuleArchiveTabCount = document.getElementById("timeCapsuleArchiveTabCount");
 const timeCapsuleRevealModal = document.getElementById("timeCapsuleRevealModal");
 const closeTimeCapsuleRevealBtn = document.getElementById("closeTimeCapsuleRevealBtn");
 const timeCapsuleRevealDoneBtn = document.getElementById("timeCapsuleRevealDoneBtn");
@@ -937,6 +947,7 @@ let editingReminderId = null;
 let editingImportantDateId = null;
 let currentCountdowns = {};
 let currentTimeCapsules = {};
+let timeCapsuleViewMode = "active";
 let editingCountdownId = null;
 let creatorModeEnabled = false;
 let currentRevealedTimeCapsuleId = null;
@@ -1223,6 +1234,7 @@ function listenToCurrentSpace(spaceCodeValue) {
         updateDailyRitualDashboard(spaceData);
         renderCactusWardrobe(spaceData);
         renderDashboardToday(spaceData);
+        renderDashboardTimeCapsules(spaceData);
         renderDiscussionsDashboard(spaceData);
         refreshDiscussionButtons();
 
@@ -3368,25 +3380,63 @@ function openTimeCapsuleReveal(id, creatorPreview = false) {
     }
 }
 
+function setTimeCapsuleViewMode(mode) {
+    timeCapsuleViewMode = mode === "archive" ? "archive" : "active";
+    if (timeCapsuleActiveTab) {
+        const active = timeCapsuleViewMode === "active";
+        timeCapsuleActiveTab.classList.toggle("is-active", active);
+        timeCapsuleActiveTab.setAttribute("aria-selected", active ? "true" : "false");
+    }
+    if (timeCapsuleArchiveTab) {
+        const active = timeCapsuleViewMode === "archive";
+        timeCapsuleArchiveTab.classList.toggle("is-active", active);
+        timeCapsuleArchiveTab.setAttribute("aria-selected", active ? "true" : "false");
+    }
+    renderTimeCapsules(currentTimeCapsules);
+}
+
+function updateTimeCapsuleArchiveState(id, archived) {
+    if (!currentSpaceCode || !id) return;
+    const payload = archived
+        ? { archivedAt: Date.now(), archivedByUid: currentUser?.uid || "", archivedByPseudo: pseudo || "" }
+        : { archivedAt: null, archivedByUid: null, archivedByPseudo: null };
+    database.ref("spaces/" + currentSpaceCode + "/dailyTools/timeCapsules/" + id)
+        .update(payload)
+        .then(() => showToast(archived ? "Capsule rangée dans les archives ✨" : "Capsule remise avec les souvenirs actifs"))
+        .catch((error) => {
+            console.warn("Archivage de la capsule impossible", error);
+            showToast("Impossible de ranger cette capsule");
+        });
+}
+
 function renderTimeCapsules(items = {}) {
     currentTimeCapsules = items || {};
-    const entries = Object.entries(currentTimeCapsules).sort((a, b) => (a[1].openDate || "9999").localeCompare(b[1].openDate || "9999"));
+    const allEntries = Object.entries(currentTimeCapsules).sort((a, b) => (a[1].openDate || "9999").localeCompare(b[1].openDate || "9999"));
     const now = Date.now();
     let lockedCount = 0;
     let readyCount = 0;
     let openedCount = 0;
+    let archiveCount = 0;
 
-    const cards = entries.map(([id, item], index) => {
-        const openAt = getTimeCapsuleOpenTimestamp(item);
-        const unlocked = !item.openDate || openAt <= now;
+    allEntries.forEach(([, item]) => {
+        const unlocked = !item.openDate || getTimeCapsuleOpenTimestamp(item) <= now;
+        if (item.archivedAt) archiveCount++;
         if (unlocked && item.openedAt) openedCount++;
         else if (unlocked) readyCount++;
         else lockedCount++;
+    });
 
+    const visibleEntries = allEntries.filter(([, item]) => timeCapsuleViewMode === "archive" ? Boolean(item.archivedAt) : !item.archivedAt);
+
+    const cards = visibleEntries.map(([id, item], index) => {
+        const openAt = getTimeCapsuleOpenTimestamp(item);
+        const unlocked = !item.openDate || openAt <= now;
+        const archived = Boolean(item.archivedAt);
+        const isPartnerMystery = !unlocked && item.createdByUid && currentUser?.uid && item.createdByUid !== currentUser.uid;
         const theme = getTimeCapsuleTheme(item);
         const design = normalizeTimeCapsuleDesign(item);
         const article = document.createElement("article");
-        article.className = "time-capsule-card theme-" + theme + (unlocked ? " is-unlocked" : " is-locked");
+        article.className = "time-capsule-card theme-" + theme + (unlocked ? " is-unlocked" : " is-locked") + (archived ? " is-archived" : "") + (isPartnerMystery ? " is-mystery" : "");
         article.style.animationDelay = Math.min(index * 45, 360) + "ms";
         article.style.setProperty("--capsule-card-accent", getTimeCapsuleAccent(design));
         applyTimeCapsuleDesign(article, design);
@@ -3404,22 +3454,31 @@ function renderTimeCapsules(items = {}) {
         const top = document.createElement("div");
         top.className = "time-capsule-card-topline";
         const title = document.createElement("strong");
-        title.textContent = item.title || "Capsule sans titre";
+        title.textContent = isPartnerMystery ? "Une capsule secrète voyage vers vous" : (item.title || "Capsule sans titre");
         const status = document.createElement("span");
         status.className = "time-capsule-status";
-        status.textContent = unlocked ? (item.openedAt ? "Souvenir ouvert" : "À ouvrir") : "Scellée";
+        status.textContent = archived ? "Rangée" : (unlocked ? (item.openedAt ? "Souvenir ouvert" : "À ouvrir") : "Scellée");
         top.append(title, status);
 
         const meta = document.createElement("div");
         meta.className = "time-capsule-card-meta";
         const designLabel = TIME_CAPSULE_STYLES[design.style]?.label || "Capsule";
-        meta.textContent = (unlocked ? "Disponible depuis le " + formatOrganizerDate(item.openDate) : "Ouverture le " + formatOrganizerDate(item.openDate)) + " · " + designLabel;
+        const creatorLabel = item.createdByPseudo || getOrganizerPersonLabel(item.createdByUid) || "Votre partenaire";
+        if (isPartnerMystery) {
+            meta.textContent = creatorLabel + " l’a scellée · ouverture le " + formatOrganizerDate(item.openDate);
+        } else {
+            meta.textContent = (unlocked ? "Disponible depuis le " + formatOrganizerDate(item.openDate) : "Ouverture le " + formatOrganizerDate(item.openDate)) + " · " + designLabel;
+        }
 
         const teaser = document.createElement("p");
         teaser.className = "time-capsule-card-teaser";
-        teaser.textContent = unlocked
-            ? (item.openedAt ? "Ce message fait maintenant partie de vos souvenirs." : "Le temps est arrivé. Votre message vous attend.")
-            : getTimeCapsuleCountdownLabel(item) + " · le message reste invisible jusque-là.";
+        teaser.textContent = archived
+            ? "Ce souvenir est bien rangé. Vous pouvez le relire quand vous voulez."
+            : isPartnerMystery
+                ? getTimeCapsuleCountdownLabel(item) + " · son titre et son message resteront secrets jusque-là."
+                : unlocked
+                    ? (item.openedAt ? "Ce message fait maintenant partie de vos souvenirs." : "Le temps est arrivé. Votre message vous attend.")
+                    : getTimeCapsuleCountdownLabel(item) + " · le message reste invisible jusque-là.";
 
         const progress = document.createElement("div");
         progress.className = "time-capsule-progress";
@@ -3434,7 +3493,11 @@ function renderTimeCapsules(items = {}) {
         primary.type = "button";
         primary.className = "time-capsule-primary-action";
 
-        if (unlocked) {
+        if (archived) {
+            primary.classList.add("is-ready");
+            primary.textContent = "Relire la capsule";
+            primary.addEventListener("click", () => openTimeCapsuleReveal(id, false));
+        } else if (unlocked) {
             primary.classList.add("is-ready");
             primary.textContent = item.openedAt ? "Relire la capsule" : "Ouvrir la capsule ✨";
             primary.addEventListener("click", () => openTimeCapsuleReveal(id, false));
@@ -3445,6 +3508,26 @@ function renderTimeCapsules(items = {}) {
         } else {
             primary.textContent = getTimeCapsuleCountdownLabel(item);
             primary.disabled = true;
+        }
+
+        footer.appendChild(primary);
+
+        if (!archived && item.openedAt) {
+            const archive = document.createElement("button");
+            archive.type = "button";
+            archive.className = "time-capsule-secondary-action is-archive";
+            archive.textContent = "Ranger";
+            archive.addEventListener("click", () => updateTimeCapsuleArchiveState(id, true));
+            footer.appendChild(archive);
+        }
+
+        if (archived) {
+            const restore = document.createElement("button");
+            restore.type = "button";
+            restore.className = "time-capsule-secondary-action is-restore";
+            restore.textContent = "Restaurer";
+            restore.addEventListener("click", () => updateTimeCapsuleArchiveState(id, false));
+            footer.appendChild(restore);
         }
 
         const remove = document.createElement("button");
@@ -3458,17 +3541,29 @@ function renderTimeCapsules(items = {}) {
             }
         });
 
-        footer.append(primary, remove);
+        footer.appendChild(remove);
         article.append(visual, body, footer);
         return article;
     });
 
     timeCapsulesList.replaceChildren(...cards);
-    timeCapsulesEmptyState.style.display = entries.length ? "none" : "flex";
+    if (timeCapsulesEmptyState) {
+        const emptyTitle = timeCapsulesEmptyState.querySelector("strong");
+        const emptyCopy = timeCapsulesEmptyState.querySelector("p");
+        const empty = visibleEntries.length === 0;
+        timeCapsulesEmptyState.style.display = empty ? "flex" : "none";
+        if (emptyTitle) emptyTitle.textContent = timeCapsuleViewMode === "archive" ? "Aucun souvenir rangé pour le moment" : "Aucune capsule ne voyage encore";
+        if (emptyCopy) emptyCopy.textContent = timeCapsuleViewMode === "archive" ? "Quand une capsule aura été ouverte, vous pourrez la ranger ici pour garder la collection légère." : "Scellez votre premier message et laissez le temps faire le reste.";
+    }
     if (timeCapsuleLockedCount) timeCapsuleLockedCount.textContent = lockedCount;
     if (timeCapsuleReadyCount) timeCapsuleReadyCount.textContent = readyCount;
     if (timeCapsuleOpenedCount) timeCapsuleOpenedCount.textContent = openedCount;
+    if (timeCapsuleActiveTabCount) timeCapsuleActiveTabCount.textContent = String(allEntries.length - archiveCount);
+    if (timeCapsuleArchiveTabCount) timeCapsuleArchiveTabCount.textContent = String(archiveCount);
 }
+
+if (timeCapsuleActiveTab) timeCapsuleActiveTab.addEventListener("click", () => setTimeCapsuleViewMode("active"));
+if (timeCapsuleArchiveTab) timeCapsuleArchiveTab.addEventListener("click", () => setTimeCapsuleViewMode("archive"));
 
 renderTimeCapsuleCustomizerChoices();
 resetTimeCapsuleCustomizer();
@@ -3557,6 +3652,43 @@ timeCapsuleForm.addEventListener("submit", (event) => {
     });
 });
 
+function renderDashboardTimeCapsules(spaceData = {}) {
+    const entries = Object.entries(spaceData.dailyTools?.timeCapsules || {});
+    const now = Date.now();
+    const ready = entries
+        .filter(([, item]) => !item.archivedAt && !item.openedAt && (!item.openDate || getTimeCapsuleOpenTimestamp(item) <= now))
+        .sort((a, b) => getTimeCapsuleOpenTimestamp(a[1]) - getTimeCapsuleOpenTimestamp(b[1]));
+    const partnerLocked = entries
+        .filter(([, item]) => !item.archivedAt && item.createdByUid && currentUser?.uid && item.createdByUid !== currentUser.uid && item.openDate && getTimeCapsuleOpenTimestamp(item) > now)
+        .sort((a, b) => Number(b[1].createdAt || 0) - Number(a[1].createdAt || 0));
+
+    if (dashboardTimeCapsuleReady) {
+        if (ready.length) {
+            dashboardTimeCapsuleReady.style.display = "grid";
+            dashboardTimeCapsuleReadyTitle.textContent = ready.length === 1 ? "Une capsule peut être ouverte ✨" : ready.length + " capsules peuvent être ouvertes ✨";
+        } else {
+            dashboardTimeCapsuleReady.style.display = "none";
+        }
+    }
+
+    if (dashboardTimeCapsuleTeaser) {
+        if (partnerLocked.length) {
+            const [, latest] = partnerLocked[0];
+            const design = normalizeTimeCapsuleDesign(latest);
+            const creatorLabel = latest.createdByPseudo || getOrganizerPersonLabel(latest.createdByUid) || "Votre partenaire";
+            dashboardTimeCapsuleTeaser.style.display = "grid";
+            dashboardTimeCapsuleTeaser.style.setProperty("--capsule-teaser-accent", getTimeCapsuleAccent(design));
+            if (dashboardTimeCapsuleTeaserSymbol) dashboardTimeCapsuleTeaserSymbol.textContent = design.symbol || "✨";
+            if (dashboardTimeCapsuleTeaserTitle) dashboardTimeCapsuleTeaserTitle.textContent = partnerLocked.length === 1
+                ? creatorLabel + " a scellé une capsule pour le futur"
+                : creatorLabel + " a scellé " + partnerLocked.length + " capsules secrètes";
+            if (dashboardTimeCapsuleTeaserMeta) dashboardTimeCapsuleTeaserMeta.textContent = "La prochaine s’ouvrira le " + formatOrganizerDate(latest.openDate) + ". Son contenu reste secret jusque-là.";
+        } else {
+            dashboardTimeCapsuleTeaser.style.display = "none";
+        }
+    }
+}
+
 function renderDashboardToday(spaceData = {}) {
     if (!dashboardTodayList) return;
     const today = getLocalDateKey(); const items = [];
@@ -3564,6 +3696,7 @@ function renderDashboardToday(spaceData = {}) {
     Object.entries(spaceData.dailyTools?.reminders || {}).forEach(([, reminder]) => { if (reminder.date === today) items.push({ icon: "cactusIconBell", title: reminder.title, meta: reminder.time ? reminder.time.replace(":", "h") : "Aujourd’hui", screen: "reminders" }); });
     Object.entries(spaceData.dailyTools?.importantDates || {}).forEach(([, item]) => { const dateMatch = item.annual ? (item.date || "").slice(5) === today.slice(5) : item.date === today; if (dateMatch) items.push({ icon: "cactusIconCalendar", title: item.title, meta: "Date importante", screen: "importantDates" }); });
     Object.entries(spaceData.dailyTools?.countdowns || {}).forEach(([, item]) => { if (item.date === today) items.push({ icon: "cactusIconCountdown", title: item.title, meta: "C’est le grand jour", screen: "countdowns" }); });
+    Object.entries(spaceData.dailyTools?.timeCapsules || {}).forEach(([, item]) => { if (!item.archivedAt && !item.openedAt && item.openDate && item.openDate <= today) items.push({ icon: "cactusIconCapsule", title: "Une capsule temporelle vous attend", meta: "Le moment de l’ouvrir est arrivé ✨", screen: "timeCapsules" }); });
     dashboardTodayList.replaceChildren(...items.slice(0, 4).map((item) => {
         const button = document.createElement("button"); button.type = "button";
         const icon = document.createElement("span"); icon.appendChild(createCactusUiIcon(item.icon, "cactus-secondary-icon"));
@@ -3574,6 +3707,8 @@ function renderDashboardToday(spaceData = {}) {
     dashboardTodayEmpty.style.display = items.length ? "none" : "block";
 }
 dashboardTodayOpenBtn.addEventListener("click", () => showScreen("dailyTools"));
+if (dashboardTimeCapsuleReady) dashboardTimeCapsuleReady.addEventListener("click", () => { setTimeCapsuleViewMode("active"); showScreen("timeCapsules"); });
+if (dashboardTimeCapsuleTeaser) dashboardTimeCapsuleTeaser.addEventListener("click", () => { setTimeCapsuleViewMode("active"); showScreen("timeCapsules"); });
 
 gardenEditBtn.addEventListener("click", () => {
     setGardenEditMode(!gardenEditMode);
