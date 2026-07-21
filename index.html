@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cactus 🌵</title>
-    <link rel="stylesheet" href="css/style.css?v=75">
+    <link rel="stylesheet" href="css/style.css?v=77">
     <link rel="manifest" href="manifest.json?v=2">
     <meta name="theme-color" content="#003E2D">
 </head>
@@ -988,6 +988,17 @@
         <span class="dashboard-daily-streak"><svg class="cactus-ui-icon" width="30" height="30" aria-hidden="true"><use href="#cactusIconFlame"></use></svg><strong id="dailyStreakDashboard">0</strong></span>
     </button>
 
+    <button type="button" id="dashboardDiscussionsCard" class="dashboard-discussions-card">
+        <span class="dashboard-discussions-icon" aria-hidden="true"><svg class="cactus-ui-icon" width="30" height="30"><use href="#cactusIconChat"></use></svg></span>
+        <span class="dashboard-discussions-copy">
+            <small>On devrait en parler</small>
+            <strong id="dashboardDiscussionsTitle">Aucun sujet en attente</strong>
+            <span id="dashboardDiscussionsSubtitle">Gardez ici les réponses sur lesquelles vous voulez revenir ensemble.</span>
+        </span>
+        <span id="dashboardDiscussionsCount" class="dashboard-discussions-count">0</span>
+        <span class="dashboard-discussions-arrow" aria-hidden="true">›</span>
+    </button>
+
 
     <!-- JEUX -->
     <section class="dashboard-games-section">
@@ -1327,6 +1338,7 @@
         <div id="newGameChoices" class="new-game-choices"></div>
         <div id="newGameStatus" class="new-game-status" style="display:none;"></div>
         <section id="newGameResult" class="new-game-result" style="display:none;"></section>
+        <button type="button" id="newGameDiscussBtn" class="discuss-result-button secondary" data-discuss-current-result style="display:none;">💬 On devrait en parler</button>
 
         <div class="new-game-actions">
             <button type="button" id="newGameAgainBtn" style="display:none;">Nouvelle partie</button>
@@ -1556,6 +1568,32 @@
     </button>
 </div>
 
+<!-- ÉCRAN À DISCUTER -->
+<div id="discussionsScreen" class="secondary-screen discussions-screen" style="display:none;">
+    <header class="discussions-header">
+        <button type="button" id="backFromDiscussionsBtn" aria-label="Retour">‹</button>
+        <div><small>Votre espace commun</small><h1>À discuter</h1></div>
+        <span id="discussionsHeaderCount">0 sujet</span>
+    </header>
+
+    <section class="discussions-hero">
+        <span aria-hidden="true"><svg class="cactus-ui-icon" width="42" height="42"><use href="#cactusIconChat"></use></svg></span>
+        <div><small>Pas besoin de tout régler sur le moment</small><strong>Gardez les réponses qui méritent une vraie conversation</strong><p>Un sujet ajouté par l’une de vous devient visible pour vous deux.</p></div>
+    </section>
+
+    <nav class="discussions-filters" aria-label="Filtrer les discussions">
+        <button type="button" class="is-active" data-discussion-filter="open">À discuter <span id="openDiscussionsFilterCount">0</span></button>
+        <button type="button" data-discussion-filter="resolved">On en a parlé <span id="resolvedDiscussionsFilterCount">0</span></button>
+    </nav>
+
+    <div id="discussionsList" class="discussions-list"></div>
+    <div id="discussionsEmptyState" class="discussions-empty">
+        <span aria-hidden="true">💬</span>
+        <strong>Aucun sujet ici</strong>
+        <p>Quand une réponse vous donne envie d’en reparler, ajoutez-la depuis l’écran de résultat.</p>
+    </div>
+</div>
+
             <!-- ÉCRAN CLASSEMENTS -->
             <div id="rankingScreen" style="display:none;">
                 <h1>🌵 Classements</h1>
@@ -1634,6 +1672,8 @@
         <h3>Plus grands écarts</h3>
         <ul id="biggestGapsList"></ul>
     </div>
+
+    <button type="button" class="discuss-result-button secondary" data-discuss-current-result>💬 On devrait en parler</button>
 
     <button type="button" id="nextAfterCompatibilityBtn">
         Classement suivant
@@ -1747,6 +1787,8 @@
         <p id="guessValidationResult"></p>
     </div>
 
+    <button type="button" class="discuss-result-button secondary" data-discuss-current-result>💬 On devrait en parler</button>
+
     <button type="button" id="nextGuessBtn">
         Question suivante
     </button>
@@ -1791,6 +1833,8 @@
         <p id="likelyPartnerAnswer"></p>
     </div>
 
+    <button type="button" class="discuss-result-button secondary" data-discuss-current-result>💬 On devrait en parler</button>
+
     <button type="button" id="nextLikelyBtn">
         Question suivante
     </button>
@@ -1834,6 +1878,8 @@
         <h3>Réponse partenaire</h3>
         <p id="okPartnerAnswer"></p>
     </div>
+
+    <button type="button" class="discuss-result-button secondary" data-discuss-current-result>💬 On devrait en parler</button>
 
     <button type="button" id="nextOkBtn">
         Question suivante
@@ -1887,6 +1933,8 @@
         <p id="greenFlagPartnerAnswer"></p>
     </div>
 
+    <button type="button" class="discuss-result-button secondary" data-discuss-current-result>💬 On devrait en parler</button>
+
     <button type="button" id="nextGreenFlagBtn">
         Question suivante
     </button>
@@ -1939,6 +1987,8 @@
         <p id="princessPartnerAnswer"></p>
     </div>
 
+    <button type="button" class="discuss-result-button secondary" data-discuss-current-result>💬 On devrait en parler</button>
+
     <button type="button" id="nextPrincessBtn">
         Question suivante
     </button>
@@ -1982,6 +2032,8 @@
         <h3>Réponse partenaire</h3>
         <p id="questionsPartnerAnswer"></p>
     </div>
+
+    <button type="button" class="discuss-result-button secondary" data-discuss-current-result>💬 On devrait en parler</button>
 
     <button type="button" id="nextQuestionsBtn">
         Question suivante
@@ -2233,12 +2285,12 @@
     <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
 
     <script src="js/firebase.js"></script>
-    <script src="js/screens.js?v=75"></script>
+    <script src="js/screens.js?v=77"></script>
     <script src="js/utils.js"></script>
     <script src="js/storage.js"></script>
     <script src="js/rankings.js"></script>
     <script src="js/questions.js"></script>
-    <script src="js/script.js?v=76"></script>
+    <script src="js/script.js?v=77"></script>
 
 </body>
 </html>

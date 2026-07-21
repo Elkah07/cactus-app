@@ -35,7 +35,7 @@ function showScreenContent(screenName) {
     );
     document.body.classList.toggle(
         "secondary-active",
-        ["allGames", "newGame", "garden", "dailyTools", "shopping", "tasks", "reminders", "importantDates", "countdowns", "timeCapsules", "history", "storyPage", "settings", "notifications", "dailyRitual", "coupleProfile", "onboarding"].includes(screenName)
+        ["allGames", "newGame", "garden", "dailyTools", "shopping", "tasks", "reminders", "importantDates", "countdowns", "timeCapsules", "history", "storyPage", "settings", "notifications", "dailyRitual", "coupleProfile", "onboarding", "discussions"].includes(screenName)
     );
 
     hideScreen(loginScreen);
@@ -56,6 +56,7 @@ function showScreenContent(screenName) {
     hideScreen(achievementsScreen);
     hideScreen(notificationsScreen);
     hideScreen(dailyRitualScreen);
+    hideScreen(discussionsScreen);
 
     hideScreen(gardenScreen);
     hideScreen(dailyToolsScreen);
@@ -122,7 +123,8 @@ settingsBtn.style.setProperty("display", "none", "important");
     screenName === "importantDates" ||
     screenName === "countdowns" ||
     screenName === "timeCapsules" ||
-    screenName === "settings"
+    screenName === "settings" ||
+    screenName === "discussions"
 ) {
     historyBtn.style.display = "flex";
     gardenBtn.style.display = "flex";
@@ -196,6 +198,11 @@ settingsBtn.style.setProperty("display", "none", "important");
         case "dailyRitual":
             dailyRitualScreen.style.display = "block";
             loadDailyRitual();
+            break;
+
+        case "discussions":
+            discussionsScreen.style.display = "block";
+            renderDiscussions(currentSpaceData);
             break;
 
         case "garden":

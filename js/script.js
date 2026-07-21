@@ -692,6 +692,21 @@ const newGameStatus = document.getElementById("newGameStatus");
 const newGameResult = document.getElementById("newGameResult");
 const newGameAgainBtn = document.getElementById("newGameAgainBtn");
 const newGameDoneBtn = document.getElementById("newGameDoneBtn");
+const newGameDiscussBtn = document.getElementById("newGameDiscussBtn");
+const discussResultButtons = document.querySelectorAll("[data-discuss-current-result]");
+
+const dashboardDiscussionsCard = document.getElementById("dashboardDiscussionsCard");
+const dashboardDiscussionsTitle = document.getElementById("dashboardDiscussionsTitle");
+const dashboardDiscussionsSubtitle = document.getElementById("dashboardDiscussionsSubtitle");
+const dashboardDiscussionsCount = document.getElementById("dashboardDiscussionsCount");
+const discussionsScreen = document.getElementById("discussionsScreen");
+const backFromDiscussionsBtn = document.getElementById("backFromDiscussionsBtn");
+const discussionsHeaderCount = document.getElementById("discussionsHeaderCount");
+const openDiscussionsFilterCount = document.getElementById("openDiscussionsFilterCount");
+const resolvedDiscussionsFilterCount = document.getElementById("resolvedDiscussionsFilterCount");
+const discussionFilterButtons = document.querySelectorAll("[data-discussion-filter]");
+const discussionsList = document.getElementById("discussionsList");
+const discussionsEmptyState = document.getElementById("discussionsEmptyState");
 
 const dashboardProfileBtn =
     document.getElementById("dashboardProfileBtn");
@@ -1091,6 +1106,8 @@ let coupleDares = [];
 let activeNewGameMode = null;
 let activeNewGameId = null;
 let isStartingNewGame = false;
+let currentDiscussionContext = null;
+let activeDiscussionFilter = "open";
 
 
 // ====================
@@ -1142,6 +1159,12 @@ function listenToCurrentSpace(spaceCodeValue) {
         updateDailyRitualDashboard(spaceData);
         renderCactusWardrobe(spaceData);
         renderDashboardToday(spaceData);
+        renderDiscussionsDashboard(spaceData);
+        refreshDiscussionButtons();
+
+        if (lastShownScreen === "discussions") {
+            renderDiscussions(spaceData);
+        }
 
         if (lastShownScreen === "notifications") {
             renderNotifications(spaceData);
@@ -4335,6 +4358,254 @@ document.addEventListener("keydown", (event) => {
     if (event.key === "Escape" && gameDetailsModal.style.display !== "none") closeGameDetails();
 });
 
+
+const DISCUSSION_GAME_LABELS = {
+    ranking: "Classements",
+    guess: "Devine ma réponse",
+    questions: "Questions",
+    likely: "Qui est le plus susceptible",
+    ok: "OK ou Pas OK",
+    greenFlag: "Green Flag / Red Flag",
+    princess: "Princess Treatment",
+    wouldRather: "Tu préfères ?",
+    threeYesNo: "3 oui / 3 non",
+    limitReached: "Limite atteinte",
+    coupleDare: "Défis à deux"
+};
+
+function sanitizeDiscussionKey(value) {
+    return String(value || "result")
+        .replace(/[.#$\[\]\/]/g, "_")
+        .replace(/[^a-zA-Z0-9_-]/g, "_")
+        .slice(0, 150);
+}
+
+function getDiscussionId(mode, sourceId) {
+    return sanitizeDiscussionKey((mode || "game") + "_" + (sourceId || Date.now()));
+}
+
+function makeDiscussionEntries(entries = []) {
+    const output = {};
+    entries.filter(Boolean).slice(0, 12).forEach((entry, index) => {
+        output["entry_" + index] = {
+            label: String(entry.label || "Réponse").slice(0, 300),
+            value: String(entry.value || "").slice(0, 1800)
+        };
+    });
+    return output;
+}
+
+function setCurrentDiscussionContext(context) {
+    if (!context || !context.mode || !context.sourceId) {
+        currentDiscussionContext = null;
+        refreshDiscussionButtons();
+        return;
+    }
+    currentDiscussionContext = {
+        mode: context.mode,
+        sourceId: String(context.sourceId),
+        gameLabel: context.gameLabel || DISCUSSION_GAME_LABELS[context.mode] || "Jeu Cactus",
+        title: String(context.title || "Résultat à revoir").slice(0, 1000),
+        summary: String(context.summary || "").slice(0, 1200),
+        entries: Array.isArray(context.entries) ? context.entries : []
+    };
+    refreshDiscussionButtons();
+}
+
+function clearCurrentDiscussionContext() {
+    currentDiscussionContext = null;
+    refreshDiscussionButtons();
+}
+
+function getCurrentDiscussionRecord() {
+    if (!currentDiscussionContext) return null;
+    const id = getDiscussionId(currentDiscussionContext.mode, currentDiscussionContext.sourceId);
+    return currentSpaceData?.discussions?.[id] || null;
+}
+
+function refreshDiscussionButtons() {
+    const record = getCurrentDiscussionRecord();
+    discussResultButtons.forEach((button) => {
+        if (!currentDiscussionContext) {
+            button.style.display = "none";
+            button.disabled = true;
+            return;
+        }
+        button.style.display = "block";
+        if (!record) {
+            button.disabled = false;
+            button.textContent = "💬 On devrait en parler";
+            return;
+        }
+        button.disabled = true;
+        button.textContent = record.status === "resolved"
+            ? "✓ Vous en avez parlé"
+            : "💬 Ajouté à « À discuter »";
+    });
+}
+
+function saveCurrentDiscussion() {
+    if (!currentDiscussionContext || !currentUser || !currentSpaceCode) return;
+    const id = getDiscussionId(currentDiscussionContext.mode, currentDiscussionContext.sourceId);
+    const existing = currentSpaceData?.discussions?.[id];
+    if (existing) {
+        showToast(existing.status === "resolved" ? "Vous avez déjà parlé de ce sujet" : "Ce sujet est déjà dans votre liste");
+        refreshDiscussionButtons();
+        return;
+    }
+    const payload = {
+        mode: currentDiscussionContext.mode,
+        sourceId: currentDiscussionContext.sourceId,
+        gameLabel: currentDiscussionContext.gameLabel,
+        title: currentDiscussionContext.title,
+        summary: currentDiscussionContext.summary || "",
+        entries: makeDiscussionEntries(currentDiscussionContext.entries),
+        status: "open",
+        createdAt: Date.now(),
+        createdByUid: currentUser.uid,
+        createdByPseudo: pseudo || "Partenaire"
+    };
+    database.ref("spaces/" + currentSpaceCode + "/discussions/" + id)
+        .set(payload)
+        .then(() => {
+            showToast("💬 Sujet ajouté à votre liste");
+            refreshDiscussionButtons();
+        })
+        .catch((error) => showToast(getFriendlyFirebaseError(error)));
+}
+
+function getDiscussionEntries(record) {
+    return Object.values(record?.entries || {}).filter((entry) => entry && (entry.label || entry.value));
+}
+
+function formatDiscussionDate(timestamp) {
+    if (!timestamp) return "";
+    return new Intl.DateTimeFormat("fr-FR", { day: "numeric", month: "short", year: "numeric" }).format(new Date(timestamp));
+}
+
+function renderDiscussionsDashboard(spaceData = currentSpaceData) {
+    if (!dashboardDiscussionsCard) return;
+    const records = Object.values(spaceData?.discussions || {});
+    const openCount = records.filter((record) => record?.status !== "resolved").length;
+    dashboardDiscussionsCount.textContent = String(openCount);
+    dashboardDiscussionsCount.classList.toggle("is-empty", openCount === 0);
+    dashboardDiscussionsTitle.textContent = openCount === 0
+        ? "Aucun sujet en attente"
+        : openCount + " sujet" + (openCount > 1 ? "s" : "") + " à discuter";
+    dashboardDiscussionsSubtitle.textContent = openCount === 0
+        ? "Gardez ici les réponses sur lesquelles vous voulez revenir ensemble."
+        : "Vous pourrez les reprendre tranquillement quand le moment sera bon.";
+}
+
+function setDiscussionStatus(discussionId, status) {
+    if (!discussionId || !currentUser || !currentSpaceCode) return;
+    const updates = {
+        status,
+        updatedAt: Date.now(),
+        updatedByUid: currentUser.uid,
+        updatedByPseudo: pseudo || "Partenaire"
+    };
+    if (status === "resolved") {
+        updates.resolvedAt = Date.now();
+        updates.resolvedByUid = currentUser.uid;
+        updates.resolvedByPseudo = pseudo || "Partenaire";
+    } else {
+        updates.resolvedAt = null;
+        updates.resolvedByUid = null;
+        updates.resolvedByPseudo = null;
+    }
+    database.ref("spaces/" + currentSpaceCode + "/discussions/" + discussionId)
+        .update(updates)
+        .then(() => showToast(status === "resolved" ? "✓ Sujet marqué comme discuté" : "💬 Sujet remis à discuter"))
+        .catch((error) => showToast(getFriendlyFirebaseError(error)));
+}
+
+function renderDiscussions(spaceData = currentSpaceData) {
+    if (!discussionsList) return;
+    const records = Object.entries(spaceData?.discussions || {});
+    const openRecords = records.filter(([, record]) => record?.status !== "resolved");
+    const resolvedRecords = records.filter(([, record]) => record?.status === "resolved");
+    openDiscussionsFilterCount.textContent = String(openRecords.length);
+    resolvedDiscussionsFilterCount.textContent = String(resolvedRecords.length);
+    discussionsHeaderCount.textContent = openRecords.length + " sujet" + (openRecords.length > 1 ? "s" : "");
+
+    const selected = (activeDiscussionFilter === "resolved" ? resolvedRecords : openRecords)
+        .sort((a, b) => {
+            const dateA = Number((activeDiscussionFilter === "resolved" ? a[1].resolvedAt : a[1].createdAt) || 0);
+            const dateB = Number((activeDiscussionFilter === "resolved" ? b[1].resolvedAt : b[1].createdAt) || 0);
+            return dateB - dateA;
+        });
+
+    discussionsList.replaceChildren();
+    discussionsEmptyState.style.display = selected.length ? "none" : "grid";
+    if (!selected.length) return;
+
+    selected.forEach(([discussionId, record]) => {
+        const article = document.createElement("article");
+        article.className = "discussion-card";
+
+        const header = document.createElement("header");
+        const meta = document.createElement("div");
+        const game = document.createElement("small");
+        game.textContent = record.gameLabel || DISCUSSION_GAME_LABELS[record.mode] || "Jeu Cactus";
+        const date = document.createElement("span");
+        date.textContent = formatDiscussionDate(record.createdAt);
+        meta.append(game, date);
+        const badge = document.createElement("span");
+        badge.className = "discussion-status-badge";
+        badge.textContent = record.status === "resolved" ? "On en a parlé" : "À discuter";
+        header.append(meta, badge);
+
+        const title = document.createElement("h2");
+        title.textContent = record.title || "Résultat à revoir";
+        article.append(header, title);
+
+        if (record.summary) {
+            const summary = document.createElement("p");
+            summary.className = "discussion-summary";
+            summary.textContent = record.summary;
+            article.appendChild(summary);
+        }
+
+        const entries = getDiscussionEntries(record);
+        if (entries.length) {
+            const answers = document.createElement("div");
+            answers.className = "discussion-answer-list";
+            entries.forEach((entry) => {
+                const row = document.createElement("div");
+                const label = document.createElement("strong");
+                const value = document.createElement("p");
+                label.textContent = entry.label || "Réponse";
+                value.textContent = entry.value || "";
+                row.append(label, value);
+                answers.appendChild(row);
+            });
+            article.appendChild(answers);
+        }
+
+        const footer = document.createElement("footer");
+        const requestedBy = document.createElement("small");
+        requestedBy.textContent = record.status === "resolved"
+            ? "Ajouté par " + (record.createdByPseudo || "votre couple") + (record.resolvedByPseudo ? " · terminé par " + record.resolvedByPseudo : "")
+            : (record.createdByUid === currentUser.uid ? "Ajouté par toi" : (record.createdByPseudo || "Ton/ta partenaire") + " aimerait en reparler");
+        const action = document.createElement("button");
+        action.type = "button";
+        action.className = record.status === "resolved" ? "secondary" : "discussion-resolve-button";
+        action.textContent = record.status === "resolved" ? "↩ Remettre à discuter" : "✓ On en a parlé";
+        action.addEventListener("click", () => setDiscussionStatus(discussionId, record.status === "resolved" ? "open" : "resolved"));
+        footer.append(requestedBy, action);
+        article.appendChild(footer);
+        discussionsList.appendChild(article);
+    });
+}
+
+function openDiscussions() {
+    activeDiscussionFilter = "open";
+    discussionFilterButtons.forEach((button) => button.classList.toggle("is-active", button.dataset.discussionFilter === "open"));
+    renderDiscussions(currentSpaceData);
+    showScreen("discussions");
+}
+
 const NEW_GAME_MODES = {
     wouldRather: { path: "wouldRatherChallenges", title: "Tu préfères ?", category: "Choix secret" },
     threeYesNo: { path: "threeYesNoChallenges", title: "3 oui / 3 non", category: "Tes limites" },
@@ -4428,7 +4699,9 @@ function resetNewGameStage() {
     newGameStatus.style.display = "none";
     newGameAgainBtn.style.display = "none";
     newGameDoneBtn.style.display = "none";
+    newGameDiscussBtn.style.display = "none";
     newGamePromptDetails.textContent = "";
+    clearCurrentDiscussionContext();
 }
 
 function startNewGame(mode, forceNew = false) {
@@ -4530,6 +4803,16 @@ function renderWouldRather(challenge) {
     newGameResult.append(resultTitle, resultCopy, list);
     newGameResult.style.display = "block";
     newGameAgainBtn.style.display = "block";
+    setCurrentDiscussionContext({
+        mode: "wouldRather",
+        sourceId: activeNewGameId,
+        title: prompt.question,
+        summary: same ? "Vous avez fait le même choix." : "Vous avez choisi deux possibilités différentes.",
+        entries: Object.entries(answers).map(([uid, answer]) => ({
+            label: uid === currentUser.uid ? (players.me.pseudo || "Toi") : (players.partner?.pseudo || "Partenaire"),
+            value: answer.choice === "A" ? prompt.optionA : prompt.optionB
+        }))
+    });
 }
 
 function submitWouldRatherAnswer(choice) {
@@ -4604,6 +4887,19 @@ function renderThreeYesNo(challenge) {
     newGameResult.append(title, list);
     newGameResult.style.display = "block";
     newGameAgainBtn.style.display = "block";
+    setCurrentDiscussionContext({
+        mode: "threeYesNo",
+        sourceId: activeNewGameId,
+        title: "Votre partie 3 oui / 3 non",
+        summary: matches + " accord" + (matches > 1 ? "s" : "") + " sur 6",
+        entries: situations.map((situation, index) => ({
+            label: situation.text,
+            value: answerSets.map(([uid, answers]) => {
+                const name = uid === currentUser.uid ? (players.me.pseudo || "Toi") : (players.partner?.pseudo || "Partenaire");
+                return name + " : " + (answers[index]?.choice === "yes" ? "Oui" : "Non");
+            }).join(" · ")
+        }))
+    });
 }
 
 function submitThreeYesNoAnswer(index, choice) {
@@ -4726,6 +5022,16 @@ function renderLimitReached(challenge) {
         newGameResult.append(resultTitle, resultCopy, list);
         newGameResult.style.display = "block";
         newGameAgainBtn.style.display = "block";
+        setCurrentDiscussionContext({
+            mode: "limitReached",
+            sourceId: activeNewGameId,
+            title: scenario.title || "Limite atteinte",
+            summary: resultTitle.textContent,
+            entries: resultEntries.map(([uid, result]) => ({
+                label: uid === currentUser.uid ? (players.me.pseudo || "Toi") : (players.partner?.pseudo || "Partenaire"),
+                value: getLimitReachedResultLabel(result, scenario)
+            }))
+        });
         return;
     }
 
@@ -4803,6 +5109,13 @@ function renderCoupleDare(challenge) {
         newGameResult.append(title, copy);
         newGameResult.style.display = "block";
         newGameAgainBtn.style.display = "block";
+        setCurrentDiscussionContext({
+            mode: "coupleDare",
+            sourceId: activeNewGameId,
+            title: dare.title,
+            summary: "Défi accompli",
+            entries: [{ label: dare.category || "Défi", value: dare.description || "Mission réalisée ensemble." }]
+        });
         return;
     }
 
@@ -4917,6 +5230,18 @@ coupleDareBtn.addEventListener("click", () => startNewGame("coupleDare"));
 backFromNewGameBtn.addEventListener("click", () => showScreen("allGames"));
 newGameAgainBtn.addEventListener("click", () => startNewGame(activeNewGameMode, true));
 newGameDoneBtn.addEventListener("click", completeCoupleDare);
+
+discussResultButtons.forEach((button) => button.addEventListener("click", saveCurrentDiscussion));
+
+if (dashboardDiscussionsCard) dashboardDiscussionsCard.addEventListener("click", openDiscussions);
+if (backFromDiscussionsBtn) backFromDiscussionsBtn.addEventListener("click", () => showScreen("dashboard"));
+discussionFilterButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+        activeDiscussionFilter = button.dataset.discussionFilter || "open";
+        discussionFilterButtons.forEach((item) => item.classList.toggle("is-active", item === button));
+        renderDiscussions(currentSpaceData);
+    });
+});
 
 filterGamesLibrary();
 updateRecommendedGame();
@@ -5577,6 +5902,16 @@ if (score >= 80) {
         });
     }
 
+    setCurrentDiscussionContext({
+        mode: "ranking",
+        sourceId: challenge.rankingId,
+        title: challenge.title,
+        summary: "Compatibilité : " + score + "% · " + label,
+        entries: [
+            { label: pseudo || "Toi", value: myAnswer.map((item, index) => (index + 1) + ". " + item).join(" · ") },
+            { label: partnerAnswerData.pseudo || "Partenaire", value: partnerAnswer.map((item, index) => (index + 1) + ". " + item).join(" · ") }
+        ]
+    });
     showScreen("rankingCompatibility");
 }
 
@@ -7826,6 +8161,18 @@ function showPendingGuessResult() {
         " / Partenaire : " +
         partnerValidation.result;
 
+    setCurrentDiscussionContext({
+        mode: "guess",
+        sourceId: challenge.questionId,
+        title: challenge.question,
+        summary: "Score de connaissance : " + finalScore + "%",
+        entries: [
+            { label: "Ta réponse", value: myAnswer.answer },
+            { label: "Ta prédiction", value: myPrediction.prediction },
+            { label: "Réponse partenaire", value: partnerAnswer.answer },
+            { label: "Validation", value: "Toi : " + myValidation.result + " · Partenaire : " + partnerValidation.result }
+        ]
+    });
     showScreen("guessResult");
 }
 
@@ -8700,6 +9047,16 @@ function showPendingLikelyResult() {
             "Vous n’avez pas désigné la même personne.";
     }
 
+    setCurrentDiscussionContext({
+        mode: "likely",
+        sourceId: challenge.questionId,
+        title: challenge.question,
+        summary: likelyVerdictText.textContent,
+        entries: [
+            { label: "Ta réponse", value: myAnswer ? myAnswer.answer : "Pas de réponse" },
+            { label: "Réponse partenaire", value: partnerAnswer ? partnerAnswer.answer : "Pas de réponse" }
+        ]
+    });
     showScreen("likelyResult");
 }
 
@@ -8911,6 +9268,16 @@ function showPendingOkResult() {
         "Vous ne placez pas la limite au même endroit.";
 }
 
+    setCurrentDiscussionContext({
+        mode: "ok",
+        sourceId: challenge.questionId,
+        title: challenge.question,
+        summary: okVerdictText.textContent,
+        entries: [
+            { label: "Ta réponse", value: myAnswer ? myAnswer.answer : "Pas de réponse" },
+            { label: "Réponse partenaire", value: partnerAnswer ? partnerAnswer.answer : "Pas de réponse" }
+        ]
+    });
     showScreen("okResult");
 }
 
@@ -9134,6 +9501,16 @@ function showPendingGreenFlagResult() {
         "Vous n’avez pas la même lecture de ce comportement.";
 }
 
+    setCurrentDiscussionContext({
+        mode: "greenFlag",
+        sourceId: challenge.questionId,
+        title: challenge.question,
+        summary: greenFlagVerdictText.textContent,
+        entries: [
+            { label: "Ta réponse", value: myAnswer ? myAnswer.answer : "Pas de réponse" },
+            { label: "Réponse partenaire", value: partnerAnswer ? partnerAnswer.answer : "Pas de réponse" }
+        ]
+    });
     showScreen("greenFlagResult");
 }
 
@@ -9417,6 +9794,16 @@ function showPendingPrincessResult() {
         "Vous n’avez pas tout à fait la même vision.";
 }
 
+    setCurrentDiscussionContext({
+        mode: "princess",
+        sourceId: challenge.questionId,
+        title: challenge.question,
+        summary: princessVerdictText.textContent,
+        entries: [
+            { label: "Ta réponse", value: myAnswer ? myAnswer.answer : "Pas de réponse" },
+            { label: "Réponse partenaire", value: partnerAnswer ? partnerAnswer.answer : "Pas de réponse" }
+        ]
+    });
     showScreen(
         "princessResult"
     );
@@ -9634,6 +10021,15 @@ function showPendingQuestionsResult() {
     questionsPartnerAnswer.textContent =
         partnerAnswer ? partnerAnswer.answer : "Pas encore répondu";
 
+    setCurrentDiscussionContext({
+        mode: "questions",
+        sourceId: challenge.questionId,
+        title: challenge.question,
+        entries: [
+            { label: "Ta réponse", value: myAnswer ? myAnswer.answer : "Pas de réponse" },
+            { label: "Réponse partenaire", value: partnerAnswer ? partnerAnswer.answer : "Pas de réponse" }
+        ]
+    });
     showScreen("questionsResult");
 }
 
