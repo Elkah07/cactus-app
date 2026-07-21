@@ -267,6 +267,21 @@ const calendarMonthNext = document.getElementById("calendarMonthNext");
 const calendarTodayBtn = document.getElementById("calendarTodayBtn");
 const calendarMonthLabel = document.getElementById("calendarMonthLabel");
 const coupleCalendarGrid = document.getElementById("coupleCalendarGrid");
+const coupleCalendarWeekdays = document.getElementById("coupleCalendarWeekdays");
+const calendarCustomizeBtn = document.getElementById("calendarCustomizeBtn");
+const calendarCustomizerPanel = document.getElementById("calendarCustomizerPanel");
+const closeCalendarCustomizerBtn = document.getElementById("closeCalendarCustomizerBtn");
+const calendarThemeChoices = document.getElementById("calendarThemeChoices");
+const calendarAccentInput = document.getElementById("calendarAccentInput");
+const calendarAccentButton = document.getElementById("calendarAccentButton");
+const calendarSymbolInput = document.getElementById("calendarSymbolInput");
+const calendarWeekStartInput = document.getElementById("calendarWeekStartInput");
+const calendarEventStyleInput = document.getElementById("calendarEventStyleInput");
+const calendarWeekendTintInput = document.getElementById("calendarWeekendTintInput");
+const calendarDecorationsInput = document.getElementById("calendarDecorationsInput");
+const saveCalendarSettingsBtn = document.getElementById("saveCalendarSettingsBtn");
+const resetCalendarSettingsBtn = document.getElementById("resetCalendarSettingsBtn");
+const calendarHeroEmoji = document.getElementById("calendarHeroEmoji");
 const calendarSelectedDateTitle = document.getElementById("calendarSelectedDateTitle");
 const calendarSelectedDateEvents = document.getElementById("calendarSelectedDateEvents");
 const calendarSelectedDateEmpty = document.getElementById("calendarSelectedDateEmpty");
@@ -2880,6 +2895,124 @@ function getCalendarRepeat(item = {}) {
     return item.repeat || (item.annual ? "annual" : "none");
 }
 
+const COUPLE_CALENDAR_THEMES = {
+    cactus: { accent: "#72D59D", symbol: "💚" },
+    cream: { accent: "#D39B63", symbol: "🤎" },
+    lavender: { accent: "#A68BE3", symbol: "💜" },
+    sunset: { accent: "#F28C8C", symbol: "🌅" },
+    ocean: { accent: "#5AAFD6", symbol: "🌊" },
+    night: { accent: "#7D88D8", symbol: "🌙" }
+};
+const DEFAULT_COUPLE_CALENDAR_SETTINGS = {
+    theme: "cactus",
+    accent: "#72D59D",
+    symbol: "💚",
+    weekStart: "monday",
+    eventStyle: "emoji",
+    weekendTint: true,
+    decorations: true
+};
+let activeCoupleCalendarSettings = { ...DEFAULT_COUPLE_CALENDAR_SETTINGS };
+let draftCoupleCalendarSettings = { ...DEFAULT_COUPLE_CALENDAR_SETTINGS };
+let calendarCustomizerWasPreviewing = false;
+
+function normalizeCoupleCalendarSettings(value = {}) {
+    const theme = COUPLE_CALENDAR_THEMES[value.theme] ? value.theme : DEFAULT_COUPLE_CALENDAR_SETTINGS.theme;
+    const accent = /^#[0-9a-f]{6}$/i.test(value.accent || "") ? value.accent.toUpperCase() : COUPLE_CALENDAR_THEMES[theme].accent;
+    return {
+        theme,
+        accent,
+        symbol: String(value.symbol || COUPLE_CALENDAR_THEMES[theme].symbol || "💚").trim().slice(0, 8) || "💚",
+        weekStart: value.weekStart === "sunday" ? "sunday" : "monday",
+        eventStyle: ["emoji", "dots", "soft"].includes(value.eventStyle) ? value.eventStyle : "emoji",
+        weekendTint: value.weekendTint !== false,
+        decorations: value.decorations !== false
+    };
+}
+
+function getCoupleCalendarSettings(spaceData = currentSpaceData || {}) {
+    return normalizeCoupleCalendarSettings(spaceData.dailyTools?.calendarSettings || {});
+}
+
+function renderCoupleCalendarWeekdays(settings = activeCoupleCalendarSettings) {
+    if (!coupleCalendarWeekdays) return;
+    const labels = settings.weekStart === "sunday"
+        ? ["Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam"]
+        : ["Lun", "Mar", "Mer", "Jeu", "Ven", "Sam", "Dim"];
+    coupleCalendarWeekdays.replaceChildren(...labels.map((label) => {
+        const span = document.createElement("span");
+        span.textContent = label;
+        return span;
+    }));
+}
+
+function syncCalendarCustomizerControls(settings = draftCoupleCalendarSettings) {
+    if (!calendarCustomizerPanel) return;
+    calendarThemeChoices?.querySelectorAll("[data-calendar-theme]").forEach((button) => {
+        const active = button.dataset.calendarTheme === settings.theme;
+        button.classList.toggle("is-selected", active);
+        button.setAttribute("aria-checked", active ? "true" : "false");
+    });
+    if (calendarAccentInput) calendarAccentInput.value = settings.accent;
+    if (calendarAccentButton) {
+        calendarAccentButton.style.setProperty("--control-color", settings.accent);
+        const label = calendarAccentButton.querySelector("small");
+        if (label) label.textContent = settings.accent;
+    }
+    if (calendarSymbolInput) calendarSymbolInput.value = settings.symbol;
+    if (calendarWeekStartInput) calendarWeekStartInput.value = settings.weekStart;
+    if (calendarEventStyleInput) calendarEventStyleInput.value = settings.eventStyle;
+    if (calendarWeekendTintInput) calendarWeekendTintInput.checked = settings.weekendTint;
+    if (calendarDecorationsInput) calendarDecorationsInput.checked = settings.decorations;
+}
+
+function applyCoupleCalendarSettings(settings, { rerender = false } = {}) {
+    activeCoupleCalendarSettings = normalizeCoupleCalendarSettings(settings);
+    if (importantDatesScreen) {
+        importantDatesScreen.dataset.calendarTheme = activeCoupleCalendarSettings.theme;
+        importantDatesScreen.dataset.calendarEventStyle = activeCoupleCalendarSettings.eventStyle;
+        importantDatesScreen.classList.toggle("show-weekend-tint", activeCoupleCalendarSettings.weekendTint);
+        importantDatesScreen.classList.toggle("hide-calendar-decorations", !activeCoupleCalendarSettings.decorations);
+        importantDatesScreen.style.setProperty("--calendar-accent", activeCoupleCalendarSettings.accent);
+    }
+    if (calendarHeroEmoji) calendarHeroEmoji.textContent = activeCoupleCalendarSettings.symbol;
+    renderCoupleCalendarWeekdays(activeCoupleCalendarSettings);
+    if (rerender) {
+        const events = getUnifiedCalendarEvents();
+        renderCoupleCalendarGrid(events);
+        renderSelectedCalendarDay(events);
+    }
+}
+
+function openCalendarCustomizer() {
+    draftCoupleCalendarSettings = { ...getCoupleCalendarSettings() };
+    calendarCustomizerWasPreviewing = true;
+    syncCalendarCustomizerControls(draftCoupleCalendarSettings);
+    applyCoupleCalendarSettings(draftCoupleCalendarSettings, { rerender: true });
+    calendarCustomizerPanel.style.display = "block";
+    calendarCustomizerPanel.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+function closeCalendarCustomizer({ restore = true } = {}) {
+    calendarCustomizerPanel.style.display = "none";
+    if (restore && calendarCustomizerWasPreviewing) applyCoupleCalendarSettings(getCoupleCalendarSettings(), { rerender: true });
+    calendarCustomizerWasPreviewing = false;
+}
+
+function previewCalendarCustomizer() {
+    draftCoupleCalendarSettings = normalizeCoupleCalendarSettings({
+        ...draftCoupleCalendarSettings,
+        accent: calendarAccentInput?.value || draftCoupleCalendarSettings.accent,
+        symbol: calendarSymbolInput?.value || draftCoupleCalendarSettings.symbol,
+        weekStart: calendarWeekStartInput?.value || draftCoupleCalendarSettings.weekStart,
+        eventStyle: calendarEventStyleInput?.value || draftCoupleCalendarSettings.eventStyle,
+        weekendTint: Boolean(calendarWeekendTintInput?.checked),
+        decorations: Boolean(calendarDecorationsInput?.checked)
+    });
+    syncCalendarCustomizerControls(draftCoupleCalendarSettings);
+    applyCoupleCalendarSettings(draftCoupleCalendarSettings, { rerender: true });
+}
+
 function getCalendarDateParts(value) {
     const parts = String(value || "").split("-").map(Number);
     return parts.length === 3 && parts.every(Number.isFinite) ? parts : null;
@@ -3081,7 +3214,8 @@ function renderCoupleCalendarGrid(events) {
     const year = coupleCalendarCursor.getFullYear();
     const month = coupleCalendarCursor.getMonth();
     calendarMonthLabel.textContent = coupleCalendarCursor.toLocaleDateString("fr-FR", { month: "long", year: "numeric" }).replace(/^./, (letter) => letter.toUpperCase());
-    const firstWeekday = (new Date(year, month, 1).getDay() + 6) % 7;
+    const firstDayIndex = new Date(year, month, 1).getDay();
+    const firstWeekday = activeCoupleCalendarSettings.weekStart === "sunday" ? firstDayIndex : (firstDayIndex + 6) % 7;
     const daysInMonth = new Date(year, month + 1, 0).getDate();
     const previousMonthDays = new Date(year, month, 0).getDate();
     const cells = [];
@@ -3096,7 +3230,8 @@ function renderCoupleCalendarGrid(events) {
         const dayEvents = events.filter((eventItem) => calendarEventOccursOnDate(eventItem, cellDate));
         const button = document.createElement("button");
         button.type = "button";
-        button.className = "couple-calendar-day" + (outside ? " is-outside" : "") + (dateKey === selectedCoupleCalendarDate ? " is-selected" : "") + (dateKey === getLocalDateKey() ? " is-today" : "") + (dayEvents.length ? " has-events" : "");
+        const isWeekend = cellDate.getDay() === 0 || cellDate.getDay() === 6;
+        button.className = "couple-calendar-day" + (outside ? " is-outside" : "") + (isWeekend ? " is-weekend" : "") + (dateKey === selectedCoupleCalendarDate ? " is-selected" : "") + (dateKey === getLocalDateKey() ? " is-today" : "") + (dayEvents.length ? " has-events" : "");
         button.setAttribute("role", "gridcell");
         button.dataset.date = dateKey;
         const number = document.createElement("span"); number.className = "couple-calendar-day-number"; number.textContent = String(cellDate.getDate());
@@ -3155,6 +3290,7 @@ function setCoupleCalendarView(view) {
 function renderImportantDates(items) {
     currentImportantDates = items || {};
     if (!selectedCoupleCalendarDate) selectedCoupleCalendarDate = getLocalDateKey();
+    if (!calendarCustomizerWasPreviewing) applyCoupleCalendarSettings(getCoupleCalendarSettings());
     const events = getUnifiedCalendarEvents();
     importantDatesCount.textContent = events.length + " date" + (events.length > 1 ? "s" : "");
     renderCoupleCalendarGrid(events);
@@ -3202,6 +3338,43 @@ calendarMonthPrev.addEventListener("click", () => { coupleCalendarCursor = new D
 calendarMonthNext.addEventListener("click", () => { coupleCalendarCursor = new Date(coupleCalendarCursor.getFullYear(), coupleCalendarCursor.getMonth() + 1, 1); renderImportantDates(currentImportantDates); });
 calendarTodayBtn.addEventListener("click", () => { const now = new Date(); coupleCalendarCursor = new Date(now.getFullYear(), now.getMonth(), 1); selectedCoupleCalendarDate = getLocalDateKey(now); renderImportantDates(currentImportantDates); });
 calendarAddSelectedDateBtn.addEventListener("click", () => { resetImportantDateForm(); importantDateValueInput.value = selectedCoupleCalendarDate || getLocalDateKey(); importantDateForm.style.display = "block"; importantDateForm.scrollIntoView({ behavior: "smooth", block: "start" }); window.setTimeout(() => importantDateTitleInput.focus(), 80); });
+
+calendarCustomizeBtn?.addEventListener("click", openCalendarCustomizer);
+closeCalendarCustomizerBtn?.addEventListener("click", () => closeCalendarCustomizer({ restore: true }));
+calendarAccentButton?.addEventListener("click", () => openNotebookColorPicker("calendarAccent"));
+calendarThemeChoices?.querySelectorAll("[data-calendar-theme]").forEach((button) => {
+    button.addEventListener("click", () => {
+        const theme = button.dataset.calendarTheme;
+        if (!COUPLE_CALENDAR_THEMES[theme]) return;
+        draftCoupleCalendarSettings.theme = theme;
+        draftCoupleCalendarSettings.accent = COUPLE_CALENDAR_THEMES[theme].accent;
+        draftCoupleCalendarSettings.symbol = COUPLE_CALENDAR_THEMES[theme].symbol;
+        previewCalendarCustomizer();
+    });
+});
+[calendarSymbolInput, calendarWeekStartInput, calendarEventStyleInput, calendarWeekendTintInput, calendarDecorationsInput].forEach((control) => {
+    control?.addEventListener(control?.type === "checkbox" ? "change" : "input", previewCalendarCustomizer);
+    if (control?.tagName === "SELECT") control.addEventListener("change", previewCalendarCustomizer);
+});
+resetCalendarSettingsBtn?.addEventListener("click", () => {
+    draftCoupleCalendarSettings = { ...DEFAULT_COUPLE_CALENDAR_SETTINGS };
+    syncCalendarCustomizerControls(draftCoupleCalendarSettings);
+    applyCoupleCalendarSettings(draftCoupleCalendarSettings, { rerender: true });
+});
+saveCalendarSettingsBtn?.addEventListener("click", () => {
+    previewCalendarCustomizer();
+    const payload = { ...draftCoupleCalendarSettings, updatedAt: Date.now(), updatedBy: currentUser.uid, updatedByPseudo: pseudo };
+    saveCalendarSettingsBtn.disabled = true;
+    database.ref("spaces/" + currentSpaceCode + "/dailyTools/calendarSettings").set(payload)
+        .then(() => {
+            calendarCustomizerWasPreviewing = false;
+            applyCoupleCalendarSettings(payload, { rerender: true });
+            calendarCustomizerPanel.style.display = "none";
+            showToast("Votre calendrier a changé d’ambiance ✨");
+        })
+        .catch(() => showToast("Impossible d’enregistrer la personnalisation"))
+        .finally(() => { saveCalendarSettingsBtn.disabled = false; });
+});
 
 backFromTasksBtn.addEventListener("click", () => { resetTaskForm(); showScreen("dailyTools"); });
 backFromRemindersBtn.addEventListener("click", () => { resetReminderForm(); showScreen("dailyTools"); });
@@ -4356,7 +4529,8 @@ function openNotebookColorPicker(target) {
         text: { input: textColorPicker, title: "Couleur du texte" },
         highlight: { input: highlightColorPicker, title: "Couleur du surlignage" },
         timeCapsule: { input: timeCapsuleCustomColorInput, title: "Couleur personnalisée de la capsule" },
-        importantDate: { input: importantDateColorInput, title: "Couleur de l’événement" }
+        importantDate: { input: importantDateColorInput, title: "Couleur de l’événement" },
+        calendarAccent: { input: calendarAccentInput, title: "Couleur principale du calendrier" }
     };
     const configuration = configurations[target];
     if (!configuration) return;
@@ -4509,6 +4683,13 @@ applyNotebookColorBtn.addEventListener("click", () => {
         importantDateColorButton.style.setProperty("--control-color", pendingNotebookColor);
         const label = importantDateColorButton.querySelector("small");
         if (label) label.textContent = pendingNotebookColor;
+    } else if (activeNotebookColorTarget === "calendarAccent") {
+        calendarAccentInput.value = pendingNotebookColor;
+        draftCoupleCalendarSettings.accent = pendingNotebookColor;
+        calendarAccentButton.style.setProperty("--control-color", pendingNotebookColor);
+        const label = calendarAccentButton.querySelector("small");
+        if (label) label.textContent = pendingNotebookColor;
+        previewCalendarCustomizer();
     }
     closeNotebookColorPicker();
 });

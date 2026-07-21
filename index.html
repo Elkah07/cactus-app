@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cactus 🌵</title>
-    <link rel="stylesheet" href="css/style.css?v=93">
+    <link rel="stylesheet" href="css/style.css?v=94">
     <link rel="manifest" href="manifest.json?v=2">
     <meta name="theme-color" content="#003E2D">
 </head>
@@ -133,11 +133,6 @@
             <h2 id="dailyLifeHubTitle">Les petits jours et les grands moments, réunis ici.</h2>
             <p>Votre calendrier, vos projets, vos listes et les souvenirs qui arrivent bientôt vivent maintenant dans le même coin.</p>
         </div>
-        <button type="button" id="dailyCalendarSnapshot" class="daily-calendar-snapshot" onclick="showScreen('importantDates')">
-            <span class="daily-calendar-snapshot-icon"><svg class="cactus-ui-icon" aria-hidden="true"><use href="#cactusIconCalendar"></use></svg></span>
-            <span class="daily-calendar-snapshot-copy"><small>Prochain moment</small><strong id="dailyCalendarNextTitle">Ajoutez votre première date</strong><span id="dailyCalendarNextMeta">Votre calendrier commun vous attend</span></span>
-            <b id="dailyCalendarNextCountdown">+</b>
-        </button>
     </section>
 
     <button type="button" id="openImportantDatesBtn" class="daily-tool-card daily-calendar-main-card" onclick="showScreen('importantDates')">
@@ -148,7 +143,7 @@
     </button>
 
     <section class="daily-upcoming-section">
-        <div class="daily-section-heading"><div><small>À l’horizon</small><h2>Ce qui arrive bientôt</h2></div><button type="button" onclick="showScreen('importantDates')">Tout voir</button></div>
+        <div class="daily-section-heading"><div><small>À l’horizon</small><h2>Vos prochains moments</h2></div><button type="button" onclick="showScreen('importantDates')">Tout voir</button></div>
         <div id="dailyUpcomingMoments" class="daily-upcoming-moments"></div>
         <p id="dailyUpcomingEmpty" class="daily-upcoming-empty">Aucun grand moment programmé pour l’instant. Votre calendrier est une page blanche ✨</p>
     </section>
@@ -296,13 +291,56 @@
         <button type="button" id="backFromImportantDatesBtn" aria-label="Retour">‹</button>
         <div><small>Notre quotidien</small><h1>Notre calendrier</h1></div>
         <span id="importantDatesCount" hidden>0 date</span>
-        <button type="button" id="showImportantDateFormBtn" class="organizer-add-button" aria-label="Ajouter un événement">+</button>
+        <div class="calendar-header-actions">
+            <button type="button" id="calendarCustomizeBtn" class="calendar-customize-button" aria-label="Personnaliser notre calendrier" title="Personnaliser">✦</button>
+            <button type="button" id="showImportantDateFormBtn" class="organizer-add-button" aria-label="Ajouter un événement">+</button>
+        </div>
     </header>
 
     <section class="couple-calendar-hero">
         <div class="couple-calendar-hero-sky" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
-        <div class="couple-calendar-hero-icon" aria-hidden="true"><svg class="cactus-ui-icon"><use href="#cactusIconCalendar"></use></svg><span>💚</span></div>
+        <div class="couple-calendar-hero-icon" aria-hidden="true"><svg class="cactus-ui-icon"><use href="#cactusIconCalendar"></use></svg><span id="calendarHeroEmoji">💚</span></div>
         <div><small>Votre temps à deux</small><strong>Chaque date raconte un morceau de votre histoire.</strong><p>Ajoutez vos retrouvailles, anniversaires, voyages, projets ou petits événements. Cactus transforme automatiquement les moments à venir en comptes à rebours.</p></div>
+    </section>
+
+    <section id="calendarCustomizerPanel" class="calendar-customizer-panel" style="display:none;">
+        <div class="calendar-customizer-heading">
+            <div><small>Votre calendrier, votre univers</small><h2>Personnaliser notre calendrier</h2><p>Ces choix sont partagés : vous verrez toutes les deux la même ambiance.</p></div>
+            <button type="button" id="closeCalendarCustomizerBtn" aria-label="Fermer">×</button>
+        </div>
+
+        <div class="calendar-customizer-section">
+            <span class="calendar-customizer-label">Ambiance</span>
+            <div id="calendarThemeChoices" class="calendar-theme-choices" role="radiogroup" aria-label="Ambiance du calendrier">
+                <button type="button" data-calendar-theme="cactus"><i></i><strong>Cactus</strong><small>Vert doux</small></button>
+                <button type="button" data-calendar-theme="cream"><i></i><strong>Crème</strong><small>Chaleureux</small></button>
+                <button type="button" data-calendar-theme="lavender"><i></i><strong>Lavande</strong><small>Tout doux</small></button>
+                <button type="button" data-calendar-theme="sunset"><i></i><strong>Sunset</strong><small>Pêche rosée</small></button>
+                <button type="button" data-calendar-theme="ocean"><i></i><strong>Océan</strong><small>Bleu calme</small></button>
+                <button type="button" data-calendar-theme="night"><i></i><strong>Nuit</strong><small>Étoilé</small></button>
+            </div>
+        </div>
+
+        <div class="calendar-customizer-grid">
+            <div class="calendar-customizer-control">
+                <span>Couleur principale</span>
+                <input type="hidden" id="calendarAccentInput" value="#72D59D">
+                <button type="button" id="calendarAccentButton" class="notebook-color-button calendar-accent-button" style="--control-color:#72D59D"><span aria-hidden="true"></span><span>Choisir une couleur</span><small>#72D59D</small></button>
+            </div>
+            <label class="calendar-customizer-control calendar-symbol-control"><span>Votre symbole</span><div><input id="calendarSymbolInput" type="text" maxlength="8" value="💚" inputmode="text" aria-label="Emoji du calendrier"><small>N’importe quel emoji</small></div></label>
+            <label class="calendar-customizer-control"><span>La semaine commence</span><select id="calendarWeekStartInput"><option value="monday">Lundi</option><option value="sunday">Dimanche</option></select></label>
+            <label class="calendar-customizer-control"><span>Événements dans les cases</span><select id="calendarEventStyleInput"><option value="emoji">Emojis</option><option value="dots">Points colorés</option><option value="soft">Emojis discrets</option></select></label>
+        </div>
+
+        <div class="calendar-customizer-toggles">
+            <label><input id="calendarWeekendTintInput" type="checkbox" checked><span><strong>Colorer légèrement les week-ends</strong><small>Pour mieux repérer vos jours à deux.</small></span></label>
+            <label><input id="calendarDecorationsInput" type="checkbox" checked><span><strong>Garder les petites décorations</strong><small>Étoiles et détails animés autour du calendrier.</small></span></label>
+        </div>
+
+        <div class="calendar-customizer-actions">
+            <button type="button" id="resetCalendarSettingsBtn" class="secondary">Réinitialiser</button>
+            <button type="button" id="saveCalendarSettingsBtn">Appliquer à notre calendrier</button>
+        </div>
     </section>
 
     <nav class="couple-calendar-tabs" aria-label="Vues du calendrier">
@@ -340,7 +378,7 @@
             <button type="button" id="calendarMonthNext" aria-label="Mois suivant">›</button>
             <button type="button" id="calendarTodayBtn" class="calendar-today-btn">Aujourd’hui</button>
         </div>
-        <div class="couple-calendar-weekdays" aria-hidden="true"><span>Lun</span><span>Mar</span><span>Mer</span><span>Jeu</span><span>Ven</span><span>Sam</span><span>Dim</span></div>
+        <div id="coupleCalendarWeekdays" class="couple-calendar-weekdays" aria-hidden="true"><span>Lun</span><span>Mar</span><span>Mer</span><span>Jeu</span><span>Ven</span><span>Sam</span><span>Dim</span></div>
         <div id="coupleCalendarGrid" class="couple-calendar-grid" role="grid" aria-label="Calendrier commun"></div>
         <section class="calendar-selected-day">
             <div class="calendar-selected-day-heading"><div><small>Jour sélectionné</small><h2 id="calendarSelectedDateTitle">Aujourd’hui</h2></div><button type="button" id="calendarAddSelectedDateBtn">+ Ajouter ici</button></div>
@@ -2535,7 +2573,7 @@
     <script src="js/storage.js"></script>
     <script src="js/rankings.js"></script>
     <script src="js/questions.js"></script>
-    <script src="js/script.js?v=93"></script>
+    <script src="js/script.js?v=94"></script>
 
 </body>
 </html>
