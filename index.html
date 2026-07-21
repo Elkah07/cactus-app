@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cactus 🌵</title>
-    <link rel="stylesheet" href="css/style.css?v=83">
+    <link rel="stylesheet" href="css/style.css?v=84">
     <link rel="manifest" href="manifest.json?v=2">
     <meta name="theme-color" content="#003E2D">
 </head>
@@ -301,18 +301,58 @@
 </div>
 
 <!-- ÉCRAN CAPSULES TEMPORELLES -->
-<div id="timeCapsulesScreen" class="secondary-screen daily-organizer-screen" style="display:none;">
+<div id="timeCapsulesScreen" class="secondary-screen daily-organizer-screen time-capsules-screen" style="display:none;">
     <header class="organizer-header"><button type="button" id="backFromTimeCapsulesBtn" aria-label="Retour">‹</button><div><small>Notre quotidien</small><h1>Capsules temporelles</h1></div><button type="button" id="showTimeCapsuleFormBtn" class="organizer-add-button" aria-label="Créer une capsule">+</button></header>
-    <section class="organizer-hero is-capsule"><svg class="cactus-ui-icon" aria-hidden="true"><use href="#cactusIconCapsule"></use></svg><div><small>Un secret pour plus tard</small><strong>Écrivez aujourd’hui, découvrez demain</strong><p>Le contenu reste caché jusqu’à la date choisie.</p></div></section>
-    <form id="timeCapsuleForm" class="organizer-form organizer-creation-panel" style="display:none;">
+
+    <section class="time-capsule-hero" aria-labelledby="timeCapsuleHeroTitle">
+        <div class="time-capsule-hero-sky" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="time-capsule-hero-object" aria-hidden="true">
+            <span class="time-capsule-orbit orbit-one"></span>
+            <span class="time-capsule-orbit orbit-two"></span>
+            <span class="time-capsule-shell"><svg class="cactus-ui-icon"><use href="#cactusIconCapsule"></use></svg></span>
+        </div>
+        <div class="time-capsule-hero-copy">
+            <small>Un message qui voyage dans le temps</small>
+            <strong id="timeCapsuleHeroTitle">Scellez aujourd’hui. Redécouvrez-vous plus tard.</strong>
+            <p>Écrivez un souvenir, une promesse ou une pensée. Cactus la garde fermée jusqu’au bon jour.</p>
+        </div>
+        <div class="time-capsule-hero-stats" aria-live="polite">
+            <span><b id="timeCapsuleLockedCount">0</b><small>en voyage</small></span>
+            <span><b id="timeCapsuleReadyCount">0</b><small>à ouvrir</small></span>
+            <span><b id="timeCapsuleOpenedCount">0</b><small>souvenirs</small></span>
+        </div>
+    </section>
+
+    <form id="timeCapsuleForm" class="organizer-form organizer-creation-panel time-capsule-creation-panel" style="display:none;">
         <div class="organizer-form-heading"><div><small>Nouvelle capsule</small><strong>Que voulez-vous confier au futur ?</strong></div><button type="button" id="cancelTimeCapsuleBtn">Annuler</button></div>
-        <input id="timeCapsuleTitleInput" type="text" maxlength="100" required placeholder="Titre visible de la capsule">
-        <textarea id="timeCapsuleMessageInput" maxlength="2000" rows="6" required placeholder="Votre message secret…"></textarea>
-        <div class="organizer-form-grid"><label><span>Date d’ouverture</span><input id="timeCapsuleOpenDateInput" type="date" required></label><select id="timeCapsuleAuthorInput" aria-label="Signature"></select></div>
-        <button type="submit" id="saveTimeCapsuleBtn">Sceller la capsule</button>
+        <label class="time-capsule-field"><span>Le titre visible</span><input id="timeCapsuleTitleInput" type="text" maxlength="100" required placeholder="Ex. À nous dans un an…"></label>
+        <label class="time-capsule-field"><span>Le message secret</span><textarea id="timeCapsuleMessageInput" maxlength="2000" rows="6" required placeholder="Écris ce que le futur ne doit pas oublier…"></textarea></label>
+        <div class="organizer-form-grid"><label><span>Date d’ouverture</span><input id="timeCapsuleOpenDateInput" type="date" required></label><label><span>Signature</span><select id="timeCapsuleAuthorInput" aria-label="Signature"></select></label></div>
+        <button type="submit" id="saveTimeCapsuleBtn" class="time-capsule-seal-button"><span aria-hidden="true">✦</span> Sceller la capsule</button>
     </form>
+
     <div id="timeCapsulesList" class="time-capsules-list"></div>
-    <div id="timeCapsulesEmptyState" class="organizer-empty"><svg class="cactus-ui-icon" aria-hidden="true"><use href="#cactusIconCapsule"></use></svg><strong>Aucune capsule</strong><p>Scellez un message à découvrir dans le futur.</p></div>
+    <div id="timeCapsulesEmptyState" class="organizer-empty time-capsules-empty"><svg class="cactus-ui-icon" aria-hidden="true"><use href="#cactusIconCapsule"></use></svg><strong>Aucune capsule ne voyage encore</strong><p>Scellez votre premier message et laissez le temps faire le reste.</p></div>
+</div>
+
+<div id="timeCapsuleRevealModal" class="time-capsule-reveal-modal" style="display:none;" role="dialog" aria-modal="true" aria-labelledby="timeCapsuleRevealTitle">
+    <div class="time-capsule-reveal-backdrop" data-close-time-capsule></div>
+    <section class="time-capsule-reveal-sheet">
+        <button type="button" id="closeTimeCapsuleRevealBtn" class="time-capsule-reveal-close" aria-label="Fermer">×</button>
+        <div class="time-capsule-reveal-stage" aria-hidden="true">
+            <span class="time-capsule-reveal-glow"></span>
+            <span class="time-capsule-reveal-icon"><svg class="cactus-ui-icon"><use href="#cactusIconCapsule"></use></svg></span>
+            <span class="time-capsule-reveal-spark spark-one">✦</span>
+            <span class="time-capsule-reveal-spark spark-two">✧</span>
+            <span class="time-capsule-reveal-spark spark-three">✦</span>
+        </div>
+        <small id="timeCapsuleRevealEyebrow">Un message du passé</small>
+        <h2 id="timeCapsuleRevealTitle">Votre capsule s’ouvre…</h2>
+        <p id="timeCapsuleRevealMeta"></p>
+        <blockquote id="timeCapsuleRevealMessage"></blockquote>
+        <div id="timeCapsuleCreatorPreviewBadge" class="time-capsule-creator-preview-badge" style="display:none;">🛠️ Aperçu créateur · la capsule reste réellement verrouillée</div>
+        <button type="button" id="timeCapsuleRevealDoneBtn">Refermer ce souvenir</button>
+    </section>
 </div>
 
 <!-- ÉCRAN CARNET -->
@@ -2126,6 +2166,30 @@
         <label><input type="checkbox" id="notifyGamesSetting" checked> Parties terminées</label>
         <label><input type="checkbox" id="notifyAchievementsSetting" checked> Succès débloqués</label>
         <label><input type="checkbox" id="notifyGardenSetting" checked> Quotidien, jardin et souvenirs</label>
+
+        <div class="phone-notifications-box">
+            <div class="phone-notifications-copy">
+                <small>Notifications du téléphone</small>
+                <strong id="phoneNotificationsStatus">Non activées sur cet appareil</strong>
+                <p id="phoneNotificationsHint">Reçois les réponses, rappels et capsules même quand Cactus n’est pas ouvert.</p>
+            </div>
+            <div class="phone-notifications-actions">
+                <button type="button" id="enablePushNotificationsBtn">Activer sur ce téléphone</button>
+                <button type="button" id="disablePushNotificationsBtn" class="secondary" style="display:none;">Désactiver</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="creatorModePanel" class="settings-panel creator-mode-panel" style="display:none;">
+        <div class="settings-panel-heading">
+            <span>🧪</span>
+            <div><small>Compte créateur détecté</small><strong>Mode créateur</strong></div>
+        </div>
+        <label class="creator-mode-switch">
+            <span><b>Activer les outils de test</b><small>Ton compte reste un compte normal tant que ce mode est désactivé.</small></span>
+            <input type="checkbox" id="creatorModeToggle">
+        </label>
+        <p id="creatorModeStatus">Mode créateur désactivé · tu joues exactement comme ta partenaire.</p>
     </section>
 
     <section class="settings-panel account-security-panel">
@@ -2180,6 +2244,7 @@
             <button type="button" id="creatorUnlockAchievementsBtn">🏆 Débloquer les succès</button>
             <button type="button" id="creatorResetAchievementsBtn">🔒 Réinitialiser les succès</button>
             <button type="button" id="creatorResetDailyBtn">🔥 Réinitialiser aujourd’hui</button>
+            <button type="button" id="creatorTestNotificationBtn">🔔 Tester une notification</button>
         </div>
 
         <p>Ces actions modifient l’espace commun utilisé avec ta partenaire.</p>
@@ -2300,14 +2365,15 @@
     <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-messaging-compat.js"></script>
 
     <script src="js/firebase.js"></script>
-    <script src="js/screens.js?v=83"></script>
+    <script src="js/screens.js?v=84"></script>
     <script src="js/utils.js"></script>
     <script src="js/storage.js"></script>
     <script src="js/rankings.js"></script>
     <script src="js/questions.js"></script>
-    <script src="js/script.js?v=83"></script>
+    <script src="js/script.js?v=84"></script>
 
 </body>
 </html>

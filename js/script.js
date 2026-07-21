@@ -66,6 +66,13 @@ const notifyAnswersSetting = document.getElementById("notifyAnswersSetting");
 const notifyGamesSetting = document.getElementById("notifyGamesSetting");
 const notifyAchievementsSetting = document.getElementById("notifyAchievementsSetting");
 const notifyGardenSetting = document.getElementById("notifyGardenSetting");
+const phoneNotificationsStatus = document.getElementById("phoneNotificationsStatus");
+const phoneNotificationsHint = document.getElementById("phoneNotificationsHint");
+const enablePushNotificationsBtn = document.getElementById("enablePushNotificationsBtn");
+const disablePushNotificationsBtn = document.getElementById("disablePushNotificationsBtn");
+const creatorModePanel = document.getElementById("creatorModePanel");
+const creatorModeToggle = document.getElementById("creatorModeToggle");
+const creatorModeStatus = document.getElementById("creatorModeStatus");
 const creatorToolsPanel = document.getElementById("creatorToolsPanel");
 const creatorSeedsAmount = document.getElementById("creatorSeedsAmount");
 const creatorSetSeedsBtn = document.getElementById("creatorSetSeedsBtn");
@@ -76,6 +83,7 @@ const creatorUnlockGardenBtn = document.getElementById("creatorUnlockGardenBtn")
 const creatorUnlockAchievementsBtn = document.getElementById("creatorUnlockAchievementsBtn");
 const creatorResetAchievementsBtn = document.getElementById("creatorResetAchievementsBtn");
 const creatorResetDailyBtn = document.getElementById("creatorResetDailyBtn");
+const creatorTestNotificationBtn = document.getElementById("creatorTestNotificationBtn");
 const creatorOpenReportsBtn = document.getElementById("creatorOpenReportsBtn");
 const creatorReportsCount = document.getElementById("creatorReportsCount");
 const questionReportModal = document.getElementById("questionReportModal");
@@ -284,6 +292,17 @@ const saveTimeCapsuleBtn = document.getElementById("saveTimeCapsuleBtn");
 const cancelTimeCapsuleBtn = document.getElementById("cancelTimeCapsuleBtn");
 const timeCapsulesList = document.getElementById("timeCapsulesList");
 const timeCapsulesEmptyState = document.getElementById("timeCapsulesEmptyState");
+const timeCapsuleLockedCount = document.getElementById("timeCapsuleLockedCount");
+const timeCapsuleReadyCount = document.getElementById("timeCapsuleReadyCount");
+const timeCapsuleOpenedCount = document.getElementById("timeCapsuleOpenedCount");
+const timeCapsuleRevealModal = document.getElementById("timeCapsuleRevealModal");
+const closeTimeCapsuleRevealBtn = document.getElementById("closeTimeCapsuleRevealBtn");
+const timeCapsuleRevealDoneBtn = document.getElementById("timeCapsuleRevealDoneBtn");
+const timeCapsuleRevealEyebrow = document.getElementById("timeCapsuleRevealEyebrow");
+const timeCapsuleRevealTitle = document.getElementById("timeCapsuleRevealTitle");
+const timeCapsuleRevealMeta = document.getElementById("timeCapsuleRevealMeta");
+const timeCapsuleRevealMessage = document.getElementById("timeCapsuleRevealMessage");
+const timeCapsuleCreatorPreviewBadge = document.getElementById("timeCapsuleCreatorPreviewBadge");
 
 const showCreateNotebookBtn = document.getElementById("showCreateNotebookBtn");
 const createNotebookBox = document.getElementById("createNotebookBox");
@@ -889,6 +908,10 @@ let editingImportantDateId = null;
 let currentCountdowns = {};
 let currentTimeCapsules = {};
 let editingCountdownId = null;
+let creatorModeEnabled = false;
+let currentRevealedTimeCapsuleId = null;
+const creatorPreviewTimeCapsules = new Set();
+let pushMessagingInitialized = false;
 
 const CREATOR_UIDS = new Set([
     "cJylm27fQTMXd0Esan7YqXkjV762",
@@ -1858,6 +1881,8 @@ function sendPasswordReset() {
 function prepareAccountSettings() {
     currentAccountEmail.textContent = currentUser?.email || "Adresse indisponible";
     newAccountPassword.value = "";
+    updatePhoneNotificationsStatus();
+    updateCreatorToolsVisibility();
 }
 
 function changeAccountPassword() {
@@ -2061,11 +2086,11 @@ async function deleteCurrentAccount() {
 }
 
 logoutBtn.addEventListener("click", () => {
-    auth.signOut();
+    unregisterPushDeviceBeforeLogout().finally(() => auth.signOut());
 });
 
 logoutFromCoupleBtn.addEventListener("click", () => {
-    auth.signOut();
+    unregisterPushDeviceBeforeLogout().finally(() => auth.signOut());
 });
 
 leaveSpaceBtn.addEventListener("click", () => {
@@ -2831,31 +2856,214 @@ countdownForm.addEventListener("submit", (event) => {
     saveCountdownBtn.disabled = true; request.then(() => { showToast(editingCountdownId ? "Compte à rebours modifié" : "Compte à rebours créé"); resetCountdownForm(); }).catch(() => showToast("Impossible d’enregistrer ce compte à rebours")).finally(() => { saveCountdownBtn.disabled = false; });
 });
 
+function getTimeCapsuleOpenTimestamp(item) {
+    if (!item?.openDate) return 0;
+    const timestamp = new Date(item.openDate + "T00:00:00").getTime();
+    return Number.isFinite(timestamp) ? timestamp : 0;
+}
+
+function getTimeCapsuleTheme(item) {
+    const openAt = getTimeCapsuleOpenTimestamp(item);
+    const remainingDays = Math.ceil((openAt - Date.now()) / 86400000);
+    if (remainingDays <= 0) return "ready";
+    if (remainingDays <= 30) return "soon";
+    if (remainingDays <= 180) return "season";
+    if (remainingDays <= 365) return "far";
+    return "legacy";
+}
+
+function getTimeCapsuleCountdownLabel(item) {
+    const openAt = getTimeCapsuleOpenTimestamp(item);
+    if (!openAt) return "Date d’ouverture inconnue";
+    const diff = openAt - Date.now();
+    const days = Math.ceil(diff / 86400000);
+    if (days <= 0) return "Prête à être ouverte ✨";
+    if (days === 1) return "Plus qu’un jour avant l’ouverture";
+    if (days < 30) return "Encore " + days + " jours de voyage";
+    const months = Math.ceil(days / 30.44);
+    if (months <= 12) return "Encore environ " + months + " mois";
+    const years = Math.floor(months / 12);
+    const remainingMonths = months % 12;
+    return "Encore " + years + " an" + (years > 1 ? "s" : "") + (remainingMonths ? " et " + remainingMonths + " mois" : "");
+}
+
+function getTimeCapsuleProgress(item) {
+    const createdAt = Number(item?.createdAt || 0);
+    const openAt = getTimeCapsuleOpenTimestamp(item);
+    if (!createdAt || !openAt || openAt <= createdAt) return openAt <= Date.now() ? 100 : 4;
+    return Math.max(4, Math.min(100, Math.round(((Date.now() - createdAt) / (openAt - createdAt)) * 100)));
+}
+
+function closeTimeCapsuleReveal() {
+    if (!timeCapsuleRevealModal) return;
+    timeCapsuleRevealModal.style.display = "none";
+    currentRevealedTimeCapsuleId = null;
+    document.body.classList.remove("time-capsule-modal-open");
+}
+
+function openTimeCapsuleReveal(id, creatorPreview = false) {
+    const item = currentTimeCapsules?.[id];
+    if (!item || !timeCapsuleRevealModal) return;
+    const trulyUnlocked = !item.openDate || getTimeCapsuleOpenTimestamp(item) <= Date.now();
+    if (!trulyUnlocked && !(creatorPreview && isCreatorModeEnabled())) {
+        showToast(getTimeCapsuleCountdownLabel(item));
+        return;
+    }
+
+    currentRevealedTimeCapsuleId = id;
+    const author = getOrganizerPersonLabel(item.author || item.createdByUid);
+    timeCapsuleRevealEyebrow.textContent = creatorPreview && !trulyUnlocked ? "Aperçu de test" : "Un message du passé";
+    timeCapsuleRevealTitle.textContent = item.title || "Capsule sans titre";
+    timeCapsuleRevealMeta.textContent = (author ? "Signée par " + author + " · " : "") + "scellée le " + new Date(item.createdAt || Date.now()).toLocaleDateString("fr-FR", { day:"numeric", month:"long", year:"numeric" });
+    timeCapsuleRevealMessage.textContent = item.message || "Cette capsule est vide.";
+    timeCapsuleCreatorPreviewBadge.style.display = creatorPreview && !trulyUnlocked ? "block" : "none";
+    timeCapsuleRevealModal.style.display = "grid";
+    document.body.classList.add("time-capsule-modal-open");
+
+    if (trulyUnlocked && !item.openedAt && currentSpaceCode) {
+        database.ref("spaces/" + currentSpaceCode + "/dailyTools/timeCapsules/" + id).update({
+            openedAt: Date.now(),
+            openedByUid: currentUser?.uid || "",
+            openedByPseudo: pseudo || ""
+        }).catch((error) => console.warn("Marquage de la capsule ouverte impossible", error));
+    }
+}
+
 function renderTimeCapsules(items = {}) {
     currentTimeCapsules = items || {};
     const entries = Object.entries(currentTimeCapsules).sort((a, b) => (a[1].openDate || "9999").localeCompare(b[1].openDate || "9999"));
-    timeCapsulesList.replaceChildren(...entries.map(([id, item]) => {
-        const unlocked = !item.openDate || new Date(item.openDate + "T00:00").getTime() <= Date.now();
-        const article = document.createElement("article"); article.className = "time-capsule-card" + (unlocked ? " is-unlocked" : " is-locked");
-        const icon = document.createElement("span");
-        icon.appendChild(createCactusUiIcon(unlocked ? "cactusIconCapsule" : "cactusIconShield", "cactus-secondary-icon"));
-        const copy = document.createElement("div"); const title = document.createElement("strong"); title.textContent = item.title || "Capsule sans titre";
-        const date = document.createElement("small"); date.textContent = unlocked ? "Ouverte depuis le " + formatOrganizerDate(item.openDate) : "À ouvrir le " + formatOrganizerDate(item.openDate);
-        const message = document.createElement("p"); message.textContent = unlocked ? (item.message || "Cette capsule est vide.") : "Le message est encore bien gardé…";
-        copy.append(title, date, message);
-        const remove = document.createElement("button"); remove.type = "button"; remove.className = "is-delete"; remove.textContent = "×"; remove.setAttribute("aria-label", "Supprimer"); remove.addEventListener("click", () => { if (confirm("Supprimer définitivement cette capsule ?")) database.ref("spaces/" + currentSpaceCode + "/dailyTools/timeCapsules/" + id).remove(); });
-        article.append(icon, copy, remove); return article;
-    }));
+    const now = Date.now();
+    let lockedCount = 0;
+    let readyCount = 0;
+    let openedCount = 0;
+
+    const cards = entries.map(([id, item], index) => {
+        const openAt = getTimeCapsuleOpenTimestamp(item);
+        const unlocked = !item.openDate || openAt <= now;
+        if (unlocked && item.openedAt) openedCount++;
+        else if (unlocked) readyCount++;
+        else lockedCount++;
+
+        const theme = getTimeCapsuleTheme(item);
+        const article = document.createElement("article");
+        article.className = "time-capsule-card theme-" + theme + (unlocked ? " is-unlocked" : " is-locked");
+        article.style.animationDelay = Math.min(index * 45, 360) + "ms";
+
+        const visual = document.createElement("span");
+        visual.className = "time-capsule-card-visual";
+        visual.appendChild(createCactusUiIcon(unlocked ? "cactusIconCapsule" : "cactusIconShield", "cactus-secondary-icon"));
+
+        const body = document.createElement("div");
+        body.className = "time-capsule-card-body";
+        const top = document.createElement("div");
+        top.className = "time-capsule-card-topline";
+        const title = document.createElement("strong");
+        title.textContent = item.title || "Capsule sans titre";
+        const status = document.createElement("span");
+        status.className = "time-capsule-status";
+        status.textContent = unlocked ? (item.openedAt ? "Souvenir ouvert" : "À ouvrir") : "Scellée";
+        top.append(title, status);
+
+        const meta = document.createElement("div");
+        meta.className = "time-capsule-card-meta";
+        meta.textContent = unlocked ? "Disponible depuis le " + formatOrganizerDate(item.openDate) : "Ouverture le " + formatOrganizerDate(item.openDate);
+
+        const teaser = document.createElement("p");
+        teaser.className = "time-capsule-card-teaser";
+        teaser.textContent = unlocked
+            ? (item.openedAt ? "Ce message fait maintenant partie de vos souvenirs." : "Le temps est arrivé. Votre message vous attend.")
+            : getTimeCapsuleCountdownLabel(item) + " · le message reste invisible jusque-là.";
+
+        const progress = document.createElement("div");
+        progress.className = "time-capsule-progress";
+        const progressFill = document.createElement("span");
+        progressFill.style.width = getTimeCapsuleProgress(item) + "%";
+        progress.appendChild(progressFill);
+        body.append(top, meta, teaser, progress);
+
+        const footer = document.createElement("div");
+        footer.className = "time-capsule-card-footer";
+        const primary = document.createElement("button");
+        primary.type = "button";
+        primary.className = "time-capsule-primary-action";
+
+        if (unlocked) {
+            primary.classList.add("is-ready");
+            primary.textContent = item.openedAt ? "Relire la capsule" : "Ouvrir la capsule ✨";
+            primary.addEventListener("click", () => openTimeCapsuleReveal(id, false));
+        } else if (isCreatorModeEnabled()) {
+            primary.classList.add("is-creator");
+            primary.textContent = "🧪 Tester l’ouverture maintenant";
+            primary.addEventListener("click", () => openTimeCapsuleReveal(id, true));
+        } else {
+            primary.textContent = getTimeCapsuleCountdownLabel(item);
+            primary.disabled = true;
+        }
+
+        const remove = document.createElement("button");
+        remove.type = "button";
+        remove.className = "is-delete";
+        remove.textContent = "×";
+        remove.setAttribute("aria-label", "Supprimer");
+        remove.addEventListener("click", () => {
+            if (confirm("Supprimer définitivement cette capsule ?")) {
+                database.ref("spaces/" + currentSpaceCode + "/dailyTools/timeCapsules/" + id).remove();
+            }
+        });
+
+        footer.append(primary, remove);
+        article.append(visual, body, footer);
+        return article;
+    });
+
+    timeCapsulesList.replaceChildren(...cards);
     timeCapsulesEmptyState.style.display = entries.length ? "none" : "flex";
+    if (timeCapsuleLockedCount) timeCapsuleLockedCount.textContent = lockedCount;
+    if (timeCapsuleReadyCount) timeCapsuleReadyCount.textContent = readyCount;
+    if (timeCapsuleOpenedCount) timeCapsuleOpenedCount.textContent = openedCount;
 }
 
-showTimeCapsuleFormBtn.addEventListener("click", () => { timeCapsuleForm.reset(); prepareOrganizerAssignees(timeCapsuleAuthorInput); timeCapsuleOpenDateInput.min = getLocalDateKey(new Date(Date.now() + 86400000)); timeCapsuleForm.style.display = "block"; window.setTimeout(() => timeCapsuleTitleInput.focus(), 80); });
+showTimeCapsuleFormBtn.addEventListener("click", () => {
+    timeCapsuleForm.reset();
+    prepareOrganizerAssignees(timeCapsuleAuthorInput);
+    timeCapsuleOpenDateInput.min = getLocalDateKey(new Date(Date.now() + 86400000));
+    timeCapsuleForm.style.display = "block";
+    timeCapsuleForm.scrollIntoView({ behavior:"smooth", block:"start" });
+    window.setTimeout(() => timeCapsuleTitleInput.focus(), 180);
+});
 cancelTimeCapsuleBtn.addEventListener("click", () => { timeCapsuleForm.reset(); timeCapsuleForm.style.display = "none"; });
-backFromTimeCapsulesBtn.addEventListener("click", () => { timeCapsuleForm.style.display = "none"; showScreen("dailyTools"); });
+backFromTimeCapsulesBtn.addEventListener("click", () => { timeCapsuleForm.style.display = "none"; closeTimeCapsuleReveal(); showScreen("dailyTools"); });
+if (closeTimeCapsuleRevealBtn) closeTimeCapsuleRevealBtn.addEventListener("click", closeTimeCapsuleReveal);
+if (timeCapsuleRevealDoneBtn) timeCapsuleRevealDoneBtn.addEventListener("click", closeTimeCapsuleReveal);
+if (timeCapsuleRevealModal) timeCapsuleRevealModal.querySelector("[data-close-time-capsule]")?.addEventListener("click", closeTimeCapsuleReveal);
+
 timeCapsuleForm.addEventListener("submit", (event) => {
-    event.preventDefault(); const title = timeCapsuleTitleInput.value.trim(); const message = timeCapsuleMessageInput.value.trim(); const openDate = timeCapsuleOpenDateInput.value; if (!title || !message || !openDate) return;
-    const now = Date.now(); saveTimeCapsuleBtn.disabled = true;
-    database.ref("spaces/" + currentSpaceCode + "/dailyTools/timeCapsules").push({ title, message, openDate, author: timeCapsuleAuthorInput.value || currentUser.uid, createdAt: now, createdByUid: currentUser.uid, createdByPseudo: pseudo }).then(() => { showToast("Capsule scellée jusqu’au " + formatOrganizerDate(openDate)); timeCapsuleForm.reset(); timeCapsuleForm.style.display = "none"; }).catch(() => showToast("Impossible de sceller la capsule")).finally(() => { saveTimeCapsuleBtn.disabled = false; });
+    event.preventDefault();
+    const title = timeCapsuleTitleInput.value.trim();
+    const message = timeCapsuleMessageInput.value.trim();
+    const openDate = timeCapsuleOpenDateInput.value;
+    if (!title || !message || !openDate) return;
+
+    const now = Date.now();
+    saveTimeCapsuleBtn.disabled = true;
+    saveTimeCapsuleBtn.textContent = "Scellement en cours…";
+    database.ref("spaces/" + currentSpaceCode + "/dailyTools/timeCapsules").push({
+        title,
+        message,
+        openDate,
+        author: timeCapsuleAuthorInput.value || currentUser.uid,
+        createdAt: now,
+        createdByUid: currentUser.uid,
+        createdByPseudo: pseudo
+    }).then(() => {
+        showToast("Capsule scellée jusqu’au " + formatOrganizerDate(openDate) + " ✨");
+        timeCapsuleForm.reset();
+        timeCapsuleForm.style.display = "none";
+    }).catch(() => showToast("Impossible de sceller la capsule"))
+      .finally(() => {
+          saveTimeCapsuleBtn.disabled = false;
+          saveTimeCapsuleBtn.innerHTML = '<span aria-hidden="true">✦</span> Sceller la capsule';
+      });
 });
 
 function renderDashboardToday(spaceData = {}) {
@@ -3990,7 +4198,7 @@ function flattenQuestionReports(data) {
 }
 
 function loadCreatorReportsCount() {
-    if (!isCreatorAccount()) return;
+    if (!isCreatorModeEnabled()) return;
     database.ref("questionReports").once("value").then((snapshot) => {
         const count = flattenQuestionReports(snapshot.val()).filter((report) => report.status === "open").length;
         creatorReportsCount.textContent = count > 99 ? "99+" : count;
@@ -3999,7 +4207,7 @@ function loadCreatorReportsCount() {
 }
 
 function openCreatorReports() {
-    if (!isCreatorAccount()) return;
+    if (!isCreatorModeEnabled()) return;
     creatorReportsModal.style.display = "grid";
     document.body.classList.add("question-report-open");
     creatorReportsEmpty.querySelector("strong").textContent = "Aucun signalement ici";
@@ -4130,7 +4338,7 @@ function renderCreatorManagedContent() {
 }
 
 function openCreatorContent(mode = "questions", contentId = null) {
-    if (!isCreatorAccount()) return;
+    if (!isCreatorModeEnabled()) return;
     closeCreatorReports();
     creatorContentGameFilter.value = CREATOR_CONTENT_SOURCES[mode] ? mode : "questions";
     creatorContentSearch.value = "";
@@ -5534,6 +5742,16 @@ notificationFilterButtons.forEach((button) => {
     });
 });
 
+if (enablePushNotificationsBtn) enablePushNotificationsBtn.addEventListener("click", enablePhonePushNotifications);
+if (disablePushNotificationsBtn) disablePushNotificationsBtn.addEventListener("click", disablePhonePushNotifications);
+if (creatorTestNotificationBtn) creatorTestNotificationBtn.addEventListener("click", showCreatorTestNotification);
+
+if (creatorModeToggle) {
+    creatorModeToggle.addEventListener("change", () => {
+        setCreatorModeEnabled(creatorModeToggle.checked);
+    });
+}
+
 creatorSetSeedsBtn.addEventListener("click", () => {
     setCreatorStatValue("seeds", Number(creatorSeedsAmount.value));
 });
@@ -6130,14 +6348,59 @@ function isCreatorAccount() {
     return Boolean(currentUser && CREATOR_UIDS.has(currentUser.uid));
 }
 
+function isCreatorModeEnabled() {
+    return isCreatorAccount() && creatorModeEnabled;
+}
+
+function applyCreatorModeFromUserData(userData = {}) {
+    creatorModeEnabled = isCreatorAccount() && userData.creatorModeEnabled === true;
+    updateCreatorToolsVisibility();
+}
+
 function updateCreatorToolsVisibility() {
-    creatorToolsPanel.style.display = isCreatorAccount() ? "block" : "none";
-    if (isCreatorAccount()) loadCreatorReportsCount();
+    const creatorAccount = isCreatorAccount();
+    const active = isCreatorModeEnabled();
+
+    if (creatorModePanel) {
+        creatorModePanel.style.display = creatorAccount ? "block" : "none";
+        creatorModePanel.classList.toggle("is-active", active);
+    }
+
+    if (creatorModeToggle) creatorModeToggle.checked = active;
+    if (creatorModeStatus) {
+        creatorModeStatus.textContent = active
+            ? "Mode créateur activé · les outils de test et les aperçus anticipés sont disponibles."
+            : "Mode créateur désactivé · tu joues exactement comme ta partenaire.";
+    }
+
+    creatorToolsPanel.style.display = active ? "block" : "none";
+    if (active) loadCreatorReportsCount();
+
+    if (lastShownScreen === "timeCapsules") {
+        renderTimeCapsules(currentTimeCapsules);
+    }
+}
+
+function setCreatorModeEnabled(enabled) {
+    if (!isCreatorAccount() || !currentUser) return Promise.resolve();
+    creatorModeEnabled = Boolean(enabled);
+    updateCreatorToolsVisibility();
+
+    return database.ref("users/" + currentUser.uid + "/creatorModeEnabled")
+        .set(creatorModeEnabled)
+        .then(() => {
+            showToast(creatorModeEnabled ? "Mode créateur activé 🧪" : "Mode créateur désactivé");
+        })
+        .catch((error) => {
+            creatorModeEnabled = !creatorModeEnabled;
+            updateCreatorToolsVisibility();
+            showToast(getFriendlyFirebaseError(error));
+        });
 }
 
 function canUseCreatorTools() {
-    if (!isCreatorAccount() || !currentSpaceCode) {
-        showToast("Outils créatrice indisponibles");
+    if (!isCreatorModeEnabled() || !currentSpaceCode) {
+        showToast("Active le mode créateur pour utiliser cet outil");
         return false;
     }
 
@@ -6501,15 +6764,190 @@ function loadNotificationPreferences() {
 }
 
 function saveNotificationPreferences() {
-    localStorage.setItem(
-        NOTIFICATION_PREFERENCES_KEY,
-        JSON.stringify({
-            answers: notifyAnswersSetting.checked,
-            games: notifyGamesSetting.checked,
-            achievements: notifyAchievementsSetting.checked,
-            garden: notifyGardenSetting.checked
-        })
-    );
+    const preferences = {
+        answers: notifyAnswersSetting.checked,
+        games: notifyGamesSetting.checked,
+        achievements: notifyAchievementsSetting.checked,
+        garden: notifyGardenSetting.checked
+    };
+    localStorage.setItem(NOTIFICATION_PREFERENCES_KEY, JSON.stringify(preferences));
+
+    if (currentUser) {
+        database.ref("users/" + currentUser.uid + "/pushPreferences").set({
+            ...preferences,
+            updatedAt: Date.now()
+        }).catch((error) => console.warn("Synchronisation des préférences push différée", error));
+    }
+}
+
+const PUSH_DEVICE_ID_KEY = "cactusPushDeviceId";
+const PUSH_TOKEN_KEY = "cactusPushToken";
+const PUSH_OWNER_UID_KEY = "cactusPushOwnerUid";
+
+function getPushDeviceId() {
+    let deviceId = localStorage.getItem(PUSH_DEVICE_ID_KEY);
+    if (!deviceId) {
+        deviceId = (crypto.randomUUID ? crypto.randomUUID() : "device_" + Date.now().toString(36) + Math.random().toString(36).slice(2)).replace(/[.#$\[\]\/]/g, "_");
+        localStorage.setItem(PUSH_DEVICE_ID_KEY, deviceId);
+    }
+    return deviceId;
+}
+
+function canUsePhonePushNotifications() {
+    return Boolean("Notification" in window && "serviceWorker" in navigator && messaging);
+}
+
+function updatePhoneNotificationsStatus() {
+    if (!phoneNotificationsStatus) return;
+
+    if (!canUsePhonePushNotifications()) {
+        phoneNotificationsStatus.textContent = "Non disponible sur ce navigateur";
+        phoneNotificationsHint.textContent = "Les notifications push nécessitent un navigateur compatible et une connexion HTTPS.";
+        enablePushNotificationsBtn.style.display = "none";
+        disablePushNotificationsBtn.style.display = "none";
+        return;
+    }
+
+    const permission = Notification.permission;
+    const hasLocalToken = Boolean(localStorage.getItem(PUSH_TOKEN_KEY)) && localStorage.getItem(PUSH_OWNER_UID_KEY) === currentUser?.uid;
+    if (permission === "granted" && hasLocalToken) {
+        phoneNotificationsStatus.textContent = "Activées sur cet appareil ✓";
+        phoneNotificationsHint.textContent = "Cactus peut te prévenir même lorsque l’application est en arrière-plan.";
+        enablePushNotificationsBtn.style.display = "none";
+        disablePushNotificationsBtn.style.display = "inline-flex";
+    } else if (permission === "denied") {
+        phoneNotificationsStatus.textContent = "Bloquées dans les réglages du navigateur";
+        phoneNotificationsHint.textContent = "Autorise les notifications dans les paramètres du site ou de l’application pour les réactiver.";
+        enablePushNotificationsBtn.style.display = "inline-flex";
+        enablePushNotificationsBtn.disabled = true;
+        disablePushNotificationsBtn.style.display = "none";
+    } else {
+        phoneNotificationsStatus.textContent = "Non activées sur cet appareil";
+        phoneNotificationsHint.textContent = "Reçois les réponses, rappels et capsules même quand Cactus n’est pas ouvert.";
+        enablePushNotificationsBtn.style.display = "inline-flex";
+        enablePushNotificationsBtn.disabled = false;
+        disablePushNotificationsBtn.style.display = "none";
+    }
+}
+
+async function enablePhonePushNotifications() {
+    if (!currentUser || !canUsePhonePushNotifications()) {
+        showToast("Les notifications téléphone ne sont pas disponibles ici");
+        return;
+    }
+
+    enablePushNotificationsBtn.disabled = true;
+    enablePushNotificationsBtn.textContent = "Activation…";
+
+    try {
+        const permission = await Notification.requestPermission();
+        if (permission !== "granted") {
+            updatePhoneNotificationsStatus();
+            showToast("Autorisation de notification non accordée");
+            return;
+        }
+
+        const registration = await navigator.serviceWorker.ready;
+        const tokenOptions = { serviceWorkerRegistration: registration };
+        if (window.CACTUS_FCM_VAPID_KEY) tokenOptions.vapidKey = window.CACTUS_FCM_VAPID_KEY;
+        const token = await messaging.getToken(tokenOptions);
+        if (!token) throw new Error("Aucun identifiant push reçu");
+
+        const deviceId = getPushDeviceId();
+        const preferences = getNotificationPreferences();
+        await database.ref("users/" + currentUser.uid + "/pushDevices/" + deviceId).set({
+            token,
+            createdAt: firebase.database.ServerValue.TIMESTAMP,
+            updatedAt: firebase.database.ServerValue.TIMESTAMP,
+            userAgent: navigator.userAgent.slice(0, 300),
+            enabled: true
+        });
+        await database.ref("users/" + currentUser.uid + "/pushPreferences").set({
+            ...preferences,
+            updatedAt: firebase.database.ServerValue.TIMESTAMP
+        });
+        localStorage.setItem(PUSH_TOKEN_KEY, token);
+        localStorage.setItem(PUSH_OWNER_UID_KEY, currentUser.uid);
+        updatePhoneNotificationsStatus();
+        showToast("Notifications téléphone activées 🔔");
+    } catch (error) {
+        console.error("Activation des notifications push impossible", error);
+        const needsVapid = /vapid|applicationserverkey|push service/i.test(String(error?.message || error));
+        phoneNotificationsHint.textContent = needsVapid
+            ? "Ajoute la clé publique Web Push de Firebase dans js/firebase.js pour terminer l’activation."
+            : getFriendlyFirebaseError(error);
+        showToast(needsVapid ? "Configuration Web Push Firebase requise" : "Impossible d’activer les notifications");
+    } finally {
+        enablePushNotificationsBtn.disabled = false;
+        enablePushNotificationsBtn.textContent = "Activer sur ce téléphone";
+        updatePhoneNotificationsStatus();
+    }
+}
+
+async function disablePhonePushNotifications() {
+    if (!currentUser) return;
+    disablePushNotificationsBtn.disabled = true;
+    try {
+        const deviceId = getPushDeviceId();
+        await database.ref("users/" + currentUser.uid + "/pushDevices/" + deviceId).remove();
+        if (messaging) await messaging.deleteToken().catch(() => false);
+        localStorage.removeItem(PUSH_TOKEN_KEY);
+        localStorage.removeItem(PUSH_OWNER_UID_KEY);
+        showToast("Notifications désactivées sur cet appareil");
+    } catch (error) {
+        console.error("Désactivation des notifications impossible", error);
+        showToast("Impossible de désactiver les notifications");
+    } finally {
+        disablePushNotificationsBtn.disabled = false;
+        updatePhoneNotificationsStatus();
+    }
+}
+
+async function unregisterPushDeviceBeforeLogout() {
+    if (!currentUser) return;
+    const deviceId = getPushDeviceId();
+    try {
+        await database.ref("users/" + currentUser.uid + "/pushDevices/" + deviceId).remove();
+    } catch (error) {
+        console.warn("Nettoyage du périphérique push différé", error);
+    }
+    try {
+        if (messaging && localStorage.getItem(PUSH_TOKEN_KEY)) await messaging.deleteToken();
+    } catch (error) {
+        console.warn("Suppression du jeton push différée", error);
+    }
+    localStorage.removeItem(PUSH_TOKEN_KEY);
+    localStorage.removeItem(PUSH_OWNER_UID_KEY);
+}
+
+function setupForegroundPushMessages() {
+    if (pushMessagingInitialized || !messaging) return;
+    pushMessagingInitialized = true;
+    messaging.onMessage((payload) => {
+        const title = payload?.notification?.title || payload?.data?.title || "Cactus 🌵";
+        const body = payload?.notification?.body || payload?.data?.body || "Une nouveauté vous attend.";
+        showToast(title + " · " + body);
+    });
+}
+
+async function showCreatorTestNotification() {
+    if (!canUseCreatorTools()) return;
+    if (!("Notification" in window)) {
+        showToast("Notifications indisponibles sur cet appareil");
+        return;
+    }
+    if (Notification.permission !== "granted") {
+        await enablePhonePushNotifications();
+        if (Notification.permission !== "granted") return;
+    }
+    const registration = await navigator.serviceWorker.ready;
+    await registration.showNotification("Test Cactus réussi 🌵", {
+        body: "Ton téléphone peut afficher les notifications de l’application.",
+        icon: "./icons/icon-192-v2.png",
+        badge: "./icons/icon-192-v2.png",
+        tag: "cactus-creator-test",
+        data: { url: "./" }
+    });
 }
 
 function getChallengeNotificationResponses(modeKey, item) {
@@ -12279,6 +12717,7 @@ auth.onAuthStateChanged((user) => {
                     return;
                 }
 
+                applyCreatorModeFromUserData(userData);
                 pseudo = userData.pseudo || "";
                 displayPseudo.textContent = pseudo;
 
@@ -12304,6 +12743,7 @@ auth.onAuthStateChanged((user) => {
     } else {
         stopCurrentSpaceListeners();
         currentUser = null;
+        creatorModeEnabled = false;
         updateCreatorToolsVisibility();
         showScreen("login");
         hideAppState();
@@ -12315,6 +12755,8 @@ loadGuessQuestionsData();
 loadLikelyQuestionsData();
 
 loadNotificationPreferences();
+updatePhoneNotificationsStatus();
+setupForegroundPushMessages();
 applyTheme(localStorage.getItem("theme") === "dark" ? "dark" : "light");
 installSecondaryCactusIcons();
 startFirebaseConnectionMonitoring();

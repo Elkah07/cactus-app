@@ -13,6 +13,19 @@ firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 const database = firebase.database();
 
+// Clé publique Web Push (VAPID). Elle peut rester vide pour tester la clé par défaut,
+// mais une clé générée dans Firebase Console > Cloud Messaging est recommandée.
+window.CACTUS_FCM_VAPID_KEY = window.CACTUS_FCM_VAPID_KEY || "";
+let messaging = null;
+
+if ("Notification" in window && "serviceWorker" in navigator && firebase.messaging) {
+    try {
+        messaging = firebase.messaging();
+    } catch (error) {
+        console.warn("Firebase Messaging indisponible sur cet appareil", error);
+    }
+}
+
 auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL)
     .then(() => {
         console.log("Connexion persistante activée");

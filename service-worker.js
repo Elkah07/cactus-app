@@ -1,13 +1,63 @@
-const CACHE_VERSION = "v83";
+self.addEventListener("notificationclick", (event) => {
+    event.notification.close();
+    const targetUrl = event.notification?.data?.url || "./";
+    event.waitUntil(
+        self.clients.matchAll({ type: "window", includeUncontrolled: true }).then((clients) => {
+            const absoluteTarget = new URL(targetUrl, self.location.origin).href;
+            for (const client of clients) {
+                if (client.url.startsWith(self.location.origin) && "focus" in client) {
+                    if ("navigate" in client && client.url !== absoluteTarget) {
+                        return client.navigate(absoluteTarget).then(() => client.focus());
+                    }
+                    return client.focus();
+                }
+            }
+            return self.clients.openWindow ? self.clients.openWindow(absoluteTarget) : undefined;
+        })
+    );
+});
+
+let cactusMessaging = null;
+try {
+    importScripts("https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js");
+    importScripts("https://www.gstatic.com/firebasejs/10.12.2/firebase-messaging-compat.js");
+    firebase.initializeApp({
+        apiKey: "AIzaSyBsieGW6fu5RmTrmrrumIoSOm600HSn160",
+        authDomain: "couple-game-9f881.firebaseapp.com",
+        databaseURL: "https://couple-game-9f881-default-rtdb.europe-west1.firebasedatabase.app",
+        projectId: "couple-game-9f881",
+        storageBucket: "couple-game-9f881.firebasestorage.app",
+        messagingSenderId: "2640989123",
+        appId: "1:2640989123:web:05b0d586bfeec1bb598b76"
+    });
+    cactusMessaging = firebase.messaging();
+    cactusMessaging.onBackgroundMessage((payload) => {
+        // Les payloads avec `notification` sont déjà affichés automatiquement par FCM.
+        if (payload?.notification) return;
+        const title = payload?.data?.title || "Cactus 🌵";
+        const options = {
+            body: payload?.data?.body || "Une nouveauté vous attend.",
+            icon: "./icons/icon-192-v2.png",
+            badge: "./icons/icon-192-v2.png",
+            tag: payload?.data?.tag || "cactus-update",
+            data: { url: payload?.data?.url || "./" }
+        };
+        return self.registration.showNotification(title, options);
+    });
+} catch (error) {
+    console.warn("Firebase Messaging indisponible dans le service worker", error);
+}
+
+const CACHE_VERSION = "v84";
 const SHELL_CACHE = `cactus-shell-${CACHE_VERSION}`;
 const RUNTIME_CACHE = `cactus-runtime-${CACHE_VERSION}`;
 
 const APP_SHELL = [
     "./index.html",
-    "./css/style.css?v=83",
+    "./css/style.css?v=84",
     "./js/firebase.js",
-    "./js/script.js?v=83",
-    "./js/screens.js?v=83",
+    "./js/script.js?v=84",
+    "./js/screens.js?v=84",
     "./js/utils.js",
     "./js/storage.js",
     "./js/rankings.js",
