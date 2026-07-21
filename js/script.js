@@ -7719,7 +7719,7 @@ async function showCreatorTestNotification() {
         body: getPushWorkerUrl()
             ? "Le test distant n’a pas répondu, mais les notifications locales fonctionnent."
             : "Ton téléphone peut afficher les notifications. Le Worker Cloudflare reste à connecter.",
-        icon: new URL("assets/cactus-main.png", document.baseURI).href,
+        icon: new URL("icons/notification-icon.png", document.baseURI).href,
         badge: new URL("icons/notification-badge.png", document.baseURI).href,
         tag: "cactus-creator-test",
         data: { url: "./" }

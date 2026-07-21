@@ -65,7 +65,7 @@ try {
         const scope = getCactusAppScope();
         const options = {
             body: payload?.data?.body || "Une nouveauté vous attend.",
-            icon: new URL("assets/cactus-main.png", scope).href,
+            icon: new URL("icons/notification-icon.png", scope).href,
             badge: new URL("icons/notification-badge.png", scope).href,
             tag: payload?.data?.tag || "cactus-update",
             renotify: false,
@@ -80,7 +80,7 @@ try {
     console.warn("Firebase Messaging indisponible dans le service worker", error);
 }
 
-const CACHE_VERSION = "v90";
+const CACHE_VERSION = "v91";
 const SHELL_CACHE = `cactus-shell-${CACHE_VERSION}`;
 const RUNTIME_CACHE = `cactus-runtime-${CACHE_VERSION}`;
 
@@ -144,7 +144,7 @@ const APP_SHELL = [
     "./assets/cactus-limit-reached.webp",
     "./assets/cactus-three-yes-no.webp",
     "./assets/cactus-couple-dare.webp",
-    "./assets/cactus-main.png",
+    "./icons/notification-icon.png",
     "./assets/cactus-ranking.png",
     "./assets/cactus-guess.png",
     "./assets/cactus-likely.png",
