@@ -1,12 +1,12 @@
-const CACHE_VERSION = "v75";
+const CACHE_VERSION = "v76";
 const SHELL_CACHE = `cactus-shell-${CACHE_VERSION}`;
 const RUNTIME_CACHE = `cactus-runtime-${CACHE_VERSION}`;
 
 const APP_SHELL = [
     "./index.html",
-    "./css/style.css?v=75",
+    "./css/style.css?v=76",
     "./js/firebase.js",
-    "./js/script.js?v=75",
+    "./js/script.js?v=76",
     "./js/screens.js?v=75",
     "./js/utils.js",
     "./js/storage.js",
@@ -14,6 +14,7 @@ const APP_SHELL = [
     "./js/questions.js",
     "./data/would-you-rather.json",
     "./data/three-yes-three-no.json",
+    "./data/limit-reached.json",
     "./data/couple-dares.json",
     "./manifest.json",
     "./icons/icon-192-v2.png",

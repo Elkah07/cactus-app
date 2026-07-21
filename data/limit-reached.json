@@ -1,0 +1,62 @@
+[
+  {
+    "id": "limit_001",
+    "category": "ex",
+    "question": "Ton/ta partenaire répond à un message d’un ex avec qui il/elle a eu une histoire importante."
+  },
+  {
+    "id": "limit_002",
+    "category": "réseaux",
+    "question": "Ton/ta partenaire échange régulièrement des messages privés avec quelqu’un qui le/la drague clairement."
+  },
+  {
+    "id": "limit_003",
+    "category": "sorties",
+    "question": "Ton/ta partenaire rentre très tard d’une soirée sans t’avoir prévenu(e)."
+  },
+  {
+    "id": "limit_004",
+    "category": "amis",
+    "question": "Ton/ta partenaire dort chez une personne avec qui il/elle pourrait potentiellement y avoir une ambiguïté."
+  },
+  {
+    "id": "limit_005",
+    "category": "intimité",
+    "question": "Ton/ta partenaire raconte un détail très intime de votre couple à son/sa meilleur(e) ami(e)."
+  },
+  {
+    "id": "limit_006",
+    "category": "téléphone",
+    "question": "Ton/ta partenaire prend ton téléphone et lit une conversation privée sans te demander."
+  },
+  {
+    "id": "limit_007",
+    "category": "argent",
+    "question": "Ton/ta partenaire dépense une grosse somme d’argent commune sans t’en parler avant."
+  },
+  {
+    "id": "limit_008",
+    "category": "famille",
+    "question": "Ton/ta partenaire laisse sa famille intervenir directement dans une dispute entre vous."
+  },
+  {
+    "id": "limit_009",
+    "category": "quotidien",
+    "question": "Ton/ta partenaire annule régulièrement vos plans au dernier moment pour voir ses amis."
+  },
+  {
+    "id": "limit_010",
+    "category": "distance",
+    "question": "Ton/ta partenaire peut rester une journée entière sans donner de nouvelles alors que vous êtes à distance."
+  },
+  {
+    "id": "limit_011",
+    "category": "jalousie",
+    "question": "Ton/ta partenaire te demande d’arrêter de parler à une personne uniquement parce qu’elle le/la rend jaloux(se)."
+  },
+  {
+    "id": "limit_012",
+    "category": "réseaux",
+    "question": "Ton/ta partenaire garde volontairement votre relation secrète sur tous ses réseaux sociaux."
+  }
+]
