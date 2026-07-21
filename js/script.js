@@ -4966,6 +4966,10 @@ function calculateLimitReachedCompatibility(results, levelCount = 6) {
 }
 
 function renderLimitReached(challenge) {
+    // Ce rendu peut être rappelé localement à chaque niveau.
+    // On vide donc les anciens choix avant de créer les deux boutons du niveau courant.
+    newGameChoices.innerHTML = "";
+
     const scenario = challenge.scenario || {};
     const levels = Array.isArray(scenario.levels) ? scenario.levels : [];
     const results = challenge.results || {};
