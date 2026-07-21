@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cactus 🌵</title>
-    <link rel="stylesheet" href="css/style.css?v=79">
+    <link rel="stylesheet" href="css/style.css?v=81">
     <link rel="manifest" href="manifest.json?v=2">
     <meta name="theme-color" content="#003E2D">
 </head>
@@ -517,6 +517,22 @@
 
         <button type="button" class="history-mode-card" data-history-mode="princess">
             👑 Princess Treatment
+        </button>
+
+        <button type="button" class="history-mode-card" data-history-mode="wouldRather">
+            ↔ Tu préfères ?
+        </button>
+
+        <button type="button" class="history-mode-card" data-history-mode="threeYesNo">
+            3/3 · 3 oui / 3 non
+        </button>
+
+        <button type="button" class="history-mode-card" data-history-mode="limitReached">
+            ⛔ Limite atteinte
+        </button>
+
+        <button type="button" class="history-mode-card" data-history-mode="coupleDare">
+            ★ Défis à deux
         </button>
     </div>
 
@@ -1255,7 +1271,7 @@
         </button>
 
         <button type="button" id="okBtn" class="home-game-card card-green" data-game-card data-game-key="ok" data-game-category="debate discovery">
-            <img src="assets/cactus-would-rather.webp" alt="" loading="lazy" decoding="async">
+            <img src="assets/cactus-ok.png" alt="" loading="lazy" decoding="async">
             <span>OK ou Pas OK ?</span><em>Débats</em>
         </button>
 
@@ -1275,7 +1291,7 @@
         </button>
 
         <button type="button" id="wouldRatherBtn" class="home-game-card card-coral" data-game-card data-game-key="wouldRather" data-game-category="fun discovery debate">
-            <img src="assets/cactus-ok.png" alt="" loading="lazy" decoding="async">
+            <img src="assets/cactus-would-rather.webp" alt="" loading="lazy" decoding="async">
             <span>Tu préfères ?</span><em>Nouveau</em>
         </button>
 
@@ -2274,7 +2290,7 @@
 
     <div id="connectionStatusBanner" class="connection-status-banner" role="status" aria-live="polite" hidden>
         <span aria-hidden="true">☁️</span>
-        <p><strong>Connexion interrompue</strong><small>Les changements seront synchronisés dès le retour du réseau.</small></p>
+        <p><strong>Connexion interrompue</strong><small>Certaines actions peuvent attendre le retour du réseau.</small></p>
         <button type="button" id="retryConnectionBtn">Réessayer</button>
     </div>
 
@@ -2285,12 +2301,12 @@
     <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
 
     <script src="js/firebase.js"></script>
-    <script src="js/screens.js?v=80"></script>
+    <script src="js/screens.js?v=81"></script>
     <script src="js/utils.js"></script>
     <script src="js/storage.js"></script>
     <script src="js/rankings.js"></script>
     <script src="js/questions.js"></script>
-    <script src="js/script.js?v=79"></script>
+    <script src="js/script.js?v=81"></script>
 
 </body>
 </html>

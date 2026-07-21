@@ -901,6 +901,7 @@ let currentInviteCode = "";
 
 let rankings = [];
 let currentRanking = null;
+let currentRankingChallengeId = null;
 let guessQuestions = [];
 let currentGuessQuestion = null;
 let currentGuessId = null;
@@ -998,7 +999,7 @@ const ONBOARDING_STEPS = [
         eyebrow: "Un espace privé",
         title: "Invitez votre partenaire",
         text: "Créez un espace puis partagez son code sécurisé de 8 caractères. Votre partenaire choisira « Rejoindre ».",
-        tip: "Le code expire après 7 jours et ne peut accueillir qu’une seule autre personne."
+        tip: "Gardez ce code : il reste lié à votre espace et permet d’y revenir si l’une de vous le quitte par erreur."
     },
     {
         visual: "✨🌵🎨",
@@ -1461,11 +1462,6 @@ createSpaceBtn.addEventListener("click", () => {
             currentSpaceCode = spaceId;
             currentInviteCode = inviteCode;
             localStorage.setItem("currentSpaceCode", currentSpaceCode);
-
-            return database.ref("users/" + currentUser.uid).update({
-                spaceCode: currentSpaceCode,
-                inviteCode: currentInviteCode
-            });
         })
         .then(() => {
             displayPseudo.textContent = pseudo;
@@ -1492,36 +1488,35 @@ function createUniqueSpace(attempt = 0) {
     const spaceReference = database.ref("spaces").push();
     const spaceId = spaceReference.key;
     const invitationReference = database.ref("invitations/" + inviteCode);
-    const expiresAt = Date.now() + (7 * 24 * 60 * 60 * 1000);
+    const permanentExpiry = 253402300799000;
 
     return invitationReference.transaction((existingInvitation) => {
-        if (existingInvitation) {
-            return;
-        }
-
+        if (existingInvitation) return;
         return {
             spaceId,
             createdBy: currentUser.uid,
             createdAt: Date.now(),
-            expiresAt
+            expiresAt: permanentExpiry,
+            permanent: true
         };
     }).then((result) => {
-        if (!result.committed) {
-            return createUniqueSpace(attempt + 1);
-        }
+        if (!result.committed) return createUniqueSpace(attempt + 1);
 
-        return spaceReference.set({
+        const now = Date.now();
+        const updates = {};
+        updates["spaces/" + spaceId] = {
             code: inviteCode,
             inviteCode,
-            createdAt: Date.now(),
+            createdAt: now,
             player1: { uid: currentUser.uid, pseudo },
             player2: null
-        }).then(() => ({ spaceId, inviteCode }))
-            .catch((error) => {
-                return invitationReference.remove().then(() => {
-                    throw error;
-                });
-            });
+        };
+        updates["users/" + currentUser.uid + "/spaceCode"] = spaceId;
+        updates["users/" + currentUser.uid + "/inviteCode"] = inviteCode;
+
+        return database.ref().update(updates)
+            .then(() => ({ spaceId, inviteCode }))
+            .catch((error) => invitationReference.remove().then(() => { throw error; }));
     });
 }
 
@@ -1538,97 +1533,71 @@ joinSpaceBtn.addEventListener("click", () => {
 
     const invitationReference = database.ref("invitations/" + joinCode);
     let joinedSpaceId = "";
+    let slotAddedByThisAttempt = null;
+    let claimAcquired = false;
+
+    const releaseClaim = () => {
+        if (!claimAcquired) return Promise.resolve();
+        return invitationReference.transaction((invitation) => {
+            if (!invitation || invitation.claimedBy !== currentUser.uid) return invitation;
+            delete invitation.claimedBy;
+            delete invitation.claimedAt;
+            return invitation;
+        }).catch((error) => console.warn("Libération du code différée", error));
+    };
 
     invitationReference.transaction((invitation) => {
-        if (!invitation || invitation.expiresAt <= Date.now()) {
-            return;
-        }
-
-        if (invitation.claimedBy && invitation.claimedBy !== currentUser.uid) {
-            return;
-        }
-
+        if (!invitation) return;
+        const claimIsStale = invitation.claimedAt && Date.now() - invitation.claimedAt > 30000;
+        if (invitation.claimedBy && invitation.claimedBy !== currentUser.uid && !claimIsStale) return;
         invitation.claimedBy = currentUser.uid;
         invitation.claimedAt = Date.now();
         return invitation;
     }).then((claimResult) => {
         const invitation = claimResult.snapshot.val();
+        if (!invitation) throw new Error("CODE_INVALIDE");
+        if (!claimResult.committed || invitation.claimedBy !== currentUser.uid) throw new Error("CODE_OCCUPE");
 
-        if (!invitation) {
-            throw new Error("CODE_INVALIDE");
-        }
-
-        if (invitation.expiresAt <= Date.now()) {
-            throw new Error("CODE_EXPIRE");
-        }
-
-        if (!claimResult.committed || invitation.claimedBy !== currentUser.uid) {
-            throw new Error("ESPACE_COMPLET");
-        }
-
+        claimAcquired = true;
         joinedSpaceId = invitation.spaceId;
-
-        return database.ref(
-            "joinRequests/" + joinedSpaceId + "/" + currentUser.uid
-        ).set({
+        return database.ref("joinRequests/" + joinedSpaceId + "/" + currentUser.uid).set({
             inviteCode: joinCode,
             createdAt: Date.now()
         });
     }).then(() => {
-        const spaceReference = database.ref("spaces/" + joinedSpaceId);
-        return spaceReference.transaction((spaceData) => {
-        if (!spaceData) {
-            return;
-        }
+        return database.ref("spaces/" + joinedSpaceId).transaction((spaceData) => {
+            if (!spaceData) return;
 
-        const alreadyMember = [spaceData.player1, spaceData.player2].some((player) => {
-            return player?.uid === currentUser.uid;
-        });
+            const existingSlot = spaceData.player1?.uid === currentUser.uid
+                ? "player1"
+                : (spaceData.player2?.uid === currentUser.uid ? "player2" : null);
 
-        if (alreadyMember) {
+            if (existingSlot) {
+                slotAddedByThisAttempt = null;
+                return spaceData;
+            }
+
+            if (spaceData.player1 && spaceData.player2) return;
+
+            slotAddedByThisAttempt = spaceData.player1 ? "player2" : "player1";
+            spaceData[slotAddedByThisAttempt] = { uid: currentUser.uid, pseudo };
             return spaceData;
-        }
-
-        if (spaceData.player1 && spaceData.player2) {
-            return;
-        }
-
-        const playerSlot = spaceData.player1 ? "player2" : "player1";
-        spaceData[playerSlot] = { uid: currentUser.uid, pseudo };
-        return spaceData;
         });
     }).then((result) => {
         const spaceData = result.snapshot.val();
-        if (!spaceData) {
-            alert("Cet espace n'existe pas 🌵");
-            return false;
-        }
+        const joined = spaceData && [spaceData.player1, spaceData.player2].some((player) => player?.uid === currentUser.uid);
+        if (!spaceData) throw new Error("ESPACE_INEXISTANT");
+        if (!joined) throw new Error("ESPACE_COMPLET");
 
-        const joined = [spaceData.player1, spaceData.player2].some((player) => {
-            return player?.uid === currentUser.uid;
-        });
-
-        if (!joined) {
-            alert("Cet espace est déjà complet 🌵");
-            return false;
-        }
-
-        return database.ref("users/" + currentUser.uid).update({
-            spaceCode: joinedSpaceId,
-            inviteCode: joinCode
-        }).then(() => {
-            return database
-                .ref("joinRequests/" + joinedSpaceId + "/" + currentUser.uid)
-                .remove()
-                .catch((cleanupError) => {
-                    console.warn("Nettoyage de la demande différé", cleanupError);
-                });
-        }).then(() => true);
-    }).then((joined) => {
-        if (!joined) {
-            return;
-        }
-
+        const updates = {};
+        updates["users/" + currentUser.uid + "/spaceCode"] = joinedSpaceId;
+        updates["users/" + currentUser.uid + "/inviteCode"] = joinCode;
+        updates["joinRequests/" + joinedSpaceId + "/" + currentUser.uid] = null;
+        updates["invitations/" + joinCode + "/claimedBy"] = null;
+        updates["invitations/" + joinCode + "/claimedAt"] = null;
+        claimAcquired = false;
+        return database.ref().update(updates);
+    }).then(() => {
         currentSpaceCode = joinedSpaceId;
         currentInviteCode = joinCode;
         localStorage.setItem("currentSpaceCode", currentSpaceCode);
@@ -1636,45 +1605,35 @@ joinSpaceBtn.addEventListener("click", () => {
         displayPseudo.textContent = pseudo;
         listenToCurrentSpace(currentSpaceCode);
         showScreen("dashboard");
-    })
-        .catch((error) => {
-            console.error(error);
+    }).catch(async (error) => {
+        console.error("Connexion à l’espace impossible", error);
 
-            const messages = {
-                CODE_INVALIDE: "Ce code d’invitation est invalide 🌵",
-                CODE_EXPIRE: "Cette invitation a expiré 🌵",
-                ESPACE_COMPLET: "Cet espace est déjà complet 🌵"
-            };
-
-            const message = messages[error.message] || getFriendlyFirebaseError(error);
-            const invitationCleanup = error.message === "CODE_EXPIRE"
-                ? invitationReference.remove()
-                : invitationReference.transaction((invitation) => {
-                    if (!invitation || invitation.claimedBy !== currentUser.uid) {
-                        return invitation;
-                    }
-
-                    delete invitation.claimedBy;
-                    delete invitation.claimedAt;
-                    return invitation;
+        if (slotAddedByThisAttempt && joinedSpaceId) {
+            try {
+                await database.ref("spaces/" + joinedSpaceId + "/" + slotAddedByThisAttempt).transaction((player) => {
+                    return player?.uid === currentUser.uid ? null : player;
                 });
-            const joinRequestCleanup = joinedSpaceId
-                ? database.ref(
-                    "joinRequests/" + joinedSpaceId + "/" + currentUser.uid
-                ).remove()
-                : Promise.resolve();
+            } catch (rollbackError) {
+                console.warn("Annulation de l’ajout à l’espace différée", rollbackError);
+            }
+        }
 
-            return Promise.all([invitationCleanup, joinRequestCleanup])
-                .catch((cleanupError) => {
-                    console.warn("Nettoyage de la jonction impossible", cleanupError);
-                }).then(() => {
-                alert(message);
-            });
-        })
-        .finally(() => {
-            joinSpaceBtn.disabled = false;
-            joinSpaceBtn.textContent = "Rejoindre un espace";
-        });
+        if (joinedSpaceId) {
+            database.ref("joinRequests/" + joinedSpaceId + "/" + currentUser.uid).remove().catch(() => {});
+        }
+        await releaseClaim();
+
+        const messages = {
+            CODE_INVALIDE: "Ce code n’existe pas 🌵",
+            CODE_OCCUPE: "Ce code est utilisé en ce moment. Réessaie dans quelques secondes 🌵",
+            ESPACE_COMPLET: "Cet espace contient déjà deux personnes 🌵",
+            ESPACE_INEXISTANT: "Cet espace n’existe plus 🌵"
+        };
+        showToast(messages[error.message] || getFriendlyFirebaseError(error));
+    }).finally(() => {
+        joinSpaceBtn.disabled = false;
+        joinSpaceBtn.textContent = "Rejoindre l’espace";
+    });
 });
 
 rankingBtn.addEventListener("click", () => {
@@ -1693,16 +1652,14 @@ function startGuessGame() {
 
     currentGuessQuestion =
         selectFreshGameItem(guessQuestions, "guess", currentGuessQuestion?.id, "guessAnswers");
+    currentGuessId = createChallengeInstanceId("guessAnswers");
 
     guessQuestionText.textContent =
         currentGuessQuestion.question;
 
     guessAnswerInput.value = "";
-
     guessAnswerTitle.textContent = "Écris ta réponse";
-
     setGameSkipAvailability("guess", true, guessQuestions);
-
     showScreen("guessAnswer");
 }
 
@@ -1714,7 +1671,9 @@ validateGuessAnswerBtn.addEventListener("click", () => {
         return;
     }
 
-    currentGuessId = currentGuessQuestion.id;
+    if (!currentGuessId) {
+        currentGuessId = createChallengeInstanceId("guessAnswers");
+    }
 
     database
         .ref("spaces/" + currentSpaceCode + "/guessAnswers/" + currentGuessId)
@@ -1734,13 +1693,12 @@ validateGuessAnswerBtn.addEventListener("click", () => {
                     createdAt: Date.now()
                 });
         })
-        .then(() => {
-            return incrementAnswersCount();
-        })
+        .then(() => incrementAnswersCount())
         .then(() => {
             showToast("🌵 Réponse enregistrée");
             showScreen("dashboard");
-        });
+        })
+        .catch((error) => showToast(getFriendlyFirebaseError(error)));
 });
 
 backFromGuessBtn.addEventListener("click", () => {
@@ -1753,30 +1711,26 @@ backDashboardFromGuessWaitBtn.addEventListener("click", () => {
 
 validateRankingBtn.addEventListener("click", () => {
     const items = rankingList.querySelectorAll("li");
-
     const answer = [];
 
     items.forEach((item) => {
-        answer.push(
-            item.querySelector(".ranking-item-text").textContent
-        );
+        answer.push(item.querySelector(".ranking-item-text").textContent);
     });
 
-    saveRankingAnswer(
-        currentRanking.id,
-        answer
-    );
+    saveRankingAnswer(currentRanking.id, answer);
+
+    if (!currentRankingChallengeId) {
+        currentRankingChallengeId = createChallengeInstanceId("rankingChallenges");
+    }
 
     saveRankingChallenge(
+        currentRankingChallengeId,
         currentRanking.id,
         answer
     )
-    .then(() => {
-        return incrementAnswersCount();
-    })
-    .then(() => {
-        return showRankingCompatibilityIfReady(currentRanking.id);
-    });
+        .then(() => incrementAnswersCount())
+        .then(() => showRankingCompatibilityIfReady(currentRankingChallengeId))
+        .catch((error) => showToast(getFriendlyFirebaseError(error)));
 });
 
 nextRankingBtn.addEventListener("click", () => {
@@ -1795,11 +1749,8 @@ backDashboardBtn.addEventListener("click", () => {
 
 nextAfterCompatibilityBtn.addEventListener("click", () => {
     markCurrentRankingResultSeen().then(() => {
-
         currentPendingRankingResultIndex = 0;
-
         setTimeout(() => {
-
             if (pendingRankingResults.length > 0) {
                 showPendingRankingResult();
                 return;
@@ -1812,9 +1763,7 @@ nextAfterCompatibilityBtn.addEventListener("click", () => {
             }
 
             startRandomRanking();
-
         }, 300);
-
     });
 });
 
@@ -1852,9 +1801,9 @@ loginBtn.addEventListener("click", () => {
 
     auth.signInWithEmailAndPassword(email, password)
         .then((userCredential) => {
-    currentUser = userCredential.user;
-    console.log("Connecté :", currentUser.uid);
-})
+            currentUser = userCredential.user;
+            console.log("Connecté :", currentUser.uid);
+        })
         .catch((error) => {
             authMessage.textContent = getFriendlyFirebaseError(error);
         });
@@ -2107,8 +2056,6 @@ logoutFromCoupleBtn.addEventListener("click", () => {
 });
 
 leaveSpaceBtn.addEventListener("click", () => {
-    console.log("Bouton quitter espace cliqué");
-
     if (currentSpaceCode === "") {
         showScreen("couple");
         return;
@@ -2117,42 +2064,29 @@ leaveSpaceBtn.addEventListener("click", () => {
     database.ref("spaces/" + currentSpaceCode).once("value")
         .then((snapshot) => {
             const spaceData = snapshot.val();
-
-            if (!spaceData) {
-                return;
-            }
-
-            if (spaceData.player1 && spaceData.player1.uid === currentUser.uid) {
-                return database.ref("spaces/" + currentSpaceCode + "/player1").remove();
-            }
-
-            if (spaceData.player2 && spaceData.player2.uid === currentUser.uid) {
-                return database.ref("spaces/" + currentSpaceCode + "/player2").remove();
-            }
-        })
-        .then(() => {
-            return database.ref("users/" + currentUser.uid).update({
-                spaceCode: null,
-                inviteCode: null
-            });
+            const mySlot = spaceData?.player1?.uid === currentUser.uid
+                ? "player1"
+                : (spaceData?.player2?.uid === currentUser.uid ? "player2" : null);
+            const updates = {};
+            if (mySlot) updates["spaces/" + currentSpaceCode + "/" + mySlot] = null;
+            updates["users/" + currentUser.uid + "/spaceCode"] = null;
+            updates["users/" + currentUser.uid + "/inviteCode"] = null;
+            updates["joinRequests/" + currentSpaceCode + "/" + currentUser.uid] = null;
+            return database.ref().update(updates);
         })
         .then(() => {
             stopCurrentSpaceListeners();
             currentSpaceCode = "";
             currentInviteCode = "";
             currentSpaceData = null;
-
+            localStorage.removeItem("currentSpaceCode");
             spaceCode.textContent = "CACTUS-0000";
-
-            if (partnerName) {
-                partnerName.textContent = "En attente...";
-            }
-
+            if (partnerName) partnerName.textContent = "En attente...";
             showScreen("couple");
         })
         .catch((error) => {
             console.error(error);
-            alert(error.message);
+            showToast(getFriendlyFirebaseError(error));
         });
 });
 
@@ -3746,7 +3680,7 @@ const GAMES_LIBRARY = {
         title: "OK ou Pas OK ?",
         category: "Débats",
         duration: "3 min",
-        image: "assets/cactus-would-rather.webp",
+        image: "assets/cactus-ok.png",
         description: "Donnez votre avis sur des situations du quotidien et ouvrez une discussion sans pression."
     },
     greenFlag: {
@@ -3773,7 +3707,7 @@ const GAMES_LIBRARY = {
     wouldRather: {
         title: "Tu préfères ?",
         category: "Fun & découverte",
-        image: "assets/cactus-ok.png",
+        image: "assets/cactus-would-rather.webp",
         description: "Choisissez secrètement entre deux possibilités, puis découvrez si vos envies se rejoignent."
     },
     threeYesNo: {
@@ -3815,13 +3749,57 @@ function writeGameHistory(mode, history) {
     localStorage.setItem(getGameHistoryKey(mode), JSON.stringify(history));
 }
 
+const CHALLENGE_CONTENT_ID_FIELDS = {
+    rankingChallenges: "rankingId",
+    guessAnswers: "questionId",
+    likelyChallenges: "questionId",
+    okChallenges: "questionId",
+    greenFlagChallenges: "questionId",
+    princessChallenges: "questionId",
+    questionsChallenges: "questionId",
+    wouldRatherChallenges: "prompt.id",
+    limitReachedChallenges: "scenario.id",
+    coupleDareChallenges: "dare.id"
+};
+
+function getNestedValue(object, path) {
+    return String(path || "")
+        .split(".")
+        .filter(Boolean)
+        .reduce((value, key) => value?.[key], object);
+}
+
+function getChallengeContentId(path, challenge, fallbackId = "") {
+    const field = CHALLENGE_CONTENT_ID_FIELDS[path];
+    const value = field ? getNestedValue(challenge, field) : null;
+    return String(value ?? fallbackId ?? "");
+}
+
 function getActiveChallengeIds(path) {
     if (!path || !currentSpaceData) return new Set();
     return new Set(
         Object.entries(currentSpaceData[path] || {})
-            .filter(([, challenge]) => challenge?.status !== "completed")
-            .map(([id]) => String(id))
+            .filter(([, challenge]) => challenge?.status !== "completed" && challenge?.status !== "skipped")
+            .map(([id, challenge]) => getChallengeContentId(path, challenge, id))
+            .filter(Boolean)
     );
+}
+
+function createChallengeInstanceId(path) {
+    if (!currentSpaceCode || !path) return null;
+    return database.ref("spaces/" + currentSpaceCode + "/" + path).push().key;
+}
+
+function withChallengeIds(challenges) {
+    return Object.entries(challenges || {}).map(([challengeId, challenge]) => ({
+        ...challenge,
+        _challengeId: challengeId
+    }));
+}
+
+function getChallengeInstanceId(challenge, fallbackField = null) {
+    if (!challenge) return null;
+    return challenge._challengeId || challenge.challengeId || (fallbackField ? challenge[fallbackField] : null) || null;
 }
 
 function selectFreshGameItem(items, mode, currentId = null, challengePath = null) {
@@ -4704,6 +4682,27 @@ function resetNewGameStage() {
     clearCurrentDiscussionContext();
 }
 
+function getNewGameLockPath(mode) {
+    return "activeGameLocks/" + mode;
+}
+
+function waitForLockedNewGameChallenge(path, challengeId, attempt = 0) {
+    return database.ref("spaces/" + currentSpaceCode + "/" + path + "/" + challengeId).once("value")
+        .then((snapshot) => {
+            const challenge = snapshot.val();
+            if (challenge || attempt >= 6) return challenge;
+            return new Promise((resolve) => window.setTimeout(resolve, 250))
+                .then(() => waitForLockedNewGameChallenge(path, challengeId, attempt + 1));
+        });
+}
+
+function clearNewGameLockIfMatches(mode, challengeId) {
+    if (!mode || !challengeId || !currentSpaceCode) return Promise.resolve();
+    const ref = database.ref("spaces/" + currentSpaceCode + "/" + getNewGameLockPath(mode));
+    return ref.transaction((currentId) => currentId === challengeId ? null : currentId)
+        .catch((error) => console.warn("Nettoyage du verrou de partie différé", error));
+}
+
 function startNewGame(mode, forceNew = false) {
     if (!NEW_GAME_MODES[mode] || !currentSpaceCode || isStartingNewGame) return;
     if (!getNewGameSource(mode).length) {
@@ -4722,22 +4721,47 @@ function startNewGame(mode, forceNew = false) {
         return;
     }
 
-    const challenge = buildNewGameChallenge(mode);
-    const reference = database.ref(
-        "spaces/" + currentSpaceCode + "/" + NEW_GAME_MODES[mode].path
-    ).push();
-    activeNewGameId = reference.key;
     isStartingNewGame = true;
-    showScreen("newGame");
-    newGamePrompt.textContent = "Cactus prépare votre partie…";
-    reference.set(challenge)
-        .then(() => {
-            if (!currentSpaceData[NEW_GAME_MODES[mode].path]) currentSpaceData[NEW_GAME_MODES[mode].path] = {};
-            currentSpaceData[NEW_GAME_MODES[mode].path][activeNewGameId] = challenge;
-            renderNewGame(currentSpaceData);
+    const path = NEW_GAME_MODES[mode].path;
+    const lockRef = database.ref("spaces/" + currentSpaceCode + "/" + getNewGameLockPath(mode));
+    const proposedRef = database.ref("spaces/" + currentSpaceCode + "/" + path).push();
+    const proposedId = proposedRef.key;
+
+    lockRef.transaction((currentId) => currentId || proposedId)
+        .then((lockResult) => {
+            const lockedId = lockResult.snapshot.val();
+            if (lockedId !== proposedId) {
+                activeNewGameId = lockedId;
+                showScreen("newGame");
+                return waitForLockedNewGameChallenge(path, lockedId)
+                    .then((challenge) => {
+                        if (!challenge || ["completed", "skipped"].includes(challenge.status)) {
+                            return clearNewGameLockIfMatches(mode, lockedId).then(() => startNewGame(mode, forceNew));
+                        }
+                        if (!isNewGameChallengeAvailableToCurrentUser(mode, challenge)) {
+                            showToast("Ton/ta partenaire termine encore ce parcours. Il apparaîtra dès qu’il sera prêt pour toi.");
+                            showScreen("allGames");
+                            return;
+                        }
+                        if (!currentSpaceData[path]) currentSpaceData[path] = {};
+                        currentSpaceData[path][lockedId] = challenge;
+                        renderNewGame(currentSpaceData);
+                    });
+            }
+
+            const challenge = buildNewGameChallenge(mode);
+            activeNewGameId = proposedId;
+            showScreen("newGame");
+            newGamePrompt.textContent = "Cactus prépare votre partie…";
+            return proposedRef.set(challenge).then(() => {
+                if (!currentSpaceData[path]) currentSpaceData[path] = {};
+                currentSpaceData[path][proposedId] = challenge;
+                renderNewGame(currentSpaceData);
+            });
         })
         .catch((error) => {
             console.error("Création du nouveau jeu impossible", error);
+            clearNewGameLockIfMatches(mode, proposedId);
             showToast(getFriendlyFirebaseError(error));
             showScreen("allGames");
         })
@@ -5153,6 +5177,7 @@ function skipCoupleDare() {
     const path = NEW_GAME_MODES.coupleDare.path;
     database.ref("spaces/" + currentSpaceCode + "/" + path + "/" + activeNewGameId)
         .update({ status: "skipped", skippedAt: Date.now(), skippedBy: currentUser.uid })
+        .then(() => clearNewGameLockIfMatches("coupleDare", activeNewGameId))
         .then(() => startNewGame("coupleDare", true))
         .catch((error) => showToast(getFriendlyFirebaseError(error)));
 }
@@ -5192,8 +5217,11 @@ function finalizeNewGameIfReady(mode) {
         }
         return challenge;
     }).then((result) => {
-        if (result.committed) return awardCompletedGameBonus(mode, activeNewGameId);
-        return false;
+        if (!result.committed) return false;
+        return Promise.all([
+            awardCompletedGameBonus(mode, activeNewGameId),
+            clearNewGameLockIfMatches(mode, activeNewGameId)
+        ]).then(() => true);
     });
 }
 
@@ -5209,8 +5237,11 @@ function completeCoupleDare() {
         challenge.completedBy = currentUser.uid;
         return challenge;
     }).then((result) => {
-        if (result.committed) return awardCompletedGameBonus("coupleDare", activeNewGameId);
-        return false;
+        if (!result.committed) return false;
+        return Promise.all([
+            awardCompletedGameBonus("coupleDare", activeNewGameId),
+            clearNewGameLockIfMatches("coupleDare", activeNewGameId)
+        ]).then(() => true);
     }).catch((error) => showToast(getFriendlyFirebaseError(error)));
 }
 
@@ -5743,6 +5774,7 @@ function startRandomRanking() {
         "rankingChallenges"
     );
     lastRankingId = currentRanking.id;
+    currentRankingChallengeId = createChallengeInstanceId("rankingChallenges");
 
     loadRanking(currentRanking);
     setGameSkipAvailability("ranking", true, rankings);
@@ -5771,6 +5803,7 @@ function startPendingRankingChallenge() {
     }
 
     currentRanking = ranking;
+    currentRankingChallengeId = getChallengeInstanceId(challenge, "rankingId");
 
     loadRanking(currentRanking);
     setGameSkipAvailability("ranking", false);
@@ -5778,9 +5811,9 @@ function startPendingRankingChallenge() {
     showScreen("ranking");
 }
 
-function showRankingCompatibilityIfReady(rankingId) {
+function showRankingCompatibilityIfReady(challengeId) {
     return database
-        .ref("spaces/" + currentSpaceCode + "/rankingChallenges/" + rankingId)
+        .ref("spaces/" + currentSpaceCode + "/rankingChallenges/" + challengeId)
         .once("value")
         .then((snapshot) => {
             const challenge = snapshot.val();
@@ -5810,11 +5843,13 @@ function showRankingCompatibilityIfReady(rankingId) {
                 return;
             }
 
+            challenge._challengeId = challengeId;
+
             database.ref(
     "spaces/" +
     currentSpaceCode +
     "/rankingChallenges/" +
-    challenge.rankingId
+    challengeId
 ).update({
     status: "completed",
     completedAt: Date.now(),
@@ -5823,7 +5858,7 @@ function showRankingCompatibilityIfReady(rankingId) {
         partnerAnswerData.answer
     )
 }).then(() => {
-    return awardCompletedGameBonus("ranking", challenge.rankingId);
+    return awardCompletedGameBonus("ranking", challengeId);
 });
 
             showRankingCompatibility(
@@ -5908,7 +5943,7 @@ if (score >= 80) {
 
     setCurrentDiscussionContext({
         mode: "ranking",
-        sourceId: challenge.rankingId,
+        sourceId: getChallengeInstanceId(challenge, "rankingId"),
         title: challenge.title,
         summary: "Compatibilité : " + score + "% · " + label,
         entries: [
@@ -6305,6 +6340,18 @@ function saveNotificationPreferences() {
     );
 }
 
+function getChallengeNotificationResponses(modeKey, item) {
+    const latestByUid = new Map();
+    getChallengeResponseRecords(modeKey, item).forEach((response) => {
+        if (!response.uid) return;
+        const existing = latestByUid.get(response.uid);
+        if (!existing || (response.createdAt || 0) > (existing.createdAt || 0)) {
+            latestByUid.set(response.uid, response);
+        }
+    });
+    return Array.from(latestByUid.values());
+}
+
 function buildNotifications(spaceData) {
     const preferences = getNotificationPreferences();
     const notifications = [];
@@ -6312,13 +6359,14 @@ function buildNotifications(spaceData) {
     relationStatsModes.forEach((mode) => {
         Object.entries(spaceData[mode.path] || {}).forEach(([challengeId, challenge]) => {
             if (preferences.answers) {
-                Object.values(challenge.answers || {}).forEach((answer) => {
+                getChallengeNotificationResponses(mode.key, challenge).forEach((answer, responseIndex) => {
                     if (
                         answer.uid !== currentUser.uid &&
-                        typeof answer.createdAt === "number"
+                        typeof answer.createdAt === "number" &&
+                        answer.createdAt > 0
                     ) {
                         notifications.push({
-                            id: "answer_" + mode.key + "_" + challengeId + "_" + answer.uid,
+                            id: "answer_" + mode.key + "_" + challengeId + "_" + answer.uid + "_" + responseIndex,
                             type: "answer",
                             icon: "💬",
                             title: (answer.pseudo || "Votre partenaire") + " a répondu",
@@ -6783,7 +6831,8 @@ function getNotificationSymbol(type) {
 
 function prioritizeNotificationChallenge(list, challengeId) {
     const index = list.findIndex((challenge) => {
-        return String(challenge.rankingId) === String(challengeId) ||
+        return String(getChallengeInstanceId(challenge)) === String(challengeId) ||
+            String(challenge.rankingId) === String(challengeId) ||
             String(challenge.questionId) === String(challengeId);
     });
 
@@ -6841,6 +6890,14 @@ function openGameNotification(target) {
 
     if (selectedMode && prioritizeNotificationChallenge(selectedMode[0], target.challengeId)) {
         selectedMode[1]();
+        return;
+    }
+
+    if (NEW_GAME_MODES[target.mode] && currentSpaceData?.[NEW_GAME_MODES[target.mode].path]?.[target.challengeId]) {
+        activeNewGameMode = target.mode;
+        activeNewGameId = target.challengeId;
+        showScreen("newGame");
+        renderNewGame(currentSpaceData);
         return;
     }
 
@@ -7109,7 +7166,7 @@ function buildUnifiedTimeline(spaceData) {
                 type: "game",
                 icon: mode.icon,
                 title: mode.label + " terminé",
-                text: challenge.question || challenge.title || "Une partie ajoutée à votre histoire.",
+                text: challenge.question || challenge.title || challenge.prompt?.question || challenge.scenario?.title || challenge.dare?.title || "Une partie ajoutée à votre histoire.",
                 timestamp: challenge.completedAt || challenge.createdAt || 0,
                 mode: mode.key,
                 challengeId,
@@ -7936,7 +7993,7 @@ function getRandomGuessQuestion() {
 }
 
 function displayGuessChallenges(challenges) {
-    const challengeArray = Object.values(challenges || {});
+    const challengeArray = withChallengeIds(challenges);
 
     pendingGuessAnswers = challengeArray.filter((challenge) => {
         return (
@@ -8001,7 +8058,7 @@ function startPendingGuessAnswer() {
         return;
     }
 
-    currentGuessId = challenge.questionId;
+    currentGuessId = getChallengeInstanceId(challenge, "questionId");
 
     currentGuessQuestion = {
         id: challenge.questionId,
@@ -8025,7 +8082,7 @@ function startPendingGuessPrediction() {
         return;
     }
 
-    currentGuessId = challenge.questionId;
+    currentGuessId = getChallengeInstanceId(challenge, "questionId");
 
     currentGuessQuestion = {
         id: challenge.questionId,
@@ -8052,7 +8109,7 @@ function startPendingGuessValidation() {
         return;
     }
 
-    currentGuessId = challenge.questionId;
+    currentGuessId = getChallengeInstanceId(challenge, "questionId");
 
     currentGuessQuestion = {
         id: challenge.questionId,
@@ -8167,7 +8224,7 @@ function showPendingGuessResult() {
 
     setCurrentDiscussionContext({
         mode: "guess",
-        sourceId: challenge.questionId,
+        sourceId: getChallengeInstanceId(challenge, "questionId"),
         title: challenge.question,
         summary: "Score de connaissance : " + finalScore + "%",
         entries: [
@@ -8731,7 +8788,11 @@ function installSecondaryCactusIcons() {
         ['[data-history-mode="likely"]', "cactusIconGame"],
         ['[data-history-mode="ok"]', "cactusIconShield"],
         ['[data-history-mode="greenFlag"]', "cactusIconGarden"],
-        ['[data-history-mode="princess"]', "cactusIconStar"]
+        ['[data-history-mode="princess"]', "cactusIconStar"],
+        ['[data-history-mode="wouldRather"]', "cactusIconGame"],
+        ['[data-history-mode="threeYesNo"]', "cactusIconGame"],
+        ['[data-history-mode="limitReached"]', "cactusIconShield"],
+        ['[data-history-mode="coupleDare"]', "cactusIconStar"]
     ];
 
     decorateTargets.forEach(([selector, symbolId]) => {
@@ -8769,7 +8830,11 @@ function getLatestCompletedActivity() {
         { key: "okChallenges", mode: "ok", icon: "✅", label: "OK ou Pas OK" },
         { key: "greenFlagChallenges", mode: "greenFlag", icon: "🚩", label: "Green Flag ou Red Flag" },
         { key: "princessChallenges", mode: "princess", icon: "👑", label: "Princess Treatment" },
-        { key: "questionsChallenges", mode: "questions", icon: "💬", label: "une question" }
+        { key: "questionsChallenges", mode: "questions", icon: "💬", label: "une question" },
+        { key: "wouldRatherChallenges", mode: "wouldRather", icon: "↔", label: "Tu préfères ?" },
+        { key: "threeYesNoChallenges", mode: "threeYesNo", icon: "3/3", label: "3 oui / 3 non" },
+        { key: "limitReachedChallenges", mode: "limitReached", icon: "⛔", label: "Limite atteinte" },
+        { key: "coupleDareChallenges", mode: "coupleDare", icon: "★", label: "un défi à deux" }
     ];
 
     let latest = null;
@@ -8780,7 +8845,7 @@ function getLatestCompletedActivity() {
                 return;
             }
 
-            const answers = Object.values(challenge.answers || {});
+            const answers = getChallengeResponseRecords(mode.mode, challenge);
             const lastAnswer = answers.reduce((newest, answer) => {
                 if (!newest || (answer.createdAt || 0) > (newest.createdAt || 0)) {
                     return answer;
@@ -8847,7 +8912,7 @@ function markCurrentGuessResultSeen() {
             "spaces/" +
             currentSpaceCode +
             "/guessAnswers/" +
-            challenge.questionId +
+            getChallengeInstanceId(challenge, "questionId") +
             "/seenBy/" +
             currentUser.uid
         )
@@ -8868,7 +8933,7 @@ function startLikelyGame() {
     );
 
     currentLikelyQuestion = randomQuestion;
-    currentLikelyId = randomQuestion.id;
+    currentLikelyId = createChallengeInstanceId("likelyChallenges");
 
     likelyQuestionText.textContent =
         randomQuestion.question;
@@ -8884,7 +8949,9 @@ function saveLikelyAnswer(answer) {
         return;
     }
 
-    currentLikelyId = currentLikelyQuestion.id;
+    if (!currentLikelyId) {
+        currentLikelyId = createChallengeInstanceId("likelyChallenges");
+    }
 
     database
         .ref("spaces/" + currentSpaceCode + "/likelyChallenges/" + currentLikelyId)
@@ -8938,10 +9005,7 @@ function listenToLikelyChallenges() {
                         .update({
     status: "completed",
     completedAt: Date.now(),
-    compatibility: calculateChoiceCompatibility(
-        Object.values(answers)[0].answer,
-        Object.values(answers)[1].answer
-    )
+    compatibility: calculateLikelyCompatibility(answers)
 }).then(() => {
     return awardCompletedGameBonus("likely", id);
 });
@@ -8953,7 +9017,7 @@ function listenToLikelyChallenges() {
 }
 
 function displayLikelyChallenges(challenges) {
-    const challengeArray = Object.values(challenges || {});
+    const challengeArray = withChallengeIds(challenges);
 
     pendingLikelyChallenges = challengeArray.filter((challenge) => {
         return (
@@ -8990,7 +9054,7 @@ function startPendingLikelyChallenge() {
         return;
     }
 
-    currentLikelyId = challenge.questionId;
+    currentLikelyId = getChallengeInstanceId(challenge, "questionId");
 
     currentLikelyQuestion = {
         id: challenge.questionId,
@@ -9053,7 +9117,7 @@ function showPendingLikelyResult() {
 
     setCurrentDiscussionContext({
         mode: "likely",
-        sourceId: challenge.questionId,
+        sourceId: getChallengeInstanceId(challenge, "questionId"),
         title: challenge.question,
         summary: likelyVerdictText.textContent,
         entries: [
@@ -9077,7 +9141,7 @@ function markCurrentLikelyResultSeen() {
             "spaces/" +
             currentSpaceCode +
             "/likelyChallenges/" +
-            challenge.questionId +
+            getChallengeInstanceId(challenge, "questionId") +
             "/seenBy/" +
             currentUser.uid
         )
@@ -9097,7 +9161,7 @@ function startOkGame() {
         "okChallenges"
     );
 
-    currentOkId = currentOkQuestion.id;
+    currentOkId = createChallengeInstanceId("okChallenges");
 
     okQuestionText.textContent =
         currentOkQuestion.question;
@@ -9113,7 +9177,9 @@ function saveOkAnswer(answer) {
         return;
     }
 
-    currentOkId = currentOkQuestion.id;
+    if (!currentOkId) {
+        currentOkId = createChallengeInstanceId("okChallenges");
+    }
 
     database
         .ref("spaces/" + currentSpaceCode + "/okChallenges/" + currentOkId)
@@ -9182,7 +9248,7 @@ function listenToOkChallenges() {
 }
 
 function displayOkChallenges(challenges) {
-    const challengeArray = Object.values(challenges || {});
+    const challengeArray = withChallengeIds(challenges);
 
     pendingOkChallenges = challengeArray.filter((challenge) => {
         return (
@@ -9219,7 +9285,7 @@ function startPendingOkChallenge() {
         return;
     }
 
-    currentOkId = challenge.questionId;
+    currentOkId = getChallengeInstanceId(challenge, "questionId");
 
     currentOkQuestion = {
         id: challenge.questionId,
@@ -9274,7 +9340,7 @@ function showPendingOkResult() {
 
     setCurrentDiscussionContext({
         mode: "ok",
-        sourceId: challenge.questionId,
+        sourceId: getChallengeInstanceId(challenge, "questionId"),
         title: challenge.question,
         summary: okVerdictText.textContent,
         entries: [
@@ -9298,7 +9364,7 @@ function markCurrentOkResultSeen() {
             "spaces/" +
             currentSpaceCode +
             "/okChallenges/" +
-            challenge.questionId +
+            getChallengeInstanceId(challenge, "questionId") +
             "/seenBy/" +
             currentUser.uid
         )
@@ -9327,7 +9393,7 @@ function startGreenFlagGame() {
         "greenFlagChallenges"
     );
 
-    currentGreenFlagId = currentGreenFlagQuestion.id;
+    currentGreenFlagId = createChallengeInstanceId("greenFlagChallenges");
 
     greenFlagQuestionText.textContent =
         currentGreenFlagQuestion.question;
@@ -9343,7 +9409,9 @@ function saveGreenFlagAnswer(answer) {
         return;
     }
 
-    currentGreenFlagId = currentGreenFlagQuestion.id;
+    if (!currentGreenFlagId) {
+        currentGreenFlagId = createChallengeInstanceId("greenFlagChallenges");
+    }
 
     database
         .ref("spaces/" + currentSpaceCode + "/greenFlagChallenges/" + currentGreenFlagId)
@@ -9412,7 +9480,7 @@ function listenToGreenFlagChallenges() {
 }
 
 function displayGreenFlagChallenges(challenges) {
-    const challengeArray = Object.values(challenges || {});
+    const challengeArray = withChallengeIds(challenges);
 
     pendingGreenFlagChallenges = challengeArray.filter((challenge) => {
         return (
@@ -9449,7 +9517,7 @@ function startPendingGreenFlagChallenge() {
         return;
     }
 
-    currentGreenFlagId = challenge.questionId;
+    currentGreenFlagId = getChallengeInstanceId(challenge, "questionId");
 
     currentGreenFlagQuestion = {
         id: challenge.questionId,
@@ -9507,7 +9575,7 @@ function showPendingGreenFlagResult() {
 
     setCurrentDiscussionContext({
         mode: "greenFlag",
-        sourceId: challenge.questionId,
+        sourceId: getChallengeInstanceId(challenge, "questionId"),
         title: challenge.question,
         summary: greenFlagVerdictText.textContent,
         entries: [
@@ -9531,7 +9599,7 @@ function markCurrentGreenFlagResultSeen() {
             "spaces/" +
             currentSpaceCode +
             "/greenFlagChallenges/" +
-            challenge.questionId +
+            getChallengeInstanceId(challenge, "questionId") +
             "/seenBy/" +
             currentUser.uid
         )
@@ -9561,7 +9629,7 @@ async function startPrincessGame() {
     );
 
     currentPrincessId =
-        currentPrincessQuestion.id;
+        createChallengeInstanceId("princessChallenges");
 
     princessQuestionText.textContent =
         currentPrincessQuestion.question;
@@ -9577,7 +9645,9 @@ function savePrincessAnswer(answer) {
         return;
     }
 
-    currentPrincessId = currentPrincessQuestion.id;
+    if (!currentPrincessId) {
+        currentPrincessId = createChallengeInstanceId("princessChallenges");
+    }
 
     database
         .ref("spaces/" + currentSpaceCode + "/princessChallenges/" + currentPrincessId)
@@ -9655,7 +9725,7 @@ function displayPrincessChallenges(
     challenges
 ) {
     const challengeArray =
-        Object.values(challenges || {});
+        withChallengeIds(challenges);
 
     pendingPrincessChallenges =
         challengeArray.filter(
@@ -9719,7 +9789,7 @@ function startPendingPrincessChallenge() {
     }
 
     currentPrincessId =
-        challenge.questionId;
+        getChallengeInstanceId(challenge, "questionId");
 
     currentPrincessQuestion = {
 
@@ -9800,7 +9870,7 @@ function showPendingPrincessResult() {
 
     setCurrentDiscussionContext({
         mode: "princess",
-        sourceId: challenge.questionId,
+        sourceId: getChallengeInstanceId(challenge, "questionId"),
         title: challenge.question,
         summary: princessVerdictText.textContent,
         entries: [
@@ -9830,7 +9900,7 @@ function markCurrentPrincessResultSeen() {
             "spaces/" +
             currentSpaceCode +
             "/princessChallenges/" +
-            challenge.questionId +
+            getChallengeInstanceId(challenge, "questionId") +
             "/seenBy/" +
             currentUser.uid
         )
@@ -9860,7 +9930,7 @@ function startQuestionsGame() {
     );
 
     currentCoupleQuestionId =
-        currentCoupleQuestion.id;
+        createChallengeInstanceId("questionsChallenges");
 
     questionsQuestionText.textContent =
         currentCoupleQuestion.question;
@@ -9878,6 +9948,10 @@ function saveQuestionsAnswer() {
     if (answer === "") {
         alert("Écris ta réponse 🌵");
         return;
+    }
+
+    if (!currentCoupleQuestionId) {
+        currentCoupleQuestionId = createChallengeInstanceId("questionsChallenges");
     }
 
     database
@@ -9943,7 +10017,7 @@ function listenToQuestionsChallenges() {
 
 function displayQuestionsChallenges(challenges) {
     const challengeArray =
-        Object.values(challenges || {});
+        withChallengeIds(challenges);
 
     pendingQuestionsChallenges =
         challengeArray.filter((challenge) => {
@@ -9984,7 +10058,7 @@ function startPendingQuestionsChallenge() {
         return;
     }
 
-    currentCoupleQuestionId = challenge.questionId;
+    currentCoupleQuestionId = getChallengeInstanceId(challenge, "questionId");
 
     currentCoupleQuestion = {
         id: challenge.questionId,
@@ -10027,7 +10101,7 @@ function showPendingQuestionsResult() {
 
     setCurrentDiscussionContext({
         mode: "questions",
-        sourceId: challenge.questionId,
+        sourceId: getChallengeInstanceId(challenge, "questionId"),
         title: challenge.question,
         entries: [
             { label: "Ta réponse", value: myAnswer ? myAnswer.answer : "Pas de réponse" },
@@ -10050,7 +10124,7 @@ function markCurrentQuestionsResultSeen() {
             "spaces/" +
             currentSpaceCode +
             "/questionsChallenges/" +
-            challenge.questionId +
+            getChallengeInstanceId(challenge, "questionId") +
             "/seenBy/" +
             currentUser.uid
         )
@@ -10186,7 +10260,7 @@ function markCurrentRankingResultSeen() {
             "spaces/" +
             currentSpaceCode +
             "/rankingChallenges/" +
-            challenge.rankingId +
+            getChallengeInstanceId(challenge, "rankingId") +
             "/seenBy/" +
             currentUser.uid
         )
@@ -10236,6 +10310,22 @@ function openHistoryMode(mode, focusedChallengeId = null) {
         princess: {
             title: "👑 Princess Treatment",
             path: "princessChallenges"
+        },
+        wouldRather: {
+            title: "↔ Tu préfères ?",
+            path: "wouldRatherChallenges"
+        },
+        threeYesNo: {
+            title: "3/3 · 3 oui / 3 non",
+            path: "threeYesNoChallenges"
+        },
+        limitReached: {
+            title: "⛔ Limite atteinte",
+            path: "limitReachedChallenges"
+        },
+        coupleDare: {
+            title: "★ Défis à deux",
+            path: "coupleDareChallenges"
         }
     };
 
@@ -10315,15 +10405,20 @@ function openHistoryMode(mode, focusedChallengeId = null) {
         });
 }
 
+function getHistoryItemTitle(mode, item) {
+    if (mode === "wouldRather") return item.prompt?.question || "Tu préfères ?";
+    if (mode === "threeYesNo") return "Votre partie 3 oui / 3 non";
+    if (mode === "limitReached") return item.scenario?.title || "Limite atteinte";
+    if (mode === "coupleDare") return item.dare?.title || "Défi à deux";
+    return item.title || item.question || "Souvenir";
+}
+
 function createHistoryCard(mode, item) {
     const card = document.createElement("div");
     card.classList.add("history-card");
 
     const title = document.createElement("h3");
-    title.textContent =
-        item.title ||
-        item.question ||
-        "Souvenir";
+    title.textContent = getHistoryItemTitle(mode, item);
 
     const date = document.createElement("small");
     date.classList.add("history-date");
@@ -10347,21 +10442,48 @@ function createHistoryCard(mode, item) {
         return card;
     }
 
-    if (item.answers) {
-        const answersArray = Object.values(item.answers);
-
-        answersArray.forEach((answer) => {
+    if (mode === "wouldRather") {
+        const prompt = item.prompt || {};
+        Object.entries(item.answers || {}).forEach(([uid, answer]) => {
             const p = document.createElement("p");
+            const strong = document.createElement("strong");
+            strong.textContent = (uid === currentUser.uid ? "Toi" : "Partenaire") + " :";
+            p.append(strong, " " + (answer.choice === "A" ? prompt.optionA : prompt.optionB));
+            card.appendChild(p);
+        });
+        return card;
+    }
 
-            const label =
-                answer.uid === currentUser.uid
-                    ? "Toi"
-                    : "Partenaire";
+    if (mode === "threeYesNo") {
+        const score = document.createElement("span");
+        score.className = "history-score";
+        score.textContent = (item.compatibility ?? 0) + "% d’accords";
+        card.appendChild(score);
+        return card;
+    }
 
+    if (mode === "limitReached") {
+        const score = document.createElement("span");
+        score.className = "history-score";
+        score.textContent = (item.compatibility ?? 0) + "% d’alignement";
+        card.appendChild(score);
+        return card;
+    }
+
+    if (mode === "coupleDare") {
+        const p = document.createElement("p");
+        p.textContent = item.dare?.description || "Défi réalisé ensemble.";
+        card.appendChild(p);
+        return card;
+    }
+
+    if (item.answers) {
+        Object.entries(item.answers).forEach(([uid, answer]) => {
+            const p = document.createElement("p");
+            const label = answer.uid === currentUser.uid || uid === currentUser.uid ? "Toi" : "Partenaire";
             const strong = document.createElement("strong");
             strong.textContent = label + " :";
             p.append(strong, " " + (answer.answer || "Pas de réponse"));
-
             card.appendChild(p);
         });
     }
@@ -10378,13 +10500,12 @@ function openHistoryItem(index) {
 
     historyItemContent.innerHTML = "";
 
-    historyItemTitle.textContent =
-        item.title ||
-        item.question ||
-        "📚 Souvenir";
+    historyItemTitle.textContent = getHistoryItemTitle(currentHistoryMode, item);
 
     if (currentHistoryMode === "ranking") {
         renderRankingHistoryItem(item);
+    } else if (["wouldRather", "threeYesNo", "limitReached", "coupleDare"].includes(currentHistoryMode)) {
+        renderNewGameHistoryItem(currentHistoryMode, item);
     } else {
         renderSimpleHistoryItem(item);
     }
@@ -10495,6 +10616,65 @@ function renderSimpleHistoryItem(item) {
 
             historyItemContent.appendChild(box);
         });
+    }
+}
+
+function appendHistoryComparison(labelText, valueText) {
+    const box = document.createElement("div");
+    box.classList.add("comparison-box");
+    const title = document.createElement("h3");
+    title.textContent = labelText;
+    const value = document.createElement("p");
+    value.textContent = valueText || "Pas de réponse";
+    box.append(title, value);
+    historyItemContent.appendChild(box);
+}
+
+function renderNewGameHistoryItem(mode, item) {
+    const date = document.createElement("p");
+    date.classList.add("history-date");
+    date.textContent = formatHistoryDate(item.completedAt || item.createdAt);
+    historyItemContent.appendChild(date);
+
+    const players = getCouplePlayers(currentSpaceData || {});
+    const getName = (uid) => uid === currentUser.uid
+        ? (players.me?.pseudo || "Toi")
+        : (players.partner?.pseudo || "Partenaire");
+
+    if (mode === "wouldRather") {
+        const prompt = item.prompt || {};
+        const question = document.createElement("p");
+        question.className = "history-question-copy";
+        question.textContent = prompt.question || "Tu préfères ?";
+        historyItemContent.appendChild(question);
+        Object.entries(item.answers || {}).forEach(([uid, answer]) => {
+            appendHistoryComparison(getName(uid), answer.choice === "A" ? prompt.optionA : prompt.optionB);
+        });
+        return;
+    }
+
+    if (mode === "threeYesNo") {
+        const situations = item.situations || [];
+        const answerSets = Object.entries(item.answers || {});
+        situations.forEach((situation, index) => {
+            const values = answerSets.map(([uid, answers]) => {
+                return getName(uid) + " : " + (answers?.[index]?.choice === "yes" ? "Oui" : "Non");
+            });
+            appendHistoryComparison(situation.text || "Situation " + (index + 1), values.join(" · "));
+        });
+        return;
+    }
+
+    if (mode === "limitReached") {
+        const scenario = item.scenario || {};
+        Object.entries(item.results || {}).forEach(([uid, result]) => {
+            appendHistoryComparison(getName(uid), getLimitReachedResultLabel(result, scenario));
+        });
+        return;
+    }
+
+    if (mode === "coupleDare") {
+        appendHistoryComparison(item.dare?.category || "Défi", item.dare?.description || "Défi réalisé ensemble.");
     }
 }
 
@@ -10691,6 +10871,40 @@ function openRelationStats() {
         });
 }
 
+function getChallengeResponseRecords(modeKey, item) {
+    if (modeKey === "limitReached") {
+        return Object.entries(item.results || {}).map(([uid, result]) => ({
+            uid,
+            pseudo: result.pseudo,
+            createdAt: result.completedAt || result.createdAt || 0
+        }));
+    }
+
+    if (modeKey === "coupleDare") {
+        return Object.entries(item.votes || {}).map(([uid, vote]) => ({
+            uid,
+            pseudo: vote.pseudo,
+            createdAt: vote.answeredAt || vote.createdAt || 0
+        }));
+    }
+
+    if (modeKey === "threeYesNo") {
+        return Object.entries(item.answers || {}).flatMap(([uid, answers]) => {
+            return Object.values(answers || {}).map((answer) => ({
+                uid,
+                pseudo: answer.pseudo,
+                createdAt: answer.answeredAt || answer.createdAt || 0
+            }));
+        });
+    }
+
+    return Object.entries(item.answers || {}).map(([uid, answer]) => ({
+        uid: answer.uid || uid,
+        pseudo: answer.pseudo,
+        createdAt: answer.answeredAt || answer.createdAt || 0
+    }));
+}
+
 function buildRelationStatistics(spaceData) {
     const modeResults = relationStatsModes.map((mode) => {
         const items = Object.values(spaceData[mode.path] || {});
@@ -10699,7 +10913,7 @@ function buildRelationStatistics(spaceData) {
         });
 
         const answersCount = items.reduce((total, item) => {
-            return total + Object.keys(item.answers || {}).length;
+            return total + getChallengeResponseRecords(mode.key, item).length;
         }, 0);
 
         const scores = completedItems
@@ -11766,7 +11980,7 @@ retryConnectionBtn.addEventListener("click", () => {
         retryConnectionBtn.disabled = false;
         retryConnectionBtn.textContent = "Réessayer";
         if (!connectionStatusBanner.hidden) {
-            showToast("Toujours hors ligne — vos données restent protégées sur cet appareil");
+            showToast("Toujours hors ligne — réessaie quand la connexion revient");
         }
     }, 1800);
 });
@@ -11973,7 +12187,7 @@ if ("serviceWorker" in navigator) {
 }
 
 function displayRankingChallenges(challenges) {
-    const challengeArray = Object.values(challenges || {});
+    const challengeArray = withChallengeIds(challenges);
 
     pendingRankingChallenges = challengeArray.filter((challenge) => {
         if (!challenge.answers) return false;

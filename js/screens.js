@@ -27,18 +27,27 @@ function hasActiveCactusSpace() {
     }
 }
 
+function createCactusRootState(screenName, isGuard = false) {
+    return {
+        [CACTUS_NAV_STATE_KEY]: true,
+        screen: screenName,
+        fromScreen: null,
+        rootScreen: screenName,
+        depth: 0,
+        rootGuard: isGuard
+    };
+}
+
 function replaceCactusHistoryRoot(screenName) {
-    history.replaceState(
-        {
-            [CACTUS_NAV_STATE_KEY]: true,
-            screen: screenName,
-            fromScreen: null,
-            rootScreen: screenName,
-            depth: 0
-        },
-        "",
-        "#" + screenName
-    );
+    const rootState = createCactusRootState(screenName, false);
+    history.replaceState(rootState, "", "#" + screenName);
+
+    // Sur le dashboard d'un couple connecté, on garde une entrée jumelle devant
+    // la racine. Le bouton Retour Android revient donc au dashboard au lieu de
+    // sortir de l'app ou de remonter vers un ancien écran d'authentification.
+    if (screenName === "dashboard" && hasActiveCactusSpace()) {
+        history.pushState(createCactusRootState(screenName, true), "", "#" + screenName);
+    }
 }
 
 function pushCactusHistoryScreen(screenName) {
@@ -523,13 +532,23 @@ settingsBtn.style.setProperty("display", "none", "important");
 }
 
 window.addEventListener("popstate", (event) => {
-    if (!event.state || !event.state.screen) {
+    const state = event.state;
+
+    // Une entrée sans état Cactus correspond généralement à l'historique du
+    // navigateur avant l'ouverture de l'app. Tant qu'un espace est actif, on
+    // reste volontairement dans CACTUS et on réarme la racine du dashboard.
+    if (!state || state[CACTUS_NAV_STATE_KEY] !== true || !state.screen) {
+        if (hasActiveCactusSpace()) {
+            replaceCactusHistoryRoot("dashboard");
+            lastShownScreen = "dashboard";
+            showScreenContent("dashboard");
+        }
         return;
     }
 
     isNavigatingWithBrowserBack = true;
 
-    const requestedScreen = event.state.screen;
+    const requestedScreen = state.screen;
     const safeScreen = resolveSafeHistoryScreen(requestedScreen);
 
     if (safeScreen !== requestedScreen) {
@@ -542,6 +561,17 @@ window.addEventListener("popstate", (event) => {
 
     lastShownScreen = requestedScreen;
     showScreenContent(requestedScreen);
+
+    // Quand Retour atteint la vraie racine du dashboard, on remet aussitôt
+    // l'entrée garde devant elle. Un nouvel appui reste donc dans l'accueil.
+    if (
+        requestedScreen === "dashboard" &&
+        state.depth === 0 &&
+        state.rootGuard !== true &&
+        hasActiveCactusSpace()
+    ) {
+        history.pushState(createCactusRootState("dashboard", true), "", "#dashboard");
+    }
 
     isNavigatingWithBrowserBack = false;
 });

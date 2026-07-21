@@ -1,13 +1,13 @@
-const CACHE_VERSION = "v80";
+const CACHE_VERSION = "v81";
 const SHELL_CACHE = `cactus-shell-${CACHE_VERSION}`;
 const RUNTIME_CACHE = `cactus-runtime-${CACHE_VERSION}`;
 
 const APP_SHELL = [
     "./index.html",
-    "./css/style.css?v=79",
+    "./css/style.css?v=81",
     "./js/firebase.js",
-    "./js/script.js?v=79",
-    "./js/screens.js?v=80",
+    "./js/script.js?v=81",
+    "./js/screens.js?v=81",
     "./js/utils.js",
     "./js/storage.js",
     "./js/rankings.js",
@@ -16,6 +16,13 @@ const APP_SHELL = [
     "./data/three-yes-three-no.json",
     "./data/limit-reached.json",
     "./data/couple-dares.json",
+    "./data/rankings.json",
+    "./data/guess-my-answer.json",
+    "./data/likely.json",
+    "./data/ok-ou-pas-ok.json",
+    "./data/green-flag-red-flag.json",
+    "./data/princess-treatment.json",
+    "./data/questions.json",
     "./manifest.json",
     "./icons/icon-192-v2.png",
     "./icons/icon-512-v2.png",
@@ -53,7 +60,18 @@ const APP_SHELL = [
     "./assets/cactus-would-rather.webp",
     "./assets/cactus-limit-reached.webp",
     "./assets/cactus-three-yes-no.webp",
-    "./assets/cactus-couple-dare.webp"
+    "./assets/cactus-couple-dare.webp",
+    "./assets/cactus-main.png",
+    "./assets/cactus-ranking.png",
+    "./assets/cactus-guess.png",
+    "./assets/cactus-likely.png",
+    "./assets/cactus-ok.png",
+    "./assets/cactus-greenflag.png",
+    "./assets/cactus-princess.png",
+    "./assets/cactus-questions.png",
+    "./assets/cactus-history.png",
+    "./assets/cactus-stats.png",
+    "./assets/cactus-achievements.png"
 ];
 
 self.addEventListener("install", (event) => {

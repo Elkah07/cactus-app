@@ -68,12 +68,16 @@ function getOrCreateActiveRanking() {
         });
 }
 
-function saveRankingChallenge(rankingId, answer) {
+function saveRankingChallenge(challengeId, rankingId, answer) {
+    if (!challengeId) {
+        return Promise.reject(new Error("Identifiant de partie manquant"));
+    }
+
     const challengeRef = database.ref(
         "spaces/" +
         currentSpaceCode +
         "/rankingChallenges/" +
-        rankingId
+        challengeId
     );
 
     return challengeRef.child("answers/" + currentUser.uid)
@@ -83,27 +87,19 @@ function saveRankingChallenge(rankingId, answer) {
             answer: answer,
             createdAt: Date.now()
         })
-        .then(() => {
-            return challengeRef.once("value");
-        })
+        .then(() => challengeRef.once("value"))
         .then((snapshot) => {
-            const challengeData = snapshot.val();
+            const challengeData = snapshot.val() || {};
             const answers = challengeData.answers || {};
             const answersCount = Object.keys(answers).length;
-
             const updates = {
-                rankingId: rankingId,
+                rankingId,
                 title: currentRanking.title,
                 updatedAt: Date.now()
             };
 
-            if (!challengeData.createdAt) {
-                updates.createdAt = Date.now();
-            }
-
-            if (!challengeData.status) {
-                updates.status = "pending";
-            }
+            if (!challengeData.createdAt) updates.createdAt = Date.now();
+            if (!challengeData.status) updates.status = "pending";
 
             if (answersCount >= 2) {
                 updates.status = "completed";

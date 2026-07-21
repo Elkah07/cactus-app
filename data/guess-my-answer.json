@@ -159,7 +159,6 @@
     "id": "restaurant_prefere",
     "question": "Quel restaurant choisis-tu le plus souvent ?"
   },
-
   {
     "id": "petit_bonheur",
     "question": "Quel est ton petit bonheur du quotidien ?"
@@ -280,7 +279,6 @@
     "id": "moment_detente",
     "question": "Quel est ton moment préféré de la journée ?"
   },
-
   {
     "id": "souvenir_nous",
     "question": "Quel est ton souvenir préféré de nous ?"
@@ -361,7 +359,6 @@
     "id": "objectif_couple",
     "question": "Quel objectif aimerais-tu qu'on atteigne ensemble ?"
   },
-
   {
     "id": "million_euros",
     "question": "Tu gagnes un million d'euros, quel est ton premier achat ?"
@@ -562,7 +559,6 @@
     "id": "collection_possible",
     "question": "Que pourrais-tu collectionner facilement ?"
   },
-
   {
     "id": "qualite_chez_moi",
     "question": "Quelle est la qualité que tu admires le plus chez moi ?"
@@ -643,7 +639,6 @@
     "id": "souvenir_a_creer",
     "question": "Quel souvenir aimerais-tu créer avec moi prochainement ?"
   },
-
   {
     "id": "animal_reincarnation",
     "question": "Si tu te réincarnais en animal, lequel choisirais-tu ?"
@@ -844,7 +839,6 @@
     "id": "activite_repos",
     "question": "Que fais-tu quand tu veux vraiment te reposer ?"
   },
-
   {
     "id": "premier_message_revoir",
     "question": "Quel moment de nos débuts aimerais-tu revoir ?"
@@ -925,7 +919,6 @@
     "id": "objectif_couple_futur",
     "question": "Quel objectif aimerais-tu que nous atteignions ensemble ?"
   },
-
   {
     "id": "celebrite_diner",
     "question": "Avec quelle célébrité aimerais-tu dîner ?"
@@ -1195,7 +1188,7 @@
     "question": "Quel objet de ton enfance aimerais-tu retrouver ?"
   },
   {
-    "id": "photo_encadrer",
+    "id": "photo_personnelle_encadrer",
     "question": "Quelle photo personnelle mériterait d'être encadrée ?"
   },
   {
