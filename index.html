@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cactus 🌵</title>
-    <link rel="stylesheet" href="css/style.css?v=95">
+    <link rel="stylesheet" href="css/style.css?v=96">
     <link rel="manifest" href="manifest.json?v=2">
     <meta name="theme-color" content="#003E2D">
 </head>
@@ -218,9 +218,10 @@
         <span id="shoppingRemainingCount" hidden>0 à acheter</span><button type="button" id="showShoppingFormBtn" class="organizer-add-button" aria-label="Ajouter un article">+</button>
     </header>
 
-    <section class="shopping-summary">
-        <svg class="cactus-ui-icon" width="58" height="58" aria-hidden="true"><use href="#cactusIconShopping"></use></svg>
-        <div><small>Synchronisée à deux</small><strong id="shoppingSummaryTitle">Votre panier est prêt</strong><p id="shoppingSummaryText">Ajoutez votre premier article.</p></div>
+    <section class="shopping-summary organizer-showcase shopping-showcase">
+        <div class="organizer-showcase-icon"><svg class="cactus-ui-icon" width="58" height="58" aria-hidden="true"><use href="#cactusIconShopping"></use></svg></div>
+        <div class="organizer-showcase-copy"><small>Synchronisée à deux</small><strong id="shoppingSummaryTitle">Votre panier est prêt</strong><p id="shoppingSummaryText">Ajoutez votre premier article.</p></div>
+        <div class="organizer-showcase-meter"><span id="shoppingProgressLabel">0%</span><div><i id="shoppingProgressBar"></i></div></div>
     </section>
 
     <form id="shoppingItemForm" class="shopping-item-form organizer-creation-panel" style="display:none;">
@@ -256,7 +257,7 @@
     </nav>
 
     <div id="shoppingItemsList" class="shopping-items-list" aria-live="polite"></div>
-    <div id="shoppingEmptyState" class="shopping-empty-state"><svg class="cactus-ui-icon" width="62" height="62" aria-hidden="true"><use href="#cactusIconShopping"></use></svg><strong>La liste est vide</strong><p>Ajoutez quelque chose à acheter pour commencer.</p></div>
+    <div id="shoppingEmptyState" class="shopping-empty-state organizer-empty-beautified"><div class="organizer-empty-orbit shopping-orbit"><i></i><i></i><i></i><svg class="cactus-ui-icon" width="62" height="62" aria-hidden="true"><use href="#cactusIconShopping"></use></svg></div><strong>Votre panier attend sa première idée</strong><p>Ajoutez un article et votre liste se synchronise à deux.</p><button type="button" onclick="document.getElementById('showShoppingFormBtn').click()">+ Ajouter un article</button></div>
 
     <button type="button" id="clearCompletedShoppingBtn" class="secondary shopping-clear-button" style="display:none;">Supprimer les articles terminés</button>
     <section id="shoppingHistorySection" class="shopping-history-section" style="display:none;"><div class="organizer-section-heading"><div><small>Réutiliser rapidement</small><strong>Historique et favoris</strong></div></div><div id="shoppingHistoryList" class="shopping-history-list"></div></section>
@@ -265,7 +266,7 @@
 <!-- ÉCRAN TÂCHES -->
 <div id="tasksScreen" class="secondary-screen daily-organizer-screen" style="display:none;">
     <header class="organizer-header"><button type="button" id="backFromTasksBtn" aria-label="Retour">‹</button><div><small>Notre quotidien</small><h1>Nos tâches</h1></div><span id="tasksPendingCount" hidden>0 à faire</span><button type="button" id="showTaskFormBtn" class="organizer-add-button" aria-label="Ajouter une tâche">+</button></header>
-    <section class="organizer-hero"><svg class="cactus-ui-icon" aria-hidden="true"><use href="#cactusIconTasks"></use></svg><div><small>Votre organisation</small><strong>Ce qu’il reste à faire</strong><p>Répartissez vos tâches et avancez ensemble.</p></div></section>
+    <section class="organizer-hero organizer-showcase task-showcase"><div class="organizer-showcase-icon"><svg class="cactus-ui-icon" aria-hidden="true"><use href="#cactusIconTasks"></use></svg></div><div class="organizer-showcase-copy"><small>Votre organisation</small><strong id="tasksHeroTitle">Ce qu’il reste à faire</strong><p id="tasksHeroText">Répartissez vos tâches et avancez ensemble.</p></div><div class="organizer-showcase-meter"><span id="tasksProgressLabel">0%</span><div><i id="tasksProgressBar"></i></div></div></section>
     <form id="taskForm" class="organizer-form organizer-creation-panel" style="display:none;">
         <div class="organizer-form-heading"><div><small id="taskFormKicker">Nouvelle tâche</small><strong id="taskFormTitle">Que faut-il faire ?</strong></div><button type="button" id="cancelTaskEditBtn" style="display:none;">Annuler</button></div>
         <input id="taskTitleInput" type="text" maxlength="100" required placeholder="Titre de la tâche">
@@ -274,13 +275,13 @@
         <button type="submit" id="saveTaskBtn">Ajouter la tâche</button>
     </form>
     <nav class="organizer-filters" aria-label="Filtrer les tâches"><button type="button" class="is-active" data-task-filter="pending">À faire</button><button type="button" data-task-filter="completed">Terminées</button><button type="button" data-task-filter="all">Toutes</button></nav>
-    <div id="tasksList" class="organizer-list"></div><div id="tasksEmptyState" class="organizer-empty"><svg class="cactus-ui-icon"><use href="#cactusIconTasks"></use></svg><strong>Aucune tâche ici</strong><p>Ajoutez votre première tâche partagée.</p></div>
+    <div id="tasksList" class="organizer-list"></div><div id="tasksEmptyState" class="organizer-empty organizer-empty-beautified"><div class="organizer-empty-orbit"><i></i><i></i><i></i><svg class="cactus-ui-icon"><use href="#cactusIconTasks"></use></svg></div><strong>Votre tableau est tout léger</strong><p>Ajoutez une première chose à faire ensemble.</p><button type="button" onclick="document.getElementById('showTaskFormBtn').click()">+ Ajouter une tâche</button></div>
 </div>
 
 <!-- ÉCRAN RAPPELS -->
 <div id="remindersScreen" class="secondary-screen daily-organizer-screen" style="display:none;">
     <header class="organizer-header"><button type="button" id="backFromRemindersBtn" aria-label="Retour">‹</button><div><small>Notre quotidien</small><h1>Nos rappels</h1></div><span id="remindersUpcomingCount" hidden>0 à venir</span><button type="button" id="showReminderFormBtn" class="organizer-add-button" aria-label="Ajouter un rappel">+</button></header>
-    <section class="organizer-hero is-reminder"><svg class="cactus-ui-icon" aria-hidden="true"><use href="#cactusIconBell"></use></svg><div><small>À ne pas oublier</small><strong>Vos prochains rappels</strong><p>Une date, une heure et Cactus garde l’information.</p></div></section>
+    <section class="organizer-hero is-reminder organizer-showcase reminder-showcase"><div class="organizer-showcase-icon"><svg class="cactus-ui-icon" aria-hidden="true"><use href="#cactusIconBell"></use></svg></div><div class="organizer-showcase-copy"><small>À ne pas oublier</small><strong id="remindersHeroTitle">Vos prochains rappels</strong><p id="remindersHeroText">Une date, une heure et Cactus garde l’information.</p></div><div id="remindersHeroNext" class="organizer-showcase-next">Rien de prévu</div></section>
     <form id="reminderForm" class="organizer-form organizer-creation-panel" style="display:none;">
         <div class="organizer-form-heading"><div><small id="reminderFormKicker">Nouveau rappel</small><strong id="reminderFormTitle">Que faut-il retenir ?</strong></div><button type="button" id="cancelReminderEditBtn" style="display:none;">Annuler</button></div>
         <input id="reminderTitleInput" type="text" maxlength="100" required placeholder="Titre du rappel">
@@ -289,7 +290,7 @@
         <button type="submit" id="saveReminderBtn">Ajouter le rappel</button>
     </form>
     <nav class="organizer-filters" aria-label="Filtrer les rappels"><button type="button" class="is-active" data-reminder-filter="upcoming">À venir</button><button type="button" data-reminder-filter="past">Passés</button><button type="button" data-reminder-filter="all">Tous</button></nav>
-    <div id="remindersList" class="organizer-list"></div><div id="remindersEmptyState" class="organizer-empty"><svg class="cactus-ui-icon"><use href="#cactusIconBell"></use></svg><strong>Aucun rappel ici</strong><p>Créez un rappel partagé pour commencer.</p></div>
+    <div id="remindersList" class="organizer-list"></div><div id="remindersEmptyState" class="organizer-empty organizer-empty-beautified"><div class="organizer-empty-orbit reminder-orbit"><i></i><i></i><i></i><svg class="cactus-ui-icon"><use href="#cactusIconBell"></use></svg></div><strong>Rien ne sonne pour l’instant</strong><p>Posez ici les petites choses que vous ne voulez pas oublier.</p><button type="button" onclick="document.getElementById('showReminderFormBtn').click()">+ Créer un rappel</button></div>
 </div>
 
 <!-- ÉCRAN CALENDRIER COMMUN -->
@@ -304,49 +305,55 @@
         </div>
     </header>
 
-    <section class="couple-calendar-hero">
+    <section class="couple-calendar-hero couple-calendar-hero-compact">
         <div class="couple-calendar-hero-sky" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
         <div class="couple-calendar-hero-icon" aria-hidden="true"><svg class="cactus-ui-icon"><use href="#cactusIconCalendar"></use></svg><span id="calendarHeroEmoji">💚</span></div>
-        <div><small>Votre temps à deux</small><strong>Chaque date raconte un morceau de votre histoire.</strong><p>Ajoutez vos retrouvailles, anniversaires, voyages, projets ou petits événements. Cactus transforme automatiquement les moments à venir en comptes à rebours.</p></div>
+        <div><small>Votre temps à deux</small><strong>Votre histoire, date après date.</strong><p>Retrouvailles, anniversaires, voyages et petits moments réunis au même endroit.</p></div>
     </section>
 
-    <section id="calendarCustomizerPanel" class="calendar-customizer-panel" style="display:none;">
+    <section id="calendarCustomizerPanel" class="calendar-customizer-panel" style="display:none;" aria-label="Personnalisation du calendrier">
         <div class="calendar-customizer-heading">
-            <div><small>Votre calendrier, votre univers</small><h2>Personnaliser notre calendrier</h2><p>Ces choix sont partagés : vous verrez toutes les deux la même ambiance.</p></div>
+            <div><small>Votre calendrier, votre univers</small><h2>Personnaliser notre calendrier</h2><p>L’apparence claire ou sombre suit automatiquement le thème de l’application.</p></div>
             <button type="button" id="closeCalendarCustomizerBtn" aria-label="Fermer">×</button>
         </div>
 
+        <div class="calendar-customizer-preview" aria-hidden="true">
+            <div class="calendar-customizer-preview-icon"><span id="calendarCustomizerPreviewSymbol">💚</span></div>
+            <div><small>Aperçu partagé</small><strong id="calendarCustomizerPreviewTitle">Notre calendrier</strong><span>12 · 13 · 14 · <b>15</b> · 16</span></div>
+        </div>
+
         <div class="calendar-customizer-section">
-            <span class="calendar-customizer-label">Ambiance</span>
-            <div id="calendarThemeChoices" class="calendar-theme-choices" role="radiogroup" aria-label="Ambiance du calendrier">
-                <button type="button" data-calendar-theme="cactus"><i></i><strong>Cactus</strong><small>Vert doux</small></button>
-                <button type="button" data-calendar-theme="cream"><i></i><strong>Crème</strong><small>Chaleureux</small></button>
-                <button type="button" data-calendar-theme="lavender"><i></i><strong>Lavande</strong><small>Tout doux</small></button>
-                <button type="button" data-calendar-theme="sunset"><i></i><strong>Sunset</strong><small>Pêche rosée</small></button>
+            <span class="calendar-customizer-label">Palette de couleur</span>
+            <div id="calendarThemeChoices" class="calendar-theme-choices" role="radiogroup" aria-label="Palette du calendrier">
+                <button type="button" data-calendar-theme="cactus"><i></i><strong>Cactus</strong><small>Vert frais</small></button>
+                <button type="button" data-calendar-theme="cream"><i></i><strong>Sable</strong><small>Doré doux</small></button>
+                <button type="button" data-calendar-theme="lavender"><i></i><strong>Lavande</strong><small>Violet tendre</small></button>
+                <button type="button" data-calendar-theme="sunset"><i></i><strong>Corail</strong><small>Rose chaud</small></button>
                 <button type="button" data-calendar-theme="ocean"><i></i><strong>Océan</strong><small>Bleu calme</small></button>
-                <button type="button" data-calendar-theme="night"><i></i><strong>Nuit</strong><small>Étoilé</small></button>
+                <button type="button" data-calendar-theme="night"><i></i><strong>Myrtille</strong><small>Bleu violet</small></button>
             </div>
         </div>
 
         <div class="calendar-customizer-grid">
             <div class="calendar-customizer-control">
-                <span>Couleur principale</span>
+                <span>Couleur précise</span>
                 <input type="hidden" id="calendarAccentInput" value="#72D59D">
                 <button type="button" id="calendarAccentButton" class="notebook-color-button calendar-accent-button" style="--control-color:#72D59D"><span aria-hidden="true"></span><span>Choisir une couleur</span><small>#72D59D</small></button>
             </div>
-            <label class="calendar-customizer-control calendar-symbol-control"><span>Votre symbole</span><div><input id="calendarSymbolInput" type="text" maxlength="8" value="💚" inputmode="text" aria-label="Emoji du calendrier"><small>N’importe quel emoji</small></div></label>
-            <label class="calendar-customizer-control"><span>La semaine commence</span><select id="calendarWeekStartInput"><option value="monday">Lundi</option><option value="sunday">Dimanche</option></select></label>
-            <label class="calendar-customizer-control"><span>Événements dans les cases</span><select id="calendarEventStyleInput"><option value="emoji">Emojis</option><option value="dots">Points colorés</option><option value="soft">Emojis discrets</option></select></label>
+            <label class="calendar-customizer-control calendar-symbol-control"><span>Symbole du calendrier</span><div><input id="calendarSymbolInput" type="text" maxlength="8" value="💚" inputmode="text" aria-label="Emoji du calendrier"><small>Votre emoji</small></div></label>
+            <label class="calendar-customizer-control"><span>Style des cases</span><select id="calendarLookInput"><option value="soft">Doux et arrondi</option><option value="clean">Minimaliste</option><option value="story">Carnet de souvenirs</option></select></label>
+            <label class="calendar-customizer-control"><span>Événements dans les jours</span><select id="calendarEventStyleInput"><option value="emoji">Emojis</option><option value="dots">Points colorés</option><option value="soft">Emojis discrets</option></select></label>
+            <label class="calendar-customizer-control"><span>Premier jour de la semaine</span><select id="calendarWeekStartInput"><option value="monday">Lundi</option><option value="sunday">Dimanche</option></select></label>
         </div>
 
         <div class="calendar-customizer-toggles">
-            <label><input id="calendarWeekendTintInput" type="checkbox" checked><span><strong>Colorer légèrement les week-ends</strong><small>Pour mieux repérer vos jours à deux.</small></span></label>
-            <label><input id="calendarDecorationsInput" type="checkbox" checked><span><strong>Garder les petites décorations</strong><small>Étoiles et détails animés autour du calendrier.</small></span></label>
+            <label><input id="calendarWeekendTintInput" type="checkbox" checked><span><strong>Différencier les week-ends</strong><small>Une légère nuance pour les repérer.</small></span></label>
+            <label><input id="calendarDecorationsInput" type="checkbox" checked><span><strong>Petits détails animés</strong><small>Quelques étoiles discrètes autour du calendrier.</small></span></label>
         </div>
 
         <div class="calendar-customizer-actions">
             <button type="button" id="resetCalendarSettingsBtn" class="secondary">Réinitialiser</button>
-            <button type="button" id="saveCalendarSettingsBtn">Appliquer à notre calendrier</button>
+            <button type="button" id="saveCalendarSettingsBtn">Enregistrer pour nous deux</button>
         </div>
     </section>
 
@@ -2580,7 +2587,7 @@
     <script src="js/storage.js"></script>
     <script src="js/rankings.js"></script>
     <script src="js/questions.js"></script>
-    <script src="js/script.js?v=95"></script>
+    <script src="js/script.js?v=96"></script>
 
 </body>
 </html>

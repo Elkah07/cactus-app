@@ -276,12 +276,14 @@ const calendarAccentInput = document.getElementById("calendarAccentInput");
 const calendarAccentButton = document.getElementById("calendarAccentButton");
 const calendarSymbolInput = document.getElementById("calendarSymbolInput");
 const calendarWeekStartInput = document.getElementById("calendarWeekStartInput");
+const calendarLookInput = document.getElementById("calendarLookInput");
 const calendarEventStyleInput = document.getElementById("calendarEventStyleInput");
 const calendarWeekendTintInput = document.getElementById("calendarWeekendTintInput");
 const calendarDecorationsInput = document.getElementById("calendarDecorationsInput");
 const saveCalendarSettingsBtn = document.getElementById("saveCalendarSettingsBtn");
 const resetCalendarSettingsBtn = document.getElementById("resetCalendarSettingsBtn");
 const calendarHeroEmoji = document.getElementById("calendarHeroEmoji");
+const calendarCustomizerPreviewSymbol = document.getElementById("calendarCustomizerPreviewSymbol");
 const calendarSelectedDateTitle = document.getElementById("calendarSelectedDateTitle");
 const calendarSelectedDateEvents = document.getElementById("calendarSelectedDateEvents");
 const calendarSelectedDateEmpty = document.getElementById("calendarSelectedDateEmpty");
@@ -2460,6 +2462,11 @@ function renderShoppingList(items) {
         ? "Votre liste est synchronisée sur vos deux comptes."
         : entries.length ? "Vous avez terminé cette liste de courses." : "Ajoutez votre premier article.";
     clearCompletedShoppingBtn.style.display = completedCount ? "block" : "none";
+    const shoppingProgress = entries.length ? Math.round((completedCount / entries.length) * 100) : 0;
+    const shoppingProgressLabel = document.getElementById("shoppingProgressLabel");
+    const shoppingProgressBar = document.getElementById("shoppingProgressBar");
+    if (shoppingProgressLabel) shoppingProgressLabel.textContent = shoppingProgress + "%";
+    if (shoppingProgressBar) shoppingProgressBar.style.width = shoppingProgress + "%";
 
     const visibleEntries = entries
         .filter(([, item]) => activeShoppingFilter === "all" ||
@@ -2822,6 +2829,16 @@ function renderTasks(tasks) {
     const entries = Object.entries(currentTasks);
     const pending = entries.filter(([, task]) => !task.completed).length;
     tasksPendingCount.textContent = pending + " à faire";
+    const completed = entries.length - pending;
+    const taskProgress = entries.length ? Math.round((completed / entries.length) * 100) : 0;
+    const tasksProgressLabel = document.getElementById("tasksProgressLabel");
+    const tasksProgressBar = document.getElementById("tasksProgressBar");
+    const tasksHeroTitle = document.getElementById("tasksHeroTitle");
+    const tasksHeroText = document.getElementById("tasksHeroText");
+    if (tasksProgressLabel) tasksProgressLabel.textContent = taskProgress + "%";
+    if (tasksProgressBar) tasksProgressBar.style.width = taskProgress + "%";
+    if (tasksHeroTitle) tasksHeroTitle.textContent = entries.length ? (pending ? pending + " tâche" + (pending > 1 ? "s" : "") + " à faire" : "Tout est terminé ✨") : "Votre tableau est prêt";
+    if (tasksHeroText) tasksHeroText.textContent = entries.length ? (completed + " terminée" + (completed > 1 ? "s" : "") + " sur " + entries.length) : "Ajoutez ce que vous voulez avancer ensemble.";
     const visible = entries.filter(([, task]) => activeTaskFilter === "all" || (activeTaskFilter === "completed" ? task.completed : !task.completed))
         .sort((a, b) => Number(a[1].completed) - Number(b[1].completed) || (a[1].dueDate || "9999").localeCompare(b[1].dueDate || "9999") || (b[1].createdAt || 0) - (a[1].createdAt || 0));
     tasksList.replaceChildren(...visible.map(([id, task]) => createOrganizerItem({
@@ -2860,6 +2877,14 @@ function resetReminderForm() {
 function getReminderTimestamp(reminder) { return new Date((reminder.date || "9999-12-31") + "T" + (reminder.time || "23:59")).getTime(); }
 function renderReminders(reminders) {
     currentReminders = reminders || {}; const entries = Object.entries(currentReminders); const now = Date.now(); const upcoming = entries.filter(([, item]) => getReminderTimestamp(item) >= now).length; remindersUpcomingCount.textContent = upcoming + " à venir";
+    const futureEntries = entries.filter(([, item]) => getReminderTimestamp(item) >= now).sort((a, b) => getReminderTimestamp(a[1]) - getReminderTimestamp(b[1]));
+    const nextReminder = futureEntries[0]?.[1] || null;
+    const remindersHeroTitle = document.getElementById("remindersHeroTitle");
+    const remindersHeroText = document.getElementById("remindersHeroText");
+    const remindersHeroNext = document.getElementById("remindersHeroNext");
+    if (remindersHeroTitle) remindersHeroTitle.textContent = nextReminder ? nextReminder.title : "Vos prochains rappels";
+    if (remindersHeroText) remindersHeroText.textContent = nextReminder ? formatOrganizerDate(nextReminder.date, nextReminder.time) : "Posez ici les petites choses à ne pas oublier.";
+    if (remindersHeroNext) remindersHeroNext.textContent = nextReminder ? getCountdownLabel({ date: nextReminder.date, time: nextReminder.time }) : "Rien de prévu";
     const visible = entries.filter(([, item]) => activeReminderFilter === "all" || (activeReminderFilter === "past" ? getReminderTimestamp(item) < now : getReminderTimestamp(item) >= now)).sort((a, b) => getReminderTimestamp(a[1]) - getReminderTimestamp(b[1]));
     renderOrganizerGroups(remindersList, visible, getReminderTimestamp, ([id, item]) => createOrganizerItem({ title: item.title, details: item.details, badges: [{ label: formatOrganizerDate(item.date, item.time), className: "is-date" }, { label: getOrganizerPersonLabel(item.target), className: "is-person" }], meta: "Créé par " + (item.createdByPseudo || "Cactus"), overdue: getReminderTimestamp(item) < now,
         onEdit: () => { editingReminderId = id; reminderTitleInput.value = item.title || ""; reminderDetailsInput.value = item.details || ""; reminderDateInput.value = item.date || ""; reminderTimeInput.value = item.time || ""; prepareOrganizerAssignees(reminderTargetInput); reminderTargetInput.value = item.target || "both"; reminderFormKicker.textContent = "Modification"; reminderFormTitle.textContent = "Modifier ce rappel"; saveReminderBtn.textContent = "Enregistrer"; cancelReminderEditBtn.style.display = "block"; reminderForm.style.display = "block"; reminderForm.scrollIntoView({ behavior: "smooth" }); },
@@ -2908,6 +2933,7 @@ const DEFAULT_COUPLE_CALENDAR_SETTINGS = {
     accent: "#72D59D",
     symbol: "💚",
     weekStart: "monday",
+    look: "soft",
     eventStyle: "emoji",
     weekendTint: true,
     decorations: true
@@ -2924,6 +2950,7 @@ function normalizeCoupleCalendarSettings(value = {}) {
         accent,
         symbol: String(value.symbol || COUPLE_CALENDAR_THEMES[theme].symbol || "💚").trim().slice(0, 8) || "💚",
         weekStart: value.weekStart === "sunday" ? "sunday" : "monday",
+        look: ["soft", "clean", "story"].includes(value.look) ? value.look : "soft",
         eventStyle: ["emoji", "dots", "soft"].includes(value.eventStyle) ? value.eventStyle : "emoji",
         weekendTint: value.weekendTint !== false,
         decorations: value.decorations !== false
@@ -2961,7 +2988,9 @@ function syncCalendarCustomizerControls(settings = draftCoupleCalendarSettings) 
     }
     if (calendarSymbolInput) calendarSymbolInput.value = settings.symbol;
     if (calendarWeekStartInput) calendarWeekStartInput.value = settings.weekStart;
+    if (calendarLookInput) calendarLookInput.value = settings.look;
     if (calendarEventStyleInput) calendarEventStyleInput.value = settings.eventStyle;
+    if (calendarCustomizerPreviewSymbol) calendarCustomizerPreviewSymbol.textContent = settings.symbol;
     if (calendarWeekendTintInput) calendarWeekendTintInput.checked = settings.weekendTint;
     if (calendarDecorationsInput) calendarDecorationsInput.checked = settings.decorations;
 }
@@ -2970,6 +2999,7 @@ function applyCoupleCalendarSettings(settings, { rerender = false } = {}) {
     activeCoupleCalendarSettings = normalizeCoupleCalendarSettings(settings);
     if (importantDatesScreen) {
         importantDatesScreen.dataset.calendarTheme = activeCoupleCalendarSettings.theme;
+        importantDatesScreen.dataset.calendarLook = activeCoupleCalendarSettings.look;
         importantDatesScreen.dataset.calendarEventStyle = activeCoupleCalendarSettings.eventStyle;
         importantDatesScreen.classList.toggle("show-weekend-tint", activeCoupleCalendarSettings.weekendTint);
         importantDatesScreen.classList.toggle("hide-calendar-decorations", !activeCoupleCalendarSettings.decorations);
@@ -2990,11 +3020,12 @@ function openCalendarCustomizer() {
     syncCalendarCustomizerControls(draftCoupleCalendarSettings);
     applyCoupleCalendarSettings(draftCoupleCalendarSettings, { rerender: true });
     calendarCustomizerPanel.style.display = "block";
-    calendarCustomizerPanel.scrollIntoView({ behavior: "smooth", block: "start" });
+    document.body.classList.add("calendar-customizer-open");
 }
 
 function closeCalendarCustomizer({ restore = true } = {}) {
     calendarCustomizerPanel.style.display = "none";
+    document.body.classList.remove("calendar-customizer-open");
     if (restore && calendarCustomizerWasPreviewing) applyCoupleCalendarSettings(getCoupleCalendarSettings(), { rerender: true });
     calendarCustomizerWasPreviewing = false;
 }
@@ -3005,6 +3036,7 @@ function previewCalendarCustomizer() {
         accent: calendarAccentInput?.value || draftCoupleCalendarSettings.accent,
         symbol: calendarSymbolInput?.value || draftCoupleCalendarSettings.symbol,
         weekStart: calendarWeekStartInput?.value || draftCoupleCalendarSettings.weekStart,
+        look: calendarLookInput?.value || draftCoupleCalendarSettings.look,
         eventStyle: calendarEventStyleInput?.value || draftCoupleCalendarSettings.eventStyle,
         weekendTint: Boolean(calendarWeekendTintInput?.checked),
         decorations: Boolean(calendarDecorationsInput?.checked)
@@ -3352,7 +3384,7 @@ calendarThemeChoices?.querySelectorAll("[data-calendar-theme]").forEach((button)
         previewCalendarCustomizer();
     });
 });
-[calendarSymbolInput, calendarWeekStartInput, calendarEventStyleInput, calendarWeekendTintInput, calendarDecorationsInput].forEach((control) => {
+[calendarSymbolInput, calendarWeekStartInput, calendarLookInput, calendarEventStyleInput, calendarWeekendTintInput, calendarDecorationsInput].forEach((control) => {
     control?.addEventListener(control?.type === "checkbox" ? "change" : "input", previewCalendarCustomizer);
     if (control?.tagName === "SELECT") control.addEventListener("change", previewCalendarCustomizer);
 });
@@ -3370,6 +3402,7 @@ saveCalendarSettingsBtn?.addEventListener("click", () => {
             calendarCustomizerWasPreviewing = false;
             applyCoupleCalendarSettings(payload, { rerender: true });
             calendarCustomizerPanel.style.display = "none";
+            document.body.classList.remove("calendar-customizer-open");
             showToast("Votre calendrier a changé d’ambiance ✨");
         })
         .catch(() => showToast("Impossible d’enregistrer la personnalisation"))
