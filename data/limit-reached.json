@@ -1,62 +1,188 @@
 [
   {
-    "id": "limit_001",
+    "id": "ex_encore_present",
+    "title": "L’ex encore présent",
     "category": "ex",
-    "question": "Ton/ta partenaire répond à un message d’un ex avec qui il/elle a eu une histoire importante."
+    "levels": [
+      {
+        "level": 1,
+        "question": "Ton/ta partenaire suit toujours son ex sur les réseaux."
+      },
+      {
+        "level": 2,
+        "question": "Ton/ta partenaire et son ex se souhaitent leur anniversaire chaque année."
+      },
+      {
+        "level": 3,
+        "question": "Ton/ta partenaire discute parfois par message avec son ex."
+      },
+      {
+        "level": 4,
+        "question": "Ton/ta partenaire appelle parfois son ex pour prendre de ses nouvelles."
+      },
+      {
+        "level": 5,
+        "question": "Ton/ta partenaire voit son ex seul(e) pour boire un verre."
+      },
+      {
+        "level": 6,
+        "question": "L’ex de ton/ta partenaire lui propose de dormir chez lui/elle après une soirée."
+      }
+    ]
   },
   {
-    "id": "limit_002",
-    "category": "réseaux",
-    "question": "Ton/ta partenaire échange régulièrement des messages privés avec quelqu’un qui le/la drague clairement."
+    "id": "collegue_tres_proche",
+    "title": "Le/la collègue très proche",
+    "category": "travail",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Ton/ta partenaire parle souvent d’un(e) collègue qu’il/elle apprécie beaucoup."
+      },
+      {
+        "level": 2,
+        "question": "Ils s’envoient parfois des messages en dehors du travail."
+      },
+      {
+        "level": 3,
+        "question": "Ils déjeunent régulièrement tous les deux pendant leur pause."
+      },
+      {
+        "level": 4,
+        "question": "Ils se confient l’un à l’autre sur leurs problèmes personnels."
+      },
+      {
+        "level": 5,
+        "question": "Ils commencent à se voir seuls en dehors du travail."
+      },
+      {
+        "level": 6,
+        "question": "Ce/cette collègue avoue à ton/ta partenaire qu’il/elle a des sentiments pour lui/elle."
+      }
+    ]
   },
   {
-    "id": "limit_003",
+    "id": "soiree_sans_toi",
+    "title": "La soirée sans toi",
     "category": "sorties",
-    "question": "Ton/ta partenaire rentre très tard d’une soirée sans t’avoir prévenu(e)."
+    "levels": [
+      {
+        "level": 1,
+        "question": "Ton/ta partenaire sort en soirée sans toi avec ses amis."
+      },
+      {
+        "level": 2,
+        "question": "Il/elle rentre beaucoup plus tard que prévu sans t’avoir prévenu(e)."
+      },
+      {
+        "level": 3,
+        "question": "Il/elle passe une bonne partie de la soirée avec un groupe de personnes que tu ne connais pas."
+      },
+      {
+        "level": 4,
+        "question": "Quelqu’un flirte ouvertement avec lui/elle pendant la soirée."
+      },
+      {
+        "level": 5,
+        "question": "Ton/ta partenaire échange son numéro avec cette personne."
+      },
+      {
+        "level": 6,
+        "question": "Après la soirée, cette personne propose à ton/ta partenaire de finir la nuit chez elle."
+      }
+    ]
   },
   {
-    "id": "limit_004",
+    "id": "telephone_prive",
+    "title": "Le téléphone et la vie privée",
+    "category": "vie_privee",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Ton/ta partenaire connaît le code de ton téléphone."
+      },
+      {
+        "level": 2,
+        "question": "Il/elle prend parfois ton téléphone pour chercher quelque chose sans demander."
+      },
+      {
+        "level": 3,
+        "question": "Il/elle regarde qui t’envoie un message quand une notification apparaît."
+      },
+      {
+        "level": 4,
+        "question": "Il/elle ouvre parfois tes conversations pour voir avec qui tu parles."
+      },
+      {
+        "level": 5,
+        "question": "Il/elle te demande de lui montrer une conversation qui le/la rend méfiant(e)."
+      },
+      {
+        "level": 6,
+        "question": "Il/elle considère qu’en couple, vous ne devriez avoir aucun message privé l’un pour l’autre."
+      }
+    ]
+  },
+  {
+    "id": "meilleur_ami_tres_present",
+    "title": "Le/la meilleur(e) ami(e) très présent(e)",
     "category": "amis",
-    "question": "Ton/ta partenaire dort chez une personne avec qui il/elle pourrait potentiellement y avoir une ambiguïté."
+    "levels": [
+      {
+        "level": 1,
+        "question": "Ton/ta partenaire parle tous les jours avec son/sa meilleur(e) ami(e)."
+      },
+      {
+        "level": 2,
+        "question": "Cette personne connaît beaucoup de détails sur votre relation."
+      },
+      {
+        "level": 3,
+        "question": "Ton/ta partenaire lui raconte parfois vos disputes."
+      },
+      {
+        "level": 4,
+        "question": "Il/elle lui demande conseil avant de prendre certaines décisions qui concernent votre couple."
+      },
+      {
+        "level": 5,
+        "question": "Ton/ta partenaire annule parfois un moment prévu avec toi pour aller aider cette personne."
+      },
+      {
+        "level": 6,
+        "question": "Cette personne te critique ouvertement et ton/ta partenaire continue de tout lui raconter sur votre couple."
+      }
+    ]
   },
   {
-    "id": "limit_005",
-    "category": "intimité",
-    "question": "Ton/ta partenaire raconte un détail très intime de votre couple à son/sa meilleur(e) ami(e)."
-  },
-  {
-    "id": "limit_006",
-    "category": "téléphone",
-    "question": "Ton/ta partenaire prend ton téléphone et lit une conversation privée sans te demander."
-  },
-  {
-    "id": "limit_007",
-    "category": "argent",
-    "question": "Ton/ta partenaire dépense une grosse somme d’argent commune sans t’en parler avant."
-  },
-  {
-    "id": "limit_008",
-    "category": "famille",
-    "question": "Ton/ta partenaire laisse sa famille intervenir directement dans une dispute entre vous."
-  },
-  {
-    "id": "limit_009",
-    "category": "quotidien",
-    "question": "Ton/ta partenaire annule régulièrement vos plans au dernier moment pour voir ses amis."
-  },
-  {
-    "id": "limit_010",
-    "category": "distance",
-    "question": "Ton/ta partenaire peut rester une journée entière sans donner de nouvelles alors que vous êtes à distance."
-  },
-  {
-    "id": "limit_011",
-    "category": "jalousie",
-    "question": "Ton/ta partenaire te demande d’arrêter de parler à une personne uniquement parce qu’elle le/la rend jaloux(se)."
-  },
-  {
-    "id": "limit_012",
-    "category": "réseaux",
-    "question": "Ton/ta partenaire garde volontairement votre relation secrète sur tous ses réseaux sociaux."
+    "id": "reseaux_et_flirt",
+    "title": "Les réseaux et le flirt",
+    "category": "reseaux_sociaux",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Ton/ta partenaire suit beaucoup de personnes qu’il/elle trouve attirantes."
+      },
+      {
+        "level": 2,
+        "question": "Il/elle aime régulièrement leurs photos."
+      },
+      {
+        "level": 3,
+        "question": "Il/elle répond parfois à leurs stories avec des compliments."
+      },
+      {
+        "level": 4,
+        "question": "Une de ces personnes commence à lui envoyer des messages privés et il/elle répond."
+      },
+      {
+        "level": 5,
+        "question": "Les messages deviennent clairement ambigus, mais ton/ta partenaire continue la conversation."
+      },
+      {
+        "level": 6,
+        "question": "Cette personne propose de rencontrer ton/ta partenaire en tête-à-tête."
+      }
+    ]
   }
 ]

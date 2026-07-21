@@ -1066,18 +1066,18 @@ const relationStatsModes = [
         color: "#f5bd55"
     },
     {
+        key: "limitReached",
+        label: "Limite atteinte",
+        icon: "⛔",
+        path: "limitReachedChallenges",
+        color: "#b792e8"
+    },
+    {
         key: "coupleDare",
         label: "Défis à deux",
         icon: "★",
         path: "coupleDareChallenges",
         color: "#a7dd6f"
-    },
-    {
-        key: "limitReached",
-        label: "Limite atteinte",
-        icon: "⛔",
-        path: "limitReachedChallenges",
-        color: "#f08f78"
     }
 ];
 
@@ -1086,7 +1086,7 @@ let activeRealtimeSpaceCode = "";
 let activeRealtimeSubscriptions = [];
 let wouldRatherQuestions = [];
 let threeYesNoSituations = [];
-let limitReachedQuestions = [];
+let limitReachedScenarios = [];
 let coupleDares = [];
 let activeNewGameMode = null;
 let activeNewGameId = null;
@@ -1292,7 +1292,7 @@ async function loadNewGamesData() {
         fetch("data/couple-dares.json")
     ]);
 
-    [wouldRatherQuestions, threeYesNoSituations, limitReachedQuestions, coupleDares] = await Promise.all([
+    [wouldRatherQuestions, threeYesNoSituations, limitReachedScenarios, coupleDares] = await Promise.all([
         wouldRatherResponse.json(),
         threeYesNoResponse.json(),
         limitReachedResponse.json(),
@@ -3761,10 +3761,9 @@ const GAMES_LIBRARY = {
     },
     limitReached: {
         title: "Limite atteinte",
-        category: "Limites & débats",
-        duration: "3 min",
-        image: "assets/cactus-three-yes-no.webp",
-        description: "Réagissez secrètement à des situations de couple avec trois niveaux : aucun problème, ça me dérange un peu ou stop. Puis comparez où se trouvent vos limites."
+        category: "Limites & découverte",
+        image: "assets/cactus-ok.png",
+        description: "Avancez chacun à votre rythme dans une situation qui s'intensifie. Arrêtez-vous dès que votre limite est atteinte, puis découvrez jusqu'où l'autre serait allé."
     },
     coupleDare: {
         title: "Défis à deux",
@@ -4339,14 +4338,8 @@ document.addEventListener("keydown", (event) => {
 const NEW_GAME_MODES = {
     wouldRather: { path: "wouldRatherChallenges", title: "Tu préfères ?", category: "Choix secret" },
     threeYesNo: { path: "threeYesNoChallenges", title: "3 oui / 3 non", category: "Tes limites" },
-    limitReached: { path: "limitReachedChallenges", title: "Limite atteinte", category: "Vos limites" },
+    limitReached: { path: "limitReachedChallenges", title: "Limite atteinte", category: "Jusqu'où ça passe ?" },
     coupleDare: { path: "coupleDareChallenges", title: "Défis à deux", category: "Mission commune" }
-};
-
-const LIMIT_REACHED_OPTIONS = {
-    okay: { label: "Aucun problème", score: 0 },
-    bothered: { label: "Ça me dérange un peu", score: 1 },
-    stop: { label: "Stop", score: 2 }
 };
 
 function shuffleNewGameItems(items) {
@@ -4363,16 +4356,23 @@ function getNewGameChallenges(mode, spaceData = currentSpaceData) {
     return path ? (spaceData?.[path] || {}) : {};
 }
 
+function isNewGameChallengeAvailableToCurrentUser(mode, challenge) {
+    if (!challenge || ["completed", "skipped"].includes(challenge.status)) return false;
+    if (mode !== "limitReached") return true;
+    if (challenge.createdBy === currentUser?.uid) return true;
+    return Boolean(challenge.results?.[challenge.createdBy]);
+}
+
 function findOpenNewGameChallenge(mode) {
     return Object.entries(getNewGameChallenges(mode))
-        .filter(([, challenge]) => !["completed", "skipped"].includes(challenge?.status))
+        .filter(([, challenge]) => isNewGameChallengeAvailableToCurrentUser(mode, challenge))
         .sort((a, b) => (b[1].createdAt || 0) - (a[1].createdAt || 0))[0] || null;
 }
 
 function getNewGameSource(mode) {
     if (mode === "wouldRather") return wouldRatherQuestions;
     if (mode === "threeYesNo") return threeYesNoSituations;
-    if (mode === "limitReached") return limitReachedQuestions;
+    if (mode === "limitReached") return limitReachedScenarios;
     if (mode === "coupleDare") return coupleDares;
     return [];
 }
@@ -4387,6 +4387,16 @@ function buildNewGameChallenge(mode) {
         createdBy: currentUser.uid
     };
 
+    if (mode === "limitReached") {
+        const scenario = selectFreshGameItem(
+            source,
+            mode,
+            null,
+            NEW_GAME_MODES[mode].path
+        );
+        return { ...common, scenario, results: {} };
+    }
+
     if (mode === "threeYesNo") {
         return { ...common, situations: shuffleNewGameItems(source).slice(0, 6) };
     }
@@ -4397,13 +4407,9 @@ function buildNewGameChallenge(mode) {
         null,
         NEW_GAME_MODES[mode].path
     );
-    if (mode === "coupleDare") {
-        return { ...common, dare: selected, votes: {} };
-    }
-    if (mode === "limitReached") {
-        return { ...common, question: selected.question, prompt: selected, answers: {} };
-    }
-    return { ...common, prompt: selected, answers: {} };
+    return mode === "coupleDare"
+        ? { ...common, dare: selected, votes: {} }
+        : { ...common, prompt: selected, answers: {} };
 }
 
 function createNewGameChoice(label, value, className = "") {
@@ -4423,7 +4429,6 @@ function resetNewGameStage() {
     newGameAgainBtn.style.display = "none";
     newGameDoneBtn.style.display = "none";
     newGamePromptDetails.textContent = "";
-    newGameChoices.classList.remove("is-three-options");
 }
 
 function startNewGame(mode, forceNew = false) {
@@ -4612,82 +4617,170 @@ function submitThreeYesNoAnswer(index, choice) {
         .catch((error) => showToast(getFriendlyFirebaseError(error)));
 }
 
-function renderLimitReached(challenge) {
-    const prompt = challenge.prompt;
-    const answers = challenge.answers || {};
-    const myAnswer = answers[currentUser.uid];
-    const answerEntries = Object.entries(answers);
-
-    newGameStepBadge.textContent = "1 limite";
-    newGameProgressBar.style.width = myAnswer ? "100%" : "18%";
-    newGameInstruction.textContent = "Choisissez votre réaction sans regarder celle de l’autre.";
-    newGamePromptKicker.textContent = prompt.category || "Situation";
-    newGamePrompt.textContent = prompt.question;
-
-    if (!myAnswer) {
-        newGameChoices.classList.add("is-three-options");
-        const okay = createNewGameChoice(LIMIT_REACHED_OPTIONS.okay.label, "okay", "choice-yes");
-        const bothered = createNewGameChoice(LIMIT_REACHED_OPTIONS.bothered.label, "bothered", "choice-pass");
-        const stop = createNewGameChoice(LIMIT_REACHED_OPTIONS.stop.label, "stop", "choice-no");
-        okay.addEventListener("click", () => submitLimitReachedAnswer("okay"));
-        bothered.addEventListener("click", () => submitLimitReachedAnswer("bothered"));
-        stop.addEventListener("click", () => submitLimitReachedAnswer("stop"));
-        newGameChoices.append(okay, bothered, stop);
-        return;
-    }
-
-    if (answerEntries.length < 2) {
-        setNewGameStatus("Ta limite est enregistrée", "Ton partenaire doit encore répondre à cette situation.");
-        return;
-    }
-
-    const scores = answerEntries.map(([, answer]) => LIMIT_REACHED_OPTIONS[answer.choice]?.score);
-    const difference = Math.abs(scores[0] - scores[1]);
-    const players = getCouplePlayers(currentSpaceData);
-    const resultTitle = document.createElement("h3");
-    resultTitle.textContent = difference === 0
-        ? "Même limite 💚"
-        : difference === 1
-            ? "Vos limites sont proches"
-            : "Vos limites sont très différentes";
-
-    const resultCopy = document.createElement("p");
-    resultCopy.textContent = difference === 0
-        ? "Vous placez tous les deux cette situation au même niveau."
-        : difference === 1
-            ? "Vous ne réagissez pas exactement pareil, mais vos limites restent assez proches."
-            : "Cette situation mérite peut-être une vraie discussion : vous ne la vivez pas du tout de la même façon.";
-
-    const list = document.createElement("div");
-    list.className = "new-game-answer-pair";
-    answerEntries.forEach(([uid, answer]) => {
-        const line = document.createElement("span");
-        const name = uid === currentUser.uid
-            ? (players.me.pseudo || "Toi")
-            : (players.partner?.pseudo || "Partenaire");
-        line.textContent = name + " : " + (LIMIT_REACHED_OPTIONS[answer.choice]?.label || answer.answer || "Réponse inconnue");
-        list.appendChild(line);
-    });
-
-    newGameResult.append(resultTitle, resultCopy, list);
-    newGameResult.style.display = "block";
-    newGameAgainBtn.style.display = "block";
+function getLimitReachedDraftKey(challengeId = activeNewGameId) {
+    return "cactus_limit_reached_draft_" + (currentUser?.uid || "guest") + "_" + String(challengeId || "");
 }
 
-function submitLimitReachedAnswer(choice) {
-    const option = LIMIT_REACHED_OPTIONS[choice];
-    if (!option) return;
+function getLimitReachedDraft(challenge) {
+    const maxLevel = Math.max(1, challenge?.scenario?.levels?.length || 6);
+    try {
+        const saved = JSON.parse(localStorage.getItem(getLimitReachedDraftKey()) || "null");
+        const levelIndex = Number(saved?.levelIndex);
+        if (Number.isInteger(levelIndex) && levelIndex >= 0 && levelIndex < maxLevel) {
+            return { levelIndex };
+        }
+    } catch (error) {
+        console.warn("Progression Limite atteinte illisible", error);
+    }
+    return { levelIndex: 0 };
+}
+
+function saveLimitReachedDraft(levelIndex) {
+    localStorage.setItem(getLimitReachedDraftKey(), JSON.stringify({ levelIndex, updatedAt: Date.now() }));
+}
+
+function clearLimitReachedDraft() {
+    localStorage.removeItem(getLimitReachedDraftKey());
+}
+
+function getLimitReachedThreshold(result, levelCount = 6) {
+    if (!result) return null;
+    return result.acceptedAll === true ? levelCount + 1 : Number(result.limitLevel || 0);
+}
+
+function getLimitReachedResultLabel(result, scenario) {
+    const levels = scenario?.levels || [];
+    if (result?.acceptedAll === true) {
+        return "Les " + levels.length + " niveaux passent";
+    }
+    const level = Number(result?.limitLevel || 0);
+    const stoppedAt = levels.find((item) => Number(item.level) === level) || levels[level - 1];
+    return stoppedAt
+        ? "Limite au niveau " + level + " · " + stoppedAt.question
+        : "Limite au niveau " + level;
+}
+
+function calculateLimitReachedCompatibility(results, levelCount = 6) {
+    const entries = Object.values(results || {});
+    if (entries.length < 2) return null;
+    const thresholds = entries.map((result) => getLimitReachedThreshold(result, levelCount));
+    if (thresholds.some((value) => !Number.isFinite(value))) return null;
+    const difference = Math.abs(thresholds[0] - thresholds[1]);
+    return Math.max(0, 100 - difference * 20);
+}
+
+function renderLimitReached(challenge) {
+    const scenario = challenge.scenario || {};
+    const levels = Array.isArray(scenario.levels) ? scenario.levels : [];
+    const results = challenge.results || {};
+    const myResult = results[currentUser.uid];
+    const resultEntries = Object.entries(results);
+
+    if (!levels.length) {
+        newGameStepBadge.textContent = "—";
+        newGameProgressBar.style.width = "0%";
+        newGamePromptKicker.textContent = "Limite atteinte";
+        newGamePrompt.textContent = "Ce parcours est incomplet.";
+        setNewGameStatus("Impossible de lancer ce parcours", "Vérifie que le scénario contient bien ses niveaux dans data/limit-reached.json.");
+        return;
+    }
+
+    if (myResult) {
+        clearLimitReachedDraft();
+        newGameStepBadge.textContent = "Terminé";
+        newGameProgressBar.style.width = "100%";
+        newGameInstruction.textContent = "Ton choix est verrouillé. Il reste secret jusqu'à ce que vous ayez terminé tous les deux.";
+        newGamePromptKicker.textContent = scenario.title || "Parcours terminé";
+        newGamePrompt.textContent = myResult.acceptedAll
+            ? "Pour toi, les " + levels.length + " niveaux passent."
+            : "Ta limite est atteinte au niveau " + myResult.limitLevel + ".";
+
+        if (resultEntries.length < 2) {
+            setNewGameStatus("Ta limite est enregistrée", "Ton/ta partenaire peut faire le même parcours à son rythme. Vos réponses seront révélées seulement quand vous aurez terminé tous les deux.");
+            return;
+        }
+
+        const players = getCouplePlayers(currentSpaceData);
+        const thresholds = resultEntries.map(([, result]) => getLimitReachedThreshold(result, levels.length));
+        const difference = Math.abs(thresholds[0] - thresholds[1]);
+        const resultTitle = document.createElement("h3");
+        resultTitle.textContent = difference === 0
+            ? "Même limite 💚"
+            : difference === 1
+                ? "Vos limites sont très proches"
+                : difference + " niveaux d'écart";
+        const resultCopy = document.createElement("p");
+        resultCopy.textContent = difference === 0
+            ? "Sur ce sujet, vous vous arrêtez exactement au même endroit."
+            : "Vous savez maintenant précisément où vos sensibilités commencent à diverger.";
+        const list = document.createElement("div");
+        list.className = "new-game-answer-pair";
+        resultEntries.forEach(([uid, result]) => {
+            const line = document.createElement("span");
+            const name = uid === currentUser.uid
+                ? (players.me.pseudo || "Toi")
+                : (players.partner?.pseudo || "Partenaire");
+            line.textContent = name + " : " + getLimitReachedResultLabel(result, scenario);
+            list.appendChild(line);
+        });
+        newGameResult.append(resultTitle, resultCopy, list);
+        newGameResult.style.display = "block";
+        newGameAgainBtn.style.display = "block";
+        return;
+    }
+
+    const draft = getLimitReachedDraft(challenge);
+    const levelIndex = Math.min(draft.levelIndex, levels.length - 1);
+    const currentLevel = levels[levelIndex];
+    const isLastLevel = levelIndex === levels.length - 1;
+
+    newGameStepBadge.textContent = (levelIndex + 1) + " / " + levels.length;
+    newGameProgressBar.style.width = Math.round(((levelIndex + 1) / levels.length) * 100) + "%";
+    newGameInstruction.textContent = "Continue tant que la situation te convient. Dès que ça va trop loin pour toi, appuie sur « Limite atteinte ».";
+    newGamePromptKicker.textContent = (scenario.title || "Limite atteinte") + " · Niveau " + (currentLevel.level || levelIndex + 1);
+    newGamePrompt.textContent = currentLevel.question;
+    newGamePromptDetails.textContent = isLastLevel
+        ? "Dernier niveau : si celui-ci te convient aussi, valide les six niveaux."
+        : "Le niveau suivant ira un peu plus loin dans la même situation.";
+
+    const continueButton = createNewGameChoice(
+        isLastLevel ? "Ça passe aussi" : "Ça passe encore",
+        "continue",
+        "choice-yes"
+    );
+    const stopButton = createNewGameChoice("Limite atteinte", "stop", "choice-no");
+
+    continueButton.addEventListener("click", () => {
+        if (isLastLevel) {
+            submitLimitReachedResult({ acceptedAll: true, limitLevel: null });
+            return;
+        }
+        saveLimitReachedDraft(levelIndex + 1);
+        renderLimitReached(challenge);
+    });
+    stopButton.addEventListener("click", () => {
+        submitLimitReachedResult({ acceptedAll: false, limitLevel: Number(currentLevel.level || levelIndex + 1) });
+    });
+    newGameChoices.append(continueButton, stopButton);
+}
+
+function submitLimitReachedResult(result) {
+    const challenge = getActiveNewGameChallenge();
+    if (!challenge || challenge.results?.[currentUser.uid]) return;
     const path = NEW_GAME_MODES.limitReached.path;
-    database.ref("spaces/" + currentSpaceCode + "/" + path + "/" + activeNewGameId + "/answers/" + currentUser.uid)
-        .set({
-            uid: currentUser.uid,
-            pseudo,
-            choice,
-            answer: option.label,
-            createdAt: Date.now(),
-            answeredAt: Date.now()
+    const payload = {
+        acceptedAll: result.acceptedAll === true,
+        completedAt: Date.now(),
+        pseudo
+    };
+    if (!payload.acceptedAll) payload.limitLevel = Number(result.limitLevel);
+
+    database.ref("spaces/" + currentSpaceCode + "/" + path + "/" + activeNewGameId + "/results/" + currentUser.uid)
+        .set(payload)
+        .then(() => {
+            clearLimitReachedDraft();
+            return finalizeNewGameIfReady("limitReached");
         })
-        .then(() => finalizeNewGameIfReady("limitReached"))
         .catch((error) => showToast(getFriendlyFirebaseError(error)));
 }
 
@@ -4752,20 +4845,27 @@ function finalizeNewGameIfReady(mode) {
     const reference = database.ref("spaces/" + currentSpaceCode + "/" + path + "/" + activeNewGameId);
     return reference.transaction((challenge) => {
         if (!challenge || challenge.status === "completed") return;
+        if (mode === "limitReached") {
+            const results = Object.values(challenge.results || {});
+            if (results.length < 2) return;
+            challenge.status = "completed";
+            challenge.completedAt = Date.now();
+            challenge.compatibility = calculateLimitReachedCompatibility(
+                challenge.results,
+                challenge.scenario?.levels?.length || 6
+            );
+            return challenge;
+        }
+
         const answerSets = Object.values(challenge.answers || {});
-        const ready = mode === "wouldRather" || mode === "limitReached"
+        const ready = mode === "wouldRather"
             ? answerSets.length >= 2
-            : mode === "threeYesNo" && answerSets.length >= 2 && answerSets.every((answers) => countThreeYesNoAnswers(answers).total === 6);
+            : answerSets.length >= 2 && answerSets.every((answers) => countThreeYesNoAnswers(answers).total === 6);
         if (!ready) return;
         challenge.status = "completed";
         challenge.completedAt = Date.now();
         if (mode === "wouldRather") {
             challenge.compatibility = answerSets[0].choice === answerSets[1].choice ? 100 : 0;
-        } else if (mode === "limitReached") {
-            const firstScore = LIMIT_REACHED_OPTIONS[answerSets[0].choice]?.score;
-            const secondScore = LIMIT_REACHED_OPTIONS[answerSets[1].choice]?.score;
-            const difference = Math.abs(firstScore - secondScore);
-            challenge.compatibility = difference === 0 ? 100 : difference === 1 ? 50 : 0;
         } else {
             let matches = 0;
             for (let index = 0; index < 6; index++) {
@@ -6402,14 +6502,6 @@ function openGameNotification(target) {
 
     if (selectedMode && prioritizeNotificationChallenge(selectedMode[0], target.challengeId)) {
         selectedMode[1]();
-        return;
-    }
-
-    if (NEW_GAME_MODES[target.mode]) {
-        activeNewGameMode = target.mode;
-        activeNewGameId = target.challengeId;
-        showScreen("newGame");
-        renderNewGame(currentSpaceData);
         return;
     }
 
@@ -8108,13 +8200,13 @@ function getGameInboxActivities() {
 
     Object.keys(NEW_GAME_MODES).forEach((mode) => {
         const open = Object.entries(getNewGameChallenges(mode))
-            .filter(([, challenge]) => !["completed", "skipped"].includes(challenge?.status))
+            .filter(([, challenge]) => isNewGameChallengeAvailableToCurrentUser(mode, challenge))
             .sort((a, b) => (b[1].createdAt || 0) - (a[1].createdAt || 0))[0];
         if (!open) return;
         const labels = {
             wouldRather: ["↔", "Tu préfères ?", open[1].answers?.[currentUser.uid] ? "En attente de l’autre" : "Ton choix est attendu"],
             threeYesNo: ["3/3", "3 oui / 3 non", countThreeYesNoAnswers(open[1].answers?.[currentUser.uid]).total >= 6 ? "En attente de l’autre" : "Continue tes six choix"],
-            limitReached: ["⛔", "Limite atteinte", open[1].answers?.[currentUser.uid] ? "En attente de l’autre" : "Ta limite est attendue"],
+            limitReached: ["⛔", "Limite atteinte", open[1].results?.[currentUser.uid] ? "En attente de l’autre" : "Trouve jusqu’où ça passe"],
             coupleDare: ["★", "Défis à deux", open[1].votes?.[currentUser.uid] ? "Mission en cours" : "Un défi vous attend"]
         };
         const [icon, label, state] = labels[mode];
@@ -9744,10 +9836,6 @@ function openHistoryMode(mode, focusedChallengeId = null) {
         princess: {
             title: "👑 Princess Treatment",
             path: "princessChallenges"
-        },
-        limitReached: {
-            title: "⛔ Limite atteinte",
-            path: "limitReachedChallenges"
         }
     };
 

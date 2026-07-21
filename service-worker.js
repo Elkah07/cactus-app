@@ -4,7 +4,7 @@ const RUNTIME_CACHE = `cactus-runtime-${CACHE_VERSION}`;
 
 const APP_SHELL = [
     "./index.html",
-    "./css/style.css?v=76",
+    "./css/style.css?v=75",
     "./js/firebase.js",
     "./js/script.js?v=76",
     "./js/screens.js?v=75",
