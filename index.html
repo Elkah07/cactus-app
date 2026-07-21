@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cactus 🌵</title>
-    <link rel="stylesheet" href="css/style.css?v=87">
+    <link rel="stylesheet" href="css/style.css?v=88">
     <link rel="manifest" href="manifest.json?v=2">
     <meta name="theme-color" content="#003E2D">
 </head>
@@ -324,11 +324,59 @@
     </section>
 
     <form id="timeCapsuleForm" class="organizer-form organizer-creation-panel time-capsule-creation-panel" style="display:none;">
-        <div class="organizer-form-heading"><div><small>Nouvelle capsule</small><strong>Que voulez-vous confier au futur ?</strong></div><button type="button" id="cancelTimeCapsuleBtn">Annuler</button></div>
-        <label class="time-capsule-field"><span>Le titre visible</span><input id="timeCapsuleTitleInput" type="text" maxlength="100" required placeholder="Ex. À nous dans un an…"></label>
-        <label class="time-capsule-field"><span>Le message secret</span><textarea id="timeCapsuleMessageInput" maxlength="2000" rows="6" required placeholder="Écris ce que le futur ne doit pas oublier…"></textarea></label>
-        <div class="organizer-form-grid"><label><span>Date d’ouverture</span><input id="timeCapsuleOpenDateInput" type="date" required></label><label><span>Signature</span><select id="timeCapsuleAuthorInput" aria-label="Signature"></select></label></div>
-        <button type="submit" id="saveTimeCapsuleBtn" class="time-capsule-seal-button"><span aria-hidden="true">✦</span> Sceller la capsule</button>
+        <div class="organizer-form-heading"><div><small>Nouvelle capsule</small><strong>Créez un souvenir vraiment à vous</strong></div><button type="button" id="cancelTimeCapsuleBtn">Annuler</button></div>
+
+        <div class="time-capsule-builder">
+            <section class="time-capsule-builder-main">
+                <label class="time-capsule-field"><span>Le titre visible</span><input id="timeCapsuleTitleInput" type="text" maxlength="100" required placeholder="Ex. À nous dans un an…"></label>
+                <label class="time-capsule-field"><span>Le message secret</span><textarea id="timeCapsuleMessageInput" maxlength="2000" rows="6" required placeholder="Écris ce que le futur ne doit pas oublier…"></textarea></label>
+                <div class="organizer-form-grid"><label><span>Date d’ouverture</span><input id="timeCapsuleOpenDateInput" type="date" required></label><label><span>Signature</span><select id="timeCapsuleAuthorInput" aria-label="Signature"></select></label></div>
+
+                <section class="time-capsule-customizer" aria-labelledby="timeCapsuleCustomizeTitle">
+                    <div class="time-capsule-customizer-heading"><small>Personnalisation</small><strong id="timeCapsuleCustomizeTitle">Donnez une âme à votre capsule</strong><p>Les choix seront visibles par vous deux et conservés avec le souvenir.</p></div>
+
+                    <fieldset class="time-capsule-choice-group">
+                        <legend>Ambiance</legend>
+                        <div id="timeCapsuleThemeChoices" class="time-capsule-choice-grid theme-grid" role="radiogroup" aria-label="Couleur de la capsule"></div>
+                        <label class="time-capsule-custom-color"><span>Ou une couleur rien qu’à vous</span><input id="timeCapsuleCustomColorInput" type="color" value="#72d59d"><button type="button" id="clearTimeCapsuleCustomColorBtn">Réinitialiser</button></label>
+                    </fieldset>
+
+                    <fieldset class="time-capsule-choice-group">
+                        <legend>Forme du souvenir</legend>
+                        <div id="timeCapsuleStyleChoices" class="time-capsule-choice-grid style-grid" role="radiogroup" aria-label="Style de capsule"></div>
+                    </fieldset>
+
+                    <fieldset class="time-capsule-choice-group">
+                        <legend>Votre symbole</legend>
+                        <div id="timeCapsuleSymbolChoices" class="time-capsule-symbol-grid" role="radiogroup" aria-label="Symbole de la capsule"></div>
+                    </fieldset>
+
+                    <fieldset class="time-capsule-choice-group">
+                        <legend>Effet au moment de l’ouverture</legend>
+                        <div id="timeCapsuleEffectChoices" class="time-capsule-choice-grid effect-grid" role="radiogroup" aria-label="Effet d’ouverture"></div>
+                    </fieldset>
+                </section>
+            </section>
+
+            <aside class="time-capsule-live-preview" aria-label="Aperçu de la capsule">
+                <div class="time-capsule-preview-kicker"><span>APERÇU EN DIRECT</span><b id="timeCapsulePreviewThemeName">Vert Cactus</b></div>
+                <article id="timeCapsulePreviewCard" class="time-capsule-preview-card capsule-theme-cactus capsule-style-capsule">
+                    <div id="timeCapsulePreviewParticles" class="time-capsule-preview-particles" aria-hidden="true"></div>
+                    <span id="timeCapsulePreviewObject" class="time-capsule-preview-object" aria-hidden="true">
+                        <span id="timeCapsulePreviewSymbol" class="time-capsule-preview-symbol">🌵</span>
+                    </span>
+                    <div class="time-capsule-preview-copy">
+                        <small id="timeCapsulePreviewStyleName">Capsule futuriste</small>
+                        <strong id="timeCapsulePreviewTitle">Votre capsule</strong>
+                        <span id="timeCapsulePreviewDate">Choisissez sa date d’ouverture</span>
+                    </div>
+                    <span class="time-capsule-preview-lock" aria-hidden="true">⌁</span>
+                </article>
+                <p>Voici ce que vous retrouverez dans votre collection une fois le souvenir scellé.</p>
+            </aside>
+        </div>
+
+        <button type="submit" id="saveTimeCapsuleBtn" class="time-capsule-seal-button"><span aria-hidden="true">✦</span> Sceller notre capsule</button>
     </form>
 
     <div id="timeCapsulesList" class="time-capsules-list"></div>
@@ -339,9 +387,10 @@
     <div class="time-capsule-reveal-backdrop" data-close-time-capsule></div>
     <section class="time-capsule-reveal-sheet">
         <button type="button" id="closeTimeCapsuleRevealBtn" class="time-capsule-reveal-close" aria-label="Fermer">×</button>
-        <div class="time-capsule-reveal-stage" aria-hidden="true">
+        <div id="timeCapsuleRevealStage" class="time-capsule-reveal-stage" aria-hidden="true">
             <span class="time-capsule-reveal-glow"></span>
-            <span class="time-capsule-reveal-icon"><svg class="cactus-ui-icon"><use href="#cactusIconCapsule"></use></svg></span>
+            <div id="timeCapsuleRevealParticles" class="time-capsule-reveal-particles"></div>
+            <span id="timeCapsuleRevealIcon" class="time-capsule-reveal-icon capsule-style-capsule"><span id="timeCapsuleRevealSymbol" class="time-capsule-reveal-symbol">🌵</span></span>
             <span class="time-capsule-reveal-spark spark-one">✦</span>
             <span class="time-capsule-reveal-spark spark-two">✧</span>
             <span class="time-capsule-reveal-spark spark-three">✦</span>
@@ -2373,7 +2422,7 @@
     <script src="js/storage.js"></script>
     <script src="js/rankings.js"></script>
     <script src="js/questions.js"></script>
-    <script src="js/script.js?v=87"></script>
+    <script src="js/script.js?v=88"></script>
 
 </body>
 </html>

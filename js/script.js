@@ -303,6 +303,25 @@ const timeCapsuleRevealTitle = document.getElementById("timeCapsuleRevealTitle")
 const timeCapsuleRevealMeta = document.getElementById("timeCapsuleRevealMeta");
 const timeCapsuleRevealMessage = document.getElementById("timeCapsuleRevealMessage");
 const timeCapsuleCreatorPreviewBadge = document.getElementById("timeCapsuleCreatorPreviewBadge");
+const timeCapsuleThemeChoices = document.getElementById("timeCapsuleThemeChoices");
+const timeCapsuleStyleChoices = document.getElementById("timeCapsuleStyleChoices");
+const timeCapsuleSymbolChoices = document.getElementById("timeCapsuleSymbolChoices");
+const timeCapsuleEffectChoices = document.getElementById("timeCapsuleEffectChoices");
+const timeCapsuleCustomColorInput = document.getElementById("timeCapsuleCustomColorInput");
+const clearTimeCapsuleCustomColorBtn = document.getElementById("clearTimeCapsuleCustomColorBtn");
+const timeCapsulePreviewCard = document.getElementById("timeCapsulePreviewCard");
+const timeCapsulePreviewObject = document.getElementById("timeCapsulePreviewObject");
+const timeCapsulePreviewSymbol = document.getElementById("timeCapsulePreviewSymbol");
+const timeCapsulePreviewTitle = document.getElementById("timeCapsulePreviewTitle");
+const timeCapsulePreviewDate = document.getElementById("timeCapsulePreviewDate");
+const timeCapsulePreviewThemeName = document.getElementById("timeCapsulePreviewThemeName");
+const timeCapsulePreviewStyleName = document.getElementById("timeCapsulePreviewStyleName");
+const timeCapsulePreviewParticles = document.getElementById("timeCapsulePreviewParticles");
+const timeCapsuleRevealStage = document.getElementById("timeCapsuleRevealStage");
+const timeCapsuleRevealParticles = document.getElementById("timeCapsuleRevealParticles");
+const timeCapsuleRevealIcon = document.getElementById("timeCapsuleRevealIcon");
+const timeCapsuleRevealSymbol = document.getElementById("timeCapsuleRevealSymbol");
+const timeCapsuleRevealSheet = timeCapsuleRevealModal?.querySelector(".time-capsule-reveal-sheet");
 
 const showCreateNotebookBtn = document.getElementById("showCreateNotebookBtn");
 const createNotebookBox = document.getElementById("createNotebookBox");
@@ -2865,6 +2884,220 @@ countdownForm.addEventListener("submit", (event) => {
     saveCountdownBtn.disabled = true; request.then(() => { showToast(editingCountdownId ? "Compte à rebours modifié" : "Compte à rebours créé"); resetCountdownForm(); }).catch(() => showToast("Impossible d’enregistrer ce compte à rebours")).finally(() => { saveCountdownBtn.disabled = false; });
 });
 
+
+const TIME_CAPSULE_THEMES = {
+    cactus: { label: "Vert Cactus", accent: "#72d59d", soft: "#dff8e8" },
+    sunset: { label: "Coucher de soleil", accent: "#ff8d7f", soft: "#ffe0d8" },
+    midnight: { label: "Nuit étoilée", accent: "#6f78d9", soft: "#e2e4ff" },
+    lavender: { label: "Lavande", accent: "#a98fe8", soft: "#eee5ff" },
+    ocean: { label: "Bleu océan", accent: "#55b8d9", soft: "#d9f4fb" },
+    passion: { label: "Rouge passion", accent: "#ef6670", soft: "#ffe0e3" },
+    gold: { label: "Doré", accent: "#d6a83f", soft: "#fff0c7" },
+    cream: { label: "Crème minimaliste", accent: "#c69d75", soft: "#f7eadc" }
+};
+
+const TIME_CAPSULE_STYLES = {
+    capsule: { label: "Capsule futuriste", glyph: "◉" },
+    letter: { label: "Lettre scellée", glyph: "✉" },
+    bottle: { label: "Bouteille à la mer", glyph: "⚗" },
+    chest: { label: "Coffre à souvenirs", glyph: "▣" },
+    polaroid: { label: "Polaroid temporel", glyph: "▤" },
+    galaxy: { label: "Étoile du futur", glyph: "✦" },
+    cactus: { label: "Cactus magique", glyph: "🌵" }
+};
+
+const TIME_CAPSULE_SYMBOLS = ["🌵", "❤️", "✨", "🌙", "🦋", "🔐", "🥹", "🏠", "✈️", "🌸", "☀️", "♾️"];
+
+const TIME_CAPSULE_EFFECTS = {
+    stars: { label: "Pluie d’étoiles", icon: "✦", particles: ["✦", "✧", "⋆"] },
+    confetti: { label: "Confettis", icon: "▦", particles: ["●", "■", "▲", "◆"] },
+    petals: { label: "Pétales", icon: "❀", particles: ["❀", "✿", "•"] },
+    cactus: { label: "Feuilles Cactus", icon: "🌿", particles: ["🌿", "✦", "·"] },
+    gold: { label: "Lumière dorée", icon: "☀", particles: ["✦", "✧", "✺"] },
+    galaxy: { label: "Galaxie", icon: "☾", particles: ["✦", "☾", "•", "⋆"] }
+};
+
+const DEFAULT_TIME_CAPSULE_DESIGN = {
+    theme: "cactus",
+    style: "capsule",
+    symbol: "🌵",
+    effect: "stars",
+    customColor: ""
+};
+
+let timeCapsuleDraftDesign = { ...DEFAULT_TIME_CAPSULE_DESIGN };
+
+function normalizeTimeCapsuleDesign(value = {}) {
+    const design = value?.design && typeof value.design === "object" ? value.design : value;
+    return {
+        theme: TIME_CAPSULE_THEMES[design?.theme] ? design.theme : DEFAULT_TIME_CAPSULE_DESIGN.theme,
+        style: TIME_CAPSULE_STYLES[design?.style] ? design.style : DEFAULT_TIME_CAPSULE_DESIGN.style,
+        symbol: TIME_CAPSULE_SYMBOLS.includes(design?.symbol) ? design.symbol : DEFAULT_TIME_CAPSULE_DESIGN.symbol,
+        effect: TIME_CAPSULE_EFFECTS[design?.effect] ? design.effect : DEFAULT_TIME_CAPSULE_DESIGN.effect,
+        customColor: /^#[0-9a-f]{6}$/i.test(design?.customColor || "") ? design.customColor : ""
+    };
+}
+
+function getTimeCapsuleAccent(design = {}) {
+    const normalized = normalizeTimeCapsuleDesign(design);
+    return normalized.customColor || TIME_CAPSULE_THEMES[normalized.theme].accent;
+}
+
+function applyTimeCapsuleDesign(element, source = {}, includeEffect = true) {
+    if (!element) return;
+    const design = normalizeTimeCapsuleDesign(source);
+    Object.keys(TIME_CAPSULE_THEMES).forEach((key) => element.classList.remove("capsule-theme-" + key));
+    Object.keys(TIME_CAPSULE_STYLES).forEach((key) => element.classList.remove("capsule-style-" + key));
+    Object.keys(TIME_CAPSULE_EFFECTS).forEach((key) => element.classList.remove("capsule-effect-" + key));
+    element.classList.add("capsule-theme-" + design.theme, "capsule-style-" + design.style);
+    if (includeEffect) element.classList.add("capsule-effect-" + design.effect);
+    element.style.setProperty("--capsule-accent", getTimeCapsuleAccent(design));
+}
+
+function setTimeCapsuleChoiceActive(container, value) {
+    if (!container) return;
+    container.querySelectorAll("[data-capsule-choice]").forEach((button) => {
+        const active = button.dataset.capsuleChoice === value;
+        button.classList.toggle("is-selected", active);
+        button.setAttribute("aria-checked", active ? "true" : "false");
+    });
+}
+
+function buildTimeCapsuleChoiceButton(value, label, kind, extra = "") {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "time-capsule-choice " + kind;
+    button.dataset.capsuleChoice = value;
+    button.setAttribute("role", "radio");
+    button.setAttribute("aria-checked", "false");
+    const visual = document.createElement("span");
+    visual.className = "time-capsule-choice-visual";
+    visual.textContent = extra;
+    const copy = document.createElement("span");
+    copy.className = "time-capsule-choice-copy";
+    copy.textContent = label;
+    button.append(visual, copy);
+    return button;
+}
+
+function renderTimeCapsuleCustomizerChoices() {
+    if (timeCapsuleThemeChoices && !timeCapsuleThemeChoices.childElementCount) {
+        Object.entries(TIME_CAPSULE_THEMES).forEach(([key, theme]) => {
+            const button = buildTimeCapsuleChoiceButton(key, theme.label, "is-theme", "");
+            button.style.setProperty("--choice-color", theme.accent);
+            button.addEventListener("click", () => {
+                timeCapsuleDraftDesign.theme = key;
+                timeCapsuleDraftDesign.customColor = "";
+                if (timeCapsuleCustomColorInput) timeCapsuleCustomColorInput.value = theme.accent;
+                updateTimeCapsuleCustomizer();
+            });
+            timeCapsuleThemeChoices.appendChild(button);
+        });
+    }
+
+    if (timeCapsuleStyleChoices && !timeCapsuleStyleChoices.childElementCount) {
+        Object.entries(TIME_CAPSULE_STYLES).forEach(([key, style]) => {
+            const button = buildTimeCapsuleChoiceButton(key, style.label, "is-style", style.glyph);
+            button.addEventListener("click", () => {
+                timeCapsuleDraftDesign.style = key;
+                updateTimeCapsuleCustomizer();
+            });
+            timeCapsuleStyleChoices.appendChild(button);
+        });
+    }
+
+    if (timeCapsuleSymbolChoices && !timeCapsuleSymbolChoices.childElementCount) {
+        TIME_CAPSULE_SYMBOLS.forEach((symbol) => {
+            const button = document.createElement("button");
+            button.type = "button";
+            button.className = "time-capsule-symbol-choice";
+            button.dataset.capsuleChoice = symbol;
+            button.setAttribute("role", "radio");
+            button.setAttribute("aria-label", "Symbole " + symbol);
+            button.setAttribute("aria-checked", "false");
+            button.textContent = symbol;
+            button.addEventListener("click", () => {
+                timeCapsuleDraftDesign.symbol = symbol;
+                updateTimeCapsuleCustomizer();
+            });
+            timeCapsuleSymbolChoices.appendChild(button);
+        });
+    }
+
+    if (timeCapsuleEffectChoices && !timeCapsuleEffectChoices.childElementCount) {
+        Object.entries(TIME_CAPSULE_EFFECTS).forEach(([key, effect]) => {
+            const button = buildTimeCapsuleChoiceButton(key, effect.label, "is-effect", effect.icon);
+            button.addEventListener("click", () => {
+                timeCapsuleDraftDesign.effect = key;
+                updateTimeCapsuleCustomizer();
+            });
+            timeCapsuleEffectChoices.appendChild(button);
+        });
+    }
+}
+
+function fillTimeCapsuleParticles(container, effectKey, count = 10, preview = false) {
+    if (!container) return;
+    const effect = TIME_CAPSULE_EFFECTS[effectKey] || TIME_CAPSULE_EFFECTS.stars;
+    const particles = [];
+    for (let index = 0; index < count; index++) {
+        const particle = document.createElement("span");
+        particle.textContent = effect.particles[index % effect.particles.length];
+        particle.style.setProperty("--particle-x", ((index * 37) % 92 + 4) + "%");
+        particle.style.setProperty("--particle-delay", ((index * 0.13) % 1.2).toFixed(2) + "s");
+        particle.style.setProperty("--particle-duration", (1.7 + ((index * 17) % 9) / 10).toFixed(2) + "s");
+        particle.style.setProperty("--particle-rotate", ((index * 53) % 180 - 90) + "deg");
+        if (preview) particle.classList.add("is-preview");
+        particles.push(particle);
+    }
+    container.replaceChildren(...particles);
+}
+
+function updateTimeCapsuleCustomizer() {
+    const design = normalizeTimeCapsuleDesign(timeCapsuleDraftDesign);
+    timeCapsuleDraftDesign = { ...design };
+
+    setTimeCapsuleChoiceActive(timeCapsuleThemeChoices, design.theme);
+    setTimeCapsuleChoiceActive(timeCapsuleStyleChoices, design.style);
+    setTimeCapsuleChoiceActive(timeCapsuleSymbolChoices, design.symbol);
+    setTimeCapsuleChoiceActive(timeCapsuleEffectChoices, design.effect);
+
+    if (timeCapsulePreviewCard) applyTimeCapsuleDesign(timeCapsulePreviewCard, design);
+    if (timeCapsulePreviewObject) applyTimeCapsuleDesign(timeCapsulePreviewObject, design, false);
+    if (timeCapsulePreviewSymbol) timeCapsulePreviewSymbol.textContent = design.symbol;
+    if (timeCapsulePreviewThemeName) {
+        timeCapsulePreviewThemeName.textContent = design.customColor ? "Couleur personnalisée" : TIME_CAPSULE_THEMES[design.theme].label;
+    }
+    if (timeCapsulePreviewStyleName) timeCapsulePreviewStyleName.textContent = TIME_CAPSULE_STYLES[design.style].label;
+    if (timeCapsulePreviewTitle) timeCapsulePreviewTitle.textContent = timeCapsuleTitleInput?.value.trim() || "Votre capsule";
+    if (timeCapsulePreviewDate) {
+        timeCapsulePreviewDate.textContent = timeCapsuleOpenDateInput?.value
+            ? "À ouvrir le " + formatOrganizerDate(timeCapsuleOpenDateInput.value)
+            : "Choisissez sa date d’ouverture";
+    }
+    fillTimeCapsuleParticles(timeCapsulePreviewParticles, design.effect, 8, true);
+}
+
+function resetTimeCapsuleCustomizer() {
+    timeCapsuleDraftDesign = { ...DEFAULT_TIME_CAPSULE_DESIGN };
+    if (timeCapsuleCustomColorInput) timeCapsuleCustomColorInput.value = TIME_CAPSULE_THEMES.cactus.accent;
+    renderTimeCapsuleCustomizerChoices();
+    updateTimeCapsuleCustomizer();
+}
+
+function animateTimeCapsuleSealing() {
+    if (!timeCapsulePreviewCard) return Promise.resolve();
+    timeCapsulePreviewCard.classList.remove("is-sealed");
+    timeCapsulePreviewCard.classList.add("is-sealing");
+    return new Promise((resolve) => {
+        window.setTimeout(() => {
+            timeCapsulePreviewCard.classList.remove("is-sealing");
+            timeCapsulePreviewCard.classList.add("is-sealed");
+            window.setTimeout(resolve, 420);
+        }, 520);
+    });
+}
+
 function getTimeCapsuleOpenTimestamp(item) {
     if (!item?.openDate) return 0;
     const timestamp = new Date(item.openDate + "T00:00:00").getTime();
@@ -2921,11 +3154,23 @@ function openTimeCapsuleReveal(id, creatorPreview = false) {
 
     currentRevealedTimeCapsuleId = id;
     const author = getOrganizerPersonLabel(item.author || item.createdByUid);
+    const design = normalizeTimeCapsuleDesign(item);
     timeCapsuleRevealEyebrow.textContent = creatorPreview && !trulyUnlocked ? "Aperçu de test" : "Un message du passé";
     timeCapsuleRevealTitle.textContent = item.title || "Capsule sans titre";
     timeCapsuleRevealMeta.textContent = (author ? "Signée par " + author + " · " : "") + "scellée le " + new Date(item.createdAt || Date.now()).toLocaleDateString("fr-FR", { day:"numeric", month:"long", year:"numeric" });
     timeCapsuleRevealMessage.textContent = item.message || "Cette capsule est vide.";
     timeCapsuleCreatorPreviewBadge.style.display = creatorPreview && !trulyUnlocked ? "block" : "none";
+
+    applyTimeCapsuleDesign(timeCapsuleRevealSheet, design);
+    applyTimeCapsuleDesign(timeCapsuleRevealIcon, design, false);
+    if (timeCapsuleRevealSymbol) timeCapsuleRevealSymbol.textContent = design.symbol;
+    fillTimeCapsuleParticles(timeCapsuleRevealParticles, design.effect, 20, false);
+    if (timeCapsuleRevealStage) {
+        Object.keys(TIME_CAPSULE_EFFECTS).forEach((key) => timeCapsuleRevealStage.classList.remove("capsule-effect-" + key));
+        timeCapsuleRevealStage.classList.add("capsule-effect-" + design.effect);
+        timeCapsuleRevealStage.style.setProperty("--capsule-accent", getTimeCapsuleAccent(design));
+    }
+
     timeCapsuleRevealModal.style.display = "grid";
     document.body.classList.add("time-capsule-modal-open");
 
@@ -2954,13 +3199,20 @@ function renderTimeCapsules(items = {}) {
         else lockedCount++;
 
         const theme = getTimeCapsuleTheme(item);
+        const design = normalizeTimeCapsuleDesign(item);
         const article = document.createElement("article");
         article.className = "time-capsule-card theme-" + theme + (unlocked ? " is-unlocked" : " is-locked");
         article.style.animationDelay = Math.min(index * 45, 360) + "ms";
+        article.style.setProperty("--capsule-card-accent", getTimeCapsuleAccent(design));
+        applyTimeCapsuleDesign(article, design);
 
         const visual = document.createElement("span");
-        visual.className = "time-capsule-card-visual";
-        visual.appendChild(createCactusUiIcon(unlocked ? "cactusIconCapsule" : "cactusIconShield", "cactus-secondary-icon"));
+        visual.className = "time-capsule-card-visual capsule-card-object";
+        applyTimeCapsuleDesign(visual, design, false);
+        const cardSymbol = document.createElement("span");
+        cardSymbol.className = "time-capsule-card-symbol";
+        cardSymbol.textContent = design.symbol;
+        visual.appendChild(cardSymbol);
 
         const body = document.createElement("div");
         body.className = "time-capsule-card-body";
@@ -2975,7 +3227,8 @@ function renderTimeCapsules(items = {}) {
 
         const meta = document.createElement("div");
         meta.className = "time-capsule-card-meta";
-        meta.textContent = unlocked ? "Disponible depuis le " + formatOrganizerDate(item.openDate) : "Ouverture le " + formatOrganizerDate(item.openDate);
+        const designLabel = TIME_CAPSULE_STYLES[design.style]?.label || "Capsule";
+        meta.textContent = (unlocked ? "Disponible depuis le " + formatOrganizerDate(item.openDate) : "Ouverture le " + formatOrganizerDate(item.openDate)) + " · " + designLabel;
 
         const teaser = document.createElement("p");
         teaser.className = "time-capsule-card-teaser";
@@ -3032,19 +3285,41 @@ function renderTimeCapsules(items = {}) {
     if (timeCapsuleOpenedCount) timeCapsuleOpenedCount.textContent = openedCount;
 }
 
+renderTimeCapsuleCustomizerChoices();
+resetTimeCapsuleCustomizer();
+
 showTimeCapsuleFormBtn.addEventListener("click", () => {
     timeCapsuleForm.reset();
     prepareOrganizerAssignees(timeCapsuleAuthorInput);
     timeCapsuleOpenDateInput.min = getLocalDateKey(new Date(Date.now() + 86400000));
+    resetTimeCapsuleCustomizer();
+    timeCapsulePreviewCard?.classList.remove("is-sealing", "is-sealed");
     timeCapsuleForm.style.display = "block";
     timeCapsuleForm.scrollIntoView({ behavior:"smooth", block:"start" });
     window.setTimeout(() => timeCapsuleTitleInput.focus(), 180);
 });
-cancelTimeCapsuleBtn.addEventListener("click", () => { timeCapsuleForm.reset(); timeCapsuleForm.style.display = "none"; });
+cancelTimeCapsuleBtn.addEventListener("click", () => {
+    timeCapsuleForm.reset();
+    resetTimeCapsuleCustomizer();
+    timeCapsulePreviewCard?.classList.remove("is-sealing", "is-sealed");
+    timeCapsuleForm.style.display = "none";
+});
 backFromTimeCapsulesBtn.addEventListener("click", () => { timeCapsuleForm.style.display = "none"; closeTimeCapsuleReveal(); showScreen("dailyTools"); });
 if (closeTimeCapsuleRevealBtn) closeTimeCapsuleRevealBtn.addEventListener("click", closeTimeCapsuleReveal);
 if (timeCapsuleRevealDoneBtn) timeCapsuleRevealDoneBtn.addEventListener("click", closeTimeCapsuleReveal);
 if (timeCapsuleRevealModal) timeCapsuleRevealModal.querySelector("[data-close-time-capsule]")?.addEventListener("click", closeTimeCapsuleReveal);
+
+timeCapsuleTitleInput?.addEventListener("input", updateTimeCapsuleCustomizer);
+timeCapsuleOpenDateInput?.addEventListener("change", updateTimeCapsuleCustomizer);
+timeCapsuleCustomColorInput?.addEventListener("input", () => {
+    timeCapsuleDraftDesign.customColor = timeCapsuleCustomColorInput.value;
+    updateTimeCapsuleCustomizer();
+});
+clearTimeCapsuleCustomColorBtn?.addEventListener("click", () => {
+    timeCapsuleDraftDesign.customColor = "";
+    timeCapsuleCustomColorInput.value = TIME_CAPSULE_THEMES[timeCapsuleDraftDesign.theme].accent;
+    updateTimeCapsuleCustomizer();
+});
 
 timeCapsuleForm.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -3054,25 +3329,37 @@ timeCapsuleForm.addEventListener("submit", (event) => {
     if (!title || !message || !openDate) return;
 
     const now = Date.now();
+    const design = normalizeTimeCapsuleDesign(timeCapsuleDraftDesign);
     saveTimeCapsuleBtn.disabled = true;
-    saveTimeCapsuleBtn.textContent = "Scellement en cours…";
+    saveTimeCapsuleBtn.innerHTML = '<span aria-hidden="true">✦</span> Scellement en cours…';
+    timeCapsulePreviewCard?.classList.remove("is-sealed");
+    timeCapsulePreviewCard?.classList.add("is-sealing");
+
     database.ref("spaces/" + currentSpaceCode + "/dailyTools/timeCapsules").push({
         title,
         message,
         openDate,
         author: timeCapsuleAuthorInput.value || currentUser.uid,
+        design,
         createdAt: now,
         createdByUid: currentUser.uid,
         createdByPseudo: pseudo
-    }).then(() => {
-        showToast("Capsule scellée jusqu’au " + formatOrganizerDate(openDate) + " ✨");
-        timeCapsuleForm.reset();
-        timeCapsuleForm.style.display = "none";
-    }).catch(() => showToast("Impossible de sceller la capsule"))
-      .finally(() => {
-          saveTimeCapsuleBtn.disabled = false;
-          saveTimeCapsuleBtn.innerHTML = '<span aria-hidden="true">✦</span> Sceller la capsule';
-      });
+    }).then(async () => {
+        await animateTimeCapsuleSealing();
+        showToast("Capsule personnalisée scellée jusqu’au " + formatOrganizerDate(openDate) + " ✨");
+        window.setTimeout(() => {
+            timeCapsuleForm.reset();
+            resetTimeCapsuleCustomizer();
+            timeCapsulePreviewCard?.classList.remove("is-sealing", "is-sealed");
+            timeCapsuleForm.style.display = "none";
+        }, 300);
+    }).catch(() => {
+        timeCapsulePreviewCard?.classList.remove("is-sealing", "is-sealed");
+        showToast("Impossible de sceller la capsule");
+    }).finally(() => {
+        saveTimeCapsuleBtn.disabled = false;
+        saveTimeCapsuleBtn.innerHTML = '<span aria-hidden="true">✦</span> Sceller notre capsule';
+    });
 });
 
 function renderDashboardToday(spaceData = {}) {
