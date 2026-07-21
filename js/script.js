@@ -3782,6 +3782,7 @@ const CHALLENGE_CONTENT_ID_FIELDS = {
     princessChallenges: "questionId",
     questionsChallenges: "questionId",
     wouldRatherChallenges: "prompt.id",
+    threeYesNoChallenges: "pack.id",
     limitReachedChallenges: "scenario.id",
     coupleDareChallenges: "dare.id"
 };
@@ -4671,7 +4672,24 @@ function buildNewGameChallenge(mode) {
     }
 
     if (mode === "threeYesNo") {
-        return { ...common, situations: shuffleNewGameItems(source).slice(0, 6) };
+        const preparedPacks = source.filter((item) => Array.isArray(item?.situations) && item.situations.length === 6);
+        if (preparedPacks.length) {
+            const selectedPack = selectFreshGameItem(
+                preparedPacks,
+                mode,
+                null,
+                NEW_GAME_MODES[mode].path
+            );
+            return {
+                ...common,
+                pack: { id: selectedPack.id, title: selectedPack.title || "Partie 3 oui / 3 non" },
+                situations: selectedPack.situations,
+                answers: {}
+            };
+        }
+
+        // Compatibilité avec les anciennes bases où les situations étaient indépendantes.
+        return { ...common, situations: shuffleNewGameItems(source).slice(0, 6), answers: {} };
     }
 
     const selected = selectFreshGameItem(
@@ -4933,11 +4951,19 @@ function renderThreeYesNo(challenge) {
     const counts = countThreeYesNoAnswers(myAnswers);
     newGameStepBadge.textContent = Math.min(counts.total + 1, 6) + " / 6";
     newGameProgressBar.style.width = Math.round((counts.total / 6) * 100) + "%";
-    newGameInstruction.textContent = "Il vous reste " + (3 - counts.yes) + " oui et " + (3 - counts.no) + " non. Les prochaines situations restent cachées.";
+    newGameInstruction.textContent = "Imagine que ton/ta partenaire te propose ça. Il te reste " + (3 - counts.yes) + " oui et " + (3 - counts.no) + " non. Les prochaines situations restent cachées.";
 
     if (counts.total < 6) {
         const situation = situations[counts.total];
-        newGamePromptKicker.textContent = situation.category || "Situation";
+        if (!situation) {
+            setNewGameStatus("Partie incomplète", "Cette ancienne partie ne contient pas six situations valides. Relance une nouvelle partie.");
+            newGameAgainBtn.style.display = "block";
+            return;
+        }
+        const categoryLabel = situation.category || "Situation";
+        newGamePromptKicker.textContent = challenge.pack?.title
+            ? challenge.pack.title + " · " + categoryLabel
+            : categoryLabel;
         newGamePrompt.textContent = situation.text;
         const yes = createNewGameChoice("Oui, j’accepte", "yes", "choice-yes");
         const no = createNewGameChoice("Non, je n’accepte pas", "no", "choice-no");
@@ -4984,7 +5010,7 @@ function renderThreeYesNo(challenge) {
     setCurrentDiscussionContext({
         mode: "threeYesNo",
         sourceId: activeNewGameId,
-        title: "Votre partie 3 oui / 3 non",
+        title: challenge.pack?.title || "Votre partie 3 oui / 3 non",
         summary: matches + " accord" + (matches > 1 ? "s" : "") + " sur 6",
         entries: situations.map((situation, index) => ({
             label: situation.text,
@@ -10843,6 +10869,12 @@ function renderNewGameHistoryItem(mode, item) {
     if (mode === "threeYesNo") {
         const situations = item.situations || [];
         const answerSets = Object.entries(item.answers || {});
+        if (item.pack?.title) {
+            const heading = document.createElement("p");
+            heading.className = "history-question-copy";
+            heading.textContent = item.pack.title;
+            historyItemContent.appendChild(heading);
+        }
         situations.forEach((situation, index) => {
             const values = answerSets.map(([uid, answers]) => {
                 return getName(uid) + " : " + (answers?.[index]?.choice === "yes" ? "Oui" : "Non");

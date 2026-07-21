@@ -1,38 +1,1802 @@
 [
-  {"id":"tyn_001","category":"couple","text":"Votre partenaire part en week-end avec ses amis sans vous."},
-  {"id":"tyn_002","category":"quotidien","text":"Votre partenaire lit vos messages par-dessus votre épaule."},
-  {"id":"tyn_003","category":"réseaux","text":"Votre partenaire publie une photo de vous sans vous demander."},
-  {"id":"tyn_004","category":"argent","text":"Vous achetez un objet coûteux pour le couple sans en parler avant."},
-  {"id":"tyn_005","category":"famille","text":"Votre partenaire raconte une de vos disputes à sa famille."},
-  {"id":"tyn_006","category":"amis","text":"Un ex reste un ami proche de votre partenaire."},
-  {"id":"tyn_007","category":"quotidien","text":"Votre partenaire annule une sortie pour rester seul ou seule."},
-  {"id":"tyn_008","category":"couple","text":"Vous partagez votre localisation en permanence."},
-  {"id":"tyn_009","category":"réseaux","text":"Votre partenaire suit encore activement ses ex sur les réseaux."},
-  {"id":"tyn_010","category":"sorties","text":"Votre partenaire rentre très tard sans prévenir."},
-  {"id":"tyn_011","category":"intimité","text":"Votre partenaire a besoin de plusieurs jours sans beaucoup parler."},
-  {"id":"tyn_012","category":"travail","text":"Votre partenaire accepte un travail loin de chez vous."},
-  {"id":"tyn_013","category":"argent","text":"Vous gardez chacun une partie de vos finances complètement privée."},
-  {"id":"tyn_014","category":"famille","text":"Un membre de votre famille possède un double des clés de chez vous."},
-  {"id":"tyn_015","category":"amis","text":"Votre partenaire dort chez un ami ou une amie après une soirée."},
-  {"id":"tyn_016","category":"couple","text":"Vous vous couchez fâchés sans résoudre la discussion."},
-  {"id":"tyn_017","category":"quotidien","text":"Votre partenaire utilise vos affaires sans demander."},
-  {"id":"tyn_018","category":"réseaux","text":"Votre partenaire répond à un flirt par humour sans poser de limite claire."},
-  {"id":"tyn_019","category":"sorties","text":"Vous partez parfois en vacances séparément."},
-  {"id":"tyn_020","category":"intimité","text":"Votre partenaire garde certains souvenirs de ses anciennes relations."},
-  {"id":"tyn_021","category":"travail","text":"Votre partenaire travaille régulièrement très tard sans pouvoir répondre."},
-  {"id":"tyn_022","category":"argent","text":"Votre partenaire prête une grosse somme à un proche sans vous consulter."},
-  {"id":"tyn_023","category":"famille","text":"Votre famille vient chez vous sans prévenir."},
-  {"id":"tyn_024","category":"amis","text":"Votre partenaire partage les détails intimes de votre couple avec son meilleur ami ou sa meilleure amie."},
-  {"id":"tyn_025","category":"couple","text":"Vous connaissez les mots de passe principaux l’un de l’autre."},
-  {"id":"tyn_026","category":"quotidien","text":"Votre partenaire décide seul ou seule de la décoration commune."},
-  {"id":"tyn_027","category":"réseaux","text":"Votre partenaire préfère ne jamais afficher votre relation en ligne."},
-  {"id":"tyn_028","category":"sorties","text":"Votre partenaire danse de manière très proche avec quelqu’un d’autre."},
-  {"id":"tyn_029","category":"intimité","text":"Votre partenaire demande parfois à dormir seul ou seule."},
-  {"id":"tyn_030","category":"travail","text":"Votre partenaire devient très proche d’un collègue ou d’une collègue."},
-  {"id":"tyn_031","category":"argent","text":"Vous avez un compte commun pour toutes les dépenses."},
-  {"id":"tyn_032","category":"famille","text":"Votre partenaire refuse une invitation familiale importante pour vous."},
-  {"id":"tyn_033","category":"amis","text":"Votre partenaire voit souvent un groupe dans lequel vous ne vous sentez pas à l’aise."},
-  {"id":"tyn_034","category":"couple","text":"Votre partenaire organise une surprise qui bouleverse tous vos plans."},
-  {"id":"tyn_035","category":"quotidien","text":"Vous avez chacun une pièce ou un espace totalement personnel chez vous."},
-  {"id":"tyn_036","category":"réseaux","text":"Votre partenaire conserve des photos de couple après une dispute importante."}
+  {
+    "id": "tyn_part_001",
+    "title": "La célébrité a un prix",
+    "situations": [
+      {
+        "id": "tyn_001",
+        "category": "célébrité",
+        "text": "Je participe à L’Île de la tentation comme tentateur ou tentatrice, mais je gagne 500 000 € à la fin."
+      },
+      {
+        "id": "tyn_002",
+        "category": "argent",
+        "text": "Je fais une journée shopping illimitée, mais uniquement avec ta carte bancaire."
+      },
+      {
+        "id": "tyn_003",
+        "category": "célébrité",
+        "text": "Je deviens l’égérie d’une immense marque, mais des affiches géantes de moi en sous-vêtements sont placardées dans tout Paris."
+      },
+      {
+        "id": "tyn_004",
+        "category": "famille",
+        "text": "J’envoie accidentellement une photo très intime de toi dans le groupe de discussion de ta famille."
+      },
+      {
+        "id": "tyn_005",
+        "category": "voyage",
+        "text": "Je te dis que j’ai besoin de prendre l’air et je pars seul(e) trois mois en Australie."
+      },
+      {
+        "id": "tyn_006",
+        "category": "vie_privée",
+        "text": "Tu me donnes le mot de passe de ton compte Instagram principal et je peux m’y connecter quand je veux."
+      }
+    ]
+  },
+  {
+    "id": "tyn_part_002",
+    "title": "Notre couple, version extrême",
+    "situations": [
+      {
+        "id": "tyn_007",
+        "category": "couple",
+        "text": "On devient un couple libre à partir de demain."
+      },
+      {
+        "id": "tyn_008",
+        "category": "argent",
+        "text": "On n’habitera jamais ensemble, mais 2 millions d’euros sont versés sur ton compte tout de suite."
+      },
+      {
+        "id": "tyn_009",
+        "category": "amis",
+        "text": "On se sépare et, quelques mois plus tard, je me mets en couple avec l’un(e) de tes ami(e)s proches."
+      },
+      {
+        "id": "tyn_010",
+        "category": "intimité",
+        "text": "On reste ensemble et on s’aime toujours, mais on ne couche plus jamais ensemble."
+      },
+      {
+        "id": "tyn_011",
+        "category": "réseaux",
+        "text": "Je commence à vendre des photos sexy de mon corps sur une plateforme payante."
+      },
+      {
+        "id": "tyn_012",
+        "category": "affection",
+        "text": "Je reste amoureux/amoureuse de toi, mais je ne suis plus du tout démonstratif/démonstrative au quotidien."
+      }
+    ]
+  },
+  {
+    "id": "tyn_part_003",
+    "title": "Jusqu’où tu me laisses aller ?",
+    "situations": [
+      {
+        "id": "tyn_013",
+        "category": "ex",
+        "text": "Je dois passer une nuit entière seul(e) chez l’un(e) de mes ex."
+      },
+      {
+        "id": "tyn_014",
+        "category": "voyage",
+        "text": "Je pars deux semaines en vacances uniquement avec mes potes, sans toi."
+      },
+      {
+        "id": "tyn_015",
+        "category": "couple",
+        "text": "Notre relation devient très toxique, mais on sait avec certitude qu’on finira notre vie ensemble."
+      },
+      {
+        "id": "tyn_016",
+        "category": "travail",
+        "text": "J’obtiens le rôle de ma vie dans un grand film, mais je dois embrasser passionnément quelqu’un d’autre dans plusieurs scènes."
+      },
+      {
+        "id": "tyn_017",
+        "category": "engagement",
+        "text": "Tu te fais tatouer mon prénom à un endroit visible."
+      },
+      {
+        "id": "tyn_018",
+        "category": "amis",
+        "text": "On héberge gratuitement l’un(e) de mes ami(e)s chez nous pendant trois mois parce qu’il ou elle est en galère."
+      }
+    ]
+  },
+  {
+    "id": "tyn_part_004",
+    "title": "Le jackpot empoisonné",
+    "situations": [
+      {
+        "id": "tyn_019",
+        "category": "argent",
+        "text": "On gagne 5 millions d’euros, mais on doit vivre pendant cinq ans à l’autre bout du monde loin de tous nos proches."
+      },
+      {
+        "id": "tyn_020",
+        "category": "argent",
+        "text": "Je gagne 100 000 €, mais tu n’as pas le droit de savoir comment je les dépense."
+      },
+      {
+        "id": "tyn_021",
+        "category": "travail",
+        "text": "Je double mon salaire, mais je travaille tous les week-ends pendant deux ans."
+      },
+      {
+        "id": "tyn_022",
+        "category": "couple",
+        "text": "On reçoit gratuitement la maison de nos rêves, mais nos familles ont chacune une chambre et peuvent venir quand elles veulent."
+      },
+      {
+        "id": "tyn_023",
+        "category": "réseaux",
+        "text": "Une marque nous paie 20 000 € pour filmer une de nos disputes et la publier en ligne."
+      },
+      {
+        "id": "tyn_024",
+        "category": "voyage",
+        "text": "On peut voyager gratuitement toute notre vie, mais jamais deux fois dans le même pays."
+      }
+    ]
+  },
+  {
+    "id": "tyn_part_005",
+    "title": "Internet ne pardonne rien",
+    "situations": [
+      {
+        "id": "tyn_025",
+        "category": "réseaux",
+        "text": "Je deviens très célèbre sur les réseaux et je raconte régulièrement des anecdotes personnelles sur notre couple."
+      },
+      {
+        "id": "tyn_026",
+        "category": "réseaux",
+        "text": "Je poste une photo de toi que tu détestes parce que tout le monde la trouve hilarante."
+      },
+      {
+        "id": "tyn_027",
+        "category": "réseaux",
+        "text": "Je garde en ligne toutes mes anciennes photos de couple avec mes ex."
+      },
+      {
+        "id": "tyn_028",
+        "category": "réseaux",
+        "text": "Je laisse mes abonnés choisir ma prochaine coupe de cheveux, même si tu détestes le résultat."
+      },
+      {
+        "id": "tyn_029",
+        "category": "vie_privée",
+        "text": "Je lis tous les commentaires sous tes publications et je te demande des explications quand quelqu’un te drague."
+      },
+      {
+        "id": "tyn_030",
+        "category": "réseaux",
+        "text": "On devient un couple d’influenceurs et une grande partie de notre vie privée devient du contenu."
+      }
+    ]
+  },
+  {
+    "id": "tyn_part_006",
+    "title": "Le travail de rêve",
+    "situations": [
+      {
+        "id": "tyn_031",
+        "category": "travail",
+        "text": "J’accepte le travail de mes rêves, mais je dois déménager seul(e) à 10 000 km pendant un an."
+      },
+      {
+        "id": "tyn_032",
+        "category": "travail",
+        "text": "Je deviens la personne la mieux payée de notre couple, mais je ne peux presque jamais prendre de vacances en même temps que toi."
+      },
+      {
+        "id": "tyn_033",
+        "category": "travail",
+        "text": "Je pars tous les mois une semaine en déplacement avec le même collègue ou la même collègue."
+      },
+      {
+        "id": "tyn_034",
+        "category": "travail",
+        "text": "Je travaille sur un projet secret et je n’ai pas le droit de te dire ce que je fais pendant deux ans."
+      },
+      {
+        "id": "tyn_035",
+        "category": "travail",
+        "text": "Je refuse une énorme promotion pour rester vivre près de toi."
+      },
+      {
+        "id": "tyn_036",
+        "category": "travail",
+        "text": "Je lance mon entreprise et j’investis toutes mes économies personnelles dedans."
+      }
+    ]
+  },
+  {
+    "id": "tyn_part_007",
+    "title": "Besoin de liberté",
+    "situations": [
+      {
+        "id": "tyn_037",
+        "category": "autonomie",
+        "text": "Je pars seul(e) en voyage sans donner de nouvelles pendant trois jours, juste pour vraiment décrocher."
+      },
+      {
+        "id": "tyn_038",
+        "category": "autonomie",
+        "text": "Je garde un soir fixe chaque semaine où tu n’es jamais invité(e), quoi que je fasse."
+      },
+      {
+        "id": "tyn_039",
+        "category": "voyage",
+        "text": "Je fais un tour du monde de six mois et tu ne peux me rejoindre qu’une seule semaine."
+      },
+      {
+        "id": "tyn_040",
+        "category": "couple",
+        "text": "Je te demande qu’on vive séparément pendant un an alors que tout va bien entre nous."
+      },
+      {
+        "id": "tyn_041",
+        "category": "autonomie",
+        "text": "Je prends une grande décision personnelle sans te consulter parce qu’elle ne concerne que ma vie."
+      },
+      {
+        "id": "tyn_042",
+        "category": "sorties",
+        "text": "Je pars en festival quatre jours avec mes amis et je coupe presque totalement mon téléphone."
+      }
+    ]
+  },
+  {
+    "id": "tyn_part_008",
+    "title": "Bienvenue dans ma famille",
+    "situations": [
+      {
+        "id": "tyn_043",
+        "category": "famille",
+        "text": "Ma mère ou mon père a un double des clés de chez nous et peut venir sans prévenir."
+      },
+      {
+        "id": "tyn_044",
+        "category": "famille",
+        "text": "On passe obligatoirement tous les Noël avec ma famille et jamais avec la tienne."
+      },
+      {
+        "id": "tyn_045",
+        "category": "famille",
+        "text": "Je raconte à ma famille les détails de nos grosses disputes pour avoir leur avis."
+      },
+      {
+        "id": "tyn_046",
+        "category": "famille",
+        "text": "Un membre de ma famille vient vivre chez nous pendant six mois sans payer de loyer."
+      },
+      {
+        "id": "tyn_047",
+        "category": "famille",
+        "text": "Je prête une grosse somme de notre argent commun à un proche sans te demander avant."
+      },
+      {
+        "id": "tyn_048",
+        "category": "famille",
+        "text": "Je choisis systématiquement de défendre ma famille quand elle est en conflit avec toi."
+      }
+    ]
+  },
+  {
+    "id": "tyn_part_009",
+    "title": "Mes potes d’abord ?",
+    "situations": [
+      {
+        "id": "tyn_049",
+        "category": "amis",
+        "text": "J’annule notre soirée prévue depuis longtemps parce qu’un(e) ami(e) a besoin de moi au dernier moment."
+      },
+      {
+        "id": "tyn_050",
+        "category": "amis",
+        "text": "Je pars chaque année en vacances une semaine avec mes amis sans toi."
+      },
+      {
+        "id": "tyn_051",
+        "category": "amis",
+        "text": "Mon/ma meilleur(e) ami(e) connaît presque tous les détails de notre relation."
+      },
+      {
+        "id": "tyn_052",
+        "category": "amis",
+        "text": "Je dors régulièrement chez un(e) ami(e) après nos soirées pour éviter de rentrer tard."
+      },
+      {
+        "id": "tyn_053",
+        "category": "amis",
+        "text": "Je continue à voir très souvent une personne que tu ne supportes vraiment pas."
+      },
+      {
+        "id": "tyn_054",
+        "category": "amis",
+        "text": "Je propose qu’un(e) de mes ami(e)s devienne notre colocataire pendant un an."
+      }
+    ]
+  },
+  {
+    "id": "tyn_part_010",
+    "title": "Sous le même toit",
+    "situations": [
+      {
+        "id": "tyn_055",
+        "category": "quotidien",
+        "text": "On emménage ensemble, mais chacun a sa chambre et on dort souvent séparément."
+      },
+      {
+        "id": "tyn_056",
+        "category": "quotidien",
+        "text": "Je décide seul(e) de toute la décoration de notre salon."
+      },
+      {
+        "id": "tyn_057",
+        "category": "quotidien",
+        "text": "Je refuse catégoriquement de faire la cuisine, mais je prends toutes les autres tâches ménagères."
+      },
+      {
+        "id": "tyn_058",
+        "category": "quotidien",
+        "text": "Je veux qu’on ait une femme ou un homme de ménage, même si ça prend une grosse partie de notre budget loisirs."
+      },
+      {
+        "id": "tyn_059",
+        "category": "quotidien",
+        "text": "Je transforme une pièce entière de notre logement en espace uniquement pour moi."
+      },
+      {
+        "id": "tyn_060",
+        "category": "quotidien",
+        "text": "Je veux vivre avec toi, mais je refuse qu’on partage un compte bancaire commun."
+      }
+    ]
+  },
+  {
+    "id": "tyn_part_011",
+    "title": "Mot de passe ou jardin secret",
+    "situations": [
+      {
+        "id": "tyn_061",
+        "category": "vie_privée",
+        "text": "Tu peux fouiller mon téléphone quand tu veux, mais j’ai exactement le même droit sur le tien."
+      },
+      {
+        "id": "tyn_062",
+        "category": "vie_privée",
+        "text": "Je refuse de te donner le code de mon téléphone, même après dix ans de relation."
+      },
+      {
+        "id": "tyn_063",
+        "category": "localisation",
+        "text": "On partage notre localisation en permanence et on reçoit une alerte quand l’autre quitte sa zone habituelle."
+      },
+      {
+        "id": "tyn_064",
+        "category": "messages",
+        "text": "Je supprime régulièrement des conversations privées parce que je considère qu’elles ne te regardent pas."
+      },
+      {
+        "id": "tyn_065",
+        "category": "vie_privée",
+        "text": "Je garde un journal intime que tu n’auras jamais le droit de lire."
+      },
+      {
+        "id": "tyn_066",
+        "category": "réseaux",
+        "text": "Tu as accès à tous mes comptes, mais tu n’as jamais le droit de répondre à ma place."
+      }
+    ]
+  },
+  {
+    "id": "tyn_part_012",
+    "title": "La jalousie entre dans le chat",
+    "situations": [
+      {
+        "id": "tyn_067",
+        "category": "jalousie",
+        "text": "Je pars boire un verre seul(e) avec quelqu’un qui m’a déjà clairement dragué(e)."
+      },
+      {
+        "id": "tyn_068",
+        "category": "jalousie",
+        "text": "Je danse très collé(e) à quelqu’un d’autre en soirée parce que, pour moi, ça ne veut rien dire."
+      },
+      {
+        "id": "tyn_069",
+        "category": "réseaux",
+        "text": "Je réponds avec des cœurs aux stories d’une personne que tu sais attirée par moi."
+      },
+      {
+        "id": "tyn_070",
+        "category": "jalousie",
+        "text": "Je te demande d’arrêter de voir une personne parce que je me sens menacé(e) par elle."
+      },
+      {
+        "id": "tyn_071",
+        "category": "couple",
+        "text": "Je te dis franchement que je trouve l’un(e) de tes ami(e)s extrêmement attirant(e)."
+      },
+      {
+        "id": "tyn_072",
+        "category": "sorties",
+        "text": "Je rentre d’une soirée au petit matin sans t’avoir donné de nouvelles pendant plusieurs heures."
+      }
+    ]
+  },
+  {
+    "id": "tyn_part_013",
+    "title": "Tendresse sous conditions",
+    "situations": [
+      {
+        "id": "tyn_073",
+        "category": "affection",
+        "text": "Je ne te dis presque jamais « je t’aime », mais je te le montre beaucoup par mes actes."
+      },
+      {
+        "id": "tyn_074",
+        "category": "affection",
+        "text": "Je déteste les gestes tendres en public et je te repousse si tu m’embrasses devant du monde."
+      },
+      {
+        "id": "tyn_075",
+        "category": "intimité",
+        "text": "J’ai besoin de dormir seul(e) plusieurs nuits par semaine pour bien me reposer."
+      },
+      {
+        "id": "tyn_076",
+        "category": "affection",
+        "text": "Je peux passer plusieurs jours sans avoir envie de câlins, même si tout va bien entre nous."
+      },
+      {
+        "id": "tyn_077",
+        "category": "communication",
+        "text": "Quand je suis énervé(e), j’ai parfois besoin de vingt-quatre heures sans parler du tout."
+      },
+      {
+        "id": "tyn_078",
+        "category": "intimité",
+        "text": "Je te demande qu’on planifie nos moments intimes au lieu d’attendre qu’ils arrivent spontanément."
+      }
+    ]
+  },
+  {
+    "id": "tyn_part_014",
+    "title": "Mon corps, ma décision",
+    "situations": [
+      {
+        "id": "tyn_079",
+        "category": "apparence",
+        "text": "Je me rase la tête sur un coup de tête sans t’en parler avant."
+      },
+      {
+        "id": "tyn_080",
+        "category": "apparence",
+        "text": "Je me fais tatouer tout le dos avec un motif que tu trouves affreux."
+      },
+      {
+        "id": "tyn_081",
+        "category": "apparence",
+        "text": "Je fais une opération esthétique importante alors que tu préfères mon apparence actuelle."
+      },
+      {
+        "id": "tyn_082",
+        "category": "réseaux",
+        "text": "Je pose nu(e) de façon artistique pour un grand photographe et les photos sont exposées publiquement."
+      },
+      {
+        "id": "tyn_083",
+        "category": "apparence",
+        "text": "Je change totalement de style vestimentaire et je porte désormais des tenues que tu n’aimes pas du tout."
+      },
+      {
+        "id": "tyn_084",
+        "category": "intimité",
+        "text": "Je décide que personne, même toi, n’a son mot à dire sur ce que je fais de mon corps."
+      }
+    ]
+  },
+  {
+    "id": "tyn_part_015",
+    "title": "Qui paie quoi ?",
+    "situations": [
+      {
+        "id": "tyn_085",
+        "category": "argent",
+        "text": "Je gagne beaucoup plus que toi, mais je veux quand même qu’on partage toutes les dépenses à 50/50."
+      },
+      {
+        "id": "tyn_086",
+        "category": "argent",
+        "text": "Je dépense 2 000 € dans une passion personnelle sans t’en parler parce que c’est mon argent."
+      },
+      {
+        "id": "tyn_087",
+        "category": "argent",
+        "text": "Je veux qu’on mette tous nos salaires sur un seul compte commun."
+      },
+      {
+        "id": "tyn_088",
+        "category": "argent",
+        "text": "Je quitte mon travail pendant un an pour poursuivre un rêve et tu assumes presque toutes les dépenses."
+      },
+      {
+        "id": "tyn_089",
+        "category": "argent",
+        "text": "Je prête 10 000 € à mon/ma meilleur(e) ami(e), même si tu penses qu’on ne les reverra jamais."
+      },
+      {
+        "id": "tyn_090",
+        "category": "argent",
+        "text": "Je gagne au loto et je donne immédiatement un quart de mes gains à ma famille."
+      }
+    ]
+  },
+  {
+    "id": "tyn_part_016",
+    "title": "Le futur n’était pas prévu comme ça",
+    "situations": [
+      {
+        "id": "tyn_091",
+        "category": "futur",
+        "text": "Je change complètement d’avis sur le pays où je veux vivre pour le reste de ma vie."
+      },
+      {
+        "id": "tyn_092",
+        "category": "futur",
+        "text": "Je veux qu’on parte vivre à la campagne alors que notre projet était une grande ville."
+      },
+      {
+        "id": "tyn_093",
+        "category": "futur",
+        "text": "Je décide que je ne veux finalement jamais être propriétaire d’un logement."
+      },
+      {
+        "id": "tyn_094",
+        "category": "futur",
+        "text": "Je veux consacrer les dix prochaines années à voyager plutôt qu’à construire une vie très stable."
+      },
+      {
+        "id": "tyn_095",
+        "category": "futur",
+        "text": "Je reçois une opportunité incroyable qui bouleverse tous nos projets pour les cinq prochaines années."
+      },
+      {
+        "id": "tyn_096",
+        "category": "futur",
+        "text": "Je te demande de recommencer notre vie à zéro dans un endroit où nous ne connaissons personne."
+      }
+    ]
+  },
+  {
+    "id": "tyn_part_017",
+    "title": "Engagement maximum",
+    "situations": [
+      {
+        "id": "tyn_097",
+        "category": "engagement",
+        "text": "On se marie dans trois mois alors qu’on n’a encore rien préparé."
+      },
+      {
+        "id": "tyn_098",
+        "category": "engagement",
+        "text": "Je veux une cérémonie immense avec plus de 200 personnes."
+      },
+      {
+        "id": "tyn_099",
+        "category": "engagement",
+        "text": "Je ne veux jamais me marier, mais je veux construire toute ma vie avec toi."
+      },
+      {
+        "id": "tyn_100",
+        "category": "engagement",
+        "text": "Je veux qu’on porte tous les deux une alliance même sans être mariés."
+      },
+      {
+        "id": "tyn_101",
+        "category": "engagement",
+        "text": "Je te demande de signer un contrat très précis sur nos finances avant tout grand engagement."
+      },
+      {
+        "id": "tyn_102",
+        "category": "engagement",
+        "text": "Je veux qu’on fasse une promesse symbolique extrêmement forte, mais sans aucune valeur légale."
+      }
+    ]
+  },
+  {
+    "id": "tyn_part_018",
+    "title": "Paris-Bordeaux puissance mille",
+    "situations": [
+      {
+        "id": "tyn_103",
+        "category": "distance",
+        "text": "On reste à distance pendant encore cinq ans parce qu’aucun de nous ne veut sacrifier sa carrière."
+      },
+      {
+        "id": "tyn_104",
+        "category": "distance",
+        "text": "Je déménage près de toi, mais je te demande de payer seul(e) une grande partie de mon déménagement."
+      },
+      {
+        "id": "tyn_105",
+        "category": "distance",
+        "text": "On ne peut se voir qu’un week-end par mois pendant une année entière."
+      },
+      {
+        "id": "tyn_106",
+        "category": "distance",
+        "text": "Je rate notre seule occasion de nous voir du mois pour partir à un événement avec mes amis."
+      },
+      {
+        "id": "tyn_107",
+        "category": "distance",
+        "text": "Je refuse les appels vidéo pendant une semaine parce que j’ai besoin de déconnecter."
+      },
+      {
+        "id": "tyn_108",
+        "category": "distance",
+        "text": "On se donne une date limite : si personne n’a déménagé dans deux ans, on se sépare."
+      }
+    ]
+  },
+  {
+    "id": "tyn_part_019",
+    "title": "Collègues, collègues…",
+    "situations": [
+      {
+        "id": "tyn_109",
+        "category": "travail",
+        "text": "Je deviens très proche d’un(e) collègue et on déjeune ensemble presque tous les jours."
+      },
+      {
+        "id": "tyn_110",
+        "category": "travail",
+        "text": "Je pars quatre jours en séminaire et je partage une chambre d’hôtel avec un(e) collègue pour réduire les frais."
+      },
+      {
+        "id": "tyn_111",
+        "category": "travail",
+        "text": "Mon ex devient mon/ma supérieur(e) direct(e) et je refuse de changer d’équipe."
+      },
+      {
+        "id": "tyn_112",
+        "category": "travail",
+        "text": "Je passe plus de temps éveillé(e) avec mes collègues qu’avec toi pendant plusieurs mois."
+      },
+      {
+        "id": "tyn_113",
+        "category": "travail",
+        "text": "Je monte une entreprise avec une personne que tu sais avoir eu des sentiments pour moi."
+      },
+      {
+        "id": "tyn_114",
+        "category": "travail",
+        "text": "Je te demande de ne jamais venir à mes événements professionnels parce que je veux séparer totalement travail et couple."
+      }
+    ]
+  },
+  {
+    "id": "tyn_part_020",
+    "title": "La vie en mode difficile",
+    "situations": [
+      {
+        "id": "tyn_115",
+        "category": "quotidien",
+        "text": "Je décide qu’on n’a plus de télévision à la maison pendant un an."
+      },
+      {
+        "id": "tyn_116",
+        "category": "quotidien",
+        "text": "Je veux qu’on se lève tous les jours à 6 h pour faire du sport ensemble."
+      },
+      {
+        "id": "tyn_117",
+        "category": "quotidien",
+        "text": "Je deviens végétarien(ne) et je ne veux plus aucune viande cuisinée chez nous."
+      },
+      {
+        "id": "tyn_118",
+        "category": "quotidien",
+        "text": "Je veux qu’on fasse un mois sans acheter quoi que ce soit qui ne soit pas indispensable."
+      },
+      {
+        "id": "tyn_119",
+        "category": "quotidien",
+        "text": "Je transforme tous nos dimanches en journées sans téléphone."
+      },
+      {
+        "id": "tyn_120",
+        "category": "quotidien",
+        "text": "Je veux qu’on déménage dans un logement deux fois plus petit pour économiser énormément."
+      }
+    ]
+  },
+  {
+    "id": "tyn_part_021",
+    "title": "N’importe quoi, mais ensemble",
+    "situations": [
+      {
+        "id": "tyn_121",
+        "category": "fun",
+        "text": "On doit porter exactement la même tenue tous les week-ends pendant un an pour gagner 50 000 €."
+      },
+      {
+        "id": "tyn_122",
+        "category": "fun",
+        "text": "Je change officiellement ton prénom dans mon téléphone en « Mon petit ravioli » et je refuse de le modifier."
+      },
+      {
+        "id": "tyn_123",
+        "category": "fun",
+        "text": "On participe à une émission où nos parents commentent notre couple en direct."
+      },
+      {
+        "id": "tyn_124",
+        "category": "fun",
+        "text": "Je fais imprimer une photo très gênante de nous sur un énorme tableau dans notre salon."
+      },
+      {
+        "id": "tyn_125",
+        "category": "fun",
+        "text": "On doit parler uniquement en rimes pendant une semaine pour gagner un voyage."
+      },
+      {
+        "id": "tyn_126",
+        "category": "fun",
+        "text": "Je choisis notre prochaine destination de vacances en lançant une fléchette sur une carte du monde."
+      }
+    ]
+  },
+  {
+    "id": "tyn_part_022",
+    "title": "Le téléphone décide",
+    "situations": [
+      {
+        "id": "tyn_127",
+        "category": "technologie",
+        "text": "Une intelligence artificielle choisit toutes nos activités de couple pendant un mois."
+      },
+      {
+        "id": "tyn_128",
+        "category": "technologie",
+        "text": "Je mets une application qui compte exactement combien de temps on passe ensemble chaque semaine."
+      },
+      {
+        "id": "tyn_129",
+        "category": "réseaux",
+        "text": "On doit supprimer tous nos réseaux sociaux pendant un an pour recevoir 100 000 €."
+      },
+      {
+        "id": "tyn_130",
+        "category": "technologie",
+        "text": "Je laisse mon téléphone répondre automatiquement à tous tes messages pendant une journée sans te prévenir."
+      },
+      {
+        "id": "tyn_131",
+        "category": "vie_privée",
+        "text": "On échange nos historiques de recherche complets des cinq dernières années."
+      },
+      {
+        "id": "tyn_132",
+        "category": "technologie",
+        "text": "On installe des caméras dans les pièces communes de chez nous pour pouvoir revoir nos meilleurs moments."
+      }
+    ]
+  },
+  {
+    "id": "tyn_part_023",
+    "title": "Bienvenue au zoo",
+    "situations": [
+      {
+        "id": "tyn_133",
+        "category": "animaux",
+        "text": "Je ramène un chien à la maison sans t’en parler parce que j’ai eu un coup de cœur."
+      },
+      {
+        "id": "tyn_134",
+        "category": "animaux",
+        "text": "On adopte trois chats d’un coup parce qu’ils ne doivent pas être séparés."
+      },
+      {
+        "id": "tyn_135",
+        "category": "animaux",
+        "text": "Je laisse notre animal dormir entre nous dans le lit toutes les nuits."
+      },
+      {
+        "id": "tyn_136",
+        "category": "animaux",
+        "text": "Je dépense plusieurs milliers d’euros pour sauver un animal très malade qu’on vient juste d’adopter."
+      },
+      {
+        "id": "tyn_137",
+        "category": "animaux",
+        "text": "Je veux prendre un animal exotique qui nécessite une pièce entière pour lui."
+      },
+      {
+        "id": "tyn_138",
+        "category": "animaux",
+        "text": "On annule un grand voyage parce qu’on ne trouve personne en qui on a confiance pour garder notre animal."
+      }
+    ]
+  },
+  {
+    "id": "tyn_part_024",
+    "title": "La guerre du ménage",
+    "situations": [
+      {
+        "id": "tyn_139",
+        "category": "quotidien",
+        "text": "Je ne range jamais mes vêtements, mais je fais absolument tout le ménage du reste de la maison."
+      },
+      {
+        "id": "tyn_140",
+        "category": "quotidien",
+        "text": "Je veux qu’on fasse un tableau avec des points pour chaque tâche ménagère."
+      },
+      {
+        "id": "tyn_141",
+        "category": "quotidien",
+        "text": "Je refuse de faire une tâche précise de toute ma vie et elle devient automatiquement la tienne."
+      },
+      {
+        "id": "tyn_142",
+        "category": "quotidien",
+        "text": "Je jette des objets que je trouve inutiles sans toujours te demander avant."
+      },
+      {
+        "id": "tyn_143",
+        "category": "quotidien",
+        "text": "Je veux une maison parfaitement rangée avant de recevoir qui que ce soit, même si ça nous met en retard."
+      },
+      {
+        "id": "tyn_144",
+        "category": "quotidien",
+        "text": "On paie quelqu’un pour faire toutes les corvées et on réduit fortement notre budget sorties pour ça."
+      }
+    ]
+  },
+  {
+    "id": "tyn_part_025",
+    "title": "Vacances sous tension",
+    "situations": [
+      {
+        "id": "tyn_145",
+        "category": "voyage",
+        "text": "Je réserve nos vacances surprise sans te révéler la destination avant d’arriver à l’aéroport."
+      },
+      {
+        "id": "tyn_146",
+        "category": "voyage",
+        "text": "On part avec un couple d’amis que tu apprécies, mais avec qui tu n’es jamais parti(e) plus de deux jours."
+      },
+      {
+        "id": "tyn_147",
+        "category": "voyage",
+        "text": "Je veux passer toutes les vacances à visiter alors que toi tu voulais surtout te reposer."
+      },
+      {
+        "id": "tyn_148",
+        "category": "voyage",
+        "text": "On loue un logement magnifique, mais il n’y a absolument aucun réseau ni Wi-Fi."
+      },
+      {
+        "id": "tyn_149",
+        "category": "voyage",
+        "text": "Je décide de prolonger seul(e) le voyage d’une semaine après ton retour."
+      },
+      {
+        "id": "tyn_150",
+        "category": "voyage",
+        "text": "On dépense presque toutes nos économies loisirs dans un seul voyage exceptionnel."
+      }
+    ]
+  },
+  {
+    "id": "tyn_part_026",
+    "title": "La soirée de trop",
+    "situations": [
+      {
+        "id": "tyn_151",
+        "category": "sorties",
+        "text": "Je pars en soirée avec une personne avec qui j’ai déjà eu une ambiguïté."
+      },
+      {
+        "id": "tyn_152",
+        "category": "alcool",
+        "text": "Je rentre complètement ivre et tu dois venir me chercher à une heure du matin."
+      },
+      {
+        "id": "tyn_153",
+        "category": "sorties",
+        "text": "Je veux sortir en boîte tous les week-ends pendant plusieurs mois."
+      },
+      {
+        "id": "tyn_154",
+        "category": "sorties",
+        "text": "Je disparais de la soirée pendant deux heures parce que mon téléphone est déchargé."
+      },
+      {
+        "id": "tyn_155",
+        "category": "alcool",
+        "text": "J’arrête complètement de boire et je te demande de ne plus garder d’alcool chez nous."
+      },
+      {
+        "id": "tyn_156",
+        "category": "sorties",
+        "text": "Je pars à une after chez des inconnus alors que toi tu rentres dormir."
+      }
+    ]
+  },
+  {
+    "id": "tyn_part_027",
+    "title": "Toute la vérité ?",
+    "situations": [
+      {
+        "id": "tyn_157",
+        "category": "confiance",
+        "text": "Je te cache une mauvaise nouvelle pendant plusieurs jours pour ne pas gâcher un moment important."
+      },
+      {
+        "id": "tyn_158",
+        "category": "confiance",
+        "text": "Je te dis toujours exactement ce que je pense de tes tenues, même quand tu ne demandes pas mon avis."
+      },
+      {
+        "id": "tyn_159",
+        "category": "confiance",
+        "text": "Je t’avoue avoir menti sur un détail important au tout début de notre relation."
+      },
+      {
+        "id": "tyn_160",
+        "category": "confiance",
+        "text": "Je préfère ne jamais te raconter certains détails de mes anciennes relations."
+      },
+      {
+        "id": "tyn_161",
+        "category": "confiance",
+        "text": "Je te demande de me promettre de ne pas me poser de question sur une journée précise de ma vie."
+      },
+      {
+        "id": "tyn_162",
+        "category": "confiance",
+        "text": "Je te révèle une vérité qui risque de changer l’image que tu as de moi, mais seulement dix ans plus tard."
+      }
+    ]
+  },
+  {
+    "id": "tyn_part_028",
+    "title": "Le retour de l’ex",
+    "situations": [
+      {
+        "id": "tyn_163",
+        "category": "ex",
+        "text": "Je recommence à suivre mon ex sur les réseaux parce qu’on s’est quittés en bons termes."
+      },
+      {
+        "id": "tyn_164",
+        "category": "ex",
+        "text": "Je souhaite l’anniversaire de mon ex chaque année avec un vrai message personnel."
+      },
+      {
+        "id": "tyn_165",
+        "category": "ex",
+        "text": "Je garde une boîte entière de souvenirs de notre ancienne relation."
+      },
+      {
+        "id": "tyn_166",
+        "category": "ex",
+        "text": "Je vais prendre un café seul(e) avec mon ex pour parler de sa nouvelle vie."
+      },
+      {
+        "id": "tyn_167",
+        "category": "ex",
+        "text": "Mon ex traverse une période très difficile et je veux être là pour lui/elle régulièrement."
+      },
+      {
+        "id": "tyn_168",
+        "category": "ex",
+        "text": "Je te demande d’accepter que mon ex reste l’une des personnes les plus importantes de ma vie."
+      }
+    ]
+  },
+  {
+    "id": "tyn_part_029",
+    "title": "Influenceur malgré toi",
+    "situations": [
+      {
+        "id": "tyn_169",
+        "category": "réseaux",
+        "text": "Je deviens influenceur/influenceuse et tu apparais parfois dans mes vidéos sans parler."
+      },
+      {
+        "id": "tyn_170",
+        "category": "réseaux",
+        "text": "Une vidéo de nous devient virale et je décide de profiter du buzz au maximum."
+      },
+      {
+        "id": "tyn_171",
+        "category": "réseaux",
+        "text": "Je fais un partenariat très bien payé pour un produit que tu trouves franchement nul."
+      },
+      {
+        "id": "tyn_172",
+        "category": "réseaux",
+        "text": "Je publie un « storytime » sur notre rencontre avec des détails que tu préférais garder privés."
+      },
+      {
+        "id": "tyn_173",
+        "category": "réseaux",
+        "text": "Je gagne beaucoup d’argent en ligne, mais je dois publier du contenu tous les jours, même pendant nos vacances."
+      },
+      {
+        "id": "tyn_174",
+        "category": "réseaux",
+        "text": "Je lance une chaîne entièrement consacrée aux conseils de couple en m’inspirant souvent de notre relation."
+      }
+    ]
+  },
+  {
+    "id": "tyn_part_030",
+    "title": "Combien pour accepter ça ?",
+    "situations": [
+      {
+        "id": "tyn_175",
+        "category": "argent",
+        "text": "On reçoit 1 million d’euros, mais on ne peut plus jamais manger au restaurant."
+      },
+      {
+        "id": "tyn_176",
+        "category": "argent",
+        "text": "Je gagne 200 000 €, mais je dois appeler mon ex chaque semaine pendant un an pour une émission."
+      },
+      {
+        "id": "tyn_177",
+        "category": "argent",
+        "text": "On reçoit la maison de nos rêves gratuitement, mais elle se trouve à quatre heures de route de tous nos proches."
+      },
+      {
+        "id": "tyn_178",
+        "category": "argent",
+        "text": "Tu touches 500 000 €, mais je choisis seul(e) toutes nos destinations de vacances pendant dix ans."
+      },
+      {
+        "id": "tyn_179",
+        "category": "argent",
+        "text": "On gagne 50 000 €, mais une caméra filme notre quotidien pendant un mois."
+      },
+      {
+        "id": "tyn_180",
+        "category": "argent",
+        "text": "Je gagne 5 millions d’euros, mais tu ne peux jamais savoir quel travail m’a permis de les gagner."
+      }
+    ]
+  },
+  {
+    "id": "tyn_part_031",
+    "title": "La honte est temporaire",
+    "situations": [
+      {
+        "id": "tyn_181",
+        "category": "fun",
+        "text": "Je fais une demande romantique très spectaculaire devant toute ta famille alors que tu détestes être au centre de l’attention."
+      },
+      {
+        "id": "tyn_182",
+        "category": "fun",
+        "text": "Je diffuse une vidéo de toi en train de chanter faux parce qu’elle me fait mourir de rire."
+      },
+      {
+        "id": "tyn_183",
+        "category": "fun",
+        "text": "On doit porter des pulls avec nos visages imprimés dessus pendant toutes les fêtes de fin d’année."
+      },
+      {
+        "id": "tyn_184",
+        "category": "fun",
+        "text": "Je raconte notre anecdote la plus gênante devant tous nos amis lors d’un discours."
+      },
+      {
+        "id": "tyn_185",
+        "category": "fun",
+        "text": "On participe à un concours de couples où nos connaissances répondent à des questions intimes sur nous."
+      },
+      {
+        "id": "tyn_186",
+        "category": "fun",
+        "text": "Je mets une énorme photo de nous en fond d’écran sur tous les appareils de la maison."
+      }
+    ]
+  },
+  {
+    "id": "tyn_part_032",
+    "title": "Je fais ce que je veux",
+    "situations": [
+      {
+        "id": "tyn_187",
+        "category": "autonomie",
+        "text": "Je pars parfois toute une journée sans te dire ce que je fais ni avec qui."
+      },
+      {
+        "id": "tyn_188",
+        "category": "autonomie",
+        "text": "Je garde une partie importante de ma vie sociale dans laquelle tu ne viens presque jamais."
+      },
+      {
+        "id": "tyn_189",
+        "category": "autonomie",
+        "text": "Je réserve un voyage solo chaque année, même si nos vacances ensemble sont limitées."
+      },
+      {
+        "id": "tyn_190",
+        "category": "autonomie",
+        "text": "Je prends un appartement à mon nom uniquement, même si on vit ensemble depuis longtemps."
+      },
+      {
+        "id": "tyn_191",
+        "category": "autonomie",
+        "text": "Je refuse que nos emplois du temps soient partagés automatiquement."
+      },
+      {
+        "id": "tyn_192",
+        "category": "autonomie",
+        "text": "Je veux pouvoir prendre certaines décisions qui changent beaucoup mon quotidien sans demander ton accord."
+      }
+    ]
+  },
+  {
+    "id": "tyn_part_033",
+    "title": "Nos proches ont-ils une limite ?",
+    "situations": [
+      {
+        "id": "tyn_193",
+        "category": "amis",
+        "text": "Ton/ta meilleur(e) ami(e) peut venir dormir chez nous quand il ou elle veut sans demander plusieurs jours avant."
+      },
+      {
+        "id": "tyn_194",
+        "category": "famille",
+        "text": "Ma famille connaît le code de notre porte et peut entrer quand nous ne sommes pas là."
+      },
+      {
+        "id": "tyn_195",
+        "category": "amis",
+        "text": "Je pars en week-end avec un groupe où se trouve une personne avec qui j’ai déjà flirté."
+      },
+      {
+        "id": "tyn_196",
+        "category": "famille",
+        "text": "Je donne une clé de notre logement à mon frère, ma sœur ou un proche sans t’en parler avant."
+      },
+      {
+        "id": "tyn_197",
+        "category": "amis",
+        "text": "Un(e) ami(e) peut m’appeler à n’importe quelle heure de la nuit et je réponds toujours, même quand on est ensemble."
+      },
+      {
+        "id": "tyn_198",
+        "category": "famille",
+        "text": "Je laisse un proche prendre régulièrement des décisions importantes à ma place parce que j’ai confiance en son jugement."
+      }
+    ]
+  },
+  {
+    "id": "tyn_part_034",
+    "title": "Le cinéma avant tout",
+    "situations": [
+      {
+        "id": "tyn_199",
+        "category": "travail",
+        "text": "Je joue une scène d’amour très réaliste avec une personne que tu trouves particulièrement attirante."
+      },
+      {
+        "id": "tyn_200",
+        "category": "travail",
+        "text": "Je dois partir six mois en tournage avec très peu de possibilités de te voir."
+      },
+      {
+        "id": "tyn_201",
+        "category": "travail",
+        "text": "Pour un rôle, je dois simuler une relation avec une autre personne pendant toute la promotion du film."
+      },
+      {
+        "id": "tyn_202",
+        "category": "travail",
+        "text": "Une marque me propose une campagne très sexy où je pose avec quelqu’un d’autre en sous-vêtements."
+      },
+      {
+        "id": "tyn_203",
+        "category": "travail",
+        "text": "Je deviens célèbre et des milliers de personnes commencent à fantasmer publiquement sur moi."
+      },
+      {
+        "id": "tyn_204",
+        "category": "travail",
+        "text": "Je refuse le plus gros rôle de ma carrière parce qu’une limite du contrat te met vraiment mal à l’aise."
+      }
+    ]
+  },
+  {
+    "id": "tyn_part_035",
+    "title": "Secret de famille",
+    "situations": [
+      {
+        "id": "tyn_205",
+        "category": "famille",
+        "text": "Je découvre un énorme secret sur ma famille et je te demande de ne jamais en parler à personne."
+      },
+      {
+        "id": "tyn_206",
+        "category": "famille",
+        "text": "Je finance discrètement un proche tous les mois avec mon argent personnel."
+      },
+      {
+        "id": "tyn_207",
+        "category": "famille",
+        "text": "Je garde contact avec un membre de ma famille qui t’a pourtant très mal traité(e)."
+      },
+      {
+        "id": "tyn_208",
+        "category": "famille",
+        "text": "Je refuse de venir à un événement important de ta famille parce qu’une personne présente me met mal à l’aise."
+      },
+      {
+        "id": "tyn_209",
+        "category": "famille",
+        "text": "Je veux qu’un futur héritage reste entièrement séparé de nos finances communes."
+      },
+      {
+        "id": "tyn_210",
+        "category": "famille",
+        "text": "Je te demande de mentir avec moi à ma famille sur une grande décision de notre couple."
+      }
+    ]
+  },
+  {
+    "id": "tyn_part_036",
+    "title": "Ensemble, mais pas comme prévu",
+    "situations": [
+      {
+        "id": "tyn_211",
+        "category": "couple",
+        "text": "On vit dans le même immeuble mais chacun dans son propre appartement."
+      },
+      {
+        "id": "tyn_212",
+        "category": "couple",
+        "text": "On partage notre vie, mais on garde chacun toutes nos finances séparées pour toujours."
+      },
+      {
+        "id": "tyn_213",
+        "category": "couple",
+        "text": "On décide de ne jamais passer plus de trois jours d’affilée ensemble pour préserver le manque."
+      },
+      {
+        "id": "tyn_214",
+        "category": "couple",
+        "text": "On travaille dans deux pays différents et on alterne toute notre vie entre les deux."
+      },
+      {
+        "id": "tyn_215",
+        "category": "couple",
+        "text": "On reste ensemble, mais on ne fête jamais les anniversaires ni les grandes dates de couple."
+      },
+      {
+        "id": "tyn_216",
+        "category": "couple",
+        "text": "On choisit de ne jamais avoir de projet matériel commun, mais de dépenser presque tout dans des expériences."
+      }
+    ]
+  },
+  {
+    "id": "tyn_part_037",
+    "title": "Valeurs en collision",
+    "situations": [
+      {
+        "id": "tyn_217",
+        "category": "valeurs",
+        "text": "Je soutiens publiquement une cause importante pour moi alors que tu es profondément en désaccord."
+      },
+      {
+        "id": "tyn_218",
+        "category": "valeurs",
+        "text": "Je décide de donner chaque mois une part importante de mon salaire à une association."
+      },
+      {
+        "id": "tyn_219",
+        "category": "valeurs",
+        "text": "Je refuse d’acheter certains produits et ça complique fortement notre quotidien."
+      },
+      {
+        "id": "tyn_220",
+        "category": "valeurs",
+        "text": "Je change complètement d’avis sur une conviction qui faisait partie de notre compatibilité au début."
+      },
+      {
+        "id": "tyn_221",
+        "category": "valeurs",
+        "text": "Je veux élever notre futur foyer selon une tradition que tu ne partages pas vraiment."
+      },
+      {
+        "id": "tyn_222",
+        "category": "valeurs",
+        "text": "Je te demande de respecter une règle très importante pour moi, même si tu la trouves totalement inutile."
+      }
+    ]
+  },
+  {
+    "id": "tyn_part_038",
+    "title": "Nouvelle tête, nouvelle vie",
+    "situations": [
+      {
+        "id": "tyn_223",
+        "category": "apparence",
+        "text": "Je fais une coloration complètement folle la veille d’un événement très important pour nous."
+      },
+      {
+        "id": "tyn_224",
+        "category": "apparence",
+        "text": "Je prends ou perds énormément de muscle parce que je veux transformer totalement mon corps."
+      },
+      {
+        "id": "tyn_225",
+        "category": "apparence",
+        "text": "Je me fais plusieurs piercings très visibles alors que tu détestes ça."
+      },
+      {
+        "id": "tyn_226",
+        "category": "apparence",
+        "text": "Je décide de ne plus du tout me maquiller ou me préparer comme avant, même pour les grandes occasions."
+      },
+      {
+        "id": "tyn_227",
+        "category": "apparence",
+        "text": "Je me fais tatouer le portrait très réaliste de mon animal sur le bras."
+      },
+      {
+        "id": "tyn_228",
+        "category": "apparence",
+        "text": "Je participe à une émission de relooking où tu n’as pas le droit de voir ma transformation avant la révélation finale."
+      }
+    ]
+  },
+  {
+    "id": "tyn_part_039",
+    "title": "Tu passes après quoi ?",
+    "situations": [
+      {
+        "id": "tyn_229",
+        "category": "priorités",
+        "text": "Je consacre tous mes soirs pendant six mois à un projet personnel qui me passionne."
+      },
+      {
+        "id": "tyn_230",
+        "category": "priorités",
+        "text": "Je rate notre anniversaire de couple pour une opportunité professionnelle unique."
+      },
+      {
+        "id": "tyn_231",
+        "category": "priorités",
+        "text": "Je choisis un voyage avec mes amis alors que nous n’avons le budget que pour un seul voyage cette année."
+      },
+      {
+        "id": "tyn_232",
+        "category": "priorités",
+        "text": "Je passe chaque dimanche avec ma famille, même si c’est notre seul jour libre en commun."
+      },
+      {
+        "id": "tyn_233",
+        "category": "priorités",
+        "text": "Je m’entraîne pour un objectif sportif et notre quotidien doit s’adapter à mon programme pendant un an."
+      },
+      {
+        "id": "tyn_234",
+        "category": "priorités",
+        "text": "Je te demande d’accepter d’être moins prioritaire pendant quelques mois parce qu’un proche traverse une crise grave."
+      }
+    ]
+  },
+  {
+    "id": "tyn_part_040",
+    "title": "Le passé ne disparaît pas",
+    "situations": [
+      {
+        "id": "tyn_235",
+        "category": "ex",
+        "text": "Je garde le cadeau le plus précieux que mon ex m’ait offert et je l’utilise encore tous les jours."
+      },
+      {
+        "id": "tyn_236",
+        "category": "ex",
+        "text": "Je suis invité(e) au mariage de mon ex et je veux y aller sans toi parce que l’invitation est seulement pour moi."
+      },
+      {
+        "id": "tyn_237",
+        "category": "ex",
+        "text": "Je travaille sur un projet important avec mon ex pendant plusieurs mois."
+      },
+      {
+        "id": "tyn_238",
+        "category": "ex",
+        "text": "Je garde une playlist entière liée à mon ancienne relation parce que j’aime toujours les chansons."
+      },
+      {
+        "id": "tyn_239",
+        "category": "ex",
+        "text": "Mon ex me demande conseil sur sa nouvelle relation et j’accepte de l’aider."
+      },
+      {
+        "id": "tyn_240",
+        "category": "ex",
+        "text": "Je pars à un événement avec un groupe d’amis où mon ex sera présent(e) pendant tout le week-end."
+      }
+    ]
+  },
+  {
+    "id": "tyn_part_041",
+    "title": "Notre couple en vitrine",
+    "situations": [
+      {
+        "id": "tyn_241",
+        "category": "réseaux",
+        "text": "Je mets systématiquement une photo de nous en photo de profil sur tous mes comptes."
+      },
+      {
+        "id": "tyn_242",
+        "category": "réseaux",
+        "text": "Je refuse au contraire de publier la moindre trace de notre relation en ligne."
+      },
+      {
+        "id": "tyn_243",
+        "category": "réseaux",
+        "text": "Je fais une déclaration publique très intime pour ton anniversaire."
+      },
+      {
+        "id": "tyn_244",
+        "category": "réseaux",
+        "text": "Je laisse les gens poser des questions sur notre couple et je réponds honnêtement en direct."
+      },
+      {
+        "id": "tyn_245",
+        "category": "réseaux",
+        "text": "Je publie nos vacances presque en temps réel, avec notre localisation visible."
+      },
+      {
+        "id": "tyn_246",
+        "category": "réseaux",
+        "text": "Je gagne une grosse somme pour révéler publiquement comment on s’est rencontrés et raconter notre histoire en détail."
+      }
+    ]
+  },
+  {
+    "id": "tyn_part_042",
+    "title": "Décisions sur un coup de tête",
+    "situations": [
+      {
+        "id": "tyn_247",
+        "category": "spontanéité",
+        "text": "Je réserve deux billets d’avion pour demain sans te demander si tu peux vraiment partir."
+      },
+      {
+        "id": "tyn_248",
+        "category": "spontanéité",
+        "text": "Je rentre un soir avec un énorme meuble acheté sur un coup de cœur."
+      },
+      {
+        "id": "tyn_249",
+        "category": "spontanéité",
+        "text": "Je quitte mon travail sans avoir de plan B parce que je n’en peux plus."
+      },
+      {
+        "id": "tyn_250",
+        "category": "spontanéité",
+        "text": "Je propose qu’on se marie civilement la semaine prochaine juste parce qu’on en a envie."
+      },
+      {
+        "id": "tyn_251",
+        "category": "spontanéité",
+        "text": "Je dépense une grosse somme pour une expérience exceptionnelle qui n’était absolument pas prévue."
+      },
+      {
+        "id": "tyn_252",
+        "category": "spontanéité",
+        "text": "Je décide de partir un mois en van avec toi et je veux qu’on organise tout en quarante-huit heures."
+      }
+    ]
+  },
+  {
+    "id": "tyn_part_043",
+    "title": "Amour toxique ou amour tranquille",
+    "situations": [
+      {
+        "id": "tyn_253",
+        "category": "couple",
+        "text": "On se dispute énormément, mais nos réconciliations sont toujours incroyablement fortes."
+      },
+      {
+        "id": "tyn_254",
+        "category": "couple",
+        "text": "On ne se dispute presque jamais, mais on évite aussi tous les sujets qui pourraient créer un conflit."
+      },
+      {
+        "id": "tyn_255",
+        "category": "jalousie",
+        "text": "Je suis très jaloux/jalouse, mais je reconnais toujours quand je vais trop loin et je travaille dessus."
+      },
+      {
+        "id": "tyn_256",
+        "category": "couple",
+        "text": "On sait qu’on n’est pas compatibles sur un grand projet de vie, mais on décide de profiter du présent."
+      },
+      {
+        "id": "tyn_257",
+        "category": "communication",
+        "text": "Quand on se dispute, on peut dire des choses très dures, mais on ne reste jamais fâchés plus d’une heure."
+      },
+      {
+        "id": "tyn_258",
+        "category": "couple",
+        "text": "Notre relation est parfois épuisante, mais aucun de nous n’a jamais ressenti un amour aussi fort."
+      }
+    ]
+  },
+  {
+    "id": "tyn_part_044",
+    "title": "Le grand luxe",
+    "situations": [
+      {
+        "id": "tyn_259",
+        "category": "argent",
+        "text": "On peut vivre gratuitement dans un palace, mais uniquement dans une chambre sans cuisine pendant cinq ans."
+      },
+      {
+        "id": "tyn_260",
+        "category": "argent",
+        "text": "Je reçois une voiture de luxe, mais elle est rose fluo et je refuse de la revendre."
+      },
+      {
+        "id": "tyn_261",
+        "category": "argent",
+        "text": "On peut avoir un chef privé à domicile, mais on ne choisit jamais le menu."
+      },
+      {
+        "id": "tyn_262",
+        "category": "argent",
+        "text": "On gagne un voyage en jet privé, mais avec mes parents assis juste à côté de nous pendant tout le trajet."
+      },
+      {
+        "id": "tyn_263",
+        "category": "argent",
+        "text": "On nous offre un mariage entièrement payé, mais les organisateurs choisissent absolument tout."
+      },
+      {
+        "id": "tyn_264",
+        "category": "argent",
+        "text": "On devient extrêmement riches, mais notre adresse et une partie de notre vie deviennent publiques."
+      }
+    ]
+  },
+  {
+    "id": "tyn_part_045",
+    "title": "Prendre soin, mais jusqu’où ?",
+    "situations": [
+      {
+        "id": "tyn_265",
+        "category": "soutien",
+        "text": "Je traverse une période difficile et je te demande d’annuler un voyage prévu depuis un an pour rester avec moi."
+      },
+      {
+        "id": "tyn_266",
+        "category": "soutien",
+        "text": "Je veux que tu viennes avec moi à tous mes rendez-vous importants pendant plusieurs mois."
+      },
+      {
+        "id": "tyn_267",
+        "category": "soutien",
+        "text": "Je quitte temporairement mon travail et je compte beaucoup sur toi financièrement le temps de me reconstruire."
+      },
+      {
+        "id": "tyn_268",
+        "category": "soutien",
+        "text": "Je refuse toute aide extérieure et je te demande d’être la seule personne à qui je parle de mes problèmes."
+      },
+      {
+        "id": "tyn_269",
+        "category": "soutien",
+        "text": "Je te demande de mentir à nos proches pour protéger quelque chose que je ne suis pas prêt(e) à expliquer."
+      },
+      {
+        "id": "tyn_270",
+        "category": "soutien",
+        "text": "Je te dis que, pendant quelques mois, j’aurai beaucoup moins d’énergie à consacrer à notre relation."
+      }
+    ]
+  },
+  {
+    "id": "tyn_part_046",
+    "title": "La carrière ou nous",
+    "situations": [
+      {
+        "id": "tyn_271",
+        "category": "travail",
+        "text": "Je pars vivre deux ans à New York pour une opportunité impossible à refuser et tu restes ici."
+      },
+      {
+        "id": "tyn_272",
+        "category": "travail",
+        "text": "Je refuse de déménager pour ta carrière même si ton salaire peut être multiplié par cinq."
+      },
+      {
+        "id": "tyn_273",
+        "category": "travail",
+        "text": "Je prends un poste de nuit et nos horaires deviennent complètement opposés."
+      },
+      {
+        "id": "tyn_274",
+        "category": "travail",
+        "text": "Je deviens tellement passionné(e) par mon travail que j’en parle presque tous les soirs à la maison."
+      },
+      {
+        "id": "tyn_275",
+        "category": "travail",
+        "text": "Je change de métier à trente, quarante ou cinquante ans et je repars presque de zéro financièrement."
+      },
+      {
+        "id": "tyn_276",
+        "category": "travail",
+        "text": "Je te demande de me suivre dans une nouvelle ville alors que tu dois quitter un travail que tu adores."
+      }
+    ]
+  },
+  {
+    "id": "tyn_part_047",
+    "title": "Nos règles à nous",
+    "situations": [
+      {
+        "id": "tyn_277",
+        "category": "couple",
+        "text": "On se promet de ne jamais aller dormir fâchés, même si ça signifie discuter jusqu’à 4 h du matin."
+      },
+      {
+        "id": "tyn_278",
+        "category": "couple",
+        "text": "On décide qu’aucun de nous ne peut partir en voyage avec un ex, même devenu ami."
+      },
+      {
+        "id": "tyn_279",
+        "category": "vie_privée",
+        "text": "On instaure une règle : jamais de téléphone posé face cachée quand on est ensemble."
+      },
+      {
+        "id": "tyn_280",
+        "category": "sorties",
+        "text": "On décide qu’on peut sortir sans l’autre autant qu’on veut, sans avoir à demander la permission."
+      },
+      {
+        "id": "tyn_281",
+        "category": "argent",
+        "text": "On se fixe une somme au-delà de laquelle toute dépense personnelle doit être discutée à deux."
+      },
+      {
+        "id": "tyn_282",
+        "category": "communication",
+        "text": "On accepte qu’après une grosse dispute, chacun puisse demander vingt-quatre heures de silence sans que l’autre insiste."
+      }
+    ]
+  },
+  {
+    "id": "tyn_part_048",
+    "title": "Pour toujours, vraiment ?",
+    "situations": [
+      {
+        "id": "tyn_283",
+        "category": "engagement",
+        "text": "On porte un bracelet impossible à retirer pendant un an comme symbole de notre couple."
+      },
+      {
+        "id": "tyn_284",
+        "category": "engagement",
+        "text": "On se fait un petit tatouage assorti que personne d’autre ne comprend."
+      },
+      {
+        "id": "tyn_285",
+        "category": "engagement",
+        "text": "On achète ensemble un bien très cher avant d’être mariés ou pacsés."
+      },
+      {
+        "id": "tyn_286",
+        "category": "engagement",
+        "text": "Je veux que nos futurs comptes et mots de passe importants soient accessibles à l’autre en cas d’urgence."
+      },
+      {
+        "id": "tyn_287",
+        "category": "engagement",
+        "text": "On promet de revenir une fois par an au même endroit pendant les trente prochaines années."
+      },
+      {
+        "id": "tyn_288",
+        "category": "engagement",
+        "text": "Je te demande de choisir dès maintenant la personne qui prendrait les grandes décisions pour moi si je ne pouvais plus le faire."
+      }
+    ]
+  },
+  {
+    "id": "tyn_part_049",
+    "title": "La réalité alternative",
+    "situations": [
+      {
+        "id": "tyn_289",
+        "category": "fun",
+        "text": "On échange nos vies pendant une semaine : vêtements, habitudes, loisirs et emploi du temps hors travail."
+      },
+      {
+        "id": "tyn_290",
+        "category": "fun",
+        "text": "Une machine nous permet de lire les pensées de l’autre pendant une journée, sans possibilité de l’éteindre."
+      },
+      {
+        "id": "tyn_291",
+        "category": "fun",
+        "text": "On peut revenir vivre une journée de notre relation, mais on ne choisit pas laquelle."
+      },
+      {
+        "id": "tyn_292",
+        "category": "fun",
+        "text": "On reçoit 1 million d’euros, mais pendant un an toutes nos décisions importantes sont prises à pile ou face."
+      },
+      {
+        "id": "tyn_293",
+        "category": "fun",
+        "text": "On peut arrêter le temps pendant vingt-quatre heures, mais uniquement si on reste à moins de dix mètres l’un de l’autre."
+      },
+      {
+        "id": "tyn_294",
+        "category": "fun",
+        "text": "On découvre une version parallèle de nous où nous ne sommes jamais sortis ensemble et on peut passer une journée avec eux."
+      }
+    ]
+  },
+  {
+    "id": "tyn_part_050",
+    "title": "Dernière manche, aucun cadeau",
+    "situations": [
+      {
+        "id": "tyn_295",
+        "category": "couple",
+        "text": "Je t’annonce que j’ai besoin d’une pause d’un mois sans aucun contact pour savoir où j’en suis."
+      },
+      {
+        "id": "tyn_296",
+        "category": "argent",
+        "text": "On gagne assez d’argent pour ne plus jamais travailler, mais on doit quitter définitivement notre pays."
+      },
+      {
+        "id": "tyn_297",
+        "category": "jalousie",
+        "text": "Je reste ami(e) très proche avec quelqu’un qui m’avoue être amoureux/amoureuse de moi, tant que je ne ressens rien en retour."
+      },
+      {
+        "id": "tyn_298",
+        "category": "famille",
+        "text": "Je veux que l’un de nos parents vieillissants vienne vivre définitivement avec nous."
+      },
+      {
+        "id": "tyn_299",
+        "category": "travail",
+        "text": "Je deviens mondialement célèbre et notre quotidien ne sera probablement plus jamais vraiment anonyme."
+      },
+      {
+        "id": "tyn_300",
+        "category": "engagement",
+        "text": "Je te propose qu’on recommence complètement notre relation comme au premier jour, en abandonnant toutes nos habitudes actuelles."
+      }
+    ]
+  }
 ]
