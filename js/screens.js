@@ -1,13 +1,163 @@
 let isNavigatingWithBrowserBack = false;
 let lastShownScreen = null;
 
+const CACTUS_NAV_STATE_KEY = "cactusNavigation";
+const CACTUS_AUTH_FLOW_SCREENS = new Set([
+    "login",
+    "pseudo",
+    "couple",
+    "onboarding"
+]);
+
+function getCactusHistoryState() {
+    const state = history.state;
+
+    if (!state || state[CACTUS_NAV_STATE_KEY] !== true || !state.screen) {
+        return null;
+    }
+
+    return state;
+}
+
+function hasActiveCactusSpace() {
+    try {
+        return Boolean(auth?.currentUser && currentSpaceCode);
+    } catch (error) {
+        return false;
+    }
+}
+
+function replaceCactusHistoryRoot(screenName) {
+    history.replaceState(
+        {
+            [CACTUS_NAV_STATE_KEY]: true,
+            screen: screenName,
+            fromScreen: null,
+            rootScreen: screenName,
+            depth: 0
+        },
+        "",
+        "#" + screenName
+    );
+}
+
+function pushCactusHistoryScreen(screenName) {
+    const currentState = getCactusHistoryState();
+    const currentDepth = Number.isFinite(currentState?.depth)
+        ? currentState.depth
+        : 0;
+
+    history.pushState(
+        {
+            [CACTUS_NAV_STATE_KEY]: true,
+            screen: screenName,
+            fromScreen: lastShownScreen,
+            rootScreen: currentState?.rootScreen || lastShownScreen || screenName,
+            depth: currentDepth + 1
+        },
+        "",
+        "#" + screenName
+    );
+}
+
+function shouldStartNewNavigationRoot(screenName) {
+    const signedIn = Boolean(auth?.currentUser);
+    const currentState = getCactusHistoryState();
+
+    if (screenName === "login" && !signedIn) {
+        return true;
+    }
+
+    if (!signedIn) {
+        return false;
+    }
+
+    if (screenName === "dashboard") {
+        return currentState?.rootScreen !== "dashboard";
+    }
+
+    if (
+        ["pseudo", "onboarding", "couple"].includes(screenName) &&
+        !hasActiveCactusSpace()
+    ) {
+        return currentState?.rootScreen !== screenName;
+    }
+
+    return false;
+}
+
+function resolveSafeHistoryScreen(screenName) {
+    const signedIn = Boolean(auth?.currentUser);
+    const activeSpace = hasActiveCactusSpace();
+
+    if (!signedIn) {
+        return "login";
+    }
+
+    if (activeSpace && CACTUS_AUTH_FLOW_SCREENS.has(screenName)) {
+        return "dashboard";
+    }
+
+    if (!activeSpace && screenName === "dashboard") {
+        return "couple";
+    }
+
+    if (!activeSpace && screenName === "login") {
+        if (
+            lastShownScreen &&
+            CACTUS_AUTH_FLOW_SCREENS.has(lastShownScreen) &&
+            lastShownScreen !== "login"
+        ) {
+            return lastShownScreen;
+        }
+
+        return "couple";
+    }
+
+    return screenName;
+}
+
 function showScreen(screenName) {
-    if (!isNavigatingWithBrowserBack && lastShownScreen !== screenName) {
-        history.pushState(
-            { screen: screenName },
-            "",
-            "#" + screenName
-        );
+    if (lastShownScreen === screenName) {
+        showScreenContent(screenName);
+        return;
+    }
+
+    if (!isNavigatingWithBrowserBack && shouldStartNewNavigationRoot(screenName)) {
+        replaceCactusHistoryRoot(screenName);
+        lastShownScreen = screenName;
+        showScreenContent(screenName);
+        return;
+    }
+
+    const currentState = getCactusHistoryState();
+
+    if (!isNavigatingWithBrowserBack && currentState) {
+        // Revenir vers la racine de la session (le dashboard) doit être un vrai retour,
+        // pas une nouvelle page ajoutée au-dessus des jeux déjà visités.
+        if (
+            screenName === currentState.rootScreen &&
+            Number.isFinite(currentState.depth) &&
+            currentState.depth > 0
+        ) {
+            history.go(-currentState.depth);
+            return;
+        }
+
+        // Les boutons « retour » existants utilisent showScreen(...). Si la cible est
+        // précisément l'écran précédent, on utilise désormais le vrai historique.
+        if (
+            currentState.fromScreen === screenName &&
+            Number.isFinite(currentState.depth) &&
+            currentState.depth > 0
+        ) {
+            history.back();
+            return;
+        }
+    }
+
+    if (!isNavigatingWithBrowserBack) {
+        pushCactusHistoryScreen(screenName);
     }
 
     lastShownScreen = screenName;
@@ -379,14 +529,31 @@ window.addEventListener("popstate", (event) => {
 
     isNavigatingWithBrowserBack = true;
 
-    lastShownScreen = event.state.screen;
-    showScreenContent(event.state.screen);
+    const requestedScreen = event.state.screen;
+    const safeScreen = resolveSafeHistoryScreen(requestedScreen);
+
+    if (safeScreen !== requestedScreen) {
+        replaceCactusHistoryRoot(safeScreen);
+        lastShownScreen = safeScreen;
+        showScreenContent(safeScreen);
+        isNavigatingWithBrowserBack = false;
+        return;
+    }
+
+    lastShownScreen = requestedScreen;
+    showScreenContent(requestedScreen);
 
     isNavigatingWithBrowserBack = false;
 });
 
 history.replaceState(
-    { screen: "login" },
+    {
+        [CACTUS_NAV_STATE_KEY]: true,
+        screen: "login",
+        fromScreen: null,
+        rootScreen: "login",
+        depth: 0
+    },
     "",
     "#login"
 );
