@@ -123,12 +123,34 @@
 <div id="dailyToolsScreen" class="secondary-screen daily-tools-screen" style="display:none;">
     <header class="secondary-screen-hero daily-tools-hero">
         <img src="assets/cactus-main.png" alt="Notre quotidien Cactus" loading="lazy" decoding="async">
-        <div><small>Vos outils à deux</small><h1>Notre quotidien</h1><p>Listes, idées et petits outils pratiques toujours à portée de main.</p></div>
+        <div><small>Votre vie à deux</small><h1>Notre quotidien</h1><p>Le calendrier de votre histoire, vos petites organisations et tout ce que vous construisez ensemble.</p></div>
     </header>
 
-    <section class="daily-tools-intro">
-        <svg class="cactus-ui-icon" width="42" height="42" aria-hidden="true"><use href="#cactusIconStory"></use></svg>
-        <div><small>Premier outil</small><strong>Nos carnets partagés</strong><p>Courses, anniversaires, projets ou idées : écrivez tout ensemble.</p></div>
+    <section class="daily-life-hub" aria-labelledby="dailyLifeHubTitle">
+        <div class="daily-life-hub-decor" aria-hidden="true"><span>✦</span><span>💚</span><span>✧</span><span>🌵</span></div>
+        <div class="daily-life-hub-copy">
+            <small>Votre vie à deux</small>
+            <h2 id="dailyLifeHubTitle">Les petits jours et les grands moments, réunis ici.</h2>
+            <p>Votre calendrier, vos projets, vos listes et les souvenirs qui arrivent bientôt vivent maintenant dans le même coin.</p>
+        </div>
+        <button type="button" id="dailyCalendarSnapshot" class="daily-calendar-snapshot" onclick="showScreen('importantDates')">
+            <span class="daily-calendar-snapshot-icon"><svg class="cactus-ui-icon" aria-hidden="true"><use href="#cactusIconCalendar"></use></svg></span>
+            <span class="daily-calendar-snapshot-copy"><small>Prochain moment</small><strong id="dailyCalendarNextTitle">Ajoutez votre première date</strong><span id="dailyCalendarNextMeta">Votre calendrier commun vous attend</span></span>
+            <b id="dailyCalendarNextCountdown">+</b>
+        </button>
+    </section>
+
+    <button type="button" id="openImportantDatesBtn" class="daily-tool-card daily-calendar-main-card" onclick="showScreen('importantDates')">
+        <span class="daily-tool-icon"><svg class="cactus-ui-icon" width="50" height="50" aria-hidden="true"><use href="#cactusIconCalendar"></use></svg></span>
+        <span class="daily-tool-copy"><small>Votre vie sur une ligne du temps</small><strong>Notre calendrier</strong><span>Dates importantes, retrouvailles, voyages, anniversaires et comptes à rebours au même endroit.</span></span>
+        <span class="daily-calendar-main-preview" id="dailyCalendarMainPreview" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span class="daily-tool-arrow" aria-hidden="true">›</span>
+    </button>
+
+    <section class="daily-upcoming-section">
+        <div class="daily-section-heading"><div><small>À l’horizon</small><h2>Ce qui arrive bientôt</h2></div><button type="button" onclick="showScreen('importantDates')">Tout voir</button></div>
+        <div id="dailyUpcomingMoments" class="daily-upcoming-moments"></div>
+        <p id="dailyUpcomingEmpty" class="daily-upcoming-empty">Aucun grand moment programmé pour l’instant. Votre calendrier est une page blanche ✨</p>
     </section>
 
     <button type="button" id="openShoppingListBtn" class="daily-tool-card daily-shopping-card" onclick="showScreen('shopping')">
@@ -137,11 +159,9 @@
         <span class="daily-tool-arrow" aria-hidden="true">›</span>
     </button>
 
-    <div class="daily-tools-grid">
+    <div class="daily-tools-grid daily-tools-grid-refined">
         <button type="button" id="openTasksBtn" class="daily-tool-card is-compact" onclick="showScreen('tasks')"><span class="daily-tool-icon"><svg class="cactus-ui-icon" aria-hidden="true"><use href="#cactusIconTasks"></use></svg></span><span class="daily-tool-copy"><small>Organisation</small><strong>Nos tâches</strong><span>À faire ensemble</span></span><span class="daily-tool-arrow">›</span></button>
-        <button type="button" id="openRemindersBtn" class="daily-tool-card is-compact" onclick="showScreen('reminders')"><span class="daily-tool-icon"><svg class="cactus-ui-icon" aria-hidden="true"><use href="#cactusIconBell"></use></svg></span><span class="daily-tool-copy"><small>À ne pas oublier</small><strong>Nos rappels</strong><span>Date et heure</span></span><span class="daily-tool-arrow">›</span></button>
-        <button type="button" id="openImportantDatesBtn" class="daily-tool-card is-compact" onclick="showScreen('importantDates')"><span class="daily-tool-icon"><svg class="cactus-ui-icon" aria-hidden="true"><use href="#cactusIconCalendar"></use></svg></span><span class="daily-tool-copy"><small>Calendrier</small><strong>Dates importantes</strong><span>Vos événements</span></span><span class="daily-tool-arrow">›</span></button>
-        <button type="button" id="openCountdownsBtn" class="daily-tool-card is-compact" onclick="showScreen('countdowns')"><span class="daily-tool-icon"><svg class="cactus-ui-icon" aria-hidden="true"><use href="#cactusIconCountdown"></use></svg></span><span class="daily-tool-copy"><small>À attendre ensemble</small><strong>Comptes à rebours</strong><span>Voyages, fêtes et grands moments</span></span><span class="daily-tool-arrow">›</span></button>
+        <button type="button" id="openRemindersBtn" class="daily-tool-card is-compact" onclick="showScreen('reminders')"><span class="daily-tool-icon"><svg class="cactus-ui-icon" aria-hidden="true"><use href="#cactusIconBell"></use></svg></span><span class="daily-tool-copy"><small>À ne pas oublier</small><strong>Nos rappels</strong><span>Les petites choses ponctuelles</span></span><span class="daily-tool-arrow">›</span></button>
         <button type="button" id="openTimeCapsulesBtn" class="daily-tool-card is-compact" onclick="showScreen('timeCapsules')"><span class="daily-tool-icon"><svg class="cactus-ui-icon" aria-hidden="true"><use href="#cactusIconCapsule"></use></svg></span><span class="daily-tool-copy"><small>À ouvrir plus tard</small><strong>Capsules temporelles</strong><span>Des messages gardés jusqu’au bon jour</span></span><span class="daily-tool-arrow">›</span></button>
     </div>
 
@@ -270,19 +290,76 @@
     <div id="remindersList" class="organizer-list"></div><div id="remindersEmptyState" class="organizer-empty"><svg class="cactus-ui-icon"><use href="#cactusIconBell"></use></svg><strong>Aucun rappel ici</strong><p>Créez un rappel partagé pour commencer.</p></div>
 </div>
 
-<!-- ÉCRAN DATES IMPORTANTES -->
-<div id="importantDatesScreen" class="secondary-screen daily-organizer-screen" style="display:none;">
-    <header class="organizer-header"><button type="button" id="backFromImportantDatesBtn" aria-label="Retour">‹</button><div><small>Notre quotidien</small><h1>Dates importantes</h1></div><span id="importantDatesCount" hidden>0 date</span><button type="button" id="showImportantDateFormBtn" class="organizer-add-button" aria-label="Ajouter une date">+</button></header>
-    <section class="organizer-hero is-date"><svg class="cactus-ui-icon" aria-hidden="true"><use href="#cactusIconCalendar"></use></svg><div><small>Votre calendrier</small><strong>Les moments qui comptent</strong><p>Anniversaires, rendez-vous et événements à deux.</p></div></section>
-    <form id="importantDateForm" class="organizer-form organizer-creation-panel" style="display:none;">
-        <div class="organizer-form-heading"><div><small id="importantDateFormKicker">Nouvelle date</small><strong id="importantDateFormTitle">Quel événement garder ?</strong></div><button type="button" id="cancelImportantDateEditBtn" style="display:none;">Annuler</button></div>
-        <input id="importantDateTitleInput" type="text" maxlength="100" required placeholder="Titre de l’événement">
-        <textarea id="importantDateNotesInput" maxlength="500" rows="2" placeholder="Notes facultatives"></textarea>
-        <div class="organizer-form-grid"><label><span>Date</span><input id="importantDateValueInput" type="date" required></label><select id="importantDateCategoryInput" aria-label="Catégorie"><option value="anniversary">Anniversaire</option><option value="appointment">Rendez-vous</option><option value="trip">Voyage</option><option value="celebration">Fête</option><option value="other">Autre</option></select><label class="organizer-checkbox"><input id="importantDateAnnualInput" type="checkbox"><span>Répéter chaque année</span></label></div>
-        <button type="submit" id="saveImportantDateBtn">Ajouter la date</button>
+<!-- ÉCRAN CALENDRIER COMMUN -->
+<div id="importantDatesScreen" class="secondary-screen couple-calendar-screen" style="display:none;">
+    <header class="organizer-header couple-calendar-header">
+        <button type="button" id="backFromImportantDatesBtn" aria-label="Retour">‹</button>
+        <div><small>Notre quotidien</small><h1>Notre calendrier</h1></div>
+        <span id="importantDatesCount" hidden>0 date</span>
+        <button type="button" id="showImportantDateFormBtn" class="organizer-add-button" aria-label="Ajouter un événement">+</button>
+    </header>
+
+    <section class="couple-calendar-hero">
+        <div class="couple-calendar-hero-sky" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="couple-calendar-hero-icon" aria-hidden="true"><svg class="cactus-ui-icon"><use href="#cactusIconCalendar"></use></svg><span>💚</span></div>
+        <div><small>Votre temps à deux</small><strong>Chaque date raconte un morceau de votre histoire.</strong><p>Ajoutez vos retrouvailles, anniversaires, voyages, projets ou petits événements. Cactus transforme automatiquement les moments à venir en comptes à rebours.</p></div>
+    </section>
+
+    <nav class="couple-calendar-tabs" aria-label="Vues du calendrier">
+        <button type="button" class="is-active" data-couple-calendar-view="calendar">📅 Calendrier</button>
+        <button type="button" data-couple-calendar-view="upcoming">✨ À venir</button>
+        <button type="button" data-couple-calendar-view="timeline">💚 Toutes nos dates</button>
+    </nav>
+
+    <form id="importantDateForm" class="organizer-form organizer-creation-panel couple-calendar-event-form" style="display:none;">
+        <div class="organizer-form-heading"><div><small id="importantDateFormKicker">Nouvel événement</small><strong id="importantDateFormTitle">Qu’est-ce qu’on inscrit dans votre histoire ?</strong></div><button type="button" id="cancelImportantDateEditBtn" style="display:none;">Annuler</button></div>
+        <div class="calendar-event-form-top">
+            <label class="calendar-emoji-field"><span>Symbole</span><input id="importantDateEmojiInput" type="text" maxlength="8" value="💚" inputmode="text" aria-label="Emoji de l’événement"><small>Utilisez n’importe quel emoji de votre clavier</small></label>
+            <label class="calendar-title-field"><span>Titre</span><input id="importantDateTitleInput" type="text" maxlength="100" required placeholder="Ex. Nos retrouvailles à Bordeaux"></label>
+        </div>
+        <textarea id="importantDateNotesInput" maxlength="500" rows="3" placeholder="Une petite note, une adresse, ce que vous avez prévu…"></textarea>
+        <div class="organizer-form-grid calendar-event-grid">
+            <label><span>Date</span><input id="importantDateValueInput" type="date" required></label>
+            <label><span>Heure <small>(facultative)</small></span><input id="importantDateTimeInput" type="time"></label>
+            <label><span>Type d’événement</span><select id="importantDateCategoryInput" aria-label="Catégorie"><option value="couple">💚 Notre couple</option><option value="birthday">🎂 Anniversaire</option><option value="appointment">📍 Rendez-vous</option><option value="reunion">🚆 Retrouvailles</option><option value="trip">✈️ Voyage</option><option value="project">🏠 Projet commun</option><option value="celebration">🎉 Événement</option><option value="memory">💌 Souvenir</option><option value="concert">🎵 Sortie / concert</option><option value="other">🌵 Personnalisé</option></select></label>
+            <label><span>Répétition</span><select id="importantDateRepeatInput"><option value="none">Une seule fois</option><option value="monthly">Tous les mois</option><option value="annual">Tous les ans</option></select></label>
+        </div>
+        <div class="calendar-event-custom-row">
+            <input type="hidden" id="importantDateColorInput" value="#72D59D">
+            <button type="button" id="importantDateColorButton" class="notebook-color-button calendar-event-color-button" style="--control-color:#72D59D"><span aria-hidden="true"></span><span>Couleur de l’événement</span><small>#72D59D</small></button>
+            <label class="organizer-checkbox calendar-countdown-toggle"><input id="importantDateCountdownInput" type="checkbox" checked><span><strong>Afficher le compte à rebours</strong><small>Ex. J-12 dans « À venir » et sur l’accueil</small></span></label>
+            <input id="importantDateAnnualInput" type="checkbox" hidden>
+        </div>
+        <button type="submit" id="saveImportantDateBtn">Ajouter à notre calendrier</button>
     </form>
-    <nav class="organizer-filters" aria-label="Filtrer les dates"><button type="button" class="is-active" data-important-date-filter="upcoming">À venir</button><button type="button" data-important-date-filter="annual">Annuelles</button><button type="button" data-important-date-filter="all">Toutes</button></nav>
-    <div id="importantDatesList" class="organizer-list"></div><div id="importantDatesEmptyState" class="organizer-empty"><svg class="cactus-ui-icon"><use href="#cactusIconCalendar"></use></svg><strong>Aucune date ici</strong><p>Ajoutez un événement important pour vous deux.</p></div>
+
+    <section id="coupleCalendarView" class="couple-calendar-view">
+        <div class="couple-calendar-toolbar">
+            <button type="button" id="calendarMonthPrev" aria-label="Mois précédent">‹</button>
+            <div><small>Notre calendrier partagé</small><strong id="calendarMonthLabel">Mois</strong></div>
+            <button type="button" id="calendarMonthNext" aria-label="Mois suivant">›</button>
+            <button type="button" id="calendarTodayBtn" class="calendar-today-btn">Aujourd’hui</button>
+        </div>
+        <div class="couple-calendar-weekdays" aria-hidden="true"><span>Lun</span><span>Mar</span><span>Mer</span><span>Jeu</span><span>Ven</span><span>Sam</span><span>Dim</span></div>
+        <div id="coupleCalendarGrid" class="couple-calendar-grid" role="grid" aria-label="Calendrier commun"></div>
+        <section class="calendar-selected-day">
+            <div class="calendar-selected-day-heading"><div><small>Jour sélectionné</small><h2 id="calendarSelectedDateTitle">Aujourd’hui</h2></div><button type="button" id="calendarAddSelectedDateBtn">+ Ajouter ici</button></div>
+            <div id="calendarSelectedDateEvents" class="calendar-selected-date-events"></div>
+            <p id="calendarSelectedDateEmpty" class="calendar-selected-empty">Rien de prévu ce jour-là. Une belle place libre dans votre histoire.</p>
+        </section>
+    </section>
+
+    <section id="coupleCalendarUpcomingView" class="couple-calendar-upcoming-view" style="display:none;">
+        <div class="calendar-view-heading"><div><small>Les prochains chapitres</small><h2>À venir</h2></div><p>Les événements les plus proches remontent automatiquement ici.</p></div>
+        <div id="importantDatesList" class="calendar-upcoming-list"></div>
+        <div id="importantDatesEmptyState" class="organizer-empty"><svg class="cactus-ui-icon"><use href="#cactusIconCalendar"></use></svg><strong>Aucun moment à l’horizon</strong><p>Ajoutez votre première date pour faire vivre le calendrier.</p></div>
+    </section>
+
+    <section id="coupleCalendarTimelineView" class="couple-calendar-timeline-view" style="display:none;">
+        <div class="calendar-view-heading"><div><small>Votre histoire</small><h2>Toutes nos dates</h2></div><p>Les souvenirs passés et les projets futurs réunis sur une seule ligne du temps.</p></div>
+        <div id="coupleTimelineList" class="couple-timeline-list"></div>
+        <p id="coupleTimelineEmpty" class="calendar-selected-empty">Votre chronologie commencera avec votre première date.</p>
+    </section>
 </div>
 
 <!-- ÉCRAN COMPTES À REBOURS -->
@@ -322,11 +399,6 @@
             <span><b id="timeCapsuleOpenedCount">0</b><small>souvenirs</small></span>
         </div>
     </section>
-
-    <div class="time-capsule-view-switch" role="tablist" aria-label="Afficher les capsules">
-        <button type="button" id="timeCapsuleActiveTab" class="is-active" role="tab" aria-selected="true">En cours <span id="timeCapsuleActiveTabCount">0</span></button>
-        <button type="button" id="timeCapsuleArchiveTab" role="tab" aria-selected="false">Archives <span id="timeCapsuleArchiveTabCount">0</span></button>
-    </div>
 
     <form id="timeCapsuleForm" class="organizer-form organizer-creation-panel time-capsule-creation-panel" style="display:none;">
         <div class="organizer-form-heading"><div><small>Nouvelle capsule</small><strong>Créez un souvenir vraiment à vous</strong></div><button type="button" id="cancelTimeCapsuleBtn">Annuler</button></div>
@@ -1040,12 +1112,6 @@
 
         </div>
 
-        <button type="button" id="dashboardTimeCapsuleReady" class="dashboard-time-capsule-ready" style="display:none;" aria-label="Ouvrir les capsules temporelles prêtes">
-            <span class="dashboard-time-capsule-ready-orbit" aria-hidden="true"></span>
-            <span class="dashboard-time-capsule-ready-object" aria-hidden="true"><svg class="cactus-ui-icon"><use href="#cactusIconCapsule"></use></svg></span>
-            <span class="dashboard-time-capsule-ready-copy"><small>Le temps est arrivé</small><strong id="dashboardTimeCapsuleReadyTitle">Une capsule vous attend ✨</strong></span>
-        </button>
-
     </section>
 
     <div id="cactusWardrobeModal" class="cactus-wardrobe-modal" style="display:none;" role="dialog" aria-modal="true" aria-labelledby="cactusWardrobeTitle">
@@ -1114,22 +1180,19 @@
     </section>
 
 
+    <!-- PROCHAIN MOMENT -->
+    <button type="button" id="dashboardNextMomentCard" class="dashboard-next-moment-card" style="display:none;" onclick="showScreen('importantDates')">
+        <span id="dashboardNextMomentEmoji" class="dashboard-next-moment-emoji">💚</span>
+        <span class="dashboard-next-moment-copy"><small>Votre prochain moment</small><strong id="dashboardNextMomentTitle">Un joli moment arrive</strong><span id="dashboardNextMomentMeta">Ouvrir le calendrier</span></span>
+        <b id="dashboardNextMomentCountdown">J-0</b><span class="dashboard-next-moment-arrow">›</span>
+    </button>
+
     <!-- AUJOURD'HUI -->
     <section id="dashboardTodayWidget" class="dashboard-today-widget">
         <header><div><small>Aujourd’hui</small><strong>Votre journée à deux</strong></div><button type="button" id="dashboardTodayOpenBtn">Tout voir</button></header>
         <div id="dashboardTodayList" class="dashboard-today-list"></div>
         <p id="dashboardTodayEmpty">Rien d’urgent aujourd’hui. Profitez de votre journée à deux.</p>
     </section>
-
-    <button type="button" id="dashboardTimeCapsuleTeaser" class="dashboard-time-capsule-teaser" style="display:none;">
-        <span id="dashboardTimeCapsuleTeaserSymbol" class="dashboard-time-capsule-teaser-symbol" aria-hidden="true">✨</span>
-        <span class="dashboard-time-capsule-teaser-copy">
-            <small>Un secret voyage vers le futur</small>
-            <strong id="dashboardTimeCapsuleTeaserTitle">Une capsule vient d’être scellée</strong>
-            <span id="dashboardTimeCapsuleTeaserMeta">Son contenu restera secret jusqu’au bon jour.</span>
-        </span>
-        <span class="dashboard-time-capsule-teaser-arrow" aria-hidden="true">›</span>
-    </button>
 
 
     <!-- RITUEL QUOTIDIEN -->

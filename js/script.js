@@ -252,6 +252,37 @@ const importantDateNotesInput = document.getElementById("importantDateNotesInput
 const importantDateValueInput = document.getElementById("importantDateValueInput");
 const importantDateCategoryInput = document.getElementById("importantDateCategoryInput");
 const importantDateAnnualInput = document.getElementById("importantDateAnnualInput");
+const importantDateTimeInput = document.getElementById("importantDateTimeInput");
+const importantDateRepeatInput = document.getElementById("importantDateRepeatInput");
+const importantDateEmojiInput = document.getElementById("importantDateEmojiInput");
+const importantDateColorInput = document.getElementById("importantDateColorInput");
+const importantDateColorButton = document.getElementById("importantDateColorButton");
+const importantDateCountdownInput = document.getElementById("importantDateCountdownInput");
+const coupleCalendarView = document.getElementById("coupleCalendarView");
+const coupleCalendarUpcomingView = document.getElementById("coupleCalendarUpcomingView");
+const coupleCalendarTimelineView = document.getElementById("coupleCalendarTimelineView");
+const coupleCalendarViewButtons = document.querySelectorAll("[data-couple-calendar-view]");
+const calendarMonthPrev = document.getElementById("calendarMonthPrev");
+const calendarMonthNext = document.getElementById("calendarMonthNext");
+const calendarTodayBtn = document.getElementById("calendarTodayBtn");
+const calendarMonthLabel = document.getElementById("calendarMonthLabel");
+const coupleCalendarGrid = document.getElementById("coupleCalendarGrid");
+const calendarSelectedDateTitle = document.getElementById("calendarSelectedDateTitle");
+const calendarSelectedDateEvents = document.getElementById("calendarSelectedDateEvents");
+const calendarSelectedDateEmpty = document.getElementById("calendarSelectedDateEmpty");
+const calendarAddSelectedDateBtn = document.getElementById("calendarAddSelectedDateBtn");
+const coupleTimelineList = document.getElementById("coupleTimelineList");
+const coupleTimelineEmpty = document.getElementById("coupleTimelineEmpty");
+const dailyCalendarNextTitle = document.getElementById("dailyCalendarNextTitle");
+const dailyCalendarNextMeta = document.getElementById("dailyCalendarNextMeta");
+const dailyCalendarNextCountdown = document.getElementById("dailyCalendarNextCountdown");
+const dailyUpcomingMoments = document.getElementById("dailyUpcomingMoments");
+const dailyUpcomingEmpty = document.getElementById("dailyUpcomingEmpty");
+const dashboardNextMomentCard = document.getElementById("dashboardNextMomentCard");
+const dashboardNextMomentEmoji = document.getElementById("dashboardNextMomentEmoji");
+const dashboardNextMomentTitle = document.getElementById("dashboardNextMomentTitle");
+const dashboardNextMomentMeta = document.getElementById("dashboardNextMomentMeta");
+const dashboardNextMomentCountdown = document.getElementById("dashboardNextMomentCountdown");
 const saveImportantDateBtn = document.getElementById("saveImportantDateBtn");
 const cancelImportantDateEditBtn = document.getElementById("cancelImportantDateEditBtn");
 const importantDatesCount = document.getElementById("importantDatesCount");
@@ -945,6 +976,10 @@ let currentImportantDates = {};
 let editingTaskId = null;
 let editingReminderId = null;
 let editingImportantDateId = null;
+let editingCalendarSource = "importantDates";
+let activeCoupleCalendarView = "calendar";
+let selectedCoupleCalendarDate = "";
+let coupleCalendarCursor = new Date(new Date().getFullYear(), new Date().getMonth(), 1);
 let currentCountdowns = {};
 let currentTimeCapsules = {};
 let timeCapsuleViewMode = "active";
@@ -1234,6 +1269,7 @@ function listenToCurrentSpace(spaceCodeValue) {
         updateDailyRitualDashboard(spaceData);
         renderCactusWardrobe(spaceData);
         renderDashboardToday(spaceData);
+        renderDailyLifeHub(spaceData);
         renderDashboardTimeCapsules(spaceData);
         renderDiscussionsDashboard(spaceData);
         refreshDiscussionButtons();
@@ -2821,22 +2857,351 @@ cancelReminderEditBtn.addEventListener("click", resetReminderForm);
 showReminderFormBtn.addEventListener("click", () => { resetReminderForm(); reminderForm.style.display = "block"; window.setTimeout(() => reminderTitleInput.focus(), 80); });
 reminderFilterButtons.forEach((button) => button.addEventListener("click", () => { activeReminderFilter = button.dataset.reminderFilter; reminderFilterButtons.forEach((item) => item.classList.toggle("is-active", item === button)); renderReminders(currentReminders); }));
 
-const IMPORTANT_DATE_CATEGORIES = { anniversary: "Anniversaire", appointment: "Rendez-vous", trip: "Voyage", celebration: "Fête", other: "Autre" };
-function getImportantDateNextTimestamp(item) { if (!item.date) return Infinity; if (!item.annual) return new Date(item.date + "T12:00").getTime(); const parts = item.date.split("-"); const now = new Date(); let date = new Date(now.getFullYear(), Number(parts[1]) - 1, Number(parts[2]), 12); if (date.getTime() < Date.now()) date = new Date(now.getFullYear() + 1, Number(parts[1]) - 1, Number(parts[2]), 12); return date.getTime(); }
-function resetImportantDateForm() { editingImportantDateId = null; importantDateForm.reset(); importantDateCategoryInput.value = "anniversary"; importantDateFormKicker.textContent = "Nouvelle date"; importantDateFormTitle.textContent = "Quel événement garder ?"; saveImportantDateBtn.textContent = "Ajouter la date"; cancelImportantDateEditBtn.style.display = "none"; importantDateForm.style.display = "none"; }
-function renderImportantDates(items) {
-    currentImportantDates = items || {}; const entries = Object.entries(currentImportantDates); importantDatesCount.textContent = entries.length + " date" + (entries.length > 1 ? "s" : "");
-    const visible = entries.filter(([, item]) => activeImportantDateFilter === "all" || (activeImportantDateFilter === "annual" ? item.annual : getImportantDateNextTimestamp(item) >= Date.now())).sort((a, b) => getImportantDateNextTimestamp(a[1]) - getImportantDateNextTimestamp(b[1]));
-    renderOrganizerGroups(importantDatesList, visible, getImportantDateNextTimestamp, ([id, item]) => createOrganizerItem({ title: item.title, details: item.notes, badges: [{ label: formatOrganizerDate(item.date), className: "is-date" }, { label: IMPORTANT_DATE_CATEGORIES[item.category] || "Autre", className: "is-category" }, ...(item.annual ? [{ label: "Chaque année", className: "is-annual" }] : [])], meta: "Ajoutée par " + (item.createdByPseudo || "Cactus"), overdue: !item.annual && getImportantDateNextTimestamp(item) < Date.now(),
-        onEdit: () => { editingImportantDateId = id; importantDateTitleInput.value = item.title || ""; importantDateNotesInput.value = item.notes || ""; importantDateValueInput.value = item.date || ""; importantDateCategoryInput.value = item.category || "other"; importantDateAnnualInput.checked = Boolean(item.annual); importantDateFormKicker.textContent = "Modification"; importantDateFormTitle.textContent = "Modifier cette date"; saveImportantDateBtn.textContent = "Enregistrer"; cancelImportantDateEditBtn.style.display = "block"; importantDateForm.style.display = "block"; importantDateForm.scrollIntoView({ behavior: "smooth" }); },
-        onDelete: () => { if (confirm("Supprimer cette date importante ?")) database.ref("spaces/" + currentSpaceCode + "/dailyTools/importantDates/" + id).remove(); }
-    }));
-    importantDatesEmptyState.style.display = visible.length ? "none" : "flex";
+const IMPORTANT_DATE_CATEGORIES = {
+    couple: { label: "Notre couple", emoji: "💚", color: "#72D59D" },
+    anniversary: { label: "Notre couple", emoji: "💚", color: "#72D59D" },
+    birthday: { label: "Anniversaire", emoji: "🎂", color: "#FF9B9B" },
+    reunion: { label: "Retrouvailles", emoji: "🚆", color: "#E8B85C" },
+    trip: { label: "Voyage", emoji: "✈️", color: "#62B6E7" },
+    project: { label: "Projet commun", emoji: "🏠", color: "#A98FE8" },
+    celebration: { label: "Événement", emoji: "🎉", color: "#FF8D7F" },
+    memory: { label: "Souvenir", emoji: "💌", color: "#F28CB3" },
+    concert: { label: "Sortie / concert", emoji: "🎵", color: "#8E9BEF" },
+    appointment: { label: "Rendez-vous", emoji: "📍", color: "#D6A83F" },
+    capsule: { label: "Capsule temporelle", emoji: "⏳", color: "#72D59D" },
+    other: { label: "Personnalisé", emoji: "🌵", color: "#72D59D" }
+};
+
+function getCalendarCategoryConfig(category) {
+    return IMPORTANT_DATE_CATEGORIES[category] || IMPORTANT_DATE_CATEGORIES.other;
 }
-importantDateForm.addEventListener("submit", (event) => { event.preventDefault(); const title = importantDateTitleInput.value.trim(); if (!title || !importantDateValueInput.value) return; const now = Date.now(); const payload = { title, notes: importantDateNotesInput.value.trim(), date: importantDateValueInput.value, category: importantDateCategoryInput.value, annual: importantDateAnnualInput.checked, updatedAt: now, updatedBy: currentUser.uid, updatedByPseudo: pseudo }; const base = "spaces/" + currentSpaceCode + "/dailyTools/importantDates"; const request = editingImportantDateId ? database.ref(base + "/" + editingImportantDateId).update(payload) : database.ref(base).push({ ...payload, createdAt: now, createdByUid: currentUser.uid, createdByPseudo: pseudo }); saveImportantDateBtn.disabled = true; request.then(() => { showToast(editingImportantDateId ? "Date modifiée" : "Date ajoutée"); resetImportantDateForm(); }).catch(() => showToast("Impossible d’enregistrer cette date")).finally(() => { saveImportantDateBtn.disabled = false; }); });
+
+function getCalendarRepeat(item = {}) {
+    return item.repeat || (item.annual ? "annual" : "none");
+}
+
+function getCalendarDateParts(value) {
+    const parts = String(value || "").split("-").map(Number);
+    return parts.length === 3 && parts.every(Number.isFinite) ? parts : null;
+}
+
+function makeLocalCalendarDate(value, time = "12:00") {
+    const parts = getCalendarDateParts(value);
+    if (!parts) return null;
+    const [year, month, day] = parts;
+    const [hours, minutes] = String(time || "12:00").split(":").map(Number);
+    return new Date(year, month - 1, day, Number.isFinite(hours) ? hours : 12, Number.isFinite(minutes) ? minutes : 0, 0, 0);
+}
+
+function getRecurringOccurrence(item = {}, reference = new Date()) {
+    const parts = getCalendarDateParts(item.date);
+    if (!parts) return null;
+    const repeat = getCalendarRepeat(item);
+    if (repeat === "none") return makeLocalCalendarDate(item.date, item.time || "12:00");
+    const [, month, originalDay] = parts;
+    const [hours, minutes] = String(item.time || "12:00").split(":").map(Number);
+    if (repeat === "annual") {
+        let candidate = new Date(reference.getFullYear(), month - 1, originalDay, hours || 0, minutes || 0, 0, 0);
+        if (candidate.getTime() < reference.getTime()) candidate = new Date(reference.getFullYear() + 1, month - 1, originalDay, hours || 0, minutes || 0, 0, 0);
+        return candidate;
+    }
+    if (repeat === "monthly") {
+        const createCandidate = (year, monthIndex) => {
+            const lastDay = new Date(year, monthIndex + 1, 0).getDate();
+            return new Date(year, monthIndex, Math.min(originalDay, lastDay), hours || 0, minutes || 0, 0, 0);
+        };
+        let candidate = createCandidate(reference.getFullYear(), reference.getMonth());
+        if (candidate.getTime() < reference.getTime()) candidate = createCandidate(reference.getFullYear(), reference.getMonth() + 1);
+        return candidate;
+    }
+    return makeLocalCalendarDate(item.date, item.time || "12:00");
+}
+
+function getImportantDateNextTimestamp(item) {
+    const occurrence = getRecurringOccurrence(item, new Date());
+    return occurrence ? occurrence.getTime() : Infinity;
+}
+
+function getCalendarEventEmoji(item = {}) {
+    return item.emoji || getCalendarCategoryConfig(item.category).emoji;
+}
+
+function getCalendarEventColor(item = {}) {
+    return item.color || getCalendarCategoryConfig(item.category).color;
+}
+
+function isOwnLockedCalendarCapsule(item = {}) {
+    return item.createdByUid === currentUser?.uid || item.createdBy === currentUser?.uid;
+}
+
+function getUnifiedCalendarEvents(spaceData = currentSpaceData || {}) {
+    const events = [];
+    Object.entries(spaceData.dailyTools?.importantDates || {}).forEach(([id, item]) => {
+        if (!item?.date) return;
+        events.push({ id, source: "importantDates", ...item, repeat: getCalendarRepeat(item), annual: getCalendarRepeat(item) === "annual" });
+    });
+    Object.entries(spaceData.dailyTools?.countdowns || {}).forEach(([id, item]) => {
+        if (!item?.date) return;
+        const legacyCategory = item.category === "reunion" ? "reunion" : item.category === "concert" ? "concert" : item.category || "other";
+        events.push({ id, source: "countdowns", ...item, category: legacyCategory, repeat: "none", showCountdown: true, emoji: item.emoji || getCalendarCategoryConfig(legacyCategory).emoji, color: item.color || getCalendarCategoryConfig(legacyCategory).color, legacyCountdown: true });
+    });
+    Object.entries(spaceData.dailyTools?.timeCapsules || {}).forEach(([id, item]) => {
+        if (!item?.openDate || item.archivedAt) return;
+        const canRevealTitle = Boolean(item.openedAt) || item.openDate <= getLocalDateKey() || isOwnLockedCalendarCapsule(item);
+        events.push({ id, source: "capsules", date: item.openDate, time: "", title: canRevealTitle ? (item.title || "Capsule temporelle") : "Capsule temporelle mystère", notes: "", category: "capsule", repeat: "none", showCountdown: true, emoji: item.design?.symbol || item.symbol || "⏳", color: item.design?.customColor || item.design?.accent || "#72D59D", readOnly: true });
+    });
+    return events;
+}
+
+function calendarEventOccursOnDate(item, date) {
+    const parts = getCalendarDateParts(item.date);
+    if (!parts) return false;
+    const repeat = getCalendarRepeat(item);
+    const [, month, day] = parts;
+    if (repeat === "annual") return date.getMonth() + 1 === month && date.getDate() === day;
+    if (repeat === "monthly") return date.getDate() === Math.min(day, new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate());
+    return getLocalDateKey(date) === item.date;
+}
+
+function getCalendarEventNextDate(item, reference = new Date()) {
+    return getRecurringOccurrence(item, reference);
+}
+
+function getCalendarCountdownLabel(item, occurrence = getCalendarEventNextDate(item)) {
+    if (item.showCountdown === false || !occurrence) return "";
+    const today = new Date();
+    const startToday = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+    const eventDay = new Date(occurrence.getFullYear(), occurrence.getMonth(), occurrence.getDate());
+    const days = Math.round((eventDay - startToday) / 86400000);
+    if (days < 0) return "Passé";
+    if (days === 0) return "Aujourd’hui";
+    if (days === 1) return "Demain";
+    return "J-" + days;
+}
+
+function formatCalendarOccurrence(item, occurrence) {
+    if (!occurrence) return "Date inconnue";
+    const dateLabel = occurrence.toLocaleDateString("fr-FR", { weekday: "short", day: "numeric", month: "long", year: "numeric" });
+    return dateLabel + (item.time ? " · " + item.time.replace(":", "h") : "");
+}
+
+function resetImportantDateForm({ keepDate = false } = {}) {
+    editingImportantDateId = null;
+    editingCalendarSource = "importantDates";
+    const preservedDate = keepDate ? importantDateValueInput?.value : "";
+    importantDateForm.reset();
+    importantDateValueInput.value = preservedDate || selectedCoupleCalendarDate || getLocalDateKey();
+    importantDateCategoryInput.value = "couple";
+    importantDateRepeatInput.value = "none";
+    importantDateEmojiInput.value = "💚";
+    importantDateColorInput.value = "#72D59D";
+    importantDateCountdownInput.checked = true;
+    importantDateAnnualInput.checked = false;
+    importantDateColorButton.style.setProperty("--control-color", "#72D59D");
+    importantDateColorButton.querySelector("small").textContent = "#72D59D";
+    importantDateFormKicker.textContent = "Nouvel événement";
+    importantDateFormTitle.textContent = "Qu’est-ce qu’on inscrit dans votre histoire ?";
+    saveImportantDateBtn.textContent = "Ajouter à notre calendrier";
+    cancelImportantDateEditBtn.style.display = "none";
+    importantDateForm.style.display = "none";
+}
+
+function applyCalendarCategoryPreset() {
+    if (editingImportantDateId) return;
+    const config = getCalendarCategoryConfig(importantDateCategoryInput.value);
+    importantDateEmojiInput.value = config.emoji;
+    importantDateColorInput.value = config.color;
+    importantDateColorButton.style.setProperty("--control-color", config.color);
+    importantDateColorButton.querySelector("small").textContent = config.color.toUpperCase();
+}
+
+function openCalendarEventEditor(eventItem) {
+    const { id, source } = eventItem;
+    editingImportantDateId = id;
+    editingCalendarSource = source;
+    importantDateTitleInput.value = eventItem.title || "";
+    importantDateNotesInput.value = eventItem.notes || "";
+    importantDateValueInput.value = eventItem.date || "";
+    importantDateTimeInput.value = eventItem.time || "";
+    importantDateCategoryInput.value = eventItem.category === "anniversary" ? "couple" : (IMPORTANT_DATE_CATEGORIES[eventItem.category] ? eventItem.category : "other");
+    importantDateRepeatInput.value = source === "countdowns" ? "none" : getCalendarRepeat(eventItem);
+    importantDateEmojiInput.value = getCalendarEventEmoji(eventItem);
+    importantDateColorInput.value = getCalendarEventColor(eventItem);
+    importantDateCountdownInput.checked = source === "countdowns" ? true : eventItem.showCountdown !== false;
+    importantDateAnnualInput.checked = getCalendarRepeat(eventItem) === "annual";
+    importantDateColorButton.style.setProperty("--control-color", getCalendarEventColor(eventItem));
+    importantDateColorButton.querySelector("small").textContent = getCalendarEventColor(eventItem).toUpperCase();
+    importantDateFormKicker.textContent = source === "countdowns" ? "Ancien compte à rebours" : "Modification";
+    importantDateFormTitle.textContent = "Modifier ce moment";
+    saveImportantDateBtn.textContent = "Enregistrer les changements";
+    cancelImportantDateEditBtn.style.display = "block";
+    importantDateForm.style.display = "block";
+    importantDateForm.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+function deleteCalendarEvent(eventItem) {
+    if (eventItem.readOnly) return;
+    if (!confirm("Supprimer cet événement de votre calendrier ?")) return;
+    const path = eventItem.source === "countdowns" ? "countdowns" : "importantDates";
+    database.ref("spaces/" + currentSpaceCode + "/dailyTools/" + path + "/" + eventItem.id).remove();
+}
+
+function createCalendarEventCard(eventItem, { compact = false, timeline = false } = {}) {
+    const occurrence = getCalendarEventNextDate(eventItem);
+    const article = document.createElement("article");
+    article.className = "calendar-event-card" + (compact ? " is-compact" : "") + (timeline ? " is-timeline" : "") + (eventItem.readOnly ? " is-readonly" : "");
+    article.style.setProperty("--event-color", getCalendarEventColor(eventItem));
+
+    const icon = document.createElement("span"); icon.className = "calendar-event-emoji"; icon.textContent = getCalendarEventEmoji(eventItem);
+    const copy = document.createElement("div"); copy.className = "calendar-event-copy";
+    const title = document.createElement("strong"); title.textContent = eventItem.title || "Un moment à deux";
+    const meta = document.createElement("span"); meta.textContent = formatCalendarOccurrence(eventItem, occurrence);
+    copy.append(title, meta);
+    if (!compact && eventItem.notes) { const notes = document.createElement("p"); notes.textContent = eventItem.notes; copy.appendChild(notes); }
+    const badges = document.createElement("div"); badges.className = "calendar-event-badges";
+    const category = document.createElement("small"); category.textContent = getCalendarCategoryConfig(eventItem.category).label; badges.appendChild(category);
+    const repeat = getCalendarRepeat(eventItem);
+    if (repeat !== "none") { const recurrence = document.createElement("small"); recurrence.textContent = repeat === "annual" ? "Chaque année" : "Chaque mois"; badges.appendChild(recurrence); }
+    if (eventItem.legacyCountdown) { const legacy = document.createElement("small"); legacy.textContent = "Compte à rebours importé"; badges.appendChild(legacy); }
+    copy.appendChild(badges);
+
+    const countdown = document.createElement("b"); countdown.className = "calendar-event-countdown"; countdown.textContent = getCalendarCountdownLabel(eventItem, occurrence);
+    article.append(icon, copy, countdown);
+    if (!eventItem.readOnly && !compact) {
+        const actions = document.createElement("div"); actions.className = "calendar-event-actions";
+        const edit = document.createElement("button"); edit.type = "button"; edit.textContent = "Modifier"; edit.addEventListener("click", () => openCalendarEventEditor(eventItem));
+        const remove = document.createElement("button"); remove.type = "button"; remove.className = "is-delete"; remove.textContent = "×"; remove.setAttribute("aria-label", "Supprimer"); remove.addEventListener("click", () => deleteCalendarEvent(eventItem));
+        actions.append(edit, remove); article.appendChild(actions);
+    }
+    return article;
+}
+
+function renderCoupleCalendarGrid(events) {
+    if (!coupleCalendarGrid) return;
+    const year = coupleCalendarCursor.getFullYear();
+    const month = coupleCalendarCursor.getMonth();
+    calendarMonthLabel.textContent = coupleCalendarCursor.toLocaleDateString("fr-FR", { month: "long", year: "numeric" }).replace(/^./, (letter) => letter.toUpperCase());
+    const firstWeekday = (new Date(year, month, 1).getDay() + 6) % 7;
+    const daysInMonth = new Date(year, month + 1, 0).getDate();
+    const previousMonthDays = new Date(year, month, 0).getDate();
+    const cells = [];
+    for (let index = 0; index < 42; index += 1) {
+        let dayNumber = index - firstWeekday + 1;
+        let cellDate;
+        let outside = false;
+        if (dayNumber < 1) { cellDate = new Date(year, month - 1, previousMonthDays + dayNumber); outside = true; }
+        else if (dayNumber > daysInMonth) { cellDate = new Date(year, month + 1, dayNumber - daysInMonth); outside = true; }
+        else cellDate = new Date(year, month, dayNumber);
+        const dateKey = getLocalDateKey(cellDate);
+        const dayEvents = events.filter((eventItem) => calendarEventOccursOnDate(eventItem, cellDate));
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "couple-calendar-day" + (outside ? " is-outside" : "") + (dateKey === selectedCoupleCalendarDate ? " is-selected" : "") + (dateKey === getLocalDateKey() ? " is-today" : "") + (dayEvents.length ? " has-events" : "");
+        button.setAttribute("role", "gridcell");
+        button.dataset.date = dateKey;
+        const number = document.createElement("span"); number.className = "couple-calendar-day-number"; number.textContent = String(cellDate.getDate());
+        const dots = document.createElement("span"); dots.className = "couple-calendar-day-events";
+        dayEvents.slice(0, 3).forEach((eventItem) => { const dot = document.createElement("i"); dot.style.setProperty("--event-color", getCalendarEventColor(eventItem)); dot.textContent = getCalendarEventEmoji(eventItem); dots.appendChild(dot); });
+        if (dayEvents.length > 3) { const more = document.createElement("em"); more.textContent = "+" + (dayEvents.length - 3); dots.appendChild(more); }
+        button.append(number, dots);
+        button.addEventListener("click", () => { selectedCoupleCalendarDate = dateKey; if (outside) coupleCalendarCursor = new Date(cellDate.getFullYear(), cellDate.getMonth(), 1); renderImportantDates(currentImportantDates); });
+        cells.push(button);
+    }
+    coupleCalendarGrid.replaceChildren(...cells);
+}
+
+function renderSelectedCalendarDay(events) {
+    const selected = selectedCoupleCalendarDate || getLocalDateKey();
+    const selectedDate = makeLocalCalendarDate(selected, "12:00") || new Date();
+    calendarSelectedDateTitle.textContent = selectedDate.toLocaleDateString("fr-FR", { weekday: "long", day: "numeric", month: "long", year: "numeric" }).replace(/^./, (letter) => letter.toUpperCase());
+    const dayEvents = events.filter((eventItem) => calendarEventOccursOnDate(eventItem, selectedDate));
+    calendarSelectedDateEvents.replaceChildren(...dayEvents.map((eventItem) => createCalendarEventCard(eventItem)));
+    calendarSelectedDateEmpty.style.display = dayEvents.length ? "none" : "block";
+}
+
+function renderUpcomingCalendar(events) {
+    const now = new Date();
+    const upcoming = events.map((item) => ({ item, occurrence: getCalendarEventNextDate(item, now) })).filter(({ occurrence }) => occurrence && occurrence.getTime() >= new Date(now.getFullYear(), now.getMonth(), now.getDate()).getTime()).sort((a, b) => a.occurrence - b.occurrence).slice(0, 40);
+    importantDatesList.replaceChildren(...upcoming.map(({ item }) => createCalendarEventCard(item)));
+    importantDatesEmptyState.style.display = upcoming.length ? "none" : "flex";
+}
+
+function renderCalendarTimeline(events) {
+    const sorted = [...events].filter((item) => item.date).sort((a, b) => String(a.date).localeCompare(String(b.date)) || (a.createdAt || 0) - (b.createdAt || 0));
+    const fragment = document.createDocumentFragment();
+    let currentYear = null;
+    sorted.forEach((item) => {
+        const parts = getCalendarDateParts(item.date);
+        if (!parts) return;
+        const year = parts[0];
+        if (year !== currentYear) { const heading = document.createElement("h3"); heading.className = "couple-timeline-year"; heading.textContent = year; fragment.appendChild(heading); currentYear = year; }
+        const row = document.createElement("div"); row.className = "couple-timeline-row"; row.style.setProperty("--event-color", getCalendarEventColor(item));
+        const rail = document.createElement("span"); rail.className = "couple-timeline-rail"; rail.innerHTML = '<i></i>';
+        const card = createCalendarEventCard(item, { timeline: true });
+        row.append(rail, card); fragment.appendChild(row);
+    });
+    coupleTimelineList.replaceChildren(fragment);
+    coupleTimelineEmpty.style.display = sorted.length ? "none" : "block";
+}
+
+function setCoupleCalendarView(view) {
+    activeCoupleCalendarView = view;
+    coupleCalendarViewButtons.forEach((button) => button.classList.toggle("is-active", button.dataset.coupleCalendarView === view));
+    coupleCalendarView.style.display = view === "calendar" ? "block" : "none";
+    coupleCalendarUpcomingView.style.display = view === "upcoming" ? "block" : "none";
+    coupleCalendarTimelineView.style.display = view === "timeline" ? "block" : "none";
+}
+
+function renderImportantDates(items) {
+    currentImportantDates = items || {};
+    if (!selectedCoupleCalendarDate) selectedCoupleCalendarDate = getLocalDateKey();
+    const events = getUnifiedCalendarEvents();
+    importantDatesCount.textContent = events.length + " date" + (events.length > 1 ? "s" : "");
+    renderCoupleCalendarGrid(events);
+    renderSelectedCalendarDay(events);
+    renderUpcomingCalendar(events);
+    renderCalendarTimeline(events);
+    setCoupleCalendarView(activeCoupleCalendarView);
+}
+
+importantDateForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const title = importantDateTitleInput.value.trim();
+    if (!title || !importantDateValueInput.value) return;
+    const now = Date.now();
+    const repeat = editingCalendarSource === "countdowns" ? "none" : importantDateRepeatInput.value;
+    const payload = {
+        title,
+        notes: importantDateNotesInput.value.trim(),
+        date: importantDateValueInput.value,
+        time: importantDateTimeInput.value || "",
+        category: importantDateCategoryInput.value || "other",
+        repeat,
+        annual: repeat === "annual",
+        showCountdown: importantDateCountdownInput.checked,
+        emoji: importantDateEmojiInput.value.trim() || getCalendarCategoryConfig(importantDateCategoryInput.value).emoji,
+        color: importantDateColorInput.value || getCalendarCategoryConfig(importantDateCategoryInput.value).color,
+        updatedAt: now,
+        updatedBy: currentUser.uid,
+        updatedByPseudo: pseudo
+    };
+    const path = editingCalendarSource === "countdowns" ? "countdowns" : "importantDates";
+    const base = "spaces/" + currentSpaceCode + "/dailyTools/" + path;
+    const request = editingImportantDateId ? database.ref(base + "/" + editingImportantDateId).update(payload) : database.ref(base).push({ ...payload, createdAt: now, createdByUid: currentUser.uid, createdByPseudo: pseudo });
+    saveImportantDateBtn.disabled = true;
+    request.then(() => { showToast(editingImportantDateId ? "Événement modifié" : "Moment ajouté à votre calendrier 💚"); resetImportantDateForm(); }).catch(() => showToast("Impossible d’enregistrer cet événement")).finally(() => { saveImportantDateBtn.disabled = false; });
+});
+
 cancelImportantDateEditBtn.addEventListener("click", resetImportantDateForm);
 showImportantDateFormBtn.addEventListener("click", () => { resetImportantDateForm(); importantDateForm.style.display = "block"; window.setTimeout(() => importantDateTitleInput.focus(), 80); });
-importantDateFilterButtons.forEach((button) => button.addEventListener("click", () => { activeImportantDateFilter = button.dataset.importantDateFilter; importantDateFilterButtons.forEach((item) => item.classList.toggle("is-active", item === button)); renderImportantDates(currentImportantDates); }));
+importantDateCategoryInput.addEventListener("change", applyCalendarCategoryPreset);
+importantDateRepeatInput.addEventListener("change", () => { importantDateAnnualInput.checked = importantDateRepeatInput.value === "annual"; });
+importantDateColorButton.addEventListener("click", () => openNotebookColorPicker("importantDate"));
+coupleCalendarViewButtons.forEach((button) => button.addEventListener("click", () => setCoupleCalendarView(button.dataset.coupleCalendarView)));
+calendarMonthPrev.addEventListener("click", () => { coupleCalendarCursor = new Date(coupleCalendarCursor.getFullYear(), coupleCalendarCursor.getMonth() - 1, 1); renderImportantDates(currentImportantDates); });
+calendarMonthNext.addEventListener("click", () => { coupleCalendarCursor = new Date(coupleCalendarCursor.getFullYear(), coupleCalendarCursor.getMonth() + 1, 1); renderImportantDates(currentImportantDates); });
+calendarTodayBtn.addEventListener("click", () => { const now = new Date(); coupleCalendarCursor = new Date(now.getFullYear(), now.getMonth(), 1); selectedCoupleCalendarDate = getLocalDateKey(now); renderImportantDates(currentImportantDates); });
+calendarAddSelectedDateBtn.addEventListener("click", () => { resetImportantDateForm(); importantDateValueInput.value = selectedCoupleCalendarDate || getLocalDateKey(); importantDateForm.style.display = "block"; importantDateForm.scrollIntoView({ behavior: "smooth", block: "start" }); window.setTimeout(() => importantDateTitleInput.focus(), 80); });
 
 backFromTasksBtn.addEventListener("click", () => { resetTaskForm(); showScreen("dailyTools"); });
 backFromRemindersBtn.addEventListener("click", () => { resetReminderForm(); showScreen("dailyTools"); });
@@ -3652,6 +4017,58 @@ timeCapsuleForm.addEventListener("submit", (event) => {
     });
 });
 
+function renderDailyLifeHub(spaceData = currentSpaceData || {}) {
+    const events = getUnifiedCalendarEvents(spaceData);
+    const now = new Date();
+    const startToday = new Date(now.getFullYear(), now.getMonth(), now.getDate()).getTime();
+    const upcoming = events.map((item) => ({ item, occurrence: getCalendarEventNextDate(item, now) }))
+        .filter(({ occurrence }) => occurrence && occurrence.getTime() >= startToday)
+        .sort((a, b) => a.occurrence - b.occurrence);
+    const next = upcoming[0];
+
+    if (dailyCalendarNextTitle && dailyCalendarNextMeta && dailyCalendarNextCountdown) {
+        if (next) {
+            dailyCalendarNextTitle.textContent = next.item.title || "Un moment à deux";
+            dailyCalendarNextMeta.textContent = formatCalendarOccurrence(next.item, next.occurrence);
+            dailyCalendarNextCountdown.textContent = getCalendarCountdownLabel(next.item, next.occurrence);
+            dailyCalendarNextCountdown.style.setProperty("--event-color", getCalendarEventColor(next.item));
+        } else {
+            dailyCalendarNextTitle.textContent = "Ajoutez votre première date";
+            dailyCalendarNextMeta.textContent = "Votre calendrier commun vous attend";
+            dailyCalendarNextCountdown.textContent = "+";
+        }
+    }
+
+    if (dailyUpcomingMoments && dailyUpcomingEmpty) {
+        const preview = upcoming.slice(0, 3);
+        dailyUpcomingMoments.replaceChildren(...preview.map(({ item, occurrence }) => {
+            const button = document.createElement("button");
+            button.type = "button";
+            button.className = "daily-upcoming-moment";
+            button.style.setProperty("--event-color", getCalendarEventColor(item));
+            button.addEventListener("click", () => showScreen("importantDates"));
+            const emoji = document.createElement("span"); emoji.textContent = getCalendarEventEmoji(item);
+            const copy = document.createElement("div"); const title = document.createElement("strong"); title.textContent = item.title || "Un moment à deux"; const meta = document.createElement("small"); meta.textContent = formatCalendarOccurrence(item, occurrence); copy.append(title, meta);
+            const countdown = document.createElement("b"); countdown.textContent = getCalendarCountdownLabel(item, occurrence);
+            button.append(emoji, copy, countdown); return button;
+        }));
+        dailyUpcomingEmpty.style.display = preview.length ? "none" : "block";
+    }
+
+    if (dashboardNextMomentCard) {
+        if (!next) {
+            dashboardNextMomentCard.style.display = "none";
+        } else {
+            dashboardNextMomentCard.style.display = "flex";
+            dashboardNextMomentCard.style.setProperty("--event-color", getCalendarEventColor(next.item));
+            dashboardNextMomentEmoji.textContent = getCalendarEventEmoji(next.item);
+            dashboardNextMomentTitle.textContent = next.item.title || "Un moment à deux";
+            dashboardNextMomentMeta.textContent = formatCalendarOccurrence(next.item, next.occurrence);
+            dashboardNextMomentCountdown.textContent = getCalendarCountdownLabel(next.item, next.occurrence);
+        }
+    }
+}
+
 function renderDashboardTimeCapsules(spaceData = {}) {
     const entries = Object.entries(spaceData.dailyTools?.timeCapsules || {});
     const now = Date.now();
@@ -3694,8 +4111,8 @@ function renderDashboardToday(spaceData = {}) {
     const today = getLocalDateKey(); const items = [];
     Object.entries(spaceData.dailyTools?.tasks || {}).forEach(([, task]) => { if (!task.completed && task.dueDate && task.dueDate <= today) items.push({ icon: "cactusIconTasks", title: task.title, meta: task.dueDate < today ? "En retard" : "À faire aujourd’hui", screen: "tasks" }); });
     Object.entries(spaceData.dailyTools?.reminders || {}).forEach(([, reminder]) => { if (reminder.date === today) items.push({ icon: "cactusIconBell", title: reminder.title, meta: reminder.time ? reminder.time.replace(":", "h") : "Aujourd’hui", screen: "reminders" }); });
-    Object.entries(spaceData.dailyTools?.importantDates || {}).forEach(([, item]) => { const dateMatch = item.annual ? (item.date || "").slice(5) === today.slice(5) : item.date === today; if (dateMatch) items.push({ icon: "cactusIconCalendar", title: item.title, meta: "Date importante", screen: "importantDates" }); });
-    Object.entries(spaceData.dailyTools?.countdowns || {}).forEach(([, item]) => { if (item.date === today) items.push({ icon: "cactusIconCountdown", title: item.title, meta: "C’est le grand jour", screen: "countdowns" }); });
+    Object.entries(spaceData.dailyTools?.importantDates || {}).forEach(([, item]) => { const repeat = getCalendarRepeat(item); const dateMatch = repeat === "annual" ? (item.date || "").slice(5) === today.slice(5) : repeat === "monthly" ? Number((item.date || "").slice(8, 10)) === Number(today.slice(8, 10)) : item.date === today; if (dateMatch) items.push({ icon: "cactusIconCalendar", title: (item.emoji || getCalendarEventEmoji(item)) + " " + item.title, meta: "C’est aujourd’hui", screen: "importantDates" }); });
+    Object.entries(spaceData.dailyTools?.countdowns || {}).forEach(([, item]) => { if (item.date === today) items.push({ icon: "cactusIconCountdown", title: item.title, meta: "C’est le grand jour", screen: "importantDates" }); });
     Object.entries(spaceData.dailyTools?.timeCapsules || {}).forEach(([, item]) => { if (!item.archivedAt && !item.openedAt && item.openDate && item.openDate <= today) items.push({ icon: "cactusIconCapsule", title: "Une capsule temporelle vous attend", meta: "Le moment de l’ouvrir est arrivé ✨", screen: "timeCapsules" }); });
     dashboardTodayList.replaceChildren(...items.slice(0, 4).map((item) => {
         const button = document.createElement("button"); button.type = "button";
@@ -3938,7 +4355,8 @@ function openNotebookColorPicker(target) {
         editNotebookTitle: { input: editNotebookTitleColor, title: "Nouvelle couleur du titre" },
         text: { input: textColorPicker, title: "Couleur du texte" },
         highlight: { input: highlightColorPicker, title: "Couleur du surlignage" },
-        timeCapsule: { input: timeCapsuleCustomColorInput, title: "Couleur personnalisée de la capsule" }
+        timeCapsule: { input: timeCapsuleCustomColorInput, title: "Couleur personnalisée de la capsule" },
+        importantDate: { input: importantDateColorInput, title: "Couleur de l’événement" }
     };
     const configuration = configurations[target];
     if (!configuration) return;
@@ -4086,6 +4504,11 @@ applyNotebookColorBtn.addEventListener("click", () => {
             if (label) label.textContent = pendingNotebookColor;
         }
         updateTimeCapsuleCustomizer();
+    } else if (activeNotebookColorTarget === "importantDate") {
+        importantDateColorInput.value = pendingNotebookColor;
+        importantDateColorButton.style.setProperty("--control-color", pendingNotebookColor);
+        const label = importantDateColorButton.querySelector("small");
+        if (label) label.textContent = pendingNotebookColor;
     }
     closeNotebookColorPicker();
 });
@@ -7936,7 +8359,7 @@ function buildNotifications(spaceData) {
                     title: "Nouveau compte à rebours",
                     message: item.title || "Un moment à attendre ensemble",
                     timestamp: item.createdAt,
-                    target: { kind: "countdown", itemId, screen: "countdowns" }
+                    target: { kind: "countdown", itemId, screen: "importantDates" }
                 });
             }
             const scheduledAt = getCountdownTimestamp(item);
@@ -7947,7 +8370,7 @@ function buildNotifications(spaceData) {
                     title: "Le grand jour est arrivé",
                     message: item.title || "Votre compte à rebours est terminé",
                     timestamp: scheduledAt,
-                    target: { kind: "countdown", itemId, screen: "countdowns" }
+                    target: { kind: "countdown", itemId, screen: "importantDates" }
                 });
             }
         });
