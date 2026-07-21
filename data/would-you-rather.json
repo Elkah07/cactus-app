@@ -1,26 +1,2102 @@
 [
-  {"id":"wyr_001","category":"quotidien","question":"Pour votre prochaine soirée à deux, tu préfères…","optionA":"Cuisiner ensemble sans recette","optionB":"Commander votre plat préféré et choisir un film"},
-  {"id":"wyr_002","category":"voyage","question":"Pour une escapade surprise, tu préfères…","optionA":"Un week-end dans une ville inconnue","optionB":"Une cabane isolée en pleine nature"},
-  {"id":"wyr_003","category":"souvenirs","question":"Tu préfères pouvoir revivre…","optionA":"Votre première vraie discussion","optionB":"Votre meilleur fou rire ensemble"},
-  {"id":"wyr_004","category":"complicité","question":"Pendant une journée entière, tu préfères…","optionA":"Échanger vos téléphones","optionB":"Choisir toutes les activités de l’autre"},
-  {"id":"wyr_005","category":"rêves","question":"Si vous receviez un cadeau commun, tu préférerais…","optionA":"Un grand voyage","optionB":"Un projet pour votre futur chez vous"},
-  {"id":"wyr_006","category":"fun","question":"Tu préfères que votre couple participe à…","optionA":"Une émission d’aventure","optionB":"Une émission de cuisine"},
-  {"id":"wyr_007","category":"quotidien","question":"Pour vous retrouver après une longue journée, tu préfères…","optionA":"Parler de tout pendant une heure","optionB":"Rester enlacés en silence"},
-  {"id":"wyr_008","category":"romance","question":"Tu préfères recevoir…","optionA":"Une longue lettre écrite à la main","optionB":"Une journée surprise entièrement organisée"},
-  {"id":"wyr_009","category":"voyage","question":"En vacances, tu préfères…","optionA":"Tout prévoir avant de partir","optionB":"Décider au dernier moment"},
-  {"id":"wyr_010","category":"fun","question":"Pour un défi de couple, tu préfères…","optionA":"Ne communiquer qu’en chansons pendant une heure","optionB":"Parler avec des accents pendant toute une soirée"},
-  {"id":"wyr_011","category":"futur","question":"Tu préfères connaître à l’avance…","optionA":"Votre prochaine grande aventure","optionB":"Le prochain rêve que vous réaliserez ensemble"},
-  {"id":"wyr_012","category":"complicité","question":"Tu préfères être imbattables ensemble à…","optionA":"Tous les jeux de société","optionB":"Toutes les énigmes et escape games"},
-  {"id":"wyr_013","category":"quotidien","question":"Le dimanche idéal à deux, c’est plutôt…","optionA":"Pyjama, séries et goûter","optionB":"Sortie improvisée du matin au soir"},
-  {"id":"wyr_014","category":"romance","question":"Tu préfères célébrer votre anniversaire de couple avec…","optionA":"Un rituel identique chaque année","optionB":"Une nouvelle surprise chaque année"},
-  {"id":"wyr_015","category":"souvenirs","question":"Tu préfères conserver tous vos souvenirs sous forme de…","optionA":"Photos et vidéos","optionB":"Objets, tickets et lettres"},
-  {"id":"wyr_016","category":"fun","question":"Tu préfères devoir…","optionA":"Porter des tenues assorties pendant une semaine","optionB":"Avoir la même sonnerie de téléphone pendant un mois"},
-  {"id":"wyr_017","category":"rêves","question":"Vous pouvez maîtriser instantanément une activité à deux. Tu choisis…","optionA":"Danser parfaitement ensemble","optionB":"Parler couramment une nouvelle langue"},
-  {"id":"wyr_018","category":"complicité","question":"Quand vous n’êtes pas d’accord, tu préfères…","optionA":"En parler tout de suite","optionB":"Prendre un moment puis revenir calmement dessus"},
-  {"id":"wyr_019","category":"voyage","question":"Tu préfères partir avec…","optionA":"Une seule valise parfaitement préparée","optionB":"Presque rien et acheter ce qu’il manque sur place"},
-  {"id":"wyr_020","category":"quotidien","question":"Tu préfères partager systématiquement…","optionA":"Tous vos desserts","optionB":"Toutes vos frites"},
-  {"id":"wyr_021","category":"futur","question":"Pour votre futur lieu de vie, tu préfères…","optionA":"Petit mais au cœur de tout","optionB":"Grand mais loin de l’agitation"},
-  {"id":"wyr_022","category":"romance","question":"Tu préfères une déclaration…","optionA":"Très intime, juste entre vous","optionB":"Spectaculaire et impossible à oublier"},
-  {"id":"wyr_023","category":"fun","question":"Tu préfères revoir ensemble…","optionA":"Tous les films de votre enfance","optionB":"Une série très longue que vous ne connaissez pas"},
-  {"id":"wyr_024","category":"complicité","question":"Tu préfères que l’autre sache toujours…","optionA":"Quand tu as besoin de parler","optionB":"Quand tu as besoin d’être tranquille"}
+  {
+    "id": "wyr_001",
+    "category": "quotidien",
+    "question": "Pour votre prochaine soirée à deux, tu préfères…",
+    "optionA": "Cuisiner ensemble sans recette",
+    "optionB": "Commander votre plat préféré et choisir un film"
+  },
+  {
+    "id": "wyr_002",
+    "category": "voyage",
+    "question": "Pour une escapade surprise, tu préfères…",
+    "optionA": "Un week-end dans une ville inconnue",
+    "optionB": "Une cabane isolée en pleine nature"
+  },
+  {
+    "id": "wyr_003",
+    "category": "souvenirs",
+    "question": "Tu préfères pouvoir revivre…",
+    "optionA": "Votre première vraie discussion",
+    "optionB": "Votre meilleur fou rire ensemble"
+  },
+  {
+    "id": "wyr_004",
+    "category": "complicité",
+    "question": "Pendant une journée entière, tu préfères…",
+    "optionA": "Échanger vos téléphones",
+    "optionB": "Choisir toutes les activités de l’autre"
+  },
+  {
+    "id": "wyr_005",
+    "category": "rêves",
+    "question": "Si vous receviez un cadeau commun, tu préférerais…",
+    "optionA": "Un grand voyage",
+    "optionB": "Un projet pour votre futur chez vous"
+  },
+  {
+    "id": "wyr_006",
+    "category": "fun",
+    "question": "Tu préfères que votre couple participe à…",
+    "optionA": "Une émission d’aventure",
+    "optionB": "Une émission de cuisine"
+  },
+  {
+    "id": "wyr_007",
+    "category": "quotidien",
+    "question": "Pour vous retrouver après une longue journée, tu préfères…",
+    "optionA": "Parler de tout pendant une heure",
+    "optionB": "Rester enlacés en silence"
+  },
+  {
+    "id": "wyr_008",
+    "category": "romance",
+    "question": "Tu préfères recevoir…",
+    "optionA": "Une longue lettre écrite à la main",
+    "optionB": "Une journée surprise entièrement organisée"
+  },
+  {
+    "id": "wyr_009",
+    "category": "voyage",
+    "question": "En vacances, tu préfères…",
+    "optionA": "Tout prévoir avant de partir",
+    "optionB": "Décider au dernier moment"
+  },
+  {
+    "id": "wyr_010",
+    "category": "fun",
+    "question": "Pour un défi de couple, tu préfères…",
+    "optionA": "Ne communiquer qu’en chansons pendant une heure",
+    "optionB": "Parler avec des accents pendant toute une soirée"
+  },
+  {
+    "id": "wyr_011",
+    "category": "futur",
+    "question": "Tu préfères connaître à l’avance…",
+    "optionA": "Votre prochaine grande aventure",
+    "optionB": "Le prochain rêve que vous réaliserez ensemble"
+  },
+  {
+    "id": "wyr_012",
+    "category": "complicité",
+    "question": "Tu préfères être imbattables ensemble à…",
+    "optionA": "Tous les jeux de société",
+    "optionB": "Toutes les énigmes et escape games"
+  },
+  {
+    "id": "wyr_013",
+    "category": "quotidien",
+    "question": "Le dimanche idéal à deux, c’est plutôt…",
+    "optionA": "Pyjama, séries et goûter",
+    "optionB": "Sortie improvisée du matin au soir"
+  },
+  {
+    "id": "wyr_014",
+    "category": "romance",
+    "question": "Tu préfères célébrer votre anniversaire de couple avec…",
+    "optionA": "Un rituel identique chaque année",
+    "optionB": "Une nouvelle surprise chaque année"
+  },
+  {
+    "id": "wyr_015",
+    "category": "souvenirs",
+    "question": "Tu préfères conserver tous vos souvenirs sous forme de…",
+    "optionA": "Photos et vidéos",
+    "optionB": "Objets, tickets et lettres"
+  },
+  {
+    "id": "wyr_016",
+    "category": "fun",
+    "question": "Tu préfères devoir…",
+    "optionA": "Porter des tenues assorties pendant une semaine",
+    "optionB": "Avoir la même sonnerie de téléphone pendant un mois"
+  },
+  {
+    "id": "wyr_017",
+    "category": "rêves",
+    "question": "Vous pouvez maîtriser instantanément une activité à deux. Tu choisis…",
+    "optionA": "Danser parfaitement ensemble",
+    "optionB": "Parler couramment une nouvelle langue"
+  },
+  {
+    "id": "wyr_018",
+    "category": "complicité",
+    "question": "Quand vous n’êtes pas d’accord, tu préfères…",
+    "optionA": "En parler tout de suite",
+    "optionB": "Prendre un moment puis revenir calmement dessus"
+  },
+  {
+    "id": "wyr_019",
+    "category": "voyage",
+    "question": "Tu préfères partir avec…",
+    "optionA": "Une seule valise parfaitement préparée",
+    "optionB": "Presque rien et acheter ce qu’il manque sur place"
+  },
+  {
+    "id": "wyr_020",
+    "category": "quotidien",
+    "question": "Tu préfères partager systématiquement…",
+    "optionA": "Tous vos desserts",
+    "optionB": "Toutes vos frites"
+  },
+  {
+    "id": "wyr_021",
+    "category": "futur",
+    "question": "Pour votre futur lieu de vie, tu préfères…",
+    "optionA": "Petit mais au cœur de tout",
+    "optionB": "Grand mais loin de l’agitation"
+  },
+  {
+    "id": "wyr_022",
+    "category": "romance",
+    "question": "Tu préfères une déclaration…",
+    "optionA": "Très intime, juste entre vous",
+    "optionB": "Spectaculaire et impossible à oublier"
+  },
+  {
+    "id": "wyr_023",
+    "category": "fun",
+    "question": "Tu préfères revoir ensemble…",
+    "optionA": "Tous les films de votre enfance",
+    "optionB": "Une série très longue que vous ne connaissez pas"
+  },
+  {
+    "id": "wyr_024",
+    "category": "complicité",
+    "question": "Tu préfères que l’autre sache toujours…",
+    "optionA": "Quand tu as besoin de parler",
+    "optionB": "Quand tu as besoin d’être tranquille"
+  },
+  {
+    "id": "wyr_025",
+    "category": "couple",
+    "question": "Dans votre couple, tu préfères…",
+    "optionA": "Tout vous raconter, même les détails inutiles",
+    "optionB": "Garder chacun un petit jardin secret"
+  },
+  {
+    "id": "wyr_026",
+    "category": "couple",
+    "question": "Tu préfères avoir un couple qui…",
+    "optionA": "Se ressemble énormément",
+    "optionB": "Se complète grâce à de grandes différences"
+  },
+  {
+    "id": "wyr_027",
+    "category": "couple",
+    "question": "Quand un problème arrive, tu préfères que vous soyez plutôt…",
+    "optionA": "Une équipe qui décide tout ensemble",
+    "optionB": "Deux personnes autonomes qui se retrouvent ensuite"
+  },
+  {
+    "id": "wyr_028",
+    "category": "couple",
+    "question": "Tu préfères que votre relation soit connue pour…",
+    "optionA": "Votre stabilité rassurante",
+    "optionB": "Votre spontanéité imprévisible"
+  },
+  {
+    "id": "wyr_029",
+    "category": "couple",
+    "question": "Si vous pouviez supprimer une difficulté de votre couple, tu choisirais…",
+    "optionA": "Ne plus jamais mal vous comprendre",
+    "optionB": "Ne plus jamais manquer de temps ensemble"
+  },
+  {
+    "id": "wyr_030",
+    "category": "couple",
+    "question": "Tu préfères que l’autre soit…",
+    "optionA": "Très démonstratif au quotidien",
+    "optionB": "Peu démonstratif mais toujours présent quand ça compte"
+  },
+  {
+    "id": "wyr_031",
+    "category": "couple",
+    "question": "Tu préfères une relation où…",
+    "optionA": "Vous faites presque tout ensemble",
+    "optionB": "Vous avez beaucoup de vies séparées en plus du couple"
+  },
+  {
+    "id": "wyr_032",
+    "category": "couple",
+    "question": "Pour prendre une grande décision, tu préfères…",
+    "optionA": "Qu’un compromis soit toujours trouvé",
+    "optionB": "Que la personne la plus concernée tranche"
+  },
+  {
+    "id": "wyr_033",
+    "category": "couple",
+    "question": "Tu préfères que votre couple ait…",
+    "optionA": "Beaucoup de traditions rien qu’à vous",
+    "optionB": "Très peu de routines pour garder de la nouveauté"
+  },
+  {
+    "id": "wyr_034",
+    "category": "couple",
+    "question": "Si l’un de vous traverse une mauvaise période, tu préfères…",
+    "optionA": "Mettre le reste entre parenthèses pour être très présent",
+    "optionB": "Laisser davantage d’espace tout en restant disponible"
+  },
+  {
+    "id": "wyr_035",
+    "category": "couple",
+    "question": "Tu préfères que votre partenaire te dise…",
+    "optionA": "Toujours exactement ce qu’il ou elle pense",
+    "optionB": "Parfois une version plus douce pour ménager tes sentiments"
+  },
+  {
+    "id": "wyr_036",
+    "category": "couple",
+    "question": "Tu préfères que vous soyez le couple qui…",
+    "optionA": "Planifie ses projets plusieurs années à l’avance",
+    "optionB": "Décide surtout en fonction de ce qui vous rend heureux maintenant"
+  },
+  {
+    "id": "wyr_037",
+    "category": "couple",
+    "question": "Quand l’un de vous change d’avis sur un projet commun, tu préfères…",
+    "optionA": "Tout rediscuter depuis le début",
+    "optionB": "Maintenir le plan initial sauf raison vraiment importante"
+  },
+  {
+    "id": "wyr_038",
+    "category": "couple",
+    "question": "Tu préfères vivre une relation…",
+    "optionA": "Très fusionnelle",
+    "optionB": "Très indépendante mais profondément engagée"
+  },
+  {
+    "id": "wyr_039",
+    "category": "couple",
+    "question": "Si vous ne pouviez garder qu’une force de votre couple, tu choisirais…",
+    "optionA": "Votre capacité à rire ensemble",
+    "optionB": "Votre capacité à vous soutenir dans les moments difficiles"
+  },
+  {
+    "id": "wyr_040",
+    "category": "couple",
+    "question": "Tu préfères que votre partenaire soit…",
+    "optionA": "Ton premier réflexe pour presque tout",
+    "optionB": "Une personne essentielle sans être ton unique pilier"
+  },
+  {
+    "id": "wyr_041",
+    "category": "couple",
+    "question": "Dans une période chargée, tu préfères préserver en priorité…",
+    "optionA": "Un vrai moment de qualité chaque semaine",
+    "optionB": "De petits contacts affectueux tous les jours"
+  },
+  {
+    "id": "wyr_042",
+    "category": "couple",
+    "question": "Tu préfères que vos désaccords soient…",
+    "optionA": "Rares mais parfois intenses",
+    "optionB": "Plus fréquents mais vite réglés"
+  },
+  {
+    "id": "wyr_043",
+    "category": "couple",
+    "question": "Tu préfères apprendre que votre partenaire…",
+    "optionA": "A changé sur un sujet important sans t’en parler",
+    "optionB": "N’a pas changé mais n’ose plus te dire ce qu’il ou elle pense"
+  },
+  {
+    "id": "wyr_044",
+    "category": "couple",
+    "question": "Tu préfères être avec quelqu’un qui…",
+    "optionA": "Te rassure beaucoup verbalement",
+    "optionB": "Te rassure surtout par ses actes"
+  },
+  {
+    "id": "wyr_045",
+    "category": "couple",
+    "question": "Pour protéger votre couple, tu préfères…",
+    "optionA": "Poser des règles très claires",
+    "optionB": "Faire confiance au cas par cas"
+  },
+  {
+    "id": "wyr_046",
+    "category": "couple",
+    "question": "Tu préfères qu’une relation dure grâce à…",
+    "optionA": "Des efforts conscients et réguliers",
+    "optionB": "Une grande compatibilité naturelle"
+  },
+  {
+    "id": "wyr_047",
+    "category": "couple",
+    "question": "Si vous deviez choisir, tu préférerais…",
+    "optionA": "Être parfaitement d’accord sur vos valeurs",
+    "optionB": "Avoir exactement la même façon de vivre au quotidien"
+  },
+  {
+    "id": "wyr_048",
+    "category": "quotidien",
+    "question": "Pour les tâches du quotidien, tu préfères…",
+    "optionA": "Tout répartir précisément",
+    "optionB": "Faire chacun ce qu’il voit quand il le voit"
+  },
+  {
+    "id": "wyr_049",
+    "category": "quotidien",
+    "question": "Pour les courses, tu préfères…",
+    "optionA": "Faire une liste parfaite et s’y tenir",
+    "optionB": "Improviser dans les rayons selon vos envies"
+  },
+  {
+    "id": "wyr_050",
+    "category": "quotidien",
+    "question": "À la maison, tu préfères…",
+    "optionA": "Un intérieur toujours bien rangé",
+    "optionB": "Un peu de bazar mais aucune pression"
+  },
+  {
+    "id": "wyr_051",
+    "category": "quotidien",
+    "question": "Pour vos repas de semaine, tu préfères…",
+    "optionA": "Manger souvent les mêmes plats que vous adorez",
+    "optionB": "Tester sans arrêt de nouvelles recettes"
+  },
+  {
+    "id": "wyr_052",
+    "category": "quotidien",
+    "question": "Quand vous êtes tous les deux fatigués, tu préfères…",
+    "optionA": "Annuler les plans et rester chez vous",
+    "optionB": "Sortir quand même pour changer d’air"
+  },
+  {
+    "id": "wyr_053",
+    "category": "quotidien",
+    "question": "Tu préfères vivre avec quelqu’un qui…",
+    "optionA": "Se lève très tôt",
+    "optionB": "Se couche très tard"
+  },
+  {
+    "id": "wyr_054",
+    "category": "quotidien",
+    "question": "Le matin, tu préfères que votre couple soit plutôt…",
+    "optionA": "Silencieux jusqu’au premier café",
+    "optionB": "Déjà en pleine conversation dès le réveil"
+  },
+  {
+    "id": "wyr_055",
+    "category": "quotidien",
+    "question": "Tu préfères que votre maison soit…",
+    "optionA": "Toujours pleine de monde",
+    "optionB": "Presque toujours votre refuge à deux"
+  },
+  {
+    "id": "wyr_056",
+    "category": "quotidien",
+    "question": "Pour choisir ce que vous regardez, tu préfères…",
+    "optionA": "Alterner chacun votre tour",
+    "optionB": "Ne regarder que ce qui vous plaît à tous les deux"
+  },
+  {
+    "id": "wyr_057",
+    "category": "quotidien",
+    "question": "Tu préfères que votre partenaire…",
+    "optionA": "Goûte toujours dans ton assiette",
+    "optionB": "Commande exactement la même chose que toi"
+  },
+  {
+    "id": "wyr_058",
+    "category": "quotidien",
+    "question": "Pour dormir, tu préfères…",
+    "optionA": "Dormir collés même s’il fait trop chaud",
+    "optionB": "Avoir chacun son côté sans être dérangé"
+  },
+  {
+    "id": "wyr_059",
+    "category": "quotidien",
+    "question": "Tu préfères partager…",
+    "optionA": "Une seule grande couette",
+    "optionB": "Deux couettes séparées"
+  },
+  {
+    "id": "wyr_060",
+    "category": "quotidien",
+    "question": "Si l’un de vous est malade, tu préfères…",
+    "optionA": "Une présence aux petits soins en permanence",
+    "optionB": "De l’aide pratique mais beaucoup de tranquillité"
+  },
+  {
+    "id": "wyr_061",
+    "category": "quotidien",
+    "question": "Pour les petites dépenses communes, tu préfères…",
+    "optionA": "Ne jamais compter précisément",
+    "optionB": "Tout noter pour que ce soit parfaitement équitable"
+  },
+  {
+    "id": "wyr_062",
+    "category": "quotidien",
+    "question": "Tu préfères un partenaire qui…",
+    "optionA": "Fait les choses immédiatement",
+    "optionB": "Remet parfois à plus tard mais finit toujours par les faire"
+  },
+  {
+    "id": "wyr_063",
+    "category": "quotidien",
+    "question": "Quand quelque chose casse chez vous, tu préfères…",
+    "optionA": "Essayer de le réparer vous-mêmes",
+    "optionB": "Le remplacer rapidement sans vous compliquer la vie"
+  },
+  {
+    "id": "wyr_064",
+    "category": "quotidien",
+    "question": "Pour le ménage, tu préfères…",
+    "optionA": "Une grosse session ensemble",
+    "optionB": "De petites tâches réparties toute la semaine"
+  },
+  {
+    "id": "wyr_065",
+    "category": "quotidien",
+    "question": "Tu préfères que vos agendas soient…",
+    "optionA": "Très coordonnés",
+    "optionB": "Assez indépendants"
+  },
+  {
+    "id": "wyr_066",
+    "category": "quotidien",
+    "question": "À table, tu préfères…",
+    "optionA": "Manger toujours ensemble quand vous êtes chez vous",
+    "optionB": "Manger chacun quand vous avez faim"
+  },
+  {
+    "id": "wyr_067",
+    "category": "quotidien",
+    "question": "Pour les vacances à la maison, tu préfères…",
+    "optionA": "Profiter pour ne absolument rien faire",
+    "optionB": "Avoir enfin le temps d’avancer sur tous vos projets"
+  },
+  {
+    "id": "wyr_068",
+    "category": "quotidien",
+    "question": "Tu préfères vivre avec…",
+    "optionA": "Beaucoup d’objets et de souvenirs visibles",
+    "optionB": "Un intérieur très épuré"
+  },
+  {
+    "id": "wyr_069",
+    "category": "quotidien",
+    "question": "Pour les petites habitudes agaçantes, tu préfères…",
+    "optionA": "Tout dire immédiatement",
+    "optionB": "Laisser passer ce qui n’est pas vraiment important"
+  },
+  {
+    "id": "wyr_070",
+    "category": "quotidien",
+    "question": "Tu préfères que le week-end commence par…",
+    "optionA": "Une grasse matinée sans réveil",
+    "optionB": "Un petit-déjeuner dehors dès le matin"
+  },
+  {
+    "id": "wyr_071",
+    "category": "complicité",
+    "question": "Pour vous sentir proches, tu préfères…",
+    "optionA": "Avoir de longues conversations profondes",
+    "optionB": "Partager beaucoup de petits moments banals"
+  },
+  {
+    "id": "wyr_072",
+    "category": "complicité",
+    "question": "Tu préfères que votre langage secret soit surtout fait de…",
+    "optionA": "Surnoms et phrases incompréhensibles pour les autres",
+    "optionB": "Regards qui suffisent à tout comprendre"
+  },
+  {
+    "id": "wyr_073",
+    "category": "complicité",
+    "question": "Tu préfères connaître parfaitement…",
+    "optionA": "Les goûts de ton/ta partenaire",
+    "optionB": "Ses réactions dans presque toutes les situations"
+  },
+  {
+    "id": "wyr_074",
+    "category": "complicité",
+    "question": "Si vous aviez un talent de duo, tu préférerais…",
+    "optionA": "Toujours finir les phrases de l’autre",
+    "optionB": "Toujours avoir la même idée au même moment"
+  },
+  {
+    "id": "wyr_075",
+    "category": "complicité",
+    "question": "Tu préfères être le couple qui…",
+    "optionA": "Rit de tout, même au pire moment",
+    "optionB": "Sait exactement quand arrêter de plaisanter"
+  },
+  {
+    "id": "wyr_076",
+    "category": "complicité",
+    "question": "Dans un jeu en équipe, tu préfères…",
+    "optionA": "Gagner grâce à une stratégie parfaite",
+    "optionB": "Perdre en ayant tellement ri que ça devient votre meilleur souvenir"
+  },
+  {
+    "id": "wyr_077",
+    "category": "complicité",
+    "question": "Tu préfères avoir avec l’autre…",
+    "optionA": "Un humour exactement identique",
+    "optionB": "Des humours différents qui vous surprennent"
+  },
+  {
+    "id": "wyr_078",
+    "category": "complicité",
+    "question": "Pour un secret important, tu préfères…",
+    "optionA": "Être la première personne à qui l’autre le confie",
+    "optionB": "Être la personne avec qui l’autre sait qu’il peut le garder sans pression"
+  },
+  {
+    "id": "wyr_079",
+    "category": "complicité",
+    "question": "Tu préfères que votre partenaire devine facilement…",
+    "optionA": "Ce qui te ferait plaisir",
+    "optionB": "Ce qui te dérange avant même que tu le dises"
+  },
+  {
+    "id": "wyr_080",
+    "category": "complicité",
+    "question": "Si vous deviez être séparés sans téléphone pendant une semaine, tu préférerais…",
+    "optionA": "Vous écrire une lettre chaque jour à ouvrir ensuite",
+    "optionB": "Ne rien préparer et tout vous raconter au retour"
+  },
+  {
+    "id": "wyr_081",
+    "category": "complicité",
+    "question": "Tu préfères qu’on vous dise que vous êtes…",
+    "optionA": "Le couple le plus drôle",
+    "optionB": "Le couple qui se comprend le mieux"
+  },
+  {
+    "id": "wyr_082",
+    "category": "complicité",
+    "question": "Pour résoudre une énigme ensemble, tu préfères…",
+    "optionA": "Penser exactement de la même manière",
+    "optionB": "Avoir deux approches opposées qui finissent par se rejoindre"
+  },
+  {
+    "id": "wyr_083",
+    "category": "complicité",
+    "question": "Tu préfères partager avec l’autre…",
+    "optionA": "Toutes tes références et passions préférées",
+    "optionB": "Découvrir régulièrement des univers complètement nouveaux"
+  },
+  {
+    "id": "wyr_084",
+    "category": "complicité",
+    "question": "Tu préfères que votre complicité repose surtout sur…",
+    "optionA": "Tout ce que vous avez vécu ensemble",
+    "optionB": "Votre façon naturelle de vous comprendre"
+  },
+  {
+    "id": "wyr_085",
+    "category": "complicité",
+    "question": "Tu préfères avoir…",
+    "optionA": "Une chanson qui vous représente parfaitement",
+    "optionB": "Une blague que personne d’autre ne peut comprendre"
+  },
+  {
+    "id": "wyr_086",
+    "category": "complicité",
+    "question": "Si votre couple avait un super-pouvoir, tu choisirais…",
+    "optionA": "Savoir instantanément quand l’autre ne va pas bien",
+    "optionB": "Pouvoir vous faire rire à coup sûr"
+  },
+  {
+    "id": "wyr_087",
+    "category": "complicité",
+    "question": "Tu préfères que votre partenaire sache par cœur…",
+    "optionA": "Ta commande préférée partout",
+    "optionB": "La manière exacte de te réconforter"
+  },
+  {
+    "id": "wyr_088",
+    "category": "complicité",
+    "question": "Dans une foule, tu préfères pouvoir…",
+    "optionA": "Toujours retrouver l’autre immédiatement",
+    "optionB": "Toujours savoir ce que l’autre pense sans parler"
+  },
+  {
+    "id": "wyr_089",
+    "category": "complicité",
+    "question": "Tu préfères avoir une relation où…",
+    "optionA": "Vous pouvez parler pendant des heures sans voir le temps passer",
+    "optionB": "Vous pouvez rester silencieux longtemps sans aucun malaise"
+  },
+  {
+    "id": "wyr_090",
+    "category": "complicité",
+    "question": "Pour tester votre complicité, tu préfères…",
+    "optionA": "Répondre séparément à 100 questions sur l’autre",
+    "optionB": "Passer 24 heures à prendre toutes les décisions à deux"
+  },
+  {
+    "id": "wyr_091",
+    "category": "complicité",
+    "question": "Tu préfères que vos private jokes soient…",
+    "optionA": "Très nombreuses mais totalement absurdes",
+    "optionB": "Peu nombreuses mais liées à de vrais souvenirs forts"
+  },
+  {
+    "id": "wyr_092",
+    "category": "complicité",
+    "question": "Tu préfères découvrir que vous avez choisi séparément…",
+    "optionA": "Le même cadeau pour l’autre",
+    "optionB": "La même destination secrète pour votre prochain voyage"
+  },
+  {
+    "id": "wyr_093",
+    "category": "complicité",
+    "question": "Tu préfères être capables de…",
+    "optionA": "Vous remonter le moral en quelques minutes",
+    "optionB": "Vous calmer mutuellement quand tout devient trop intense"
+  },
+  {
+    "id": "wyr_094",
+    "category": "romance",
+    "question": "Pour une surprise romantique, tu préfères…",
+    "optionA": "Quelque chose de très simple mais parfaitement pensé pour toi",
+    "optionB": "Quelque chose de spectaculaire que tu n’aurais jamais imaginé"
+  },
+  {
+    "id": "wyr_095",
+    "category": "romance",
+    "question": "Tu préfères recevoir de l’amour surtout à travers…",
+    "optionA": "Des petites attentions quotidiennes",
+    "optionB": "De grands gestes plus rares"
+  },
+  {
+    "id": "wyr_096",
+    "category": "romance",
+    "question": "Pour une soirée romantique, tu préfères…",
+    "optionA": "Dîner très chic et tenue élégante",
+    "optionB": "Pique-nique improvisé sous les étoiles"
+  },
+  {
+    "id": "wyr_097",
+    "category": "romance",
+    "question": "Tu préfères qu’on te dise « je t’aime »…",
+    "optionA": "Très souvent spontanément",
+    "optionB": "Plus rarement mais dans des moments qui marquent"
+  },
+  {
+    "id": "wyr_098",
+    "category": "romance",
+    "question": "Tu préfères recevoir…",
+    "optionA": "Des fleurs régulièrement sans occasion",
+    "optionB": "Un cadeau personnel fabriqué spécialement pour toi"
+  },
+  {
+    "id": "wyr_099",
+    "category": "romance",
+    "question": "Pour votre plus beau rendez-vous, tu préférerais…",
+    "optionA": "Retourner exactement à l’endroit d’un souvenir important",
+    "optionB": "Découvrir ensemble un lieu totalement nouveau"
+  },
+  {
+    "id": "wyr_100",
+    "category": "romance",
+    "question": "Tu préfères une demande importante faite…",
+    "optionA": "Dans votre intimité, sans personne autour",
+    "optionB": "Dans un décor incroyable préparé en secret"
+  },
+  {
+    "id": "wyr_101",
+    "category": "romance",
+    "question": "Tu préfères que votre partenaire organise…",
+    "optionA": "Une soirée surprise à la maison",
+    "optionB": "Une escapade dont tu ignores complètement la destination"
+  },
+  {
+    "id": "wyr_102",
+    "category": "romance",
+    "question": "Tu préfères garder comme preuve d’amour…",
+    "optionA": "Une collection de petits mots écrits",
+    "optionB": "Une collection de photos prises au fil des années"
+  },
+  {
+    "id": "wyr_103",
+    "category": "romance",
+    "question": "Pour une nuit exceptionnelle, tu préfères…",
+    "optionA": "Dormir dans un hôtel de rêve",
+    "optionB": "Passer la nuit dehors à regarder le ciel"
+  },
+  {
+    "id": "wyr_104",
+    "category": "romance",
+    "question": "Tu préfères que votre partenaire te surprenne avec…",
+    "optionA": "Ton repas préféré après une mauvaise journée",
+    "optionB": "Des billets pour quelque chose dont tu rêves depuis longtemps"
+  },
+  {
+    "id": "wyr_105",
+    "category": "romance",
+    "question": "Tu préfères recevoir un message romantique…",
+    "optionA": "Très long au réveil",
+    "optionB": "Très court mais totalement inattendu au milieu de la journée"
+  },
+  {
+    "id": "wyr_106",
+    "category": "romance",
+    "question": "Tu préfères danser ensemble…",
+    "optionA": "Lentement dans votre salon",
+    "optionB": "N’importe comment au milieu d’une vraie fête"
+  },
+  {
+    "id": "wyr_107",
+    "category": "romance",
+    "question": "Pour votre histoire d’amour, tu préfères qu’on puisse dire…",
+    "optionA": "Elle est douce et rassurante",
+    "optionB": "Elle est intense et pleine d’aventures"
+  },
+  {
+    "id": "wyr_108",
+    "category": "romance",
+    "question": "Tu préfères une preuve d’amour qui…",
+    "optionA": "N’appartient qu’à vous deux",
+    "optionB": "Peut être vue et comprise par tout le monde"
+  },
+  {
+    "id": "wyr_109",
+    "category": "romance",
+    "question": "Tu préfères que l’autre te prépare…",
+    "optionA": "Une playlist qui raconte votre histoire",
+    "optionB": "Un album rempli de souvenirs commentés"
+  },
+  {
+    "id": "wyr_110",
+    "category": "romance",
+    "question": "Tu préfères célébrer une bonne nouvelle avec…",
+    "optionA": "Un dîner juste à deux",
+    "optionB": "Une fête avec toutes les personnes importantes pour vous"
+  },
+  {
+    "id": "wyr_111",
+    "category": "romance",
+    "question": "Tu préfères avoir dans votre futur…",
+    "optionA": "Un endroit où vous revenez chaque année",
+    "optionB": "Une nouvelle destination romantique à chaque occasion"
+  },
+  {
+    "id": "wyr_112",
+    "category": "romance",
+    "question": "Tu préfères que votre partenaire se souvienne parfaitement…",
+    "optionA": "De toutes vos dates importantes",
+    "optionB": "Des petites phrases que tu as dites sans y penser"
+  },
+  {
+    "id": "wyr_113",
+    "category": "romance",
+    "question": "Tu préfères recevoir une surprise…",
+    "optionA": "Préparée pendant des semaines",
+    "optionB": "Inventée le jour même sur un coup de cœur"
+  },
+  {
+    "id": "wyr_114",
+    "category": "romance",
+    "question": "Tu préfères que l’amour soit surtout visible dans…",
+    "optionA": "Les gestes du quotidien",
+    "optionB": "Les moments exceptionnels"
+  },
+  {
+    "id": "wyr_115",
+    "category": "romance",
+    "question": "Tu préfères qu’on vous offre à deux…",
+    "optionA": "Une expérience à vivre immédiatement",
+    "optionB": "Un objet qui restera toute votre vie"
+  },
+  {
+    "id": "wyr_116",
+    "category": "romance",
+    "question": "Pour un anniversaire de couple, tu préfères…",
+    "optionA": "Recréer votre premier rendez-vous",
+    "optionB": "Inventer une journée que vous n’avez jamais vécue"
+  },
+  {
+    "id": "wyr_117",
+    "category": "voyage",
+    "question": "Pour un grand voyage, tu préfères…",
+    "optionA": "Visiter plusieurs endroits en peu de temps",
+    "optionB": "Rester longtemps au même endroit et vraiment le découvrir"
+  },
+  {
+    "id": "wyr_118",
+    "category": "voyage",
+    "question": "Tu préfères voyager…",
+    "optionA": "Avec un programme rempli chaque jour",
+    "optionB": "Avec beaucoup de journées sans aucun plan"
+  },
+  {
+    "id": "wyr_119",
+    "category": "voyage",
+    "question": "Pour votre prochaine destination, tu préfères…",
+    "optionA": "Un pays dont vous rêvez depuis longtemps",
+    "optionB": "Un pays choisi totalement au hasard"
+  },
+  {
+    "id": "wyr_120",
+    "category": "voyage",
+    "question": "Tu préfères passer une nuit…",
+    "optionA": "Dans un hôtel luxueux avec tout le confort",
+    "optionB": "Dans un lieu insolite dont vous parlerez pendant des années"
+  },
+  {
+    "id": "wyr_121",
+    "category": "voyage",
+    "question": "En road trip, tu préfères…",
+    "optionA": "Suivre l’itinéraire prévu",
+    "optionB": "Changer de route dès qu’un endroit vous intrigue"
+  },
+  {
+    "id": "wyr_122",
+    "category": "voyage",
+    "question": "Tu préfères partir…",
+    "optionA": "Très loin mais moins souvent",
+    "optionB": "Moins loin mais beaucoup plus régulièrement"
+  },
+  {
+    "id": "wyr_123",
+    "category": "voyage",
+    "question": "Pour découvrir un pays, tu préfères…",
+    "optionA": "Goûter absolument toutes les spécialités",
+    "optionB": "Tester toutes les activités locales"
+  },
+  {
+    "id": "wyr_124",
+    "category": "voyage",
+    "question": "Tu préfères un voyage où…",
+    "optionA": "Vous revenez reposés",
+    "optionB": "Vous revenez épuisés mais avec mille souvenirs"
+  },
+  {
+    "id": "wyr_125",
+    "category": "voyage",
+    "question": "Pour une destination de rêve, tu préfères…",
+    "optionA": "Plage paradisiaque et eau turquoise",
+    "optionB": "Montagnes immenses et paysages sauvages"
+  },
+  {
+    "id": "wyr_126",
+    "category": "voyage",
+    "question": "Tu préfères visiter…",
+    "optionA": "Une mégalopole qui ne dort jamais",
+    "optionB": "Un village perdu loin de tout"
+  },
+  {
+    "id": "wyr_127",
+    "category": "voyage",
+    "question": "En voyage, tu préfères photographier surtout…",
+    "optionA": "Les paysages et les lieux",
+    "optionB": "Vos réactions et les moments entre vous"
+  },
+  {
+    "id": "wyr_128",
+    "category": "voyage",
+    "question": "Tu préfères avoir un budget plus élevé pour…",
+    "optionA": "Un logement incroyable",
+    "optionB": "Des activités incroyables"
+  },
+  {
+    "id": "wyr_129",
+    "category": "voyage",
+    "question": "Pour un trajet de douze heures, tu préfères…",
+    "optionA": "Un vol direct inconfortable",
+    "optionB": "Plusieurs étapes mais avec de vraies pauses"
+  },
+  {
+    "id": "wyr_130",
+    "category": "voyage",
+    "question": "Tu préfères partir avec…",
+    "optionA": "Deux amis que vous adorez",
+    "optionB": "Seulement vous deux pendant tout le voyage"
+  },
+  {
+    "id": "wyr_131",
+    "category": "voyage",
+    "question": "Tu préfères découvrir ensemble…",
+    "optionA": "Un endroit où aucun de vous n’est jamais allé",
+    "optionB": "Un lieu que l’un de vous aime déjà énormément"
+  },
+  {
+    "id": "wyr_132",
+    "category": "voyage",
+    "question": "En vacances, tu préfères vous lever tôt pour…",
+    "optionA": "Voir le lever du soleil",
+    "optionB": "Rester dehors jusqu’au milieu de la nuit"
+  },
+  {
+    "id": "wyr_133",
+    "category": "voyage",
+    "question": "Tu préfères une aventure où…",
+    "optionA": "Tout est magnifique mais très touristique",
+    "optionB": "Les lieux sont moins impressionnants mais presque déserts"
+  },
+  {
+    "id": "wyr_134",
+    "category": "voyage",
+    "question": "Tu préfères rapporter…",
+    "optionA": "Beaucoup de petits souvenirs matériels",
+    "optionB": "Un seul objet vraiment spécial"
+  },
+  {
+    "id": "wyr_135",
+    "category": "voyage",
+    "question": "Tu préfères passer une semaine…",
+    "optionA": "Sans réseau dans un endroit magnifique",
+    "optionB": "Dans une grande ville avec toutes les distractions possibles"
+  },
+  {
+    "id": "wyr_136",
+    "category": "voyage",
+    "question": "Pour un voyage surprise, tu préfères savoir…",
+    "optionA": "La destination mais pas le programme",
+    "optionB": "Le programme mais pas la destination"
+  },
+  {
+    "id": "wyr_137",
+    "category": "voyage",
+    "question": "Tu préfères refaire…",
+    "optionA": "Le meilleur voyage de votre vie exactement pareil",
+    "optionB": "Un voyage complètement différent avec le même budget"
+  },
+  {
+    "id": "wyr_138",
+    "category": "voyage",
+    "question": "Tu préfères avoir une journée gâchée par…",
+    "optionA": "Une météo catastrophique",
+    "optionB": "Un plan complètement raté"
+  },
+  {
+    "id": "wyr_139",
+    "category": "voyage",
+    "question": "Si vous deviez vivre six mois ailleurs, tu choisirais…",
+    "optionA": "Une ville étrangère très animée",
+    "optionB": "Une île ou une région calme au rythme totalement différent"
+  },
+  {
+    "id": "wyr_140",
+    "category": "futur",
+    "question": "Dans dix ans, tu préférerais que votre vie soit…",
+    "optionA": "Très stable et exactement comme vous l’aviez imaginée",
+    "optionB": "Pleine de surprises que vous n’auriez jamais pu prévoir"
+  },
+  {
+    "id": "wyr_141",
+    "category": "futur",
+    "question": "Pour un grand projet commun, tu préfères…",
+    "optionA": "Économiser longtemps pour le faire parfaitement",
+    "optionB": "Le réaliser plus tôt en acceptant quelques compromis"
+  },
+  {
+    "id": "wyr_142",
+    "category": "futur",
+    "question": "Tu préfères construire votre futur…",
+    "optionA": "Avec des objectifs très précis",
+    "optionB": "Avec une direction générale et beaucoup de liberté"
+  },
+  {
+    "id": "wyr_143",
+    "category": "futur",
+    "question": "Si vous deviez déménager pour une opportunité, tu préférerais…",
+    "optionA": "Choisir la meilleure option professionnelle",
+    "optionB": "Choisir l’endroit où votre qualité de vie serait la meilleure"
+  },
+  {
+    "id": "wyr_144",
+    "category": "futur",
+    "question": "Pour votre future maison, tu préfères…",
+    "optionA": "Un lieu que vous transformez entièrement à votre goût",
+    "optionB": "Un lieu déjà parfait où vous n’avez presque rien à changer"
+  },
+  {
+    "id": "wyr_145",
+    "category": "futur",
+    "question": "Tu préfères vieillir…",
+    "optionA": "Près de votre famille et de vos proches",
+    "optionB": "Dans l’endroit dont vous avez toujours rêvé"
+  },
+  {
+    "id": "wyr_146",
+    "category": "futur",
+    "question": "Si vous aviez beaucoup plus d’argent, tu préférerais…",
+    "optionA": "Travailler beaucoup moins",
+    "optionB": "Continuer à travailler mais multiplier les grands projets"
+  },
+  {
+    "id": "wyr_147",
+    "category": "futur",
+    "question": "Tu préfères consacrer vos prochaines années à…",
+    "optionA": "Construire une grande sécurité",
+    "optionB": "Vivre le maximum d’expériences maintenant"
+  },
+  {
+    "id": "wyr_148",
+    "category": "futur",
+    "question": "Pour un projet à long terme, tu préfères…",
+    "optionA": "Savoir exactement où vous allez",
+    "optionB": "Pouvoir changer complètement de direction en chemin"
+  },
+  {
+    "id": "wyr_149",
+    "category": "futur",
+    "question": "Tu préfères que votre futur soit rempli de…",
+    "optionA": "Beaucoup de petits projets réalisés",
+    "optionB": "Quelques rêves immenses accomplis"
+  },
+  {
+    "id": "wyr_150",
+    "category": "futur",
+    "question": "Si vous pouviez garantir une seule chose, tu choisirais…",
+    "optionA": "Toujours avoir du temps l’un pour l’autre",
+    "optionB": "Toujours avoir assez d’argent pour vos projets"
+  },
+  {
+    "id": "wyr_151",
+    "category": "futur",
+    "question": "Tu préfères vivre un jour…",
+    "optionA": "Dans la ville de vos rêves",
+    "optionB": "Dans la maison de vos rêves"
+  },
+  {
+    "id": "wyr_152",
+    "category": "futur",
+    "question": "Pour vos choix futurs, tu préfères…",
+    "optionA": "Privilégier ce qui est le plus raisonnable",
+    "optionB": "Privilégier ce qui vous excite le plus"
+  },
+  {
+    "id": "wyr_153",
+    "category": "futur",
+    "question": "Tu préfères avoir dans cinq ans…",
+    "optionA": "Une vie très différente d’aujourd’hui",
+    "optionB": "La même vie, mais en mieux sur tous les petits détails"
+  },
+  {
+    "id": "wyr_154",
+    "category": "futur",
+    "question": "Si vous deviez lancer un projet ensemble, tu choisirais…",
+    "optionA": "Quelque chose de créatif qui vous passionne",
+    "optionB": "Quelque chose de rentable qui vous donne plus de liberté"
+  },
+  {
+    "id": "wyr_155",
+    "category": "futur",
+    "question": "Tu préfères pouvoir voir…",
+    "optionA": "Une journée ordinaire de votre vie dans vingt ans",
+    "optionB": "Le plus beau moment que vous vivrez ensemble"
+  },
+  {
+    "id": "wyr_156",
+    "category": "futur",
+    "question": "Tu préfères que votre plus grand rêve commun…",
+    "optionA": "Arrive plus tôt que prévu mais imparfaitement",
+    "optionB": "Arrive beaucoup plus tard exactement comme vous le souhaitez"
+  },
+  {
+    "id": "wyr_157",
+    "category": "futur",
+    "question": "Si un changement pouvait transformer votre vie, tu préférerais…",
+    "optionA": "Qu’il arrive progressivement",
+    "optionB": "Qu’il bouleverse tout d’un seul coup"
+  },
+  {
+    "id": "wyr_158",
+    "category": "futur",
+    "question": "Tu préfères imaginer votre futur avec…",
+    "optionA": "Beaucoup de certitudes rassurantes",
+    "optionB": "Beaucoup de possibilités ouvertes"
+  },
+  {
+    "id": "wyr_159",
+    "category": "futur",
+    "question": "Dans votre futur idéal, tu préfères avoir…",
+    "optionA": "Plus de temps libre",
+    "optionB": "Plus de moyens pour réaliser vos envies"
+  },
+  {
+    "id": "wyr_160",
+    "category": "futur",
+    "question": "Tu préfères que votre réussite commune soit surtout…",
+    "optionA": "Une vie dont vous êtes fiers",
+    "optionB": "Une vie dans laquelle vous êtes profondément tranquilles"
+  },
+  {
+    "id": "wyr_161",
+    "category": "futur",
+    "question": "Si vous pouviez recommencer un choix important ensemble, tu préférerais…",
+    "optionA": "Connaître le résultat avant de décider",
+    "optionB": "Revire la décision sans aucune information supplémentaire"
+  },
+  {
+    "id": "wyr_162",
+    "category": "futur",
+    "question": "Tu préfères atteindre votre vie idéale…",
+    "optionA": "Petit à petit en savourant chaque étape",
+    "optionB": "Après quelques années très intenses qui changent tout"
+  },
+  {
+    "id": "wyr_163",
+    "category": "fun",
+    "question": "Pour une soirée complètement absurde, tu préfères…",
+    "optionA": "Faire un karaoké devant des inconnus",
+    "optionB": "Participer à un concours de danse sans savoir danser"
+  },
+  {
+    "id": "wyr_164",
+    "category": "fun",
+    "question": "Tu préfères que l’autre choisisse pendant une journée…",
+    "optionA": "Tous tes vêtements",
+    "optionB": "Tout ce que tu manges"
+  },
+  {
+    "id": "wyr_165",
+    "category": "fun",
+    "question": "Si vous deviez être déguisés en duo toute une journée, tu préférerais…",
+    "optionA": "Un costume très réussi mais encombrant",
+    "optionB": "Un costume ridicule mais extrêmement confortable"
+  },
+  {
+    "id": "wyr_166",
+    "category": "fun",
+    "question": "Tu préfères perdre pendant un mois…",
+    "optionA": "La télécommande",
+    "optionB": "Le droit de choisir la musique en voiture"
+  },
+  {
+    "id": "wyr_167",
+    "category": "fun",
+    "question": "Tu préfères que votre partenaire puisse entendre…",
+    "optionA": "Toutes tes pensées pendant dix minutes",
+    "optionB": "Tous les rêves que tu fais pendant un mois"
+  },
+  {
+    "id": "wyr_168",
+    "category": "fun",
+    "question": "Pour gagner 1 000 €, tu préfères…",
+    "optionA": "Faire une déclaration romantique au micro dans un supermarché",
+    "optionB": "Danser seul(e) au milieu d’une gare pendant trois minutes"
+  },
+  {
+    "id": "wyr_169",
+    "category": "fun",
+    "question": "Tu préfères devoir regarder avec l’autre…",
+    "optionA": "Le même mauvais film dix fois",
+    "optionB": "Une série de 200 épisodes que vous détestez tous les deux"
+  },
+  {
+    "id": "wyr_170",
+    "category": "fun",
+    "question": "Tu préfères passer une journée entière…",
+    "optionA": "Avec vos vêtements portés à l’envers",
+    "optionB": "En vous appelant uniquement par vos noms complets"
+  },
+  {
+    "id": "wyr_171",
+    "category": "fun",
+    "question": "Tu préfères que votre couple ait comme mascotte…",
+    "optionA": "Un canard extrêmement bruyant",
+    "optionB": "Une chèvre qui vous suit partout"
+  },
+  {
+    "id": "wyr_172",
+    "category": "fun",
+    "question": "Si votre vie devenait une comédie, tu préférerais…",
+    "optionA": "Un rire enregistré après chacune de vos disputes",
+    "optionB": "Une musique dramatique à chaque petite contrariété"
+  },
+  {
+    "id": "wyr_173",
+    "category": "fun",
+    "question": "Tu préfères que l’autre puisse contrôler pendant une semaine…",
+    "optionA": "Ta playlist dès que tu entres dans une pièce",
+    "optionB": "La sonnerie de chacune de tes notifications"
+  },
+  {
+    "id": "wyr_174",
+    "category": "fun",
+    "question": "Tu préfères participer ensemble à…",
+    "optionA": "Un jeu télévisé de culture générale",
+    "optionB": "Une compétition de survie complètement ridicule"
+  },
+  {
+    "id": "wyr_175",
+    "category": "fun",
+    "question": "Tu préfères être coincés pendant six heures…",
+    "optionA": "Dans un ascenseur avec votre nourriture préférée",
+    "optionB": "Dans un magasin fermé rempli de jeux mais sans nourriture"
+  },
+  {
+    "id": "wyr_176",
+    "category": "fun",
+    "question": "Tu préfères devoir…",
+    "optionA": "Faire une chorégraphie à chaque bonne nouvelle",
+    "optionB": "Chanter chaque fois que tu demandes quelque chose"
+  },
+  {
+    "id": "wyr_177",
+    "category": "fun",
+    "question": "Tu préfères avoir comme obligation de couple…",
+    "optionA": "Une photo volontairement affreuse chaque mois",
+    "optionB": "Une vidéo de danse ratée chaque anniversaire"
+  },
+  {
+    "id": "wyr_178",
+    "category": "fun",
+    "question": "Tu préfères que votre partenaire gagne toujours à…",
+    "optionA": "Pierre-feuille-ciseaux",
+    "optionB": "Tous les jeux où tu es normalement imbattable"
+  },
+  {
+    "id": "wyr_179",
+    "category": "fun",
+    "question": "Si vous échangez vos rôles pendant une journée, tu préfères…",
+    "optionA": "Imiter les habitudes de l’autre",
+    "optionB": "Imiter sa manière de parler"
+  },
+  {
+    "id": "wyr_180",
+    "category": "fun",
+    "question": "Tu préfères découvrir que votre partenaire a secrètement…",
+    "optionA": "Un talent incroyable pour le yodel",
+    "optionB": "Une passion très sérieuse pour les compétitions de puzzles"
+  },
+  {
+    "id": "wyr_181",
+    "category": "fun",
+    "question": "Tu préfères devoir vivre une semaine…",
+    "optionA": "Sans utiliser le mot « oui »",
+    "optionB": "Sans utiliser le prénom ou surnom de l’autre"
+  },
+  {
+    "id": "wyr_182",
+    "category": "fun",
+    "question": "Tu préfères que votre prochaine dispute soit interrompue par…",
+    "optionA": "Une alarme qui joue une musique de cirque",
+    "optionB": "Une voix automatique qui vous oblige à faire une pause câlin"
+  },
+  {
+    "id": "wyr_183",
+    "category": "fun",
+    "question": "Tu préfères gagner un voyage grâce à…",
+    "optionA": "Un concours où vous devez raconter votre moment le plus gênant",
+    "optionB": "Une vidéo virale de vous deux complètement ridicule"
+  },
+  {
+    "id": "wyr_184",
+    "category": "fun",
+    "question": "Tu préfères passer une journée avec…",
+    "optionA": "Un chien qui comprend tout mais juge vos choix",
+    "optionB": "Un perroquet qui répète seulement vos phrases les plus gênantes"
+  },
+  {
+    "id": "wyr_185",
+    "category": "fun",
+    "question": "Tu préfères que chaque fois que vous vous embrassez…",
+    "optionA": "Des confettis tombent du plafond",
+    "optionB": "Une musique romantique beaucoup trop forte se déclenche"
+  },
+  {
+    "id": "wyr_186",
+    "category": "souvenirs",
+    "question": "Tu préfères pouvoir revoir parfaitement…",
+    "optionA": "Votre tout premier regard",
+    "optionB": "Le moment exact où tu as compris que tu étais amoureux/amoureuse"
+  },
+  {
+    "id": "wyr_187",
+    "category": "souvenirs",
+    "question": "Tu préfères récupérer…",
+    "optionA": "Tous vos anciens messages supprimés",
+    "optionB": "Toutes les photos que vous avez oublié de prendre"
+  },
+  {
+    "id": "wyr_188",
+    "category": "souvenirs",
+    "question": "Pour revivre une journée, tu choisirais…",
+    "optionA": "Une journée ordinaire où vous étiez simplement très heureux",
+    "optionB": "Une journée exceptionnelle remplie d’événements"
+  },
+  {
+    "id": "wyr_189",
+    "category": "souvenirs",
+    "question": "Tu préfères pouvoir demander à votre passé…",
+    "optionA": "De vous laisser un message vidéo",
+    "optionB": "De vous envoyer un seul objet"
+  },
+  {
+    "id": "wyr_190",
+    "category": "souvenirs",
+    "question": "Tu préfères garder pour toujours…",
+    "optionA": "Le son exact du rire de l’autre à une époque précise",
+    "optionB": "Le souvenir exact d’un câlin particulier"
+  },
+  {
+    "id": "wyr_191",
+    "category": "souvenirs",
+    "question": "Si vous pouviez revoir une scène de votre histoire de l’extérieur, tu choisirais…",
+    "optionA": "Votre première rencontre",
+    "optionB": "Votre première vraie réconciliation"
+  },
+  {
+    "id": "wyr_192",
+    "category": "souvenirs",
+    "question": "Tu préfères créer maintenant…",
+    "optionA": "Une capsule temporelle à ouvrir dans dix ans",
+    "optionB": "Un album que vous complétez toute votre vie"
+  },
+  {
+    "id": "wyr_193",
+    "category": "souvenirs",
+    "question": "Tu préfères retrouver un jour…",
+    "optionA": "Une lettre oubliée que l’autre t’avait écrite",
+    "optionB": "Une vidéo de vous dont aucun de vous ne se souvenait"
+  },
+  {
+    "id": "wyr_194",
+    "category": "souvenirs",
+    "question": "Tu préfères pouvoir revivre une heure avec…",
+    "optionA": "Les versions plus jeunes de vous-mêmes",
+    "optionB": "Les versions futures de vous-mêmes"
+  },
+  {
+    "id": "wyr_195",
+    "category": "souvenirs",
+    "question": "Tu préfères que votre plus vieux souvenir commun reste…",
+    "optionA": "Exactement intact toute votre vie",
+    "optionB": "Un peu flou mais de plus en plus beau avec le temps"
+  },
+  {
+    "id": "wyr_196",
+    "category": "souvenirs",
+    "question": "Tu préfères garder un souvenir grâce à…",
+    "optionA": "Un objet sans valeur mais chargé d’émotion",
+    "optionB": "Une photo parfaite qui capture exactement le moment"
+  },
+  {
+    "id": "wyr_197",
+    "category": "souvenirs",
+    "question": "Tu préfères raconter votre histoire un jour à travers…",
+    "optionA": "Un livre rempli d’anecdotes",
+    "optionB": "Un film composé uniquement de vraies images"
+  },
+  {
+    "id": "wyr_198",
+    "category": "souvenirs",
+    "question": "Tu préfères découvrir…",
+    "optionA": "Ce que l’autre pensait vraiment lors de votre première rencontre",
+    "optionB": "Ce qu’il ou elle a raconté sur toi juste après"
+  },
+  {
+    "id": "wyr_199",
+    "category": "souvenirs",
+    "question": "Tu préfères revivre votre passé avec…",
+    "optionA": "La possibilité de changer un tout petit détail",
+    "optionB": "L’interdiction de changer quoi que ce soit mais en ressentant tout à nouveau"
+  },
+  {
+    "id": "wyr_200",
+    "category": "souvenirs",
+    "question": "Tu préfères conserver chaque année…",
+    "optionA": "Une photo prise au même endroit",
+    "optionB": "Une lettre racontant où en est votre relation"
+  },
+  {
+    "id": "wyr_201",
+    "category": "souvenirs",
+    "question": "Tu préfères recevoir dans vingt ans…",
+    "optionA": "Une vidéo que vous enregistrez aujourd’hui",
+    "optionB": "Une boîte remplie d’objets choisis aujourd’hui"
+  },
+  {
+    "id": "wyr_202",
+    "category": "souvenirs",
+    "question": "Tu préfères oublier accidentellement…",
+    "optionA": "Le lieu d’un souvenir important",
+    "optionB": "La date exacte mais garder toutes les émotions"
+  },
+  {
+    "id": "wyr_203",
+    "category": "souvenirs",
+    "question": "Tu préfères pouvoir revivre une seule fois…",
+    "optionA": "Votre plus grande surprise",
+    "optionB": "Votre plus grande fierté commune"
+  },
+  {
+    "id": "wyr_204",
+    "category": "souvenirs",
+    "question": "Tu préfères retrouver tous vos souvenirs classés…",
+    "optionA": "Par ordre chronologique",
+    "optionB": "Par intensité émotionnelle"
+  },
+  {
+    "id": "wyr_205",
+    "category": "souvenirs",
+    "question": "Tu préfères avoir une photo parfaite de…",
+    "optionA": "Votre moment le plus romantique",
+    "optionB": "Votre plus gros fou rire"
+  },
+  {
+    "id": "wyr_206",
+    "category": "souvenirs",
+    "question": "Tu préfères découvrir une vieille conversation où…",
+    "optionA": "L’autre parlait de toi avant votre relation",
+    "optionB": "Vous aviez tous les deux complètement oublié un projet commun"
+  },
+  {
+    "id": "wyr_207",
+    "category": "souvenirs",
+    "question": "Tu préfères que votre histoire laisse derrière elle…",
+    "optionA": "Des centaines de petites traces",
+    "optionB": "Quelques souvenirs absolument inoubliables"
+  },
+  {
+    "id": "wyr_208",
+    "category": "souvenirs",
+    "question": "Tu préfères pouvoir demander à votre couple d’il y a cinq ans…",
+    "optionA": "Un conseil pour aujourd’hui",
+    "optionB": "Une question à laquelle vous devez répondre aujourd’hui"
+  },
+  {
+    "id": "wyr_209",
+    "category": "argent",
+    "question": "Pour vos finances de couple, tu préfères…",
+    "optionA": "Tout mettre en commun",
+    "optionB": "Garder une grande partie séparée"
+  },
+  {
+    "id": "wyr_210",
+    "category": "argent",
+    "question": "Pour une grosse dépense plaisir, tu préfères…",
+    "optionA": "Économiser ensemble plusieurs mois",
+    "optionB": "La payer immédiatement et réduire les dépenses ensuite"
+  },
+  {
+    "id": "wyr_211",
+    "category": "argent",
+    "question": "Tu préfères dépenser davantage pour…",
+    "optionA": "Voyager souvent",
+    "optionB": "Avoir un quotidien plus confortable"
+  },
+  {
+    "id": "wyr_212",
+    "category": "argent",
+    "question": "Si vous recevez une grosse somme inattendue, tu préfères…",
+    "optionA": "La placer presque entièrement",
+    "optionB": "En utiliser une partie pour réaliser un rêve immédiatement"
+  },
+  {
+    "id": "wyr_213",
+    "category": "argent",
+    "question": "Pour un cadeau très cher, tu préfères…",
+    "optionA": "Le recevoir sans avoir été consulté(e)",
+    "optionB": "Choisir ensemble exactement ce qui vaut la dépense"
+  },
+  {
+    "id": "wyr_214",
+    "category": "argent",
+    "question": "Tu préfères vivre…",
+    "optionA": "Avec moins d’argent mais beaucoup de temps libre",
+    "optionB": "Avec plus d’argent mais des semaines très chargées"
+  },
+  {
+    "id": "wyr_215",
+    "category": "argent",
+    "question": "Pour un projet commun, tu préfères…",
+    "optionA": "Un budget strict qui évite toute mauvaise surprise",
+    "optionB": "Un budget souple qui laisse de la place aux coups de cœur"
+  },
+  {
+    "id": "wyr_216",
+    "category": "argent",
+    "question": "Tu préfères que les dépenses communes soient…",
+    "optionA": "Toujours divisées exactement",
+    "optionB": "Réparties selon les revenus de chacun"
+  },
+  {
+    "id": "wyr_217",
+    "category": "argent",
+    "question": "Si l’un gagne beaucoup plus que l’autre, tu préfères…",
+    "optionA": "Maintenir le même niveau de contribution",
+    "optionB": "Adapter fortement la contribution de chacun"
+  },
+  {
+    "id": "wyr_218",
+    "category": "argent",
+    "question": "Tu préfères avoir…",
+    "optionA": "Une grande épargne de sécurité",
+    "optionB": "Moins d’épargne mais davantage d’expériences vécues"
+  },
+  {
+    "id": "wyr_219",
+    "category": "argent",
+    "question": "Pour votre logement, tu préfères consacrer plus d’argent à…",
+    "optionA": "L’emplacement",
+    "optionB": "La taille et le confort"
+  },
+  {
+    "id": "wyr_220",
+    "category": "argent",
+    "question": "Tu préfères acheter…",
+    "optionA": "Peu de choses mais de très bonne qualité",
+    "optionB": "Plus de choses en changeant régulièrement"
+  },
+  {
+    "id": "wyr_221",
+    "category": "argent",
+    "question": "Si vous deviez choisir une seule folie financière, tu prendrais…",
+    "optionA": "Un voyage exceptionnel",
+    "optionB": "Un objet ou équipement dont vous profitez pendant des années"
+  },
+  {
+    "id": "wyr_222",
+    "category": "argent",
+    "question": "Tu préfères que votre partenaire…",
+    "optionA": "Te parle de chaque dépense importante avant de la faire",
+    "optionB": "Gère librement son argent tant que les engagements communs sont respectés"
+  },
+  {
+    "id": "wyr_223",
+    "category": "argent",
+    "question": "Pour économiser, tu préfères…",
+    "optionA": "Réduire beaucoup pendant une courte période",
+    "optionB": "Faire de petites économies en permanence"
+  },
+  {
+    "id": "wyr_224",
+    "category": "argent",
+    "question": "Tu préfères consacrer un bonus imprévu à…",
+    "optionA": "Un plaisir uniquement pour vous deux",
+    "optionB": "Deux plaisirs personnels séparés"
+  },
+  {
+    "id": "wyr_225",
+    "category": "argent",
+    "question": "Tu préfères prêter de l’argent à un proche…",
+    "optionA": "Facilement si vous pouvez vous le permettre",
+    "optionB": "Uniquement dans une vraie urgence"
+  },
+  {
+    "id": "wyr_226",
+    "category": "argent",
+    "question": "Tu préfères apprendre que votre partenaire…",
+    "optionA": "A une grosse épargne dont tu ignorais l’existence",
+    "optionB": "A une dette ancienne presque entièrement remboursée"
+  },
+  {
+    "id": "wyr_227",
+    "category": "argent",
+    "question": "Pour vos objectifs financiers, tu préfères…",
+    "optionA": "Un compte commun dédié à tous vos projets",
+    "optionB": "Plusieurs objectifs séparés gérés individuellement"
+  },
+  {
+    "id": "wyr_228",
+    "category": "argent",
+    "question": "Tu préfères perdre définitivement…",
+    "optionA": "Une somme importante mais récupérer tout ton temps libre",
+    "optionB": "Beaucoup de temps libre mais doubler votre épargne"
+  },
+  {
+    "id": "wyr_229",
+    "category": "argent",
+    "question": "Si un achat vous divise, tu préfères…",
+    "optionA": "Attendre jusqu’à être tous les deux convaincus",
+    "optionB": "Laisser la personne qui le veut vraiment décider si elle le finance"
+  },
+  {
+    "id": "wyr_230",
+    "category": "argent",
+    "question": "Tu préfères avoir un budget qui permet…",
+    "optionA": "Une grosse sortie ou activité par mois",
+    "optionB": "Beaucoup de petits plaisirs toute la semaine"
+  },
+  {
+    "id": "wyr_231",
+    "category": "argent",
+    "question": "Tu préfères connaître précisément…",
+    "optionA": "Toutes les dépenses de votre foyer",
+    "optionB": "Seulement si vos objectifs financiers communs sont atteints"
+  },
+  {
+    "id": "wyr_232",
+    "category": "social",
+    "question": "Pour vos sorties, tu préfères…",
+    "optionA": "Avoir beaucoup d’amis en commun",
+    "optionB": "Garder surtout des groupes d’amis séparés"
+  },
+  {
+    "id": "wyr_233",
+    "category": "social",
+    "question": "Tu préfères passer une grande soirée…",
+    "optionA": "Entourés de toutes vos personnes préférées",
+    "optionB": "Dans un petit comité où vous pouvez vraiment parler"
+  },
+  {
+    "id": "wyr_234",
+    "category": "social",
+    "question": "Si l’un de vous n’aime pas un ami de l’autre, tu préfères…",
+    "optionA": "Faire des efforts pour continuer à le voir ensemble",
+    "optionB": "Que chacun garde cette amitié de son côté"
+  },
+  {
+    "id": "wyr_235",
+    "category": "social",
+    "question": "Tu préfères que votre partenaire soit…",
+    "optionA": "Très sociable et toujours partant pour sortir",
+    "optionB": "Plus réservé et heureux avec peu de personnes"
+  },
+  {
+    "id": "wyr_236",
+    "category": "social",
+    "question": "Pour rencontrer de nouvelles personnes, tu préfères…",
+    "optionA": "Y aller ensemble",
+    "optionB": "Que chacun crée ses propres liens"
+  },
+  {
+    "id": "wyr_237",
+    "category": "social",
+    "question": "Tu préfères que vos familles…",
+    "optionA": "Deviennent très proches entre elles",
+    "optionB": "Gardent des relations cordiales mais indépendantes"
+  },
+  {
+    "id": "wyr_238",
+    "category": "social",
+    "question": "Pour les fêtes importantes, tu préfères…",
+    "optionA": "Réunir tout le monde au même endroit",
+    "optionB": "Alterner entre les deux familles"
+  },
+  {
+    "id": "wyr_239",
+    "category": "social",
+    "question": "Tu préfères avoir un couple qui…",
+    "optionA": "Publie régulièrement des moments à deux",
+    "optionB": "Garde presque toute sa relation hors des réseaux"
+  },
+  {
+    "id": "wyr_240",
+    "category": "social",
+    "question": "Si votre partenaire devient très proche d’une nouvelle personne, tu préfères…",
+    "optionA": "La rencontrer rapidement",
+    "optionB": "Laisser cette amitié exister sans forcément y participer"
+  },
+  {
+    "id": "wyr_241",
+    "category": "social",
+    "question": "Tu préfères que votre partenaire te demande…",
+    "optionA": "De venir à presque toutes ses sorties importantes",
+    "optionB": "De venir seulement quand ta présence lui tient particulièrement à cœur"
+  },
+  {
+    "id": "wyr_242",
+    "category": "social",
+    "question": "Pour une soirée où l’un de vous ne connaît personne, tu préfères…",
+    "optionA": "Rester surtout ensemble",
+    "optionB": "Vous séparer et vous retrouver de temps en temps"
+  },
+  {
+    "id": "wyr_243",
+    "category": "social",
+    "question": "Tu préfères que vos amis connaissent…",
+    "optionA": "Beaucoup de détails sur votre relation",
+    "optionB": "Seulement ce que vous décidez tous les deux de partager"
+  },
+  {
+    "id": "wyr_244",
+    "category": "social",
+    "question": "Tu préfères fêter ton anniversaire…",
+    "optionA": "Avec une grande soirée organisée par l’autre",
+    "optionB": "Avec une journée simple juste avec les personnes essentielles"
+  },
+  {
+    "id": "wyr_245",
+    "category": "social",
+    "question": "Si vous êtes invités à deux événements le même soir, tu préfères…",
+    "optionA": "Vous séparer pour honorer les deux invitations",
+    "optionB": "Choisir ensemble un seul événement"
+  },
+  {
+    "id": "wyr_246",
+    "category": "social",
+    "question": "Tu préfères que l’autre soit proche de…",
+    "optionA": "Tes meilleurs amis",
+    "optionB": "Ta famille"
+  },
+  {
+    "id": "wyr_247",
+    "category": "social",
+    "question": "Tu préfères avoir…",
+    "optionA": "Un grand groupe d’amis avec beaucoup de sorties",
+    "optionB": "Quelques relations très proches et plus de temps à deux"
+  },
+  {
+    "id": "wyr_248",
+    "category": "social",
+    "question": "Si un proche critique votre couple, tu préfères…",
+    "optionA": "Répondre immédiatement",
+    "optionB": "En discuter d’abord entre vous avant de réagir"
+  },
+  {
+    "id": "wyr_249",
+    "category": "social",
+    "question": "Tu préfères que votre partenaire soit…",
+    "optionA": "Toujours à l’aise avec tes proches",
+    "optionB": "Très sincère même si certaines affinités ne se créent jamais"
+  },
+  {
+    "id": "wyr_250",
+    "category": "social",
+    "question": "Pour les réseaux sociaux, tu préfères…",
+    "optionA": "Partager spontanément sans trop réfléchir",
+    "optionB": "Toujours demander avant de publier quelque chose qui concerne l’autre"
+  },
+  {
+    "id": "wyr_251",
+    "category": "social",
+    "question": "Tu préfères découvrir qu’un ami de ton/ta partenaire…",
+    "optionA": "Te trouve intimidant(e)",
+    "optionB": "Pense que vous êtes trop fusionnels"
+  },
+  {
+    "id": "wyr_252",
+    "category": "social",
+    "question": "Tu préfères que votre couple soit perçu comme…",
+    "optionA": "Toujours ensemble",
+    "optionB": "Très libres mais toujours soudés"
+  },
+  {
+    "id": "wyr_253",
+    "category": "social",
+    "question": "Pour les vacances entre amis, tu préfères…",
+    "optionA": "Partir tous ensemble en couple",
+    "optionB": "Que chacun puisse parfois partir avec son propre groupe"
+  },
+  {
+    "id": "wyr_254",
+    "category": "social",
+    "question": "Tu préfères devoir choisir entre…",
+    "optionA": "Une soirée importante pour ton/ta partenaire",
+    "optionB": "Un événement rare avec tes propres amis"
+  },
+  {
+    "id": "wyr_255",
+    "category": "intimité",
+    "question": "Pour vous sentir désiré(e), tu préfères…",
+    "optionA": "Entendre souvent des compliments très directs",
+    "optionB": "Le sentir surtout dans le comportement de l’autre"
+  },
+  {
+    "id": "wyr_256",
+    "category": "intimité",
+    "question": "Tu préfères que l’affection physique soit…",
+    "optionA": "Très présente toute la journée",
+    "optionB": "Surtout réservée aux moments où vous êtes vraiment seuls"
+  },
+  {
+    "id": "wyr_257",
+    "category": "intimité",
+    "question": "Pour dormir ensemble, tu préfères…",
+    "optionA": "Vous endormir toujours en contact",
+    "optionB": "Vous retrouver pour un câlin puis dormir chacun confortablement"
+  },
+  {
+    "id": "wyr_258",
+    "category": "intimité",
+    "question": "Tu préfères un partenaire qui…",
+    "optionA": "Dit facilement ce qu’il ou elle aime",
+    "optionB": "Te laisse davantage découvrir avec le temps"
+  },
+  {
+    "id": "wyr_259",
+    "category": "intimité",
+    "question": "Pour parler d’un sujet intime difficile, tu préfères…",
+    "optionA": "Le faire très directement",
+    "optionB": "Commencer doucement et prendre votre temps"
+  },
+  {
+    "id": "wyr_260",
+    "category": "intimité",
+    "question": "Tu préfères que votre relation garde…",
+    "optionA": "Beaucoup de mystère et de surprise",
+    "optionB": "Une très grande transparence sur vos envies"
+  },
+  {
+    "id": "wyr_261",
+    "category": "intimité",
+    "question": "Tu préfères une soirée où l’intimité commence par…",
+    "optionA": "Une ambiance préparée spécialement",
+    "optionB": "Un moment totalement spontané"
+  },
+  {
+    "id": "wyr_262",
+    "category": "intimité",
+    "question": "Tu préfères que les gestes tendres soient…",
+    "optionA": "Très fréquents même en public",
+    "optionB": "Surtout quelque chose qui vous appartient en privé"
+  },
+  {
+    "id": "wyr_263",
+    "category": "intimité",
+    "question": "Tu préfères recevoir…",
+    "optionA": "Un long massage après une journée difficile",
+    "optionB": "Une heure entière de câlins sans téléphone"
+  },
+  {
+    "id": "wyr_264",
+    "category": "intimité",
+    "question": "Tu préfères que votre partenaire sache…",
+    "optionA": "Exactement comment te rassurer physiquement",
+    "optionB": "Exactement quand tu ne veux pas être touché(e)"
+  },
+  {
+    "id": "wyr_265",
+    "category": "intimité",
+    "question": "Pour votre intimité, tu préfères…",
+    "optionA": "Avoir des habitudes que vous adorez retrouver",
+    "optionB": "Chercher régulièrement à surprendre l’autre"
+  },
+  {
+    "id": "wyr_266",
+    "category": "intimité",
+    "question": "Tu préfères que les conversations intimes arrivent…",
+    "optionA": "Naturellement au fil des moments",
+    "optionB": "Lors de vrais temps dédiés où vous pouvez tout dire"
+  },
+  {
+    "id": "wyr_267",
+    "category": "intimité",
+    "question": "Tu préfères une relation où…",
+    "optionA": "Vous vous manquez rapidement quand vous êtes séparés",
+    "optionB": "Vous supportez très bien la distance mais les retrouvailles sont très fortes"
+  },
+  {
+    "id": "wyr_268",
+    "category": "intimité",
+    "question": "Tu préfères être surpris(e) par…",
+    "optionA": "Un geste très tendre en public",
+    "optionB": "Un message beaucoup plus intime quand tu ne t’y attends pas"
+  },
+  {
+    "id": "wyr_269",
+    "category": "intimité",
+    "question": "Tu préfères que votre partenaire soit…",
+    "optionA": "Très tactile",
+    "optionB": "Très verbal dans sa façon de montrer son désir"
+  },
+  {
+    "id": "wyr_270",
+    "category": "intimité",
+    "question": "Tu préfères partager…",
+    "optionA": "Toutes tes insécurités avec l’autre",
+    "optionB": "Seulement celles pour lesquelles tu as réellement besoin de soutien"
+  },
+  {
+    "id": "wyr_271",
+    "category": "intimité",
+    "question": "Tu préfères que votre intimité soit surtout…",
+    "optionA": "Rassurante et familière",
+    "optionB": "Imprévisible et pleine de nouveauté"
+  },
+  {
+    "id": "wyr_272",
+    "category": "intimité",
+    "question": "Tu préfères recevoir de l’affection…",
+    "optionA": "Même quand tu es de mauvaise humeur",
+    "optionB": "Seulement après qu’on t’a laissé un peu d’espace"
+  },
+  {
+    "id": "wyr_273",
+    "category": "intimité",
+    "question": "Tu préfères que l’autre remarque immédiatement…",
+    "optionA": "Quand tu as besoin de tendresse",
+    "optionB": "Quand tu as besoin de distance"
+  },
+  {
+    "id": "wyr_274",
+    "category": "intimité",
+    "question": "Tu préfères une nuit à deux…",
+    "optionA": "Très longue à parler et se rapprocher sans regarder l’heure",
+    "optionB": "Très simple avec le meilleur sommeil de votre vie"
+  },
+  {
+    "id": "wyr_275",
+    "category": "intimité",
+    "question": "Tu préfères avoir une règle où…",
+    "optionA": "On peut toujours dire non sans devoir se justifier",
+    "optionB": "On explique ensuite ce qu’on ressent quand le moment est passé"
+  },
+  {
+    "id": "wyr_276",
+    "category": "intimité",
+    "question": "Tu préfères que votre partenaire connaisse…",
+    "optionA": "Toutes tes envies secrètes",
+    "optionB": "Toutes tes limites les plus importantes"
+  },
+  {
+    "id": "wyr_277",
+    "category": "intimité",
+    "question": "Tu préfères que votre connexion intime repose davantage sur…",
+    "optionA": "La confiance construite avec le temps",
+    "optionB": "L’attirance et la spontanéité du moment"
+  },
+  {
+    "id": "wyr_278",
+    "category": "imagination",
+    "question": "Si vous pouviez vivre dans un univers fictif, tu choisirais…",
+    "optionA": "Un monde magique rempli d’aventures",
+    "optionB": "Un futur ultra-technologique où presque tout est possible"
+  },
+  {
+    "id": "wyr_279",
+    "category": "imagination",
+    "question": "Si votre couple pouvait voyager dans le temps, tu préfères…",
+    "optionA": "Passer une journée dans le passé",
+    "optionB": "Passer une journée dans votre propre futur"
+  },
+  {
+    "id": "wyr_280",
+    "category": "imagination",
+    "question": "Tu préfères recevoir un pouvoir qui permet…",
+    "optionA": "De mettre le temps en pause quand vous êtes ensemble",
+    "optionB": "De vous téléporter instantanément l’un vers l’autre"
+  },
+  {
+    "id": "wyr_281",
+    "category": "imagination",
+    "question": "Si vous deviez vivre une année sans aucune contrainte, tu préférerais…",
+    "optionA": "Changer de pays tous les mois",
+    "optionB": "Construire votre vie idéale dans un seul endroit"
+  },
+  {
+    "id": "wyr_282",
+    "category": "imagination",
+    "question": "Tu préfères découvrir une porte secrète vers…",
+    "optionA": "N’importe quel lieu du monde",
+    "optionB": "N’importe quelle époque de l’histoire"
+  },
+  {
+    "id": "wyr_283",
+    "category": "imagination",
+    "question": "Si vous pouviez obtenir une réponse certaine, tu demanderais…",
+    "optionA": "Quel sera votre souvenir préféré dans vingt ans",
+    "optionB": "Quelle décision changera le plus votre vie"
+  },
+  {
+    "id": "wyr_284",
+    "category": "imagination",
+    "question": "Tu préfères que votre maison possède…",
+    "optionA": "Une pièce qui change selon votre humeur",
+    "optionB": "Une porte qui mène chaque jour à un nouvel endroit"
+  },
+  {
+    "id": "wyr_285",
+    "category": "imagination",
+    "question": "Si vous pouviez arrêter le temps pendant vingt-quatre heures, tu préférerais…",
+    "optionA": "Explorer une ville totalement vide",
+    "optionB": "Rester ensemble dans votre endroit préféré sans aucune interruption"
+  },
+  {
+    "id": "wyr_286",
+    "category": "imagination",
+    "question": "Tu préfères vivre une aventure où…",
+    "optionA": "Vous connaissez la fin mais pas le chemin",
+    "optionB": "Vous connaissez le chemin mais pas la fin"
+  },
+  {
+    "id": "wyr_287",
+    "category": "imagination",
+    "question": "Si un génie vous donne un seul avantage de couple, tu choisis…",
+    "optionA": "Ne jamais oublier aucun moment heureux",
+    "optionB": "Toujours retrouver votre complicité après une période difficile"
+  },
+  {
+    "id": "wyr_288",
+    "category": "imagination",
+    "question": "Tu préfères pouvoir voir…",
+    "optionA": "Toutes les versions de votre vie selon vos choix passés",
+    "optionB": "Une seule version de votre vie si vous réalisez votre plus grand rêve"
+  },
+  {
+    "id": "wyr_289",
+    "category": "imagination",
+    "question": "Si vous deviez passer un mois dans un film, tu choisirais…",
+    "optionA": "Une grande aventure pleine de dangers mais magnifique",
+    "optionB": "Une comédie romantique où tout finit forcément bien"
+  },
+  {
+    "id": "wyr_290",
+    "category": "imagination",
+    "question": "Tu préfères avoir une machine capable de…",
+    "optionA": "Rejouer un souvenir en réalité virtuelle",
+    "optionB": "Créer une simulation parfaite d’un projet futur"
+  },
+  {
+    "id": "wyr_291",
+    "category": "imagination",
+    "question": "Si vous pouviez poser une question à vos versions de 80 ans, tu préférerais demander…",
+    "optionA": "Ce qu’elles regrettent d’avoir trop attendu",
+    "optionB": "Ce dont elles sont le plus fières"
+  },
+  {
+    "id": "wyr_292",
+    "category": "imagination",
+    "question": "Tu préfères obtenir une carte qui montre…",
+    "optionA": "Tous les endroits où vous serez heureux ensemble",
+    "optionB": "Tous les endroits où vous vivrez quelque chose d’inoubliable"
+  },
+  {
+    "id": "wyr_293",
+    "category": "imagination",
+    "question": "Si vous pouviez effacer une seule contrainte de votre vie, tu choisirais…",
+    "optionA": "Le manque de temps",
+    "optionB": "Les limites d’argent"
+  },
+  {
+    "id": "wyr_294",
+    "category": "imagination",
+    "question": "Tu préfères vivre dans un monde où…",
+    "optionA": "Tout le monde peut lire les émotions des autres",
+    "optionB": "Personne ne peut mentir"
+  },
+  {
+    "id": "wyr_295",
+    "category": "imagination",
+    "question": "Si votre relation avait une bande-annonce, tu préférerais qu’elle ressemble à…",
+    "optionA": "Une grande histoire d’aventure",
+    "optionB": "Une comédie pleine de scènes absurdes"
+  },
+  {
+    "id": "wyr_296",
+    "category": "imagination",
+    "question": "Tu préfères recevoir chaque année…",
+    "optionA": "Une lettre écrite par votre couple du futur",
+    "optionB": "Une vidéo oubliée enregistrée par votre couple du passé"
+  },
+  {
+    "id": "wyr_297",
+    "category": "imagination",
+    "question": "Si vous pouviez ajouter une pièce impossible à votre maison, tu choisirais…",
+    "optionA": "Une salle qui reproduit n’importe quel paysage",
+    "optionB": "Une bibliothèque qui contient tous les livres qui vous plairaient"
+  },
+  {
+    "id": "wyr_298",
+    "category": "imagination",
+    "question": "Tu préfères savoir exactement…",
+    "optionA": "Combien de voyages vous ferez ensemble",
+    "optionB": "Combien de fois vous changerez complètement de projet"
+  },
+  {
+    "id": "wyr_299",
+    "category": "imagination",
+    "question": "Si un bouton pouvait vous offrir une année parfaite, tu préférerais…",
+    "optionA": "La vivre maintenant puis revenir à votre vie actuelle",
+    "optionB": "La garder pour la période où vous en aurez le plus besoin"
+  },
+  {
+    "id": "wyr_300",
+    "category": "imagination",
+    "question": "Tu préfères découvrir que votre rencontre était…",
+    "optionA": "Un hasard incroyablement improbable",
+    "optionB": "Quelque chose qui aurait fini par arriver dans toutes les versions de votre vie"
+  }
 ]
