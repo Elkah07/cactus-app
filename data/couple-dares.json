@@ -1,26 +1,2102 @@
 [
-  {"id":"dare_001","category":"tendre","title":"Le compliment précis","description":"Dites chacun trois choses très précises que vous admirez chez l’autre.","difficulty":"Doux"},
-  {"id":"dare_002","category":"fun","title":"Danse improvisée","description":"Lancez une chanson au hasard et dansez ensemble jusqu’à la fin, sans vous arrêter.","difficulty":"Facile"},
-  {"id":"dare_003","category":"créatif","title":"Portrait minute","description":"Dessinez-vous mutuellement en une minute, puis échangez vos œuvres.","difficulty":"Facile"},
-  {"id":"dare_004","category":"quotidien","title":"Chef surprise","description":"Préparez ensemble une petite gourmandise uniquement avec ce que vous avez déjà.","difficulty":"Facile"},
-  {"id":"dare_005","category":"tendre","title":"Souvenir préféré","description":"Racontez chacun votre souvenir favori de votre relation avec le plus de détails possible.","difficulty":"Doux"},
-  {"id":"dare_006","category":"fun","title":"Photo improbable","description":"Recréez ensemble une vieille photo ou inventez la photo de couple la plus absurde possible.","difficulty":"Facile"},
-  {"id":"dare_007","category":"complicité","title":"Question interdite","description":"Posez chacun une question que vous n’avez jamais osé poser, avec droit de passer sans justification.","difficulty":"Intime"},
-  {"id":"dare_008","category":"aventure","title":"Balade guidée","description":"Partez marcher vingt minutes : une personne choisit le chemin aller, l’autre le retour.","difficulty":"Moyen"},
-  {"id":"dare_009","category":"fun","title":"Accent secret","description":"Parlez avec un accent inventé pendant dix minutes. La première personne qui oublie a perdu.","difficulty":"Facile"},
-  {"id":"dare_010","category":"tendre","title":"Message du futur","description":"Écrivez ensemble un court message destiné à votre couple dans un an.","difficulty":"Doux"},
-  {"id":"dare_011","category":"créatif","title":"Playlist express","description":"Choisissez chacun deux chansons qui racontent votre relation et écoutez-les ensemble.","difficulty":"Facile"},
-  {"id":"dare_012","category":"quotidien","title":"Service secret","description":"Faites chacun une petite chose qui facilitera la journée de l’autre sans annoncer laquelle.","difficulty":"Moyen"},
-  {"id":"dare_013","category":"complicité","title":"Regard silencieux","description":"Regardez-vous dans les yeux pendant une minute sans parler ni utiliser votre téléphone.","difficulty":"Intime"},
-  {"id":"dare_014","category":"fun","title":"Doublage de film","description":"Coupez le son d’une scène et inventez ensemble tous les dialogues.","difficulty":"Facile"},
-  {"id":"dare_015","category":"aventure","title":"Destination pièce","description":"Lancez une pièce à chaque intersection pendant quinze minutes et découvrez où elle vous mène.","difficulty":"Moyen"},
-  {"id":"dare_016","category":"tendre","title":"Câlin chronométré","description":"Faites un câlin d’au moins soixante secondes, sans téléphone et sans parler.","difficulty":"Doux"},
-  {"id":"dare_017","category":"créatif","title":"Votre blason","description":"Inventez le blason de votre couple avec une devise, trois symboles et vos couleurs.","difficulty":"Moyen"},
-  {"id":"dare_018","category":"quotidien","title":"Rendez-vous à la maison","description":"Transformez une pièce en mini rendez-vous avec lumière, boisson et musique.","difficulty":"Moyen"},
-  {"id":"dare_019","category":"complicité","title":"Devine le souvenir","description":"Donnez chacun trois indices sur un souvenir commun que l’autre doit retrouver.","difficulty":"Facile"},
-  {"id":"dare_020","category":"fun","title":"Défilé surprise","description":"Composez pour l’autre une tenue amusante avec ce que vous trouvez et organisez un mini défilé.","difficulty":"Facile"},
-  {"id":"dare_021","category":"aventure","title":"Nouvelle première fois","description":"Choisissez une petite activité qu’aucun de vous n’a encore essayée et planifiez-la.","difficulty":"Moyen"},
-  {"id":"dare_022","category":"tendre","title":"Merci pour…","description":"Terminez chacun cinq fois la phrase « Merci d’être la personne qui… ».","difficulty":"Doux"},
-  {"id":"dare_023","category":"créatif","title":"Histoire à deux","description":"Inventez une histoire en ajoutant chacun une phrase à tour de rôle pendant cinq minutes.","difficulty":"Facile"},
-  {"id":"dare_024","category":"complicité","title":"Mini rêve commun","description":"Choisissez un petit rêve réalisable dans les trente prochains jours et fixez sa première étape.","difficulty":"Moyen"}
+  {
+    "id": "dare_001",
+    "category": "tendre",
+    "title": "Le compliment précis",
+    "description": "Dites chacun trois choses très précises que vous admirez chez l’autre.",
+    "difficulty": "Doux"
+  },
+  {
+    "id": "dare_002",
+    "category": "fun",
+    "title": "Danse improvisée",
+    "description": "Lancez une chanson au hasard et dansez ensemble jusqu’à la fin, sans vous arrêter.",
+    "difficulty": "Facile"
+  },
+  {
+    "id": "dare_003",
+    "category": "créatif",
+    "title": "Portrait minute",
+    "description": "Dessinez-vous mutuellement en une minute, puis échangez vos œuvres.",
+    "difficulty": "Facile"
+  },
+  {
+    "id": "dare_004",
+    "category": "quotidien",
+    "title": "Chef surprise",
+    "description": "Préparez ensemble une petite gourmandise uniquement avec ce que vous avez déjà.",
+    "difficulty": "Facile"
+  },
+  {
+    "id": "dare_005",
+    "category": "tendre",
+    "title": "Souvenir préféré",
+    "description": "Racontez chacun votre souvenir favori de votre relation avec le plus de détails possible.",
+    "difficulty": "Doux"
+  },
+  {
+    "id": "dare_006",
+    "category": "fun",
+    "title": "Photo improbable",
+    "description": "Recréez ensemble une vieille photo ou inventez la photo de couple la plus absurde possible.",
+    "difficulty": "Facile"
+  },
+  {
+    "id": "dare_007",
+    "category": "complicité",
+    "title": "Question interdite",
+    "description": "Posez chacun une question que vous n’avez jamais osé poser, avec droit de passer sans justification.",
+    "difficulty": "Intime"
+  },
+  {
+    "id": "dare_008",
+    "category": "aventure",
+    "title": "Balade guidée",
+    "description": "Partez marcher vingt minutes : une personne choisit le chemin aller, l’autre le retour.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_009",
+    "category": "fun",
+    "title": "Accent secret",
+    "description": "Parlez avec un accent inventé pendant dix minutes. La première personne qui oublie a perdu.",
+    "difficulty": "Facile"
+  },
+  {
+    "id": "dare_010",
+    "category": "tendre",
+    "title": "Message du futur",
+    "description": "Écrivez ensemble un court message destiné à votre couple dans un an.",
+    "difficulty": "Doux"
+  },
+  {
+    "id": "dare_011",
+    "category": "créatif",
+    "title": "Playlist express",
+    "description": "Choisissez chacun deux chansons qui racontent votre relation et écoutez-les ensemble.",
+    "difficulty": "Facile"
+  },
+  {
+    "id": "dare_012",
+    "category": "quotidien",
+    "title": "Service secret",
+    "description": "Faites chacun une petite chose qui facilitera la journée de l’autre sans annoncer laquelle.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_013",
+    "category": "complicité",
+    "title": "Regard silencieux",
+    "description": "Regardez-vous dans les yeux pendant une minute sans parler ni utiliser votre téléphone.",
+    "difficulty": "Intime"
+  },
+  {
+    "id": "dare_014",
+    "category": "fun",
+    "title": "Doublage de film",
+    "description": "Coupez le son d’une scène et inventez ensemble tous les dialogues.",
+    "difficulty": "Facile"
+  },
+  {
+    "id": "dare_015",
+    "category": "aventure",
+    "title": "Destination pièce",
+    "description": "Lancez une pièce à chaque intersection pendant quinze minutes et découvrez où elle vous mène.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_016",
+    "category": "tendre",
+    "title": "Câlin chronométré",
+    "description": "Faites un câlin d’au moins soixante secondes, sans téléphone et sans parler.",
+    "difficulty": "Doux"
+  },
+  {
+    "id": "dare_017",
+    "category": "créatif",
+    "title": "Votre blason",
+    "description": "Inventez le blason de votre couple avec une devise, trois symboles et vos couleurs.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_018",
+    "category": "quotidien",
+    "title": "Rendez-vous à la maison",
+    "description": "Transformez une pièce en mini rendez-vous avec lumière, boisson et musique.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_019",
+    "category": "complicité",
+    "title": "Devine le souvenir",
+    "description": "Donnez chacun trois indices sur un souvenir commun que l’autre doit retrouver.",
+    "difficulty": "Facile"
+  },
+  {
+    "id": "dare_020",
+    "category": "fun",
+    "title": "Défilé surprise",
+    "description": "Composez pour l’autre une tenue amusante avec ce que vous trouvez et organisez un mini défilé.",
+    "difficulty": "Facile"
+  },
+  {
+    "id": "dare_021",
+    "category": "aventure",
+    "title": "Nouvelle première fois",
+    "description": "Choisissez une petite activité qu’aucun de vous n’a encore essayée et planifiez-la.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_022",
+    "category": "tendre",
+    "title": "Merci pour…",
+    "description": "Terminez chacun cinq fois la phrase « Merci d’être la personne qui… ».",
+    "difficulty": "Doux"
+  },
+  {
+    "id": "dare_023",
+    "category": "créatif",
+    "title": "Histoire à deux",
+    "description": "Inventez une histoire en ajoutant chacun une phrase à tour de rôle pendant cinq minutes.",
+    "difficulty": "Facile"
+  },
+  {
+    "id": "dare_024",
+    "category": "complicité",
+    "title": "Mini rêve commun",
+    "description": "Choisissez un petit rêve réalisable dans les trente prochains jours et fixez sa première étape.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_025",
+    "category": "tendre",
+    "title": "Le détail qui compte · à tour de rôle",
+    "description": "Dites chacun trois petits détails chez l’autre que vous aimez et que vous ne dites presque jamais. Faites-le à tour de rôle sans préparer vos réponses.",
+    "difficulty": "Doux"
+  },
+  {
+    "id": "dare_026",
+    "category": "tendre",
+    "title": "Le détail qui compte · sans répéter",
+    "description": "Dites chacun trois petits détails chez l’autre que vous aimez et que vous ne dites presque jamais. Interdiction de répéter une idée déjà dite par l’autre.",
+    "difficulty": "Doux"
+  },
+  {
+    "id": "dare_027",
+    "category": "tendre",
+    "title": "Le détail qui compte · les yeux dans les yeux",
+    "description": "Dites chacun trois petits détails chez l’autre que vous aimez et que vous ne dites presque jamais. Faites tout le défi en vous regardant dans les yeux.",
+    "difficulty": "Doux"
+  },
+  {
+    "id": "dare_028",
+    "category": "tendre",
+    "title": "Le détail qui compte · à garder",
+    "description": "Dites chacun trois petits détails chez l’autre que vous aimez et que vous ne dites presque jamais. Terminez en écrivant votre phrase préférée pour pouvoir la garder.",
+    "difficulty": "Doux"
+  },
+  {
+    "id": "dare_029",
+    "category": "tendre",
+    "title": "Le merci précis · à tour de rôle",
+    "description": "Remerciez-vous chacun pour trois choses très concrètes que l’autre a faites récemment. Faites-le à tour de rôle sans préparer vos réponses.",
+    "difficulty": "Doux"
+  },
+  {
+    "id": "dare_030",
+    "category": "tendre",
+    "title": "Le merci précis · sans répéter",
+    "description": "Remerciez-vous chacun pour trois choses très concrètes que l’autre a faites récemment. Interdiction de répéter une idée déjà dite par l’autre.",
+    "difficulty": "Doux"
+  },
+  {
+    "id": "dare_031",
+    "category": "tendre",
+    "title": "Le merci précis · les yeux dans les yeux",
+    "description": "Remerciez-vous chacun pour trois choses très concrètes que l’autre a faites récemment. Faites tout le défi en vous regardant dans les yeux.",
+    "difficulty": "Doux"
+  },
+  {
+    "id": "dare_032",
+    "category": "tendre",
+    "title": "Le merci précis · à garder",
+    "description": "Remerciez-vous chacun pour trois choses très concrètes que l’autre a faites récemment. Terminez en écrivant votre phrase préférée pour pouvoir la garder.",
+    "difficulty": "Doux"
+  },
+  {
+    "id": "dare_033",
+    "category": "tendre",
+    "title": "Le regard neuf · à tour de rôle",
+    "description": "Décrivez chacun l’autre comme si vous deviez expliquer à quelqu’un pourquoi cette personne est spéciale. Faites-le à tour de rôle sans préparer vos réponses.",
+    "difficulty": "Doux"
+  },
+  {
+    "id": "dare_034",
+    "category": "tendre",
+    "title": "Le regard neuf · sans répéter",
+    "description": "Décrivez chacun l’autre comme si vous deviez expliquer à quelqu’un pourquoi cette personne est spéciale. Interdiction de répéter une idée déjà dite par l’autre.",
+    "difficulty": "Doux"
+  },
+  {
+    "id": "dare_035",
+    "category": "tendre",
+    "title": "Le regard neuf · les yeux dans les yeux",
+    "description": "Décrivez chacun l’autre comme si vous deviez expliquer à quelqu’un pourquoi cette personne est spéciale. Faites tout le défi en vous regardant dans les yeux.",
+    "difficulty": "Doux"
+  },
+  {
+    "id": "dare_036",
+    "category": "tendre",
+    "title": "Le regard neuf · à garder",
+    "description": "Décrivez chacun l’autre comme si vous deviez expliquer à quelqu’un pourquoi cette personne est spéciale. Terminez en écrivant votre phrase préférée pour pouvoir la garder.",
+    "difficulty": "Doux"
+  },
+  {
+    "id": "dare_037",
+    "category": "tendre",
+    "title": "Le souvenir doux · à tour de rôle",
+    "description": "Choisissez chacun un souvenir simple de votre relation qui vous réconforte immédiatement. Faites-le à tour de rôle sans préparer vos réponses.",
+    "difficulty": "Doux"
+  },
+  {
+    "id": "dare_038",
+    "category": "tendre",
+    "title": "Le souvenir doux · sans répéter",
+    "description": "Choisissez chacun un souvenir simple de votre relation qui vous réconforte immédiatement. Interdiction de répéter une idée déjà dite par l’autre.",
+    "difficulty": "Doux"
+  },
+  {
+    "id": "dare_039",
+    "category": "tendre",
+    "title": "Le souvenir doux · les yeux dans les yeux",
+    "description": "Choisissez chacun un souvenir simple de votre relation qui vous réconforte immédiatement. Faites tout le défi en vous regardant dans les yeux.",
+    "difficulty": "Doux"
+  },
+  {
+    "id": "dare_040",
+    "category": "tendre",
+    "title": "Le souvenir doux · à garder",
+    "description": "Choisissez chacun un souvenir simple de votre relation qui vous réconforte immédiatement. Terminez en écrivant votre phrase préférée pour pouvoir la garder.",
+    "difficulty": "Doux"
+  },
+  {
+    "id": "dare_041",
+    "category": "tendre",
+    "title": "Le compliment interdit · à tour de rôle",
+    "description": "Faites-vous chacun cinq compliments qui ne concernent pas le physique. Faites-le à tour de rôle sans préparer vos réponses.",
+    "difficulty": "Doux"
+  },
+  {
+    "id": "dare_042",
+    "category": "tendre",
+    "title": "Le compliment interdit · sans répéter",
+    "description": "Faites-vous chacun cinq compliments qui ne concernent pas le physique. Interdiction de répéter une idée déjà dite par l’autre.",
+    "difficulty": "Doux"
+  },
+  {
+    "id": "dare_043",
+    "category": "tendre",
+    "title": "Le compliment interdit · les yeux dans les yeux",
+    "description": "Faites-vous chacun cinq compliments qui ne concernent pas le physique. Faites tout le défi en vous regardant dans les yeux.",
+    "difficulty": "Doux"
+  },
+  {
+    "id": "dare_044",
+    "category": "tendre",
+    "title": "Le compliment interdit · à garder",
+    "description": "Faites-vous chacun cinq compliments qui ne concernent pas le physique. Terminez en écrivant votre phrase préférée pour pouvoir la garder.",
+    "difficulty": "Doux"
+  },
+  {
+    "id": "dare_045",
+    "category": "tendre",
+    "title": "La minute rassurante · à tour de rôle",
+    "description": "Dites chacun à l’autre ce qui vous fait vous sentir le plus en sécurité dans votre relation. Faites-le à tour de rôle sans préparer vos réponses.",
+    "difficulty": "Doux"
+  },
+  {
+    "id": "dare_046",
+    "category": "tendre",
+    "title": "La minute rassurante · sans répéter",
+    "description": "Dites chacun à l’autre ce qui vous fait vous sentir le plus en sécurité dans votre relation. Interdiction de répéter une idée déjà dite par l’autre.",
+    "difficulty": "Doux"
+  },
+  {
+    "id": "dare_047",
+    "category": "tendre",
+    "title": "La minute rassurante · les yeux dans les yeux",
+    "description": "Dites chacun à l’autre ce qui vous fait vous sentir le plus en sécurité dans votre relation. Faites tout le défi en vous regardant dans les yeux.",
+    "difficulty": "Doux"
+  },
+  {
+    "id": "dare_048",
+    "category": "fun",
+    "title": "Le doublage · chrono",
+    "description": "Coupez le son d’une vidéo au hasard et inventez ensemble les dialogues des personnes à l’écran. Vous n’avez que cinq minutes pour aller jusqu’au bout.",
+    "difficulty": "Facile"
+  },
+  {
+    "id": "dare_049",
+    "category": "fun",
+    "title": "Le doublage · sans rire",
+    "description": "Coupez le son d’une vidéo au hasard et inventez ensemble les dialogues des personnes à l’écran. La première personne qui rit doit faire un mini gage choisi par l’autre.",
+    "difficulty": "Facile"
+  },
+  {
+    "id": "dare_050",
+    "category": "fun",
+    "title": "Le doublage · filmés",
+    "description": "Coupez le son d’une vidéo au hasard et inventez ensemble les dialogues des personnes à l’écran. Filmez trente secondes du meilleur moment pour le revoir plus tard.",
+    "difficulty": "Facile"
+  },
+  {
+    "id": "dare_051",
+    "category": "fun",
+    "title": "Le doublage · inversés",
+    "description": "Coupez le son d’une vidéo au hasard et inventez ensemble les dialogues des personnes à l’écran. À mi-parcours, échangez vos rôles et continuez.",
+    "difficulty": "Facile"
+  },
+  {
+    "id": "dare_052",
+    "category": "fun",
+    "title": "Le défi accent · chrono",
+    "description": "Choisissez chacun un accent ou une voix absurde et gardez-la pendant quinze minutes. Vous n’avez que cinq minutes pour aller jusqu’au bout.",
+    "difficulty": "Facile"
+  },
+  {
+    "id": "dare_053",
+    "category": "fun",
+    "title": "Le défi accent · sans rire",
+    "description": "Choisissez chacun un accent ou une voix absurde et gardez-la pendant quinze minutes. La première personne qui rit doit faire un mini gage choisi par l’autre.",
+    "difficulty": "Facile"
+  },
+  {
+    "id": "dare_054",
+    "category": "fun",
+    "title": "Le défi accent · filmés",
+    "description": "Choisissez chacun un accent ou une voix absurde et gardez-la pendant quinze minutes. Filmez trente secondes du meilleur moment pour le revoir plus tard.",
+    "difficulty": "Facile"
+  },
+  {
+    "id": "dare_055",
+    "category": "fun",
+    "title": "Le défi accent · inversés",
+    "description": "Choisissez chacun un accent ou une voix absurde et gardez-la pendant quinze minutes. À mi-parcours, échangez vos rôles et continuez.",
+    "difficulty": "Facile"
+  },
+  {
+    "id": "dare_056",
+    "category": "fun",
+    "title": "Le mime impossible · chrono",
+    "description": "Faites deviner à l’autre cinq situations de votre couple uniquement en les mimant. Vous n’avez que cinq minutes pour aller jusqu’au bout.",
+    "difficulty": "Facile"
+  },
+  {
+    "id": "dare_057",
+    "category": "fun",
+    "title": "Le mime impossible · sans rire",
+    "description": "Faites deviner à l’autre cinq situations de votre couple uniquement en les mimant. La première personne qui rit doit faire un mini gage choisi par l’autre.",
+    "difficulty": "Facile"
+  },
+  {
+    "id": "dare_058",
+    "category": "fun",
+    "title": "Le mime impossible · filmés",
+    "description": "Faites deviner à l’autre cinq situations de votre couple uniquement en les mimant. Filmez trente secondes du meilleur moment pour le revoir plus tard.",
+    "difficulty": "Facile"
+  },
+  {
+    "id": "dare_059",
+    "category": "fun",
+    "title": "Le mime impossible · inversés",
+    "description": "Faites deviner à l’autre cinq situations de votre couple uniquement en les mimant. À mi-parcours, échangez vos rôles et continuez.",
+    "difficulty": "Facile"
+  },
+  {
+    "id": "dare_060",
+    "category": "fun",
+    "title": "Le jury · chrono",
+    "description": "Choisissez trois objets banals et défendez chacun pourquoi l’un d’eux mérite de gagner un prix imaginaire. Vous n’avez que cinq minutes pour aller jusqu’au bout.",
+    "difficulty": "Facile"
+  },
+  {
+    "id": "dare_061",
+    "category": "fun",
+    "title": "Le jury · sans rire",
+    "description": "Choisissez trois objets banals et défendez chacun pourquoi l’un d’eux mérite de gagner un prix imaginaire. La première personne qui rit doit faire un mini gage choisi par l’autre.",
+    "difficulty": "Facile"
+  },
+  {
+    "id": "dare_062",
+    "category": "fun",
+    "title": "Le jury · filmés",
+    "description": "Choisissez trois objets banals et défendez chacun pourquoi l’un d’eux mérite de gagner un prix imaginaire. Filmez trente secondes du meilleur moment pour le revoir plus tard.",
+    "difficulty": "Facile"
+  },
+  {
+    "id": "dare_063",
+    "category": "fun",
+    "title": "Le jury · inversés",
+    "description": "Choisissez trois objets banals et défendez chacun pourquoi l’un d’eux mérite de gagner un prix imaginaire. À mi-parcours, échangez vos rôles et continuez.",
+    "difficulty": "Facile"
+  },
+  {
+    "id": "dare_064",
+    "category": "fun",
+    "title": "La chanson détournée · chrono",
+    "description": "Prenez une chanson connue et remplacez les paroles par une histoire de votre couple. Vous n’avez que cinq minutes pour aller jusqu’au bout.",
+    "difficulty": "Facile"
+  },
+  {
+    "id": "dare_065",
+    "category": "fun",
+    "title": "La chanson détournée · sans rire",
+    "description": "Prenez une chanson connue et remplacez les paroles par une histoire de votre couple. La première personne qui rit doit faire un mini gage choisi par l’autre.",
+    "difficulty": "Facile"
+  },
+  {
+    "id": "dare_066",
+    "category": "fun",
+    "title": "La chanson détournée · filmés",
+    "description": "Prenez une chanson connue et remplacez les paroles par une histoire de votre couple. Filmez trente secondes du meilleur moment pour le revoir plus tard.",
+    "difficulty": "Facile"
+  },
+  {
+    "id": "dare_067",
+    "category": "fun",
+    "title": "La chanson détournée · inversés",
+    "description": "Prenez une chanson connue et remplacez les paroles par une histoire de votre couple. À mi-parcours, échangez vos rôles et continuez.",
+    "difficulty": "Facile"
+  },
+  {
+    "id": "dare_068",
+    "category": "fun",
+    "title": "Le procès ridicule · chrono",
+    "description": "Organisez un faux procès pour décider qui a la pire petite habitude du quotidien. Vous n’avez que cinq minutes pour aller jusqu’au bout.",
+    "difficulty": "Facile"
+  },
+  {
+    "id": "dare_069",
+    "category": "fun",
+    "title": "Le procès ridicule · sans rire",
+    "description": "Organisez un faux procès pour décider qui a la pire petite habitude du quotidien. La première personne qui rit doit faire un mini gage choisi par l’autre.",
+    "difficulty": "Facile"
+  },
+  {
+    "id": "dare_070",
+    "category": "fun",
+    "title": "Le procès ridicule · filmés",
+    "description": "Organisez un faux procès pour décider qui a la pire petite habitude du quotidien. Filmez trente secondes du meilleur moment pour le revoir plus tard.",
+    "difficulty": "Facile"
+  },
+  {
+    "id": "dare_071",
+    "category": "créatif",
+    "title": "La couverture de votre film · sans gomme",
+    "description": "Dessinez ensemble l’affiche d’un film inspiré de votre histoire. Vous n’avez pas le droit d’effacer ou de recommencer.",
+    "difficulty": "Facile"
+  },
+  {
+    "id": "dare_072",
+    "category": "créatif",
+    "title": "La couverture de votre film · séparément",
+    "description": "Dessinez ensemble l’affiche d’un film inspiré de votre histoire. Commencez chacun de votre côté puis comparez vos créations à la fin.",
+    "difficulty": "Facile"
+  },
+  {
+    "id": "dare_073",
+    "category": "créatif",
+    "title": "La couverture de votre film · en dix minutes",
+    "description": "Dessinez ensemble l’affiche d’un film inspiré de votre histoire. Vous avez exactement dix minutes pour terminer.",
+    "difficulty": "Facile"
+  },
+  {
+    "id": "dare_074",
+    "category": "créatif",
+    "title": "La couverture de votre film · avec trois couleurs",
+    "description": "Dessinez ensemble l’affiche d’un film inspiré de votre histoire. Vous ne pouvez utiliser que trois couleurs ou trois styles différents.",
+    "difficulty": "Facile"
+  },
+  {
+    "id": "dare_075",
+    "category": "créatif",
+    "title": "Le menu du couple · sans gomme",
+    "description": "Inventez un menu de restaurant où chaque plat porte le nom d’un souvenir commun. Vous n’avez pas le droit d’effacer ou de recommencer.",
+    "difficulty": "Facile"
+  },
+  {
+    "id": "dare_076",
+    "category": "créatif",
+    "title": "Le menu du couple · séparément",
+    "description": "Inventez un menu de restaurant où chaque plat porte le nom d’un souvenir commun. Commencez chacun de votre côté puis comparez vos créations à la fin.",
+    "difficulty": "Facile"
+  },
+  {
+    "id": "dare_077",
+    "category": "créatif",
+    "title": "Le menu du couple · en dix minutes",
+    "description": "Inventez un menu de restaurant où chaque plat porte le nom d’un souvenir commun. Vous avez exactement dix minutes pour terminer.",
+    "difficulty": "Facile"
+  },
+  {
+    "id": "dare_078",
+    "category": "créatif",
+    "title": "Le menu du couple · avec trois couleurs",
+    "description": "Inventez un menu de restaurant où chaque plat porte le nom d’un souvenir commun. Vous ne pouvez utiliser que trois couleurs ou trois styles différents.",
+    "difficulty": "Facile"
+  },
+  {
+    "id": "dare_079",
+    "category": "créatif",
+    "title": "La pièce idéale · sans gomme",
+    "description": "Dessinez chacun la pièce parfaite que vous aimeriez avoir un jour chez vous. Vous n’avez pas le droit d’effacer ou de recommencer.",
+    "difficulty": "Facile"
+  },
+  {
+    "id": "dare_080",
+    "category": "créatif",
+    "title": "La pièce idéale · séparément",
+    "description": "Dessinez chacun la pièce parfaite que vous aimeriez avoir un jour chez vous. Commencez chacun de votre côté puis comparez vos créations à la fin.",
+    "difficulty": "Facile"
+  },
+  {
+    "id": "dare_081",
+    "category": "créatif",
+    "title": "La pièce idéale · en dix minutes",
+    "description": "Dessinez chacun la pièce parfaite que vous aimeriez avoir un jour chez vous. Vous avez exactement dix minutes pour terminer.",
+    "difficulty": "Facile"
+  },
+  {
+    "id": "dare_082",
+    "category": "créatif",
+    "title": "La pièce idéale · avec trois couleurs",
+    "description": "Dessinez chacun la pièce parfaite que vous aimeriez avoir un jour chez vous. Vous ne pouvez utiliser que trois couleurs ou trois styles différents.",
+    "difficulty": "Facile"
+  },
+  {
+    "id": "dare_083",
+    "category": "créatif",
+    "title": "Votre logo · sans gomme",
+    "description": "Créez un logo ou un symbole qui représenterait votre couple. Vous n’avez pas le droit d’effacer ou de recommencer.",
+    "difficulty": "Facile"
+  },
+  {
+    "id": "dare_084",
+    "category": "créatif",
+    "title": "Votre logo · séparément",
+    "description": "Créez un logo ou un symbole qui représenterait votre couple. Commencez chacun de votre côté puis comparez vos créations à la fin.",
+    "difficulty": "Facile"
+  },
+  {
+    "id": "dare_085",
+    "category": "créatif",
+    "title": "Votre logo · en dix minutes",
+    "description": "Créez un logo ou un symbole qui représenterait votre couple. Vous avez exactement dix minutes pour terminer.",
+    "difficulty": "Facile"
+  },
+  {
+    "id": "dare_086",
+    "category": "créatif",
+    "title": "Votre logo · avec trois couleurs",
+    "description": "Créez un logo ou un symbole qui représenterait votre couple. Vous ne pouvez utiliser que trois couleurs ou trois styles différents.",
+    "difficulty": "Facile"
+  },
+  {
+    "id": "dare_087",
+    "category": "créatif",
+    "title": "La mini BD · sans gomme",
+    "description": "Dessinez en six cases une anecdote drôle que vous avez vécue ensemble. Vous n’avez pas le droit d’effacer ou de recommencer.",
+    "difficulty": "Facile"
+  },
+  {
+    "id": "dare_088",
+    "category": "créatif",
+    "title": "La mini BD · séparément",
+    "description": "Dessinez en six cases une anecdote drôle que vous avez vécue ensemble. Commencez chacun de votre côté puis comparez vos créations à la fin.",
+    "difficulty": "Facile"
+  },
+  {
+    "id": "dare_089",
+    "category": "créatif",
+    "title": "La mini BD · en dix minutes",
+    "description": "Dessinez en six cases une anecdote drôle que vous avez vécue ensemble. Vous avez exactement dix minutes pour terminer.",
+    "difficulty": "Facile"
+  },
+  {
+    "id": "dare_090",
+    "category": "créatif",
+    "title": "La mini BD · avec trois couleurs",
+    "description": "Dessinez en six cases une anecdote drôle que vous avez vécue ensemble. Vous ne pouvez utiliser que trois couleurs ou trois styles différents.",
+    "difficulty": "Facile"
+  },
+  {
+    "id": "dare_091",
+    "category": "créatif",
+    "title": "La playlist imaginaire · sans gomme",
+    "description": "Inventez dix titres de chansons fictives qui raconteraient votre relation. Vous n’avez pas le droit d’effacer ou de recommencer.",
+    "difficulty": "Facile"
+  },
+  {
+    "id": "dare_092",
+    "category": "créatif",
+    "title": "La playlist imaginaire · séparément",
+    "description": "Inventez dix titres de chansons fictives qui raconteraient votre relation. Commencez chacun de votre côté puis comparez vos créations à la fin.",
+    "difficulty": "Facile"
+  },
+  {
+    "id": "dare_093",
+    "category": "créatif",
+    "title": "La playlist imaginaire · en dix minutes",
+    "description": "Inventez dix titres de chansons fictives qui raconteraient votre relation. Vous avez exactement dix minutes pour terminer.",
+    "difficulty": "Facile"
+  },
+  {
+    "id": "dare_094",
+    "category": "complicité",
+    "title": "La prédiction · sans indice",
+    "description": "Écrivez chacun la réponse que l’autre donnera à cinq questions simples puis comparez. Aucun indice ni réaction n’est autorisé avant la révélation.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_095",
+    "category": "complicité",
+    "title": "La prédiction · avec un joker",
+    "description": "Écrivez chacun la réponse que l’autre donnera à cinq questions simples puis comparez. Vous avez chacun le droit de modifier une seule réponse après avoir entendu celle de l’autre.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_096",
+    "category": "complicité",
+    "title": "La prédiction · score maison",
+    "description": "Écrivez chacun la réponse que l’autre donnera à cinq questions simples puis comparez. Attribuez-vous un point à chaque réponse identique et gardez le score.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_097",
+    "category": "complicité",
+    "title": "La prédiction · surprise finale",
+    "description": "Écrivez chacun la réponse que l’autre donnera à cinq questions simples puis comparez. Terminez en choisissant une des idées révélées à réaliser prochainement.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_098",
+    "category": "complicité",
+    "title": "Le choix silencieux · sans indice",
+    "description": "Choisissez séparément entre deux options à plusieurs reprises puis révélez vos réponses en même temps. Aucun indice ni réaction n’est autorisé avant la révélation.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_099",
+    "category": "complicité",
+    "title": "Le choix silencieux · avec un joker",
+    "description": "Choisissez séparément entre deux options à plusieurs reprises puis révélez vos réponses en même temps. Vous avez chacun le droit de modifier une seule réponse après avoir entendu celle de l’autre.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_100",
+    "category": "complicité",
+    "title": "Le choix silencieux · score maison",
+    "description": "Choisissez séparément entre deux options à plusieurs reprises puis révélez vos réponses en même temps. Attribuez-vous un point à chaque réponse identique et gardez le score.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_101",
+    "category": "complicité",
+    "title": "Le choix silencieux · surprise finale",
+    "description": "Choisissez séparément entre deux options à plusieurs reprises puis révélez vos réponses en même temps. Terminez en choisissant une des idées révélées à réaliser prochainement.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_102",
+    "category": "complicité",
+    "title": "Le souvenir exact · sans indice",
+    "description": "Racontez chacun la même anecdote sans vous interrompre puis comparez les détails dont vous vous souvenez. Aucun indice ni réaction n’est autorisé avant la révélation.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_103",
+    "category": "complicité",
+    "title": "Le souvenir exact · avec un joker",
+    "description": "Racontez chacun la même anecdote sans vous interrompre puis comparez les détails dont vous vous souvenez. Vous avez chacun le droit de modifier une seule réponse après avoir entendu celle de l’autre.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_104",
+    "category": "complicité",
+    "title": "Le souvenir exact · score maison",
+    "description": "Racontez chacun la même anecdote sans vous interrompre puis comparez les détails dont vous vous souvenez. Attribuez-vous un point à chaque réponse identique et gardez le score.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_105",
+    "category": "complicité",
+    "title": "Le souvenir exact · surprise finale",
+    "description": "Racontez chacun la même anecdote sans vous interrompre puis comparez les détails dont vous vous souvenez. Terminez en choisissant une des idées révélées à réaliser prochainement.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_106",
+    "category": "complicité",
+    "title": "Le portrait secret · sans indice",
+    "description": "Écrivez cinq mots qui décrivent l’autre puis révélez-les simultanément. Aucun indice ni réaction n’est autorisé avant la révélation.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_107",
+    "category": "complicité",
+    "title": "Le portrait secret · avec un joker",
+    "description": "Écrivez cinq mots qui décrivent l’autre puis révélez-les simultanément. Vous avez chacun le droit de modifier une seule réponse après avoir entendu celle de l’autre.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_108",
+    "category": "complicité",
+    "title": "Le portrait secret · score maison",
+    "description": "Écrivez cinq mots qui décrivent l’autre puis révélez-les simultanément. Attribuez-vous un point à chaque réponse identique et gardez le score.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_109",
+    "category": "complicité",
+    "title": "Le portrait secret · surprise finale",
+    "description": "Écrivez cinq mots qui décrivent l’autre puis révélez-les simultanément. Terminez en choisissant une des idées révélées à réaliser prochainement.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_110",
+    "category": "complicité",
+    "title": "Le menu parfait · sans indice",
+    "description": "Composez séparément le repas idéal de l’autre avec entrée, plat et dessert. Aucun indice ni réaction n’est autorisé avant la révélation.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_111",
+    "category": "complicité",
+    "title": "Le menu parfait · avec un joker",
+    "description": "Composez séparément le repas idéal de l’autre avec entrée, plat et dessert. Vous avez chacun le droit de modifier une seule réponse après avoir entendu celle de l’autre.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_112",
+    "category": "complicité",
+    "title": "Le menu parfait · score maison",
+    "description": "Composez séparément le repas idéal de l’autre avec entrée, plat et dessert. Attribuez-vous un point à chaque réponse identique et gardez le score.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_113",
+    "category": "complicité",
+    "title": "Le menu parfait · surprise finale",
+    "description": "Composez séparément le repas idéal de l’autre avec entrée, plat et dessert. Terminez en choisissant une des idées révélées à réaliser prochainement.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_114",
+    "category": "complicité",
+    "title": "La journée idéale · sans indice",
+    "description": "Imaginez séparément la journée parfaite de votre couple de votre réveil jusqu’au coucher. Aucun indice ni réaction n’est autorisé avant la révélation.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_115",
+    "category": "complicité",
+    "title": "La journée idéale · avec un joker",
+    "description": "Imaginez séparément la journée parfaite de votre couple de votre réveil jusqu’au coucher. Vous avez chacun le droit de modifier une seule réponse après avoir entendu celle de l’autre.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_116",
+    "category": "complicité",
+    "title": "La journée idéale · score maison",
+    "description": "Imaginez séparément la journée parfaite de votre couple de votre réveil jusqu’au coucher. Attribuez-vous un point à chaque réponse identique et gardez le score.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_117",
+    "category": "quotidien",
+    "title": "L’échange de tâche · petit budget",
+    "description": "Échangez une tâche du quotidien que l’autre fait habituellement et faites-la à sa place. Vous ne pouvez dépenser aucun argent pour réaliser le défi.",
+    "difficulty": "Facile"
+  },
+  {
+    "id": "dare_118",
+    "category": "quotidien",
+    "title": "L’échange de tâche · chrono",
+    "description": "Échangez une tâche du quotidien que l’autre fait habituellement et faites-la à sa place. Vous avez seulement vingt minutes.",
+    "difficulty": "Facile"
+  },
+  {
+    "id": "dare_119",
+    "category": "quotidien",
+    "title": "L’échange de tâche · musique",
+    "description": "Échangez une tâche du quotidien que l’autre fait habituellement et faites-la à sa place. Mettez une playlist choisie ensemble et terminez avant qu’elle ne soit finie.",
+    "difficulty": "Facile"
+  },
+  {
+    "id": "dare_120",
+    "category": "quotidien",
+    "title": "L’échange de tâche · photo avant-après",
+    "description": "Échangez une tâche du quotidien que l’autre fait habituellement et faites-la à sa place. Prenez une photo au début et une autre à la fin pour garder le résultat.",
+    "difficulty": "Facile"
+  },
+  {
+    "id": "dare_121",
+    "category": "quotidien",
+    "title": "Le dîner placard · petit budget",
+    "description": "Préparez un repas uniquement avec ce que vous avez déjà chez vous, sans faire de courses. Vous ne pouvez dépenser aucun argent pour réaliser le défi.",
+    "difficulty": "Facile"
+  },
+  {
+    "id": "dare_122",
+    "category": "quotidien",
+    "title": "Le dîner placard · chrono",
+    "description": "Préparez un repas uniquement avec ce que vous avez déjà chez vous, sans faire de courses. Vous avez seulement vingt minutes.",
+    "difficulty": "Facile"
+  },
+  {
+    "id": "dare_123",
+    "category": "quotidien",
+    "title": "Le dîner placard · musique",
+    "description": "Préparez un repas uniquement avec ce que vous avez déjà chez vous, sans faire de courses. Mettez une playlist choisie ensemble et terminez avant qu’elle ne soit finie.",
+    "difficulty": "Facile"
+  },
+  {
+    "id": "dare_124",
+    "category": "quotidien",
+    "title": "Le dîner placard · photo avant-après",
+    "description": "Préparez un repas uniquement avec ce que vous avez déjà chez vous, sans faire de courses. Prenez une photo au début et une autre à la fin pour garder le résultat.",
+    "difficulty": "Facile"
+  },
+  {
+    "id": "dare_125",
+    "category": "quotidien",
+    "title": "Le coin à améliorer · petit budget",
+    "description": "Choisissez ensemble un petit endroit de votre espace de vie et améliorez-le en trente minutes. Vous ne pouvez dépenser aucun argent pour réaliser le défi.",
+    "difficulty": "Facile"
+  },
+  {
+    "id": "dare_126",
+    "category": "quotidien",
+    "title": "Le coin à améliorer · chrono",
+    "description": "Choisissez ensemble un petit endroit de votre espace de vie et améliorez-le en trente minutes. Vous avez seulement vingt minutes.",
+    "difficulty": "Facile"
+  },
+  {
+    "id": "dare_127",
+    "category": "quotidien",
+    "title": "Le coin à améliorer · musique",
+    "description": "Choisissez ensemble un petit endroit de votre espace de vie et améliorez-le en trente minutes. Mettez une playlist choisie ensemble et terminez avant qu’elle ne soit finie.",
+    "difficulty": "Facile"
+  },
+  {
+    "id": "dare_128",
+    "category": "quotidien",
+    "title": "Le coin à améliorer · photo avant-après",
+    "description": "Choisissez ensemble un petit endroit de votre espace de vie et améliorez-le en trente minutes. Prenez une photo au début et une autre à la fin pour garder le résultat.",
+    "difficulty": "Facile"
+  },
+  {
+    "id": "dare_129",
+    "category": "quotidien",
+    "title": "La soirée sans écran · petit budget",
+    "description": "Passez une heure ensemble sans téléphone, télévision ni ordinateur. Vous ne pouvez dépenser aucun argent pour réaliser le défi.",
+    "difficulty": "Facile"
+  },
+  {
+    "id": "dare_130",
+    "category": "quotidien",
+    "title": "La soirée sans écran · chrono",
+    "description": "Passez une heure ensemble sans téléphone, télévision ni ordinateur. Vous avez seulement vingt minutes.",
+    "difficulty": "Facile"
+  },
+  {
+    "id": "dare_131",
+    "category": "quotidien",
+    "title": "La soirée sans écran · musique",
+    "description": "Passez une heure ensemble sans téléphone, télévision ni ordinateur. Mettez une playlist choisie ensemble et terminez avant qu’elle ne soit finie.",
+    "difficulty": "Facile"
+  },
+  {
+    "id": "dare_132",
+    "category": "quotidien",
+    "title": "La soirée sans écran · photo avant-après",
+    "description": "Passez une heure ensemble sans téléphone, télévision ni ordinateur. Prenez une photo au début et une autre à la fin pour garder le résultat.",
+    "difficulty": "Facile"
+  },
+  {
+    "id": "dare_133",
+    "category": "quotidien",
+    "title": "Le service surprise · petit budget",
+    "description": "Faites chacun une petite chose utile pour l’autre sans lui dire à l’avance laquelle. Vous ne pouvez dépenser aucun argent pour réaliser le défi.",
+    "difficulty": "Facile"
+  },
+  {
+    "id": "dare_134",
+    "category": "quotidien",
+    "title": "Le service surprise · chrono",
+    "description": "Faites chacun une petite chose utile pour l’autre sans lui dire à l’avance laquelle. Vous avez seulement vingt minutes.",
+    "difficulty": "Facile"
+  },
+  {
+    "id": "dare_135",
+    "category": "quotidien",
+    "title": "Le service surprise · musique",
+    "description": "Faites chacun une petite chose utile pour l’autre sans lui dire à l’avance laquelle. Mettez une playlist choisie ensemble et terminez avant qu’elle ne soit finie.",
+    "difficulty": "Facile"
+  },
+  {
+    "id": "dare_136",
+    "category": "quotidien",
+    "title": "Le service surprise · photo avant-après",
+    "description": "Faites chacun une petite chose utile pour l’autre sans lui dire à l’avance laquelle. Prenez une photo au début et une autre à la fin pour garder le résultat.",
+    "difficulty": "Facile"
+  },
+  {
+    "id": "dare_137",
+    "category": "quotidien",
+    "title": "Le tri sentimental · petit budget",
+    "description": "Choisissez chacun trois objets que vous gardez pour une raison affective et racontez leur histoire. Vous ne pouvez dépenser aucun argent pour réaliser le défi.",
+    "difficulty": "Facile"
+  },
+  {
+    "id": "dare_138",
+    "category": "quotidien",
+    "title": "Le tri sentimental · chrono",
+    "description": "Choisissez chacun trois objets que vous gardez pour une raison affective et racontez leur histoire. Vous avez seulement vingt minutes.",
+    "difficulty": "Facile"
+  },
+  {
+    "id": "dare_139",
+    "category": "quotidien",
+    "title": "Le tri sentimental · musique",
+    "description": "Choisissez chacun trois objets que vous gardez pour une raison affective et racontez leur histoire. Mettez une playlist choisie ensemble et terminez avant qu’elle ne soit finie.",
+    "difficulty": "Facile"
+  },
+  {
+    "id": "dare_140",
+    "category": "aventure",
+    "title": "La pièce décide · sans GPS",
+    "description": "Lancez une pièce à chaque grand carrefour pendant une promenade et suivez le hasard. N’utilisez le GPS qu’en cas de vraie nécessité.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_141",
+    "category": "aventure",
+    "title": "La pièce décide · petit budget",
+    "description": "Lancez une pièce à chaque grand carrefour pendant une promenade et suivez le hasard. Vous avez un budget maximum de 15 € pour toute l’aventure.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_142",
+    "category": "aventure",
+    "title": "La pièce décide · choix alternés",
+    "description": "Lancez une pièce à chaque grand carrefour pendant une promenade et suivez le hasard. Vous choisissez chacun une décision sur deux pendant toute l’expérience.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_143",
+    "category": "aventure",
+    "title": "La pièce décide · souvenir obligatoire",
+    "description": "Lancez une pièce à chaque grand carrefour pendant une promenade et suivez le hasard. Ramenez ou créez un petit souvenir de cette aventure.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_144",
+    "category": "aventure",
+    "title": "Le lieu inconnu · sans GPS",
+    "description": "Choisissez sur une carte un endroit proche où aucun de vous n’est déjà allé et partez le découvrir. N’utilisez le GPS qu’en cas de vraie nécessité.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_145",
+    "category": "aventure",
+    "title": "Le lieu inconnu · petit budget",
+    "description": "Choisissez sur une carte un endroit proche où aucun de vous n’est déjà allé et partez le découvrir. Vous avez un budget maximum de 15 € pour toute l’aventure.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_146",
+    "category": "aventure",
+    "title": "Le lieu inconnu · choix alternés",
+    "description": "Choisissez sur une carte un endroit proche où aucun de vous n’est déjà allé et partez le découvrir. Vous choisissez chacun une décision sur deux pendant toute l’expérience.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_147",
+    "category": "aventure",
+    "title": "Le lieu inconnu · souvenir obligatoire",
+    "description": "Choisissez sur une carte un endroit proche où aucun de vous n’est déjà allé et partez le découvrir. Ramenez ou créez un petit souvenir de cette aventure.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_148",
+    "category": "aventure",
+    "title": "Le mini road trip · sans GPS",
+    "description": "Préparez de quoi boire, choisissez une direction et partez une heure sans destination précise. N’utilisez le GPS qu’en cas de vraie nécessité.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_149",
+    "category": "aventure",
+    "title": "Le mini road trip · petit budget",
+    "description": "Préparez de quoi boire, choisissez une direction et partez une heure sans destination précise. Vous avez un budget maximum de 15 € pour toute l’aventure.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_150",
+    "category": "aventure",
+    "title": "Le mini road trip · choix alternés",
+    "description": "Préparez de quoi boire, choisissez une direction et partez une heure sans destination précise. Vous choisissez chacun une décision sur deux pendant toute l’expérience.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_151",
+    "category": "aventure",
+    "title": "Le mini road trip · souvenir obligatoire",
+    "description": "Préparez de quoi boire, choisissez une direction et partez une heure sans destination précise. Ramenez ou créez un petit souvenir de cette aventure.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_152",
+    "category": "aventure",
+    "title": "Le défi photo · sans GPS",
+    "description": "Partez dehors et rapportez ensemble dix photos correspondant à dix thèmes improvisés. N’utilisez le GPS qu’en cas de vraie nécessité.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_153",
+    "category": "aventure",
+    "title": "Le défi photo · petit budget",
+    "description": "Partez dehors et rapportez ensemble dix photos correspondant à dix thèmes improvisés. Vous avez un budget maximum de 15 € pour toute l’aventure.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_154",
+    "category": "aventure",
+    "title": "Le défi photo · choix alternés",
+    "description": "Partez dehors et rapportez ensemble dix photos correspondant à dix thèmes improvisés. Vous choisissez chacun une décision sur deux pendant toute l’expérience.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_155",
+    "category": "aventure",
+    "title": "Le défi photo · souvenir obligatoire",
+    "description": "Partez dehors et rapportez ensemble dix photos correspondant à dix thèmes improvisés. Ramenez ou créez un petit souvenir de cette aventure.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_156",
+    "category": "aventure",
+    "title": "Le touriste chez soi · sans GPS",
+    "description": "Visitez votre propre ville comme si vous étiez des touristes pour la première fois. N’utilisez le GPS qu’en cas de vraie nécessité.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_157",
+    "category": "aventure",
+    "title": "Le touriste chez soi · petit budget",
+    "description": "Visitez votre propre ville comme si vous étiez des touristes pour la première fois. Vous avez un budget maximum de 15 € pour toute l’aventure.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_158",
+    "category": "aventure",
+    "title": "Le touriste chez soi · choix alternés",
+    "description": "Visitez votre propre ville comme si vous étiez des touristes pour la première fois. Vous choisissez chacun une décision sur deux pendant toute l’expérience.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_159",
+    "category": "aventure",
+    "title": "Le touriste chez soi · souvenir obligatoire",
+    "description": "Visitez votre propre ville comme si vous étiez des touristes pour la première fois. Ramenez ou créez un petit souvenir de cette aventure.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_160",
+    "category": "aventure",
+    "title": "La mission lever ou coucher · sans GPS",
+    "description": "Trouvez un bel endroit pour regarder ensemble un lever ou un coucher de soleil. N’utilisez le GPS qu’en cas de vraie nécessité.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_161",
+    "category": "aventure",
+    "title": "La mission lever ou coucher · petit budget",
+    "description": "Trouvez un bel endroit pour regarder ensemble un lever ou un coucher de soleil. Vous avez un budget maximum de 15 € pour toute l’aventure.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_162",
+    "category": "aventure",
+    "title": "La mission lever ou coucher · choix alternés",
+    "description": "Trouvez un bel endroit pour regarder ensemble un lever ou un coucher de soleil. Vous choisissez chacun une décision sur deux pendant toute l’expérience.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_163",
+    "category": "communication",
+    "title": "La question évitée · sans interrompre",
+    "description": "Posez-vous chacun une question que vous avez déjà eu envie de poser mais que vous avez repoussée. Chacun dispose de deux minutes pendant lesquelles l’autre ne peut pas interrompre.",
+    "difficulty": "Intime"
+  },
+  {
+    "id": "dare_164",
+    "category": "communication",
+    "title": "La question évitée · reformulation",
+    "description": "Posez-vous chacun une question que vous avez déjà eu envie de poser mais que vous avez repoussée. Avant de répondre, reformulez ce que vous avez compris des paroles de l’autre.",
+    "difficulty": "Intime"
+  },
+  {
+    "id": "dare_165",
+    "category": "communication",
+    "title": "La question évitée · avec une demande",
+    "description": "Posez-vous chacun une question que vous avez déjà eu envie de poser mais que vous avez repoussée. Terminez chacun par une demande concrète et réaliste.",
+    "difficulty": "Intime"
+  },
+  {
+    "id": "dare_166",
+    "category": "communication",
+    "title": "La question évitée · à garder",
+    "description": "Posez-vous chacun une question que vous avez déjà eu envie de poser mais que vous avez repoussée. Notez une phrase importante que vous voulez retenir de cette discussion.",
+    "difficulty": "Intime"
+  },
+  {
+    "id": "dare_167",
+    "category": "communication",
+    "title": "Le mode d’emploi · sans interrompre",
+    "description": "Expliquez chacun ce dont vous avez besoin quand vous êtes stressé(e), triste et en colère. Chacun dispose de deux minutes pendant lesquelles l’autre ne peut pas interrompre.",
+    "difficulty": "Intime"
+  },
+  {
+    "id": "dare_168",
+    "category": "communication",
+    "title": "Le mode d’emploi · reformulation",
+    "description": "Expliquez chacun ce dont vous avez besoin quand vous êtes stressé(e), triste et en colère. Avant de répondre, reformulez ce que vous avez compris des paroles de l’autre.",
+    "difficulty": "Intime"
+  },
+  {
+    "id": "dare_169",
+    "category": "communication",
+    "title": "Le mode d’emploi · avec une demande",
+    "description": "Expliquez chacun ce dont vous avez besoin quand vous êtes stressé(e), triste et en colère. Terminez chacun par une demande concrète et réaliste.",
+    "difficulty": "Intime"
+  },
+  {
+    "id": "dare_170",
+    "category": "communication",
+    "title": "Le mode d’emploi · à garder",
+    "description": "Expliquez chacun ce dont vous avez besoin quand vous êtes stressé(e), triste et en colère. Notez une phrase importante que vous voulez retenir de cette discussion.",
+    "difficulty": "Intime"
+  },
+  {
+    "id": "dare_171",
+    "category": "communication",
+    "title": "Le débat sans gagner · sans interrompre",
+    "description": "Choisissez un petit désaccord et essayez chacun de défendre sincèrement le point de vue de l’autre. Chacun dispose de deux minutes pendant lesquelles l’autre ne peut pas interrompre.",
+    "difficulty": "Intime"
+  },
+  {
+    "id": "dare_172",
+    "category": "communication",
+    "title": "Le débat sans gagner · reformulation",
+    "description": "Choisissez un petit désaccord et essayez chacun de défendre sincèrement le point de vue de l’autre. Avant de répondre, reformulez ce que vous avez compris des paroles de l’autre.",
+    "difficulty": "Intime"
+  },
+  {
+    "id": "dare_173",
+    "category": "communication",
+    "title": "Le débat sans gagner · avec une demande",
+    "description": "Choisissez un petit désaccord et essayez chacun de défendre sincèrement le point de vue de l’autre. Terminez chacun par une demande concrète et réaliste.",
+    "difficulty": "Intime"
+  },
+  {
+    "id": "dare_174",
+    "category": "communication",
+    "title": "Le débat sans gagner · à garder",
+    "description": "Choisissez un petit désaccord et essayez chacun de défendre sincèrement le point de vue de l’autre. Notez une phrase importante que vous voulez retenir de cette discussion.",
+    "difficulty": "Intime"
+  },
+  {
+    "id": "dare_175",
+    "category": "communication",
+    "title": "Les besoins du moment · sans interrompre",
+    "description": "Dites chacun trois choses dont vous avez besoin davantage en ce moment. Chacun dispose de deux minutes pendant lesquelles l’autre ne peut pas interrompre.",
+    "difficulty": "Intime"
+  },
+  {
+    "id": "dare_176",
+    "category": "communication",
+    "title": "Les besoins du moment · reformulation",
+    "description": "Dites chacun trois choses dont vous avez besoin davantage en ce moment. Avant de répondre, reformulez ce que vous avez compris des paroles de l’autre.",
+    "difficulty": "Intime"
+  },
+  {
+    "id": "dare_177",
+    "category": "communication",
+    "title": "Les besoins du moment · avec une demande",
+    "description": "Dites chacun trois choses dont vous avez besoin davantage en ce moment. Terminez chacun par une demande concrète et réaliste.",
+    "difficulty": "Intime"
+  },
+  {
+    "id": "dare_178",
+    "category": "communication",
+    "title": "Les besoins du moment · à garder",
+    "description": "Dites chacun trois choses dont vous avez besoin davantage en ce moment. Notez une phrase importante que vous voulez retenir de cette discussion.",
+    "difficulty": "Intime"
+  },
+  {
+    "id": "dare_179",
+    "category": "communication",
+    "title": "Le bilan honnête · sans interrompre",
+    "description": "Nommez chacun une chose qui fonctionne très bien et une chose que vous aimeriez améliorer dans votre relation. Chacun dispose de deux minutes pendant lesquelles l’autre ne peut pas interrompre.",
+    "difficulty": "Intime"
+  },
+  {
+    "id": "dare_180",
+    "category": "communication",
+    "title": "Le bilan honnête · reformulation",
+    "description": "Nommez chacun une chose qui fonctionne très bien et une chose que vous aimeriez améliorer dans votre relation. Avant de répondre, reformulez ce que vous avez compris des paroles de l’autre.",
+    "difficulty": "Intime"
+  },
+  {
+    "id": "dare_181",
+    "category": "communication",
+    "title": "Le bilan honnête · avec une demande",
+    "description": "Nommez chacun une chose qui fonctionne très bien et une chose que vous aimeriez améliorer dans votre relation. Terminez chacun par une demande concrète et réaliste.",
+    "difficulty": "Intime"
+  },
+  {
+    "id": "dare_182",
+    "category": "communication",
+    "title": "Le bilan honnête · à garder",
+    "description": "Nommez chacun une chose qui fonctionne très bien et une chose que vous aimeriez améliorer dans votre relation. Notez une phrase importante que vous voulez retenir de cette discussion.",
+    "difficulty": "Intime"
+  },
+  {
+    "id": "dare_183",
+    "category": "communication",
+    "title": "Le mot difficile · sans interrompre",
+    "description": "Choisissez une émotion que vous exprimez rarement et expliquez comment elle se manifeste chez vous. Chacun dispose de deux minutes pendant lesquelles l’autre ne peut pas interrompre.",
+    "difficulty": "Intime"
+  },
+  {
+    "id": "dare_184",
+    "category": "communication",
+    "title": "Le mot difficile · reformulation",
+    "description": "Choisissez une émotion que vous exprimez rarement et expliquez comment elle se manifeste chez vous. Avant de répondre, reformulez ce que vous avez compris des paroles de l’autre.",
+    "difficulty": "Intime"
+  },
+  {
+    "id": "dare_185",
+    "category": "communication",
+    "title": "Le mot difficile · avec une demande",
+    "description": "Choisissez une émotion que vous exprimez rarement et expliquez comment elle se manifeste chez vous. Terminez chacun par une demande concrète et réaliste.",
+    "difficulty": "Intime"
+  },
+  {
+    "id": "dare_186",
+    "category": "distance",
+    "title": "La même heure · sans préparation",
+    "description": "Choisissez un moment précis et faites exactement la même petite activité chacun de votre côté. Vous devez commencer dans les dix prochaines minutes sans rien acheter.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_187",
+    "category": "distance",
+    "title": "La même heure · surprise",
+    "description": "Choisissez un moment précis et faites exactement la même petite activité chacun de votre côté. Ne révélez votre choix ou votre création qu’au dernier moment.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_188",
+    "category": "distance",
+    "title": "La même heure · thème commun",
+    "description": "Choisissez un moment précis et faites exactement la même petite activité chacun de votre côté. Choisissez un thème commun avant de commencer.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_189",
+    "category": "distance",
+    "title": "La même heure · souvenir",
+    "description": "Choisissez un moment précis et faites exactement la même petite activité chacun de votre côté. Gardez une trace du défi dans votre téléphone ou votre album de couple.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_190",
+    "category": "distance",
+    "title": "Le colis imaginaire · sans préparation",
+    "description": "Composez chacun une liste de cinq choses que vous mettriez dans un colis surprise pour l’autre. Vous devez commencer dans les dix prochaines minutes sans rien acheter.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_191",
+    "category": "distance",
+    "title": "Le colis imaginaire · surprise",
+    "description": "Composez chacun une liste de cinq choses que vous mettriez dans un colis surprise pour l’autre. Ne révélez votre choix ou votre création qu’au dernier moment.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_192",
+    "category": "distance",
+    "title": "Le colis imaginaire · thème commun",
+    "description": "Composez chacun une liste de cinq choses que vous mettriez dans un colis surprise pour l’autre. Choisissez un thème commun avant de commencer.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_193",
+    "category": "distance",
+    "title": "Le colis imaginaire · souvenir",
+    "description": "Composez chacun une liste de cinq choses que vous mettriez dans un colis surprise pour l’autre. Gardez une trace du défi dans votre téléphone ou votre album de couple.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_194",
+    "category": "distance",
+    "title": "La visite guidée · sans préparation",
+    "description": "Faites découvrir en appel vidéo un endroit de votre quotidien que l’autre connaît peu. Vous devez commencer dans les dix prochaines minutes sans rien acheter.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_195",
+    "category": "distance",
+    "title": "La visite guidée · surprise",
+    "description": "Faites découvrir en appel vidéo un endroit de votre quotidien que l’autre connaît peu. Ne révélez votre choix ou votre création qu’au dernier moment.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_196",
+    "category": "distance",
+    "title": "La visite guidée · thème commun",
+    "description": "Faites découvrir en appel vidéo un endroit de votre quotidien que l’autre connaît peu. Choisissez un thème commun avant de commencer.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_197",
+    "category": "distance",
+    "title": "La visite guidée · souvenir",
+    "description": "Faites découvrir en appel vidéo un endroit de votre quotidien que l’autre connaît peu. Gardez une trace du défi dans votre téléphone ou votre album de couple.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_198",
+    "category": "distance",
+    "title": "Le dîner synchronisé · sans préparation",
+    "description": "Préparez chacun un repas similaire et mangez ensemble en appel comme au restaurant. Vous devez commencer dans les dix prochaines minutes sans rien acheter.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_199",
+    "category": "distance",
+    "title": "Le dîner synchronisé · surprise",
+    "description": "Préparez chacun un repas similaire et mangez ensemble en appel comme au restaurant. Ne révélez votre choix ou votre création qu’au dernier moment.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_200",
+    "category": "distance",
+    "title": "Le dîner synchronisé · thème commun",
+    "description": "Préparez chacun un repas similaire et mangez ensemble en appel comme au restaurant. Choisissez un thème commun avant de commencer.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_201",
+    "category": "distance",
+    "title": "Le dîner synchronisé · souvenir",
+    "description": "Préparez chacun un repas similaire et mangez ensemble en appel comme au restaurant. Gardez une trace du défi dans votre téléphone ou votre album de couple.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_202",
+    "category": "distance",
+    "title": "La journée en photos · sans préparation",
+    "description": "Envoyez-vous chacun cinq photos qui racontent vraiment votre journée sans texte explicatif. Vous devez commencer dans les dix prochaines minutes sans rien acheter.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_203",
+    "category": "distance",
+    "title": "La journée en photos · surprise",
+    "description": "Envoyez-vous chacun cinq photos qui racontent vraiment votre journée sans texte explicatif. Ne révélez votre choix ou votre création qu’au dernier moment.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_204",
+    "category": "distance",
+    "title": "La journée en photos · thème commun",
+    "description": "Envoyez-vous chacun cinq photos qui racontent vraiment votre journée sans texte explicatif. Choisissez un thème commun avant de commencer.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_205",
+    "category": "distance",
+    "title": "La journée en photos · souvenir",
+    "description": "Envoyez-vous chacun cinq photos qui racontent vraiment votre journée sans texte explicatif. Gardez une trace du défi dans votre téléphone ou votre album de couple.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_206",
+    "category": "distance",
+    "title": "Le vocal du futur · sans préparation",
+    "description": "Enregistrez chacun un message vocal à réécouter lors de vos prochaines retrouvailles. Vous devez commencer dans les dix prochaines minutes sans rien acheter.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_207",
+    "category": "distance",
+    "title": "Le vocal du futur · surprise",
+    "description": "Enregistrez chacun un message vocal à réécouter lors de vos prochaines retrouvailles. Ne révélez votre choix ou votre création qu’au dernier moment.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_208",
+    "category": "distance",
+    "title": "Le vocal du futur · thème commun",
+    "description": "Enregistrez chacun un message vocal à réécouter lors de vos prochaines retrouvailles. Choisissez un thème commun avant de commencer.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_209",
+    "category": "souvenirs",
+    "title": "Le musée du couple · sans téléphone",
+    "description": "Choisissez chacun cinq photos ou objets qui mériteraient une place dans un musée de votre histoire. Pour raconter, ne vérifiez aucune date ni photo avant d’avoir donné votre version.",
+    "difficulty": "Doux"
+  },
+  {
+    "id": "dare_210",
+    "category": "souvenirs",
+    "title": "Le musée du couple · avec émotion",
+    "description": "Choisissez chacun cinq photos ou objets qui mériteraient une place dans un musée de votre histoire. Ajoutez ce que vous ressentiez réellement à ce moment-là.",
+    "difficulty": "Doux"
+  },
+  {
+    "id": "dare_211",
+    "category": "souvenirs",
+    "title": "Le musée du couple · version de l’autre",
+    "description": "Choisissez chacun cinq photos ou objets qui mériteraient une place dans un musée de votre histoire. Essayez aussi de raconter comment vous pensez que l’autre a vécu ce souvenir.",
+    "difficulty": "Doux"
+  },
+  {
+    "id": "dare_212",
+    "category": "souvenirs",
+    "title": "Le musée du couple · capsule",
+    "description": "Choisissez chacun cinq photos ou objets qui mériteraient une place dans un musée de votre histoire. Terminez en ajoutant un nouveau souvenir d’aujourd’hui à garder pour plus tard.",
+    "difficulty": "Doux"
+  },
+  {
+    "id": "dare_213",
+    "category": "souvenirs",
+    "title": "Le premier souvenir · sans téléphone",
+    "description": "Racontez chacun le premier souvenir très précis que vous avez de l’autre. Pour raconter, ne vérifiez aucune date ni photo avant d’avoir donné votre version.",
+    "difficulty": "Doux"
+  },
+  {
+    "id": "dare_214",
+    "category": "souvenirs",
+    "title": "Le premier souvenir · avec émotion",
+    "description": "Racontez chacun le premier souvenir très précis que vous avez de l’autre. Ajoutez ce que vous ressentiez réellement à ce moment-là.",
+    "difficulty": "Doux"
+  },
+  {
+    "id": "dare_215",
+    "category": "souvenirs",
+    "title": "Le premier souvenir · version de l’autre",
+    "description": "Racontez chacun le premier souvenir très précis que vous avez de l’autre. Essayez aussi de raconter comment vous pensez que l’autre a vécu ce souvenir.",
+    "difficulty": "Doux"
+  },
+  {
+    "id": "dare_216",
+    "category": "souvenirs",
+    "title": "Le premier souvenir · capsule",
+    "description": "Racontez chacun le premier souvenir très précis que vous avez de l’autre. Terminez en ajoutant un nouveau souvenir d’aujourd’hui à garder pour plus tard.",
+    "difficulty": "Doux"
+  },
+  {
+    "id": "dare_217",
+    "category": "souvenirs",
+    "title": "La chronologie · sans téléphone",
+    "description": "Essayez de remettre ensemble dix moments importants de votre histoire dans le bon ordre. Pour raconter, ne vérifiez aucune date ni photo avant d’avoir donné votre version.",
+    "difficulty": "Doux"
+  },
+  {
+    "id": "dare_218",
+    "category": "souvenirs",
+    "title": "La chronologie · avec émotion",
+    "description": "Essayez de remettre ensemble dix moments importants de votre histoire dans le bon ordre. Ajoutez ce que vous ressentiez réellement à ce moment-là.",
+    "difficulty": "Doux"
+  },
+  {
+    "id": "dare_219",
+    "category": "souvenirs",
+    "title": "La chronologie · version de l’autre",
+    "description": "Essayez de remettre ensemble dix moments importants de votre histoire dans le bon ordre. Essayez aussi de raconter comment vous pensez que l’autre a vécu ce souvenir.",
+    "difficulty": "Doux"
+  },
+  {
+    "id": "dare_220",
+    "category": "souvenirs",
+    "title": "La chronologie · capsule",
+    "description": "Essayez de remettre ensemble dix moments importants de votre histoire dans le bon ordre. Terminez en ajoutant un nouveau souvenir d’aujourd’hui à garder pour plus tard.",
+    "difficulty": "Doux"
+  },
+  {
+    "id": "dare_221",
+    "category": "souvenirs",
+    "title": "La photo recréée · sans téléphone",
+    "description": "Choisissez une ancienne photo de vous et recréez-la le plus fidèlement possible. Pour raconter, ne vérifiez aucune date ni photo avant d’avoir donné votre version.",
+    "difficulty": "Doux"
+  },
+  {
+    "id": "dare_222",
+    "category": "souvenirs",
+    "title": "La photo recréée · avec émotion",
+    "description": "Choisissez une ancienne photo de vous et recréez-la le plus fidèlement possible. Ajoutez ce que vous ressentiez réellement à ce moment-là.",
+    "difficulty": "Doux"
+  },
+  {
+    "id": "dare_223",
+    "category": "souvenirs",
+    "title": "La photo recréée · version de l’autre",
+    "description": "Choisissez une ancienne photo de vous et recréez-la le plus fidèlement possible. Essayez aussi de raconter comment vous pensez que l’autre a vécu ce souvenir.",
+    "difficulty": "Doux"
+  },
+  {
+    "id": "dare_224",
+    "category": "souvenirs",
+    "title": "La photo recréée · capsule",
+    "description": "Choisissez une ancienne photo de vous et recréez-la le plus fidèlement possible. Terminez en ajoutant un nouveau souvenir d’aujourd’hui à garder pour plus tard.",
+    "difficulty": "Doux"
+  },
+  {
+    "id": "dare_225",
+    "category": "souvenirs",
+    "title": "Le message retrouvé · sans téléphone",
+    "description": "Retrouvez un ancien message qui vous fait encore quelque chose aujourd’hui et relisez-le ensemble. Pour raconter, ne vérifiez aucune date ni photo avant d’avoir donné votre version.",
+    "difficulty": "Doux"
+  },
+  {
+    "id": "dare_226",
+    "category": "souvenirs",
+    "title": "Le message retrouvé · avec émotion",
+    "description": "Retrouvez un ancien message qui vous fait encore quelque chose aujourd’hui et relisez-le ensemble. Ajoutez ce que vous ressentiez réellement à ce moment-là.",
+    "difficulty": "Doux"
+  },
+  {
+    "id": "dare_227",
+    "category": "souvenirs",
+    "title": "Le message retrouvé · version de l’autre",
+    "description": "Retrouvez un ancien message qui vous fait encore quelque chose aujourd’hui et relisez-le ensemble. Essayez aussi de raconter comment vous pensez que l’autre a vécu ce souvenir.",
+    "difficulty": "Doux"
+  },
+  {
+    "id": "dare_228",
+    "category": "souvenirs",
+    "title": "Le message retrouvé · capsule",
+    "description": "Retrouvez un ancien message qui vous fait encore quelque chose aujourd’hui et relisez-le ensemble. Terminez en ajoutant un nouveau souvenir d’aujourd’hui à garder pour plus tard.",
+    "difficulty": "Doux"
+  },
+  {
+    "id": "dare_229",
+    "category": "souvenirs",
+    "title": "La boîte à garder · sans téléphone",
+    "description": "Sélectionnez chacun trois petits souvenirs physiques que vous aimeriez conserver très longtemps. Pour raconter, ne vérifiez aucune date ni photo avant d’avoir donné votre version.",
+    "difficulty": "Doux"
+  },
+  {
+    "id": "dare_230",
+    "category": "souvenirs",
+    "title": "La boîte à garder · avec émotion",
+    "description": "Sélectionnez chacun trois petits souvenirs physiques que vous aimeriez conserver très longtemps. Ajoutez ce que vous ressentiez réellement à ce moment-là.",
+    "difficulty": "Doux"
+  },
+  {
+    "id": "dare_231",
+    "category": "souvenirs",
+    "title": "La boîte à garder · version de l’autre",
+    "description": "Sélectionnez chacun trois petits souvenirs physiques que vous aimeriez conserver très longtemps. Essayez aussi de raconter comment vous pensez que l’autre a vécu ce souvenir.",
+    "difficulty": "Doux"
+  },
+  {
+    "id": "dare_232",
+    "category": "surprise",
+    "title": "Le mini rendez-vous secret · petit budget",
+    "description": "Organisez chacun à tour de rôle un mini rendez-vous de trente minutes sans révéler le programme. Le budget maximum est de 10 € par personne.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_233",
+    "category": "surprise",
+    "title": "Le mini rendez-vous secret · personnalisé",
+    "description": "Organisez chacun à tour de rôle un mini rendez-vous de trente minutes sans révéler le programme. La surprise doit utiliser un détail très spécifique que vous connaissez sur l’autre.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_234",
+    "category": "surprise",
+    "title": "Le mini rendez-vous secret · dernier moment",
+    "description": "Organisez chacun à tour de rôle un mini rendez-vous de trente minutes sans révéler le programme. Vous n’avez qu’une heure de préparation.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_235",
+    "category": "surprise",
+    "title": "Le mini rendez-vous secret · souvenir",
+    "description": "Organisez chacun à tour de rôle un mini rendez-vous de trente minutes sans révéler le programme. La surprise doit laisser un petit souvenir à conserver.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_236",
+    "category": "surprise",
+    "title": "Le cadeau zéro euro · petit budget",
+    "description": "Préparez chacun une surprise pour l’autre sans dépenser le moindre euro. Le budget maximum est de 10 € par personne.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_237",
+    "category": "surprise",
+    "title": "Le cadeau zéro euro · personnalisé",
+    "description": "Préparez chacun une surprise pour l’autre sans dépenser le moindre euro. La surprise doit utiliser un détail très spécifique que vous connaissez sur l’autre.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_238",
+    "category": "surprise",
+    "title": "Le cadeau zéro euro · dernier moment",
+    "description": "Préparez chacun une surprise pour l’autre sans dépenser le moindre euro. Vous n’avez qu’une heure de préparation.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_239",
+    "category": "surprise",
+    "title": "Le cadeau zéro euro · souvenir",
+    "description": "Préparez chacun une surprise pour l’autre sans dépenser le moindre euro. La surprise doit laisser un petit souvenir à conserver.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_240",
+    "category": "surprise",
+    "title": "La mission préférée · petit budget",
+    "description": "Choisissez une petite chose que l’autre adore et intégrez-la discrètement à votre journée. Le budget maximum est de 10 € par personne.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_241",
+    "category": "surprise",
+    "title": "La mission préférée · personnalisé",
+    "description": "Choisissez une petite chose que l’autre adore et intégrez-la discrètement à votre journée. La surprise doit utiliser un détail très spécifique que vous connaissez sur l’autre.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_242",
+    "category": "surprise",
+    "title": "La mission préférée · dernier moment",
+    "description": "Choisissez une petite chose que l’autre adore et intégrez-la discrètement à votre journée. Vous n’avez qu’une heure de préparation.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_243",
+    "category": "surprise",
+    "title": "La mission préférée · souvenir",
+    "description": "Choisissez une petite chose que l’autre adore et intégrez-la discrètement à votre journée. La surprise doit laisser un petit souvenir à conserver.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_244",
+    "category": "surprise",
+    "title": "La boîte mystère · petit budget",
+    "description": "Préparez trois objets ou indices et laissez l’autre deviner la surprise ou le souvenir associé. Le budget maximum est de 10 € par personne.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_245",
+    "category": "surprise",
+    "title": "La boîte mystère · personnalisé",
+    "description": "Préparez trois objets ou indices et laissez l’autre deviner la surprise ou le souvenir associé. La surprise doit utiliser un détail très spécifique que vous connaissez sur l’autre.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_246",
+    "category": "surprise",
+    "title": "La boîte mystère · dernier moment",
+    "description": "Préparez trois objets ou indices et laissez l’autre deviner la surprise ou le souvenir associé. Vous n’avez qu’une heure de préparation.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_247",
+    "category": "surprise",
+    "title": "La boîte mystère · souvenir",
+    "description": "Préparez trois objets ou indices et laissez l’autre deviner la surprise ou le souvenir associé. La surprise doit laisser un petit souvenir à conserver.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_248",
+    "category": "surprise",
+    "title": "Le choix aveugle · petit budget",
+    "description": "Proposez chacun trois enveloppes ou options cachées et laissez l’autre en choisir une. Le budget maximum est de 10 € par personne.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_249",
+    "category": "surprise",
+    "title": "Le choix aveugle · personnalisé",
+    "description": "Proposez chacun trois enveloppes ou options cachées et laissez l’autre en choisir une. La surprise doit utiliser un détail très spécifique que vous connaissez sur l’autre.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_250",
+    "category": "surprise",
+    "title": "Le choix aveugle · dernier moment",
+    "description": "Proposez chacun trois enveloppes ou options cachées et laissez l’autre en choisir une. Vous n’avez qu’une heure de préparation.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_251",
+    "category": "surprise",
+    "title": "Le choix aveugle · souvenir",
+    "description": "Proposez chacun trois enveloppes ou options cachées et laissez l’autre en choisir une. La surprise doit laisser un petit souvenir à conserver.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_252",
+    "category": "surprise",
+    "title": "La soirée inconnue · petit budget",
+    "description": "Une personne organise la prochaine heure sans expliquer ce qui va se passer à l’autre. Le budget maximum est de 10 € par personne.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_253",
+    "category": "surprise",
+    "title": "La soirée inconnue · personnalisé",
+    "description": "Une personne organise la prochaine heure sans expliquer ce qui va se passer à l’autre. La surprise doit utiliser un détail très spécifique que vous connaissez sur l’autre.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_254",
+    "category": "surprise",
+    "title": "La soirée inconnue · dernier moment",
+    "description": "Une personne organise la prochaine heure sans expliquer ce qui va se passer à l’autre. Vous n’avez qu’une heure de préparation.",
+    "difficulty": "Moyen"
+  },
+  {
+    "id": "dare_255",
+    "category": "futur",
+    "title": "La journée dans cinq ans · réaliste",
+    "description": "Imaginez chacun une journée ordinaire de votre vie dans cinq ans puis comparez vos visions. Ajoutez ensuite une première étape réaliste à faire dans les trois prochains mois.",
+    "difficulty": "Intime"
+  },
+  {
+    "id": "dare_256",
+    "category": "futur",
+    "title": "La journée dans cinq ans · sans compromis",
+    "description": "Imaginez chacun une journée ordinaire de votre vie dans cinq ans puis comparez vos visions. Commencez chacun par votre version idéale sans chercher immédiatement à faire des compromis.",
+    "difficulty": "Intime"
+  },
+  {
+    "id": "dare_257",
+    "category": "futur",
+    "title": "La journée dans cinq ans · priorités",
+    "description": "Imaginez chacun une journée ordinaire de votre vie dans cinq ans puis comparez vos visions. Classez ensuite les trois idées qui comptent le plus pour chacun.",
+    "difficulty": "Intime"
+  },
+  {
+    "id": "dare_258",
+    "category": "futur",
+    "title": "La journée dans cinq ans · date précise",
+    "description": "Imaginez chacun une journée ordinaire de votre vie dans cinq ans puis comparez vos visions. Choisissez au moins une idée à laquelle vous associez une date ou une période.",
+    "difficulty": "Intime"
+  },
+  {
+    "id": "dare_259",
+    "category": "futur",
+    "title": "Le tableau des rêves · réaliste",
+    "description": "Choisissez ensemble dix images ou mots qui représentent des choses que vous voulez vivre. Ajoutez ensuite une première étape réaliste à faire dans les trois prochains mois.",
+    "difficulty": "Intime"
+  },
+  {
+    "id": "dare_260",
+    "category": "futur",
+    "title": "Le tableau des rêves · sans compromis",
+    "description": "Choisissez ensemble dix images ou mots qui représentent des choses que vous voulez vivre. Commencez chacun par votre version idéale sans chercher immédiatement à faire des compromis.",
+    "difficulty": "Intime"
+  },
+  {
+    "id": "dare_261",
+    "category": "futur",
+    "title": "Le tableau des rêves · priorités",
+    "description": "Choisissez ensemble dix images ou mots qui représentent des choses que vous voulez vivre. Classez ensuite les trois idées qui comptent le plus pour chacun.",
+    "difficulty": "Intime"
+  },
+  {
+    "id": "dare_262",
+    "category": "futur",
+    "title": "Le tableau des rêves · date précise",
+    "description": "Choisissez ensemble dix images ou mots qui représentent des choses que vous voulez vivre. Choisissez au moins une idée à laquelle vous associez une date ou une période.",
+    "difficulty": "Intime"
+  },
+  {
+    "id": "dare_263",
+    "category": "futur",
+    "title": "Le projet impossible · réaliste",
+    "description": "Inventez le grand projet que vous réaliseriez ensemble si l’argent et le temps n’étaient pas des problèmes. Ajoutez ensuite une première étape réaliste à faire dans les trois prochains mois.",
+    "difficulty": "Intime"
+  },
+  {
+    "id": "dare_264",
+    "category": "futur",
+    "title": "Le projet impossible · sans compromis",
+    "description": "Inventez le grand projet que vous réaliseriez ensemble si l’argent et le temps n’étaient pas des problèmes. Commencez chacun par votre version idéale sans chercher immédiatement à faire des compromis.",
+    "difficulty": "Intime"
+  },
+  {
+    "id": "dare_265",
+    "category": "futur",
+    "title": "Le projet impossible · priorités",
+    "description": "Inventez le grand projet que vous réaliseriez ensemble si l’argent et le temps n’étaient pas des problèmes. Classez ensuite les trois idées qui comptent le plus pour chacun.",
+    "difficulty": "Intime"
+  },
+  {
+    "id": "dare_266",
+    "category": "futur",
+    "title": "Le projet impossible · date précise",
+    "description": "Inventez le grand projet que vous réaliseriez ensemble si l’argent et le temps n’étaient pas des problèmes. Choisissez au moins une idée à laquelle vous associez une date ou une période.",
+    "difficulty": "Intime"
+  },
+  {
+    "id": "dare_267",
+    "category": "futur",
+    "title": "La maison rêvée · réaliste",
+    "description": "Dessinez ou décrivez chacun votre futur lieu de vie idéal puis créez une version commune. Ajoutez ensuite une première étape réaliste à faire dans les trois prochains mois.",
+    "difficulty": "Intime"
+  },
+  {
+    "id": "dare_268",
+    "category": "futur",
+    "title": "La maison rêvée · sans compromis",
+    "description": "Dessinez ou décrivez chacun votre futur lieu de vie idéal puis créez une version commune. Commencez chacun par votre version idéale sans chercher immédiatement à faire des compromis.",
+    "difficulty": "Intime"
+  },
+  {
+    "id": "dare_269",
+    "category": "futur",
+    "title": "La maison rêvée · priorités",
+    "description": "Dessinez ou décrivez chacun votre futur lieu de vie idéal puis créez une version commune. Classez ensuite les trois idées qui comptent le plus pour chacun.",
+    "difficulty": "Intime"
+  },
+  {
+    "id": "dare_270",
+    "category": "futur",
+    "title": "La maison rêvée · date précise",
+    "description": "Dessinez ou décrivez chacun votre futur lieu de vie idéal puis créez une version commune. Choisissez au moins une idée à laquelle vous associez une date ou une période.",
+    "difficulty": "Intime"
+  },
+  {
+    "id": "dare_271",
+    "category": "futur",
+    "title": "La liste avant dix ans · réaliste",
+    "description": "Écrivez chacun cinq expériences que vous aimeriez absolument vivre ensemble dans les dix prochaines années. Ajoutez ensuite une première étape réaliste à faire dans les trois prochains mois.",
+    "difficulty": "Intime"
+  },
+  {
+    "id": "dare_272",
+    "category": "futur",
+    "title": "La liste avant dix ans · sans compromis",
+    "description": "Écrivez chacun cinq expériences que vous aimeriez absolument vivre ensemble dans les dix prochaines années. Commencez chacun par votre version idéale sans chercher immédiatement à faire des compromis.",
+    "difficulty": "Intime"
+  },
+  {
+    "id": "dare_273",
+    "category": "futur",
+    "title": "La liste avant dix ans · priorités",
+    "description": "Écrivez chacun cinq expériences que vous aimeriez absolument vivre ensemble dans les dix prochaines années. Classez ensuite les trois idées qui comptent le plus pour chacun.",
+    "difficulty": "Intime"
+  },
+  {
+    "id": "dare_274",
+    "category": "futur",
+    "title": "La liste avant dix ans · date précise",
+    "description": "Écrivez chacun cinq expériences que vous aimeriez absolument vivre ensemble dans les dix prochaines années. Choisissez au moins une idée à laquelle vous associez une date ou une période.",
+    "difficulty": "Intime"
+  },
+  {
+    "id": "dare_275",
+    "category": "futur",
+    "title": "Le futur message · réaliste",
+    "description": "Écrivez un court message à votre couple du futur à relire dans un an. Ajoutez ensuite une première étape réaliste à faire dans les trois prochains mois.",
+    "difficulty": "Intime"
+  },
+  {
+    "id": "dare_276",
+    "category": "futur",
+    "title": "Le futur message · sans compromis",
+    "description": "Écrivez un court message à votre couple du futur à relire dans un an. Commencez chacun par votre version idéale sans chercher immédiatement à faire des compromis.",
+    "difficulty": "Intime"
+  },
+  {
+    "id": "dare_277",
+    "category": "futur",
+    "title": "Le futur message · priorités",
+    "description": "Écrivez un court message à votre couple du futur à relire dans un an. Classez ensuite les trois idées qui comptent le plus pour chacun.",
+    "difficulty": "Intime"
+  },
+  {
+    "id": "dare_278",
+    "category": "confiance",
+    "title": "Le choix à l’aveugle · sans solution",
+    "description": "Laissez chacun l’autre choisir une petite activité ou décision pour vous sans demander de justification avant. Pendant la première partie, écoutez sans chercher immédiatement à proposer une solution.",
+    "difficulty": "Intime"
+  },
+  {
+    "id": "dare_279",
+    "category": "confiance",
+    "title": "Le choix à l’aveugle · exemple concret",
+    "description": "Laissez chacun l’autre choisir une petite activité ou décision pour vous sans demander de justification avant. Ajoutez chacun un exemple réel pour expliquer votre réponse.",
+    "difficulty": "Intime"
+  },
+  {
+    "id": "dare_280",
+    "category": "confiance",
+    "title": "Le choix à l’aveugle · petit engagement",
+    "description": "Laissez chacun l’autre choisir une petite activité ou décision pour vous sans demander de justification avant. Terminez par un petit engagement concret pour les prochains jours.",
+    "difficulty": "Intime"
+  },
+  {
+    "id": "dare_281",
+    "category": "confiance",
+    "title": "Le choix à l’aveugle · à revoir",
+    "description": "Laissez chacun l’autre choisir une petite activité ou décision pour vous sans demander de justification avant. Notez ce que vous voulez vérifier ou rediscuter dans un mois.",
+    "difficulty": "Intime"
+  },
+  {
+    "id": "dare_282",
+    "category": "confiance",
+    "title": "La vérité vulnérable · sans solution",
+    "description": "Partagez chacun une petite insécurité que vous cachez souvent derrière de l’humour ou du détachement. Pendant la première partie, écoutez sans chercher immédiatement à proposer une solution.",
+    "difficulty": "Intime"
+  },
+  {
+    "id": "dare_283",
+    "category": "confiance",
+    "title": "La vérité vulnérable · exemple concret",
+    "description": "Partagez chacun une petite insécurité que vous cachez souvent derrière de l’humour ou du détachement. Ajoutez chacun un exemple réel pour expliquer votre réponse.",
+    "difficulty": "Intime"
+  },
+  {
+    "id": "dare_284",
+    "category": "confiance",
+    "title": "La vérité vulnérable · petit engagement",
+    "description": "Partagez chacun une petite insécurité que vous cachez souvent derrière de l’humour ou du détachement. Terminez par un petit engagement concret pour les prochains jours.",
+    "difficulty": "Intime"
+  },
+  {
+    "id": "dare_285",
+    "category": "confiance",
+    "title": "La vérité vulnérable · à revoir",
+    "description": "Partagez chacun une petite insécurité que vous cachez souvent derrière de l’humour ou du détachement. Notez ce que vous voulez vérifier ou rediscuter dans un mois.",
+    "difficulty": "Intime"
+  },
+  {
+    "id": "dare_286",
+    "category": "confiance",
+    "title": "Le soutien concret · sans solution",
+    "description": "Dites chacun une chose précise sur laquelle vous aimeriez pouvoir compter davantage sur l’autre. Pendant la première partie, écoutez sans chercher immédiatement à proposer une solution.",
+    "difficulty": "Intime"
+  },
+  {
+    "id": "dare_287",
+    "category": "confiance",
+    "title": "Le soutien concret · exemple concret",
+    "description": "Dites chacun une chose précise sur laquelle vous aimeriez pouvoir compter davantage sur l’autre. Ajoutez chacun un exemple réel pour expliquer votre réponse.",
+    "difficulty": "Intime"
+  },
+  {
+    "id": "dare_288",
+    "category": "confiance",
+    "title": "Le soutien concret · petit engagement",
+    "description": "Dites chacun une chose précise sur laquelle vous aimeriez pouvoir compter davantage sur l’autre. Terminez par un petit engagement concret pour les prochains jours.",
+    "difficulty": "Intime"
+  },
+  {
+    "id": "dare_289",
+    "category": "confiance",
+    "title": "Le soutien concret · à revoir",
+    "description": "Dites chacun une chose précise sur laquelle vous aimeriez pouvoir compter davantage sur l’autre. Notez ce que vous voulez vérifier ou rediscuter dans un mois.",
+    "difficulty": "Intime"
+  },
+  {
+    "id": "dare_290",
+    "category": "confiance",
+    "title": "La promesse réaliste · sans solution",
+    "description": "Faites-vous chacun une promesse simple que vous êtes réellement certain(e) de pouvoir tenir. Pendant la première partie, écoutez sans chercher immédiatement à proposer une solution.",
+    "difficulty": "Intime"
+  },
+  {
+    "id": "dare_291",
+    "category": "confiance",
+    "title": "La promesse réaliste · exemple concret",
+    "description": "Faites-vous chacun une promesse simple que vous êtes réellement certain(e) de pouvoir tenir. Ajoutez chacun un exemple réel pour expliquer votre réponse.",
+    "difficulty": "Intime"
+  },
+  {
+    "id": "dare_292",
+    "category": "confiance",
+    "title": "La promesse réaliste · petit engagement",
+    "description": "Faites-vous chacun une promesse simple que vous êtes réellement certain(e) de pouvoir tenir. Terminez par un petit engagement concret pour les prochains jours.",
+    "difficulty": "Intime"
+  },
+  {
+    "id": "dare_293",
+    "category": "confiance",
+    "title": "La promesse réaliste · à revoir",
+    "description": "Faites-vous chacun une promesse simple que vous êtes réellement certain(e) de pouvoir tenir. Notez ce que vous voulez vérifier ou rediscuter dans un mois.",
+    "difficulty": "Intime"
+  },
+  {
+    "id": "dare_294",
+    "category": "confiance",
+    "title": "Le filet de sécurité · sans solution",
+    "description": "Expliquez chacun ce que l’autre pourrait faire dans un moment où vous perdez totalement confiance en vous. Pendant la première partie, écoutez sans chercher immédiatement à proposer une solution.",
+    "difficulty": "Intime"
+  },
+  {
+    "id": "dare_295",
+    "category": "confiance",
+    "title": "Le filet de sécurité · exemple concret",
+    "description": "Expliquez chacun ce que l’autre pourrait faire dans un moment où vous perdez totalement confiance en vous. Ajoutez chacun un exemple réel pour expliquer votre réponse.",
+    "difficulty": "Intime"
+  },
+  {
+    "id": "dare_296",
+    "category": "confiance",
+    "title": "Le filet de sécurité · petit engagement",
+    "description": "Expliquez chacun ce que l’autre pourrait faire dans un moment où vous perdez totalement confiance en vous. Terminez par un petit engagement concret pour les prochains jours.",
+    "difficulty": "Intime"
+  },
+  {
+    "id": "dare_297",
+    "category": "confiance",
+    "title": "Le filet de sécurité · à revoir",
+    "description": "Expliquez chacun ce que l’autre pourrait faire dans un moment où vous perdez totalement confiance en vous. Notez ce que vous voulez vérifier ou rediscuter dans un mois.",
+    "difficulty": "Intime"
+  },
+  {
+    "id": "dare_298",
+    "category": "confiance",
+    "title": "Le droit de dire non · sans solution",
+    "description": "Choisissez chacun une situation dans laquelle vous voulez être certain(e) de pouvoir dire non sans créer de conflit. Pendant la première partie, écoutez sans chercher immédiatement à proposer une solution.",
+    "difficulty": "Intime"
+  },
+  {
+    "id": "dare_299",
+    "category": "confiance",
+    "title": "Le droit de dire non · exemple concret",
+    "description": "Choisissez chacun une situation dans laquelle vous voulez être certain(e) de pouvoir dire non sans créer de conflit. Ajoutez chacun un exemple réel pour expliquer votre réponse.",
+    "difficulty": "Intime"
+  },
+  {
+    "id": "dare_300",
+    "category": "confiance",
+    "title": "Le droit de dire non · petit engagement",
+    "description": "Choisissez chacun une situation dans laquelle vous voulez être certain(e) de pouvoir dire non sans créer de conflit. Terminez par un petit engagement concret pour les prochains jours.",
+    "difficulty": "Intime"
+  }
 ]

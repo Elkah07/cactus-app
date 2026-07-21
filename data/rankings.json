@@ -2,7 +2,7 @@
   "version": 1,
   "app": "Cactus",
   "type": "ranking_library",
-  "total": 148,
+  "total": 300,
   "duplicate_ids": [],
   "rankings": [
     {
@@ -1936,6 +1936,2038 @@
         "Parler avec respect de ses proches"
       ],
       "category": "couple_debats"
+    },
+    {
+      "id": "premium_dates_01",
+      "title": "Classe ces idées de rendez-vous pour un premier rendez-vous, du plus tentant au moins tentant.",
+      "items": [
+        "Nuit dans un hôtel insolite",
+        "Karaoké",
+        "Concert",
+        "Patinoire",
+        "Photobooth et balade",
+        "Restaurant gastronomique",
+        "Randonnée avec pique-nique"
+      ],
+      "category": "couple_relation_distance"
+    },
+    {
+      "id": "premium_dates_02",
+      "title": "Classe ces idées de rendez-vous pour un dimanche pluvieux, selon ce que tu choisirais en premier.",
+      "items": [
+        "Pique-nique au coucher du soleil",
+        "Parc d’attractions",
+        "Randonnée avec pique-nique",
+        "Marché puis cuisine maison",
+        "Spa ou massage",
+        "Karaoké"
+      ],
+      "category": "couple_relation_distance"
+    },
+    {
+      "id": "premium_dates_03",
+      "title": "Classe ces idées de rendez-vous pour un anniversaire de couple, du plus attirant au moins attirant.",
+      "items": [
+        "Soirée jeux de société",
+        "Concert",
+        "Nuit dans un hôtel insolite",
+        "Road trip sans destination",
+        "Patinoire",
+        "Visite d’un château"
+      ],
+      "category": "couple_relation_distance"
+    },
+    {
+      "id": "premium_dates_04",
+      "title": "Classe ces idées de rendez-vous avec seulement 20 €, selon ce qui te correspond le plus.",
+      "items": [
+        "Atelier poterie",
+        "Balade de nuit",
+        "Escape game",
+        "Pique-nique au coucher du soleil",
+        "Journée plage",
+        "Karaoké",
+        "Restaurant gastronomique"
+      ],
+      "category": "couple_relation_distance"
+    },
+    {
+      "id": "premium_dates_05",
+      "title": "Classe ces idées de rendez-vous pour sortir de la routine, du plus tentant au moins tentant.",
+      "items": [
+        "Karaoké",
+        "Musée puis café",
+        "Jardin botanique",
+        "Concert",
+        "Cinéma en plein air",
+        "Pique-nique au coucher du soleil"
+      ],
+      "category": "couple_relation_distance"
+    },
+    {
+      "id": "premium_dates_06",
+      "title": "Classe ces idées de rendez-vous pour une soirée improvisée, selon ce que tu choisirais en premier.",
+      "items": [
+        "Nuit dans un hôtel insolite",
+        "Parc d’attractions",
+        "Jardin botanique",
+        "Brunch du dimanche",
+        "Journée plage",
+        "Pique-nique au coucher du soleil"
+      ],
+      "category": "couple_relation_distance"
+    },
+    {
+      "id": "premium_dates_07",
+      "title": "Classe ces idées de rendez-vous pour une journée entière, du plus attirant au moins attirant.",
+      "items": [
+        "Balade de nuit",
+        "Journée plage",
+        "Cours de cuisine à deux",
+        "Visite d’un château",
+        "Restaurant gastronomique",
+        "Atelier poterie",
+        "Marché puis cuisine maison"
+      ],
+      "category": "couple_relation_distance"
+    },
+    {
+      "id": "premium_dates_08",
+      "title": "Classe ces idées de rendez-vous pour un rendez-vous surprise, selon ce qui te correspond le plus.",
+      "items": [
+        "Cinéma en plein air",
+        "Visite d’un château",
+        "Escape game",
+        "Cours de cuisine à deux",
+        "Karaoké",
+        "Parc d’attractions"
+      ],
+      "category": "couple_relation_distance"
+    },
+    {
+      "id": "premium_dates_09",
+      "title": "Classe ces idées de rendez-vous en plein hiver, du plus tentant au moins tentant.",
+      "items": [
+        "Road trip sans destination",
+        "Marché puis cuisine maison",
+        "Cours de cuisine à deux",
+        "Atelier poterie",
+        "Randonnée avec pique-nique",
+        "Patinoire"
+      ],
+      "category": "couple_relation_distance"
+    },
+    {
+      "id": "premium_dates_10",
+      "title": "Classe ces idées de rendez-vous pendant l’été, selon ce que tu choisirais en premier.",
+      "items": [
+        "Brocante",
+        "Nuit dans un hôtel insolite",
+        "Karaoké",
+        "Spa ou massage",
+        "Brunch du dimanche",
+        "Pique-nique au coucher du soleil",
+        "Parc d’attractions"
+      ],
+      "category": "couple_relation_distance"
+    },
+    {
+      "id": "premium_dates_11",
+      "title": "Classe ces idées de rendez-vous pour se retrouver après une semaine difficile, du plus attirant au moins attirant.",
+      "items": [
+        "Pique-nique au coucher du soleil",
+        "Soirée jeux de société",
+        "Concert",
+        "Marché puis cuisine maison",
+        "Jardin botanique",
+        "Musée puis café"
+      ],
+      "category": "couple_relation_distance"
+    },
+    {
+      "id": "premium_dates_12",
+      "title": "Classe ces idées de rendez-vous pour un couple à distance lors des retrouvailles, selon ce qui te correspond le plus.",
+      "items": [
+        "Balade de nuit",
+        "Brunch du dimanche",
+        "Karaoké",
+        "Pique-nique au coucher du soleil",
+        "Patinoire",
+        "Cinéma en plein air"
+      ],
+      "category": "couple_relation_distance"
+    },
+    {
+      "id": "premium_dates_13",
+      "title": "Classe ces idées de rendez-vous pour rire le plus possible, du plus tentant au moins tentant.",
+      "items": [
+        "Nuit dans un hôtel insolite",
+        "Jardin botanique",
+        "Concert",
+        "Karaoké",
+        "Cours de cuisine à deux",
+        "Balade de nuit",
+        "Visite d’un château"
+      ],
+      "category": "couple_relation_distance"
+    },
+    {
+      "id": "premium_dates_14",
+      "title": "Classe ces idées de rendez-vous pour discuter pendant des heures, selon ce que tu choisirais en premier.",
+      "items": [
+        "Visite d’un château",
+        "Cours de cuisine à deux",
+        "Randonnée avec pique-nique",
+        "Jardin botanique",
+        "Cinéma en plein air",
+        "Nuit dans un hôtel insolite"
+      ],
+      "category": "couple_relation_distance"
+    },
+    {
+      "id": "premium_dates_15",
+      "title": "Classe ces idées de rendez-vous pour créer un souvenir marquant, du plus attirant au moins attirant.",
+      "items": [
+        "Jardin botanique",
+        "Visite d’un château",
+        "Road trip sans destination",
+        "Cours de cuisine à deux",
+        "Randonnée avec pique-nique",
+        "Pique-nique au coucher du soleil"
+      ],
+      "category": "couple_relation_distance"
+    },
+    {
+      "id": "premium_dates_16",
+      "title": "Classe ces idées de rendez-vous pour une journée sans téléphone, selon ce qui te correspond le plus.",
+      "items": [
+        "Restaurant gastronomique",
+        "Patinoire",
+        "Soirée jeux de société",
+        "Escape game",
+        "Atelier poterie",
+        "Cinéma en plein air",
+        "Cours de cuisine à deux"
+      ],
+      "category": "couple_relation_distance"
+    },
+    {
+      "id": "premium_dates_17",
+      "title": "Classe ces idées de rendez-vous pour célébrer une bonne nouvelle, du plus tentant au moins tentant.",
+      "items": [
+        "Patinoire",
+        "Journée plage",
+        "Musée puis café",
+        "Spa ou massage",
+        "Pique-nique au coucher du soleil",
+        "Cinéma en plein air"
+      ],
+      "category": "couple_relation_distance"
+    },
+    {
+      "id": "premium_dates_18",
+      "title": "Classe ces idées de rendez-vous pour découvrir quelque chose de nouveau, selon ce que tu choisirais en premier.",
+      "items": [
+        "Cinéma en plein air",
+        "Spa ou massage",
+        "Photobooth et balade",
+        "Balade de nuit",
+        "Marché puis cuisine maison",
+        "Escape game"
+      ],
+      "category": "couple_relation_distance"
+    },
+    {
+      "id": "premium_dates_19",
+      "title": "Classe ces idées de rendez-vous pour un dernier jour de vacances, du plus attirant au moins attirant.",
+      "items": [
+        "Randonnée avec pique-nique",
+        "Cinéma en plein air",
+        "Spa ou massage",
+        "Road trip sans destination",
+        "Photobooth et balade",
+        "Journée plage",
+        "Soirée jeux de société"
+      ],
+      "category": "couple_relation_distance"
+    },
+    {
+      "id": "premium_voyages_01",
+      "title": "Classe ces façons de voyager pour une semaine de vacances, selon ce que tu choisirais en premier.",
+      "items": [
+        "Île paradisiaque",
+        "Voyage gastronomique",
+        "Vol long-courrier",
+        "Croisière",
+        "Hôtel de luxe",
+        "Festival à l’étranger",
+        "Échange de maisons"
+      ],
+      "category": "futur_projets_vie"
+    },
+    {
+      "id": "premium_voyages_02",
+      "title": "Classe ces façons de voyager pour un mois entier, du plus attirant au moins attirant.",
+      "items": [
+        "Voyage sans itinéraire",
+        "City trip",
+        "Hôtel de luxe",
+        "Train de nuit",
+        "Île paradisiaque",
+        "Séjour tout inclus"
+      ],
+      "category": "futur_projets_vie"
+    },
+    {
+      "id": "premium_voyages_03",
+      "title": "Classe ces façons de voyager avec un petit budget, selon ce qui te correspond le plus.",
+      "items": [
+        "Sac à dos",
+        "Voyage sans itinéraire",
+        "Vol long-courrier",
+        "Maison d’hôtes",
+        "Croisière",
+        "Road trip"
+      ],
+      "category": "futur_projets_vie"
+    },
+    {
+      "id": "premium_voyages_04",
+      "title": "Classe ces façons de voyager pour une lune de miel, du plus tentant au moins tentant.",
+      "items": [
+        "Maison d’hôtes",
+        "Festival à l’étranger",
+        "Montagne",
+        "Voyage surprise",
+        "Désert",
+        "Train de nuit",
+        "Camping"
+      ],
+      "category": "futur_projets_vie"
+    },
+    {
+      "id": "premium_voyages_05",
+      "title": "Classe ces façons de voyager avec des amis, selon ce que tu choisirais en premier.",
+      "items": [
+        "Voyage gastronomique",
+        "Camping",
+        "Montagne",
+        "Safari",
+        "Tour du monde",
+        "Séjour nature"
+      ],
+      "category": "futur_projets_vie"
+    },
+    {
+      "id": "premium_voyages_06",
+      "title": "Classe ces façons de voyager uniquement à deux, du plus attirant au moins attirant.",
+      "items": [
+        "Sac à dos",
+        "Séjour tout inclus",
+        "Train de nuit",
+        "Circuit organisé",
+        "City trip",
+        "Hôtel de luxe"
+      ],
+      "category": "futur_projets_vie"
+    },
+    {
+      "id": "premium_voyages_07",
+      "title": "Classe ces façons de voyager pour vraiment se reposer, selon ce qui te correspond le plus.",
+      "items": [
+        "Camping",
+        "Montagne",
+        "Maison d’hôtes",
+        "Van aménagé",
+        "Sac à dos",
+        "Circuit organisé",
+        "Festival à l’étranger"
+      ],
+      "category": "futur_projets_vie"
+    },
+    {
+      "id": "premium_voyages_08",
+      "title": "Classe ces façons de voyager pour vivre le plus d’aventures, du plus tentant au moins tentant.",
+      "items": [
+        "Séjour nature",
+        "Sac à dos",
+        "Voyage sans itinéraire",
+        "Voyage en hiver",
+        "Train de nuit",
+        "Île paradisiaque"
+      ],
+      "category": "futur_projets_vie"
+    },
+    {
+      "id": "premium_voyages_09",
+      "title": "Classe ces façons de voyager sans presque rien planifier, selon ce que tu choisirais en premier.",
+      "items": [
+        "Séjour nature",
+        "Hôtel de luxe",
+        "Vol long-courrier",
+        "Voyage surprise",
+        "Voyage gastronomique",
+        "Voyage sans itinéraire"
+      ],
+      "category": "futur_projets_vie"
+    },
+    {
+      "id": "premium_voyages_10",
+      "title": "Classe ces façons de voyager avec beaucoup de confort, du plus attirant au moins attirant.",
+      "items": [
+        "Sac à dos",
+        "Désert",
+        "Voyage gastronomique",
+        "Maison d’hôtes",
+        "Séjour tout inclus",
+        "Safari",
+        "Séjour nature"
+      ],
+      "category": "futur_projets_vie"
+    },
+    {
+      "id": "premium_voyages_11",
+      "title": "Classe ces façons de voyager pour découvrir une nouvelle culture, selon ce qui te correspond le plus.",
+      "items": [
+        "Croisière",
+        "Séjour nature",
+        "Safari",
+        "Montagne",
+        "Séjour tout inclus",
+        "City trip"
+      ],
+      "category": "futur_projets_vie"
+    },
+    {
+      "id": "premium_voyages_12",
+      "title": "Classe ces façons de voyager pour prendre les plus belles photos, du plus tentant au moins tentant.",
+      "items": [
+        "Camping",
+        "City trip",
+        "Vol long-courrier",
+        "Van aménagé",
+        "Île paradisiaque",
+        "Voyage gastronomique"
+      ],
+      "category": "futur_projets_vie"
+    },
+    {
+      "id": "premium_voyages_13",
+      "title": "Classe ces façons de voyager pour manger incroyablement bien, selon ce que tu choisirais en premier.",
+      "items": [
+        "City trip",
+        "Circuit organisé",
+        "Tour du monde",
+        "Voyage surprise",
+        "Vol long-courrier",
+        "Séjour nature",
+        "Road trip"
+      ],
+      "category": "futur_projets_vie"
+    },
+    {
+      "id": "premium_voyages_14",
+      "title": "Classe ces façons de voyager pour se déconnecter du monde, du plus attirant au moins attirant.",
+      "items": [
+        "Île paradisiaque",
+        "Croisière",
+        "Voyage sans itinéraire",
+        "Désert",
+        "Maison d’hôtes",
+        "Safari"
+      ],
+      "category": "futur_projets_vie"
+    },
+    {
+      "id": "premium_voyages_15",
+      "title": "Classe ces façons de voyager pour un premier grand voyage ensemble, selon ce qui te correspond le plus.",
+      "items": [
+        "City trip",
+        "Séjour nature",
+        "Vol long-courrier",
+        "Voyage surprise",
+        "Tour du monde",
+        "Voyage sans itinéraire"
+      ],
+      "category": "futur_projets_vie"
+    },
+    {
+      "id": "premium_voyages_16",
+      "title": "Classe ces façons de voyager pour fêter un anniversaire important, du plus tentant au moins tentant.",
+      "items": [
+        "Montagne",
+        "City trip",
+        "Hôtel de luxe",
+        "Road trip",
+        "Camping",
+        "Circuit organisé",
+        "Tour du monde"
+      ],
+      "category": "futur_projets_vie"
+    },
+    {
+      "id": "premium_voyages_17",
+      "title": "Classe ces façons de voyager pour partir au dernier moment, selon ce que tu choisirais en premier.",
+      "items": [
+        "Camping",
+        "Voyage surprise",
+        "Montagne",
+        "Désert",
+        "Tour du monde",
+        "Voyage gastronomique"
+      ],
+      "category": "futur_projets_vie"
+    },
+    {
+      "id": "premium_voyages_18",
+      "title": "Classe ces façons de voyager pour un hiver loin du froid, du plus attirant au moins attirant.",
+      "items": [
+        "Maison d’hôtes",
+        "Safari",
+        "Camping",
+        "Vol long-courrier",
+        "Tour du monde",
+        "Festival à l’étranger"
+      ],
+      "category": "futur_projets_vie"
+    },
+    {
+      "id": "premium_voyages_19",
+      "title": "Classe ces façons de voyager pour un été loin de la foule, selon ce qui te correspond le plus.",
+      "items": [
+        "Camping",
+        "Île paradisiaque",
+        "City trip",
+        "Train de nuit",
+        "Croisière",
+        "Safari",
+        "Échange de maisons"
+      ],
+      "category": "futur_projets_vie"
+    },
+    {
+      "id": "premium_attentions_01",
+      "title": "Classe ces petites attentions après une mauvaise journée, du plus attirant au moins attirant.",
+      "items": [
+        "Une journée organisée",
+        "Un plat préféré",
+        "Une note dans la valise",
+        "Un café préparé",
+        "Une lettre",
+        "Un dessert partagé",
+        "Une tâche faite à ta place"
+      ],
+      "category": "couple_relation_distance"
+    },
+    {
+      "id": "premium_attentions_02",
+      "title": "Classe ces petites attentions quand vous êtes à distance, selon ce qui te correspond le plus.",
+      "items": [
+        "Une playlist",
+        "Une fleur sans occasion",
+        "Une réservation surprise",
+        "Un souvenir gardé",
+        "Un compliment précis",
+        "Une couverture posée sur toi"
+      ],
+      "category": "couple_relation_distance"
+    },
+    {
+      "id": "premium_attentions_03",
+      "title": "Classe ces petites attentions pour ton anniversaire, du plus tentant au moins tentant.",
+      "items": [
+        "Une photo imprimée",
+        "Un trajet pour te raccompagner",
+        "Un dessert partagé",
+        "Une couverture posée sur toi",
+        "Une lettre",
+        "Un petit cadeau utile"
+      ],
+      "category": "couple_relation_distance"
+    },
+    {
+      "id": "premium_attentions_04",
+      "title": "Classe ces petites attentions sans aucune occasion particulière, selon ce que tu choisirais en premier.",
+      "items": [
+        "Un souvenir gardé",
+        "Un appel surprise",
+        "Un trajet pour te raccompagner",
+        "Un petit cadeau utile",
+        "Une couverture posée sur toi",
+        "Une note dans la valise",
+        "Une bouteille d’eau préparée"
+      ],
+      "category": "couple_relation_distance"
+    },
+    {
+      "id": "premium_attentions_05",
+      "title": "Classe ces petites attentions quand tu es malade, du plus attirant au moins attirant.",
+      "items": [
+        "Un trajet pour te raccompagner",
+        "Une fleur sans occasion",
+        "Une tâche faite à ta place",
+        "Un café préparé",
+        "Une journée organisée",
+        "Une lettre"
+      ],
+      "category": "couple_relation_distance"
+    },
+    {
+      "id": "premium_attentions_06",
+      "title": "Classe ces petites attentions avant un voyage, selon ce qui te correspond le plus.",
+      "items": [
+        "Un compliment précis",
+        "Un dessert partagé",
+        "Une tâche faite à ta place",
+        "Un plat préféré",
+        "Un massage",
+        "Un trajet pour te raccompagner"
+      ],
+      "category": "couple_relation_distance"
+    },
+    {
+      "id": "premium_attentions_07",
+      "title": "Classe ces petites attentions pendant une période stressante, du plus tentant au moins tentant.",
+      "items": [
+        "Un appel surprise",
+        "Une playlist",
+        "Une note dans la valise",
+        "Un plat préféré",
+        "Une lettre",
+        "Un chargeur pensé pour toi",
+        "Un compliment précis"
+      ],
+      "category": "couple_relation_distance"
+    },
+    {
+      "id": "premium_attentions_08",
+      "title": "Classe ces petites attentions pour te faire sentir aimé(e), selon ce que tu choisirais en premier.",
+      "items": [
+        "Une playlist",
+        "Un souvenir gardé",
+        "Une lettre",
+        "Un mot caché",
+        "Un plat préféré",
+        "Une réservation surprise"
+      ],
+      "category": "couple_relation_distance"
+    },
+    {
+      "id": "premium_attentions_09",
+      "title": "Classe ces petites attentions qui demandent très peu d’argent, du plus attirant au moins attirant.",
+      "items": [
+        "Une lettre",
+        "Un plat préféré",
+        "Un café préparé",
+        "Un massage",
+        "Une photo imprimée",
+        "Un mot caché"
+      ],
+      "category": "couple_relation_distance"
+    },
+    {
+      "id": "premium_attentions_10",
+      "title": "Classe ces petites attentions qui montrent que l’autre te connaît bien, selon ce qui te correspond le plus.",
+      "items": [
+        "Un plat préféré",
+        "Un souvenir gardé",
+        "Un compliment précis",
+        "Une bouteille d’eau préparée",
+        "Un snack ramené",
+        "Un chargeur pensé pour toi",
+        "Un mot caché"
+      ],
+      "category": "couple_relation_distance"
+    },
+    {
+      "id": "premium_attentions_11",
+      "title": "Classe ces petites attentions qui te rassurent le plus, du plus tentant au moins tentant.",
+      "items": [
+        "Un massage",
+        "Une lettre",
+        "Un souvenir gardé",
+        "Une photo imprimée",
+        "Une playlist",
+        "Un café préparé"
+      ],
+      "category": "couple_relation_distance"
+    },
+    {
+      "id": "premium_attentions_12",
+      "title": "Classe ces petites attentions qui te font le plus sourire, selon ce que tu choisirais en premier.",
+      "items": [
+        "Un souvenir gardé",
+        "Un snack ramené",
+        "Une fleur sans occasion",
+        "Une lettre",
+        "Une couverture posée sur toi",
+        "Un compliment précis"
+      ],
+      "category": "couple_relation_distance"
+    },
+    {
+      "id": "premium_attentions_13",
+      "title": "Classe ces petites attentions que tu aimerais recevoir souvent, du plus attirant au moins attirant.",
+      "items": [
+        "Un souvenir gardé",
+        "Une lettre",
+        "Un chargeur pensé pour toi",
+        "Un café préparé",
+        "Une bouteille d’eau préparée",
+        "Un plat préféré",
+        "Un snack ramené"
+      ],
+      "category": "couple_relation_distance"
+    },
+    {
+      "id": "premium_attentions_14",
+      "title": "Classe ces petites attentions que tu aimerais garder en souvenir, selon ce qui te correspond le plus.",
+      "items": [
+        "Un appel surprise",
+        "Une playlist",
+        "Un plat préféré",
+        "Un trajet pour te raccompagner",
+        "Un petit cadeau utile",
+        "Une note dans la valise"
+      ],
+      "category": "couple_relation_distance"
+    },
+    {
+      "id": "premium_attentions_15",
+      "title": "Classe ces petites attentions qui comptent plus qu’un gros cadeau, du plus tentant au moins tentant.",
+      "items": [
+        "Une bouteille d’eau préparée",
+        "Un repas livré",
+        "Un appel surprise",
+        "Un message au réveil",
+        "Un petit cadeau utile",
+        "Un snack ramené"
+      ],
+      "category": "couple_relation_distance"
+    },
+    {
+      "id": "premium_attentions_16",
+      "title": "Classe ces petites attentions pour te surprendre, selon ce que tu choisirais en premier.",
+      "items": [
+        "Une journée organisée",
+        "Une tâche faite à ta place",
+        "Un plat préféré",
+        "Une réservation surprise",
+        "Un souvenir gardé",
+        "Un compliment précis",
+        "Une lettre"
+      ],
+      "category": "couple_relation_distance"
+    },
+    {
+      "id": "premium_attentions_17",
+      "title": "Classe ces petites attentions pour faciliter ton quotidien, du plus attirant au moins attirant.",
+      "items": [
+        "Un trajet pour te raccompagner",
+        "Un repas livré",
+        "Un plat préféré",
+        "Un message au réveil",
+        "Un massage",
+        "Un snack ramené"
+      ],
+      "category": "couple_relation_distance"
+    },
+    {
+      "id": "premium_attentions_18",
+      "title": "Classe ces petites attentions pour célébrer une réussite, selon ce qui te correspond le plus.",
+      "items": [
+        "Un massage",
+        "Une playlist",
+        "Un trajet pour te raccompagner",
+        "Un plat préféré",
+        "Un petit cadeau utile",
+        "Une note dans la valise"
+      ],
+      "category": "couple_relation_distance"
+    },
+    {
+      "id": "premium_attentions_19",
+      "title": "Classe ces petites attentions quand tu as besoin de réconfort, du plus tentant au moins tentant.",
+      "items": [
+        "Un massage",
+        "Une playlist",
+        "Un compliment précis",
+        "Une note dans la valise",
+        "Une bouteille d’eau préparée",
+        "Une lettre",
+        "Une tâche faite à ta place"
+      ],
+      "category": "couple_relation_distance"
+    },
+    {
+      "id": "premium_valeurs_01",
+      "title": "Classe ces valeurs dans une relation amoureuse.",
+      "items": [
+        "Spiritualité",
+        "Discipline",
+        "Solidarité",
+        "Générosité",
+        "Indépendance",
+        "Loyauté",
+        "Curiosité"
+      ],
+      "category": "personnalite_valeurs"
+    },
+    {
+      "id": "premium_valeurs_02",
+      "title": "Classe ces valeurs pour élever un enfant.",
+      "items": [
+        "Discipline",
+        "Courage",
+        "Générosité",
+        "Honnêteté",
+        "Liberté",
+        "Curiosité"
+      ],
+      "category": "personnalite_valeurs"
+    },
+    {
+      "id": "premium_valeurs_03",
+      "title": "Classe ces valeurs chez un ami proche.",
+      "items": [
+        "Spiritualité",
+        "Justice",
+        "Respect",
+        "Tolérance",
+        "Honnêteté",
+        "Liberté"
+      ],
+      "category": "personnalite_valeurs"
+    },
+    {
+      "id": "premium_valeurs_04",
+      "title": "Classe ces valeurs chez un futur partenaire.",
+      "items": [
+        "Solidarité",
+        "Authenticité",
+        "Respect",
+        "Curiosité",
+        "Justice",
+        "Humilité",
+        "Liberté"
+      ],
+      "category": "personnalite_valeurs"
+    },
+    {
+      "id": "premium_valeurs_05",
+      "title": "Classe ces valeurs dans le monde du travail.",
+      "items": [
+        "Justice",
+        "Honnêteté",
+        "Générosité",
+        "Indépendance",
+        "Discipline",
+        "Famille"
+      ],
+      "category": "personnalite_valeurs"
+    },
+    {
+      "id": "premium_valeurs_06",
+      "title": "Classe ces valeurs pour construire une vie heureuse.",
+      "items": [
+        "Responsabilité",
+        "Loyauté",
+        "Tolérance",
+        "Discipline",
+        "Liberté",
+        "Curiosité"
+      ],
+      "category": "personnalite_valeurs"
+    },
+    {
+      "id": "premium_valeurs_07",
+      "title": "Classe ces valeurs en période de crise.",
+      "items": [
+        "Gentillesse",
+        "Indépendance",
+        "Respect",
+        "Ambition",
+        "Famille",
+        "Loyauté",
+        "Créativité"
+      ],
+      "category": "personnalite_valeurs"
+    },
+    {
+      "id": "premium_valeurs_08",
+      "title": "Classe ces valeurs pour prendre une décision difficile.",
+      "items": [
+        "Indépendance",
+        "Courage",
+        "Stabilité",
+        "Authenticité",
+        "Solidarité",
+        "Aventure"
+      ],
+      "category": "personnalite_valeurs"
+    },
+    {
+      "id": "premium_valeurs_09",
+      "title": "Classe ces valeurs chez une personne que tu admires.",
+      "items": [
+        "Ambition",
+        "Persévérance",
+        "Solidarité",
+        "Aventure",
+        "Indépendance",
+        "Honnêteté"
+      ],
+      "category": "personnalite_valeurs"
+    },
+    {
+      "id": "premium_valeurs_10",
+      "title": "Classe ces valeurs pour vivre en communauté.",
+      "items": [
+        "Justice",
+        "Liberté",
+        "Honnêteté",
+        "Simplicité",
+        "Courage",
+        "Discipline",
+        "Générosité"
+      ],
+      "category": "personnalite_valeurs"
+    },
+    {
+      "id": "premium_valeurs_11",
+      "title": "Classe ces valeurs pour réussir un projet ambitieux.",
+      "items": [
+        "Créativité",
+        "Discipline",
+        "Courage",
+        "Honnêteté",
+        "Simplicité",
+        "Humilité"
+      ],
+      "category": "personnalite_valeurs"
+    },
+    {
+      "id": "premium_valeurs_12",
+      "title": "Classe ces valeurs pour garder confiance en quelqu’un.",
+      "items": [
+        "Gentillesse",
+        "Curiosité",
+        "Indépendance",
+        "Famille",
+        "Créativité",
+        "Générosité"
+      ],
+      "category": "personnalite_valeurs"
+    },
+    {
+      "id": "premium_valeurs_13",
+      "title": "Classe ces valeurs dans une famille.",
+      "items": [
+        "Spiritualité",
+        "Simplicité",
+        "Respect",
+        "Indépendance",
+        "Aventure",
+        "Générosité",
+        "Créativité"
+      ],
+      "category": "personnalite_valeurs"
+    },
+    {
+      "id": "premium_valeurs_14",
+      "title": "Classe ces valeurs pour traverser une grosse épreuve.",
+      "items": [
+        "Liberté",
+        "Courage",
+        "Aventure",
+        "Humilité",
+        "Stabilité",
+        "Simplicité"
+      ],
+      "category": "personnalite_valeurs"
+    },
+    {
+      "id": "premium_valeurs_15",
+      "title": "Classe ces valeurs pour être un bon leader.",
+      "items": [
+        "Courage",
+        "Curiosité",
+        "Créativité",
+        "Aventure",
+        "Indépendance",
+        "Persévérance"
+      ],
+      "category": "personnalite_valeurs"
+    },
+    {
+      "id": "premium_valeurs_16",
+      "title": "Classe ces valeurs pour rester fidèle à soi-même.",
+      "items": [
+        "Honnêteté",
+        "Aventure",
+        "Ambition",
+        "Courage",
+        "Respect",
+        "Tolérance",
+        "Loyauté"
+      ],
+      "category": "personnalite_valeurs"
+    },
+    {
+      "id": "premium_valeurs_17",
+      "title": "Classe ces valeurs pour avoir une vie équilibrée.",
+      "items": [
+        "Simplicité",
+        "Responsabilité",
+        "Indépendance",
+        "Gentillesse",
+        "Curiosité",
+        "Spiritualité"
+      ],
+      "category": "personnalite_valeurs"
+    },
+    {
+      "id": "premium_valeurs_18",
+      "title": "Classe ces valeurs pour créer des relations durables.",
+      "items": [
+        "Curiosité",
+        "Ambition",
+        "Solidarité",
+        "Gentillesse",
+        "Honnêteté",
+        "Aventure"
+      ],
+      "category": "personnalite_valeurs"
+    },
+    {
+      "id": "premium_valeurs_19",
+      "title": "Classe ces valeurs pour vieillir sereinement.",
+      "items": [
+        "Discipline",
+        "Persévérance",
+        "Courage",
+        "Justice",
+        "Gentillesse",
+        "Créativité",
+        "Responsabilité"
+      ],
+      "category": "personnalite_valeurs"
+    },
+    {
+      "id": "premium_quotidien_01",
+      "title": "Classe ces plaisirs du quotidien pour un dimanche parfait, du plus tentant au moins tentant.",
+      "items": [
+        "Bougie allumée",
+        "Temps seul",
+        "Musique forte en voiture",
+        "Café du matin",
+        "Repas maison",
+        "Recevoir un colis",
+        "Draps propres"
+      ],
+      "category": "opinions_quotidien"
+    },
+    {
+      "id": "premium_quotidien_02",
+      "title": "Classe ces plaisirs du quotidien après une semaine épuisante, selon ce que tu choisirais en premier.",
+      "items": [
+        "Dormir sans réveil",
+        "Temps seul",
+        "Douche chaude",
+        "Petit-déjeuner dehors",
+        "Sieste",
+        "Trouver une place de parking"
+      ],
+      "category": "opinions_quotidien"
+    },
+    {
+      "id": "premium_quotidien_03",
+      "title": "Classe ces plaisirs du quotidien pendant l’hiver, du plus attirant au moins attirant.",
+      "items": [
+        "Petit-déjeuner dehors",
+        "Trouver une place de parking",
+        "Promenade",
+        "Maison rangée",
+        "Recevoir un colis",
+        "Faire une liste terminée"
+      ],
+      "category": "opinions_quotidien"
+    },
+    {
+      "id": "premium_quotidien_04",
+      "title": "Classe ces plaisirs du quotidien pendant les vacances, selon ce qui te correspond le plus.",
+      "items": [
+        "Bougie allumée",
+        "Lecture au lit",
+        "Trouver une place de parking",
+        "Livraison de repas",
+        "Sieste",
+        "Promenade",
+        "Maison rangée"
+      ],
+      "category": "opinions_quotidien"
+    },
+    {
+      "id": "premium_quotidien_05",
+      "title": "Classe ces plaisirs du quotidien quand tu as besoin de te réconforter, du plus tentant au moins tentant.",
+      "items": [
+        "Recevoir un colis",
+        "Petit-déjeuner dehors",
+        "Draps propres",
+        "Faire une liste terminée",
+        "Maison rangée",
+        "Lecture au lit"
+      ],
+      "category": "opinions_quotidien"
+    },
+    {
+      "id": "premium_quotidien_06",
+      "title": "Classe ces plaisirs du quotidien pour commencer une bonne journée, selon ce que tu choisirais en premier.",
+      "items": [
+        "Journée sans obligation",
+        "Douche chaude",
+        "Temps seul",
+        "Coucher de soleil",
+        "Dormir sans réveil",
+        "Promenade"
+      ],
+      "category": "opinions_quotidien"
+    },
+    {
+      "id": "premium_quotidien_07",
+      "title": "Classe ces plaisirs du quotidien pour terminer une bonne journée, du plus attirant au moins attirant.",
+      "items": [
+        "Bain chaud",
+        "Faire une liste terminée",
+        "Promenade",
+        "Sieste",
+        "Pluie quand on est chez soi",
+        "Dormir sans réveil",
+        "Douche chaude"
+      ],
+      "category": "opinions_quotidien"
+    },
+    {
+      "id": "premium_quotidien_08",
+      "title": "Classe ces plaisirs du quotidien quand tu veux être seul(e), selon ce qui te correspond le plus.",
+      "items": [
+        "Appel avec un proche",
+        "Petit-déjeuner dehors",
+        "Série sous un plaid",
+        "Coucher de soleil",
+        "Sieste",
+        "Faire une liste terminée"
+      ],
+      "category": "opinions_quotidien"
+    },
+    {
+      "id": "premium_quotidien_09",
+      "title": "Classe ces plaisirs du quotidien à partager avec ton/ta partenaire, du plus tentant au moins tentant.",
+      "items": [
+        "Journée sans obligation",
+        "Maison rangée",
+        "Bain chaud",
+        "Pluie quand on est chez soi",
+        "Trouver une place de parking",
+        "Lecture au lit"
+      ],
+      "category": "opinions_quotidien"
+    },
+    {
+      "id": "premium_quotidien_10",
+      "title": "Classe ces plaisirs du quotidien qui te donnent instantanément le sourire, selon ce que tu choisirais en premier.",
+      "items": [
+        "Livraison de repas",
+        "Douche chaude",
+        "Recevoir un colis",
+        "Temps seul",
+        "Sieste",
+        "Bain chaud",
+        "Draps propres"
+      ],
+      "category": "opinions_quotidien"
+    },
+    {
+      "id": "premium_quotidien_11",
+      "title": "Classe ces plaisirs du quotidien qui te font te sentir chez toi, du plus attirant au moins attirant.",
+      "items": [
+        "Trouver une place de parking",
+        "Temps seul",
+        "Draps propres",
+        "Pluie quand on est chez soi",
+        "Douche chaude",
+        "Café du matin"
+      ],
+      "category": "opinions_quotidien"
+    },
+    {
+      "id": "premium_quotidien_12",
+      "title": "Classe ces plaisirs du quotidien que tu sous-estimes le plus, selon ce qui te correspond le plus.",
+      "items": [
+        "Pain frais",
+        "Bain chaud",
+        "Draps propres",
+        "Maison rangée",
+        "Repas maison",
+        "Pluie quand on est chez soi"
+      ],
+      "category": "opinions_quotidien"
+    },
+    {
+      "id": "premium_quotidien_13",
+      "title": "Classe ces plaisirs du quotidien qui valent presque un luxe, du plus tentant au moins tentant.",
+      "items": [
+        "Musique forte en voiture",
+        "Faire une liste terminée",
+        "Sieste",
+        "Temps seul",
+        "Coucher de soleil",
+        "Maison rangée",
+        "Pluie quand on est chez soi"
+      ],
+      "category": "opinions_quotidien"
+    },
+    {
+      "id": "premium_quotidien_14",
+      "title": "Classe ces plaisirs du quotidien quand il pleut toute la journée, selon ce que tu choisirais en premier.",
+      "items": [
+        "Temps seul",
+        "Coucher de soleil",
+        "Pluie quand on est chez soi",
+        "Petit-déjeuner dehors",
+        "Musique forte en voiture",
+        "Pain frais"
+      ],
+      "category": "opinions_quotidien"
+    },
+    {
+      "id": "premium_quotidien_15",
+      "title": "Classe ces plaisirs du quotidien pendant une journée sans obligation, du plus attirant au moins attirant.",
+      "items": [
+        "Repas maison",
+        "Recevoir un colis",
+        "Pluie quand on est chez soi",
+        "Série sous un plaid",
+        "Lecture au lit",
+        "Appel avec un proche"
+      ],
+      "category": "opinions_quotidien"
+    },
+    {
+      "id": "premium_quotidien_16",
+      "title": "Classe ces plaisirs du quotidien pour ralentir le rythme, selon ce qui te correspond le plus.",
+      "items": [
+        "Repas maison",
+        "Temps seul",
+        "Journée sans obligation",
+        "Pain frais",
+        "Lecture au lit",
+        "Pluie quand on est chez soi",
+        "Dormir sans réveil"
+      ],
+      "category": "opinions_quotidien"
+    },
+    {
+      "id": "premium_quotidien_17",
+      "title": "Classe ces plaisirs du quotidien qui améliorent vraiment ton humeur, du plus tentant au moins tentant.",
+      "items": [
+        "Livraison de repas",
+        "Musique forte en voiture",
+        "Bain chaud",
+        "Appel avec un proche",
+        "Dormir sans réveil",
+        "Petit-déjeuner dehors"
+      ],
+      "category": "opinions_quotidien"
+    },
+    {
+      "id": "premium_quotidien_18",
+      "title": "Classe ces plaisirs du quotidien que tu voudrais avoir plus souvent, selon ce que tu choisirais en premier.",
+      "items": [
+        "Livraison de repas",
+        "Petit-déjeuner dehors",
+        "Sieste",
+        "Recevoir un colis",
+        "Pain frais",
+        "Temps seul"
+      ],
+      "category": "opinions_quotidien"
+    },
+    {
+      "id": "premium_quotidien_19",
+      "title": "Classe ces plaisirs du quotidien pour te remettre d’une mauvaise journée, du plus attirant au moins attirant.",
+      "items": [
+        "Café du matin",
+        "Musique forte en voiture",
+        "Temps seul",
+        "Pain frais",
+        "Recevoir un colis",
+        "Lecture au lit",
+        "Sieste"
+      ],
+      "category": "opinions_quotidien"
+    },
+    {
+      "id": "premium_futur_01",
+      "title": "Classe ces projets de vie à réaliser avant quarante ans.",
+      "items": [
+        "Apprendre une langue",
+        "Voyager plusieurs mois",
+        "Faire du bénévolat",
+        "Avoir un jardin",
+        "Travailler moins",
+        "Organiser un grand événement",
+        "Acheter un logement"
+      ],
+      "category": "futur_projets_vie"
+    },
+    {
+      "id": "premium_futur_02",
+      "title": "Classe ces projets de vie à construire en couple.",
+      "items": [
+        "Vivre à l’étranger",
+        "Réaliser un rêve d’enfance",
+        "Prendre une année sabbatique",
+        "Écrire un livre",
+        "Adopter un animal",
+        "Construire une maison"
+      ],
+      "category": "futur_projets_vie"
+    },
+    {
+      "id": "premium_futur_03",
+      "title": "Classe ces projets de vie qui changeraient le plus ton quotidien.",
+      "items": [
+        "Prendre une année sabbatique",
+        "Voyager plusieurs mois",
+        "Rénover un lieu",
+        "Vivre à la campagne",
+        "Travailler moins",
+        "Acheter un logement"
+      ],
+      "category": "futur_projets_vie"
+    },
+    {
+      "id": "premium_futur_04",
+      "title": "Classe ces projets de vie qui demanderaient le plus de courage.",
+      "items": [
+        "Avoir un jardin",
+        "Changer de carrière",
+        "Rénover un lieu",
+        "Investir",
+        "Adopter un animal",
+        "Voyager plusieurs mois",
+        "Construire une maison"
+      ],
+      "category": "futur_projets_vie"
+    },
+    {
+      "id": "premium_futur_05",
+      "title": "Classe ces projets de vie qui valent le plus de sacrifices.",
+      "items": [
+        "Faire une formation",
+        "Acheter un logement",
+        "Réaliser un rêve d’enfance",
+        "Travailler moins",
+        "Investir",
+        "Vivre près de la mer"
+      ],
+      "category": "futur_projets_vie"
+    },
+    {
+      "id": "premium_futur_06",
+      "title": "Classe ces projets de vie qui te rendent le plus enthousiaste.",
+      "items": [
+        "Construire une maison",
+        "Écrire un livre",
+        "Prendre une année sabbatique",
+        "Faire un tour du monde",
+        "Rénover un lieu",
+        "Vivre à la campagne"
+      ],
+      "category": "futur_projets_vie"
+    },
+    {
+      "id": "premium_futur_07",
+      "title": "Classe ces projets de vie qui te semblent les plus réalistes.",
+      "items": [
+        "Créer une tradition familiale",
+        "Voyager plusieurs mois",
+        "Faire un tour du monde",
+        "Acheter un logement",
+        "Rénover un lieu",
+        "Adopter un animal",
+        "Faire du bénévolat"
+      ],
+      "category": "futur_projets_vie"
+    },
+    {
+      "id": "premium_futur_08",
+      "title": "Classe ces projets de vie qui te feraient le plus grandir.",
+      "items": [
+        "Acheter un logement",
+        "Rénover un lieu",
+        "Apprendre une langue",
+        "Faire du bénévolat",
+        "Vivre à l’étranger",
+        "Changer de carrière"
+      ],
+      "category": "futur_projets_vie"
+    },
+    {
+      "id": "premium_futur_09",
+      "title": "Classe ces projets de vie qui te donneraient le plus de liberté.",
+      "items": [
+        "Créer une tradition familiale",
+        "Prendre une année sabbatique",
+        "Vivre à la campagne",
+        "Adopter un animal",
+        "Acheter un logement",
+        "Lancer un projet créatif"
+      ],
+      "category": "futur_projets_vie"
+    },
+    {
+      "id": "premium_futur_10",
+      "title": "Classe ces projets de vie qui créeraient le plus de souvenirs.",
+      "items": [
+        "Réaliser un rêve d’enfance",
+        "Lancer un projet créatif",
+        "Faire une formation",
+        "Changer de carrière",
+        "Investir",
+        "Écrire un livre",
+        "Faire un tour du monde"
+      ],
+      "category": "futur_projets_vie"
+    },
+    {
+      "id": "premium_futur_11",
+      "title": "Classe ces projets de vie qui apporteraient le plus de stabilité.",
+      "items": [
+        "Changer de carrière",
+        "Organiser un grand événement",
+        "Avoir un jardin",
+        "Acheter un logement",
+        "Créer une entreprise",
+        "Adopter un animal"
+      ],
+      "category": "futur_projets_vie"
+    },
+    {
+      "id": "premium_futur_12",
+      "title": "Classe ces projets de vie qui pourraient attendre le plus longtemps.",
+      "items": [
+        "Lancer un projet créatif",
+        "Faire un tour du monde",
+        "Organiser un grand événement",
+        "Adopter un animal",
+        "Créer une tradition familiale",
+        "Vivre à l’étranger"
+      ],
+      "category": "futur_projets_vie"
+    },
+    {
+      "id": "premium_futur_13",
+      "title": "Classe ces projets de vie qui seraient les plus difficiles à abandonner.",
+      "items": [
+        "Faire une formation",
+        "Vivre près de la mer",
+        "Vivre à l’étranger",
+        "Adopter un animal",
+        "Travailler moins",
+        "Faire du bénévolat",
+        "Apprendre une langue"
+      ],
+      "category": "futur_projets_vie"
+    },
+    {
+      "id": "premium_futur_14",
+      "title": "Classe ces projets de vie à financer en priorité.",
+      "items": [
+        "Adopter un animal",
+        "Avoir un jardin",
+        "Rénover un lieu",
+        "Vivre à la campagne",
+        "Changer de carrière",
+        "Avoir une grande épargne"
+      ],
+      "category": "futur_projets_vie"
+    },
+    {
+      "id": "premium_futur_15",
+      "title": "Classe ces projets de vie à tenter même sans garantie de réussite.",
+      "items": [
+        "Faire une formation",
+        "Avoir un jardin",
+        "Créer une tradition familiale",
+        "Rénover un lieu",
+        "Lancer un projet créatif",
+        "Adopter un animal"
+      ],
+      "category": "futur_projets_vie"
+    },
+    {
+      "id": "premium_futur_16",
+      "title": "Classe ces projets de vie à réaliser si l’argent n’était pas un problème.",
+      "items": [
+        "Apprendre une langue",
+        "Adopter un animal",
+        "Organiser un grand événement",
+        "Prendre une année sabbatique",
+        "Investir",
+        "Changer de carrière",
+        "Rénover un lieu"
+      ],
+      "category": "futur_projets_vie"
+    },
+    {
+      "id": "premium_futur_17",
+      "title": "Classe ces projets de vie qui te ressemblent le plus aujourd’hui.",
+      "items": [
+        "Avoir un jardin",
+        "Créer une entreprise",
+        "Organiser un grand événement",
+        "Travailler moins",
+        "Avoir une grande épargne",
+        "Faire du bénévolat"
+      ],
+      "category": "futur_projets_vie"
+    },
+    {
+      "id": "premium_futur_18",
+      "title": "Classe ces projets de vie que tu aimerais partager avec ton/ta partenaire.",
+      "items": [
+        "Organiser un grand événement",
+        "Créer une entreprise",
+        "Rénover un lieu",
+        "Vivre à l’étranger",
+        "Faire une formation",
+        "Construire une maison"
+      ],
+      "category": "futur_projets_vie"
+    },
+    {
+      "id": "premium_futur_19",
+      "title": "Classe ces projets de vie qui te rendraient le plus fier ou la plus fière.",
+      "items": [
+        "Faire une formation",
+        "Créer une tradition familiale",
+        "Adopter un animal",
+        "Acheter un logement",
+        "Réaliser un rêve d’enfance",
+        "Travailler moins",
+        "Investir"
+      ],
+      "category": "futur_projets_vie"
+    },
+    {
+      "id": "premium_debats_01",
+      "title": "Classe ces sujets de couple à aborder le plus tôt dans une relation.",
+      "items": [
+        "Réseaux sociaux",
+        "Mariage",
+        "Priorités",
+        "Carrière",
+        "Téléphone et vie privée",
+        "Argent",
+        "Alcool"
+      ],
+      "category": "couple_debats"
+    },
+    {
+      "id": "premium_debats_02",
+      "title": "Classe ces sujets de couple qui créent le plus facilement des malentendus.",
+      "items": [
+        "Lieu de vie",
+        "Amis",
+        "Mariage",
+        "Famille",
+        "Argent",
+        "Ex"
+      ],
+      "category": "couple_debats"
+    },
+    {
+      "id": "premium_debats_03",
+      "title": "Classe ces sujets de couple sur lesquels les couples devraient poser des limites claires.",
+      "items": [
+        "Lieu de vie",
+        "Temps seul",
+        "Travail tardif",
+        "Mots de passe",
+        "Vacances séparées",
+        "Dépenses plaisir"
+      ],
+      "category": "couple_debats"
+    },
+    {
+      "id": "premium_debats_04",
+      "title": "Classe ces sujets de couple qui demandent le plus de compromis.",
+      "items": [
+        "Sorties",
+        "Lieu de vie",
+        "Amis",
+        "Mariage",
+        "Mots de passe",
+        "Priorités",
+        "Argent"
+      ],
+      "category": "couple_debats"
+    },
+    {
+      "id": "premium_debats_05",
+      "title": "Classe ces sujets de couple qui peuvent révéler les plus grandes différences de valeurs.",
+      "items": [
+        "Tâches ménagères",
+        "Lieu de vie",
+        "Travail tardif",
+        "Alcool",
+        "Famille",
+        "Jalousie"
+      ],
+      "category": "couple_debats"
+    },
+    {
+      "id": "premium_debats_06",
+      "title": "Classe ces sujets de couple qu’il vaut mieux rediscuter avec le temps.",
+      "items": [
+        "Partage de localisation",
+        "Jalousie",
+        "Travail tardif",
+        "Temps ensemble",
+        "Ex",
+        "Temps seul"
+      ],
+      "category": "couple_debats"
+    },
+    {
+      "id": "premium_debats_07",
+      "title": "Classe ces sujets de couple qui te semblent les plus personnels.",
+      "items": [
+        "Invités à la maison",
+        "Téléphone et vie privée",
+        "Sorties",
+        "Priorités",
+        "Temps seul",
+        "Lieu de vie",
+        "Répartition des tâches"
+      ],
+      "category": "couple_debats"
+    },
+    {
+      "id": "premium_debats_08",
+      "title": "Classe ces sujets de couple sur lesquels tu aurais le plus de mal à céder.",
+      "items": [
+        "Carrière",
+        "Alcool",
+        "Ex",
+        "Répartition des tâches",
+        "Argent",
+        "Temps ensemble"
+      ],
+      "category": "couple_debats"
+    },
+    {
+      "id": "premium_debats_09",
+      "title": "Classe ces sujets de couple qui nécessitent le plus de confiance.",
+      "items": [
+        "Temps seul",
+        "Invités à la maison",
+        "Jalousie",
+        "Sorties",
+        "Alcool",
+        "Tâches ménagères"
+      ],
+      "category": "couple_debats"
+    },
+    {
+      "id": "premium_debats_10",
+      "title": "Classe ces sujets de couple qui peuvent le plus évoluer avec les années.",
+      "items": [
+        "Partage de localisation",
+        "Invités à la maison",
+        "Ex",
+        "Dépenses plaisir",
+        "Jalousie",
+        "Temps seul",
+        "Argent"
+      ],
+      "category": "couple_debats"
+    },
+    {
+      "id": "premium_debats_11",
+      "title": "Classe ces sujets de couple qui sont les plus difficiles à parler calmement.",
+      "items": [
+        "Mots de passe",
+        "Amis",
+        "Priorités",
+        "Tâches ménagères",
+        "Enfants",
+        "Carrière"
+      ],
+      "category": "couple_debats"
+    },
+    {
+      "id": "premium_debats_12",
+      "title": "Classe ces sujets de couple qui méritent le plus de règles explicites.",
+      "items": [
+        "Invités à la maison",
+        "Lieu de vie",
+        "Carrière",
+        "Ex",
+        "Temps seul",
+        "Mots de passe"
+      ],
+      "category": "couple_debats"
+    },
+    {
+      "id": "premium_debats_13",
+      "title": "Classe ces sujets de couple où chacun devrait garder le plus d’indépendance.",
+      "items": [
+        "Tâches ménagères",
+        "Amis",
+        "Famille",
+        "Mots de passe",
+        "Vacances séparées",
+        "Temps seul",
+        "Ex"
+      ],
+      "category": "couple_debats"
+    },
+    {
+      "id": "premium_debats_14",
+      "title": "Classe ces sujets de couple qui peuvent le plus affecter le quotidien.",
+      "items": [
+        "Sorties",
+        "Ex",
+        "Invités à la maison",
+        "Vacances séparées",
+        "Lieu de vie",
+        "Temps seul"
+      ],
+      "category": "couple_debats"
+    },
+    {
+      "id": "premium_debats_15",
+      "title": "Classe ces sujets de couple où la compatibilité te semble la plus importante.",
+      "items": [
+        "Réseaux sociaux",
+        "Enfants",
+        "Priorités",
+        "Alcool",
+        "Lieu de vie",
+        "Temps ensemble"
+      ],
+      "category": "couple_debats"
+    },
+    {
+      "id": "premium_debats_16",
+      "title": "Classe ces sujets de couple que tu préfères régler avant d’habiter ensemble.",
+      "items": [
+        "Mots de passe",
+        "Sorties",
+        "Téléphone et vie privée",
+        "Temps seul",
+        "Priorités",
+        "Répartition des tâches",
+        "Jalousie"
+      ],
+      "category": "couple_debats"
+    },
+    {
+      "id": "premium_debats_17",
+      "title": "Classe ces sujets de couple sur lesquels tu pourrais changer d’avis.",
+      "items": [
+        "Enfants",
+        "Mariage",
+        "Argent",
+        "Temps seul",
+        "Amis",
+        "Travail tardif"
+      ],
+      "category": "couple_debats"
+    },
+    {
+      "id": "premium_debats_18",
+      "title": "Classe ces sujets de couple qui demandent le plus d’honnêteté.",
+      "items": [
+        "Famille",
+        "Lieu de vie",
+        "Enfants",
+        "Vacances séparées",
+        "Mots de passe",
+        "Carrière"
+      ],
+      "category": "couple_debats"
+    },
+    {
+      "id": "premium_debats_19",
+      "title": "Classe ces sujets de couple qui te semblent les plus sous-estimés.",
+      "items": [
+        "Mariage",
+        "Invités à la maison",
+        "Famille",
+        "Ex",
+        "Téléphone et vie privée",
+        "Jalousie",
+        "Enfants"
+      ],
+      "category": "couple_debats"
+    },
+    {
+      "id": "premium_fun_01",
+      "title": "Classe ces scénarios absurdes du plus tentant au moins tentant.",
+      "items": [
+        "Être invisible une heure par jour",
+        "Être poursuivi par un canard géant",
+        "Voyager dans le temps",
+        "Vivre sans téléphone un an",
+        "Devenir influenceur malgré soi",
+        "Avoir une chanson à chaque entrée",
+        "Être célèbre une semaine"
+      ],
+      "category": "dilemmes_debats_revelateurs"
+    },
+    {
+      "id": "premium_fun_02",
+      "title": "Classe ces scénarios absurdes du plus drôle au plus catastrophique.",
+      "items": [
+        "Connaître tous les spoilers",
+        "Avoir un majordome robot",
+        "Vivre sans téléphone un an",
+        "Parler aux animaux",
+        "Avoir un clone",
+        "Devenir influenceur malgré soi"
+      ],
+      "category": "dilemmes_debats_revelateurs"
+    },
+    {
+      "id": "premium_fun_03",
+      "title": "Classe ces scénarios absurdes selon ceux que tu accepterais le plus vite.",
+      "items": [
+        "Avoir un majordome robot",
+        "Gagner au loto demain",
+        "Voyager dans le temps",
+        "Avoir une chanson à chaque entrée",
+        "Tout comprendre mais rien expliquer",
+        "Vivre avec un fantôme gentil"
+      ],
+      "category": "dilemmes_debats_revelateurs"
+    },
+    {
+      "id": "premium_fun_04",
+      "title": "Classe ces scénarios absurdes du plus pratique au plus inutile.",
+      "items": [
+        "Changer de corps une journée",
+        "Être célèbre une semaine",
+        "Recevoir 100 colis mystères",
+        "Avoir un clone",
+        "Lire les pensées",
+        "Pouvoir se téléporter",
+        "Devenir influenceur malgré soi"
+      ],
+      "category": "dilemmes_debats_revelateurs"
+    },
+    {
+      "id": "premium_fun_05",
+      "title": "Classe ces scénarios absurdes selon ceux qui changeraient le plus ta vie.",
+      "items": [
+        "Être bloqué dans un film",
+        "Être poursuivi par un canard géant",
+        "Devenir influenceur malgré soi",
+        "Avoir un majordome robot",
+        "Tout comprendre mais rien expliquer",
+        "Ne manger qu’un plat un mois"
+      ],
+      "category": "dilemmes_debats_revelateurs"
+    },
+    {
+      "id": "premium_fun_06",
+      "title": "Classe ces scénarios absurdes du plus amusant au plus épuisant.",
+      "items": [
+        "Participer à une télé-réalité",
+        "Habiter dans un parc d’attractions",
+        "Tout comprendre mais rien expliquer",
+        "Vivre avec un fantôme gentil",
+        "Être poursuivi par un canard géant",
+        "Être invisible une heure par jour"
+      ],
+      "category": "dilemmes_debats_revelateurs"
+    },
+    {
+      "id": "premium_fun_07",
+      "title": "Classe ces scénarios absurdes selon ceux que tu voudrais tester une journée.",
+      "items": [
+        "Vivre avec un fantôme gentil",
+        "Connaître tous les spoilers",
+        "Être bloqué dans un film",
+        "Parler aux animaux",
+        "Devenir influenceur malgré soi",
+        "Être célèbre une semaine",
+        "Voyager dans le temps"
+      ],
+      "category": "dilemmes_debats_revelateurs"
+    },
+    {
+      "id": "premium_fun_08",
+      "title": "Classe ces scénarios absurdes du plus facile au plus difficile à cacher.",
+      "items": [
+        "Habiter dans un parc d’attractions",
+        "Vivre avec un fantôme gentil",
+        "Recevoir 100 colis mystères",
+        "Devenir influenceur malgré soi",
+        "Vivre sur une île privée",
+        "Voyager dans le temps"
+      ],
+      "category": "dilemmes_debats_revelateurs"
+    },
+    {
+      "id": "premium_fun_09",
+      "title": "Classe ces scénarios absurdes selon ceux qui feraient le meilleur film.",
+      "items": [
+        "Recevoir 100 colis mystères",
+        "Pouvoir se téléporter",
+        "Être célèbre une semaine",
+        "Tout comprendre mais rien expliquer",
+        "Voyager dans le temps",
+        "Être poursuivi par un canard géant"
+      ],
+      "category": "dilemmes_debats_revelateurs"
+    },
+    {
+      "id": "premium_fun_10",
+      "title": "Classe ces scénarios absurdes du plus enviable au plus inquiétant.",
+      "items": [
+        "Vivre avec un fantôme gentil",
+        "Gagner au loto demain",
+        "Devenir influenceur malgré soi",
+        "Tout comprendre mais rien expliquer",
+        "Ne manger qu’un plat un mois",
+        "Lire les pensées",
+        "Avoir une chanson à chaque entrée"
+      ],
+      "category": "dilemmes_debats_revelateurs"
+    },
+    {
+      "id": "premium_fun_11",
+      "title": "Classe ces scénarios absurdes selon ceux qui créeraient le plus de chaos.",
+      "items": [
+        "Participer à une télé-réalité",
+        "Être célèbre une semaine",
+        "Voyager dans le temps",
+        "Habiter dans un parc d’attractions",
+        "Être invisible une heure par jour",
+        "Ne plus jamais dormir"
+      ],
+      "category": "dilemmes_debats_revelateurs"
+    },
+    {
+      "id": "premium_fun_12",
+      "title": "Classe ces scénarios absurdes du plus intéressant au plus lassant après un mois.",
+      "items": [
+        "Lire les pensées",
+        "Devenir influenceur malgré soi",
+        "Habiter dans un parc d’attractions",
+        "Ne plus jamais dormir",
+        "Ne manger qu’un plat un mois",
+        "Être invisible une heure par jour"
+      ],
+      "category": "dilemmes_debats_revelateurs"
+    },
+    {
+      "id": "premium_fun_13",
+      "title": "Classe ces scénarios absurdes selon ceux que tu choisirais pour ton/ta partenaire.",
+      "items": [
+        "Lire les pensées",
+        "Parler aux animaux",
+        "Être invisible une heure par jour",
+        "Avoir un clone",
+        "Pouvoir se téléporter",
+        "Devenir influenceur malgré soi",
+        "Ne plus jamais dormir"
+      ],
+      "category": "dilemmes_debats_revelateurs"
+    },
+    {
+      "id": "premium_fun_14",
+      "title": "Classe ces scénarios absurdes du plus drôle à raconter au plus gênant.",
+      "items": [
+        "Être poursuivi par un canard géant",
+        "Avoir un majordome robot",
+        "Ne manger qu’un plat un mois",
+        "Vivre sur une île privée",
+        "Voyager dans le temps",
+        "Vivre avec un fantôme gentil"
+      ],
+      "category": "dilemmes_debats_revelateurs"
+    },
+    {
+      "id": "premium_fun_15",
+      "title": "Classe ces scénarios absurdes selon ceux qui te feraient le plus peur.",
+      "items": [
+        "Changer de corps une journée",
+        "Être célèbre une semaine",
+        "Parler aux animaux",
+        "Être poursuivi par un canard géant",
+        "Vivre avec un fantôme gentil",
+        "Être invisible une heure par jour"
+      ],
+      "category": "dilemmes_debats_revelateurs"
+    },
+    {
+      "id": "premium_fun_16",
+      "title": "Classe ces scénarios absurdes du plus incroyable au plus absurde.",
+      "items": [
+        "Gagner au loto demain",
+        "Être bloqué dans un film",
+        "Avoir une chanson à chaque entrée",
+        "Ne manger qu’un plat un mois",
+        "Vivre avec un fantôme gentil",
+        "Vivre sans téléphone un an",
+        "Avoir un majordome robot"
+      ],
+      "category": "dilemmes_debats_revelateurs"
+    },
+    {
+      "id": "premium_fun_17",
+      "title": "Classe ces scénarios absurdes selon ceux que tu refuserais en dernier.",
+      "items": [
+        "Avoir une chanson à chaque entrée",
+        "Avoir un clone",
+        "Ne plus jamais dormir",
+        "Être bloqué dans un film",
+        "Être invisible une heure par jour",
+        "Recevoir 100 colis mystères"
+      ],
+      "category": "dilemmes_debats_revelateurs"
+    },
+    {
+      "id": "premium_fun_18",
+      "title": "Classe ces scénarios absurdes du meilleur super-pouvoir au pire cadeau.",
+      "items": [
+        "Devenir influenceur malgré soi",
+        "Être célèbre une semaine",
+        "Gagner au loto demain",
+        "Pouvoir se téléporter",
+        "Avoir un clone",
+        "Avoir une chanson à chaque entrée"
+      ],
+      "category": "dilemmes_debats_revelateurs"
+    },
+    {
+      "id": "premium_fun_19",
+      "title": "Classe ces scénarios absurdes selon ceux qui créeraient le meilleur souvenir.",
+      "items": [
+        "Changer de corps une journée",
+        "Vivre sans téléphone un an",
+        "Ne plus jamais dormir",
+        "Tout comprendre mais rien expliquer",
+        "Ne manger qu’un plat un mois",
+        "Habiter dans un parc d’attractions",
+        "Lire les pensées"
+      ],
+      "category": "dilemmes_debats_revelateurs"
     }
   ],
   "packs": {
@@ -2183,6 +4215,476 @@
           "Soutien mutuel",
           "Humour"
         ]
+      },
+      {
+        "id": "premium_dates_01",
+        "title": "Classe ces idées de rendez-vous pour un premier rendez-vous, du plus tentant au moins tentant.",
+        "items": [
+          "Nuit dans un hôtel insolite",
+          "Karaoké",
+          "Concert",
+          "Patinoire",
+          "Photobooth et balade",
+          "Restaurant gastronomique",
+          "Randonnée avec pique-nique"
+        ]
+      },
+      {
+        "id": "premium_dates_02",
+        "title": "Classe ces idées de rendez-vous pour un dimanche pluvieux, selon ce que tu choisirais en premier.",
+        "items": [
+          "Pique-nique au coucher du soleil",
+          "Parc d’attractions",
+          "Randonnée avec pique-nique",
+          "Marché puis cuisine maison",
+          "Spa ou massage",
+          "Karaoké"
+        ]
+      },
+      {
+        "id": "premium_dates_03",
+        "title": "Classe ces idées de rendez-vous pour un anniversaire de couple, du plus attirant au moins attirant.",
+        "items": [
+          "Soirée jeux de société",
+          "Concert",
+          "Nuit dans un hôtel insolite",
+          "Road trip sans destination",
+          "Patinoire",
+          "Visite d’un château"
+        ]
+      },
+      {
+        "id": "premium_dates_04",
+        "title": "Classe ces idées de rendez-vous avec seulement 20 €, selon ce qui te correspond le plus.",
+        "items": [
+          "Atelier poterie",
+          "Balade de nuit",
+          "Escape game",
+          "Pique-nique au coucher du soleil",
+          "Journée plage",
+          "Karaoké",
+          "Restaurant gastronomique"
+        ]
+      },
+      {
+        "id": "premium_dates_05",
+        "title": "Classe ces idées de rendez-vous pour sortir de la routine, du plus tentant au moins tentant.",
+        "items": [
+          "Karaoké",
+          "Musée puis café",
+          "Jardin botanique",
+          "Concert",
+          "Cinéma en plein air",
+          "Pique-nique au coucher du soleil"
+        ]
+      },
+      {
+        "id": "premium_dates_06",
+        "title": "Classe ces idées de rendez-vous pour une soirée improvisée, selon ce que tu choisirais en premier.",
+        "items": [
+          "Nuit dans un hôtel insolite",
+          "Parc d’attractions",
+          "Jardin botanique",
+          "Brunch du dimanche",
+          "Journée plage",
+          "Pique-nique au coucher du soleil"
+        ]
+      },
+      {
+        "id": "premium_dates_07",
+        "title": "Classe ces idées de rendez-vous pour une journée entière, du plus attirant au moins attirant.",
+        "items": [
+          "Balade de nuit",
+          "Journée plage",
+          "Cours de cuisine à deux",
+          "Visite d’un château",
+          "Restaurant gastronomique",
+          "Atelier poterie",
+          "Marché puis cuisine maison"
+        ]
+      },
+      {
+        "id": "premium_dates_08",
+        "title": "Classe ces idées de rendez-vous pour un rendez-vous surprise, selon ce qui te correspond le plus.",
+        "items": [
+          "Cinéma en plein air",
+          "Visite d’un château",
+          "Escape game",
+          "Cours de cuisine à deux",
+          "Karaoké",
+          "Parc d’attractions"
+        ]
+      },
+      {
+        "id": "premium_dates_09",
+        "title": "Classe ces idées de rendez-vous en plein hiver, du plus tentant au moins tentant.",
+        "items": [
+          "Road trip sans destination",
+          "Marché puis cuisine maison",
+          "Cours de cuisine à deux",
+          "Atelier poterie",
+          "Randonnée avec pique-nique",
+          "Patinoire"
+        ]
+      },
+      {
+        "id": "premium_dates_10",
+        "title": "Classe ces idées de rendez-vous pendant l’été, selon ce que tu choisirais en premier.",
+        "items": [
+          "Brocante",
+          "Nuit dans un hôtel insolite",
+          "Karaoké",
+          "Spa ou massage",
+          "Brunch du dimanche",
+          "Pique-nique au coucher du soleil",
+          "Parc d’attractions"
+        ]
+      },
+      {
+        "id": "premium_dates_11",
+        "title": "Classe ces idées de rendez-vous pour se retrouver après une semaine difficile, du plus attirant au moins attirant.",
+        "items": [
+          "Pique-nique au coucher du soleil",
+          "Soirée jeux de société",
+          "Concert",
+          "Marché puis cuisine maison",
+          "Jardin botanique",
+          "Musée puis café"
+        ]
+      },
+      {
+        "id": "premium_dates_12",
+        "title": "Classe ces idées de rendez-vous pour un couple à distance lors des retrouvailles, selon ce qui te correspond le plus.",
+        "items": [
+          "Balade de nuit",
+          "Brunch du dimanche",
+          "Karaoké",
+          "Pique-nique au coucher du soleil",
+          "Patinoire",
+          "Cinéma en plein air"
+        ]
+      },
+      {
+        "id": "premium_dates_13",
+        "title": "Classe ces idées de rendez-vous pour rire le plus possible, du plus tentant au moins tentant.",
+        "items": [
+          "Nuit dans un hôtel insolite",
+          "Jardin botanique",
+          "Concert",
+          "Karaoké",
+          "Cours de cuisine à deux",
+          "Balade de nuit",
+          "Visite d’un château"
+        ]
+      },
+      {
+        "id": "premium_dates_14",
+        "title": "Classe ces idées de rendez-vous pour discuter pendant des heures, selon ce que tu choisirais en premier.",
+        "items": [
+          "Visite d’un château",
+          "Cours de cuisine à deux",
+          "Randonnée avec pique-nique",
+          "Jardin botanique",
+          "Cinéma en plein air",
+          "Nuit dans un hôtel insolite"
+        ]
+      },
+      {
+        "id": "premium_dates_15",
+        "title": "Classe ces idées de rendez-vous pour créer un souvenir marquant, du plus attirant au moins attirant.",
+        "items": [
+          "Jardin botanique",
+          "Visite d’un château",
+          "Road trip sans destination",
+          "Cours de cuisine à deux",
+          "Randonnée avec pique-nique",
+          "Pique-nique au coucher du soleil"
+        ]
+      },
+      {
+        "id": "premium_dates_16",
+        "title": "Classe ces idées de rendez-vous pour une journée sans téléphone, selon ce qui te correspond le plus.",
+        "items": [
+          "Restaurant gastronomique",
+          "Patinoire",
+          "Soirée jeux de société",
+          "Escape game",
+          "Atelier poterie",
+          "Cinéma en plein air",
+          "Cours de cuisine à deux"
+        ]
+      },
+      {
+        "id": "premium_dates_17",
+        "title": "Classe ces idées de rendez-vous pour célébrer une bonne nouvelle, du plus tentant au moins tentant.",
+        "items": [
+          "Patinoire",
+          "Journée plage",
+          "Musée puis café",
+          "Spa ou massage",
+          "Pique-nique au coucher du soleil",
+          "Cinéma en plein air"
+        ]
+      },
+      {
+        "id": "premium_dates_18",
+        "title": "Classe ces idées de rendez-vous pour découvrir quelque chose de nouveau, selon ce que tu choisirais en premier.",
+        "items": [
+          "Cinéma en plein air",
+          "Spa ou massage",
+          "Photobooth et balade",
+          "Balade de nuit",
+          "Marché puis cuisine maison",
+          "Escape game"
+        ]
+      },
+      {
+        "id": "premium_dates_19",
+        "title": "Classe ces idées de rendez-vous pour un dernier jour de vacances, du plus attirant au moins attirant.",
+        "items": [
+          "Randonnée avec pique-nique",
+          "Cinéma en plein air",
+          "Spa ou massage",
+          "Road trip sans destination",
+          "Photobooth et balade",
+          "Journée plage",
+          "Soirée jeux de société"
+        ]
+      },
+      {
+        "id": "premium_attentions_01",
+        "title": "Classe ces petites attentions après une mauvaise journée, du plus attirant au moins attirant.",
+        "items": [
+          "Une journée organisée",
+          "Un plat préféré",
+          "Une note dans la valise",
+          "Un café préparé",
+          "Une lettre",
+          "Un dessert partagé",
+          "Une tâche faite à ta place"
+        ]
+      },
+      {
+        "id": "premium_attentions_02",
+        "title": "Classe ces petites attentions quand vous êtes à distance, selon ce qui te correspond le plus.",
+        "items": [
+          "Une playlist",
+          "Une fleur sans occasion",
+          "Une réservation surprise",
+          "Un souvenir gardé",
+          "Un compliment précis",
+          "Une couverture posée sur toi"
+        ]
+      },
+      {
+        "id": "premium_attentions_03",
+        "title": "Classe ces petites attentions pour ton anniversaire, du plus tentant au moins tentant.",
+        "items": [
+          "Une photo imprimée",
+          "Un trajet pour te raccompagner",
+          "Un dessert partagé",
+          "Une couverture posée sur toi",
+          "Une lettre",
+          "Un petit cadeau utile"
+        ]
+      },
+      {
+        "id": "premium_attentions_04",
+        "title": "Classe ces petites attentions sans aucune occasion particulière, selon ce que tu choisirais en premier.",
+        "items": [
+          "Un souvenir gardé",
+          "Un appel surprise",
+          "Un trajet pour te raccompagner",
+          "Un petit cadeau utile",
+          "Une couverture posée sur toi",
+          "Une note dans la valise",
+          "Une bouteille d’eau préparée"
+        ]
+      },
+      {
+        "id": "premium_attentions_05",
+        "title": "Classe ces petites attentions quand tu es malade, du plus attirant au moins attirant.",
+        "items": [
+          "Un trajet pour te raccompagner",
+          "Une fleur sans occasion",
+          "Une tâche faite à ta place",
+          "Un café préparé",
+          "Une journée organisée",
+          "Une lettre"
+        ]
+      },
+      {
+        "id": "premium_attentions_06",
+        "title": "Classe ces petites attentions avant un voyage, selon ce qui te correspond le plus.",
+        "items": [
+          "Un compliment précis",
+          "Un dessert partagé",
+          "Une tâche faite à ta place",
+          "Un plat préféré",
+          "Un massage",
+          "Un trajet pour te raccompagner"
+        ]
+      },
+      {
+        "id": "premium_attentions_07",
+        "title": "Classe ces petites attentions pendant une période stressante, du plus tentant au moins tentant.",
+        "items": [
+          "Un appel surprise",
+          "Une playlist",
+          "Une note dans la valise",
+          "Un plat préféré",
+          "Une lettre",
+          "Un chargeur pensé pour toi",
+          "Un compliment précis"
+        ]
+      },
+      {
+        "id": "premium_attentions_08",
+        "title": "Classe ces petites attentions pour te faire sentir aimé(e), selon ce que tu choisirais en premier.",
+        "items": [
+          "Une playlist",
+          "Un souvenir gardé",
+          "Une lettre",
+          "Un mot caché",
+          "Un plat préféré",
+          "Une réservation surprise"
+        ]
+      },
+      {
+        "id": "premium_attentions_09",
+        "title": "Classe ces petites attentions qui demandent très peu d’argent, du plus attirant au moins attirant.",
+        "items": [
+          "Une lettre",
+          "Un plat préféré",
+          "Un café préparé",
+          "Un massage",
+          "Une photo imprimée",
+          "Un mot caché"
+        ]
+      },
+      {
+        "id": "premium_attentions_10",
+        "title": "Classe ces petites attentions qui montrent que l’autre te connaît bien, selon ce qui te correspond le plus.",
+        "items": [
+          "Un plat préféré",
+          "Un souvenir gardé",
+          "Un compliment précis",
+          "Une bouteille d’eau préparée",
+          "Un snack ramené",
+          "Un chargeur pensé pour toi",
+          "Un mot caché"
+        ]
+      },
+      {
+        "id": "premium_attentions_11",
+        "title": "Classe ces petites attentions qui te rassurent le plus, du plus tentant au moins tentant.",
+        "items": [
+          "Un massage",
+          "Une lettre",
+          "Un souvenir gardé",
+          "Une photo imprimée",
+          "Une playlist",
+          "Un café préparé"
+        ]
+      },
+      {
+        "id": "premium_attentions_12",
+        "title": "Classe ces petites attentions qui te font le plus sourire, selon ce que tu choisirais en premier.",
+        "items": [
+          "Un souvenir gardé",
+          "Un snack ramené",
+          "Une fleur sans occasion",
+          "Une lettre",
+          "Une couverture posée sur toi",
+          "Un compliment précis"
+        ]
+      },
+      {
+        "id": "premium_attentions_13",
+        "title": "Classe ces petites attentions que tu aimerais recevoir souvent, du plus attirant au moins attirant.",
+        "items": [
+          "Un souvenir gardé",
+          "Une lettre",
+          "Un chargeur pensé pour toi",
+          "Un café préparé",
+          "Une bouteille d’eau préparée",
+          "Un plat préféré",
+          "Un snack ramené"
+        ]
+      },
+      {
+        "id": "premium_attentions_14",
+        "title": "Classe ces petites attentions que tu aimerais garder en souvenir, selon ce qui te correspond le plus.",
+        "items": [
+          "Un appel surprise",
+          "Une playlist",
+          "Un plat préféré",
+          "Un trajet pour te raccompagner",
+          "Un petit cadeau utile",
+          "Une note dans la valise"
+        ]
+      },
+      {
+        "id": "premium_attentions_15",
+        "title": "Classe ces petites attentions qui comptent plus qu’un gros cadeau, du plus tentant au moins tentant.",
+        "items": [
+          "Une bouteille d’eau préparée",
+          "Un repas livré",
+          "Un appel surprise",
+          "Un message au réveil",
+          "Un petit cadeau utile",
+          "Un snack ramené"
+        ]
+      },
+      {
+        "id": "premium_attentions_16",
+        "title": "Classe ces petites attentions pour te surprendre, selon ce que tu choisirais en premier.",
+        "items": [
+          "Une journée organisée",
+          "Une tâche faite à ta place",
+          "Un plat préféré",
+          "Une réservation surprise",
+          "Un souvenir gardé",
+          "Un compliment précis",
+          "Une lettre"
+        ]
+      },
+      {
+        "id": "premium_attentions_17",
+        "title": "Classe ces petites attentions pour faciliter ton quotidien, du plus attirant au moins attirant.",
+        "items": [
+          "Un trajet pour te raccompagner",
+          "Un repas livré",
+          "Un plat préféré",
+          "Un message au réveil",
+          "Un massage",
+          "Un snack ramené"
+        ]
+      },
+      {
+        "id": "premium_attentions_18",
+        "title": "Classe ces petites attentions pour célébrer une réussite, selon ce qui te correspond le plus.",
+        "items": [
+          "Un massage",
+          "Une playlist",
+          "Un trajet pour te raccompagner",
+          "Un plat préféré",
+          "Un petit cadeau utile",
+          "Une note dans la valise"
+        ]
+      },
+      {
+        "id": "premium_attentions_19",
+        "title": "Classe ces petites attentions quand tu as besoin de réconfort, du plus tentant au moins tentant.",
+        "items": [
+          "Un massage",
+          "Une playlist",
+          "Un compliment précis",
+          "Une note dans la valise",
+          "Une bouteille d’eau préparée",
+          "Une lettre",
+          "Une tâche faite à ta place"
+        ]
       }
     ],
     "personnalite_valeurs": [
@@ -2428,6 +4930,241 @@
           "Voir la Terre dans 500 ans",
           "Revivre une journée de ta vie"
         ]
+      },
+      {
+        "id": "premium_valeurs_01",
+        "title": "Classe ces valeurs dans une relation amoureuse.",
+        "items": [
+          "Spiritualité",
+          "Discipline",
+          "Solidarité",
+          "Générosité",
+          "Indépendance",
+          "Loyauté",
+          "Curiosité"
+        ]
+      },
+      {
+        "id": "premium_valeurs_02",
+        "title": "Classe ces valeurs pour élever un enfant.",
+        "items": [
+          "Discipline",
+          "Courage",
+          "Générosité",
+          "Honnêteté",
+          "Liberté",
+          "Curiosité"
+        ]
+      },
+      {
+        "id": "premium_valeurs_03",
+        "title": "Classe ces valeurs chez un ami proche.",
+        "items": [
+          "Spiritualité",
+          "Justice",
+          "Respect",
+          "Tolérance",
+          "Honnêteté",
+          "Liberté"
+        ]
+      },
+      {
+        "id": "premium_valeurs_04",
+        "title": "Classe ces valeurs chez un futur partenaire.",
+        "items": [
+          "Solidarité",
+          "Authenticité",
+          "Respect",
+          "Curiosité",
+          "Justice",
+          "Humilité",
+          "Liberté"
+        ]
+      },
+      {
+        "id": "premium_valeurs_05",
+        "title": "Classe ces valeurs dans le monde du travail.",
+        "items": [
+          "Justice",
+          "Honnêteté",
+          "Générosité",
+          "Indépendance",
+          "Discipline",
+          "Famille"
+        ]
+      },
+      {
+        "id": "premium_valeurs_06",
+        "title": "Classe ces valeurs pour construire une vie heureuse.",
+        "items": [
+          "Responsabilité",
+          "Loyauté",
+          "Tolérance",
+          "Discipline",
+          "Liberté",
+          "Curiosité"
+        ]
+      },
+      {
+        "id": "premium_valeurs_07",
+        "title": "Classe ces valeurs en période de crise.",
+        "items": [
+          "Gentillesse",
+          "Indépendance",
+          "Respect",
+          "Ambition",
+          "Famille",
+          "Loyauté",
+          "Créativité"
+        ]
+      },
+      {
+        "id": "premium_valeurs_08",
+        "title": "Classe ces valeurs pour prendre une décision difficile.",
+        "items": [
+          "Indépendance",
+          "Courage",
+          "Stabilité",
+          "Authenticité",
+          "Solidarité",
+          "Aventure"
+        ]
+      },
+      {
+        "id": "premium_valeurs_09",
+        "title": "Classe ces valeurs chez une personne que tu admires.",
+        "items": [
+          "Ambition",
+          "Persévérance",
+          "Solidarité",
+          "Aventure",
+          "Indépendance",
+          "Honnêteté"
+        ]
+      },
+      {
+        "id": "premium_valeurs_10",
+        "title": "Classe ces valeurs pour vivre en communauté.",
+        "items": [
+          "Justice",
+          "Liberté",
+          "Honnêteté",
+          "Simplicité",
+          "Courage",
+          "Discipline",
+          "Générosité"
+        ]
+      },
+      {
+        "id": "premium_valeurs_11",
+        "title": "Classe ces valeurs pour réussir un projet ambitieux.",
+        "items": [
+          "Créativité",
+          "Discipline",
+          "Courage",
+          "Honnêteté",
+          "Simplicité",
+          "Humilité"
+        ]
+      },
+      {
+        "id": "premium_valeurs_12",
+        "title": "Classe ces valeurs pour garder confiance en quelqu’un.",
+        "items": [
+          "Gentillesse",
+          "Curiosité",
+          "Indépendance",
+          "Famille",
+          "Créativité",
+          "Générosité"
+        ]
+      },
+      {
+        "id": "premium_valeurs_13",
+        "title": "Classe ces valeurs dans une famille.",
+        "items": [
+          "Spiritualité",
+          "Simplicité",
+          "Respect",
+          "Indépendance",
+          "Aventure",
+          "Générosité",
+          "Créativité"
+        ]
+      },
+      {
+        "id": "premium_valeurs_14",
+        "title": "Classe ces valeurs pour traverser une grosse épreuve.",
+        "items": [
+          "Liberté",
+          "Courage",
+          "Aventure",
+          "Humilité",
+          "Stabilité",
+          "Simplicité"
+        ]
+      },
+      {
+        "id": "premium_valeurs_15",
+        "title": "Classe ces valeurs pour être un bon leader.",
+        "items": [
+          "Courage",
+          "Curiosité",
+          "Créativité",
+          "Aventure",
+          "Indépendance",
+          "Persévérance"
+        ]
+      },
+      {
+        "id": "premium_valeurs_16",
+        "title": "Classe ces valeurs pour rester fidèle à soi-même.",
+        "items": [
+          "Honnêteté",
+          "Aventure",
+          "Ambition",
+          "Courage",
+          "Respect",
+          "Tolérance",
+          "Loyauté"
+        ]
+      },
+      {
+        "id": "premium_valeurs_17",
+        "title": "Classe ces valeurs pour avoir une vie équilibrée.",
+        "items": [
+          "Simplicité",
+          "Responsabilité",
+          "Indépendance",
+          "Gentillesse",
+          "Curiosité",
+          "Spiritualité"
+        ]
+      },
+      {
+        "id": "premium_valeurs_18",
+        "title": "Classe ces valeurs pour créer des relations durables.",
+        "items": [
+          "Curiosité",
+          "Ambition",
+          "Solidarité",
+          "Gentillesse",
+          "Honnêteté",
+          "Aventure"
+        ]
+      },
+      {
+        "id": "premium_valeurs_19",
+        "title": "Classe ces valeurs pour vieillir sereinement.",
+        "items": [
+          "Discipline",
+          "Persévérance",
+          "Courage",
+          "Justice",
+          "Gentillesse",
+          "Créativité",
+          "Responsabilité"
+        ]
       }
     ],
     "futur_projets_vie": [
@@ -2671,6 +5408,476 @@
           "Avoir vécu de grandes aventures",
           "Avoir laissé une trace positive"
         ]
+      },
+      {
+        "id": "premium_voyages_01",
+        "title": "Classe ces façons de voyager pour une semaine de vacances, selon ce que tu choisirais en premier.",
+        "items": [
+          "Île paradisiaque",
+          "Voyage gastronomique",
+          "Vol long-courrier",
+          "Croisière",
+          "Hôtel de luxe",
+          "Festival à l’étranger",
+          "Échange de maisons"
+        ]
+      },
+      {
+        "id": "premium_voyages_02",
+        "title": "Classe ces façons de voyager pour un mois entier, du plus attirant au moins attirant.",
+        "items": [
+          "Voyage sans itinéraire",
+          "City trip",
+          "Hôtel de luxe",
+          "Train de nuit",
+          "Île paradisiaque",
+          "Séjour tout inclus"
+        ]
+      },
+      {
+        "id": "premium_voyages_03",
+        "title": "Classe ces façons de voyager avec un petit budget, selon ce qui te correspond le plus.",
+        "items": [
+          "Sac à dos",
+          "Voyage sans itinéraire",
+          "Vol long-courrier",
+          "Maison d’hôtes",
+          "Croisière",
+          "Road trip"
+        ]
+      },
+      {
+        "id": "premium_voyages_04",
+        "title": "Classe ces façons de voyager pour une lune de miel, du plus tentant au moins tentant.",
+        "items": [
+          "Maison d’hôtes",
+          "Festival à l’étranger",
+          "Montagne",
+          "Voyage surprise",
+          "Désert",
+          "Train de nuit",
+          "Camping"
+        ]
+      },
+      {
+        "id": "premium_voyages_05",
+        "title": "Classe ces façons de voyager avec des amis, selon ce que tu choisirais en premier.",
+        "items": [
+          "Voyage gastronomique",
+          "Camping",
+          "Montagne",
+          "Safari",
+          "Tour du monde",
+          "Séjour nature"
+        ]
+      },
+      {
+        "id": "premium_voyages_06",
+        "title": "Classe ces façons de voyager uniquement à deux, du plus attirant au moins attirant.",
+        "items": [
+          "Sac à dos",
+          "Séjour tout inclus",
+          "Train de nuit",
+          "Circuit organisé",
+          "City trip",
+          "Hôtel de luxe"
+        ]
+      },
+      {
+        "id": "premium_voyages_07",
+        "title": "Classe ces façons de voyager pour vraiment se reposer, selon ce qui te correspond le plus.",
+        "items": [
+          "Camping",
+          "Montagne",
+          "Maison d’hôtes",
+          "Van aménagé",
+          "Sac à dos",
+          "Circuit organisé",
+          "Festival à l’étranger"
+        ]
+      },
+      {
+        "id": "premium_voyages_08",
+        "title": "Classe ces façons de voyager pour vivre le plus d’aventures, du plus tentant au moins tentant.",
+        "items": [
+          "Séjour nature",
+          "Sac à dos",
+          "Voyage sans itinéraire",
+          "Voyage en hiver",
+          "Train de nuit",
+          "Île paradisiaque"
+        ]
+      },
+      {
+        "id": "premium_voyages_09",
+        "title": "Classe ces façons de voyager sans presque rien planifier, selon ce que tu choisirais en premier.",
+        "items": [
+          "Séjour nature",
+          "Hôtel de luxe",
+          "Vol long-courrier",
+          "Voyage surprise",
+          "Voyage gastronomique",
+          "Voyage sans itinéraire"
+        ]
+      },
+      {
+        "id": "premium_voyages_10",
+        "title": "Classe ces façons de voyager avec beaucoup de confort, du plus attirant au moins attirant.",
+        "items": [
+          "Sac à dos",
+          "Désert",
+          "Voyage gastronomique",
+          "Maison d’hôtes",
+          "Séjour tout inclus",
+          "Safari",
+          "Séjour nature"
+        ]
+      },
+      {
+        "id": "premium_voyages_11",
+        "title": "Classe ces façons de voyager pour découvrir une nouvelle culture, selon ce qui te correspond le plus.",
+        "items": [
+          "Croisière",
+          "Séjour nature",
+          "Safari",
+          "Montagne",
+          "Séjour tout inclus",
+          "City trip"
+        ]
+      },
+      {
+        "id": "premium_voyages_12",
+        "title": "Classe ces façons de voyager pour prendre les plus belles photos, du plus tentant au moins tentant.",
+        "items": [
+          "Camping",
+          "City trip",
+          "Vol long-courrier",
+          "Van aménagé",
+          "Île paradisiaque",
+          "Voyage gastronomique"
+        ]
+      },
+      {
+        "id": "premium_voyages_13",
+        "title": "Classe ces façons de voyager pour manger incroyablement bien, selon ce que tu choisirais en premier.",
+        "items": [
+          "City trip",
+          "Circuit organisé",
+          "Tour du monde",
+          "Voyage surprise",
+          "Vol long-courrier",
+          "Séjour nature",
+          "Road trip"
+        ]
+      },
+      {
+        "id": "premium_voyages_14",
+        "title": "Classe ces façons de voyager pour se déconnecter du monde, du plus attirant au moins attirant.",
+        "items": [
+          "Île paradisiaque",
+          "Croisière",
+          "Voyage sans itinéraire",
+          "Désert",
+          "Maison d’hôtes",
+          "Safari"
+        ]
+      },
+      {
+        "id": "premium_voyages_15",
+        "title": "Classe ces façons de voyager pour un premier grand voyage ensemble, selon ce qui te correspond le plus.",
+        "items": [
+          "City trip",
+          "Séjour nature",
+          "Vol long-courrier",
+          "Voyage surprise",
+          "Tour du monde",
+          "Voyage sans itinéraire"
+        ]
+      },
+      {
+        "id": "premium_voyages_16",
+        "title": "Classe ces façons de voyager pour fêter un anniversaire important, du plus tentant au moins tentant.",
+        "items": [
+          "Montagne",
+          "City trip",
+          "Hôtel de luxe",
+          "Road trip",
+          "Camping",
+          "Circuit organisé",
+          "Tour du monde"
+        ]
+      },
+      {
+        "id": "premium_voyages_17",
+        "title": "Classe ces façons de voyager pour partir au dernier moment, selon ce que tu choisirais en premier.",
+        "items": [
+          "Camping",
+          "Voyage surprise",
+          "Montagne",
+          "Désert",
+          "Tour du monde",
+          "Voyage gastronomique"
+        ]
+      },
+      {
+        "id": "premium_voyages_18",
+        "title": "Classe ces façons de voyager pour un hiver loin du froid, du plus attirant au moins attirant.",
+        "items": [
+          "Maison d’hôtes",
+          "Safari",
+          "Camping",
+          "Vol long-courrier",
+          "Tour du monde",
+          "Festival à l’étranger"
+        ]
+      },
+      {
+        "id": "premium_voyages_19",
+        "title": "Classe ces façons de voyager pour un été loin de la foule, selon ce qui te correspond le plus.",
+        "items": [
+          "Camping",
+          "Île paradisiaque",
+          "City trip",
+          "Train de nuit",
+          "Croisière",
+          "Safari",
+          "Échange de maisons"
+        ]
+      },
+      {
+        "id": "premium_futur_01",
+        "title": "Classe ces projets de vie à réaliser avant quarante ans.",
+        "items": [
+          "Apprendre une langue",
+          "Voyager plusieurs mois",
+          "Faire du bénévolat",
+          "Avoir un jardin",
+          "Travailler moins",
+          "Organiser un grand événement",
+          "Acheter un logement"
+        ]
+      },
+      {
+        "id": "premium_futur_02",
+        "title": "Classe ces projets de vie à construire en couple.",
+        "items": [
+          "Vivre à l’étranger",
+          "Réaliser un rêve d’enfance",
+          "Prendre une année sabbatique",
+          "Écrire un livre",
+          "Adopter un animal",
+          "Construire une maison"
+        ]
+      },
+      {
+        "id": "premium_futur_03",
+        "title": "Classe ces projets de vie qui changeraient le plus ton quotidien.",
+        "items": [
+          "Prendre une année sabbatique",
+          "Voyager plusieurs mois",
+          "Rénover un lieu",
+          "Vivre à la campagne",
+          "Travailler moins",
+          "Acheter un logement"
+        ]
+      },
+      {
+        "id": "premium_futur_04",
+        "title": "Classe ces projets de vie qui demanderaient le plus de courage.",
+        "items": [
+          "Avoir un jardin",
+          "Changer de carrière",
+          "Rénover un lieu",
+          "Investir",
+          "Adopter un animal",
+          "Voyager plusieurs mois",
+          "Construire une maison"
+        ]
+      },
+      {
+        "id": "premium_futur_05",
+        "title": "Classe ces projets de vie qui valent le plus de sacrifices.",
+        "items": [
+          "Faire une formation",
+          "Acheter un logement",
+          "Réaliser un rêve d’enfance",
+          "Travailler moins",
+          "Investir",
+          "Vivre près de la mer"
+        ]
+      },
+      {
+        "id": "premium_futur_06",
+        "title": "Classe ces projets de vie qui te rendent le plus enthousiaste.",
+        "items": [
+          "Construire une maison",
+          "Écrire un livre",
+          "Prendre une année sabbatique",
+          "Faire un tour du monde",
+          "Rénover un lieu",
+          "Vivre à la campagne"
+        ]
+      },
+      {
+        "id": "premium_futur_07",
+        "title": "Classe ces projets de vie qui te semblent les plus réalistes.",
+        "items": [
+          "Créer une tradition familiale",
+          "Voyager plusieurs mois",
+          "Faire un tour du monde",
+          "Acheter un logement",
+          "Rénover un lieu",
+          "Adopter un animal",
+          "Faire du bénévolat"
+        ]
+      },
+      {
+        "id": "premium_futur_08",
+        "title": "Classe ces projets de vie qui te feraient le plus grandir.",
+        "items": [
+          "Acheter un logement",
+          "Rénover un lieu",
+          "Apprendre une langue",
+          "Faire du bénévolat",
+          "Vivre à l’étranger",
+          "Changer de carrière"
+        ]
+      },
+      {
+        "id": "premium_futur_09",
+        "title": "Classe ces projets de vie qui te donneraient le plus de liberté.",
+        "items": [
+          "Créer une tradition familiale",
+          "Prendre une année sabbatique",
+          "Vivre à la campagne",
+          "Adopter un animal",
+          "Acheter un logement",
+          "Lancer un projet créatif"
+        ]
+      },
+      {
+        "id": "premium_futur_10",
+        "title": "Classe ces projets de vie qui créeraient le plus de souvenirs.",
+        "items": [
+          "Réaliser un rêve d’enfance",
+          "Lancer un projet créatif",
+          "Faire une formation",
+          "Changer de carrière",
+          "Investir",
+          "Écrire un livre",
+          "Faire un tour du monde"
+        ]
+      },
+      {
+        "id": "premium_futur_11",
+        "title": "Classe ces projets de vie qui apporteraient le plus de stabilité.",
+        "items": [
+          "Changer de carrière",
+          "Organiser un grand événement",
+          "Avoir un jardin",
+          "Acheter un logement",
+          "Créer une entreprise",
+          "Adopter un animal"
+        ]
+      },
+      {
+        "id": "premium_futur_12",
+        "title": "Classe ces projets de vie qui pourraient attendre le plus longtemps.",
+        "items": [
+          "Lancer un projet créatif",
+          "Faire un tour du monde",
+          "Organiser un grand événement",
+          "Adopter un animal",
+          "Créer une tradition familiale",
+          "Vivre à l’étranger"
+        ]
+      },
+      {
+        "id": "premium_futur_13",
+        "title": "Classe ces projets de vie qui seraient les plus difficiles à abandonner.",
+        "items": [
+          "Faire une formation",
+          "Vivre près de la mer",
+          "Vivre à l’étranger",
+          "Adopter un animal",
+          "Travailler moins",
+          "Faire du bénévolat",
+          "Apprendre une langue"
+        ]
+      },
+      {
+        "id": "premium_futur_14",
+        "title": "Classe ces projets de vie à financer en priorité.",
+        "items": [
+          "Adopter un animal",
+          "Avoir un jardin",
+          "Rénover un lieu",
+          "Vivre à la campagne",
+          "Changer de carrière",
+          "Avoir une grande épargne"
+        ]
+      },
+      {
+        "id": "premium_futur_15",
+        "title": "Classe ces projets de vie à tenter même sans garantie de réussite.",
+        "items": [
+          "Faire une formation",
+          "Avoir un jardin",
+          "Créer une tradition familiale",
+          "Rénover un lieu",
+          "Lancer un projet créatif",
+          "Adopter un animal"
+        ]
+      },
+      {
+        "id": "premium_futur_16",
+        "title": "Classe ces projets de vie à réaliser si l’argent n’était pas un problème.",
+        "items": [
+          "Apprendre une langue",
+          "Adopter un animal",
+          "Organiser un grand événement",
+          "Prendre une année sabbatique",
+          "Investir",
+          "Changer de carrière",
+          "Rénover un lieu"
+        ]
+      },
+      {
+        "id": "premium_futur_17",
+        "title": "Classe ces projets de vie qui te ressemblent le plus aujourd’hui.",
+        "items": [
+          "Avoir un jardin",
+          "Créer une entreprise",
+          "Organiser un grand événement",
+          "Travailler moins",
+          "Avoir une grande épargne",
+          "Faire du bénévolat"
+        ]
+      },
+      {
+        "id": "premium_futur_18",
+        "title": "Classe ces projets de vie que tu aimerais partager avec ton/ta partenaire.",
+        "items": [
+          "Organiser un grand événement",
+          "Créer une entreprise",
+          "Rénover un lieu",
+          "Vivre à l’étranger",
+          "Faire une formation",
+          "Construire une maison"
+        ]
+      },
+      {
+        "id": "premium_futur_19",
+        "title": "Classe ces projets de vie qui te rendraient le plus fier ou la plus fière.",
+        "items": [
+          "Faire une formation",
+          "Créer une tradition familiale",
+          "Adopter un animal",
+          "Acheter un logement",
+          "Réaliser un rêve d’enfance",
+          "Travailler moins",
+          "Investir"
+        ]
       }
     ],
     "dilemmes_debats_revelateurs": [
@@ -2888,6 +6095,241 @@
           "Une entreprise prospère",
           "Un impact positif sur la société",
           "Des souvenirs inoubliables pour tes proches"
+        ]
+      },
+      {
+        "id": "premium_fun_01",
+        "title": "Classe ces scénarios absurdes du plus tentant au moins tentant.",
+        "items": [
+          "Être invisible une heure par jour",
+          "Être poursuivi par un canard géant",
+          "Voyager dans le temps",
+          "Vivre sans téléphone un an",
+          "Devenir influenceur malgré soi",
+          "Avoir une chanson à chaque entrée",
+          "Être célèbre une semaine"
+        ]
+      },
+      {
+        "id": "premium_fun_02",
+        "title": "Classe ces scénarios absurdes du plus drôle au plus catastrophique.",
+        "items": [
+          "Connaître tous les spoilers",
+          "Avoir un majordome robot",
+          "Vivre sans téléphone un an",
+          "Parler aux animaux",
+          "Avoir un clone",
+          "Devenir influenceur malgré soi"
+        ]
+      },
+      {
+        "id": "premium_fun_03",
+        "title": "Classe ces scénarios absurdes selon ceux que tu accepterais le plus vite.",
+        "items": [
+          "Avoir un majordome robot",
+          "Gagner au loto demain",
+          "Voyager dans le temps",
+          "Avoir une chanson à chaque entrée",
+          "Tout comprendre mais rien expliquer",
+          "Vivre avec un fantôme gentil"
+        ]
+      },
+      {
+        "id": "premium_fun_04",
+        "title": "Classe ces scénarios absurdes du plus pratique au plus inutile.",
+        "items": [
+          "Changer de corps une journée",
+          "Être célèbre une semaine",
+          "Recevoir 100 colis mystères",
+          "Avoir un clone",
+          "Lire les pensées",
+          "Pouvoir se téléporter",
+          "Devenir influenceur malgré soi"
+        ]
+      },
+      {
+        "id": "premium_fun_05",
+        "title": "Classe ces scénarios absurdes selon ceux qui changeraient le plus ta vie.",
+        "items": [
+          "Être bloqué dans un film",
+          "Être poursuivi par un canard géant",
+          "Devenir influenceur malgré soi",
+          "Avoir un majordome robot",
+          "Tout comprendre mais rien expliquer",
+          "Ne manger qu’un plat un mois"
+        ]
+      },
+      {
+        "id": "premium_fun_06",
+        "title": "Classe ces scénarios absurdes du plus amusant au plus épuisant.",
+        "items": [
+          "Participer à une télé-réalité",
+          "Habiter dans un parc d’attractions",
+          "Tout comprendre mais rien expliquer",
+          "Vivre avec un fantôme gentil",
+          "Être poursuivi par un canard géant",
+          "Être invisible une heure par jour"
+        ]
+      },
+      {
+        "id": "premium_fun_07",
+        "title": "Classe ces scénarios absurdes selon ceux que tu voudrais tester une journée.",
+        "items": [
+          "Vivre avec un fantôme gentil",
+          "Connaître tous les spoilers",
+          "Être bloqué dans un film",
+          "Parler aux animaux",
+          "Devenir influenceur malgré soi",
+          "Être célèbre une semaine",
+          "Voyager dans le temps"
+        ]
+      },
+      {
+        "id": "premium_fun_08",
+        "title": "Classe ces scénarios absurdes du plus facile au plus difficile à cacher.",
+        "items": [
+          "Habiter dans un parc d’attractions",
+          "Vivre avec un fantôme gentil",
+          "Recevoir 100 colis mystères",
+          "Devenir influenceur malgré soi",
+          "Vivre sur une île privée",
+          "Voyager dans le temps"
+        ]
+      },
+      {
+        "id": "premium_fun_09",
+        "title": "Classe ces scénarios absurdes selon ceux qui feraient le meilleur film.",
+        "items": [
+          "Recevoir 100 colis mystères",
+          "Pouvoir se téléporter",
+          "Être célèbre une semaine",
+          "Tout comprendre mais rien expliquer",
+          "Voyager dans le temps",
+          "Être poursuivi par un canard géant"
+        ]
+      },
+      {
+        "id": "premium_fun_10",
+        "title": "Classe ces scénarios absurdes du plus enviable au plus inquiétant.",
+        "items": [
+          "Vivre avec un fantôme gentil",
+          "Gagner au loto demain",
+          "Devenir influenceur malgré soi",
+          "Tout comprendre mais rien expliquer",
+          "Ne manger qu’un plat un mois",
+          "Lire les pensées",
+          "Avoir une chanson à chaque entrée"
+        ]
+      },
+      {
+        "id": "premium_fun_11",
+        "title": "Classe ces scénarios absurdes selon ceux qui créeraient le plus de chaos.",
+        "items": [
+          "Participer à une télé-réalité",
+          "Être célèbre une semaine",
+          "Voyager dans le temps",
+          "Habiter dans un parc d’attractions",
+          "Être invisible une heure par jour",
+          "Ne plus jamais dormir"
+        ]
+      },
+      {
+        "id": "premium_fun_12",
+        "title": "Classe ces scénarios absurdes du plus intéressant au plus lassant après un mois.",
+        "items": [
+          "Lire les pensées",
+          "Devenir influenceur malgré soi",
+          "Habiter dans un parc d’attractions",
+          "Ne plus jamais dormir",
+          "Ne manger qu’un plat un mois",
+          "Être invisible une heure par jour"
+        ]
+      },
+      {
+        "id": "premium_fun_13",
+        "title": "Classe ces scénarios absurdes selon ceux que tu choisirais pour ton/ta partenaire.",
+        "items": [
+          "Lire les pensées",
+          "Parler aux animaux",
+          "Être invisible une heure par jour",
+          "Avoir un clone",
+          "Pouvoir se téléporter",
+          "Devenir influenceur malgré soi",
+          "Ne plus jamais dormir"
+        ]
+      },
+      {
+        "id": "premium_fun_14",
+        "title": "Classe ces scénarios absurdes du plus drôle à raconter au plus gênant.",
+        "items": [
+          "Être poursuivi par un canard géant",
+          "Avoir un majordome robot",
+          "Ne manger qu’un plat un mois",
+          "Vivre sur une île privée",
+          "Voyager dans le temps",
+          "Vivre avec un fantôme gentil"
+        ]
+      },
+      {
+        "id": "premium_fun_15",
+        "title": "Classe ces scénarios absurdes selon ceux qui te feraient le plus peur.",
+        "items": [
+          "Changer de corps une journée",
+          "Être célèbre une semaine",
+          "Parler aux animaux",
+          "Être poursuivi par un canard géant",
+          "Vivre avec un fantôme gentil",
+          "Être invisible une heure par jour"
+        ]
+      },
+      {
+        "id": "premium_fun_16",
+        "title": "Classe ces scénarios absurdes du plus incroyable au plus absurde.",
+        "items": [
+          "Gagner au loto demain",
+          "Être bloqué dans un film",
+          "Avoir une chanson à chaque entrée",
+          "Ne manger qu’un plat un mois",
+          "Vivre avec un fantôme gentil",
+          "Vivre sans téléphone un an",
+          "Avoir un majordome robot"
+        ]
+      },
+      {
+        "id": "premium_fun_17",
+        "title": "Classe ces scénarios absurdes selon ceux que tu refuserais en dernier.",
+        "items": [
+          "Avoir une chanson à chaque entrée",
+          "Avoir un clone",
+          "Ne plus jamais dormir",
+          "Être bloqué dans un film",
+          "Être invisible une heure par jour",
+          "Recevoir 100 colis mystères"
+        ]
+      },
+      {
+        "id": "premium_fun_18",
+        "title": "Classe ces scénarios absurdes du meilleur super-pouvoir au pire cadeau.",
+        "items": [
+          "Devenir influenceur malgré soi",
+          "Être célèbre une semaine",
+          "Gagner au loto demain",
+          "Pouvoir se téléporter",
+          "Avoir un clone",
+          "Avoir une chanson à chaque entrée"
+        ]
+      },
+      {
+        "id": "premium_fun_19",
+        "title": "Classe ces scénarios absurdes selon ceux qui créeraient le meilleur souvenir.",
+        "items": [
+          "Changer de corps une journée",
+          "Vivre sans téléphone un an",
+          "Ne plus jamais dormir",
+          "Tout comprendre mais rien expliquer",
+          "Ne manger qu’un plat un mois",
+          "Habiter dans un parc d’attractions",
+          "Lire les pensées"
         ]
       }
     ],
@@ -3431,6 +6873,241 @@
           "Livraison",
           "Mise à jour"
         ]
+      },
+      {
+        "id": "premium_quotidien_01",
+        "title": "Classe ces plaisirs du quotidien pour un dimanche parfait, du plus tentant au moins tentant.",
+        "items": [
+          "Bougie allumée",
+          "Temps seul",
+          "Musique forte en voiture",
+          "Café du matin",
+          "Repas maison",
+          "Recevoir un colis",
+          "Draps propres"
+        ]
+      },
+      {
+        "id": "premium_quotidien_02",
+        "title": "Classe ces plaisirs du quotidien après une semaine épuisante, selon ce que tu choisirais en premier.",
+        "items": [
+          "Dormir sans réveil",
+          "Temps seul",
+          "Douche chaude",
+          "Petit-déjeuner dehors",
+          "Sieste",
+          "Trouver une place de parking"
+        ]
+      },
+      {
+        "id": "premium_quotidien_03",
+        "title": "Classe ces plaisirs du quotidien pendant l’hiver, du plus attirant au moins attirant.",
+        "items": [
+          "Petit-déjeuner dehors",
+          "Trouver une place de parking",
+          "Promenade",
+          "Maison rangée",
+          "Recevoir un colis",
+          "Faire une liste terminée"
+        ]
+      },
+      {
+        "id": "premium_quotidien_04",
+        "title": "Classe ces plaisirs du quotidien pendant les vacances, selon ce qui te correspond le plus.",
+        "items": [
+          "Bougie allumée",
+          "Lecture au lit",
+          "Trouver une place de parking",
+          "Livraison de repas",
+          "Sieste",
+          "Promenade",
+          "Maison rangée"
+        ]
+      },
+      {
+        "id": "premium_quotidien_05",
+        "title": "Classe ces plaisirs du quotidien quand tu as besoin de te réconforter, du plus tentant au moins tentant.",
+        "items": [
+          "Recevoir un colis",
+          "Petit-déjeuner dehors",
+          "Draps propres",
+          "Faire une liste terminée",
+          "Maison rangée",
+          "Lecture au lit"
+        ]
+      },
+      {
+        "id": "premium_quotidien_06",
+        "title": "Classe ces plaisirs du quotidien pour commencer une bonne journée, selon ce que tu choisirais en premier.",
+        "items": [
+          "Journée sans obligation",
+          "Douche chaude",
+          "Temps seul",
+          "Coucher de soleil",
+          "Dormir sans réveil",
+          "Promenade"
+        ]
+      },
+      {
+        "id": "premium_quotidien_07",
+        "title": "Classe ces plaisirs du quotidien pour terminer une bonne journée, du plus attirant au moins attirant.",
+        "items": [
+          "Bain chaud",
+          "Faire une liste terminée",
+          "Promenade",
+          "Sieste",
+          "Pluie quand on est chez soi",
+          "Dormir sans réveil",
+          "Douche chaude"
+        ]
+      },
+      {
+        "id": "premium_quotidien_08",
+        "title": "Classe ces plaisirs du quotidien quand tu veux être seul(e), selon ce qui te correspond le plus.",
+        "items": [
+          "Appel avec un proche",
+          "Petit-déjeuner dehors",
+          "Série sous un plaid",
+          "Coucher de soleil",
+          "Sieste",
+          "Faire une liste terminée"
+        ]
+      },
+      {
+        "id": "premium_quotidien_09",
+        "title": "Classe ces plaisirs du quotidien à partager avec ton/ta partenaire, du plus tentant au moins tentant.",
+        "items": [
+          "Journée sans obligation",
+          "Maison rangée",
+          "Bain chaud",
+          "Pluie quand on est chez soi",
+          "Trouver une place de parking",
+          "Lecture au lit"
+        ]
+      },
+      {
+        "id": "premium_quotidien_10",
+        "title": "Classe ces plaisirs du quotidien qui te donnent instantanément le sourire, selon ce que tu choisirais en premier.",
+        "items": [
+          "Livraison de repas",
+          "Douche chaude",
+          "Recevoir un colis",
+          "Temps seul",
+          "Sieste",
+          "Bain chaud",
+          "Draps propres"
+        ]
+      },
+      {
+        "id": "premium_quotidien_11",
+        "title": "Classe ces plaisirs du quotidien qui te font te sentir chez toi, du plus attirant au moins attirant.",
+        "items": [
+          "Trouver une place de parking",
+          "Temps seul",
+          "Draps propres",
+          "Pluie quand on est chez soi",
+          "Douche chaude",
+          "Café du matin"
+        ]
+      },
+      {
+        "id": "premium_quotidien_12",
+        "title": "Classe ces plaisirs du quotidien que tu sous-estimes le plus, selon ce qui te correspond le plus.",
+        "items": [
+          "Pain frais",
+          "Bain chaud",
+          "Draps propres",
+          "Maison rangée",
+          "Repas maison",
+          "Pluie quand on est chez soi"
+        ]
+      },
+      {
+        "id": "premium_quotidien_13",
+        "title": "Classe ces plaisirs du quotidien qui valent presque un luxe, du plus tentant au moins tentant.",
+        "items": [
+          "Musique forte en voiture",
+          "Faire une liste terminée",
+          "Sieste",
+          "Temps seul",
+          "Coucher de soleil",
+          "Maison rangée",
+          "Pluie quand on est chez soi"
+        ]
+      },
+      {
+        "id": "premium_quotidien_14",
+        "title": "Classe ces plaisirs du quotidien quand il pleut toute la journée, selon ce que tu choisirais en premier.",
+        "items": [
+          "Temps seul",
+          "Coucher de soleil",
+          "Pluie quand on est chez soi",
+          "Petit-déjeuner dehors",
+          "Musique forte en voiture",
+          "Pain frais"
+        ]
+      },
+      {
+        "id": "premium_quotidien_15",
+        "title": "Classe ces plaisirs du quotidien pendant une journée sans obligation, du plus attirant au moins attirant.",
+        "items": [
+          "Repas maison",
+          "Recevoir un colis",
+          "Pluie quand on est chez soi",
+          "Série sous un plaid",
+          "Lecture au lit",
+          "Appel avec un proche"
+        ]
+      },
+      {
+        "id": "premium_quotidien_16",
+        "title": "Classe ces plaisirs du quotidien pour ralentir le rythme, selon ce qui te correspond le plus.",
+        "items": [
+          "Repas maison",
+          "Temps seul",
+          "Journée sans obligation",
+          "Pain frais",
+          "Lecture au lit",
+          "Pluie quand on est chez soi",
+          "Dormir sans réveil"
+        ]
+      },
+      {
+        "id": "premium_quotidien_17",
+        "title": "Classe ces plaisirs du quotidien qui améliorent vraiment ton humeur, du plus tentant au moins tentant.",
+        "items": [
+          "Livraison de repas",
+          "Musique forte en voiture",
+          "Bain chaud",
+          "Appel avec un proche",
+          "Dormir sans réveil",
+          "Petit-déjeuner dehors"
+        ]
+      },
+      {
+        "id": "premium_quotidien_18",
+        "title": "Classe ces plaisirs du quotidien que tu voudrais avoir plus souvent, selon ce que tu choisirais en premier.",
+        "items": [
+          "Livraison de repas",
+          "Petit-déjeuner dehors",
+          "Sieste",
+          "Recevoir un colis",
+          "Pain frais",
+          "Temps seul"
+        ]
+      },
+      {
+        "id": "premium_quotidien_19",
+        "title": "Classe ces plaisirs du quotidien pour te remettre d’une mauvaise journée, du plus attirant au moins attirant.",
+        "items": [
+          "Café du matin",
+          "Musique forte en voiture",
+          "Temps seul",
+          "Pain frais",
+          "Recevoir un colis",
+          "Lecture au lit",
+          "Sieste"
+        ]
       }
     ],
     "couple_debats": [
@@ -3732,6 +7409,241 @@
           "Tenir ses promesses",
           "Écouter attentivement",
           "Parler avec respect de ses proches"
+        ]
+      },
+      {
+        "id": "premium_debats_01",
+        "title": "Classe ces sujets de couple à aborder le plus tôt dans une relation.",
+        "items": [
+          "Réseaux sociaux",
+          "Mariage",
+          "Priorités",
+          "Carrière",
+          "Téléphone et vie privée",
+          "Argent",
+          "Alcool"
+        ]
+      },
+      {
+        "id": "premium_debats_02",
+        "title": "Classe ces sujets de couple qui créent le plus facilement des malentendus.",
+        "items": [
+          "Lieu de vie",
+          "Amis",
+          "Mariage",
+          "Famille",
+          "Argent",
+          "Ex"
+        ]
+      },
+      {
+        "id": "premium_debats_03",
+        "title": "Classe ces sujets de couple sur lesquels les couples devraient poser des limites claires.",
+        "items": [
+          "Lieu de vie",
+          "Temps seul",
+          "Travail tardif",
+          "Mots de passe",
+          "Vacances séparées",
+          "Dépenses plaisir"
+        ]
+      },
+      {
+        "id": "premium_debats_04",
+        "title": "Classe ces sujets de couple qui demandent le plus de compromis.",
+        "items": [
+          "Sorties",
+          "Lieu de vie",
+          "Amis",
+          "Mariage",
+          "Mots de passe",
+          "Priorités",
+          "Argent"
+        ]
+      },
+      {
+        "id": "premium_debats_05",
+        "title": "Classe ces sujets de couple qui peuvent révéler les plus grandes différences de valeurs.",
+        "items": [
+          "Tâches ménagères",
+          "Lieu de vie",
+          "Travail tardif",
+          "Alcool",
+          "Famille",
+          "Jalousie"
+        ]
+      },
+      {
+        "id": "premium_debats_06",
+        "title": "Classe ces sujets de couple qu’il vaut mieux rediscuter avec le temps.",
+        "items": [
+          "Partage de localisation",
+          "Jalousie",
+          "Travail tardif",
+          "Temps ensemble",
+          "Ex",
+          "Temps seul"
+        ]
+      },
+      {
+        "id": "premium_debats_07",
+        "title": "Classe ces sujets de couple qui te semblent les plus personnels.",
+        "items": [
+          "Invités à la maison",
+          "Téléphone et vie privée",
+          "Sorties",
+          "Priorités",
+          "Temps seul",
+          "Lieu de vie",
+          "Répartition des tâches"
+        ]
+      },
+      {
+        "id": "premium_debats_08",
+        "title": "Classe ces sujets de couple sur lesquels tu aurais le plus de mal à céder.",
+        "items": [
+          "Carrière",
+          "Alcool",
+          "Ex",
+          "Répartition des tâches",
+          "Argent",
+          "Temps ensemble"
+        ]
+      },
+      {
+        "id": "premium_debats_09",
+        "title": "Classe ces sujets de couple qui nécessitent le plus de confiance.",
+        "items": [
+          "Temps seul",
+          "Invités à la maison",
+          "Jalousie",
+          "Sorties",
+          "Alcool",
+          "Tâches ménagères"
+        ]
+      },
+      {
+        "id": "premium_debats_10",
+        "title": "Classe ces sujets de couple qui peuvent le plus évoluer avec les années.",
+        "items": [
+          "Partage de localisation",
+          "Invités à la maison",
+          "Ex",
+          "Dépenses plaisir",
+          "Jalousie",
+          "Temps seul",
+          "Argent"
+        ]
+      },
+      {
+        "id": "premium_debats_11",
+        "title": "Classe ces sujets de couple qui sont les plus difficiles à parler calmement.",
+        "items": [
+          "Mots de passe",
+          "Amis",
+          "Priorités",
+          "Tâches ménagères",
+          "Enfants",
+          "Carrière"
+        ]
+      },
+      {
+        "id": "premium_debats_12",
+        "title": "Classe ces sujets de couple qui méritent le plus de règles explicites.",
+        "items": [
+          "Invités à la maison",
+          "Lieu de vie",
+          "Carrière",
+          "Ex",
+          "Temps seul",
+          "Mots de passe"
+        ]
+      },
+      {
+        "id": "premium_debats_13",
+        "title": "Classe ces sujets de couple où chacun devrait garder le plus d’indépendance.",
+        "items": [
+          "Tâches ménagères",
+          "Amis",
+          "Famille",
+          "Mots de passe",
+          "Vacances séparées",
+          "Temps seul",
+          "Ex"
+        ]
+      },
+      {
+        "id": "premium_debats_14",
+        "title": "Classe ces sujets de couple qui peuvent le plus affecter le quotidien.",
+        "items": [
+          "Sorties",
+          "Ex",
+          "Invités à la maison",
+          "Vacances séparées",
+          "Lieu de vie",
+          "Temps seul"
+        ]
+      },
+      {
+        "id": "premium_debats_15",
+        "title": "Classe ces sujets de couple où la compatibilité te semble la plus importante.",
+        "items": [
+          "Réseaux sociaux",
+          "Enfants",
+          "Priorités",
+          "Alcool",
+          "Lieu de vie",
+          "Temps ensemble"
+        ]
+      },
+      {
+        "id": "premium_debats_16",
+        "title": "Classe ces sujets de couple que tu préfères régler avant d’habiter ensemble.",
+        "items": [
+          "Mots de passe",
+          "Sorties",
+          "Téléphone et vie privée",
+          "Temps seul",
+          "Priorités",
+          "Répartition des tâches",
+          "Jalousie"
+        ]
+      },
+      {
+        "id": "premium_debats_17",
+        "title": "Classe ces sujets de couple sur lesquels tu pourrais changer d’avis.",
+        "items": [
+          "Enfants",
+          "Mariage",
+          "Argent",
+          "Temps seul",
+          "Amis",
+          "Travail tardif"
+        ]
+      },
+      {
+        "id": "premium_debats_18",
+        "title": "Classe ces sujets de couple qui demandent le plus d’honnêteté.",
+        "items": [
+          "Famille",
+          "Lieu de vie",
+          "Enfants",
+          "Vacances séparées",
+          "Mots de passe",
+          "Carrière"
+        ]
+      },
+      {
+        "id": "premium_debats_19",
+        "title": "Classe ces sujets de couple qui te semblent les plus sous-estimés.",
+        "items": [
+          "Mariage",
+          "Invités à la maison",
+          "Famille",
+          "Ex",
+          "Téléphone et vie privée",
+          "Jalousie",
+          "Enfants"
         ]
       }
     ]

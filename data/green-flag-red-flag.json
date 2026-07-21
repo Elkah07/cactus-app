@@ -390,5 +390,813 @@
   {
     "id": "green_red_098",
     "question": "Quelqu'un qui suit surtout son instinct."
+  },
+  {
+    "id": "green_red_099",
+    "question": "Quelqu’un qui préfère régler un désaccord immédiatement plutôt que laisser retomber la pression."
+  },
+  {
+    "id": "green_red_100",
+    "question": "Quelqu’un qui demande régulièrement si tout va bien dans la relation."
+  },
+  {
+    "id": "green_red_101",
+    "question": "Quelqu’un qui a besoin de plusieurs heures avant de pouvoir parler calmement après une dispute."
+  },
+  {
+    "id": "green_red_102",
+    "question": "Quelqu’un qui envoie de très longs messages pour expliquer exactement ce qu’il ou elle ressent."
+  },
+  {
+    "id": "green_red_103",
+    "question": "Quelqu’un qui dit directement quand quelque chose le ou la dérange, même pour de petites choses."
+  },
+  {
+    "id": "green_red_104",
+    "question": "Quelqu’un qui s’excuse facilement mais explique aussi pourquoi il ou elle a réagi ainsi."
+  },
+  {
+    "id": "green_red_105",
+    "question": "Quelqu’un qui demande toujours des précisions plutôt que supposer ce que l’autre pense."
+  },
+  {
+    "id": "green_red_106",
+    "question": "Quelqu’un qui préfère certaines discussions importantes par message plutôt qu’en face."
+  },
+  {
+    "id": "green_red_107",
+    "question": "Quelqu’un qui prend des notes après une grosse conversation pour ne pas oublier ce qui a été dit."
+  },
+  {
+    "id": "green_red_108",
+    "question": "Quelqu’un qui veut faire un point régulier sur la relation même quand tout va bien."
+  },
+  {
+    "id": "green_red_109",
+    "question": "Quelqu’un qui adore partir parfois en voyage sans son/sa partenaire."
+  },
+  {
+    "id": "green_red_110",
+    "question": "Quelqu’un qui tient absolument à conserver une soirée par semaine uniquement pour soi."
+  },
+  {
+    "id": "green_red_111",
+    "question": "Quelqu’un qui a beaucoup d’activités auxquelles son/sa partenaire ne participe jamais."
+  },
+  {
+    "id": "green_red_112",
+    "question": "Quelqu’un qui ne ressent pas le besoin d’écrire à son/sa partenaire toute la journée."
+  },
+  {
+    "id": "green_red_113",
+    "question": "Quelqu’un qui préfère garder certains projets totalement personnels."
+  },
+  {
+    "id": "green_red_114",
+    "question": "Quelqu’un qui peut passer un week-end entier seul(e) sans ressentir de manque particulier."
+  },
+  {
+    "id": "green_red_115",
+    "question": "Quelqu’un qui encourage son/sa partenaire à avoir des vacances séparées de temps en temps."
+  },
+  {
+    "id": "green_red_116",
+    "question": "Quelqu’un qui refuse de partager tous ses mots de passe même après plusieurs années."
+  },
+  {
+    "id": "green_red_117",
+    "question": "Quelqu’un qui a besoin d’une pièce ou d’un espace à soi à la maison."
+  },
+  {
+    "id": "green_red_118",
+    "question": "Quelqu’un qui considère qu’un couple n’a pas besoin d’avoir tous ses amis en commun."
+  },
+  {
+    "id": "green_red_119",
+    "question": "Quelqu’un qui veut connaître précisément les revenus de son/sa partenaire."
+  },
+  {
+    "id": "green_red_120",
+    "question": "Quelqu’un qui garde toujours une épargne personnelle secrète pour se sentir en sécurité."
+  },
+  {
+    "id": "green_red_121",
+    "question": "Quelqu’un qui offre facilement des cadeaux très chers."
+  },
+  {
+    "id": "green_red_122",
+    "question": "Quelqu’un qui refuse catégoriquement de prêter de l’argent à sa famille."
+  },
+  {
+    "id": "green_red_123",
+    "question": "Quelqu’un qui note chaque dépense commune au centime près."
+  },
+  {
+    "id": "green_red_124",
+    "question": "Quelqu’un qui pense que la personne qui gagne le plus devrait payer davantage."
+  },
+  {
+    "id": "green_red_125",
+    "question": "Quelqu’un qui pourrait quitter un travail bien payé pour avoir beaucoup plus de temps libre."
+  },
+  {
+    "id": "green_red_126",
+    "question": "Quelqu’un qui dépense énormément pour les voyages mais très peu pour le reste."
+  },
+  {
+    "id": "green_red_127",
+    "question": "Quelqu’un qui veut un contrat ou un accord écrit avant un gros achat commun."
+  },
+  {
+    "id": "green_red_128",
+    "question": "Quelqu’un qui considère l’argent comme un sujet dont il faut parler dès le début d’une relation."
+  },
+  {
+    "id": "green_red_129",
+    "question": "Quelqu’un qui appelle sa famille presque tous les jours."
+  },
+  {
+    "id": "green_red_130",
+    "question": "Quelqu’un qui souhaite passer toutes les grandes fêtes avec sa famille."
+  },
+  {
+    "id": "green_red_131",
+    "question": "Quelqu’un qui demande souvent l’avis de ses parents avant une décision importante."
+  },
+  {
+    "id": "green_red_132",
+    "question": "Quelqu’un qui est prêt à héberger un proche plusieurs mois s’il est en difficulté."
+  },
+  {
+    "id": "green_red_133",
+    "question": "Quelqu’un qui refuse de critiquer sa famille devant son/sa partenaire."
+  },
+  {
+    "id": "green_red_134",
+    "question": "Quelqu’un qui veut que son/sa partenaire soit très intégré(e) à sa famille."
+  },
+  {
+    "id": "green_red_135",
+    "question": "Quelqu’un qui préfère garder une vraie distance avec sa belle-famille."
+  },
+  {
+    "id": "green_red_136",
+    "question": "Quelqu’un qui raconte beaucoup de choses de sa relation à ses frères et sœurs."
+  },
+  {
+    "id": "green_red_137",
+    "question": "Quelqu’un qui aide financièrement ses parents sans demander l’avis de son/sa partenaire."
+  },
+  {
+    "id": "green_red_138",
+    "question": "Quelqu’un qui considère que certaines traditions familiales ne sont pas négociables."
+  },
+  {
+    "id": "green_red_139",
+    "question": "Quelqu’un qui a un ou une meilleur(e) ami(e) avec qui il ou elle parle tous les jours."
+  },
+  {
+    "id": "green_red_140",
+    "question": "Quelqu’un qui part régulièrement en week-end uniquement avec ses amis."
+  },
+  {
+    "id": "green_red_141",
+    "question": "Quelqu’un qui raconte ses disputes de couple à son groupe d’amis."
+  },
+  {
+    "id": "green_red_142",
+    "question": "Quelqu’un qui garde une amitié très proche avec une personne qui ne t’apprécie pas."
+  },
+  {
+    "id": "green_red_143",
+    "question": "Quelqu’un qui invite souvent des amis à la maison sans planifier longtemps à l’avance."
+  },
+  {
+    "id": "green_red_144",
+    "question": "Quelqu’un qui défend toujours ses amis même quand ils ont clairement tort."
+  },
+  {
+    "id": "green_red_145",
+    "question": "Quelqu’un qui considère ses amis comme sa famille et leur donne beaucoup de priorité."
+  },
+  {
+    "id": "green_red_146",
+    "question": "Quelqu’un qui a surtout des amis d’un genre qui pourrait potentiellement l’attirer."
+  },
+  {
+    "id": "green_red_147",
+    "question": "Quelqu’un qui n’a presque aucun ami proche en dehors de son couple."
+  },
+  {
+    "id": "green_red_148",
+    "question": "Quelqu’un qui devient rapidement très proche de nouvelles personnes."
+  },
+  {
+    "id": "green_red_149",
+    "question": "Quelqu’un qui ne publie jamais son couple sur les réseaux sociaux."
+  },
+  {
+    "id": "green_red_150",
+    "question": "Quelqu’un qui poste très souvent des photos avec son/sa partenaire."
+  },
+  {
+    "id": "green_red_151",
+    "question": "Quelqu’un qui supprime tous ses anciens posts de couple après une rupture."
+  },
+  {
+    "id": "green_red_152",
+    "question": "Quelqu’un qui suit beaucoup de personnes qu’il ou elle trouve attirantes."
+  },
+  {
+    "id": "green_red_153",
+    "question": "Quelqu’un qui laisse régulièrement des commentaires affectueux sous les photos de ses amis."
+  },
+  {
+    "id": "green_red_154",
+    "question": "Quelqu’un qui partage presque toute sa vie quotidienne en story."
+  },
+  {
+    "id": "green_red_155",
+    "question": "Quelqu’un qui garde un compte secondaire que peu de personnes connaissent."
+  },
+  {
+    "id": "green_red_156",
+    "question": "Quelqu’un qui vérifie qui regarde ses stories."
+  },
+  {
+    "id": "green_red_157",
+    "question": "Quelqu’un qui refuse de donner son téléphone pour regarder une simple photo."
+  },
+  {
+    "id": "green_red_158",
+    "question": "Quelqu’un qui préfère ne jamais connaître les mots de passe de son/sa partenaire."
+  },
+  {
+    "id": "green_red_159",
+    "question": "Quelqu’un qui garde des photos avec ses ex dans son téléphone."
+  },
+  {
+    "id": "green_red_160",
+    "question": "Quelqu’un qui souhaite un joyeux anniversaire à ses ex chaque année."
+  },
+  {
+    "id": "green_red_161",
+    "question": "Quelqu’un qui est encore ami avec la famille d’un(e) ex."
+  },
+  {
+    "id": "green_red_162",
+    "question": "Quelqu’un qui parle positivement de ses anciennes relations."
+  },
+  {
+    "id": "green_red_163",
+    "question": "Quelqu’un qui refuse de dire du mal de ses ex même après une rupture difficile."
+  },
+  {
+    "id": "green_red_164",
+    "question": "Quelqu’un qui garde un cadeau important offert par un(e) ex."
+  },
+  {
+    "id": "green_red_165",
+    "question": "Quelqu’un qui prévient son/sa partenaire lorsqu’un(e) ex reprend contact."
+  },
+  {
+    "id": "green_red_166",
+    "question": "Quelqu’un qui pourrait prendre un café avec un(e) ex sans trouver cela étrange."
+  },
+  {
+    "id": "green_red_167",
+    "question": "Quelqu’un qui compare parfois une situation actuelle à une ancienne relation."
+  },
+  {
+    "id": "green_red_168",
+    "question": "Quelqu’un qui a complètement coupé contact avec tous ses ex."
+  },
+  {
+    "id": "green_red_169",
+    "question": "Quelqu’un qui a besoin que la maison soit parfaitement rangée pour se détendre."
+  },
+  {
+    "id": "green_red_170",
+    "question": "Quelqu’un qui préfère faire les tâches dès qu’elles apparaissent."
+  },
+  {
+    "id": "green_red_171",
+    "question": "Quelqu’un qui déteste partager sa nourriture."
+  },
+  {
+    "id": "green_red_172",
+    "question": "Quelqu’un qui adore avoir des routines très précises."
+  },
+  {
+    "id": "green_red_173",
+    "question": "Quelqu’un qui peut passer une journée entière sans sortir de chez lui ou d’elle."
+  },
+  {
+    "id": "green_red_174",
+    "question": "Quelqu’un qui veut toujours manger à table sans téléphone."
+  },
+  {
+    "id": "green_red_175",
+    "question": "Quelqu’un qui prépare toutes ses affaires la veille."
+  },
+  {
+    "id": "green_red_176",
+    "question": "Quelqu’un qui fait souvent des achats impulsifs pour la maison."
+  },
+  {
+    "id": "green_red_177",
+    "question": "Quelqu’un qui veut décider à deux même des petits choix du quotidien."
+  },
+  {
+    "id": "green_red_178",
+    "question": "Quelqu’un qui préfère avoir des espaces séparés pour certaines affaires."
+  },
+  {
+    "id": "green_red_179",
+    "question": "Quelqu’un qui répond parfois à des messages professionnels pendant un rendez-vous romantique."
+  },
+  {
+    "id": "green_red_180",
+    "question": "Quelqu’un qui est prêt à déménager pour une opportunité de carrière exceptionnelle."
+  },
+  {
+    "id": "green_red_181",
+    "question": "Quelqu’un qui devient facilement très ami avec ses collègues."
+  },
+  {
+    "id": "green_red_182",
+    "question": "Quelqu’un qui parle énormément de son travail à la maison."
+  },
+  {
+    "id": "green_red_183",
+    "question": "Quelqu’un qui refuse de sacrifier ses week-ends pour son travail."
+  },
+  {
+    "id": "green_red_184",
+    "question": "Quelqu’un qui souhaite toujours connaître le salaire de son/sa partenaire."
+  },
+  {
+    "id": "green_red_185",
+    "question": "Quelqu’un qui peut travailler très tard plusieurs semaines pour atteindre un objectif."
+  },
+  {
+    "id": "green_red_186",
+    "question": "Quelqu’un qui change régulièrement de projet professionnel."
+  },
+  {
+    "id": "green_red_187",
+    "question": "Quelqu’un qui considère sa carrière comme une priorité égale à son couple."
+  },
+  {
+    "id": "green_red_188",
+    "question": "Quelqu’un qui rêverait de travailler avec son/sa partenaire."
+  },
+  {
+    "id": "green_red_189",
+    "question": "Quelqu’un qui dit immédiatement quand une situation le ou la rend jaloux(se)."
+  },
+  {
+    "id": "green_red_190",
+    "question": "Quelqu’un qui demande à rencontrer rapidement les nouvelles personnes proches de son/sa partenaire."
+  },
+  {
+    "id": "green_red_191",
+    "question": "Quelqu’un qui veut savoir avec qui son/sa partenaire sort en soirée."
+  },
+  {
+    "id": "green_red_192",
+    "question": "Quelqu’un qui ne ressent presque jamais de jalousie."
+  },
+  {
+    "id": "green_red_193",
+    "question": "Quelqu’un qui trouve normal de rassurer régulièrement son/sa partenaire sur ses sentiments."
+  },
+  {
+    "id": "green_red_194",
+    "question": "Quelqu’un qui considère certains likes comme un manque de respect."
+  },
+  {
+    "id": "green_red_195",
+    "question": "Quelqu’un qui préfère ne rien savoir des anciennes relations de son/sa partenaire."
+  },
+  {
+    "id": "green_red_196",
+    "question": "Quelqu’un qui peut plaisanter ouvertement sur sa propre jalousie."
+  },
+  {
+    "id": "green_red_197",
+    "question": "Quelqu’un qui demande parfois à voir une conversation pour être rassuré(e)."
+  },
+  {
+    "id": "green_red_198",
+    "question": "Quelqu’un qui fait davantage confiance aux actes qu’aux explications."
+  },
+  {
+    "id": "green_red_199",
+    "question": "Quelqu’un qui adore célébrer chaque petit anniversaire de relation."
+  },
+  {
+    "id": "green_red_200",
+    "question": "Quelqu’un qui offre régulièrement des fleurs sans occasion particulière."
+  },
+  {
+    "id": "green_red_201",
+    "question": "Quelqu’un qui écrit de longues lettres d’amour."
+  },
+  {
+    "id": "green_red_202",
+    "question": "Quelqu’un qui organise des surprises très élaborées."
+  },
+  {
+    "id": "green_red_203",
+    "question": "Quelqu’un qui a besoin de beaucoup de gestes affectueux en public."
+  },
+  {
+    "id": "green_red_204",
+    "question": "Quelqu’un qui conserve tous les petits souvenirs de votre histoire."
+  },
+  {
+    "id": "green_red_205",
+    "question": "Quelqu’un qui préfère les attentions utiles aux grandes déclarations."
+  },
+  {
+    "id": "green_red_206",
+    "question": "Quelqu’un qui aime avoir des surnoms très mignons en couple."
+  },
+  {
+    "id": "green_red_207",
+    "question": "Quelqu’un qui veut recréer régulièrement vos premiers rendez-vous."
+  },
+  {
+    "id": "green_red_208",
+    "question": "Quelqu’un qui considère les petites habitudes quotidiennes comme plus romantiques que les cadeaux."
+  },
+  {
+    "id": "green_red_209",
+    "question": "Quelqu’un qui a besoin de sortir marcher au milieu d’une dispute."
+  },
+  {
+    "id": "green_red_210",
+    "question": "Quelqu’un qui refuse de se coucher tant qu’un problème n’est pas réglé."
+  },
+  {
+    "id": "green_red_211",
+    "question": "Quelqu’un qui pleure facilement pendant un conflit."
+  },
+  {
+    "id": "green_red_212",
+    "question": "Quelqu’un qui devient très silencieux quand il ou elle est blessé(e)."
+  },
+  {
+    "id": "green_red_213",
+    "question": "Quelqu’un qui demande une pause quand la discussion devient trop intense."
+  },
+  {
+    "id": "green_red_214",
+    "question": "Quelqu’un qui peut reconnaître rapidement qu’il ou elle avait tort."
+  },
+  {
+    "id": "green_red_215",
+    "question": "Quelqu’un qui ressort parfois d’anciens problèmes pendant une nouvelle dispute."
+  },
+  {
+    "id": "green_red_216",
+    "question": "Quelqu’un qui préfère écrire ce qu’il ou elle ressent après un conflit."
+  },
+  {
+    "id": "green_red_217",
+    "question": "Quelqu’un qui a besoin d’affection rapidement après une réconciliation."
+  },
+  {
+    "id": "green_red_218",
+    "question": "Quelqu’un qui veut toujours comprendre la cause profonde d’une dispute."
+  },
+  {
+    "id": "green_red_219",
+    "question": "Quelqu’un qui voudrait vivre plusieurs années dans différents pays."
+  },
+  {
+    "id": "green_red_220",
+    "question": "Quelqu’un qui préfère une petite vie confortable à une carrière très ambitieuse."
+  },
+  {
+    "id": "green_red_221",
+    "question": "Quelqu’un qui veut toujours avoir un projet ou un objectif en cours."
+  },
+  {
+    "id": "green_red_222",
+    "question": "Quelqu’un qui rêve d’une vie très calme loin d’une grande ville."
+  },
+  {
+    "id": "green_red_223",
+    "question": "Quelqu’un qui pourrait vivre avec très peu d’objets."
+  },
+  {
+    "id": "green_red_224",
+    "question": "Quelqu’un qui veut voyager plusieurs fois par an même avec un petit budget."
+  },
+  {
+    "id": "green_red_225",
+    "question": "Quelqu’un qui adore recevoir du monde chez lui ou chez elle."
+  },
+  {
+    "id": "green_red_226",
+    "question": "Quelqu’un qui préférerait travailler quatre jours par semaine en gagnant moins."
+  },
+  {
+    "id": "green_red_227",
+    "question": "Quelqu’un qui aime changer souvent de décoration ou d’environnement."
+  },
+  {
+    "id": "green_red_228",
+    "question": "Quelqu’un qui planifie déjà sa vie plusieurs années à l’avance."
+  },
+  {
+    "id": "green_red_229",
+    "question": "Quelqu’un qui préfère toujours dire la vérité même si elle fait mal."
+  },
+  {
+    "id": "green_red_230",
+    "question": "Quelqu’un qui considère la loyauté plus importante que la transparence totale."
+  },
+  {
+    "id": "green_red_231",
+    "question": "Quelqu’un qui pardonne facilement une erreur reconnue sincèrement."
+  },
+  {
+    "id": "green_red_232",
+    "question": "Quelqu’un qui refuse de garder un secret qui pourrait blesser une autre personne."
+  },
+  {
+    "id": "green_red_233",
+    "question": "Quelqu’un qui donne souvent une deuxième chance."
+  },
+  {
+    "id": "green_red_234",
+    "question": "Quelqu’un qui coupe très vite les ponts après un manque de respect."
+  },
+  {
+    "id": "green_red_235",
+    "question": "Quelqu’un qui estime que les intentions comptent presque autant que les actes."
+  },
+  {
+    "id": "green_red_236",
+    "question": "Quelqu’un qui change facilement d’avis quand on lui donne de bons arguments."
+  },
+  {
+    "id": "green_red_237",
+    "question": "Quelqu’un qui protège fortement sa vie privée même avec les personnes proches."
+  },
+  {
+    "id": "green_red_238",
+    "question": "Quelqu’un qui préfère être juste plutôt que gentil ou gentille dans une situation difficile."
+  },
+  {
+    "id": "green_red_239",
+    "question": "Quelqu’un qui veut tout réserver plusieurs mois à l’avance."
+  },
+  {
+    "id": "green_red_240",
+    "question": "Quelqu’un qui préfère partir avec un sac léger et improviser."
+  },
+  {
+    "id": "green_red_241",
+    "question": "Quelqu’un qui veut toujours essayer la nourriture locale."
+  },
+  {
+    "id": "green_red_242",
+    "question": "Quelqu’un qui prend beaucoup de photos mais oublie parfois de profiter du moment."
+  },
+  {
+    "id": "green_red_243",
+    "question": "Quelqu’un qui préfère les voyages très actifs aux vacances reposantes."
+  },
+  {
+    "id": "green_red_244",
+    "question": "Quelqu’un qui adore revenir plusieurs fois au même endroit."
+  },
+  {
+    "id": "green_red_245",
+    "question": "Quelqu’un qui serait prêt à dormir dans un logement très simple pour vivre une expérience rare."
+  },
+  {
+    "id": "green_red_246",
+    "question": "Quelqu’un qui refuse de partir sans assurance ou plan de secours."
+  },
+  {
+    "id": "green_red_247",
+    "question": "Quelqu’un qui aimerait faire un long voyage complètement seul(e)."
+  },
+  {
+    "id": "green_red_248",
+    "question": "Quelqu’un qui choisit parfois une destination uniquement pour son prix."
+  },
+  {
+    "id": "green_red_249",
+    "question": "Quelqu’un qui parle très facilement de ses envies intimes."
+  },
+  {
+    "id": "green_red_250",
+    "question": "Quelqu’un qui a besoin de beaucoup de tendresse sans que cela mène forcément plus loin."
+  },
+  {
+    "id": "green_red_251",
+    "question": "Quelqu’un qui préfère garder certains fantasmes totalement privés."
+  },
+  {
+    "id": "green_red_252",
+    "question": "Quelqu’un qui trouve important de reparler régulièrement des limites et du consentement."
+  },
+  {
+    "id": "green_red_253",
+    "question": "Quelqu’un qui n’aime presque pas les démonstrations d’affection en public."
+  },
+  {
+    "id": "green_red_254",
+    "question": "Quelqu’un qui considère les compliments physiques comme très importants."
+  },
+  {
+    "id": "green_red_255",
+    "question": "Quelqu’un qui peut avoir besoin de longues périodes avec moins d’intimité physique."
+  },
+  {
+    "id": "green_red_256",
+    "question": "Quelqu’un qui aime beaucoup les gestes spontanés et inattendus."
+  },
+  {
+    "id": "green_red_257",
+    "question": "Quelqu’un qui a besoin d’une grande connexion émotionnelle pour se sentir vraiment attiré(e)."
+  },
+  {
+    "id": "green_red_258",
+    "question": "Quelqu’un qui est très à l’aise pour dire clairement ce qu’il ou elle ne veut pas."
+  },
+  {
+    "id": "green_red_259",
+    "question": "Quelqu’un qui parle très tôt de ses projets de vie à long terme."
+  },
+  {
+    "id": "green_red_260",
+    "question": "Quelqu’un qui n’a pas besoin de mariage pour considérer une relation comme définitive."
+  },
+  {
+    "id": "green_red_261",
+    "question": "Quelqu’un qui souhaite habiter ensemble rapidement."
+  },
+  {
+    "id": "green_red_262",
+    "question": "Quelqu’un qui préfère attendre longtemps avant de mélanger ses finances."
+  },
+  {
+    "id": "green_red_263",
+    "question": "Quelqu’un qui considère qu’adopter un animal ensemble est un très gros engagement."
+  },
+  {
+    "id": "green_red_264",
+    "question": "Quelqu’un qui veut prendre toutes les grandes décisions de vie en couple."
+  },
+  {
+    "id": "green_red_265",
+    "question": "Quelqu’un qui pourrait accepter plusieurs années de relation à distance pour le bon projet."
+  },
+  {
+    "id": "green_red_266",
+    "question": "Quelqu’un qui préfère construire lentement plutôt que faire de grands projets très vite."
+  },
+  {
+    "id": "green_red_267",
+    "question": "Quelqu’un qui veut être certain(e) de tout avant de s’engager davantage."
+  },
+  {
+    "id": "green_red_268",
+    "question": "Quelqu’un qui pense qu’on peut profondément aimer quelqu’un sans vouloir exactement la même vie."
+  },
+  {
+    "id": "green_red_269",
+    "question": "Quelqu’un qui se lève très tôt même le week-end."
+  },
+  {
+    "id": "green_red_270",
+    "question": "Quelqu’un qui a toujours besoin d’un bruit de fond à la maison."
+  },
+  {
+    "id": "green_red_271",
+    "question": "Quelqu’un qui adore planifier les repas de toute la semaine."
+  },
+  {
+    "id": "green_red_272",
+    "question": "Quelqu’un qui vérifie plusieurs fois que tout est fermé avant de partir."
+  },
+  {
+    "id": "green_red_273",
+    "question": "Quelqu’un qui peut laisser des messages sans réponse pendant des heures parce qu’il ou elle est concentré(e)."
+  },
+  {
+    "id": "green_red_274",
+    "question": "Quelqu’un qui déteste changer ses petites routines."
+  },
+  {
+    "id": "green_red_275",
+    "question": "Quelqu’un qui a besoin de tout ranger avant de pouvoir dormir."
+  },
+  {
+    "id": "green_red_276",
+    "question": "Quelqu’un qui préfère toujours refaire une activité qu’il ou elle adore plutôt que tester quelque chose de nouveau."
+  },
+  {
+    "id": "green_red_277",
+    "question": "Quelqu’un qui garde beaucoup d’objets par valeur sentimentale."
+  },
+  {
+    "id": "green_red_278",
+    "question": "Quelqu’un qui utilise toujours les mêmes affaires jusqu’à ce qu’elles soient complètement usées."
+  },
+  {
+    "id": "green_red_279",
+    "question": "Quelqu’un qui peut changer complètement de projet sur un coup d’intuition."
+  },
+  {
+    "id": "green_red_280",
+    "question": "Quelqu’un qui a besoin d’être très préparé(e) avant une nouvelle situation."
+  },
+  {
+    "id": "green_red_281",
+    "question": "Quelqu’un qui fait facilement confiance aux gens."
+  },
+  {
+    "id": "green_red_282",
+    "question": "Quelqu’un qui a besoin de beaucoup de temps avant de vraiment se confier."
+  },
+  {
+    "id": "green_red_283",
+    "question": "Quelqu’un qui préfère éviter une confrontation tant que ce n’est pas nécessaire."
+  },
+  {
+    "id": "green_red_284",
+    "question": "Quelqu’un qui dit souvent exactement ce qu’il ou elle pense."
+  },
+  {
+    "id": "green_red_285",
+    "question": "Quelqu’un qui devient rapidement passionné(e) par de nouveaux centres d’intérêt."
+  },
+  {
+    "id": "green_red_286",
+    "question": "Quelqu’un qui supporte très mal de ne pas contrôler une situation importante."
+  },
+  {
+    "id": "green_red_287",
+    "question": "Quelqu’un qui a besoin de longues périodes seul(e) pour récupérer socialement."
+  },
+  {
+    "id": "green_red_288",
+    "question": "Quelqu’un qui prend très souvent des décisions en fonction de son intuition."
+  },
+  {
+    "id": "green_red_289",
+    "question": "Quelqu’un qui envoie toujours un message pour savoir si tu es bien rentré(e)."
+  },
+  {
+    "id": "green_red_290",
+    "question": "Quelqu’un qui retient exactement ta commande préférée."
+  },
+  {
+    "id": "green_red_291",
+    "question": "Quelqu’un qui pense spontanément à prendre quelque chose pour toi en faisant les courses."
+  },
+  {
+    "id": "green_red_292",
+    "question": "Quelqu’un qui garde toujours un chargeur ou quelque chose dont tu pourrais avoir besoin."
+  },
+  {
+    "id": "green_red_293",
+    "question": "Quelqu’un qui te laisse systématiquement la meilleure place."
+  },
+  {
+    "id": "green_red_294",
+    "question": "Quelqu’un qui prépare des surprises très simples mais régulières."
+  },
+  {
+    "id": "green_red_295",
+    "question": "Quelqu’un qui te couvre quand tu t’endors sur le canapé."
+  },
+  {
+    "id": "green_red_296",
+    "question": "Quelqu’un qui se souvient de petites dates importantes pour toi."
+  },
+  {
+    "id": "green_red_297",
+    "question": "Quelqu’un qui t’envoie une photo dès qu’une chose lui fait penser à toi."
+  },
+  {
+    "id": "green_red_298",
+    "question": "Quelqu’un qui apprend à aimer une activité uniquement parce qu’elle compte beaucoup pour toi."
+  },
+  {
+    "id": "green_red_299",
+    "question": "Quelqu’un qui veut absolument connaître ton avis avant de prendre une décision qui ne concerne pourtant que sa propre vie."
+  },
+  {
+    "id": "green_red_300",
+    "question": "Quelqu’un qui considère qu’aimer quelqu’un signifie aussi parfois le laisser faire un choix qu’on ne comprend pas."
   }
 ]

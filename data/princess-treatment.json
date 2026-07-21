@@ -998,5 +998,205 @@
   {
     "id": "premium_010",
     "question": "Ton partenaire apprend quelque chose uniquement parce que ça te passionne."
+  },
+  {
+    "id": "premium_plus_001",
+    "question": "Ton partenaire réserve toujours la place la plus confortable pour toi."
+  },
+  {
+    "id": "premium_plus_002",
+    "question": "Ton partenaire vérifie la météo pour penser à prendre un parapluie pour toi."
+  },
+  {
+    "id": "premium_plus_003",
+    "question": "Ton partenaire te prépare un petit-déjeuner avant une journée importante."
+  },
+  {
+    "id": "premium_plus_004",
+    "question": "Ton partenaire garde toujours ton snack préféré chez lui ou chez elle."
+  },
+  {
+    "id": "premium_plus_005",
+    "question": "Ton partenaire pense à charger ton téléphone quand il voit qu'il n'a presque plus de batterie."
+  },
+  {
+    "id": "premium_plus_006",
+    "question": "Ton partenaire te laisse le côté du lit que tu préfères, même si ce n'est pas le sien."
+  },
+  {
+    "id": "premium_plus_007",
+    "question": "Ton partenaire te donne sa veste dès que tu dis que tu as froid."
+  },
+  {
+    "id": "premium_plus_008",
+    "question": "Ton partenaire porte ton sac quand tu commences à fatiguer."
+  },
+  {
+    "id": "premium_plus_009",
+    "question": "Ton partenaire te réserve spontanément un taxi ou un VTC pour que tu rentres en sécurité."
+  },
+  {
+    "id": "premium_plus_010",
+    "question": "Ton partenaire t'envoie de quoi manger quand il ou elle sait que tu n'as pas eu le temps de cuisiner."
+  },
+  {
+    "id": "premium_plus_011",
+    "question": "Ton partenaire retient exactement comment tu prends ton café et te le prépare sans demander."
+  },
+  {
+    "id": "premium_plus_012",
+    "question": "Ton partenaire te masse les épaules quand il ou elle voit que tu es tendu(e)."
+  },
+  {
+    "id": "premium_plus_013",
+    "question": "Ton partenaire s'occupe des démarches pénibles quand tu traverses une période compliquée."
+  },
+  {
+    "id": "premium_plus_014",
+    "question": "Ton partenaire te fait couler un bain ou prépare une douche chaude après une longue journée."
+  },
+  {
+    "id": "premium_plus_015",
+    "question": "Ton partenaire te laisse choisir le restaurant quand il ou elle sait que tu as eu une semaine difficile."
+  },
+  {
+    "id": "premium_plus_016",
+    "question": "Ton partenaire te dépose et revient te chercher pour t'éviter un trajet pénible."
+  },
+  {
+    "id": "premium_plus_017",
+    "question": "Ton partenaire garde dans son téléphone une liste des choses que tu mentionnes aimer pour de futures surprises."
+  },
+  {
+    "id": "premium_plus_018",
+    "question": "Ton partenaire pense à renouveler ou remplacer un produit que tu utilises avant qu'il soit complètement terminé."
+  },
+  {
+    "id": "premium_plus_019",
+    "question": "Ton partenaire te prépare tes affaires quand vous devez partir très tôt le lendemain."
+  },
+  {
+    "id": "premium_plus_020",
+    "question": "Ton partenaire te sert ton assiette avant de préparer la sienne."
+  },
+  {
+    "id": "premium_plus_021",
+    "question": "Ton partenaire te coupe un aliment dans ton assiette quand tu galères avec."
+  },
+  {
+    "id": "premium_plus_022",
+    "question": "Ton partenaire t'aide à mettre tes chaussures quand tu as les mains prises ou que tu es pressé(e)."
+  },
+  {
+    "id": "premium_plus_023",
+    "question": "Ton partenaire échange ses chaussures avec toi si les tiennes te font vraiment trop mal."
+  },
+  {
+    "id": "premium_plus_024",
+    "question": "Ton partenaire se lève pour aller te chercher quelque chose alors que tu es déjà confortablement installé(e)."
+  },
+  {
+    "id": "premium_plus_025",
+    "question": "Ton partenaire te laisse utiliser sa carte bancaire pour une petite dépense sans te demander de justification."
+  },
+  {
+    "id": "premium_plus_026",
+    "question": "Ton partenaire t'offre régulièrement de petites choses simplement parce qu'elles lui ont fait penser à toi."
+  },
+  {
+    "id": "premium_plus_027",
+    "question": "Ton partenaire t'achète des fleurs sans attendre une date particulière."
+  },
+  {
+    "id": "premium_plus_028",
+    "question": "Ton partenaire transforme une envie soudaine de bonbons en petite mission pour aller t'en chercher."
+  },
+  {
+    "id": "premium_plus_029",
+    "question": "Ton partenaire prépare ton repas préféré juste parce que tu en as parlé dans la journée."
+  },
+  {
+    "id": "premium_plus_030",
+    "question": "Ton partenaire te laisse la dernière part de quelque chose que vous adorez tous les deux."
+  },
+  {
+    "id": "premium_plus_031",
+    "question": "Ton partenaire se souvient des dates qui comptent pour toi même lorsqu'elles ne concernent pas directement votre couple."
+  },
+  {
+    "id": "premium_plus_032",
+    "question": "Ton partenaire organise une journée entière autour de tes envies pour te faire plaisir."
+  },
+  {
+    "id": "premium_plus_033",
+    "question": "Ton partenaire t'accompagne à un rendez-vous stressant même si tu pourrais y aller seul(e)."
+  },
+  {
+    "id": "premium_plus_034",
+    "question": "Ton partenaire attend que tu sois rentré(e) pour dormir quand tu rentres très tard."
+  },
+  {
+    "id": "premium_plus_035",
+    "question": "Ton partenaire te couvre avec une couverture quand tu t'endors sur le canapé."
+  },
+  {
+    "id": "premium_plus_036",
+    "question": "Ton partenaire baisse spontanément le son ou la lumière quand il ou elle voit que tu as mal à la tête."
+  },
+  {
+    "id": "premium_plus_037",
+    "question": "Ton partenaire te prépare une petite trousse avec ce dont tu pourrais avoir besoin avant un voyage."
+  },
+  {
+    "id": "premium_plus_038",
+    "question": "Ton partenaire commande ton plat préféré à l'avance pour qu'il soit prêt quand tu arrives."
+  },
+  {
+    "id": "premium_plus_039",
+    "question": "Ton partenaire te prête systématiquement son chargeur même s'il ou elle en a aussi besoin."
+  },
+  {
+    "id": "premium_plus_040",
+    "question": "Ton partenaire prend en charge le rangement après que tu as cuisiné."
+  },
+  {
+    "id": "premium_plus_041",
+    "question": "Ton partenaire t'offre un nouvel appareil ou objet important si le tien casse et que tu ne peux pas le remplacer facilement."
+  },
+  {
+    "id": "premium_plus_042",
+    "question": "Ton partenaire te réserve toujours une place à côté de lui ou d'elle quand vous êtes en groupe."
+  },
+  {
+    "id": "premium_plus_043",
+    "question": "Ton partenaire vérifie que tu as bien mangé quand tu es absorbé(e) par le travail."
+  },
+  {
+    "id": "premium_plus_044",
+    "question": "Ton partenaire apprend à faire quelque chose uniquement parce que ça pourrait te faciliter la vie."
+  },
+  {
+    "id": "premium_plus_045",
+    "question": "Ton partenaire garde une petite somme de côté pour pouvoir te faire plaisir de temps en temps."
+  },
+  {
+    "id": "premium_plus_046",
+    "question": "Ton partenaire te prépare une tenue ou repasse un vêtement pour toi avant un événement important."
+  },
+  {
+    "id": "premium_plus_047",
+    "question": "Ton partenaire commande deux desserts différents pour que tu puisses goûter aux deux."
+  },
+  {
+    "id": "premium_plus_048",
+    "question": "Ton partenaire pense toujours à prendre de l'eau ou un encas pour toi avant une longue sortie."
+  },
+  {
+    "id": "premium_plus_049",
+    "question": "Ton partenaire prend spontanément ta défense lorsqu'une remarque injuste est faite devant vous."
+  },
+  {
+    "id": "premium_plus_050",
+    "question": "Ton partenaire organise ton anniversaire comme un véritable événement sans te laisser gérer la logistique."
   }
 ]

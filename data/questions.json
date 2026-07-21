@@ -3078,5 +3078,1725 @@
     "spicy": 1,
     "mood": "romantic",
     "premium": false
+  },
+  {
+    "id": "premium_extension_001",
+    "question": "Qu’aimerais-tu mieux comprendre sur la façon dont ton enfance influence encore tes réactions aujourd’hui ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_002",
+    "question": "Quelle est la peur que tu montres le moins aux autres ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_003",
+    "question": "Qu’aimerais-tu mieux comprendre sur la version de toi que tu as dû abandonner pour avancer ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_004",
+    "question": "Quelle est la chose que tu aurais aimé entendre plus jeune ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_005",
+    "question": "Quelle est la décision dont tu es fier ou fière malgré les conséquences ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_006",
+    "question": "Quelle blessure a le plus changé ta manière de faire confiance ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_007",
+    "question": "Quelle est la qualité que tu as développée pour survivre à une période difficile ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_008",
+    "question": "Quelle partie de toi les gens comprennent rarement correctement ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_009",
+    "question": "Qu’est-ce qui te fait te sentir réellement en sécurité avec quelqu’un ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_010",
+    "question": "Quelle est la chose que tu pardonnes facilement aux autres mais pas à toi-même ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_011",
+    "question": "Quelle personne tu serais devenu(e) si une rencontre importante n’avait jamais eu lieu ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_012",
+    "question": "Quel souvenir tu aimerais pouvoir regarder avec plus de douceur ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_013",
+    "question": "Quelle place a la peur de l’avenir que tu n’exprimes presque jamais dans ta vie ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_014",
+    "question": "Quel est le besoin que tu as le plus de mal à demander clairement ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_015",
+    "question": "Quelle est la limite que tu as appris trop tard à poser ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_016",
+    "question": "Quelle croyance sur toi-même que tu essaies encore de déconstruire ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_017",
+    "question": "Quelle période de ta vie qui t’a le plus transformé(e) ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_018",
+    "question": "Quelle est la chose que tu voudrais que ton toi d’il y a dix ans sache sur toi aujourd’hui ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_019",
+    "question": "Quel est le moment où tu t’es senti(e) le plus courageux ou courageuse ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_020",
+    "question": "Comment est-ce que tu réagis quand tu te sens rejeté(e) ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_021",
+    "question": "Quelle est la chose que tu ne veux absolument pas reproduire de ton passé ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_022",
+    "question": "Qu’aimerais-tu mieux comprendre sur la personne à qui tu aimerais pouvoir poser une seule question sans filtre ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_023",
+    "question": "Quel souvenir te donne encore immédiatement une sensation physique ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_024",
+    "question": "Quel est le moment où tu as compris que tu avais vraiment changé ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_025",
+    "question": "Quelle est la chose que tu aimerais apprendre à accepter chez toi ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_026",
+    "question": "Quel est le type de solitude qui te fait du bien et celui qui te fait du mal ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_027",
+    "question": "Qu’est-ce que tu protèges derrière ton humour ou ton détachement ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_028",
+    "question": "Comment est-ce que tu voudrais être décrit(e) par les personnes qui t’aiment ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_029",
+    "question": "Qu’aimerais-tu mieux comprendre sur la plus grande différence entre la personne que tu montres et celle que tu ressens être ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_030",
+    "question": "Quelle est la chose que tu redoutes de perdre en vieillissant ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_031",
+    "question": "Qu’aimerais-tu mieux comprendre sur la promesse que tu aimerais faire à ton futur toi ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_032",
+    "question": "Qu’aimerais-tu mieux comprendre sur le regret qui t’a finalement appris quelque chose d’essentiel ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_033",
+    "question": "Qu’aimerais-tu mieux comprendre sur la situation dans laquelle tu as le plus besoin d’être rassuré(e) ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_034",
+    "question": "Quelle partie de ta personnalité tu as mis des années à apprécier ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_035",
+    "question": "Comment est-ce que tu aimerais être soutenu(e) quand tu n’as plus d’énergie ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_036",
+    "question": "Quelle est la chose que tu veux absolument préserver quelle que soit ta vie future ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_037",
+    "question": "Quelle est la peur que tu aimerais ne plus laisser décider à ta place ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_038",
+    "question": "Quel est le moment où tu as le plus senti que tu pouvais compter sur toi-même ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_039",
+    "question": "Quelle est la chose que tu aimerais réussir à dire sans culpabiliser ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_040",
+    "question": "Qu’est-ce qui te fait sentir que ta vie a du sens ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_041",
+    "question": "Comment est-ce que tu sais que tu es arrivé(e) au bout de tes ressources ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_042",
+    "question": "Quelle est la chose que tu voudrais comprendre avant de vieillir davantage ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_043",
+    "question": "Quel choix tu referais malgré tout ce qu’il t’a coûté ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_044",
+    "question": "Qu’est-ce qui te fait te sentir choisi(e) dans une relation ?",
+    "category": "relation",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_045",
+    "question": "Quel comportement te rassure le plus après un conflit ?",
+    "category": "relation",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_046",
+    "question": "Comment est-ce que tu préfères recevoir une excuse ?",
+    "category": "relation",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_047",
+    "question": "Qu’est-ce qui distingue pour toi une relation confortable d’une relation qui s’endort ?",
+    "category": "relation",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_048",
+    "question": "Quelle place idéale donnerais-tu à l’indépendance dans un couple ?",
+    "category": "relation",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_049",
+    "question": "Quelle est la chose que tu aimerais que ton/ta partenaire remarque sans que tu aies à la demander ?",
+    "category": "relation",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_050",
+    "question": "Comment est-ce que tu sais que tu peux vraiment faire confiance à quelqu’un ?",
+    "category": "relation",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_051",
+    "question": "Quelle importance a pour toi le type d’attention qui compte plus pour toi que les cadeaux ?",
+    "category": "relation",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_052",
+    "question": "Quel compromis tu trouves sain et celui qui te ferait perdre une partie de toi ?",
+    "category": "relation",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_053",
+    "question": "Quelle différence fais-tu entre être rassuré(e) et être contrôlé(e) ?",
+    "category": "relation",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_054",
+    "question": "Comment est-ce que tu aimerais que votre couple traverse une grosse période de stress ?",
+    "category": "relation",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_055",
+    "question": "Qu’est-ce que tu considères comme une vraie preuve de loyauté ?",
+    "category": "relation",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_056",
+    "question": "Quelle est la chose qui te ferait sentir que votre relation évolue dans la bonne direction ?",
+    "category": "relation",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_057",
+    "question": "Comment est-ce que tu veux être aimé(e) quand tu es difficile à aimer ?",
+    "category": "relation",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_058",
+    "question": "Quel est le sujet sur lequel tu veux toujours pouvoir changer d’avis dans un couple ?",
+    "category": "relation",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_059",
+    "question": "Quelle place devraient garder les amis quand une relation devient très sérieuse ?",
+    "category": "relation",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_060",
+    "question": "Comment est-ce que tu voudrais que votre couple protège son intimité ?",
+    "category": "relation",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_061",
+    "question": "Quel comportement pourrait lentement créer de la distance sans grosse dispute ?",
+    "category": "relation",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_062",
+    "question": "Qu’est-ce que tu aimerais ne jamais considérer comme acquis chez l’autre ?",
+    "category": "relation",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_063",
+    "question": "Comment est-ce que tu imagines un couple qui dure sans devenir étouffant ?",
+    "category": "relation",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_064",
+    "question": "Quelle est la chose qui te ferait sentir entendu(e) pendant une discussion difficile ?",
+    "category": "relation",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_065",
+    "question": "Quel signe te montre qu’une relation mérite qu’on se batte pour elle ?",
+    "category": "relation",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_066",
+    "question": "Quelle différence fais-tu entre pardonner et accepter pour toi ?",
+    "category": "relation",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_067",
+    "question": "Quelle place tu donnes aux traditions de couple ?",
+    "category": "relation",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_068",
+    "question": "Comment est-ce que tu aimerais qu’on parle de votre couple à l’extérieur ?",
+    "category": "relation",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_069",
+    "question": "Qu’est-ce qui te ferait sentir aimé(e) même pendant une période où vous avez peu de temps ?",
+    "category": "relation",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_070",
+    "question": "Quelle importance a pour toi la limite entre transparence et vie privée dans une relation ?",
+    "category": "relation",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_071",
+    "question": "Comment est-ce que tu souhaites gérer les décisions qui concernent davantage l’un que l’autre ?",
+    "category": "relation",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_072",
+    "question": "Quelle est la chose que tu veux continuer à faire même après des années de relation ?",
+    "category": "relation",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_073",
+    "question": "Quel est le type de jalousie que tu peux comprendre et celui que tu refuses ?",
+    "category": "relation",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_074",
+    "question": "Comment est-ce que tu voudrais réagir si vos projets de vie commençaient à diverger ?",
+    "category": "relation",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_075",
+    "question": "Quel rôle doit avoir le pardon dans une relation durable ?",
+    "category": "relation",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_076",
+    "question": "Comment est-ce que tu préfères être soutenu(e) quand tu doutes de toi ?",
+    "category": "relation",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_077",
+    "question": "Qu’est-ce qui pourrait te donner envie de redécouvrir ton/ta partenaire après plusieurs années ?",
+    "category": "relation",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_078",
+    "question": "Quelle place donnes-tu à la spontanéité dans une relation très organisée ?",
+    "category": "relation",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_079",
+    "question": "Comment est-ce que tu veux répartir les efforts quand l’un va moins bien ?",
+    "category": "relation",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_080",
+    "question": "Quel signe montre qu’un désaccord devient un vrai problème de valeurs ?",
+    "category": "relation",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_081",
+    "question": "Que signifie pour toi faire équipe sans tout faire ensemble ?",
+    "category": "relation",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_082",
+    "question": "Quelle est la chose qui te ferait te sentir prioritaire sans que l’autre abandonne sa propre vie ?",
+    "category": "relation",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_083",
+    "question": "Comment est-ce que tu imagines la confiance après une grosse erreur ?",
+    "category": "relation",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_084",
+    "question": "Quel est le type de soutien que tu voudrais recevoir pour un rêve que l’autre ne comprend pas complètement ?",
+    "category": "relation",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_085",
+    "question": "Comment est-ce que tu souhaites célébrer les petites victoires du couple ?",
+    "category": "relation",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_086",
+    "question": "Qu’est-ce que tu aimerais que votre relation vous permette de devenir chacun de votre côté ?",
+    "category": "relation",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_087",
+    "question": "Quel mode de vie tu voudrais absolument avoir dans dix ans ?",
+    "category": "future",
+    "spicy": 0,
+    "mood": "serious",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_088",
+    "question": "Comment imagines-tu la chose pour laquelle tu serais prêt(e) à déménager loin ?",
+    "category": "future",
+    "spicy": 0,
+    "mood": "serious",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_089",
+    "question": "Quel niveau de confort financier qui te ferait te sentir vraiment tranquille ?",
+    "category": "future",
+    "spicy": 0,
+    "mood": "serious",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_090",
+    "question": "Quel projet tu voudrais réaliser avant de te sentir installé(e) ?",
+    "category": "future",
+    "spicy": 0,
+    "mood": "serious",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_091",
+    "question": "Comment imagines-tu la place du travail dans ta vie idéale ?",
+    "category": "future",
+    "spicy": 0,
+    "mood": "serious",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_092",
+    "question": "Quel rythme de vie tu aimerais avoir en vieillissant ?",
+    "category": "future",
+    "spicy": 0,
+    "mood": "serious",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_093",
+    "question": "Comment est-ce que tu voudrais choisir votre futur lieu de vie ?",
+    "category": "future",
+    "spicy": 0,
+    "mood": "serious",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_094",
+    "question": "Comment imagines-tu le rêve personnel que tu ne voudrais jamais abandonner pour une relation ?",
+    "category": "future",
+    "spicy": 0,
+    "mood": "serious",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_095",
+    "question": "Quelle place tu imagines donner à la famille dans votre futur ?",
+    "category": "future",
+    "spicy": 0,
+    "mood": "serious",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_096",
+    "question": "Comment imagines-tu le sacrifice que tu serais prêt(e) à faire pour une opportunité exceptionnelle ?",
+    "category": "future",
+    "spicy": 0,
+    "mood": "serious",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_097",
+    "question": "Quelle est la chose que tu voudrais pouvoir offrir à ton futur toi ?",
+    "category": "future",
+    "spicy": 0,
+    "mood": "serious",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_098",
+    "question": "Quel est le type de maison ou d’espace qui te ferait vraiment sentir chez toi ?",
+    "category": "future",
+    "spicy": 0,
+    "mood": "serious",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_099",
+    "question": "Comment est-ce que tu voudrais organiser votre argent sur le long terme ?",
+    "category": "future",
+    "spicy": 0,
+    "mood": "serious",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_100",
+    "question": "Quel risque tu serais prêt(e) à prendre pour changer de vie ?",
+    "category": "future",
+    "spicy": 0,
+    "mood": "serious",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_101",
+    "question": "Quelle priorité tu donnerais entre stabilité et aventure ?",
+    "category": "future",
+    "spicy": 0,
+    "mood": "serious",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_102",
+    "question": "Quel projet commun te donnerait le plus le sentiment de construire quelque chose ?",
+    "category": "future",
+    "spicy": 0,
+    "mood": "serious",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_103",
+    "question": "Comment est-ce que tu imagines vos vacances quand vous aurez moins d’énergie qu’aujourd’hui ?",
+    "category": "future",
+    "spicy": 0,
+    "mood": "serious",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_104",
+    "question": "Quel rôle tu voudrais garder pour tes passions dans une vie très chargée ?",
+    "category": "future",
+    "spicy": 0,
+    "mood": "serious",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_105",
+    "question": "Quelle est la chose que tu veux absolument apprendre avant dix ans ?",
+    "category": "future",
+    "spicy": 0,
+    "mood": "serious",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_106",
+    "question": "Comment est-ce que tu voudrais prendre soin de vos proches en vieillissant ?",
+    "category": "future",
+    "spicy": 0,
+    "mood": "serious",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_107",
+    "question": "Quel choix de vie te ferait peur mais pourrait te rendre très heureux ou heureuse ?",
+    "category": "future",
+    "spicy": 0,
+    "mood": "serious",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_108",
+    "question": "Comment est-ce que tu voudrais gérer une période où l’un gagne beaucoup plus que l’autre ?",
+    "category": "future",
+    "spicy": 0,
+    "mood": "serious",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_109",
+    "question": "Quelle place tu donnerais à un projet professionnel très ambitieux ?",
+    "category": "future",
+    "spicy": 0,
+    "mood": "serious",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_110",
+    "question": "Quel est le type de souvenirs que tu voudrais accumuler davantage que des possessions ?",
+    "category": "future",
+    "spicy": 0,
+    "mood": "serious",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_111",
+    "question": "Comment est-ce que tu veux protéger du temps pour votre couple à long terme ?",
+    "category": "future",
+    "spicy": 0,
+    "mood": "serious",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_112",
+    "question": "Comment imagines-tu le compromis géographique que tu pourrais accepter pour être ensemble ?",
+    "category": "future",
+    "spicy": 0,
+    "mood": "serious",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_113",
+    "question": "Quelle est la chose que tu aimerais pouvoir dire de votre vie dans vingt ans ?",
+    "category": "future",
+    "spicy": 0,
+    "mood": "serious",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_114",
+    "question": "Comment est-ce que tu voudrais décider d’un changement majeur de carrière ?",
+    "category": "future",
+    "spicy": 0,
+    "mood": "serious",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_115",
+    "question": "Quelle place tu imagines pour les voyages dans votre vie future ?",
+    "category": "future",
+    "spicy": 0,
+    "mood": "serious",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_116",
+    "question": "Comment imagines-tu la définition concrète d’une vie réussie pour toi ?",
+    "category": "future",
+    "spicy": 0,
+    "mood": "serious",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_117",
+    "question": "Quel risque financier tu accepterais pour un grand rêve commun ?",
+    "category": "future",
+    "spicy": 0,
+    "mood": "serious",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_118",
+    "question": "Comment est-ce que tu veux continuer à évoluer individuellement dans une vie à deux ?",
+    "category": "future",
+    "spicy": 0,
+    "mood": "serious",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_119",
+    "question": "Comment imagines-tu le projet qui te ferait te sentir le plus fier ou la plus fière de vous ?",
+    "category": "future",
+    "spicy": 0,
+    "mood": "serious",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_120",
+    "question": "Quelle est la chose que tu voudrais transmettre aux personnes plus jeunes que toi ?",
+    "category": "future",
+    "spicy": 0,
+    "mood": "serious",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_121",
+    "question": "Comment est-ce que tu imagines votre quotidien idéal un mardi ordinaire ?",
+    "category": "future",
+    "spicy": 0,
+    "mood": "serious",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_122",
+    "question": "Comment imagines-tu le changement que tu espères le plus voir dans ta vie dans cinq ans ?",
+    "category": "future",
+    "spicy": 0,
+    "mood": "serious",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_123",
+    "question": "Comment imagines-tu la peur qui pourrait freiner un projet que tu veux pourtant vraiment ?",
+    "category": "future",
+    "spicy": 0,
+    "mood": "serious",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_124",
+    "question": "Quelle est la chose que tu aimerais préparer dès maintenant pour ton futur ?",
+    "category": "future",
+    "spicy": 0,
+    "mood": "serious",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_125",
+    "question": "Comment est-ce que tu voudrais vivre si l’argent n’était plus une contrainte ?",
+    "category": "future",
+    "spicy": 0,
+    "mood": "serious",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_126",
+    "question": "Comment imagines-tu le niveau d’improvisation que tu veux garder dans une vie construite ?",
+    "category": "future",
+    "spicy": 0,
+    "mood": "serious",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_127",
+    "question": "Comment imagines-tu la décision que tu voudrais prendre uniquement en fonction du bonheur et non du regard des autres ?",
+    "category": "future",
+    "spicy": 0,
+    "mood": "serious",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_128",
+    "question": "Comment est-ce que tu imagines votre couple face à un très grand changement ?",
+    "category": "future",
+    "spicy": 0,
+    "mood": "serious",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_129",
+    "question": "Quel rêve tu préférerais réaliser tard plutôt que jamais ?",
+    "category": "future",
+    "spicy": 0,
+    "mood": "serious",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_130",
+    "question": "Si ton/ta partenaire devait participer à une émission de télé-réalité, laquelle lui irait le mieux ?",
+    "category": "fun",
+    "spicy": 0,
+    "mood": "fun",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_131",
+    "question": "Quelle habitude de ton/ta partenaire ferait le meilleur sketch ?",
+    "category": "fun",
+    "spicy": 0,
+    "mood": "fun",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_132",
+    "question": "Si votre couple avait une devise complètement honnête, ce serait quoi ?",
+    "category": "fun",
+    "spicy": 0,
+    "mood": "fun",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_133",
+    "question": "Quel objet chez vous survivrait probablement à une apocalypse ?",
+    "category": "fun",
+    "spicy": 0,
+    "mood": "fun",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_134",
+    "question": "Si vous deviez ouvrir un commerce absurde ensemble, qu’est-ce que vous vendriez ?",
+    "category": "fun",
+    "spicy": 0,
+    "mood": "fun",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_135",
+    "question": "Quel rôle ton/ta partenaire aurait dans un braquage de film complètement raté ?",
+    "category": "fun",
+    "spicy": 0,
+    "mood": "fun",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_136",
+    "question": "Si vous étiez un duo de méchants de dessin animé, quel serait votre plan nul ?",
+    "category": "fun",
+    "spicy": 0,
+    "mood": "fun",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_137",
+    "question": "Quelle règle ridicule améliorerait réellement votre quotidien ?",
+    "category": "fun",
+    "spicy": 0,
+    "mood": "fun",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_138",
+    "question": "Si votre couple était un plat, lequel serait-il et pourquoi ?",
+    "category": "fun",
+    "spicy": 0,
+    "mood": "fun",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_139",
+    "question": "Quel talent totalement inutile aimerais-tu que ton/ta partenaire maîtrise ?",
+    "category": "fun",
+    "spicy": 0,
+    "mood": "fun",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_140",
+    "question": "Si vous deviez communiquer uniquement avec trois emojis pendant une journée, lesquels choisirais-tu ?",
+    "category": "fun",
+    "spicy": 0,
+    "mood": "fun",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_141",
+    "question": "Quelle compétition complètement inutile pourriez-vous prendre beaucoup trop au sérieux ?",
+    "category": "fun",
+    "spicy": 0,
+    "mood": "fun",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_142",
+    "question": "Si votre histoire devenait une série, quel personnage secondaire volerait la vedette ?",
+    "category": "fun",
+    "spicy": 0,
+    "mood": "fun",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_143",
+    "question": "Quel vêtement de ton/ta partenaire mériterait d’être interdit par décret ?",
+    "category": "fun",
+    "spicy": 0,
+    "mood": "fun",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_144",
+    "question": "Si vous aviez une pièce secrète inutile dans votre maison, qu’y mettriez-vous ?",
+    "category": "fun",
+    "spicy": 0,
+    "mood": "fun",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_145",
+    "question": "Quel est le débat le plus ridicule que vous pourriez avoir pendant une heure ?",
+    "category": "fun",
+    "spicy": 0,
+    "mood": "fun",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_146",
+    "question": "Si vous deviez adopter un animal qui vous ressemble en couple, lequel choisirais-tu ?",
+    "category": "fun",
+    "spicy": 0,
+    "mood": "fun",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_147",
+    "question": "Quelle chanson serait la pire musique possible pour raconter votre histoire ?",
+    "category": "fun",
+    "spicy": 0,
+    "mood": "fun",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_148",
+    "question": "Si vous échangiez vos habitudes pendant 24 heures, laquelle serait la plus difficile à imiter ?",
+    "category": "fun",
+    "spicy": 0,
+    "mood": "fun",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_149",
+    "question": "Quel surnom complètement absurde pourrait finir par devenir sérieux entre vous ?",
+    "category": "fun",
+    "spicy": 0,
+    "mood": "fun",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_150",
+    "question": "Si vous deviez devenir célèbres pour quelque chose de gênant, ce serait quoi ?",
+    "category": "fun",
+    "spicy": 0,
+    "mood": "fun",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_151",
+    "question": "Quel jeu télévisé révélerait le pire de votre compétitivité ?",
+    "category": "fun",
+    "spicy": 0,
+    "mood": "fun",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_152",
+    "question": "Si votre couple avait un bouton d’urgence, que ferait-il ?",
+    "category": "fun",
+    "spicy": 0,
+    "mood": "fun",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_153",
+    "question": "Quelle petite manie de ton/ta partenaire serait la plus drôle à expliquer à un extraterrestre ?",
+    "category": "fun",
+    "spicy": 0,
+    "mood": "fun",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_154",
+    "question": "Si vous deviez faire un road trip avec un seul album en boucle, lequel choisirais-tu ?",
+    "category": "fun",
+    "spicy": 0,
+    "mood": "fun",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_155",
+    "question": "Quel serait votre crime le plus probable dans une comédie ?",
+    "category": "fun",
+    "spicy": 0,
+    "mood": "fun",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_156",
+    "question": "Si votre maison pouvait parler, quel secret embarrassant raconterait-elle en premier ?",
+    "category": "fun",
+    "spicy": 0,
+    "mood": "fun",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_157",
+    "question": "Quel métier ton/ta partenaire pourrait exercer de façon catastrophique mais très confiante ?",
+    "category": "fun",
+    "spicy": 0,
+    "mood": "fun",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_158",
+    "question": "Si vous étiez forcés de participer à un concours de talent demain, que présenteriez-vous ?",
+    "category": "fun",
+    "spicy": 0,
+    "mood": "fun",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_159",
+    "question": "Quelle habitude de couple deviendrait incompréhensible si quelqu’un vous observait sans contexte ?",
+    "category": "fun",
+    "spicy": 0,
+    "mood": "fun",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_160",
+    "question": "Si vous pouviez remplacer une tâche ménagère par un mini-jeu, laquelle choisirais-tu ?",
+    "category": "fun",
+    "spicy": 0,
+    "mood": "fun",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_161",
+    "question": "Quel objet ton/ta partenaire emporterait probablement dans une fuite alors qu’il est totalement inutile ?",
+    "category": "fun",
+    "spicy": 0,
+    "mood": "fun",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_162",
+    "question": "Si votre couple devait avoir une mascotte officielle, à quoi ressemblerait-elle ?",
+    "category": "fun",
+    "spicy": 0,
+    "mood": "fun",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_163",
+    "question": "Quelle serait la pire phrase à entendre juste avant un voyage surprise organisé par ton/ta partenaire ?",
+    "category": "fun",
+    "spicy": 0,
+    "mood": "fun",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_164",
+    "question": "Si vous deviez inventer une fête uniquement pour votre couple, que célébreriez-vous ?",
+    "category": "fun",
+    "spicy": 0,
+    "mood": "fun",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_165",
+    "question": "Quel serait le titre le plus honnête d’un documentaire sur votre quotidien ?",
+    "category": "fun",
+    "spicy": 0,
+    "mood": "fun",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_166",
+    "question": "Si vous deviez échanger vos téléphones pendant une heure, quelle application te ferait le plus rire ?",
+    "category": "fun",
+    "spicy": 0,
+    "mood": "fun",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_167",
+    "question": "Quelle situation banale pourrait facilement devenir une aventure épique avec vous deux ?",
+    "category": "fun",
+    "spicy": 0,
+    "mood": "fun",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_168",
+    "question": "Si votre relation avait un son de notification, lequel serait insupportablement approprié ?",
+    "category": "fun",
+    "spicy": 0,
+    "mood": "fun",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_169",
+    "question": "Quel défi ridicule accepterais-tu uniquement pour prouver que tu peux battre ton/ta partenaire ?",
+    "category": "fun",
+    "spicy": 0,
+    "mood": "fun",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_170",
+    "question": "Si vous deviez choisir un uniforme officiel pour rester à la maison, à quoi ressemblerait-il ?",
+    "category": "fun",
+    "spicy": 0,
+    "mood": "fun",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_171",
+    "question": "Quelle serait votre stratégie totalement mauvaise dans une émission de survie ?",
+    "category": "fun",
+    "spicy": 0,
+    "mood": "fun",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_172",
+    "question": "Si ton/ta partenaire devenait influenceur ou influenceuse demain, quel serait son contenu le plus probable ?",
+    "category": "fun",
+    "spicy": 0,
+    "mood": "fun",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_173",
+    "question": "Qu’est-ce qui te fait te sentir le plus désiré(e) sans qu’un mot soit prononcé ?",
+    "category": "intimacy",
+    "spicy": 1,
+    "mood": "spicy",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_174",
+    "question": "Comment est-ce que tu préfères exprimer une limite intime ?",
+    "category": "intimacy",
+    "spicy": 0,
+    "mood": "romantic",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_175",
+    "question": "Qu’est-ce qui te permet de te sentir totalement en confiance dans un moment vulnérable ?",
+    "category": "intimacy",
+    "spicy": 0,
+    "mood": "romantic",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_176",
+    "question": "Quelle place donnes-tu à la spontanéité dans votre intimité ?",
+    "category": "intimacy",
+    "spicy": 0,
+    "mood": "spicy",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_177",
+    "question": "Comment est-ce que tu aimerais qu’on te rassure quand tu ne te sens pas bien dans ton corps ?",
+    "category": "intimacy",
+    "spicy": 1,
+    "mood": "romantic",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_178",
+    "question": "Quel est le type de tendresse dont tu as le plus besoin après une mauvaise journée ?",
+    "category": "intimacy",
+    "spicy": 0,
+    "mood": "romantic",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_179",
+    "question": "Comment est-ce que tu préfères parler d’une envie nouvelle ?",
+    "category": "intimacy",
+    "spicy": 0,
+    "mood": "spicy",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_180",
+    "question": "Qu’est-ce qui rend un moment intime vraiment mémorable pour toi ?",
+    "category": "intimacy",
+    "spicy": 0,
+    "mood": "romantic",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_181",
+    "question": "Quelle place donnes-tu à l’humour dans l’intimité ?",
+    "category": "intimacy",
+    "spicy": 1,
+    "mood": "romantic",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_182",
+    "question": "Comment est-ce que tu voudrais réagir si l’un de vous traverse une baisse de désir ?",
+    "category": "intimacy",
+    "spicy": 0,
+    "mood": "spicy",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_183",
+    "question": "Qu’est-ce qui te fait sentir que ton consentement est réellement respecté ?",
+    "category": "intimacy",
+    "spicy": 0,
+    "mood": "romantic",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_184",
+    "question": "Quelle différence fais-tu entre se sentir beau ou belle et se sentir désiré(e) pour toi ?",
+    "category": "intimacy",
+    "spicy": 0,
+    "mood": "romantic",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_185",
+    "question": "Qu’aimerais-tu que ton/ta partenaire sache à propos de le type d’affection physique que tu aimerais recevoir plus souvent ?",
+    "category": "intimacy",
+    "spicy": 1,
+    "mood": "spicy",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_186",
+    "question": "Comment est-ce que tu préfères dire que quelque chose ne te convient pas ?",
+    "category": "intimacy",
+    "spicy": 0,
+    "mood": "romantic",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_187",
+    "question": "Quelle place tu donnes aux surprises dans les moments intimes ?",
+    "category": "intimacy",
+    "spicy": 0,
+    "mood": "romantic",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_188",
+    "question": "Qu’est-ce que tu aimerais pouvoir demander plus facilement sans gêne ?",
+    "category": "intimacy",
+    "spicy": 0,
+    "mood": "spicy",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_189",
+    "question": "Comment est-ce que tu veux que votre intimité évolue avec les années ?",
+    "category": "intimacy",
+    "spicy": 1,
+    "mood": "romantic",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_190",
+    "question": "Qu’est-ce qui te fait le plus te sentir proche physiquement sans que ce soit sexuel ?",
+    "category": "intimacy",
+    "spicy": 0,
+    "mood": "romantic",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_191",
+    "question": "Comment est-ce que tu aimerais être regardé(e) par ton/ta partenaire ?",
+    "category": "intimacy",
+    "spicy": 0,
+    "mood": "spicy",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_192",
+    "question": "Qu’aimerais-tu que ton/ta partenaire sache à propos de le moment de la journée où tu te sens généralement le plus disponible pour la tendresse ?",
+    "category": "intimacy",
+    "spicy": 0,
+    "mood": "romantic",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_193",
+    "question": "Comment est-ce que tu préfères retrouver votre proximité après une dispute ?",
+    "category": "intimacy",
+    "spicy": 1,
+    "mood": "romantic",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_194",
+    "question": "Qu’est-ce qui t’aide à sortir de ta tête et à profiter pleinement d’un moment à deux ?",
+    "category": "intimacy",
+    "spicy": 0,
+    "mood": "spicy",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_195",
+    "question": "Quelle est la limite que tu veux pouvoir poser sans jamais avoir à te justifier ?",
+    "category": "intimacy",
+    "spicy": 0,
+    "mood": "romantic",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_196",
+    "question": "Quel est le type de compliment qui te fait le plus te sentir attirant(e) ?",
+    "category": "intimacy",
+    "spicy": 0,
+    "mood": "romantic",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_197",
+    "question": "Comment est-ce que tu voudrais parler de vos différences de désir ?",
+    "category": "intimacy",
+    "spicy": 1,
+    "mood": "spicy",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_198",
+    "question": "Qu’est-ce qui rend pour toi une ambiance vraiment romantique plutôt que forcée ?",
+    "category": "intimacy",
+    "spicy": 0,
+    "mood": "romantic",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_199",
+    "question": "Qu’aimerais-tu que ton/ta partenaire sache à propos de la place des gestes tendres en public dans ton confort personnel ?",
+    "category": "intimacy",
+    "spicy": 0,
+    "mood": "romantic",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_200",
+    "question": "Comment est-ce que tu veux préserver votre intimité quand le quotidien devient très chargé ?",
+    "category": "intimacy",
+    "spicy": 0,
+    "mood": "spicy",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_201",
+    "question": "Qu’est-ce qui te permet de te sentir libre d’être vulnérable physiquement ?",
+    "category": "intimacy",
+    "spicy": 1,
+    "mood": "romantic",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_202",
+    "question": "Comment est-ce que tu aimerais être soutenu(e) face à un complexe ?",
+    "category": "intimacy",
+    "spicy": 0,
+    "mood": "romantic",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_203",
+    "question": "Quel est le type de proximité que tu recherches quand tu es stressé(e) ?",
+    "category": "intimacy",
+    "spicy": 0,
+    "mood": "spicy",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_204",
+    "question": "Comment est-ce que tu sais qu’un moment de tendresse t’a vraiment fait du bien ?",
+    "category": "intimacy",
+    "spicy": 0,
+    "mood": "romantic",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_205",
+    "question": "Quelle place tu donnes aux habitudes rassurantes dans votre intimité ?",
+    "category": "intimacy",
+    "spicy": 1,
+    "mood": "romantic",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_206",
+    "question": "Qu’est-ce que tu aimerais que ton/ta partenaire comprenne mieux sur ton rapport au toucher ?",
+    "category": "intimacy",
+    "spicy": 0,
+    "mood": "spicy",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_207",
+    "question": "Comment est-ce que tu voudrais que vous abordiez un désaccord sur une limite intime ?",
+    "category": "intimacy",
+    "spicy": 0,
+    "mood": "romantic",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_208",
+    "question": "Quel est le type de moment à deux qui te reconnecte le plus à ton corps ?",
+    "category": "intimacy",
+    "spicy": 0,
+    "mood": "romantic",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_209",
+    "question": "Comment est-ce que tu veux être rassuré(e) quand tu te compares aux autres ?",
+    "category": "intimacy",
+    "spicy": 1,
+    "mood": "spicy",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_210",
+    "question": "Qu’est-ce qui rend un geste physique particulièrement tendre à tes yeux ?",
+    "category": "intimacy",
+    "spicy": 0,
+    "mood": "romantic",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_211",
+    "question": "Comment est-ce que tu préfères initier un moment de proximité ?",
+    "category": "intimacy",
+    "spicy": 0,
+    "mood": "romantic",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_212",
+    "question": "Qu’est-ce qui t’aide à te sentir suffisamment en sécurité pour dire exactement ce que tu veux ?",
+    "category": "intimacy",
+    "spicy": 0,
+    "mood": "spicy",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_213",
+    "question": "Quelle place donnes-tu à la nouveauté par rapport à la familiarité dans votre intimité ?",
+    "category": "intimacy",
+    "spicy": 1,
+    "mood": "romantic",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_214",
+    "question": "Comment est-ce que tu voudrais que votre couple parle du désir sans pression ?",
+    "category": "intimacy",
+    "spicy": 0,
+    "mood": "romantic",
+    "premium": true
+  },
+  {
+    "id": "premium_extension_215",
+    "question": "Que signifie pour toi se sentir pleinement respecté(e) dans son corps ?",
+    "category": "intimacy",
+    "spicy": 0,
+    "mood": "spicy",
+    "premium": true
   }
 ]
