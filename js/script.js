@@ -912,6 +912,7 @@ let creatorModeEnabled = false;
 let currentRevealedTimeCapsuleId = null;
 const creatorPreviewTimeCapsules = new Set();
 let pushMessagingInitialized = false;
+let lastPushObservedSpaceData = null;
 
 const CREATOR_UIDS = new Set([
     "cJylm27fQTMXd0Esan7YqXkjV762",
@@ -1146,6 +1147,7 @@ function stopCurrentSpaceListeners() {
 
     activeRealtimeSubscriptions = [];
     activeRealtimeSpaceCode = "";
+    lastPushObservedSpaceData = null;
 }
 
 function subscribeToSpaceValue(relativePath, callback) {
@@ -1177,6 +1179,13 @@ function listenToCurrentSpace(spaceCodeValue) {
 
         if (!spaceData) {
             return;
+        }
+
+        const previousPushSpaceData = lastPushObservedSpaceData;
+        lastPushObservedSpaceData = spaceData;
+        if (previousPushSpaceData && currentUser) {
+            notifyPushWorkerOfSpaceChanges(previousPushSpaceData, spaceData)
+                .catch((error) => console.warn("Détection des événements push différée", error));
         }
 
         currentSpaceData = spaceData;
@@ -6739,6 +6748,132 @@ function renderDailyCalendar(dailyChallenges) {
     }
 }
 
+
+const PUSH_WORKER_REQUEST_TIMEOUT = 12000;
+
+function getPushWorkerUrl() {
+    return String(window.CACTUS_PUSH_WORKER_URL || "").trim().replace(/\/$/, "");
+}
+
+async function callPushWorker(endpoint, payload = {}) {
+    const workerUrl = getPushWorkerUrl();
+    if (!workerUrl || !currentUser) return { skipped: true };
+
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), PUSH_WORKER_REQUEST_TIMEOUT);
+
+    try {
+        const idToken = await currentUser.getIdToken(false);
+        const response = await fetch(workerUrl + endpoint, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer " + idToken
+            },
+            body: JSON.stringify(payload),
+            signal: controller.signal,
+            keepalive: true
+        });
+
+        let data = {};
+        try {
+            data = await response.json();
+        } catch (error) {
+            data = {};
+        }
+
+        if (!response.ok) {
+            throw new Error(data.error || "Le service de notifications a refusé la requête.");
+        }
+
+        return data;
+    } finally {
+        clearTimeout(timeout);
+    }
+}
+
+function getCompletedPushResponderUids(modeKey, challenge = {}) {
+    if (modeKey === "limitReached") {
+        return new Set(Object.keys(challenge.results || {}));
+    }
+
+    if (modeKey === "coupleDare") {
+        return new Set(Object.keys(challenge.votes || {}));
+    }
+
+    if (modeKey === "threeYesNo") {
+        return new Set(
+            Object.entries(challenge.answers || {})
+                .filter(([, answers]) => Object.keys(answers || {}).length >= 6)
+                .map(([uid]) => uid)
+        );
+    }
+
+    return new Set(Object.keys(challenge.answers || {}));
+}
+
+function queuePushWorkerEvent(payload) {
+    callPushWorker("/event", payload).catch((error) => {
+        console.warn("Notification distante non envoyée", payload?.kind, error);
+    });
+}
+
+async function notifyPushWorkerOfSpaceChanges(previousSpace = {}, nextSpace = {}) {
+    if (!currentUser || !currentSpaceCode || !getPushWorkerUrl()) return;
+
+    relationStatsModes.forEach((mode) => {
+        const previousChallenges = previousSpace[mode.path] || {};
+        const nextChallenges = nextSpace[mode.path] || {};
+
+        Object.entries(nextChallenges).forEach(([challengeId, challenge]) => {
+            const beforeUids = getCompletedPushResponderUids(mode.key, previousChallenges[challengeId] || {});
+            const afterUids = getCompletedPushResponderUids(mode.key, challenge || {});
+
+            if (afterUids.has(currentUser.uid) && !beforeUids.has(currentUser.uid)) {
+                queuePushWorkerEvent({
+                    kind: "game-complete",
+                    spaceId: currentSpaceCode,
+                    mode: mode.key,
+                    challengeId
+                });
+            }
+        });
+    });
+
+    const previousDiscussions = previousSpace.discussions || {};
+    Object.entries(nextSpace.discussions || {}).forEach(([discussionId, discussion]) => {
+        if (!previousDiscussions[discussionId] && discussion?.createdByUid === currentUser.uid) {
+            queuePushWorkerEvent({
+                kind: "discussion-created",
+                spaceId: currentSpaceCode,
+                discussionId
+            });
+        }
+    });
+
+    const previousCapsules = previousSpace.dailyTools?.timeCapsules || {};
+    Object.entries(nextSpace.dailyTools?.timeCapsules || {}).forEach(([capsuleId, capsule]) => {
+        if (!previousCapsules[capsuleId] && capsule?.createdByUid === currentUser.uid) {
+            queuePushWorkerEvent({
+                kind: "capsule-created",
+                spaceId: currentSpaceCode,
+                capsuleId
+            });
+        }
+    });
+
+    const previousAchievements = previousSpace.stats?.achievements || {};
+    Object.entries(nextSpace.stats?.achievements || {}).forEach(([achievementId, achievement]) => {
+        if (!previousAchievements[achievementId] && achievement?.unlockedBy === currentUser.uid) {
+            queuePushWorkerEvent({
+                kind: "achievement-unlocked",
+                spaceId: currentSpaceCode,
+                achievementId
+            });
+        }
+    });
+}
+
 const NOTIFICATION_PREFERENCES_KEY = "cactusNotificationPreferences";
 
 function getNotificationPreferences() {
@@ -6940,9 +7075,22 @@ async function showCreatorTestNotification() {
         await enablePhonePushNotifications();
         if (Notification.permission !== "granted") return;
     }
+
+    if (getPushWorkerUrl()) {
+        try {
+            await callPushWorker("/test", {});
+            showToast("Notification distante envoyée 🌵");
+            return;
+        } catch (error) {
+            console.warn("Test distant impossible, utilisation du test local", error);
+        }
+    }
+
     const registration = await navigator.serviceWorker.ready;
     await registration.showNotification("Test Cactus réussi 🌵", {
-        body: "Ton téléphone peut afficher les notifications de l’application.",
+        body: getPushWorkerUrl()
+            ? "Le test distant n’a pas répondu, mais les notifications locales fonctionnent."
+            : "Ton téléphone peut afficher les notifications. Le Worker Cloudflare reste à connecter.",
         icon: "./icons/icon-192-v2.png",
         badge: "./icons/icon-192-v2.png",
         tag: "cactus-creator-test",
