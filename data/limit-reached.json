@@ -1,188 +1,2079 @@
 [
-  {
-    "id": "ex_encore_present",
-    "title": "L’ex encore présent",
-    "category": "ex",
-    "levels": [
-      {
-        "level": 1,
-        "question": "Ton/ta partenaire suit toujours son ex sur les réseaux."
-      },
-      {
-        "level": 2,
-        "question": "Ton/ta partenaire et son ex se souhaitent leur anniversaire chaque année."
-      },
-      {
-        "level": 3,
-        "question": "Ton/ta partenaire discute parfois par message avec son ex."
-      },
-      {
-        "level": 4,
-        "question": "Ton/ta partenaire appelle parfois son ex pour prendre de ses nouvelles."
-      },
-      {
-        "level": 5,
-        "question": "Ton/ta partenaire voit son ex seul(e) pour boire un verre."
-      },
-      {
-        "level": 6,
-        "question": "L’ex de ton/ta partenaire lui propose de dormir chez lui/elle après une soirée."
-      }
-    ]
-  },
-  {
-    "id": "collegue_tres_proche",
-    "title": "Le/la collègue très proche",
-    "category": "travail",
-    "levels": [
-      {
-        "level": 1,
-        "question": "Ton/ta partenaire parle souvent d’un(e) collègue qu’il/elle apprécie beaucoup."
-      },
-      {
-        "level": 2,
-        "question": "Ils s’envoient parfois des messages en dehors du travail."
-      },
-      {
-        "level": 3,
-        "question": "Ils déjeunent régulièrement tous les deux pendant leur pause."
-      },
-      {
-        "level": 4,
-        "question": "Ils se confient l’un à l’autre sur leurs problèmes personnels."
-      },
-      {
-        "level": 5,
-        "question": "Ils commencent à se voir seuls en dehors du travail."
-      },
-      {
-        "level": 6,
-        "question": "Ce/cette collègue avoue à ton/ta partenaire qu’il/elle a des sentiments pour lui/elle."
-      }
-    ]
-  },
-  {
-    "id": "soiree_sans_toi",
-    "title": "La soirée sans toi",
-    "category": "sorties",
-    "levels": [
-      {
-        "level": 1,
-        "question": "Ton/ta partenaire sort en soirée sans toi avec ses amis."
-      },
-      {
-        "level": 2,
-        "question": "Il/elle rentre beaucoup plus tard que prévu sans t’avoir prévenu(e)."
-      },
-      {
-        "level": 3,
-        "question": "Il/elle passe une bonne partie de la soirée avec un groupe de personnes que tu ne connais pas."
-      },
-      {
-        "level": 4,
-        "question": "Quelqu’un flirte ouvertement avec lui/elle pendant la soirée."
-      },
-      {
-        "level": 5,
-        "question": "Ton/ta partenaire échange son numéro avec cette personne."
-      },
-      {
-        "level": 6,
-        "question": "Après la soirée, cette personne propose à ton/ta partenaire de finir la nuit chez elle."
-      }
-    ]
-  },
-  {
-    "id": "telephone_prive",
-    "title": "Le téléphone et la vie privée",
-    "category": "vie_privee",
-    "levels": [
-      {
-        "level": 1,
-        "question": "Ton/ta partenaire connaît le code de ton téléphone."
-      },
-      {
-        "level": 2,
-        "question": "Il/elle prend parfois ton téléphone pour chercher quelque chose sans demander."
-      },
-      {
-        "level": 3,
-        "question": "Il/elle regarde qui t’envoie un message quand une notification apparaît."
-      },
-      {
-        "level": 4,
-        "question": "Il/elle ouvre parfois tes conversations pour voir avec qui tu parles."
-      },
-      {
-        "level": 5,
-        "question": "Il/elle te demande de lui montrer une conversation qui le/la rend méfiant(e)."
-      },
-      {
-        "level": 6,
-        "question": "Il/elle considère qu’en couple, vous ne devriez avoir aucun message privé l’un pour l’autre."
-      }
-    ]
-  },
-  {
-    "id": "meilleur_ami_tres_present",
-    "title": "Le/la meilleur(e) ami(e) très présent(e)",
-    "category": "amis",
-    "levels": [
-      {
-        "level": 1,
-        "question": "Ton/ta partenaire parle tous les jours avec son/sa meilleur(e) ami(e)."
-      },
-      {
-        "level": 2,
-        "question": "Cette personne connaît beaucoup de détails sur votre relation."
-      },
-      {
-        "level": 3,
-        "question": "Ton/ta partenaire lui raconte parfois vos disputes."
-      },
-      {
-        "level": 4,
-        "question": "Il/elle lui demande conseil avant de prendre certaines décisions qui concernent votre couple."
-      },
-      {
-        "level": 5,
-        "question": "Ton/ta partenaire annule parfois un moment prévu avec toi pour aller aider cette personne."
-      },
-      {
-        "level": 6,
-        "question": "Cette personne te critique ouvertement et ton/ta partenaire continue de tout lui raconter sur votre couple."
-      }
-    ]
-  },
-  {
-    "id": "reseaux_et_flirt",
-    "title": "Les réseaux et le flirt",
-    "category": "reseaux_sociaux",
-    "levels": [
-      {
-        "level": 1,
-        "question": "Ton/ta partenaire suit beaucoup de personnes qu’il/elle trouve attirantes."
-      },
-      {
-        "level": 2,
-        "question": "Il/elle aime régulièrement leurs photos."
-      },
-      {
-        "level": 3,
-        "question": "Il/elle répond parfois à leurs stories avec des compliments."
-      },
-      {
-        "level": 4,
-        "question": "Une de ces personnes commence à lui envoyer des messages privés et il/elle répond."
-      },
-      {
-        "level": 5,
-        "question": "Les messages deviennent clairement ambigus, mais ton/ta partenaire continue la conversation."
-      },
-      {
-        "level": 6,
-        "question": "Cette personne propose de rencontrer ton/ta partenaire en tête-à-tête."
-      }
-    ]
-  }
+{
+"id": "ex_encore_present",
+"title": "L’ex encore présent",
+"category": "ex",
+"levels": [
+{
+"level": 1,
+"question": "Ton/ta partenaire suit toujours son ex sur les réseaux."
+},
+{
+"level": 2,
+"question": "Ton/ta partenaire et son ex se souhaitent leur anniversaire chaque année."
+},
+{
+"level": 3,
+"question": "Ton/ta partenaire échange parfois des messages avec son ex."
+},
+{
+"level": 4,
+"question": "Ton/ta partenaire appelle parfois son ex pour prendre de ses nouvelles."
+},
+{
+"level": 5,
+"question": "Ton/ta partenaire voit son ex seul(e) pour boire un verre."
+},
+{
+"level": 6,
+"question": "Ton/ta partenaire accepte de dormir chez son ex après une soirée."
+}
+]
+},
+{
+"id": "collegue_tres_proche",
+"title": "Le/la collègue très proche",
+"category": "travail",
+"levels": [
+{
+"level": 1,
+"question": "Ton/ta partenaire déjeune parfois avec le/la même collègue."
+},
+{
+"level": 2,
+"question": "Ton/ta partenaire déjeune presque tous les jours avec ce/cette collègue."
+},
+{
+"level": 3,
+"question": "Ton/ta partenaire échange régulièrement avec ce/cette collègue en dehors du travail."
+},
+{
+"level": 4,
+"question": "Ton/ta partenaire confie à ce/cette collègue des choses personnelles sur votre couple."
+},
+{
+"level": 5,
+"question": "Ton/ta partenaire voit ce/cette collègue seul(e) en dehors du travail."
+},
+{
+"level": 6,
+"question": "Ton/ta partenaire continue cette proximité après que ce/cette collègue lui a avoué être attiré(e)."
+}
+]
+},
+{
+"id": "soiree_sans_nouvelles",
+"title": "La soirée sans nouvelles",
+"category": "sorties",
+"levels": [
+{
+"level": 1,
+"question": "Ton/ta partenaire sort avec ses amis et répond peu pendant la soirée."
+},
+{
+"level": 2,
+"question": "Ton/ta partenaire passe plusieurs heures sans répondre pendant sa soirée."
+},
+{
+"level": 3,
+"question": "Ton/ta partenaire change de lieu pendant la soirée sans te prévenir."
+},
+{
+"level": 4,
+"question": "Ton/ta partenaire ne donne plus aucune nouvelle jusqu’au lendemain matin."
+},
+{
+"level": 5,
+"question": "Ton/ta partenaire dort finalement chez une personne rencontrée pendant la soirée."
+},
+{
+"level": 6,
+"question": "Ton/ta partenaire estime ne pas avoir à te dire chez qui il/elle a dormi."
+}
+]
+},
+{
+"id": "telephone_vie_privee",
+"title": "Le téléphone et la vie privée",
+"category": "telephone",
+"levels": [
+{
+"level": 1,
+"question": "Ton/ta partenaire préfère que tu ne regardes pas son téléphone."
+},
+{
+"level": 2,
+"question": "Ton/ta partenaire refuse que tu utilises son téléphone même pour une chose pratique."
+},
+{
+"level": 3,
+"question": "Ton/ta partenaire cache systématiquement son écran quand tu approches."
+},
+{
+"level": 4,
+"question": "Ton/ta partenaire change son code sans vouloir te dire pourquoi."
+},
+{
+"level": 5,
+"question": "Ton/ta partenaire supprime régulièrement certaines conversations."
+},
+{
+"level": 6,
+"question": "Ton/ta partenaire utilise une messagerie cachée dont il/elle refuse de parler."
+}
+]
+},
+{
+"id": "meilleur_ami_prioritaire",
+"title": "Le/la meilleur(e) ami(e) prioritaire",
+"category": "amitie",
+"levels": [
+{
+"level": 1,
+"question": "Ton/ta partenaire voit très souvent son/sa meilleur(e) ami(e)."
+},
+{
+"level": 2,
+"question": "Ton/ta partenaire organise régulièrement ses week-ends autour de son/sa meilleur(e) ami(e)."
+},
+{
+"level": 3,
+"question": "Ton/ta partenaire annule parfois vos plans pour aider son/sa meilleur(e) ami(e)."
+},
+{
+"level": 4,
+"question": "Ton/ta partenaire demande l’avis de son/sa meilleur(e) ami(e) avant le tien sur vos décisions."
+},
+{
+"level": 5,
+"question": "Ton/ta partenaire choisit régulièrement son/sa meilleur(e) ami(e) quand vos besoins s’opposent."
+},
+{
+"level": 6,
+"question": "Ton/ta partenaire te demande d’accepter que son/sa meilleur(e) ami(e) passera toujours avant votre couple."
+}
+]
+},
+{
+"id": "likes_qui_deviennent_flirt",
+"title": "Du like au flirt",
+"category": "reseaux_sociaux",
+"levels": [
+{
+"level": 1,
+"question": "Ton/ta partenaire like souvent les photos d’une personne qu’il/elle trouve attirante."
+},
+{
+"level": 2,
+"question": "Ton/ta partenaire répond régulièrement aux stories de cette personne."
+},
+{
+"level": 3,
+"question": "Ton/ta partenaire commence à échanger des messages privés avec cette personne."
+},
+{
+"level": 4,
+"question": "Ton/ta partenaire et cette personne se font régulièrement des compliments."
+},
+{
+"level": 5,
+"question": "Ton/ta partenaire répond positivement aux messages clairement flirtants de cette personne."
+},
+{
+"level": 6,
+"question": "Ton/ta partenaire accepte de rencontrer seul(e) cette personne après plusieurs semaines de flirt."
+}
+]
+},
+{
+"id": "vacances_sans_toi",
+"title": "Les vacances sans toi",
+"category": "vacances",
+"levels": [
+{
+"level": 1,
+"question": "Ton/ta partenaire veut partir quelques jours en vacances avec ses amis sans toi."
+},
+{
+"level": 2,
+"question": "Ton/ta partenaire prévoit deux semaines de vacances avec ses amis sans toi."
+},
+{
+"level": 3,
+"question": "Ton/ta partenaire utilise presque tous ses jours de congé pour ce voyage entre amis."
+},
+{
+"level": 4,
+"question": "Ton/ta partenaire te dit qu’il/elle préfère désormais voyager principalement sans toi."
+},
+{
+"level": 5,
+"question": "Ton/ta partenaire organise chaque année ses grandes vacances avec ses amis avant vos projets communs."
+},
+{
+"level": 6,
+"question": "Ton/ta partenaire ne souhaite plus réserver de longues vacances uniquement avec toi."
+}
+]
+},
+{
+"id": "alcool_en_soiree",
+"title": "Un verre de trop",
+"category": "alcool",
+"levels": [
+{
+"level": 1,
+"question": "Ton/ta partenaire boit parfois un peu trop en soirée."
+},
+{
+"level": 2,
+"question": "Ton/ta partenaire finit régulièrement très alcoolisé(e) pendant ses sorties."
+},
+{
+"level": 3,
+"question": "Ton/ta partenaire ne se souvient parfois plus clairement de sa fin de soirée."
+},
+{
+"level": 4,
+"question": "Ton/ta partenaire adopte régulièrement des comportements qu’il/elle regrette après avoir bu."
+},
+{
+"level": 5,
+"question": "Ton/ta partenaire refuse de réduire sa consommation malgré plusieurs incidents."
+},
+{
+"level": 6,
+"question": "Ton/ta partenaire considère que tu dois simplement accepter tout ce qui se passe lorsqu’il/elle est ivre."
+}
+]
+},
+{
+"id": "localisation_partagee",
+"title": "Toujours savoir où tu es",
+"category": "confiance",
+"levels": [
+{
+"level": 1,
+"question": "Ton/ta partenaire te demande parfois où tu es quand tu sors."
+},
+{
+"level": 2,
+"question": "Ton/ta partenaire préfère que tu préviennes à chaque changement de lieu."
+},
+{
+"level": 3,
+"question": "Ton/ta partenaire souhaite que vous partagiez votre localisation pendant vos sorties."
+},
+{
+"level": 4,
+"question": "Ton/ta partenaire veut avoir accès à ta localisation en permanence."
+},
+{
+"level": 5,
+"question": "Ton/ta partenaire te demande des explications dès que ta localisation lui semble inhabituelle."
+},
+{
+"level": 6,
+"question": "Ton/ta partenaire considère comme suspect le fait de désactiver ta localisation même temporairement."
+}
+]
+},
+{
+"id": "belle_famille_envahissante",
+"title": "La belle-famille s’en mêle",
+"category": "famille",
+"levels": [
+{
+"level": 1,
+"question": "La famille de ton/ta partenaire donne parfois son avis sur votre couple."
+},
+{
+"level": 2,
+"question": "La famille de ton/ta partenaire commente régulièrement vos choix de couple."
+},
+{
+"level": 3,
+"question": "Ton/ta partenaire raconte vos disputes à sa famille."
+},
+{
+"level": 4,
+"question": "La famille de ton/ta partenaire intervient directement dans vos désaccords."
+},
+{
+"level": 5,
+"question": "Ton/ta partenaire suit souvent l’avis de sa famille contre le tien pour vos décisions communes."
+},
+{
+"level": 6,
+"question": "Ton/ta partenaire refuse une décision importante pour votre couple uniquement parce que sa famille s’y oppose."
+}
+]
+},
+{
+"id": "depenses_cachees",
+"title": "Les dépenses cachées",
+"category": "argent",
+"levels": [
+{
+"level": 1,
+"question": "Ton/ta partenaire s’offre parfois quelque chose de cher sans t’en parler."
+},
+{
+"level": 2,
+"question": "Ton/ta partenaire fait régulièrement de grosses dépenses sans t’en parler."
+},
+{
+"level": 3,
+"question": "Ton/ta partenaire minimise volontairement le montant de certaines dépenses."
+},
+{
+"level": 4,
+"question": "Ton/ta partenaire cache certains achats pour éviter une discussion."
+},
+{
+"level": 5,
+"question": "Ton/ta partenaire utilise de l’argent prévu pour un projet commun sans te prévenir."
+},
+{
+"level": 6,
+"question": "Ton/ta partenaire contracte un crédit important sans t’en parler alors que vos finances sont liées."
+}
+]
+},
+{
+"id": "mot_de_passe_du_couple",
+"title": "Donne-moi ton mot de passe",
+"category": "vie_privee",
+"levels": [
+{
+"level": 1,
+"question": "Ton/ta partenaire connaît le code de ton téléphone pour des raisons pratiques."
+},
+{
+"level": 2,
+"question": "Ton/ta partenaire souhaite aussi connaître les mots de passe de tes réseaux sociaux."
+},
+{
+"level": 3,
+"question": "Ton/ta partenaire te demande de pouvoir consulter tes comptes quand il/elle le souhaite."
+},
+{
+"level": 4,
+"question": "Ton/ta partenaire vérifie parfois tes messages sans te prévenir."
+},
+{
+"level": 5,
+"question": "Ton/ta partenaire te reproche de modifier un mot de passe sans lui donner le nouveau."
+},
+{
+"level": 6,
+"question": "Ton/ta partenaire estime qu’avoir une vie numérique privée n’est pas compatible avec une relation sérieuse."
+}
+]
+},
+{
+"id": "confidences_aux_amis",
+"title": "Tout raconter aux amis",
+"category": "vie_privee",
+"levels": [
+{
+"level": 1,
+"question": "Ton/ta partenaire raconte parfois vos petites disputes à ses amis."
+},
+{
+"level": 2,
+"question": "Ton/ta partenaire raconte régulièrement vos problèmes de couple à ses amis."
+},
+{
+"level": 3,
+"question": "Ton/ta partenaire partage avec ses amis des détails personnels que tu lui as confiés."
+},
+{
+"level": 4,
+"question": "Ton/ta partenaire montre certains de vos messages privés à ses amis."
+},
+{
+"level": 5,
+"question": "Ton/ta partenaire raconte des détails précis sur votre intimité à ses amis."
+},
+{
+"level": 6,
+"question": "Ton/ta partenaire estime que tout ce qui se passe dans votre couple peut être raconté à ses proches."
+}
+]
+},
+{
+"id": "temps_de_reponse",
+"title": "Le message laissé en attente",
+"category": "communication",
+"levels": [
+{
+"level": 1,
+"question": "Ton/ta partenaire met parfois plusieurs heures à répondre à tes messages."
+},
+{
+"level": 2,
+"question": "Ton/ta partenaire répond rarement pendant la journée quand vous êtes séparés."
+},
+{
+"level": 3,
+"question": "Ton/ta partenaire lit régulièrement tes messages sans y répondre avant plusieurs heures."
+},
+{
+"level": 4,
+"question": "Ton/ta partenaire peut passer une journée entière sans te répondre alors qu’il/elle utilise son téléphone."
+},
+{
+"level": 5,
+"question": "Ton/ta partenaire disparaît parfois plusieurs jours sans prévenir lorsqu’il/elle a besoin d’espace."
+},
+{
+"level": 6,
+"question": "Ton/ta partenaire refuse toute attente concernant la fréquence de vos échanges, même à distance."
+}
+]
+},
+{
+"id": "annulations_recurrentes",
+"title": "Toujours remis à plus tard",
+"category": "priorites",
+"levels": [
+{
+"level": 1,
+"question": "Ton/ta partenaire reporte parfois un moment prévu avec toi à cause d’un imprévu."
+},
+{
+"level": 2,
+"question": "Ton/ta partenaire annule régulièrement vos plans pour accepter une autre invitation."
+},
+{
+"level": 3,
+"question": "Ton/ta partenaire te prévient souvent au dernier moment qu’il/elle ne viendra pas."
+},
+{
+"level": 4,
+"question": "Ton/ta partenaire considère vos plans comme plus faciles à annuler que ceux pris avec ses proches."
+},
+{
+"level": 5,
+"question": "Ton/ta partenaire te demande régulièrement de rester disponible sans garantir qu’il/elle le sera."
+},
+{
+"level": 6,
+"question": "Ton/ta partenaire estime que votre relation doit pouvoir fonctionner même si vos moments ensemble passent systématiquement après le reste."
+}
+]
+},
+{
+"id": "relation_pas_affichee",
+"title": "Le couple invisible",
+"category": "reseaux_sociaux",
+"levels": [
+{
+"level": 1,
+"question": "Ton/ta partenaire publie rarement des photos de votre couple."
+},
+{
+"level": 2,
+"question": "Ton/ta partenaire ne mentionne jamais votre relation sur ses réseaux."
+},
+{
+"level": 3,
+"question": "Ton/ta partenaire laisse certaines personnes penser qu’il/elle est célibataire."
+},
+{
+"level": 4,
+"question": "Ton/ta partenaire évite volontairement de parler de toi avec certaines nouvelles connaissances."
+},
+{
+"level": 5,
+"question": "Ton/ta partenaire te demande de ne pas apparaître sur certains contenus publics."
+},
+{
+"level": 6,
+"question": "Ton/ta partenaire se présente comme célibataire dans certains contextes pour garder davantage d’opportunités."
+}
+]
+},
+{
+"id": "ami_attire",
+"title": "L’ami(e) qui veut plus",
+"category": "amitie",
+"levels": [
+{
+"level": 1,
+"question": "Ton/ta partenaire reste ami(e) avec une personne qui a déjà eu un faible pour lui/elle."
+},
+{
+"level": 2,
+"question": "Ton/ta partenaire parle très souvent avec cette personne."
+},
+{
+"level": 3,
+"question": "Ton/ta partenaire passe régulièrement du temps seul(e) avec cette personne."
+},
+{
+"level": 4,
+"question": "Cette personne avoue à ton/ta partenaire avoir encore des sentiments."
+},
+{
+"level": 5,
+"question": "Ton/ta partenaire décide de maintenir exactement la même proximité avec cette personne."
+},
+{
+"level": 6,
+"question": "Ton/ta partenaire part seul(e) en week-end avec cette personne malgré ses sentiments toujours présents."
+}
+]
+},
+{
+"id": "blagues_aux_depens_du_couple",
+"title": "La blague qui va trop loin",
+"category": "comportement_public",
+"levels": [
+{
+"level": 1,
+"question": "Ton/ta partenaire te taquine parfois devant vos proches."
+},
+{
+"level": 2,
+"question": "Ton/ta partenaire raconte régulièrement des anecdotes embarrassantes sur toi pour faire rire."
+},
+{
+"level": 3,
+"question": "Ton/ta partenaire plaisante devant les autres sur certains de tes complexes."
+},
+{
+"level": 4,
+"question": "Ton/ta partenaire continue certaines blagues alors que tu lui as dit qu’elles te blessent."
+},
+{
+"level": 5,
+"question": "Ton/ta partenaire se moque de vos problèmes de couple devant vos amis."
+},
+{
+"level": 6,
+"question": "Ton/ta partenaire estime que tu dois accepter d’être humilié(e) publiquement au nom de l’humour."
+}
+]
+},
+{
+"id": "taches_menageres",
+"title": "La maison en mode solo",
+"category": "vie_commune",
+"levels": [
+{
+"level": 1,
+"question": "Ton/ta partenaire oublie parfois de faire sa part des tâches ménagères."
+},
+{
+"level": 2,
+"question": "Ton/ta partenaire attend souvent que tu lui rappelles ce qu’il/elle doit faire."
+},
+{
+"level": 3,
+"question": "Ton/ta partenaire te laisse régulièrement gérer seul(e) la majorité des tâches."
+},
+{
+"level": 4,
+"question": "Ton/ta partenaire considère certaines tâches comme ta responsabilité par défaut."
+},
+{
+"level": 5,
+"question": "Ton/ta partenaire refuse de changer la répartition même si tu lui dis être épuisé(e)."
+},
+{
+"level": 6,
+"question": "Ton/ta partenaire estime que vivre ensemble signifie que tu dois accepter de gérer presque tout le quotidien."
+}
+]
+},
+{
+"id": "decision_de_demenagement",
+"title": "Le grand déménagement",
+"category": "projets_futurs",
+"levels": [
+{
+"level": 1,
+"question": "Ton/ta partenaire évoque l’idée de vivre un jour dans une autre ville."
+},
+{
+"level": 2,
+"question": "Ton/ta partenaire commence à regarder sérieusement des opportunités dans une autre ville."
+},
+{
+"level": 3,
+"question": "Ton/ta partenaire postule à des offres loin de chez vous sans réellement t’en parler avant."
+},
+{
+"level": 4,
+"question": "Ton/ta partenaire reçoit une proposition et envisage de partir même si tu ne peux pas suivre."
+},
+{
+"level": 5,
+"question": "Ton/ta partenaire accepte une opportunité qui vous impose une relation à distance sans décision commune."
+},
+{
+"level": 6,
+"question": "Ton/ta partenaire considère que ses choix professionnels doivent toujours passer avant vos projets de vie communs."
+}
+]
+},
+{
+"id": "carriere_toujours_prioritaire",
+"title": "Le travail avant tout",
+"category": "travail",
+"levels": [
+{
+"level": 1,
+"question": "Ton/ta partenaire travaille parfois tard pour terminer un projet."
+},
+{
+"level": 2,
+"question": "Ton/ta partenaire travaille régulièrement le soir au détriment de vos moments ensemble."
+},
+{
+"level": 3,
+"question": "Ton/ta partenaire annule souvent vos plans pour des demandes professionnelles non urgentes."
+},
+{
+"level": 4,
+"question": "Ton/ta partenaire reste disponible pour son travail pendant presque toutes vos vacances."
+},
+{
+"level": 5,
+"question": "Ton/ta partenaire refuse de poser des limites au travail malgré l’impact régulier sur votre couple."
+},
+{
+"level": 6,
+"question": "Ton/ta partenaire te dit clairement que sa carrière passera toujours avant votre relation."
+}
+]
+},
+{
+"id": "affection_en_public",
+"title": "L’affection devant les autres",
+"category": "affection",
+"levels": [
+{
+"level": 1,
+"question": "Ton/ta partenaire n’aime pas beaucoup les gestes affectueux en public."
+},
+{
+"level": 2,
+"question": "Ton/ta partenaire évite de te tenir la main quand d’autres personnes sont présentes."
+},
+{
+"level": 3,
+"question": "Ton/ta partenaire refuse presque tout geste tendre devant vos proches."
+},
+{
+"level": 4,
+"question": "Ton/ta partenaire se montre distant(e) avec toi dès que vous êtes en public."
+},
+{
+"level": 5,
+"question": "Ton/ta partenaire te demande de ne pas avoir l’air d’être en couple dans certains lieux."
+},
+{
+"level": 6,
+"question": "Ton/ta partenaire souhaite que votre relation reste complètement invisible dès que vous êtes en dehors de chez vous."
+}
+]
+},
+{
+"id": "cadeaux_aux_autres",
+"title": "Les petites attentions pour quelqu’un d’autre",
+"category": "ambiguite",
+"levels": [
+{
+"level": 1,
+"question": "Ton/ta partenaire offre parfois un petit cadeau à un(e) ami(e)."
+},
+{
+"level": 2,
+"question": "Ton/ta partenaire offre régulièrement des cadeaux personnels à la même personne."
+},
+{
+"level": 3,
+"question": "Ton/ta partenaire cherche souvent des attentions spécialement choisies pour cette personne."
+},
+{
+"level": 4,
+"question": "Ton/ta partenaire dépense davantage pour les cadeaux de cette personne que pour les tiens."
+},
+{
+"level": 5,
+"question": "Ton/ta partenaire offre à cette personne des cadeaux très intimes ou symboliques."
+},
+{
+"level": 6,
+"question": "Ton/ta partenaire entretient avec cette personne un rituel de cadeaux qu’il/elle souhaite garder secret entre eux."
+}
+]
+},
+{
+"id": "week_end_avec_ancienne_aventure",
+"title": "Le week-end avec une ancienne aventure",
+"category": "anciennes_relations",
+"levels": [
+{
+"level": 1,
+"question": "Ton/ta partenaire reste en bons termes avec une personne avec qui il/elle a déjà couché."
+},
+{
+"level": 2,
+"question": "Ton/ta partenaire voit parfois cette personne avec un groupe d’amis."
+},
+{
+"level": 3,
+"question": "Ton/ta partenaire échange régulièrement en privé avec cette personne."
+},
+{
+"level": 4,
+"question": "Ton/ta partenaire passe parfois une soirée seul(e) avec cette personne."
+},
+{
+"level": 5,
+"question": "Ton/ta partenaire part en week-end de groupe où il/elle partage une chambre avec cette personne."
+},
+{
+"level": 6,
+"question": "Ton/ta partenaire accepte de partir seul(e) en week-end avec cette personne en estimant que leur passé n’a plus d’importance."
+}
+]
+},
+{
+"id": "reponses_aux_flirts",
+"title": "Quand quelqu’un flirte",
+"category": "flirt",
+"levels": [
+{
+"level": 1,
+"question": "Ton/ta partenaire reçoit un compliment séduisant et répond simplement merci."
+},
+{
+"level": 2,
+"question": "Ton/ta partenaire reçoit régulièrement des compliments flirtants de la même personne et continue la conversation."
+},
+{
+"level": 3,
+"question": "Ton/ta partenaire répond parfois par des compliments en retour."
+},
+{
+"level": 4,
+"question": "Ton/ta partenaire entretient volontairement le flirt parce qu’il/elle trouve ça amusant."
+},
+{
+"level": 5,
+"question": "Ton/ta partenaire cache ces échanges pour éviter que tu les interprètes mal."
+},
+{
+"level": 6,
+"question": "Ton/ta partenaire continue ce flirt régulier tout en considérant qu’il n’y a aucun problème tant qu’il n’y a rien de physique."
+}
+]
+},
+{
+"id": "sorties_avec_celibataires",
+"title": "La vie de célibataire entre amis",
+"category": "sorties",
+"levels": [
+{
+"level": 1,
+"question": "Ton/ta partenaire aime sortir souvent avec ses amis célibataires."
+},
+{
+"level": 2,
+"question": "Ton/ta partenaire les accompagne régulièrement dans des lieux où ils vont surtout pour rencontrer des gens."
+},
+{
+"level": 3,
+"question": "Ton/ta partenaire joue parfois le jeu en discutant avec des inconnus pour aider ses amis."
+},
+{
+"level": 4,
+"question": "Ton/ta partenaire accepte des verres offerts par des personnes qui le/la draguent pendant ces soirées."
+},
+{
+"level": 5,
+"question": "Ton/ta partenaire donne parfois son réseau social à des personnes rencontrées pendant ces sorties."
+},
+{
+"level": 6,
+"question": "Ton/ta partenaire estime pouvoir agir comme ses amis célibataires pendant ses soirées tant qu’il/elle ne t’embrasse personne."
+}
+]
+},
+{
+"id": "argent_prete_aux_proches",
+"title": "La banque des proches",
+"category": "argent",
+"levels": [
+{
+"level": 1,
+"question": "Ton/ta partenaire prête parfois une petite somme à un proche."
+},
+{
+"level": 2,
+"question": "Ton/ta partenaire prête régulièrement de l’argent à la même personne."
+},
+{
+"level": 3,
+"question": "Ton/ta partenaire prête des sommes importantes sans être certain(e) d’être remboursé(e)."
+},
+{
+"level": 4,
+"question": "Ton/ta partenaire prête de l’argent qui devait servir à une dépense commune."
+},
+{
+"level": 5,
+"question": "Ton/ta partenaire continue à prêter malgré les conséquences sur votre budget."
+},
+{
+"level": 6,
+"question": "Ton/ta partenaire estime pouvoir utiliser librement l’épargne commune pour aider ses proches sans ton accord."
+}
+]
+},
+{
+"id": "compte_commun",
+"title": "Tout mettre en commun",
+"category": "finances_communes",
+"levels": [
+{
+"level": 1,
+"question": "Ton/ta partenaire propose d’ouvrir un compte commun pour les dépenses du couple."
+},
+{
+"level": 2,
+"question": "Ton/ta partenaire propose d’y verser la majorité de vos revenus."
+},
+{
+"level": 3,
+"question": "Ton/ta partenaire souhaite que toutes vos grosses dépenses soient décidées ensemble."
+},
+{
+"level": 4,
+"question": "Ton/ta partenaire souhaite avoir une visibilité complète sur tes comptes personnels."
+},
+{
+"level": 5,
+"question": "Ton/ta partenaire veut que vous n’ayez presque plus d’argent personnel séparé."
+},
+{
+"level": 6,
+"question": "Ton/ta partenaire souhaite fusionner entièrement vos finances et considère toute dépense personnelle importante comme une décision de couple."
+}
+]
+},
+{
+"id": "amis_a_la_maison",
+"title": "La maison toujours pleine",
+"category": "vie_commune",
+"levels": [
+{
+"level": 1,
+"question": "Ton/ta partenaire invite parfois des amis chez vous sans beaucoup anticiper."
+},
+{
+"level": 2,
+"question": "Ton/ta partenaire invite régulièrement des amis chez vous en te prévenant au dernier moment."
+},
+{
+"level": 3,
+"question": "Ton/ta partenaire laisse souvent ses amis rester tard alors que tu souhaites être tranquille."
+},
+{
+"level": 4,
+"question": "Ton/ta partenaire propose parfois à ses amis de dormir chez vous sans te demander."
+},
+{
+"level": 5,
+"question": "Ton/ta partenaire donne à certains amis l’habitude de venir chez vous presque quand ils veulent."
+},
+{
+"level": 6,
+"question": "Ton/ta partenaire donne un double des clés à un(e) ami(e) proche sans ton accord."
+}
+]
+},
+{
+"id": "animal_de_compagnie",
+"title": "Le troisième membre du couple",
+"category": "quotidien",
+"levels": [
+{
+"level": 1,
+"question": "Ton/ta partenaire laisse votre animal monter sur le canapé."
+},
+{
+"level": 2,
+"question": "Ton/ta partenaire laisse votre animal dormir régulièrement dans votre chambre."
+},
+{
+"level": 3,
+"question": "Ton/ta partenaire laisse votre animal dormir dans votre lit."
+},
+{
+"level": 4,
+"question": "Ton/ta partenaire refuse de faire descendre votre animal du lit même quand cela gêne votre sommeil."
+},
+{
+"level": 5,
+"question": "Ton/ta partenaire annule parfois des sorties à deux parce qu’il/elle préfère ne pas laisser votre animal seul."
+},
+{
+"level": 6,
+"question": "Ton/ta partenaire organise désormais presque toutes vos décisions de couple en fonction de votre animal."
+}
+]
+},
+{
+"id": "series_en_avance",
+"title": "La trahison Netflix",
+"category": "leger",
+"levels": [
+{
+"level": 1,
+"question": "Ton/ta partenaire regarde seul(e) un épisode d’une série que vous aviez commencée ensemble."
+},
+{
+"level": 2,
+"question": "Ton/ta partenaire regarde plusieurs épisodes en avance sans te le dire."
+},
+{
+"level": 3,
+"question": "Ton/ta partenaire termine une saison entière sans t’attendre."
+},
+{
+"level": 4,
+"question": "Ton/ta partenaire prétend ne rien avoir vu pour revoir les épisodes avec toi."
+},
+{
+"level": 5,
+"question": "Ton/ta partenaire recommence régulièrement avec presque toutes vos séries communes."
+},
+{
+"level": 6,
+"question": "Ton/ta partenaire refuse désormais d’attendre pour regarder la moindre série que vous commencez ensemble."
+}
+]
+},
+{
+"id": "repas_sans_demander",
+"title": "La dernière part",
+"category": "leger",
+"levels": [
+{
+"level": 1,
+"question": "Ton/ta partenaire goûte parfois dans ton assiette sans demander."
+},
+{
+"level": 2,
+"question": "Ton/ta partenaire prend régulièrement plusieurs bouchées dans ton assiette."
+},
+{
+"level": 3,
+"question": "Ton/ta partenaire finit parfois quelque chose que tu avais gardé pour plus tard."
+},
+{
+"level": 4,
+"question": "Ton/ta partenaire mange régulièrement tes aliments préférés sans t’en laisser."
+},
+{
+"level": 5,
+"question": "Ton/ta partenaire continue même après que tu lui as demandé de ne plus toucher à certaines choses."
+},
+{
+"level": 6,
+"question": "Ton/ta partenaire considère que tout ce qui se trouve chez vous lui appartient autant qu’à toi, même ce que tu achètes spécialement pour toi."
+}
+]
+},
+{
+"id": "retards_systematiques",
+"title": "Toujours cinq minutes de plus",
+"category": "quotidien",
+"levels": [
+{
+"level": 1,
+"question": "Ton/ta partenaire arrive parfois dix minutes en retard."
+},
+{
+"level": 2,
+"question": "Ton/ta partenaire arrive régulièrement vingt à trente minutes en retard."
+},
+{
+"level": 3,
+"question": "Ton/ta partenaire te fait souvent attendre sans te prévenir."
+},
+{
+"level": 4,
+"question": "Ton/ta partenaire vous fait régulièrement rater des réservations ou des débuts d’événements."
+},
+{
+"level": 5,
+"question": "Ton/ta partenaire refuse de changer ses habitudes malgré les conséquences sur toi."
+},
+{
+"level": 6,
+"question": "Ton/ta partenaire estime que tu dois simplement donner une fausse heure de rendez-vous si ses retards te dérangent."
+}
+]
+},
+{
+"id": "besoin_de_solitude",
+"title": "J’ai besoin d’être seul(e)",
+"category": "autonomie",
+"levels": [
+{
+"level": 1,
+"question": "Ton/ta partenaire aime parfois passer une soirée seul(e)."
+},
+{
+"level": 2,
+"question": "Ton/ta partenaire souhaite avoir plusieurs soirées par semaine entièrement pour lui/elle."
+},
+{
+"level": 3,
+"question": "Ton/ta partenaire aime parfois passer un week-end entier sans te voir."
+},
+{
+"level": 4,
+"question": "Ton/ta partenaire préfère régulièrement organiser ses week-ends sans toi."
+},
+{
+"level": 5,
+"question": "Ton/ta partenaire souhaite que vous viviez ensemble tout en ayant des vies largement séparées."
+},
+{
+"level": 6,
+"question": "Ton/ta partenaire envisage sérieusement de vivre chacun chez soi sur le long terme pour préserver son indépendance."
+}
+]
+},
+{
+"id": "disputes_et_silence",
+"title": "Le silence après la dispute",
+"category": "communication",
+"levels": [
+{
+"level": 1,
+"question": "Ton/ta partenaire a besoin d’une heure seul(e) après une grosse dispute."
+},
+{
+"level": 2,
+"question": "Ton/ta partenaire préfère parfois attendre le lendemain avant de reparler d’un conflit."
+},
+{
+"level": 3,
+"question": "Ton/ta partenaire peut rester une journée entière sans vraiment te parler après une dispute."
+},
+{
+"level": 4,
+"question": "Ton/ta partenaire peut t’ignorer plusieurs jours quand il/elle est très en colère."
+},
+{
+"level": 5,
+"question": "Ton/ta partenaire bloque parfois temporairement tes appels et tes messages après un conflit."
+},
+{
+"level": 6,
+"question": "Ton/ta partenaire peut disparaître plusieurs jours sans aucun contact et considère cela comme sa manière normale de gérer les disputes."
+}
+]
+},
+{
+"id": "insultes_pendant_disputes",
+"title": "Les mots qui dépassent la pensée",
+"category": "communication",
+"levels": [
+{
+"level": 1,
+"question": "Ton/ta partenaire hausse parfois fortement le ton pendant une dispute."
+},
+{
+"level": 2,
+"question": "Ton/ta partenaire dit parfois des choses blessantes sous le coup de la colère."
+},
+{
+"level": 3,
+"question": "Ton/ta partenaire utilise régulièrement des insultes pendant vos disputes."
+},
+{
+"level": 4,
+"question": "Ton/ta partenaire attaque volontairement tes complexes ou tes faiblesses quand il/elle est en colère."
+},
+{
+"level": 5,
+"question": "Ton/ta partenaire refuse de s’excuser parce qu’il/elle estime que la colère excuse ses paroles."
+},
+{
+"level": 6,
+"question": "Ton/ta partenaire considère normal que vos conflits deviennent régulièrement humiliants tant qu’il n’y a aucune violence physique."
+}
+]
+},
+{
+"id": "proches_qui_critiquent",
+"title": "Quand ses proches ne t’aiment pas",
+"category": "famille",
+"levels": [
+{
+"level": 1,
+"question": "Un proche de ton/ta partenaire fait parfois une remarque négative sur toi."
+},
+{
+"level": 2,
+"question": "Ce proche critique régulièrement ta personnalité devant ton/ta partenaire."
+},
+{
+"level": 3,
+"question": "Ton/ta partenaire évite de te défendre pour ne pas créer de conflit avec ce proche."
+},
+{
+"level": 4,
+"question": "Ton/ta partenaire continue de vous réunir souvent malgré les critiques répétées."
+},
+{
+"level": 5,
+"question": "Ton/ta partenaire te demande de faire davantage d’efforts avec cette personne sans lui demander de changer son comportement."
+},
+{
+"level": 6,
+"question": "Ton/ta partenaire accepte que ce proche t’exclue de certains événements familiaux et y participe quand même."
+}
+]
+},
+{
+"id": "amities_avec_ex_des_amis",
+"title": "La personne interdite",
+"category": "amitie",
+"levels": [
+{
+"level": 1,
+"question": "Ton/ta partenaire sympathise avec l’ex récent(e) d’un(e) de ses amis."
+},
+{
+"level": 2,
+"question": "Ton/ta partenaire échange régulièrement avec cette personne malgré le malaise de son ami(e)."
+},
+{
+"level": 3,
+"question": "Ton/ta partenaire commence à voir cette personne sans son ami(e)."
+},
+{
+"level": 4,
+"question": "Ton/ta partenaire garde cette nouvelle amitié discrète pour éviter les conflits."
+},
+{
+"level": 5,
+"question": "Ton/ta partenaire devient très proche de cette personne malgré l’impact sur son ancienne amitié."
+},
+{
+"level": 6,
+"question": "Ton/ta partenaire envisage une relation romantique avec cette personne même si cela détruit définitivement son amitié."
+}
+]
+},
+{
+"id": "fetes_importantes",
+"title": "Les dates qui comptent",
+"category": "priorites",
+"levels": [
+{
+"level": 1,
+"question": "Ton/ta partenaire oublie une fois une petite date symbolique pour votre couple."
+},
+{
+"level": 2,
+"question": "Ton/ta partenaire ne souhaite pas spécialement célébrer votre anniversaire de couple."
+},
+{
+"level": 3,
+"question": "Ton/ta partenaire organise régulièrement autre chose les jours importants pour vous."
+},
+{
+"level": 4,
+"question": "Ton/ta partenaire refuse de réserver à l’avance certaines dates importantes pour votre couple."
+},
+{
+"level": 5,
+"question": "Ton/ta partenaire choisit souvent d’autres événements plutôt que vos célébrations importantes."
+},
+{
+"level": 6,
+"question": "Ton/ta partenaire considère qu’aucune date de votre relation ne doit être prioritaire sur ses autres opportunités."
+}
+]
+},
+{
+"id": "projet_enfant",
+"title": "Le projet d’avoir des enfants",
+"category": "projets_futurs",
+"levels": [
+{
+"level": 1,
+"question": "Ton/ta partenaire n’est pas encore certain(e) de vouloir des enfants."
+},
+{
+"level": 2,
+"question": "Ton/ta partenaire souhaite repousser la décision de plusieurs années."
+},
+{
+"level": 3,
+"question": "Ton/ta partenaire hésite fortement alors que ce projet est important pour toi."
+},
+{
+"level": 4,
+"question": "Ton/ta partenaire te dit qu’il/elle pense probablement ne jamais vouloir d’enfant."
+},
+{
+"level": 5,
+"question": "Ton/ta partenaire te demande de rester ensemble même si vos envies sur les enfants sont opposées."
+},
+{
+"level": 6,
+"question": "Ton/ta partenaire refuse de prendre une décision définitive tout en sachant que l’attente peut compromettre ton propre projet."
+}
+]
+},
+{
+"id": "mariage_pas_prioritaire",
+"title": "Le mariage, peut-être jamais",
+"category": "projets_futurs",
+"levels": [
+{
+"level": 1,
+"question": "Ton/ta partenaire ne considère pas le mariage comme particulièrement important."
+},
+{
+"level": 2,
+"question": "Ton/ta partenaire préfère attendre plusieurs années avant d’envisager le mariage."
+},
+{
+"level": 3,
+"question": "Ton/ta partenaire évite systématiquement les discussions concrètes sur le mariage."
+},
+{
+"level": 4,
+"question": "Ton/ta partenaire te dit qu’il/elle serait parfaitement heureux/se sans jamais se marier."
+},
+{
+"level": 5,
+"question": "Ton/ta partenaire refuse le mariage même en sachant qu’il représente quelque chose de très important pour toi."
+},
+{
+"level": 6,
+"question": "Ton/ta partenaire souhaite que tu renonces définitivement au mariage pour poursuivre votre relation."
+}
+]
+},
+{
+"id": "distance_et_visites",
+"title": "Qui fait le trajet ?",
+"category": "couple_a_distance",
+"levels": [
+{
+"level": 1,
+"question": "Dans votre relation à distance, tu fais un peu plus souvent le trajet pour vous voir."
+},
+{
+"level": 2,
+"question": "Tu fais presque toujours le déplacement parce que c’est plus pratique pour ton/ta partenaire."
+},
+{
+"level": 3,
+"question": "Ton/ta partenaire refuse régulièrement de se déplacer même quand tu es moins disponible."
+},
+{
+"level": 4,
+"question": "Ton/ta partenaire attend de toi que tu organises aussi la majorité de vos retrouvailles."
+},
+{
+"level": 5,
+"question": "Ton/ta partenaire te reproche de ne pas venir assez souvent tout en faisant très peu d’efforts pour venir."
+},
+{
+"level": 6,
+"question": "Ton/ta partenaire estime que votre relation à distance doit continuer même si tu assumes presque seul(e) tous les déplacements."
+}
+]
+},
+{
+"id": "appels_a_distance",
+"title": "Le couple au bout du fil",
+"category": "couple_a_distance",
+"levels": [
+{
+"level": 1,
+"question": "Ton/ta partenaire n’aime pas forcément s’appeler tous les jours quand vous êtes à distance."
+},
+{
+"level": 2,
+"question": "Ton/ta partenaire préfère ne s’appeler que quelques fois par semaine."
+},
+{
+"level": 3,
+"question": "Ton/ta partenaire écourte régulièrement vos appels pour faire autre chose."
+},
+{
+"level": 4,
+"question": "Ton/ta partenaire peut passer plusieurs jours sans vouloir d’appel vidéo ou vocal."
+},
+{
+"level": 5,
+"question": "Ton/ta partenaire considère les appels comme une contrainte et refuse d’avoir un rythme minimum."
+},
+{
+"level": 6,
+"question": "Ton/ta partenaire souhaite maintenir une relation à distance principalement par messages, sans moments réguliers réellement partagés."
+}
+]
+},
+{
+"id": "chambre_separee",
+"title": "Chacun son espace",
+"category": "vie_commune",
+"levels": [
+{
+"level": 1,
+"question": "Ton/ta partenaire souhaite avoir un espace personnel rien qu’à lui/elle chez vous."
+},
+{
+"level": 2,
+"question": "Ton/ta partenaire souhaite avoir une pièce entière dont il/elle décide seul(e) de l’usage."
+},
+{
+"level": 3,
+"question": "Ton/ta partenaire aime parfois dormir seul(e) dans une autre chambre."
+},
+{
+"level": 4,
+"question": "Ton/ta partenaire préfère dormir seul(e) plusieurs nuits par semaine."
+},
+{
+"level": 5,
+"question": "Ton/ta partenaire souhaite avoir chacun votre chambre même en vivant ensemble."
+},
+{
+"level": 6,
+"question": "Ton/ta partenaire souhaite organiser votre vie commune comme une colocation amoureuse avec des espaces et des rythmes largement séparés."
+}
+]
+},
+{
+"id": "amis_sans_toi",
+"title": "Tu n’es pas invité(e)",
+"category": "amitie",
+"levels": [
+{
+"level": 1,
+"question": "Ton/ta partenaire fait parfois des sorties avec ses amis sans toi."
+},
+{
+"level": 2,
+"question": "Ton/ta partenaire préfère souvent voir ses amis sans les partenaires."
+},
+{
+"level": 3,
+"question": "Ton/ta partenaire ne t’invite presque jamais aux soirées avec son groupe principal."
+},
+{
+"level": 4,
+"question": "Ton/ta partenaire évite que tu te rapproches réellement de ses amis."
+},
+{
+"level": 5,
+"question": "Ton/ta partenaire organise des événements importants avec ses amis en te laissant systématiquement de côté."
+},
+{
+"level": 6,
+"question": "Ton/ta partenaire souhaite garder sa vie sociale complètement séparée de votre couple sur le long terme."
+}
+]
+},
+{
+"id": "abonnement_aux_comptes_sexy",
+"title": "Les comptes très sexy",
+"category": "reseaux_sociaux",
+"levels": [
+{
+"level": 1,
+"question": "Ton/ta partenaire suit quelques comptes de personnes qu’il/elle trouve très attirantes."
+},
+{
+"level": 2,
+"question": "Ton/ta partenaire suit beaucoup de comptes principalement centrés sur du contenu sexy."
+},
+{
+"level": 3,
+"question": "Ton/ta partenaire like régulièrement les publications les plus suggestives de ces comptes."
+},
+{
+"level": 4,
+"question": "Ton/ta partenaire commente parfois publiquement ces contenus de manière flatteuse."
+},
+{
+"level": 5,
+"question": "Ton/ta partenaire paie des abonnements pour accéder au contenu privé de certaines personnes."
+},
+{
+"level": 6,
+"question": "Ton/ta partenaire échange directement avec des créateurs ou créatrices de contenu auxquels il/elle paie un abonnement."
+}
+]
+},
+{
+"id": "amour_et_surnoms",
+"title": "Les petits noms réservés",
+"category": "affection",
+"levels": [
+{
+"level": 1,
+"question": "Ton/ta partenaire appelle parfois un(e) ami(e) par un surnom affectueux."
+},
+{
+"level": 2,
+"question": "Ton/ta partenaire utilise régulièrement des surnoms très tendres avec cette personne."
+},
+{
+"level": 3,
+"question": "Ton/ta partenaire utilise avec cette personne un surnom que tu pensais réservé à votre couple."
+},
+{
+"level": 4,
+"question": "Ton/ta partenaire échange avec cette personne des messages très affectueux tous les jours."
+},
+{
+"level": 5,
+"question": "Ton/ta partenaire dit régulièrement à cette personne qu’il/elle l’aime."
+},
+{
+"level": 6,
+"question": "Ton/ta partenaire entretient avec cette personne une manière de se parler presque aussi intime et affectueuse que dans votre couple."
+}
+]
+},
+{
+"id": "danser_avec_quelquun",
+"title": "Juste une danse",
+"category": "sorties",
+"levels": [
+{
+"level": 1,
+"question": "Ton/ta partenaire danse avec d’autres personnes en soirée."
+},
+{
+"level": 2,
+"question": "Ton/ta partenaire danse régulièrement de manière rapprochée avec d’autres personnes."
+},
+{
+"level": 3,
+"question": "Ton/ta partenaire accepte de danser longtemps avec une personne qui le/la drague clairement."
+},
+{
+"level": 4,
+"question": "Ton/ta partenaire échange des gestes très tactiles avec cette personne en dansant."
+},
+{
+"level": 5,
+"question": "Ton/ta partenaire continue à danser de manière intime avec cette personne malgré une forte ambiguïté."
+},
+{
+"level": 6,
+"question": "Ton/ta partenaire considère qu’une danse très sensuelle et prolongée avec quelqu’un d’autre reste acceptable tant qu’il n’y a pas de baiser."
+}
+]
+},
+{
+"id": "pret_de_vetements",
+"title": "Le sweat emprunté",
+"category": "ambiguite",
+"levels": [
+{
+"level": 1,
+"question": "Ton/ta partenaire prête parfois un vêtement à un(e) ami(e)."
+},
+{
+"level": 2,
+"question": "La même personne porte régulièrement des vêtements de ton/ta partenaire."
+},
+{
+"level": 3,
+"question": "Ton/ta partenaire laisse cette personne garder certains vêtements pendant plusieurs semaines."
+},
+{
+"level": 4,
+"question": "Cette personne porte souvent le sweat préféré de ton/ta partenaire comme une habitude entre eux."
+},
+{
+"level": 5,
+"question": "Ton/ta partenaire offre finalement à cette personne un vêtement qu’il/elle portait souvent."
+},
+{
+"level": 6,
+"question": "Ton/ta partenaire et cette personne entretiennent volontairement ce rituel de vêtements échangés comme quelque chose de spécial entre eux."
+}
+]
+},
+{
+"id": "dormir_avec_un_ami",
+"title": "Il n’y avait qu’un lit",
+"category": "amitie",
+"levels": [
+{
+"level": 1,
+"question": "Ton/ta partenaire dort chez un(e) ami(e) après une soirée."
+},
+{
+"level": 2,
+"question": "Ton/ta partenaire dort dans la même chambre que cet/cette ami(e)."
+},
+{
+"level": 3,
+"question": "Ton/ta partenaire partage exceptionnellement le même lit avec cet/cette ami(e) faute de place."
+},
+{
+"level": 4,
+"question": "Ton/ta partenaire partage parfois volontairement le même lit avec cet/cette ami(e) parce qu’ils n’y voient aucun problème."
+},
+{
+"level": 5,
+"question": "Ton/ta partenaire dort régulièrement dans le même lit que cet/cette ami(e) lors de leurs voyages."
+},
+{
+"level": 6,
+"question": "Ton/ta partenaire refuse de changer cette habitude même si cette proximité te met clairement mal à l’aise."
+}
+]
+},
+{
+"id": "decisions_sans_consulter",
+"title": "Décidé sans toi",
+"category": "decisions_importantes",
+"levels": [
+{
+"level": 1,
+"question": "Ton/ta partenaire prend parfois une petite décision qui vous concerne sans te consulter."
+},
+{
+"level": 2,
+"question": "Ton/ta partenaire organise régulièrement certains projets communs avant de t’en parler."
+},
+{
+"level": 3,
+"question": "Ton/ta partenaire engage parfois des dépenses importantes pour votre foyer sans ton accord."
+},
+{
+"level": 4,
+"question": "Ton/ta partenaire prend seul(e) des décisions qui modifient réellement votre quotidien."
+},
+{
+"level": 5,
+"question": "Ton/ta partenaire accepte un engagement important pour vous deux avant même de t’en parler."
+},
+{
+"level": 6,
+"question": "Ton/ta partenaire estime qu’il/elle n’a pas besoin de ton accord pour les grandes décisions communes tant qu’il/elle pense agir pour votre bien."
+}
+]
+},
+{
+"id": "amis_du_sexe_attire",
+"title": "Toutes ses amitiés très proches",
+"category": "jalousie",
+"levels": [
+{
+"level": 1,
+"question": "Ton/ta partenaire a beaucoup d’amis correspondant au genre qui l’attire."
+},
+{
+"level": 2,
+"question": "Ton/ta partenaire est très tactile et affectueux/se avec plusieurs de ces amis."
+},
+{
+"level": 3,
+"question": "Ton/ta partenaire échange quotidiennement avec plusieurs de ces amis."
+},
+{
+"level": 4,
+"question": "Ton/ta partenaire part régulièrement seul(e) en sortie avec ces amis très proches."
+},
+{
+"level": 5,
+"question": "Ton/ta partenaire refuse toute limite particulière dans ces amitiés même lorsque certaines attitudes sont ambiguës."
+},
+{
+"level": 6,
+"question": "Ton/ta partenaire considère que votre couple ne doit absolument rien changer à la proximité physique ou émotionnelle qu’il/elle avait avec ces amis avant toi."
+}
+]
+},
+{
+"id": "photos_de_couple",
+"title": "Les souvenirs qui restent",
+"category": "anciennes_relations",
+"levels": [
+{
+"level": 1,
+"question": "Ton/ta partenaire garde quelques anciennes photos de couple dans son téléphone."
+},
+{
+"level": 2,
+"question": "Ton/ta partenaire garde aussi des photos romantiques de plusieurs anciennes relations."
+},
+{
+"level": 3,
+"question": "Ton/ta partenaire regarde parfois ces anciennes photos par nostalgie."
+},
+{
+"level": 4,
+"question": "Ton/ta partenaire conserve des photos très intimes de son ex."
+},
+{
+"level": 5,
+"question": "Ton/ta partenaire refuse de supprimer ces photos intimes parce qu’elles font partie de ses souvenirs."
+},
+{
+"level": 6,
+"question": "Ton/ta partenaire consulte encore parfois ces photos intimes et considère que cela relève uniquement de sa vie privée."
+}
+]
+},
+{
+"id": "ex_aux_evenements",
+"title": "L’ex à toutes les fêtes",
+"category": "ex",
+"levels": [
+{
+"level": 1,
+"question": "Ton/ta partenaire croise parfois son ex lors d’événements avec des amis communs."
+},
+{
+"level": 2,
+"question": "Ton/ta partenaire invite parfois son ex aux événements de son groupe d’amis."
+},
+{
+"level": 3,
+"question": "Ton/ta partenaire souhaite que son ex soit présent(e) à certaines fêtes importantes."
+},
+{
+"level": 4,
+"question": "Ton/ta partenaire invite son ex à son anniversaire personnel."
+},
+{
+"level": 5,
+"question": "Ton/ta partenaire souhaite inviter son ex à un événement important de votre couple."
+},
+{
+"level": 6,
+"question": "Ton/ta partenaire refuse d’organiser ses grands événements sans son ex parce qu’il/elle fait toujours partie de ses proches."
+}
+]
+},
+{
+"id": "contact_avec_belle_famille_ex",
+"title": "La famille de l’ex",
+"category": "anciennes_relations",
+"levels": [
+{
+"level": 1,
+"question": "Ton/ta partenaire est encore abonné(e) à certains membres de la famille de son ex."
+},
+{
+"level": 2,
+"question": "Ton/ta partenaire échange parfois avec la famille de son ex."
+},
+{
+"level": 3,
+"question": "Ton/ta partenaire prend régulièrement des nouvelles de la famille de son ex."
+},
+{
+"level": 4,
+"question": "Ton/ta partenaire rend parfois visite à la famille de son ex sans son ex."
+},
+{
+"level": 5,
+"question": "Ton/ta partenaire participe encore à certains repas ou événements de cette ancienne belle-famille."
+},
+{
+"level": 6,
+"question": "Ton/ta partenaire considère cette ancienne belle-famille comme sa propre famille et souhaite garder avec elle une place importante dans sa vie."
+}
+]
+},
+{
+"id": "soirees_professionnelles",
+"title": "Les afterworks qui s’éternisent",
+"category": "travail",
+"levels": [
+{
+"level": 1,
+"question": "Ton/ta partenaire participe parfois à un verre avec ses collègues après le travail."
+},
+{
+"level": 2,
+"question": "Ton/ta partenaire participe chaque semaine à des afterworks qui finissent tard."
+},
+{
+"level": 3,
+"question": "Ton/ta partenaire reste souvent seul(e) avec quelques collègues après le départ du groupe."
+},
+{
+"level": 4,
+"question": "Ton/ta partenaire finit régulièrement la soirée seul(e) avec le/la même collègue."
+},
+{
+"level": 5,
+"question": "Ton/ta partenaire rentre parfois au petit matin après avoir continué la soirée chez ce/cette collègue."
+},
+{
+"level": 6,
+"question": "Ton/ta partenaire souhaite garder cette habitude même après avoir reconnu qu’une attirance existe entre eux."
+}
+]
+},
+{
+"id": "douche_et_intimite",
+"title": "L’intimité chacun à sa façon",
+"category": "intimite",
+"levels": [
+{
+"level": 1,
+"question": "Ton/ta partenaire aime parfois garder la porte de la salle de bain fermée."
+},
+{
+"level": 2,
+"question": "Ton/ta partenaire préfère toujours se changer et se préparer seul(e)."
+},
+{
+"level": 3,
+"question": "Ton/ta partenaire est mal à l’aise avec le fait d’être nu(e) devant toi en dehors des moments intimes."
+},
+{
+"level": 4,
+"question": "Ton/ta partenaire refuse presque toujours toute forme de nudité partagée au quotidien."
+},
+{
+"level": 5,
+"question": "Ton/ta partenaire souhaite que même certains moments intimes se déroulent principalement dans l’obscurité ou sans être regardé(e)."
+},
+{
+"level": 6,
+"question": "Ton/ta partenaire souhaite maintenir durablement une forte séparation autour de son corps, même dans votre intimité de couple."
+}
+]
+},
+{
+"id": "ancienne_bague",
+"title": "Le bijou de l’ancienne histoire",
+"category": "anciennes_relations",
+"levels": [
+{
+"level": 1,
+"question": "Ton/ta partenaire garde un bijou offert par son ex."
+},
+{
+"level": 2,
+"question": "Ton/ta partenaire porte encore parfois ce bijou."
+},
+{
+"level": 3,
+"question": "Ton/ta partenaire porte régulièrement ce bijou parce qu’il/elle y tient beaucoup."
+},
+{
+"level": 4,
+"question": "Ton/ta partenaire considère ce bijou comme l’un de ses objets les plus précieux."
+},
+{
+"level": 5,
+"question": "Ton/ta partenaire refuse de le remplacer même si son ex l’avait choisi comme symbole de leur relation."
+},
+{
+"level": 6,
+"question": "Ton/ta partenaire continue de porter quotidiennement ce symbole de son ancienne relation et souhaite qu’il conserve exactement sa signification d’origine."
+}
+]
+},
+{
+"id": "dormir_fache",
+"title": "Ne jamais se coucher fâchés ?",
+"category": "communication",
+"levels": [
+{
+"level": 1,
+"question": "Ton/ta partenaire préfère parfois arrêter une discussion tardive et dormir avant de la reprendre."
+},
+{
+"level": 2,
+"question": "Ton/ta partenaire reporte régulièrement vos discussions difficiles au lendemain."
+},
+{
+"level": 3,
+"question": "Ton/ta partenaire peut repousser plusieurs jours une conversation qu’il/elle trouve inconfortable."
+},
+{
+"level": 4,
+"question": "Ton/ta partenaire évite certaines discussions importantes jusqu’à ce que tu abandonnes le sujet."
+},
+{
+"level": 5,
+"question": "Ton/ta partenaire refuse régulièrement de reparler de conflits non résolus."
+},
+{
+"level": 6,
+"question": "Ton/ta partenaire considère qu’un problème est terminé dès qu’il/elle ne souhaite plus en parler, même si rien n’a été réglé."
+}
+]
+},
+{
+"id": "humour_sur_la_rupture",
+"title": "La blague sur la rupture",
+"category": "leger",
+"levels": [
+{
+"level": 1,
+"question": "Ton/ta partenaire plaisante parfois en disant qu’il/elle va te quitter pour une petite bêtise."
+},
+{
+"level": 2,
+"question": "Ton/ta partenaire fait régulièrement des blagues sur votre rupture devant toi."
+},
+{
+"level": 3,
+"question": "Ton/ta partenaire plaisante sur le fait de trouver quelqu’un de mieux."
+},
+{
+"level": 4,
+"question": "Ton/ta partenaire fait ces blagues même pendant des périodes où votre couple traverse des difficultés."
+},
+{
+"level": 5,
+"question": "Ton/ta partenaire continue malgré le fait que tu lui as expliqué que ces blagues te rendent réellement anxieux/se."
+},
+{
+"level": 6,
+"question": "Ton/ta partenaire estime que pouvoir plaisanter régulièrement sur la rupture est indispensable à son humour, même si cela te blesse."
+}
+]
+},
+{
+"id": "anniversaire_avec_ex",
+"title": "Le message de minuit",
+"category": "ex",
+"levels": [
+{
+"level": 1,
+"question": "Ton/ta partenaire souhaite l’anniversaire de son ex avec un message simple."
+},
+{
+"level": 2,
+"question": "Ton/ta partenaire envoie chaque année un long message personnel à son ex pour son anniversaire."
+},
+{
+"level": 3,
+"question": "Ton/ta partenaire appelle son ex le jour de son anniversaire."
+},
+{
+"level": 4,
+"question": "Ton/ta partenaire offre un cadeau à son ex pour son anniversaire."
+},
+{
+"level": 5,
+"question": "Ton/ta partenaire organise un moment seul(e) avec son ex pour célébrer son anniversaire."
+},
+{
+"level": 6,
+"question": "Ton/ta partenaire tient à être la première personne à souhaiter l’anniversaire de son ex à minuit chaque année."
+}
+]
+},
+{
+"id": "photo_de_profil",
+"title": "La photo de profil",
+"category": "reseaux_sociaux",
+"levels": [
+{
+"level": 1,
+"question": "Ton/ta partenaire utilise principalement des photos seul(e) sur ses réseaux."
+},
+{
+"level": 2,
+"question": "Ton/ta partenaire retire rapidement les photos de couple de ses profils."
+},
+{
+"level": 3,
+"question": "Ton/ta partenaire refuse d’utiliser une photo où vous apparaissez ensemble."
+},
+{
+"level": 4,
+"question": "Ton/ta partenaire supprime ou archive régulièrement les publications où votre relation est visible."
+},
+{
+"level": 5,
+"question": "Ton/ta partenaire adapte son profil pour paraître célibataire lorsqu’il/elle veut faire de nouvelles rencontres sociales."
+},
+{
+"level": 6,
+"question": "Ton/ta partenaire considère important de pouvoir maintenir en ligne une image totalement indépendante de votre relation, même si elle laisse volontairement croire qu’il/elle est célibataire."
+}
+]
+},
+{
+"id": "famille_chez_vous",
+"title": "La famille a les clés",
+"category": "famille",
+"levels": [
+{
+"level": 1,
+"question": "La famille de ton/ta partenaire passe parfois chez vous à l’improviste."
+},
+{
+"level": 2,
+"question": "La famille de ton/ta partenaire vient régulièrement sans demander si le moment vous convient."
+},
+{
+"level": 3,
+"question": "Un membre de sa famille possède un double de vos clés pour les urgences."
+},
+{
+"level": 4,
+"question": "Ce membre de sa famille utilise parfois ses clés pour entrer sans prévenir."
+},
+{
+"level": 5,
+"question": "Ton/ta partenaire refuse de récupérer les clés malgré plusieurs entrées imprévues."
+},
+{
+"level": 6,
+"question": "Ton/ta partenaire estime que sa famille doit pouvoir entrer librement chez vous même lorsque tu es seul(e) à la maison."
+}
+]
+},
+{
+"id": "decorer_la_maison",
+"title": "Chez nous ou chez toi ?",
+"category": "vie_commune",
+"levels": [
+{
+"level": 1,
+"question": "Ton/ta partenaire choisit parfois un objet de décoration sans te demander."
+},
+{
+"level": 2,
+"question": "Ton/ta partenaire prend souvent les décisions de décoration parce qu’il/elle s’y intéresse davantage."
+},
+{
+"level": 3,
+"question": "Ton/ta partenaire remplace certains de tes objets parce qu’ils ne correspondent pas à son style."
+},
+{
+"level": 4,
+"question": "Ton/ta partenaire refuse plusieurs de tes choix parce qu’ils ne lui plaisent pas."
+},
+{
+"level": 5,
+"question": "Ton/ta partenaire aménage presque entièrement votre logement selon ses goûts."
+},
+{
+"level": 6,
+"question": "Ton/ta partenaire estime que tu peux personnaliser uniquement ton espace personnel tandis qu’il/elle décide du reste du logement."
+}
+]
+},
+{
+"id": "hygiene_du_quotidien",
+"title": "La guerre du rangement",
+"category": "quotidien",
+"levels": [
+{
+"level": 1,
+"question": "Ton/ta partenaire laisse parfois traîner ses affaires."
+},
+{
+"level": 2,
+"question": "Ton/ta partenaire laisse régulièrement vêtements, vaisselle et objets derrière lui/elle."
+},
+{
+"level": 3,
+"question": "Ton/ta partenaire attend souvent que tu ranges ce qu’il/elle laisse traîner."
+},
+{
+"level": 4,
+"question": "Ton/ta partenaire refuse de faire davantage d’efforts parce que le désordre ne le/la dérange pas."
+},
+{
+"level": 5,
+"question": "Ton/ta partenaire te reproche d’être trop exigeant(e) quand tu demandes un minimum de rangement."
+},
+{
+"level": 6,
+"question": "Ton/ta partenaire estime que si le désordre te dérange davantage, c’est à toi de nettoyer et ranger presque tout."
+}
+]
+},
+{
+"id": "moments_en_couple_sur_telephone",
+"title": "Le téléphone entre nous",
+"category": "quotidien",
+"levels": [
+{
+"level": 1,
+"question": "Ton/ta partenaire regarde parfois son téléphone pendant vos moments à deux."
+},
+{
+"level": 2,
+"question": "Ton/ta partenaire consulte régulièrement son téléphone pendant vos repas."
+},
+{
+"level": 3,
+"question": "Ton/ta partenaire répond souvent à ses messages pendant que tu lui parles."
+},
+{
+"level": 4,
+"question": "Ton/ta partenaire passe une grande partie de vos soirées ensemble sur son téléphone."
+},
+{
+"level": 5,
+"question": "Ton/ta partenaire refuse de prévoir des moments sans écran malgré ton besoin de connexion."
+},
+{
+"level": 6,
+"question": "Ton/ta partenaire estime que vous passez déjà du temps ensemble simplement parce que vous êtes dans la même pièce, même sans réellement interagir."
+}
+]
+},
+{
+"id": "partir_seul_en_voyage",
+"title": "Le grand voyage en solo",
+"category": "autonomie",
+"levels": [
+{
+"level": 1,
+"question": "Ton/ta partenaire souhaite partir seul(e) quelques jours en voyage."
+},
+{
+"level": 2,
+"question": "Ton/ta partenaire souhaite partir seul(e) deux semaines dans un pays lointain."
+},
+{
+"level": 3,
+"question": "Ton/ta partenaire veut faire régulièrement de grands voyages sans toi."
+},
+{
+"level": 4,
+"question": "Ton/ta partenaire utilise une part importante de son budget vacances pour ses voyages en solo."
+},
+{
+"level": 5,
+"question": "Ton/ta partenaire préfère réaliser seul(e) certains de ses plus grands rêves de voyage même si tu aimerais les partager."
+},
+{
+"level": 6,
+"question": "Ton/ta partenaire considère essentiel de continuer à construire une grande partie de ses souvenirs de voyage sans toi sur le long terme."
+}
+]
+}
 ]
