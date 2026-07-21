@@ -1,3082 +1,1002 @@
 [
   {
-    "id": "si_on_etait_dans_une_apocalypse_zombie",
-    "question": "Si nous vivions une apocalypse zombie, quel rôle me donnerais-tu : diriger le groupe, paniquer ou détendre tout le monde ?",
-    "category": "fun",
-    "spicy": 0,
-    "mood": "fun",
-    "premium": true
-  },
-  {
-    "id": "quel_est_mon_plus_gros_defaut_selon",
-    "question": "Quel est mon plus gros défaut selon toi ?",
-    "category": "deep",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
-  },
-  {
-    "id": "as_tu_deja_fouille_mon_telephone",
-    "question": "As-tu déjà fouillé mon téléphone ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
-  },
-  {
-    "id": "est_ce_que_tu_trouves_encore_l",
-    "question": "Est-ce que tu trouves encore l'un de tes ex attirant physiquement ?",
-    "category": "intimacy",
-    "spicy": 2,
-    "mood": "romantic",
-    "premium": true
-  },
-  {
-    "id": "si_tu_gagnais_au_loto_est_ce",
-    "question": "Si tu gagnais au loto, est-ce que tu me le dirais vraiment ?",
-    "category": "lifestyle",
-    "spicy": 0,
-    "mood": "serious",
-    "premium": true
-  },
-  {
-    "id": "si_on_echangeait_nos_vies_pendant_une",
-    "question": "Si nous échangions nos vies pendant une semaine, laquelle de nous aurait le plus de difficultés, selon toi ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
-  },
-  {
-    "id": "quelle_est_la_chose_que_tu_aimerais",
-    "question": "Quelle est la chose que tu aimerais que je fasse plus souvent ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
-  },
-  {
-    "id": "quelle_est_la_chose_la_plus_etrange",
-    "question": "Quelle particularité inattendue chez moi t'attire le plus ?",
-    "category": "intimacy",
-    "spicy": 1,
-    "mood": "romantic",
-    "premium": true
-  },
-  {
-    "id": "si_on_se_separait_qu_est_ce",
-    "question": "Si on se séparait, qu'est-ce qui te manquerait le plus chez moi ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
-  },
-  {
-    "id": "si_tu_pouvais_changer_une_seule_decision",
-    "question": "Si tu pouvais changer une seule décision que j'ai prise dans ma vie avant toi, laquelle choisirais-tu ?",
-    "category": "deep",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
-  },
-  {
-    "id": "tu_preferes_qu_on_soit_separes_pendant",
-    "question": "Tu préfères qu'on soit séparés pendant 6 mois ou qu'on ne puisse plus jamais voyager ensemble ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
-  },
-  {
-    "id": "tu_preferes_connaitre_tous_mes_secrets_ou",
-    "question": "Tu préfères connaître tous mes secrets ou tout mon futur ?",
-    "category": "future",
-    "spicy": 0,
-    "mood": "serious",
-    "premium": true
-  },
-  {
-    "id": "tu_preferes_perdre_toutes_nos_photos_ou",
-    "question": "Tu préfères perdre toutes nos photos ou toutes nos conversations ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "galanterie_001",
+    "question": "Ton partenaire t'ouvre systématiquement les portes."
   },
   {
-    "id": "tu_preferes_qu_on_ne_puisse_plus",
-    "question": "Tu préfères qu'on ne puisse plus s'embrasser ou plus se prendre dans les bras ?",
-    "category": "intimacy",
-    "spicy": 1,
-    "mood": "romantic",
-    "premium": true
+    "id": "galanterie_002",
+    "question": "Ton partenaire t'ouvre la portière de la voiture."
   },
   {
-    "id": "quelle_est_la_chose_que_je_surestime",
-    "question": "Quelle est la chose que je surestime le plus chez moi ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "galanterie_003",
+    "question": "Ton partenaire te dépose devant l'entrée puis va se garer."
   },
   {
-    "id": "quelle_est_la_chose_que_je_sous",
-    "question": "Quelle est la chose que je sous-estime le plus chez moi ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "galanterie_004",
+    "question": "Ton partenaire te tient le parapluie pendant que cette personne prend la pluie."
   },
   {
-    "id": "quelle_emotion_je_gere_le_moins_bien",
-    "question": "Quelle émotion je gère le moins bien selon toi ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "galanterie_005",
+    "question": "Ton partenaire marche côté route quand vous êtes sur le trottoir."
   },
   {
-    "id": "quel_est_ton_seuil_de_tolerance_avant",
-    "question": "Quel est ton seuil de tolérance avant de devenir jaloux·se ?",
-    "category": "jealousy",
-    "spicy": 1,
-    "mood": "serious",
-    "premium": true
+    "id": "galanterie_006",
+    "question": "Ton partenaire refuse que tu portes quelque chose de lourd."
   },
   {
-    "id": "si_on_echangeait_nos_cerveaux_une_journee",
-    "question": "Si on échangeait nos cerveaux une journée, quelle chose te choquerait le plus ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "galanterie_007",
+    "question": "Ton partenaire porte toutes les courses même quand cette personne galère."
   },
   {
-    "id": "quel_est_le_vetement_que_tu_preferes",
-    "question": "Quel est le vêtement que tu préfères sur moi ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "galanterie_008",
+    "question": "Ton partenaire porte tes valises sans te laisser négocier."
   },
   {
-    "id": "si_tu_pouvais_m_obliger_a_essayer",
-    "question": "Si tu pouvais m'obliger à essayer une activité, laquelle ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "galanterie_009",
+    "question": "Ton partenaire porte ton sac quand tu en as marre."
   },
   {
-    "id": "si_tu_pouvais_voir_tous_mes_messages",
-    "question": "Si tu pouvais voir tous mes messages pendant 24 heures, tu le ferais ?",
-    "category": "jealousy",
-    "spicy": 1,
-    "mood": "serious",
-    "premium": true
+    "id": "galanterie_010",
+    "question": "Ton partenaire te laisse toujours la meilleure place."
   },
   {
-    "id": "dans_un_debat_tu_penses_que_ton",
-    "question": "Dans un débat, laquelle de nos meilleures amies défendrait le mieux notre couple ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "galanterie_011",
+    "question": "Ton partenaire te laisse le siège côté fenêtre."
   },
   {
-    "id": "quel_est_le_point_faible_de_notre",
-    "question": "Quel aspect de notre relation mérite le plus d'attention, selon toi ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "galanterie_012",
+    "question": "Ton partenaire te laisse la place la plus confortable sur le canapé."
   },
   {
-    "id": "si_nos_proches_devaient_choisir_lequel_de",
-    "question": "Si nos proches devaient choisir lequel de nous deux est le plus compliqué, qui serait élu ?",
-    "category": "family",
-    "spicy": 0,
-    "mood": "serious",
-    "premium": true
+    "id": "galanterie_013",
+    "question": "Ton partenaire te laisse systématiquement le meilleur oreiller."
   },
   {
-    "id": "si_nos_ex_pouvaient_discuter_entre_eux",
-    "question": "Si nos ex pouvaient discuter entre eux, quel serait le premier sujet ?",
-    "category": "jealousy",
-    "spicy": 1,
-    "mood": "serious",
-    "premium": true
+    "id": "galanterie_014",
+    "question": "Ton partenaire te laisse toute la couverture."
   },
   {
-    "id": "est_ce_qu_il_y_a_un",
-    "question": "Est-ce qu'il y a un comportement que tu me pardonnes uniquement parce que c'est moi ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "galanterie_015",
+    "question": "Ton partenaire te donne sa veste dès que tu as froid."
   },
   {
-    "id": "si_on_n_etait_pas_ensemble_qui",
-    "question": "Si nous ne nous connaissions pas encore, laquelle de nous trouverait l'autre la plus intimidante ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "galanterie_016",
+    "question": "Ton partenaire te couvre quand tu t'endors."
   },
   {
-    "id": "a_quel_age_de_ma_vie_aurais",
-    "question": "À quel âge de ma vie aurais-tu le plus aimé me rencontrer ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "galanterie_017",
+    "question": "Ton partenaire te propose son bras quand vous marchez."
   },
   {
-    "id": "quelle_version_de_moi_aurait_ete_la",
-    "question": "Quelle version de moi aurait été la plus difficile à aimer ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "galanterie_018",
+    "question": "Ton partenaire te tient la main en public."
   },
   {
-    "id": "si_tu_devais_me_donner_un_metier",
-    "question": "Si tu devais me donner un métier que je n'ai jamais exercé, lequel me correspondrait parfaitement ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "galanterie_019",
+    "question": "Ton partenaire te prend spontanément la main dans la rue."
   },
   {
-    "id": "si_tu_pouvais_me_poser_une_seule",
-    "question": "Si tu pouvais me poser une seule question à laquelle je serais obligée de répondre honnêtement, ce serait quoi ?",
-    "category": "deep",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "galanterie_020",
+    "question": "Ton partenaire te raccompagne systématiquement jusque chez toi."
   },
   {
-    "id": "quelle_partie_de_ma_vie_avant_toi",
-    "question": "Quelle partie de ma vie avant toi t'intrigue le plus ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "galanterie_021",
+    "question": "Ton partenaire t'accompagne jusqu'à ta porte même pour une visite rapide."
   },
   {
-    "id": "quel_souvenir_de_moi_aimerais_tu_voir",
-    "question": "Quel souvenir de moi aimerais-tu voir comme un film ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "galanterie_022",
+    "question": "Ton partenaire te dépose en soirée puis revient te chercher."
   },
   {
-    "id": "quelle_est_ma_plus_grande_contradiction",
-    "question": "Quelle est ma plus grande contradiction ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "galanterie_023",
+    "question": "Ton partenaire vient te chercher à n'importe quelle heure si tu en as besoin."
   },
   {
-    "id": "quelle_est_la_chose_la_plus_ridicule",
-    "question": "Quelle est la chose la plus ridicule que tu imagines me voir faire à 80 ans ?",
-    "category": "fun",
-    "spicy": 0,
-    "mood": "fun",
-    "premium": true
+    "id": "galanterie_024",
+    "question": "Ton partenaire t'attend après le travail pour rentrer avec toi."
   },
   {
-    "id": "quel_super_pouvoir_serait_le_plus_dangereux",
-    "question": "Quel super-pouvoir serait le plus dangereux entre mes mains ?",
-    "category": "fun",
-    "spicy": 0,
-    "mood": "fun",
-    "premium": true
+    "id": "galanterie_025",
+    "question": "Ton partenaire te porte dans ses bras quand tu ne veux plus marcher."
   },
   {
-    "id": "si_je_devenais_milliardaire_demain_quelle_serait",
-    "question": "Si je devenais milliardaire demain, quelle serait ma première dépense complètement stupide ?",
-    "category": "lifestyle",
-    "spicy": 0,
-    "mood": "serious",
-    "premium": true
+    "id": "galanterie_026",
+    "question": "Ton partenaire te porte sur son dos quand tu as trop mal aux pieds."
   },
   {
-    "id": "si_je_devais_etre_bannie_d_un",
-    "question": "Si je devais être banni·e d'un magasin, ce serait lequel et pourquoi ?",
-    "category": "fun",
-    "spicy": 0,
-    "mood": "fun",
-    "premium": true
+    "id": "galanterie_027",
+    "question": "Ton partenaire échange ses chaussures avec toi si tu as mal aux pieds."
   },
   {
-    "id": "quelle_loi_inventee_uniquement_pour_moi_existerait",
-    "question": "Quelle loi inventée uniquement pour moi existerait dans ton pays imaginaire ?",
-    "category": "future",
-    "spicy": 0,
-    "mood": "serious",
-    "premium": true
+    "id": "galanterie_028",
+    "question": "Ton partenaire t'aide à mettre tes chaussures."
   },
   {
-    "id": "si_on_vivait_ensemble_en_maison_de",
-    "question": "Si on vivait ensemble en maison de retraite à 85 ans, qui serait le plus insupportable avec le personnel ?",
-    "category": "future",
-    "spicy": 0,
-    "mood": "serious",
-    "premium": true
+    "id": "galanterie_029",
+    "question": "Ton partenaire t'attache tes lacets."
   },
   {
-    "id": "quelle_est_la_pire_phrase_que_tu",
-    "question": "Quelle est la pire phrase que tu aies utilisée pour draguer et qui a fonctionné ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "galanterie_030",
+    "question": "Ton partenaire te fait passer en premier quand vous commandez."
   },
   {
-    "id": "si_je_recevais_beaucoup_trop_d_attention",
-    "question": "Si je recevais beaucoup trop d'attention en soirée, ça te ferait quoi honnêtement ?",
-    "category": "jealousy",
-    "spicy": 1,
-    "mood": "serious",
-    "premium": true
+    "id": "galanterie_031",
+    "question": "Ton partenaire te sert ton assiette avant la sienne."
   },
   {
-    "id": "quel_est_le_trait_de_personnalite_que",
-    "question": "Quel est le trait de personnalité que tu aimerais me voler ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "galanterie_032",
+    "question": "Ton partenaire te coupe ta viande ou ton plat si tu galères."
   },
   {
-    "id": "quelle_est_la_chose_que_tu_aimerais_2",
-    "question": "Quelle est la chose que tu aimerais que je change chez moi ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "galanterie_033",
+    "question": "Ton partenaire te laisse goûter dans son assiette à chaque repas."
   },
   {
-    "id": "qui_est_le_plus_jaloux_entre_nous",
-    "question": "Qui est le plus jaloux entre nous deux, selon toi, et pourquoi ?",
-    "category": "jealousy",
-    "spicy": 1,
-    "mood": "serious",
-    "premium": true
+    "id": "galanterie_034",
+    "question": "Ton partenaire échange son cocktail avec toi si tu préfères le sien."
   },
   {
-    "id": "tu_m_aimerais_encore_si_je_devais",
-    "question": "Comment préserverais-tu notre relation si je devais m'absenter plusieurs mois ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "galanterie_035",
+    "question": "Ton partenaire te donne la dernière bouchée de son dessert préféré."
   },
   {
-    "id": "si_on_ne_s_etait_jamais_rencontres",
-    "question": "Si nous ne nous étions jamais rencontrées, quel type de personne imagines-tu à tes côtés ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "galanterie_036",
+    "question": "Ton partenaire te garde la dernière frite."
   },
   {
-    "id": "quelle_est_ta_plus_grosse_jalousie_par",
-    "question": "Quelle est ta plus grosse jalousie par rapport à moi ?",
-    "category": "jealousy",
-    "spicy": 1,
-    "mood": "serious",
-    "premium": true
+    "id": "galanterie_037",
+    "question": "Ton partenaire te laisse la dernière part de gâteau."
   },
   {
-    "id": "quel_comportement_chez_moi_te_donne_envie",
-    "question": "Quel comportement chez moi te donne envie de me protéger ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "galanterie_038",
+    "question": "Ton partenaire se lève pour te chercher quelque chose alors que cette personne était bien installé(e)."
   },
   {
-    "id": "est_ce_que_tu_pourrais_etre_avec",
-    "question": "Est-ce que tu pourrais être avec moi si j'avais un mode de vie très différent du tien ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "galanterie_039",
+    "question": "Ton partenaire t'apporte un verre d'eau avant de dormir."
   },
   {
-    "id": "est_ce_que_tu_te_serais_mise",
-    "question": "Est-ce que tu te serais mis·e avec moi si j'avais eu un passé compliqué ?",
-    "category": "deep",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "galanterie_040",
+    "question": "Ton partenaire te prépare le café avant que tu sois levé(e)."
   },
   {
-    "id": "est_ce_que_tu_pourrais_rester_avec",
-    "question": "Est-ce que tu pourrais rester avec moi si j'avais 0 libido ?",
-    "category": "sex",
-    "spicy": 3,
-    "mood": "spicy",
-    "premium": true
+    "id": "galanterie_041",
+    "question": "Ton partenaire te prépare le petit-déjeuner le week-end."
   },
   {
-    "id": "si_on_se_rencontrait_aujourd_hui_pour",
-    "question": "Si nous nous rencontrions aujourd'hui pour la première fois, qu'est-ce qui pourrait te faire tomber amoureuse de moi ?",
-    "category": "intimacy",
-    "spicy": 1,
-    "mood": "romantic",
-    "premium": true
+    "id": "galanterie_042",
+    "question": "Ton partenaire t'apporte le repas directement au lit ou sur le canapé."
   },
   {
-    "id": "quelle_est_la_chose_que_je_fait",
-    "question": "Qu'est-ce que je fais qui peut parfois éveiller ta jalousie ?",
-    "category": "jealousy",
-    "spicy": 1,
-    "mood": "serious",
-    "premium": true
+    "id": "galanterie_043",
+    "question": "Ton partenaire te masse quand tu as mal quelque part."
   },
   {
-    "id": "si_tu_devais_choisir_un_outfit_pour",
-    "question": "Si tu devais choisir un outfit pour moi pour aller en date tu choisirais quoi ?",
-    "category": "intimacy",
-    "spicy": 1,
-    "mood": "romantic",
-    "premium": true
+    "id": "galanterie_044",
+    "question": "Ton partenaire te masse les pieds après une grosse journée."
   },
   {
-    "id": "y_a_t_il_une_partie_de",
-    "question": "Y a-t-il une partie de toi que tu as encore du mal à accepter ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "galanterie_045",
+    "question": "Ton partenaire te masse le dos dès que tu dis que tu as mal."
   },
   {
-    "id": "est_ce_que_tu_pourrais_etre_jalouxse",
-    "question": "Est-ce que tu pourrais être jaloux·se si d'autres personnes me regardent en soirée ou dans la rue ?",
-    "category": "jealousy",
-    "spicy": 1,
-    "mood": "serious",
-    "premium": true
+    "id": "galanterie_046",
+    "question": "Ton partenaire te laisse choisir la musique pendant tout le trajet."
   },
   {
-    "id": "quel_est_le_sujet_le_plus_difficile",
-    "question": "Quel est le sujet le plus difficile à aborder avec moi ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "galanterie_047",
+    "question": "Ton partenaire te laisse choisir le restaurant même si ce n'est pas son envie."
   },
   {
-    "id": "as_tu_parfois_peur_de_ne_pas",
-    "question": "As-tu parfois peur de ne pas être à la hauteur de mes attentes ? Comment puis-je te rassurer ?",
-    "category": "deep",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "galanterie_048",
+    "question": "Ton partenaire te laisse choisir le film sans râler."
   },
   {
-    "id": "quel_est_le_comportement_le_plus_innocent",
-    "question": "Quel est le comportement le plus innocent qui pourrait quand même te rendre jaloux·se ?",
-    "category": "jealousy",
-    "spicy": 1,
-    "mood": "serious",
-    "premium": true
+    "id": "galanterie_049",
+    "question": "Ton partenaire te laisse la prise la plus proche."
   },
   {
-    "id": "quand_tu_nous_imagines_dans_5_ans",
-    "question": "Quand tu nous imagines dans cinq ans, quelle scène te vient en premier ?",
-    "category": "future",
-    "spicy": 0,
-    "mood": "serious",
-    "premium": true
+    "id": "galanterie_050",
+    "question": "Ton partenaire adapte son confort pour améliorer le tien."
   },
   {
-    "id": "est_ce_que_tu_me_laisserais_mettre",
-    "question": "Est-ce que tu me laisserais mettre de la crème solaire à une autre personne ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "services_001",
+    "question": "Ton partenaire sort acheter ce dont tu as envie même si cette personne était déjà en pyjama."
   },
   {
-    "id": "est_ce_que_tu_me_laisserais_discuter",
-    "question": "Est-ce que tu me laisserais discuter avec une personne qui fait du topless ?",
-    "category": "jealousy",
-    "spicy": 1,
-    "mood": "serious",
-    "premium": true
+    "id": "services_002",
+    "question": "Ton partenaire va acheter des bonbons parce que tu en as envie maintenant."
   },
   {
-    "id": "est_ce_que_tu_me_laisserais_preter",
-    "question": "Est-ce que tu me laisserais prêter ma serviette à une autre personne qui en a besoin ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "services_003",
+    "question": "Ton partenaire répond à tes envies de dernière minute."
   },
   {
-    "id": "est_ce_que_tu_me_laisserais_partager",
-    "question": "Est-ce que tu me laisserais partager un parasol avec une autre personne parce qu'elle a oublié le sien ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "services_004",
+    "question": "Ton partenaire te ramène ton snack préféré sans que tu le demandes."
   },
   {
-    "id": "est_ce_que_ca_te_ferait_quelque",
-    "question": "Est-ce que ça te ferait quelque chose si j'allais danser avec une personne qui me l'a proposé ? Si oui, quoi ?",
-    "category": "jealousy",
-    "spicy": 1,
-    "mood": "serious",
-    "premium": true
+    "id": "services_005",
+    "question": "Ton partenaire te commande quelque chose même quand tu dis que tu ne veux rien."
   },
   {
-    "id": "si_tu_devais_me_vendre_sur_leboncoin",
-    "question": "Si tu devais me vendre sur Leboncoin, quelle serait l'annonce ?",
-    "category": "fun",
-    "spicy": 0,
-    "mood": "fun",
-    "premium": true
+    "id": "services_006",
+    "question": "Ton partenaire te fait livrer ton repas préféré après une mauvaise journée."
   },
   {
-    "id": "dans_quelle_situation_je_suis_totalement_previsible",
-    "question": "Dans quelle situation je suis totalement prévisible ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "services_007",
+    "question": "Ton partenaire te prépare à manger quand tu es fatigué(e)."
   },
   {
-    "id": "quelle_est_la_chose_qui_me_rend",
-    "question": "Quelle est la chose qui me rend plus forte que je ne le pense ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "services_008",
+    "question": "Ton partenaire te prépare un plateau avec boisson, snack et plaid."
   },
   {
-    "id": "quel_est_mon_tic_le_plus_drole",
-    "question": "Quel est mon tic le plus drôle ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "services_009",
+    "question": "Ton partenaire te prépare un bain après une journée compliquée."
   },
   {
-    "id": "quelle_est_la_chose_la_moins_attirante",
-    "question": "Quelle est la chose la moins attirante chez moi ?",
-    "category": "intimacy",
-    "spicy": 2,
-    "mood": "romantic",
-    "premium": true
+    "id": "services_010",
+    "question": "Ton partenaire recharge ton téléphone pendant que tu dors."
   },
   {
-    "id": "comment_gererais_tu_quelqu_un_qui_essaye",
-    "question": "Comment réagirais-tu si quelqu'un essayait de nous éloigner l'une de l'autre ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "services_011",
+    "question": "Ton partenaire met ton téléphone en charge dès qu'il est à 2%."
   },
   {
-    "id": "quelle_idee_fausse_tu_avais_de_moi",
-    "question": "Quelle idée fausse avais-tu de moi au début ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "services_012",
+    "question": "Ton partenaire recharge tes écouteurs avant un voyage."
   },
   {
-    "id": "qu_est_ce_qui_te_manque_de",
-    "question": "Quel aspect de ta vie de célibataire aimerais-tu préserver dans notre relation ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "services_013",
+    "question": "Ton partenaire prépare ta valise quand tu es débordé(e)."
   },
   {
-    "id": "tu_preferes_que_je_disparaisse_de_ta",
-    "question": "Tu préfères que je disparaisse de ta vie ou que je construise une vie avec quelqu'un d'autre ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "services_014",
+    "question": "Ton partenaire prépare tous les papiers avant un départ."
   },
   {
-    "id": "prix_max_raisonnable_pour_toi_pour_un",
-    "question": "Prix max raisonnable pour toi pour un mariage ?",
-    "category": "lifestyle",
-    "spicy": 0,
-    "mood": "serious",
-    "premium": true
+    "id": "services_015",
+    "question": "Ton partenaire prépare une trousse avec tout ce qui pourrait te manquer."
   },
   {
-    "id": "si_notre_relation_s_arretait_demain_qu",
-    "question": "Si notre relation s'arrêtait demain, qu'est-ce que tu regretterais le plus de ne pas avoir vécu avec moi ?",
-    "category": "deep",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "services_016",
+    "question": "Ton partenaire prévoit toujours un plan B pour éviter que tu stresses."
   },
   {
-    "id": "est_ce_qu_il_y_a_quelque",
-    "question": "Est-ce qu'il y a quelque chose que tu n'oses pas me demander par peur de me décevoir ou me perdre ?",
-    "category": "deep",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "services_017",
+    "question": "Ton partenaire organise entièrement vos vacances pour que tu n'aies à penser à rien."
   },
   {
-    "id": "a_quel_moment_precis_tu_as_su",
-    "question": "À quel moment précis tu as su que tu voulais m'embrasser ?",
-    "category": "intimacy",
-    "spicy": 1,
-    "mood": "romantic",
-    "premium": true
+    "id": "services_018",
+    "question": "Ton partenaire planifie une sortie surprise sans te laisser gérer l'organisation."
   },
   {
-    "id": "si_tu_avais_une_minute_pour_me",
-    "question": "Si tu avais une minute pour me faire rougir qu'est ce que tu me dirais ?",
-    "category": "intimacy",
-    "spicy": 1,
-    "mood": "romantic",
-    "premium": true
+    "id": "services_019",
+    "question": "Ton partenaire prend les rendez-vous que tu repousses depuis des semaines."
   },
   {
-    "id": "quelle_partie_de_ma_personnalite_t_as",
-    "question": "Quelle facette de ma personnalité t'a fait tomber encore plus amoureuse de moi ?",
-    "category": "intimacy",
-    "spicy": 1,
-    "mood": "romantic",
-    "premium": true
+    "id": "services_020",
+    "question": "Ton partenaire appelle à ta place quand tu n'as pas envie de le faire."
   },
   {
-    "id": "qui_prend_le_plus_les_choses_en",
-    "question": "Qui prend le plus les choses en main dans notre couple ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "services_021",
+    "question": "Ton partenaire gère les démarches administratives que tu détestes."
   },
   {
-    "id": "si_mes_parents_ou_mes_potes_apprenaient",
-    "question": "Si mes parents ou mes potes apprenaient un truc sur notre relation ce serait quoi qui te ferait le plus flipper ?",
-    "category": "family",
-    "spicy": 0,
-    "mood": "serious",
-    "premium": true
+    "id": "services_022",
+    "question": "Ton partenaire fait les tâches que tu détestes sans te le dire."
   },
   {
-    "id": "quel_reve_tu_voudrais_qu_on_realise",
-    "question": "Quel rêve voudrais-tu que nous réalisions ensemble ?",
-    "category": "future",
-    "spicy": 0,
-    "mood": "serious",
-    "premium": true
+    "id": "services_023",
+    "question": "Ton partenaire lave aussi tes vêtements quand cette personne fait une lessive."
   },
   {
-    "id": "ou_est_ce_que_tu_nous_vois",
-    "question": "Où est-ce que tu nous vois dans 10 ans ?",
-    "category": "future",
-    "spicy": 0,
-    "mood": "serious",
-    "premium": true
+    "id": "services_024",
+    "question": "Ton partenaire remet de l'essence dans ta voiture sans que tu demandes."
   },
   {
-    "id": "quelle_phrase_je_dis_tout_le_temps",
-    "question": "Quelle phrase je dis tout le temps et que toi aussi tu commences à dire ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "services_025",
+    "question": "Ton partenaire te rend ta voiture propre sans te prévenir."
   },
   {
-    "id": "quel_est_le_mensonge_innocent_que_tu",
-    "question": "Quel est le mensonge innocent que tu me répètes encore aujourd'hui pour ne pas me vexer ?",
-    "category": "values",
-    "spicy": 0,
-    "mood": "serious",
-    "premium": true
+    "id": "services_026",
+    "question": "Ton partenaire arrive immédiatement si tu es en panne."
   },
   {
-    "id": "si_tu_repenses_a_la_personne_que",
-    "question": "Si tu repenses à la personne que tu étais avant notre rencontre, qu'est-ce que notre relation a changé en toi ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "services_027",
+    "question": "Ton partenaire vient t'aider si tu as un problème avec ta voiture ou ta moto."
   },
   {
-    "id": "c_est_quoi_le_sacrifice_le_plus",
-    "question": "C'est quoi le sacrifice le plus important que tu pourrais faire pour nous et celui que tu ne feras jamais ?",
-    "category": "deep",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "services_028",
+    "question": "Ton partenaire t'appelle immédiatement quand tu dis que tu as un problème."
   },
   {
-    "id": "si_on_devait_definir_ensemble_c_est",
-    "question": "Pour nous deux, que signifierait réussir notre vie de couple ?",
-    "category": "future",
-    "spicy": 0,
-    "mood": "serious",
-    "premium": true
+    "id": "services_029",
+    "question": "Ton partenaire annule une sortie pour rester avec toi quand ça ne va pas."
   },
   {
-    "id": "quelle_est_la_version_de_toi_meme",
-    "question": "Quelle est la version de toi-même que tu veux devenir et comment je peux t'accompagner dans cette transformation ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "services_030",
+    "question": "Ton partenaire laisse tomber ce que cette personne fait quand tu as vraiment besoin de lui/elle."
   },
   {
-    "id": "est_ce_que_tu_penses_que_mes",
-    "question": "Est-ce que tu penses que mes ambitions et mon style de vie sont vraiment compatibles avec ce que tu veux dans le futur ?",
-    "category": "future",
-    "spicy": 0,
-    "mood": "serious",
-    "premium": true
+    "id": "services_031",
+    "question": "Ton partenaire reste réveillé(e) jusqu'à ce que tu sois rentré(e)."
   },
   {
-    "id": "y_a_t_il_quelque_chose_qu",
-    "question": "Quelle leçon positive d'une ancienne relation aimerais-tu conserver, et qu'est-ce qui te convient mieux avec moi ?",
-    "category": "jealousy",
-    "spicy": 1,
-    "mood": "serious",
-    "premium": true
+    "id": "services_032",
+    "question": "Ton partenaire se réveille plus tôt pour te déposer quelque part."
   },
   {
-    "id": "si_ta_famille_ou_tes_amis_me",
-    "question": "Si ta famille ou tes amis me critiquaient dans mon dos ce serait sur quoi et tu me défendrais ou tu serais d'accord avec eux ?",
-    "category": "family",
-    "spicy": 0,
-    "mood": "serious",
-    "premium": true
+    "id": "services_033",
+    "question": "Ton partenaire fait un détour juste pour te simplifier la journée."
   },
   {
-    "id": "est_ce_que_tu_t_es_deja",
-    "question": "Est-ce que tu t'es déjà senti·e incompris·e par moi ?",
-    "category": "deep",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "services_034",
+    "question": "Ton partenaire traverse la ville pour te voir dix minutes."
   },
   {
-    "id": "est_ce_qu_il_y_a_un_2",
-    "question": "Est-ce qu'il y a un moment où tu as déjà douté de nous sans jamais m'en parler ?",
-    "category": "deep",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "services_035",
+    "question": "Ton partenaire te conduit partout dès que c'est possible."
   },
   {
-    "id": "si_notre_relation_s_arretait_demain_qu_2",
-    "question": "Quelle chose importante regretterais-tu de ne jamais m'avoir dite ?",
-    "category": "deep",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "services_036",
+    "question": "Ton partenaire te laisse dormir pendant que cette personne gère tout le matin."
   },
   {
-    "id": "si_tu_devais_me_presenter_a_quelqu",
-    "question": "Si tu devais me présenter à quelqu'un en une seule phrase, tu dirais quoi ?",
-    "category": "deep",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "services_037",
+    "question": "Ton partenaire se lève tôt pour te faciliter la journée."
   },
   {
-    "id": "si_je_devais_me_disputer_avec_un",
-    "question": "Si je devais me disputer avec un de tes proches ce serait qui et pour quelles raisons ?",
-    "category": "family",
-    "spicy": 0,
-    "mood": "serious",
-    "premium": true
+    "id": "services_038",
+    "question": "Ton partenaire te prépare tes affaires avant une grosse journée."
   },
   {
-    "id": "si_tu_devais_parier_sur_comment_ou",
-    "question": "Si tu devais parier sur comment ou sur quoi on va se disputer la prochaine fois tu miserais sur quoi ?",
-    "category": "communication",
-    "spicy": 0,
-    "mood": "serious",
-    "premium": true
+    "id": "services_039",
+    "question": "Ton partenaire prend les choses en main quand tu es dépassé(e)."
   },
   {
-    "id": "comment_tu_sais_que_quelqu_un_te",
-    "question": "Comment tu sais que quelqu'un te plaît vraiment ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "services_040",
+    "question": "Ton partenaire anticipe tes besoins avant que tu les exprimes."
   },
   {
-    "id": "quand_as_tu_pleure_pour_la_derniere",
-    "question": "Quand as-tu pleuré pour la dernière fois, et pourquoi tu ne me l'as pas dit ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "services_041",
+    "question": "Ton partenaire garde toujours des médicaments pour toi."
   },
   {
-    "id": "tu_penses_que_tes_amis_pensent_quoi",
-    "question": "Tu penses que tes amis pensent quoi de nous ?",
-    "category": "family",
-    "spicy": 0,
-    "mood": "serious",
-    "premium": true
+    "id": "services_042",
+    "question": "Ton partenaire va à la pharmacie pour toi."
   },
   {
-    "id": "quelle_est_l_erreur_que_tu_as",
-    "question": "Quelle est l'erreur que tu as commise que tu regrettes le plus ?",
-    "category": "deep",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "services_043",
+    "question": "Ton partenaire te prépare à manger quand tu es malade."
   },
   {
-    "id": "si_je_debarquais_chez_toi_a_2h",
-    "question": "Si je débarquais chez toi à 2h du matin avec la tête de quelqu'un qui a vécu quelque chose tu penses que ce serait quoi exactement ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "services_044",
+    "question": "Ton partenaire t'apporte une bouillotte quand tu as mal."
   },
   {
-    "id": "si_on_venait_te_dire_que_je",
-    "question": "Si on venait te dire que je me suis embrouillé de malade dans la rue tu penses que ce serait à-propos de quoi ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "services_045",
+    "question": "Ton partenaire est aux petits soins quand tu as tes règles."
   },
   {
-    "id": "si_on_echangeait_nos_vies_pendant_une_2",
-    "question": "Si on échangeait nos vies pendant une journée tu penses que j'aurais du mal avec quoi en premier ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "services_046",
+    "question": "Ton partenaire va t'acheter ce que tu aimes quand tu as tes règles."
   },
   {
-    "id": "si_tu_me_vois_sourire_devant_mon",
-    "question": "Si tu me vois sourire devant mon téléphone tu penses que je serais en train de dire quoi exactement ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "services_047",
+    "question": "Ton partenaire te prépare ton coin confortable quand tu ne vas pas bien."
   },
   {
-    "id": "selon_toi_quelles_sont_nos_plus_grandes",
-    "question": "Selon toi quelles sont nos plus grandes similarités et nos plus grandes différences ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "services_048",
+    "question": "Ton partenaire connaît exactement ce qui te remonte le moral."
   },
   {
-    "id": "c_est_quoi_le_truc_sur_lequel",
-    "question": "C'est quoi le truc sur lequel tu reçois le plus de compliment ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "services_049",
+    "question": "Ton partenaire sait quoi faire quand tu es stressé(e)."
   },
   {
-    "id": "cest_quoi_l_objectif_que_tu_veux",
-    "question": "Quel objectif aimerais-tu atteindre dans les prochaines années ?",
-    "category": "future",
-    "spicy": 0,
-    "mood": "serious",
-    "premium": true
+    "id": "services_050",
+    "question": "Ton partenaire te facilite la vie sans que tu aies à demander."
   },
   {
-    "id": "dans_5_ans_tu_penses_que_tu",
-    "question": "Dans 5 ans tu penses que tu seras nostalgique de quoi de ta vie actuelle ?",
-    "category": "future",
-    "spicy": 0,
-    "mood": "serious",
-    "premium": true
+    "id": "argent_001",
+    "question": "Ton partenaire paie régulièrement le restaurant."
   },
   {
-    "id": "si_ton_toi_enfant_te_voyait_aujourd",
-    "question": "Si l'enfant que tu étais te voyait aujourd'hui, qu'est-ce qui la surprendrait le plus ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "argent_002",
+    "question": "Ton partenaire insiste pour payer l'addition."
   },
   {
-    "id": "si_tu_pouvais_changer_une_chose_dans",
-    "question": "Si tu pouvais changer une chose dans notre relation ça serait quoi ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "argent_003",
+    "question": "Ton partenaire paie le restaurant même quand c'est toi qui proposes la sortie."
   },
   {
-    "id": "si_on_pouvait_changer_une_chose_dans",
-    "question": "Si on pouvait changer une chose dans la façon dont on communique ce serait quoi ?",
-    "category": "communication",
-    "spicy": 0,
-    "mood": "serious",
-    "premium": true
+    "id": "argent_004",
+    "question": "Ton partenaire paie une journée entière sans te laisser sortir ton portefeuille."
   },
   {
-    "id": "t_as_deja_ecris_un_truc_sur",
-    "question": "As-tu déjà écrit quelque chose sur moi dans tes notes ? Si oui, quoi ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "argent_005",
+    "question": "Ton partenaire te paie ton shopping."
   },
   {
-    "id": "honnetement_c_est_quoi_mon_trait_de",
-    "question": "Honnêtement c'est quoi mon trait de personnalité le plus toxique ?",
-    "category": "deep",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "argent_006",
+    "question": "Ton partenaire te paie régulièrement des vêtements."
   },
   {
-    "id": "quelle_est_la_chose_la_plus_random",
-    "question": "Quelle est la chose la plus random que tu penses que je ferai si je devenais millionnaire demain ?",
-    "category": "fun",
-    "spicy": 0,
-    "mood": "fun",
-    "premium": true
+    "id": "argent_007",
+    "question": "Ton partenaire te dit d'acheter ce qui te fait envie sans demander."
   },
   {
-    "id": "qu_est_ce_que_tu_as_remarque",
-    "question": "Qu'as-tu découvert chez moi depuis le début de notre relation ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "argent_008",
+    "question": "Ton partenaire te laisse utiliser sa carte bancaire."
   },
   {
-    "id": "comment_etait_ton_enfance",
-    "question": "Comment était ton enfance ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "argent_009",
+    "question": "Ton partenaire te laisse sa carte bancaire sur ton téléphone."
   },
   {
-    "id": "dis_moi_quelque_chose_que_personne_pourrait",
-    "question": "Dis-moi quelque chose que personne ne pourrait facilement deviner sur toi.",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "argent_010",
+    "question": "Ton partenaire te donne un budget plaisir juste pour te faire plaisir."
   },
   {
-    "id": "si_tu_te_reveillais_dans_mon_corps",
-    "question": "Si tu te réveillais dans mon corps pour une journée, quelle est la première chose que tu ferais ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "argent_011",
+    "question": "Ton partenaire te dit d'arrêter de regarder les prix quand vous êtes ensemble."
   },
   {
-    "id": "si_je_me_transformait_en_animal_pendant",
-    "question": "Si je me transformais en animal pendant une journée, lequel serais-je selon toi ?",
-    "category": "fun",
-    "spicy": 0,
-    "mood": "fun",
-    "premium": true
+    "id": "argent_012",
+    "question": "Ton partenaire paie les extras pour que tu profites davantage."
   },
   {
-    "id": "comment_definis_tu_l_amour_et_est",
-    "question": "Comment définis-tu l'amour, et à quel moment as-tu senti que tu le vivais avec moi ?",
-    "category": "intimacy",
-    "spicy": 1,
-    "mood": "romantic",
-    "premium": true
+    "id": "argent_013",
+    "question": "Ton partenaire te paie systématiquement ton entrée quand vous faites une activité."
   },
   {
-    "id": "est_ce_que_je_t_ai_deja",
-    "question": "Est-ce que je t'ai déjà blessée sans m'en rendre compte ? Si oui, comment pourrais-je mieux agir ?",
-    "category": "deep",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "argent_014",
+    "question": "Ton partenaire te paie le transport quand vous sortez ensemble."
   },
   {
-    "id": "comment_tu_imagines_qu_on_se_partage",
-    "question": "Comment tu imagines qu'on se partage les tâches ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "argent_015",
+    "question": "Ton partenaire t'offre des cadeaux sans occasion particulière."
   },
   {
-    "id": "pour_toi_c_est_quoi_l_equilibre",
-    "question": "Pour toi, c'est quoi l'équilibre entre temps perso et temps en couple ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "argent_016",
+    "question": "Ton partenaire t'offre régulièrement des petites attentions payantes."
   },
   {
-    "id": "comment_on_gere_le_budget_et_l",
-    "question": "Comment on gère le budget et l'argent ensemble ?",
-    "category": "lifestyle",
-    "spicy": 0,
-    "mood": "serious",
-    "premium": true
+    "id": "argent_017",
+    "question": "Ton partenaire t'achète des fleurs souvent."
   },
   {
-    "id": "dans_l_ideal_pour_toi_la_journee",
-    "question": "Dans l'idéal pour toi la journée ensemble parfaite ça ressemble à quoi ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "argent_018",
+    "question": "Ton partenaire te fait livrer des fleurs à l'improviste."
   },
   {
-    "id": "quelle_est_la_chose_que_tu_aimerais_3",
-    "question": "Quelle est la chose que tu aimerais que je te demande plus souvent ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "argent_019",
+    "question": "Ton partenaire t'achète quelque chose dès que tu dis que ça te plaît."
   },
   {
-    "id": "si_quelqu_un_te_disait_que_j",
-    "question": "Si quelqu'un te disait que j'ai été arrêté par la police sans t'expliquer pourquoi, tu penserais que c'est pourquoi ?",
-    "category": "communication",
-    "spicy": 0,
-    "mood": "serious",
-    "premium": true
+    "id": "argent_020",
+    "question": "Ton partenaire t'offre quelque chose dont tu avais parlé une seule fois."
   },
   {
-    "id": "cest_quoi_la_derniere_choses_dans_laquelle",
-    "question": "Quelle est la dernière chose dans laquelle tu as investi beaucoup d'efforts ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "argent_021",
+    "question": "Ton partenaire t'offre quelque chose que tu regardais depuis longtemps."
   },
   {
-    "id": "quelle_est_la_chose_la_plus_surprenante",
-    "question": "Quelle est la chose la plus surprenante que tu aies apprise sur moi ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "argent_022",
+    "question": "Ton partenaire économise pour t'offrir quelque chose dont tu rêves."
   },
   {
-    "id": "quel_est_le_moment_ou_tu_as",
-    "question": "Quel est le moment où tu as eu le plus peur de me perdre ?",
-    "category": "deep",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "argent_023",
+    "question": "Ton partenaire garde une liste de cadeaux potentiels pour toi."
   },
   {
-    "id": "si_on_devait_repartir_de_zero_qu",
-    "question": "Si nous pouvions recommencer notre histoire, qu'aimerais-tu faire différemment ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "argent_024",
+    "question": "Ton partenaire prépare tes cadeaux plusieurs mois à l'avance."
   },
   {
-    "id": "quelle_est_la_chose_que_je_fait_2",
-    "question": "Qu'est-ce que je fais sans le savoir qui te donne le sentiment que nous sommes faites l'une pour l'autre ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "argent_025",
+    "question": "Ton partenaire te choisit un cadeau que tu n'aurais jamais pensé demander."
   },
   {
-    "id": "si_tu_n_avais_qu_une_seule",
-    "question": "Si tu n'avais qu'une seule chose importante à me dire ce soir, ce serait quoi ?",
-    "category": "deep",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "argent_026",
+    "question": "Ton partenaire t'achète quelque chose simplement parce que cette personne a pensé à toi."
   },
   {
-    "id": "si_on_se_separait_demain_qu_est",
-    "question": "Si on se séparait demain, qu'est ce que tu dirais de moi en bien et en mal ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "argent_027",
+    "question": "Ton partenaire t'offre quelque chose après une mauvaise journée."
   },
   {
-    "id": "quel_trait_de_ma_personnalite_te_font",
-    "question": "Quel trait de ma personnalité peut parfois te faire douter de notre compatibilité ?",
-    "category": "communication",
-    "spicy": 0,
-    "mood": "serious",
-    "premium": true
+    "id": "argent_028",
+    "question": "Ton partenaire te commande un cadeau dès que cette personne pense à toi."
   },
   {
-    "id": "si_j_oubliais_tout_demain_quelle_serait",
-    "question": "Si je perdais tous mes souvenirs demain, quelle serait la première chose que tu me raconterais sur notre histoire ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "argent_029",
+    "question": "Ton partenaire te surprend régulièrement avec des petites dépenses pour toi."
   },
   {
-    "id": "si_tu_devais_resumer_notre_couple_en",
-    "question": "Si tu devais résumer notre couple en un seul mot, ce serait lequel ?",
-    "category": "deep",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "argent_030",
+    "question": "Ton partenaire t'offre quelque chose simplement parce que cette personne a eu une bonne journée."
   },
   {
-    "id": "si_je_te_disais_que_je_venais",
-    "question": "Si je te disais que je viens de faire un achat complètement fou, qu'imaginerais-tu ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "argent_031",
+    "question": "Ton partenaire te réserve spontanément un week-end."
   },
   {
-    "id": "quel_est_ta_definition_de_l_amour",
-    "question": "Quelle est ta définition de l'amour ?",
-    "category": "intimacy",
-    "spicy": 1,
-    "mood": "romantic",
-    "premium": true
+    "id": "argent_032",
+    "question": "Ton partenaire paie une activité parce que cette personne sait que tu vas l'aimer."
   },
   {
-    "id": "est_ce_quil_y_a_quelque_chose",
-    "question": "Y a-t-il quelque chose que tu aimerais que je fasse plus souvent ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "argent_033",
+    "question": "Ton partenaire organise une activité surprise et la finance entièrement."
   },
   {
-    "id": "qu_est_ce_qui_te_rend_la",
-    "question": "Qu'est-ce qui te rend la plus heureuse dans notre relation ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "argent_034",
+    "question": "Ton partenaire te fait livrer ton dessert préféré sans raison."
   },
   {
-    "id": "qu_est_ce_que_tu_aimes_le",
-    "question": "Qu'est-ce que tu aimes le plus chez moi ?",
-    "category": "intimacy",
-    "spicy": 1,
-    "mood": "romantic",
-    "premium": true
+    "id": "argent_035",
+    "question": "Ton partenaire te paie tes snacks préférés."
   },
   {
-    "id": "qu_est_ce_que_je_fait_qui",
-    "question": "Qu'est-ce que je fais qui t'agace le plus, et comment pourrais-je mieux le gérer ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "argent_036",
+    "question": "Ton partenaire te commande à manger sans te demander de rembourser."
   },
   {
-    "id": "si_quelqu_un_te_demandait_pourquoi_tu",
-    "question": "Si quelqu'un te demandait pourquoi tu as choisi d'être avec moi, que lui répondrais-tu ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "argent_037",
+    "question": "Ton partenaire t'offre ton parfum préféré dès qu'il est presque vide."
   },
   {
-    "id": "quel_est_le_trait_de_ma_personnalite",
-    "question": "Quel est le trait de ma personnalité que t’espères jamais ne voir changer ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "argent_038",
+    "question": "Ton partenaire te rachète ton produit préféré avant qu'il soit terminé."
   },
   {
-    "id": "quel_est_la_chose_que_jai_faite",
-    "question": "Quelle est la chose que j’ai faite pour toi que tu n’as jamais oublié ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "argent_039",
+    "question": "Ton partenaire remplace tes écouteurs dès qu'ils ne fonctionnent plus."
   },
   {
-    "id": "quelle_est_la_premiere_impression_de_moi",
-    "question": "Quelle est la première impression de moi que tu as eue et qui s'est révélée complètement fausse ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "argent_040",
+    "question": "Ton partenaire te rachète immédiatement un objet que tu as cassé."
   },
   {
-    "id": "si_tu_devais_changer_mon_prenom_legalement",
-    "question": "Si tu devais choisir un autre prénom pour moi, lequel choisirais-tu et pourquoi ?",
-    "category": "fun",
-    "spicy": 0,
-    "mood": "fun",
-    "premium": true
+    "id": "argent_041",
+    "question": "Ton partenaire te rachète un téléphone si tu casses le tien."
   },
   {
-    "id": "si_tu_pouvais_bannir_une_chose_de",
-    "question": "Si tu pouvais retirer définitivement une chose de ma garde-robe, laquelle choisirais-tu ?",
-    "category": "fun",
-    "spicy": 0,
-    "mood": "fun",
-    "premium": true
+    "id": "argent_042",
+    "question": "Ton partenaire te remplace un objet sans attendre ton anniversaire."
   },
   {
-    "id": "quel_sacrifice_serait_trop_grand_meme_par",
-    "question": "Quel sacrifice serait trop grand, même par amour ?",
-    "category": "deep",
-    "spicy": 1,
-    "mood": "deep",
-    "premium": true
+    "id": "argent_043",
+    "question": "Ton partenaire te prend toujours quelque chose quand cette personne va dans ton magasin préféré."
   },
   {
-    "id": "si_t_etais_celibataire_demain_est_ce",
-    "question": "Si t'étais célibataire demain, est-ce qu'il y a quelqu'un qui te vient en tête de suite ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "argent_044",
+    "question": "Ton partenaire te laisse choisir ce qui te ferait plaisir dans un budget que cette personne paie."
   },
   {
-    "id": "est_ce_qu_il_y_a_une",
-    "question": "Est-ce qu'il y a une partie de toi qui te dit que tu serais plus libre sans moi ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "argent_045",
+    "question": "Ton partenaire considère normal de te faire plaisir financièrement."
   },
   {
-    "id": "si_tu_devais_choisir_entre_moi_et",
-    "question": "Si tu devais choisir entre moi et tes amis dans une situation extrême, que ferais-tu honnêtement ?",
-    "category": "family",
-    "spicy": 0,
-    "mood": "serious",
-    "premium": true
+    "id": "argent_046",
+    "question": "Ton partenaire aime dépenser de l'argent pour te voir sourire."
   },
   {
-    "id": "est_ce_que_tu_compares_parfois_notre",
-    "question": "Est-ce que tu compares parfois notre relation à une de tes relations passées ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "argent_047",
+    "question": "Ton partenaire considère que te gâter fait partie de sa façon d'aimer."
   },
   {
-    "id": "est_ce_que_parfois_tu_as_l",
-    "question": "T'arrive-t-il d'avoir l'impression que je ne te soutiens pas suffisamment ? Dans quelle situation ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "argent_048",
+    "question": "Ton partenaire te paie une surprise sans rien attendre en retour."
   },
   {
-    "id": "parmi_mes_amis_ou_mon_cercle_proche",
-    "question": "Parmi mes amis ou mon cercle proche, est-ce que tu penses qu'il y a quelqu'un de toxique ?",
-    "category": "deep",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "argent_049",
+    "question": "Ton partenaire refuse que tu paies lors d'une occasion spéciale."
   },
   {
-    "id": "est_ce_que_tu_as_deja_doute",
-    "question": "Est-ce que tu as déjà douté de notre compatibilité sexuelle ?",
-    "category": "deep",
-    "spicy": 3,
-    "mood": "deep",
-    "premium": true
+    "id": "argent_050",
+    "question": "Ton partenaire te donne envie de dire 'ok là je suis trop bien traité(e)'."
   },
   {
-    "id": "qu_avons_nous_accomplis_cette_annee_dont",
-    "question": "Qu'avons-nous accompli cette année dont nous sommes les plus fières ?",
-    "category": "future",
-    "spicy": 0,
-    "mood": "serious",
-    "premium": true
+    "id": "standards_001",
+    "question": "Ton partenaire partage sa localisation sans que tu la demandes."
   },
   {
-    "id": "quelle_est_la_nouvelle_habitude_qu_on",
-    "question": "Quelle est la nouvelle habitude qu'on veut mettre en place cette année ?",
-    "category": "future",
-    "spicy": 0,
-    "mood": "serious",
-    "premium": true
+    "id": "standards_002",
+    "question": "Ton partenaire t'envoie un message dès que cette personne est bien rentré(e)."
   },
   {
-    "id": "comment_faire_en_sorte_que_lautre_se",
-    "question": "Comment faire en sorte que l’autre se sente encore plus aimé en entrant dans cette nouvelle année ?",
-    "category": "future",
-    "spicy": 0,
-    "mood": "serious",
-    "premium": true
+    "id": "standards_003",
+    "question": "Ton partenaire te prévient quand cette personne arrive quelque part."
   },
   {
-    "id": "si_on_avait_une_nuit_ou_l",
-    "question": "Si on avait une nuit où l'on peut tout se dire sans jugement, tu commencerais par quoi ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "standards_004",
+    "question": "Ton partenaire te dit avec qui cette personne sort."
   },
   {
-    "id": "y_a_t_il_quelque_chose_que",
-    "question": "Y a-t-il quelque chose que tu aimerais qu'on fasse ensemble mais que tu n'oses pas me proposer ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "standards_005",
+    "question": "Ton partenaire t'envoie une photo de ce que cette personne fait sans que tu demandes."
   },
   {
-    "id": "si_on_avait_une_soiree_ou_tout",
-    "question": "Si on avait une soirée où tout est permis sans jugement tu voudrais qu'on essaie quoi ?",
-    "category": "sex",
-    "spicy": 3,
-    "mood": "spicy",
-    "premium": true
+    "id": "standards_006",
+    "question": "Ton partenaire répond à tes messages même quand cette personne est avec ses amis."
   },
   {
-    "id": "quel_est_l_endroit_le_plus_risque",
-    "question": "Quel est l'endroit le plus risqué où tu as eu envie de moi et où nous n’avons finalement rien fait au final ?",
-    "category": "sex",
-    "spicy": 3,
-    "mood": "spicy",
-    "premium": true
+    "id": "standards_007",
+    "question": "Ton partenaire répond à tes appels même quand cette personne est occupé(e)."
   },
   {
-    "id": "si_tu_pouvais_me_reveiller_d_une",
-    "question": "Si tu pouvais me réveiller d'une façon qui me rendrait folle tu ferais quoi exactement ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "standards_008",
+    "question": "Ton partenaire te donne le code de son téléphone."
   },
   {
-    "id": "est_ce_que_tu_aimerais_qu_on",
-    "question": "Est-ce que tu aimerais qu'on aille ensemble dans une boutique pour adultes pour découvrir quelque chose à deux ?",
-    "category": "sex",
-    "spicy": 3,
-    "mood": "spicy",
-    "premium": true
+    "id": "standards_009",
+    "question": "Ton partenaire te donne naturellement accès à son téléphone."
   },
   {
-    "id": "les_jeux_de_roles_c_est_un",
-    "question": "Est-ce que les jeux de rôle pourraient être une envie à explorer ensemble ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "standards_010",
+    "question": "Ton partenaire publie des photos de vous sur ses réseaux."
   },
   {
-    "id": "qu_est_ce_qui_t_attire_le",
-    "question": "Qu'est ce qui t'attire le plus chez moi quand on est ensemble ?",
-    "category": "intimacy",
-    "spicy": 1,
-    "mood": "romantic",
-    "premium": true
+    "id": "standards_011",
+    "question": "Ton partenaire affiche clairement que cette personne est en couple."
   },
   {
-    "id": "qu_est_ce_que_tu_penses_du",
-    "question": "Qu'est-ce que tu penses du dirty talk ?",
-    "category": "sex",
-    "spicy": 3,
-    "mood": "spicy",
-    "premium": true
+    "id": "standards_012",
+    "question": "Ton partenaire refuse de cacher votre relation."
   },
   {
-    "id": "c_est_quoi_chez_moi_qui_t",
-    "question": "C'est quoi chez moi qui t'excite le plus ?",
-    "category": "sex",
-    "spicy": 3,
-    "mood": "spicy",
-    "premium": true
+    "id": "standards_013",
+    "question": "Ton partenaire te présente rapidement à ses amis."
   },
   {
-    "id": "si_on_devait_vivre_avec_deux_fois",
-    "question": "Si on devait vivre avec deux fois moins d'argent pendant un an, qu'est-ce qui serait le plus difficile pour nous ?",
-    "category": "lifestyle",
-    "spicy": 0,
-    "mood": "serious",
-    "premium": true
+    "id": "standards_014",
+    "question": "Ton partenaire te présente rapidement à sa famille."
   },
   {
-    "id": "quelle_depense_commune_te_semblerait_indispensable_meme",
-    "question": "Quelle dépense commune te semblerait indispensable, même si elle est chère ?",
-    "category": "lifestyle",
-    "spicy": 0,
-    "mood": "serious",
-    "premium": true
+    "id": "standards_015",
+    "question": "Ton partenaire te fait passer avant ses amis quand tu as besoin de lui/elle."
   },
   {
-    "id": "quelle_depense_chez_moi_te_semble_inutile",
-    "question": "Quelle dépense chez moi te semble inutile mais tu n'oses pas trop le dire ?",
-    "category": "lifestyle",
-    "spicy": 0,
-    "mood": "serious",
-    "premium": true
+    "id": "standards_016",
+    "question": "Ton partenaire t'inclut naturellement dans ses projets futurs."
   },
   {
-    "id": "si_je_gagnais_beaucoup_plus_que_toi",
-    "question": "Si je gagnais beaucoup plus que toi, qu'est-ce que ça changerait dans notre équilibre ?",
-    "category": "lifestyle",
-    "spicy": 0,
-    "mood": "serious",
-    "premium": true
+    "id": "standards_017",
+    "question": "Ton partenaire te consulte avant une décision importante."
   },
   {
-    "id": "si_tu_gagnais_beaucoup_plus_que_moi",
-    "question": "Si tu gagnais beaucoup plus que moi, comment tu voudrais qu'on gère l'argent ?",
-    "category": "lifestyle",
-    "spicy": 0,
-    "mood": "serious",
-    "premium": true
+    "id": "standards_018",
+    "question": "Ton partenaire pense spontanément en mode 'nous'."
   },
   {
-    "id": "quel_achat_un_peu_fou_aimerais_tu",
-    "question": "Quel achat un peu fou aimerais-tu qu'on fasse ensemble un jour ?",
-    "category": "lifestyle",
-    "spicy": 0,
-    "mood": "serious",
-    "premium": true
+    "id": "standards_019",
+    "question": "Ton partenaire te raconte sa journée tous les soirs."
   },
   {
-    "id": "si_l_un_de_nous_perdait_son",
-    "question": "Si l'un de nous perdait son travail, quelle serait ta première réaction ?",
-    "category": "lifestyle",
-    "spicy": 0,
-    "mood": "serious",
-    "premium": true
+    "id": "standards_020",
+    "question": "Ton partenaire te dit bonne nuit tous les jours."
   },
   {
-    "id": "quelle_est_ta_plus_grande_peur_liee",
-    "question": "Quelle est ta plus grande peur liée à l'argent dans notre futur ?",
-    "category": "deep",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "standards_021",
+    "question": "Ton partenaire te dit bonjour tous les matins."
   },
   {
-    "id": "est_ce_que_tu_preferes_une_vie",
-    "question": "Est-ce que tu préfères une vie simple mais très stable, ou une vie plus risquée mais plus ambitieuse ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "standards_022",
+    "question": "Ton partenaire veut t'appeler tous les jours quand vous êtes à distance."
   },
   {
-    "id": "quelle_regle_d_argent_devrait_absolument_exister",
-    "question": "Quelle règle d'argent devrait absolument exister dans notre couple ?",
-    "category": "lifestyle",
-    "spicy": 0,
-    "mood": "serious",
-    "premium": true
+    "id": "standards_023",
+    "question": "Ton partenaire te rassure naturellement sans que tu le demandes."
   },
   {
-    "id": "si_ma_famille_te_critiquait_ouvertement_comment",
-    "question": "Si ma famille te critiquait ouvertement, comment voudrais-tu que je réagisse ?",
-    "category": "family",
-    "spicy": 0,
-    "mood": "serious",
-    "premium": true
+    "id": "standards_024",
+    "question": "Ton partenaire remarque immédiatement quand quelque chose ne va pas."
   },
   {
-    "id": "si_ta_famille_ne_validait_pas_notre",
-    "question": "Si ta famille ne validait pas notre relation, jusqu'où irais-tu pour nous défendre ?",
-    "category": "family",
-    "spicy": 0,
-    "mood": "serious",
-    "premium": true
+    "id": "standards_025",
+    "question": "Ton partenaire se souvient des détails de tes histoires."
   },
   {
-    "id": "quel_proche_a_moi_te_comprend_le",
-    "question": "Quel proche à moi te comprend le moins, selon toi ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "standards_026",
+    "question": "Ton partenaire se souvient de tes dates importantes."
   },
   {
-    "id": "quel_proche_a_toi_me_ressemble_le",
-    "question": "Quel proche à toi me ressemble le plus ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "standards_027",
+    "question": "Ton partenaire te fait des compliments régulièrement."
   },
   {
-    "id": "quelle_tradition_familiale_aimerais_tu_qu_on",
-    "question": "Quelle tradition familiale aimerais-tu qu'on garde ou qu'on crée ensemble ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "standards_028",
+    "question": "Ton partenaire te dit que cette personne est fier/fière de toi devant les autres."
   },
   {
-    "id": "si_nos_familles_avaient_une_grosse_dispute",
-    "question": "Si nos familles avaient une grosse dispute, comment tu voudrais qu'on se protège ?",
-    "category": "family",
-    "spicy": 0,
-    "mood": "serious",
-    "premium": true
+    "id": "standards_029",
+    "question": "Ton partenaire ne laisse jamais passer une occasion de te voir."
   },
   {
-    "id": "quel_sujet_avec_la_famille_pourrait_devenir",
-    "question": "Quel sujet avec la famille pourrait devenir compliqué pour nous ?",
-    "category": "family",
-    "spicy": 0,
-    "mood": "serious",
-    "premium": true
+    "id": "standards_030",
+    "question": "Ton partenaire te propose spontanément de venir avec lui/elle."
   },
   {
-    "id": "est_ce_que_tu_aurais_du_mal",
-    "question": "Est-ce que tu aurais du mal à passer beaucoup de temps avec ma famille ?",
-    "category": "family",
-    "spicy": 0,
-    "mood": "serious",
-    "premium": true
+    "id": "standards_031",
+    "question": "Ton partenaire garde les bonnes nouvelles pour te les annoncer en premier."
   },
   {
-    "id": "quelle_limite_faudrait_il_poser_a_nos",
-    "question": "Quelle limite faudrait-il poser à nos proches pour protéger notre couple ?",
-    "category": "values",
-    "spicy": 0,
-    "mood": "serious",
-    "premium": true
+    "id": "standards_032",
+    "question": "Ton partenaire t'appelle avant tout le monde quand quelque chose d'important arrive."
   },
   {
-    "id": "si_un_proche_me_manquait_de_respect",
-    "question": "Si un proche me manquait de respect, tu réagirais comment ?",
-    "category": "values",
-    "spicy": 0,
-    "mood": "serious",
-    "premium": true
+    "id": "standards_033",
+    "question": "Ton partenaire refuse les ambiguïtés avec d'autres personnes."
   },
   {
-    "id": "si_on_devait_demenager_dans_une_autre",
-    "question": "Si on devait déménager dans une autre ville demain, qu'est-ce qui te ferait le plus peur ?",
-    "category": "deep",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "standards_034",
+    "question": "Ton partenaire pose des limites claires avec les personnes qui flirtent avec lui/elle."
   },
   {
-    "id": "si_mon_reve_professionnel_nous_eloignait_pendant",
-    "question": "Si mon rêve professionnel nous éloignait pendant un temps, tu réagirais comment ?",
-    "category": "future",
-    "spicy": 0,
-    "mood": "serious",
-    "premium": true
+    "id": "standards_035",
+    "question": "Ton partenaire coupe court aux avances sans ambiguïté."
   },
   {
-    "id": "dans_quelle_ville_ou_quel_pays_tu",
-    "question": "Dans quelle ville ou quel pays tu nous imagines le plus heureux ?",
-    "category": "future",
-    "spicy": 0,
-    "mood": "serious",
-    "premium": true
+    "id": "standards_036",
+    "question": "Ton partenaire te prévient quand son ex reprend contact."
   },
   {
-    "id": "quel_projet_commun_te_ferait_sentir_qu",
-    "question": "Quel projet commun te ferait sentir qu'on avance vraiment ensemble ?",
-    "category": "future",
-    "spicy": 0,
-    "mood": "serious",
-    "premium": true
+    "id": "standards_037",
+    "question": "Ton partenaire te dit quand quelqu'un le/la drague."
   },
   {
-    "id": "quelle_version_de_notre_futur_te_donne",
-    "question": "Quelle version de notre futur te donne le plus envie ?",
-    "category": "future",
-    "spicy": 0,
-    "mood": "serious",
-    "premium": true
+    "id": "standards_038",
+    "question": "Ton partenaire te rassure sans te faire passer pour quelqu'un de jaloux."
   },
   {
-    "id": "quelle_version_de_notre_futur_te_fait",
-    "question": "Quelle version de notre futur te fait le plus peur ?",
-    "category": "deep",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "standards_039",
+    "question": "Ton partenaire évite volontairement les situations ambiguës."
   },
   {
-    "id": "si_on_devait_choisir_entre_carriere_et",
-    "question": "Si on devait choisir entre carrière et confort de vie, tu choisirais quoi ?",
-    "category": "future",
-    "spicy": 0,
-    "mood": "serious",
-    "premium": true
+    "id": "standards_040",
+    "question": "Ton partenaire refuse de jouer avec tes insécurités."
   },
   {
-    "id": "quelle_promesse_aimerais_tu_qu_on_se",
-    "question": "Quelle promesse aimerais-tu qu'on se fasse pour les années à venir ?",
-    "category": "future",
-    "spicy": 0,
-    "mood": "serious",
-    "premium": true
+    "id": "standards_041",
+    "question": "Ton partenaire te fait sentir en sécurité dans la relation."
   },
   {
-    "id": "si_on_se_retrouvait_a_tout_recommencer",
-    "question": "Si on se retrouvait à tout recommencer à zéro, qu'est-ce qu'on devrait garder absolument ?",
-    "category": "future",
-    "spicy": 0,
-    "mood": "serious",
-    "premium": true
+    "id": "standards_042",
+    "question": "Ton partenaire te fait sentir choisi(e) au quotidien."
   },
   {
-    "id": "quel_reve_personnel_veux_tu_proteger_meme",
-    "question": "Quel rêve personnel veux-tu protéger même en étant en couple ?",
-    "category": "future",
-    "spicy": 0,
-    "mood": "serious",
-    "premium": true
+    "id": "standards_043",
+    "question": "Ton partenaire agit comme si vous étiez une équipe."
   },
   {
-    "id": "si_on_avait_un_enfant_un_jour",
-    "question": "Si on avait un enfant un jour, quel trait de caractère chez moi tu aimerais qu'il ou elle ait ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "standards_044",
+    "question": "Ton partenaire te défend devant les autres."
   },
   {
-    "id": "si_on_avait_un_enfant_un_jour_2",
-    "question": "Si on avait un enfant un jour, quel trait de caractère chez moi te ferait un peu peur ?",
-    "category": "deep",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "standards_045",
+    "question": "Ton partenaire te défend même quand tu as tort."
   },
   {
-    "id": "quelle_regle_d_education_serait_non_negociable",
-    "question": "Quelle règle d'éducation serait non négociable pour toi ?",
-    "category": "values",
-    "spicy": 0,
-    "mood": "serious",
-    "premium": true
+    "id": "standards_046",
+    "question": "Ton partenaire prend ton parti en public puis te recadre en privé."
   },
   {
-    "id": "est_ce_que_tu_nous_imagines_plutot",
-    "question": "Est-ce que tu nous imagines plutôt avec une maison pleine de bruit ou une vie très calme ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "standards_047",
+    "question": "Ton partenaire refuse qu'on te manque de respect."
   },
   {
-    "id": "si_on_adoptait_un_animal_ensemble_qui",
-    "question": "Si on adoptait un animal ensemble, qui serait le plus gaga ?",
-    "category": "fun",
-    "spicy": 0,
-    "mood": "fun",
-    "premium": true
+    "id": "standards_048",
+    "question": "Ton partenaire te présente comme son amour plutôt que comme son ami(e)."
   },
   {
-    "id": "quelle_tache_du_quotidien_tu_penses_que",
-    "question": "Selon toi, quelle tâche du quotidien détesterais-je le plus faire toute ma vie ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "standards_049",
+    "question": "Ton partenaire te montre naturellement que tu es sa personne."
   },
   {
-    "id": "comment_tu_imagines_notre_routine_ideale_un",
-    "question": "Comment tu imagines notre routine idéale un dimanche matin ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "standards_050",
+    "question": "Ton partenaire te donne constamment des raisons d'avoir confiance."
   },
   {
-    "id": "quelle_habitude_de_vie_tu_aimerais_qu",
-    "question": "Quelle habitude de vie aimerais-tu que nous adoptions ensemble ?",
-    "category": "future",
-    "spicy": 0,
-    "mood": "serious",
-    "premium": true
+    "id": "distance_001",
+    "question": "Ton partenaire t'envoie un colis surprise quand vous êtes à distance."
   },
   {
-    "id": "quelle_habitude_de_vie_tu_as_peur",
-    "question": "Quelle habitude de vie as-tu peur que je t’impose ?",
-    "category": "deep",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "distance_002",
+    "question": "Ton partenaire te fait livrer ton repas préféré quand vous êtes loin."
   },
   {
-    "id": "si_on_vivait_ensemble_qu_est_ce",
-    "question": "Si on vivait ensemble, qu'est-ce qui pourrait créer des tensions très vite ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "distance_003",
+    "question": "Ton partenaire t'envoie un vocal quand tu lui manques."
   },
   {
-    "id": "quelle_phrase_de_moi_te_rassure_le",
-    "question": "Quelle phrase de moi te rassure le plus ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "distance_004",
+    "question": "Ton partenaire t'appelle pendant sa pause juste pour entendre ta voix."
   },
   {
-    "id": "quelle_phrase_de_moi_te_blesse_plus",
-    "question": "Quelle phrase de moi te blesse plus que je ne l'imagine ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "distance_005",
+    "question": "Ton partenaire reste au téléphone avec toi jusqu'à ce que tu t'endormes."
   },
   {
-    "id": "quand_je_vais_mal_qu_est_ce",
-    "question": "Quand je vais mal, qu'est-ce que tu aimerais que je fasse au lieu de me fermer ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "distance_006",
+    "question": "Ton partenaire regarde un film en appel avec toi malgré la distance."
   },
   {
-    "id": "quand_tu_vas_mal_comment_tu_aimerais",
-    "question": "Quand tu vas mal, comment tu aimerais que je vienne vers toi ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "distance_007",
+    "question": "Ton partenaire t'envoie des photos de sa journée pour que tu te sentes inclus(e)."
   },
   {
-    "id": "quel_sujet_on_evite_trop_souvent_a",
-    "question": "Quel sujet on évite trop souvent à ton avis ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "distance_008",
+    "question": "Ton partenaire te garde une place dans ses routines même quand vous êtes loin."
   },
   {
-    "id": "quelle_dispute_passee_nous_a_appris_quelque",
-    "question": "Quelle dispute passée nous a appris quelque chose d'important ?",
-    "category": "communication",
-    "spicy": 0,
-    "mood": "serious",
-    "premium": true
+    "id": "distance_009",
+    "question": "Ton partenaire compte les jours avant de te revoir."
   },
   {
-    "id": "quel_reproche_tu_aimerais_pouvoir_me_faire",
-    "question": "Quel reproche aimerais-tu pouvoir me faire sans que je le prenne mal ?",
-    "category": "communication",
-    "spicy": 0,
-    "mood": "serious",
-    "premium": true
+    "id": "distance_010",
+    "question": "Ton partenaire prépare une surprise pour ton retour."
   },
   {
-    "id": "quelle_est_la_meilleure_facon_de_te",
-    "question": "Quelle est la meilleure façon de te calmer quand tu es énervé·e ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "vacances_001",
+    "question": "Ton partenaire pense à prendre des photos de toi pendant les vacances."
   },
   {
-    "id": "quelle_est_la_pire_facon_de_te",
-    "question": "Quelle est la pire façon de te parler pendant une dispute ?",
-    "category": "communication",
-    "spicy": 0,
-    "mood": "serious",
-    "premium": true
+    "id": "vacances_002",
+    "question": "Ton partenaire te laisse la meilleure vue dans la chambre d'hôtel."
   },
   {
-    "id": "comment_tu_sais_qu_une_discussion_devient",
-    "question": "Comment tu sais qu'une discussion devient dangereuse pour nous ?",
-    "category": "communication",
-    "spicy": 0,
-    "mood": "serious",
-    "premium": true
+    "id": "vacances_003",
+    "question": "Ton partenaire réserve les activités en pensant d'abord à ce qui te plairait."
   },
   {
-    "id": "est_ce_que_ca_te_derangerait_que",
-    "question": "Est-ce que ça te dérangerait que je garde des photos avec mes ex ?",
-    "category": "jealousy",
-    "spicy": 1,
-    "mood": "serious",
-    "premium": true
+    "id": "vacances_004",
+    "question": "Ton partenaire vérifie le menu du restaurant à l'avance pour voir si tu vas aimer."
   },
   {
-    "id": "est_ce_que_ca_te_derangerait_que_2",
-    "question": "Est-ce que ça te dérangerait que quelqu'un me complimente beaucoup sur les réseaux ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "vacances_005",
+    "question": "Ton partenaire prépare tout l'itinéraire pour que tu profites sans stress."
   },
   {
-    "id": "si_je_recevais_un_message_ambigu_tu",
-    "question": "Si je recevais un message ambigu, tu préférerais que je te le montre ou que je gère seul·e ?",
-    "category": "deep",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "vacances_006",
+    "question": "Ton partenaire te garde le plus beau souvenir du voyage."
   },
   {
-    "id": "quelle_situation_sur_les_reseaux_pourrait_te",
-    "question": "Quelle situation sur les réseaux pourrait te rendre jaloux·se, même si elle paraît innocente ?",
-    "category": "jealousy",
-    "spicy": 1,
-    "mood": "serious",
-    "premium": true
+    "id": "vacances_007",
+    "question": "Ton partenaire te laisse choisir les activités pendant les vacances."
   },
   {
-    "id": "est_ce_que_tu_aimerais_connaitre_tous",
-    "question": "Est-ce que tu aimerais connaître tous les gens avec qui je parle souvent ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "vacances_008",
+    "question": "Ton partenaire te réserve la meilleure place dans l'avion ou le train."
   },
   {
-    "id": "si_je_likais_regulierement_les_photos_d",
-    "question": "Si j'aimais régulièrement les photos d'une même personne, comment le vivrais-tu ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "vacances_009",
+    "question": "Ton partenaire te prend une couverture supplémentaire pour le trajet."
   },
   {
-    "id": "est_ce_que_tu_pourrais_etre_jalouxse_2",
-    "question": "Est-ce que tu pourrais être jaloux·se d'une amitié très fusionnelle ?",
-    "category": "jealousy",
-    "spicy": 1,
-    "mood": "serious",
-    "premium": true
+    "id": "vacances_010",
+    "question": "Ton partenaire pense à ton confort avant le sien à l'hôtel."
   },
   {
-    "id": "a_quel_moment_une_amitie_devient_trop",
-    "question": "À quel moment une amitié devient trop intime selon toi ?",
-    "category": "sex",
-    "spicy": 3,
-    "mood": "spicy",
-    "premium": true
+    "id": "reseaux_001",
+    "question": "Ton partenaire regarde tes stories dans la minute où elles sont publiées."
   },
   {
-    "id": "est_ce_que_flirter_sans_intention_d",
-    "question": "Est-ce que flirter sans intention d'aller plus loin, c'est déjà une trahison pour toi ?",
-    "category": "deep",
-    "spicy": 1,
-    "mood": "deep",
-    "premium": true
+    "id": "reseaux_002",
+    "question": "Ton partenaire garde une photo de toi en fond d'écran."
   },
   {
-    "id": "quelle_limite_ne_devrait_jamais_etre_depassee",
-    "question": "Quelle limite ne devrait jamais être dépassée avec une ancienne relation ?",
-    "category": "values",
-    "spicy": 1,
-    "mood": "serious",
-    "premium": true
+    "id": "reseaux_003",
+    "question": "Ton partenaire a un album rempli de photos de toi."
   },
   {
-    "id": "quelle_peur_de_toi_meme_tu_ne",
-    "question": "Quelle peur de toi-même tu ne montres presque jamais ?",
-    "category": "deep",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "reseaux_004",
+    "question": "Ton partenaire prend des photos de toi sans que tu le demandes."
   },
   {
-    "id": "quelle_blessure_ancienne_influence_encore_ta_facon",
-    "question": "Quelle blessure ancienne influence encore ta façon d'aimer ?",
-    "category": "deep",
-    "spicy": 1,
-    "mood": "deep",
-    "premium": true
+    "id": "reseaux_005",
+    "question": "Ton partenaire garde les photos où cette personne te trouve incroyable."
   },
   {
-    "id": "quelle_partie_de_toi_aimerait_etre_plus",
-    "question": "Quelle partie de toi aimerait être plus facile à comprendre ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "reseaux_006",
+    "question": "Ton partenaire montre souvent tes photos à ses proches."
   },
   {
-    "id": "quelle_chose_tu_as_apprise_sur_l",
-    "question": "Qu’as-tu appris sur l’amour grâce à notre relation ?",
-    "category": "intimacy",
-    "spicy": 1,
-    "mood": "romantic",
-    "premium": true
+    "id": "reseaux_007",
+    "question": "Ton partenaire reposte ta story parce que cette personne te trouve trop beau/belle."
   },
   {
-    "id": "quelle_verite_sur_toi_est_difficile_a",
-    "question": "Quelle vérité sur toi est difficile à dire à voix haute ?",
-    "category": "deep",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "reseaux_008",
+    "question": "Ton partenaire garde des captures d'écran de choses qui pourraient te faire rire."
   },
   {
-    "id": "dans_quel_moment_tu_t_es_sentie",
-    "question": "Dans quel moment tu t'es senti·e le plus aimé·e par moi ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "reseaux_009",
+    "question": "Ton partenaire t'envoie un mème dès qu'il lui rappelle toi."
   },
   {
-    "id": "dans_quel_moment_tu_t_es_sentie_2",
-    "question": "Dans quel moment tu t'es senti·e le plus seul·e avec moi ?",
-    "category": "deep",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "reseaux_010",
+    "question": "Ton partenaire évite de liker des contenus que cette personne n'assumerait pas devant toi."
   },
   {
-    "id": "quelle_qualite_chez_moi_te_donne_envie",
-    "question": "Quelle qualité chez moi te donne envie de devenir meilleur·e ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "souvenirs_001",
+    "question": "Ton partenaire garde les petits tickets ou souvenirs de vos sorties."
   },
   {
-    "id": "quelle_faiblesse_chez_moi_te_touche_au",
-    "question": "Quelle faiblesse chez moi te touche au lieu de t'agacer ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "souvenirs_002",
+    "question": "Ton partenaire conserve les messages qui lui ont particulièrement plu."
   },
   {
-    "id": "quelle_partie_de_notre_histoire_merite_d",
-    "question": "Quelle partie de notre histoire mérite d'être mieux réparée ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "souvenirs_003",
+    "question": "Ton partenaire garde les petites notes ou lettres que tu lui écris."
   },
   {
-    "id": "si_notre_couple_etait_une_emission_de",
-    "question": "Si notre couple était une émission de télé, quel serait le titre ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "souvenirs_004",
+    "question": "Ton partenaire se souvient de la date où vous vous êtes rencontrés."
   },
   {
-    "id": "si_je_devenais_celebre_demain_pour_quelle",
-    "question": "Si je devenais célèbre demain, pour quelle raison absurde ce serait ?",
-    "category": "fun",
-    "spicy": 0,
-    "mood": "fun",
-    "premium": true
+    "id": "souvenirs_005",
+    "question": "Ton partenaire se souvient du premier cadeau que vous vous êtes offert."
   },
   {
-    "id": "si_on_devait_survivre_avec_uniquement_trois",
-    "question": "Si on devait survivre avec uniquement trois objets chez nous, tu choisirais quoi ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "souvenirs_006",
+    "question": "Ton partenaire se souvient d'une conversation vieille de plusieurs années."
   },
   {
-    "id": "si_tu_devais_me_noter_comme_colocataire",
-    "question": "Si tu devais me noter comme colocataire, quelle serait ma note et pourquoi ?",
-    "category": "fun",
-    "spicy": 0,
-    "mood": "fun",
-    "premium": true
+    "id": "souvenirs_007",
+    "question": "Ton partenaire garde une capture d'écran de votre premier message."
   },
   {
-    "id": "si_notre_couple_avait_une_mascotte_ridicule",
-    "question": "Si notre couple avait une mascotte ridicule, ce serait quoi ?",
-    "category": "fun",
-    "spicy": 0,
-    "mood": "fun",
-    "premium": true
+    "id": "souvenirs_008",
+    "question": "Ton partenaire garde une liste de choses à faire avec toi."
   },
   {
-    "id": "quelle_scene_de_notre_vie_ferait_un",
-    "question": "Quelle scène de notre vie ferait un excellent mème ?",
-    "category": "fun",
-    "spicy": 0,
-    "mood": "fun",
-    "premium": true
+    "id": "souvenirs_009",
+    "question": "Ton partenaire connaît les détails de tes rêves ou projets futurs."
   },
   {
-    "id": "si_je_devais_devenir_influenceurse_ce_serait",
-    "question": "Si je devais devenir influenceur·se, ce serait dans quel domaine improbable ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "souvenirs_010",
+    "question": "Ton partenaire se souvient d'une envie que tu avais exprimée il y a plus d'un an."
   },
   {
-    "id": "quel_est_le_truc_que_je_fait",
-    "question": "Quelle habitude chez moi mériterait une amende symbolique ?",
-    "category": "fun",
-    "spicy": 0,
-    "mood": "fun",
-    "premium": true
+    "id": "premium_001",
+    "question": "Ton partenaire te choisit systématiquement en priorité."
   },
   {
-    "id": "si_on_ouvrait_un_restaurant_ensemble_ce",
-    "question": "Si on ouvrait un restaurant ensemble, ce serait quoi le concept ?",
-    "category": "fun",
-    "spicy": 0,
-    "mood": "fun",
-    "premium": true
+    "id": "premium_002",
+    "question": "Ton partenaire répond immédiatement à tes appels peu importe ce que cette personne fait."
   },
   {
-    "id": "si_notre_couple_avait_une_bande_annonce",
-    "question": "Si notre couple avait une bande-annonce dramatique, quelle phrase ouvrirait la vidéo ?",
-    "category": "fun",
-    "spicy": 0,
-    "mood": "fun",
-    "premium": true
+    "id": "premium_003",
+    "question": "Ton partenaire garde son téléphone allumé la nuit au cas où tu aurais besoin."
   },
   {
-    "id": "quel_geste_tendre_de_moi_te_fait",
-    "question": "Quel geste tendre de moi te fait fondre le plus vite ?",
-    "category": "intimacy",
-    "spicy": 1,
-    "mood": "romantic",
-    "premium": true
+    "id": "premium_004",
+    "question": "Ton partenaire vient te récupérer même après une dispute."
   },
   {
-    "id": "a_quel_moment_tu_me_trouves_le",
-    "question": "À quel moment tu me trouves le plus attirant·e sans que je m'en rende compte ?",
-    "category": "intimacy",
-    "spicy": 2,
-    "mood": "romantic",
-    "premium": true
+    "id": "premium_005",
+    "question": "Ton partenaire te ramène toujours chez toi avant de rentrer."
   },
   {
-    "id": "quel_compliment_de_ma_part_te_marque",
-    "question": "Quel compliment de ma part te marque le plus ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "premium_006",
+    "question": "Ton partenaire échange sa place avec toi dès que tu es moins bien installé(e)."
   },
   {
-    "id": "quelle_petite_attention_aimerais_tu_recevoir_plus",
-    "question": "Quelle petite attention aimerais-tu recevoir plus souvent ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "premium_007",
+    "question": "Ton partenaire te donne systématiquement ce qu'il y a de mieux."
   },
   {
-    "id": "quel_souvenir_romantique_aimerais_tu_revivre_une",
-    "question": "Quel souvenir romantique aimerais-tu revivre une fois ?",
-    "category": "intimacy",
-    "spicy": 1,
-    "mood": "romantic",
-    "premium": true
+    "id": "premium_008",
+    "question": "Ton partenaire te laisse gagner les disputes sans importance."
   },
   {
-    "id": "quelle_chanson_te_fait_penser_a_nous",
-    "question": "Quelle chanson te fait penser à nous ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
+    "id": "premium_009",
+    "question": "Ton partenaire regarde une émission que cette personne déteste parce que tu l'aimes."
   },
   {
-    "id": "quel_regard_de_moi_te_fait_comprendre",
-    "question": "Quel regard de moi te fait comprendre que je t'aime ?",
-    "category": "jealousy",
-    "spicy": 1,
-    "mood": "serious",
-    "premium": true
-  },
-  {
-    "id": "quelle_tenue_aimerais_tu_me_voir_porter",
-    "question": "Quelle tenue aimerais-tu me voir porter plus souvent ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
-  },
-  {
-    "id": "quelle_facon_de_te_toucher_te_rassure",
-    "question": "Quelle façon de te toucher te rassure le plus ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
-  },
-  {
-    "id": "quelle_habitude_de_couple_te_donne_l",
-    "question": "Quelle habitude de couple te donne l'impression qu'on est une vraie équipe ?",
-    "category": "future",
-    "spicy": 0,
-    "mood": "serious",
-    "premium": true
-  },
-  {
-    "id": "quelle_chose_sensuelle_aimerais_tu_qu_on",
-    "question": "Quelle chose sensuelle aimerais-tu qu'on ose plus souvent ?",
-    "category": "intimacy",
-    "spicy": 2,
-    "mood": "romantic",
-    "premium": true
-  },
-  {
-    "id": "y_a_t_il_un_fantasme_ou",
-    "question": "Y a-t-il un fantasme ou une envie que tu aimerais vivre avec moi sans avoir encore osé m'en parler ?",
-    "category": "communication",
-    "spicy": 0,
-    "mood": "serious",
-    "premium": true
-  },
-  {
-    "id": "quel_contexte_te_donne_le_plus_envie",
-    "question": "Quel contexte te donne le plus envie de moi ?",
-    "category": "sex",
-    "spicy": 3,
-    "mood": "spicy",
-    "premium": true
-  },
-  {
-    "id": "quel_moment_banal_peut_devenir_tres_attirant",
-    "question": "Quel moment banal peut devenir très attirant entre nous ?",
-    "category": "intimacy",
-    "spicy": 2,
-    "mood": "romantic",
-    "premium": true
-  },
-  {
-    "id": "quelle_limite_intime_est_importante_pour_toi",
-    "question": "Quelle limite intime est importante pour toi et doit toujours être respectée ?",
-    "category": "values",
-    "spicy": 3,
-    "mood": "serious",
-    "premium": true
-  },
-  {
-    "id": "qu_est_ce_qui_te_met_le",
-    "question": "Qu'est-ce qui te met le plus en confiance dans notre intimité ?",
-    "category": "deep",
-    "spicy": 3,
-    "mood": "deep",
-    "premium": true
-  },
-  {
-    "id": "qu_est_ce_qui_te_coupe_instantanement",
-    "question": "Qu'est-ce qui te coupe instantanément l'envie ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
-  },
-  {
-    "id": "est_ce_qu_il_y_a_quelque_2",
-    "question": "Est-ce qu'il y a quelque chose que tu aimerais explorer à ton rythme avec moi ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
-  },
-  {
-    "id": "quel_compliment_intime_aimerais_tu_entendre_plus",
-    "question": "Quel compliment intime aimerais-tu entendre plus souvent ?",
-    "category": "intimacy",
-    "spicy": 3,
-    "mood": "romantic",
-    "premium": true
-  },
-  {
-    "id": "quelle_ambiance_rendrait_une_soiree_a_deux",
-    "question": "Quelle ambiance rendrait une soirée à deux vraiment inoubliable pour toi ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
-  },
-  {
-    "id": "est_ce_que_parler_de_nos_envies",
-    "question": "Est-ce que parler de nos envies te met à l'aise ou te gêne encore un peu ?",
-    "category": "communication",
-    "spicy": 0,
-    "mood": "serious",
-    "premium": true
-  },
-  {
-    "id": "quelle_est_la_chose_la_plus_simple",
-    "question": "Quelle est la chose la plus simple qui peut te faire craquer ?",
-    "category": "intimacy",
-    "spicy": 2,
-    "mood": "romantic",
-    "premium": true
-  },
-  {
-    "id": "si_on_organisait_une_soiree_uniquement_pour",
-    "question": "Si on organisait une soirée uniquement pour se séduire à nouveau, tu voudrais qu'elle ressemble à quoi ?",
-    "category": "intimacy",
-    "spicy": 2,
-    "mood": "romantic",
-    "premium": true
-  },
-  {
-    "id": "quelle_regle_devrait_exister_pour_que_chacun",
-    "question": "Quelle règle devrait exister pour que chacun se sente libre de dire oui ou non sans pression ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
-  },
-  {
-    "id": "quel_souvenir_intime_entre_nous_te_revient",
-    "question": "Quel souvenir intime entre nous te revient parfois sans prévenir ?",
-    "category": "sex",
-    "spicy": 3,
-    "mood": "spicy",
-    "premium": true
-  },
-  {
-    "id": "quelle_valeur_est_absolument_non_negociable_pour",
-    "question": "Quelle valeur est absolument non négociable pour toi dans un couple ?",
-    "category": "values",
-    "spicy": 0,
-    "mood": "serious",
-    "premium": true
-  },
-  {
-    "id": "quelle_trahison_serait_la_plus_difficile_a",
-    "question": "Quelle trahison serait la plus difficile à pardonner pour toi ?",
-    "category": "deep",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
-  },
-  {
-    "id": "est_ce_que_tu_crois_qu_on",
-    "question": "Est-ce que tu crois qu'on peut tout pardonner par amour ?",
-    "category": "deep",
-    "spicy": 1,
-    "mood": "deep",
-    "premium": true
-  },
-  {
-    "id": "quel_desaccord_entre_nous_pourrait_devenir_serieux",
-    "question": "Quel désaccord entre nous pourrait devenir sérieux s'il n'était jamais réglé ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
-  },
-  {
-    "id": "quelle_limite_personnelle_veux_tu_que_je",
-    "question": "Quelle limite personnelle veux-tu que je respecte toujours ?",
-    "category": "values",
-    "spicy": 0,
-    "mood": "serious",
-    "premium": true
-  },
-  {
-    "id": "quelle_chose_te_ferait_perdre_confiance_en",
-    "question": "Quelle chose te ferait perdre confiance en moi très vite ?",
-    "category": "deep",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
-  },
-  {
-    "id": "est_ce_que_tu_preferes_une_verite",
-    "question": "Est-ce que tu préfères une vérité douloureuse ou un mensonge qui protège ?",
-    "category": "values",
-    "spicy": 0,
-    "mood": "serious",
-    "premium": true
-  },
-  {
-    "id": "quelle_decision_de_couple_devrait_toujours_se",
-    "question": "Quelle décision de couple devrait toujours se prendre à deux ?",
-    "category": "values",
-    "spicy": 0,
-    "mood": "serious",
-    "premium": true
-  },
-  {
-    "id": "quelle_liberte_individuelle_doit_rester_intacte_meme",
-    "question": "Quelle liberté individuelle doit rester intacte même dans une relation très sérieuse ?",
-    "category": "values",
-    "spicy": 0,
-    "mood": "serious",
-    "premium": true
-  },
-  {
-    "id": "qu_est_ce_qui_ferait_qu_un",
-    "question": "Qu'est-ce qui ferait qu'un couple devient une prison au lieu d'un refuge ?",
-    "category": "deep",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
-  },
-  {
-    "id": "quelle_chose_aimerais_tu_qu_on_apprenne",
-    "question": "Quelle chose aimerais-tu qu'on apprenne ensemble un jour ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
-  },
-  {
-    "id": "quelle_peur_as_tu_de_me_transmettre",
-    "question": "Quelle peur as-tu de me transmettre sans le vouloir ?",
-    "category": "deep",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
-  },
-  {
-    "id": "si_je_devenais_une_version_tres_differente",
-    "question": "Si je devenais une version très différente de moi-même, qu'est-ce que tu espères retrouver quand même ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
-  },
-  {
-    "id": "quel_detail_de_notre_quotidien_te_manquerait",
-    "question": "Quel détail de notre quotidien te manquerait le plus si on était loin l'un de l'autre ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
-  },
-  {
-    "id": "quelle_chose_chez_moi_te_donne_envie",
-    "question": "Quelle chose chez moi te donne envie de rentrer à la maison ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
-  },
-  {
-    "id": "quel_moment_t_a_fait_penser_qu",
-    "question": "Quel moment t'a fait penser qu'on était plus solides que tu ne le croyais ?",
-    "category": "deep",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
-  },
-  {
-    "id": "quelle_partie_de_toi_se_sent_plus",
-    "question": "Quelle partie de toi se sent plus libre depuis qu'on est ensemble ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
-  },
-  {
-    "id": "quelle_partie_de_toi_se_sent_plus_2",
-    "question": "Quelle partie de toi se sent plus fragile depuis qu'on est ensemble ?",
-    "category": "deep",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
-  },
-  {
-    "id": "qu_est_ce_que_tu_aimerais_qu",
-    "question": "Qu'est-ce que tu aimerais qu'on célèbre davantage dans notre couple ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
-  },
-  {
-    "id": "quelle_erreur_tu_as_peur_de_refaire",
-    "question": "Quelle erreur as-tu peur de refaire dans notre relation ?",
-    "category": "deep",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
-  },
-  {
-    "id": "si_une_personne_essayait_de_me_seduire",
-    "question": "Si une personne essayait de me séduire devant toi, quelle serait ta réaction honnête ?",
-    "category": "intimacy",
-    "spicy": 2,
-    "mood": "romantic",
-    "premium": true
-  },
-  {
-    "id": "si_je_partais_en_voyage_sans_toi",
-    "question": "Si je partais en voyage sans toi avec des amis, qu'est-ce qui te rassurerait ?",
-    "category": "family",
-    "spicy": 0,
-    "mood": "serious",
-    "premium": true
-  },
-  {
-    "id": "si_je_dormais_chez_un_ami_ou",
-    "question": "Si je dormais chez un ami ou une amie après une soirée, qu'est-ce que tu aurais besoin de savoir ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
-  },
-  {
-    "id": "a_partir_de_quand_un_message_prive",
-    "question": "À partir de quand un message privé devient trop ambigu pour toi ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
-  },
-  {
-    "id": "est_ce_que_tu_preferes_que_je",
-    "question": "Est-ce que tu préfères que je te dise tout, même les détails inutiles, ou seulement ce qui compte vraiment ?",
-    "category": "deep",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
-  },
-  {
-    "id": "quelle_situation_pourrait_te_faire_perdre_ton",
-    "question": "Quelle situation pourrait te faire perdre ton calme par jalousie ?",
-    "category": "jealousy",
-    "spicy": 1,
-    "mood": "serious",
-    "premium": true
-  },
-  {
-    "id": "est_ce_que_tu_penses_que_tu",
-    "question": "Est-ce que tu penses que tu es plus possessif·ve que tu ne l'avoues ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
-  },
-  {
-    "id": "quel_comportement_de_ma_part_pourrait_etre",
-    "question": "Quel comportement de ma part pourrait être mal interprété par les autres ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
-  },
-  {
-    "id": "si_quelqu_un_de_mon_passe_revenait",
-    "question": "Si quelqu'un de mon passé revenait dans ma vie, qu'est-ce qui te ferait peur ?",
-    "category": "deep",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
-  },
-  {
-    "id": "quelle_limite_poserais_tu_avec_mes_anciennes",
-    "question": "Quelle limite poserais-tu avec mes anciennes relations ?",
-    "category": "values",
-    "spicy": 1,
-    "mood": "serious",
-    "premium": true
-  },
-  {
-    "id": "quel_est_le_plus_beau_defaut_que",
-    "question": "Quel est le plus beau défaut que tu me trouves ?",
-    "category": "deep",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
-  },
-  {
-    "id": "quel_compliment_sur_moi_te_semble_evident",
-    "question": "Quel compliment sur moi te semble évident mais que tu ne dis pas assez ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
-  },
-  {
-    "id": "quelle_version_de_moi_te_manque_parfois",
-    "question": "Quelle version de moi te manque parfois ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
-  },
-  {
-    "id": "quelle_version_de_moi_as_tu_hate",
-    "question": "Quelle version de moi as-tu hâte de découvrir ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
-  },
-  {
-    "id": "qu_est_ce_que_je_fait_quand",
-    "question": "Qu'est-ce que je fais quand j'aime quelqu'un, selon toi ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
-  },
-  {
-    "id": "quelle_preuve_d_amour_discrete_je_te",
-    "question": "Quelle preuve d'amour discrète je te donne sans m'en rendre compte ?",
-    "category": "intimacy",
-    "spicy": 1,
-    "mood": "romantic",
-    "premium": true
-  },
-  {
-    "id": "quel_geste_romantique_te_generait_un_peu",
-    "question": "Quel geste romantique te gênerait un peu mais te toucherait quand même ?",
-    "category": "intimacy",
-    "spicy": 1,
-    "mood": "romantic",
-    "premium": true
-  },
-  {
-    "id": "quelle_surprise_aimerais_tu_que_je_te",
-    "question": "Quelle surprise aimerais-tu que je te fasse un jour ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
-  },
-  {
-    "id": "si_on_avait_une_journee_entiere_sans",
-    "question": "Si on avait une journée entière sans téléphone, qu'est-ce qu'on ferait ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
-  },
-  {
-    "id": "quel_endroit_aimerais_tu_decouvrir_uniquement_avec",
-    "question": "Quel endroit aimerais-tu découvrir uniquement avec moi ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
-  },
-  {
-    "id": "quelle_discussion_pourrait_durer_toute_une_nuit",
-    "question": "Quelle discussion pourrait durer toute une nuit entre nous ?",
-    "category": "communication",
-    "spicy": 0,
-    "mood": "serious",
-    "premium": true
-  },
-  {
-    "id": "quelle_question_tu_aimerais_que_je_te",
-    "question": "Quelle question aimerais-tu que je te pose au moins une fois ?",
-    "category": "communication",
-    "spicy": 0,
-    "mood": "serious",
-    "premium": true
-  },
-  {
-    "id": "quelle_reponse_de_moi_te_ferait_peur",
-    "question": "Quelle réponse de moi te ferait peur si tu me posais une question très honnête ?",
-    "category": "deep",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
-  },
-  {
-    "id": "qu_est_ce_que_tu_n_as",
-    "question": "Qu'est-ce que tu n'as jamais réussi à bien m'expliquer ?",
-    "category": "communication",
-    "spicy": 0,
-    "mood": "serious",
-    "premium": true
-  },
-  {
-    "id": "quelle_chose_est_claire_dans_ta_tete",
-    "question": "Quelle chose est claire dans ta tête mais difficile à dire avec des mots ?",
-    "category": "deep",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
-  },
-  {
-    "id": "quelle_blessure_aimerais_tu_que_je_comprenne",
-    "question": "Quelle blessure aimerais-tu que je comprenne mieux ?",
-    "category": "deep",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
-  },
-  {
-    "id": "quelle_limite_emotionnelle_tu_aimerais_mieux_poser",
-    "question": "Quelle limite émotionnelle aimerais-tu mieux poser avec moi ?",
-    "category": "values",
-    "spicy": 0,
-    "mood": "serious",
-    "premium": true
-  },
-  {
-    "id": "quelle_habitude_de_communication_pourrait_nous_sauver",
-    "question": "Quelle habitude de communication pourrait nous sauver beaucoup de disputes ?",
-    "category": "communication",
-    "spicy": 0,
-    "mood": "serious",
-    "premium": true
-  },
-  {
-    "id": "a_quel_moment_tu_as_besoin_que",
-    "question": "À quel moment tu as besoin que je me taise et que je sois juste là ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
-  },
-  {
-    "id": "a_quel_moment_tu_as_besoin_que_2",
-    "question": "À quel moment tu as besoin que je parle au lieu de laisser le silence s'installer ?",
-    "category": "communication",
-    "spicy": 0,
-    "mood": "serious",
-    "premium": true
-  },
-  {
-    "id": "quelle_envie_intime_te_parait_plus_facile",
-    "question": "Quelle envie intime te paraît plus facile à écrire qu'à dire à voix haute ?",
-    "category": "sex",
-    "spicy": 3,
-    "mood": "spicy",
-    "premium": true
-  },
-  {
-    "id": "quelle_ambiance_te_fait_te_sentir_le",
-    "question": "Quelle ambiance te fait te sentir le plus désiré·e ?",
-    "category": "intimacy",
-    "spicy": 3,
-    "mood": "romantic",
-    "premium": true
-  },
-  {
-    "id": "quelle_partie_de_notre_intimite_aimerais_tu",
-    "question": "Quelle partie de notre intimité aimerais-tu rendre plus légère ou plus drôle ?",
-    "category": "sex",
-    "spicy": 3,
-    "mood": "spicy",
-    "premium": true
-  },
-  {
-    "id": "quelle_chose_aimerais_tu_qu_on_ose",
-    "question": "Quelle chose aimerais-tu qu'on ose sans que ça devienne gênant ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
-  },
-  {
-    "id": "qu_est_ce_qui_te_fait_sentir",
-    "question": "Qu'est-ce qui te fait sentir respecté·e dans l'intimité ?",
-    "category": "values",
-    "spicy": 3,
-    "mood": "serious",
-    "premium": true
-  },
-  {
-    "id": "qu_est_ce_qui_te_fait_sentir_2",
-    "question": "Qu'est-ce qui te fait sentir vraiment choisi·e ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
-  },
-  {
-    "id": "quelle_difference_entre_nous_pourrait_devenir_une",
-    "question": "Quelle différence entre nous pourrait devenir une force ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
-  },
-  {
-    "id": "quelle_difference_entre_nous_pourrait_devenir_un",
-    "question": "Quelle différence entre nous pourrait devenir un vrai problème ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
-  },
-  {
-    "id": "quelle_regle_de_couple_te_semble_ridicule",
-    "question": "Quelle règle de couple te semble ridicule mais utile ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
-  },
-  {
-    "id": "si_on_ecrivait_un_contrat_de_couple",
-    "question": "Si on écrivait un contrat de couple drôle, quelle clause tu ajouterais ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
-  },
-  {
-    "id": "quelle_petite_habitude_de_moi_pourrait_te",
-    "question": "Quelle petite habitude de moi pourrait te rendre fou·folle si on vivait ensemble ?",
-    "category": "future",
-    "spicy": 0,
-    "mood": "serious",
-    "premium": true
-  },
-  {
-    "id": "quelle_chose_chez_moi_ferait_rire_nos",
-    "question": "Quelle chose chez moi ferait rire nos futurs voisins ?",
-    "category": "family",
-    "spicy": 0,
-    "mood": "serious",
-    "premium": true
-  },
-  {
-    "id": "si_notre_couple_avait_un_ennemi_naturel",
-    "question": "Si notre couple avait un ennemi naturel, ce serait quoi ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
-  },
-  {
-    "id": "quelle_est_la_chose_la_plus_dramatique",
-    "question": "Quelle est la chose la plus dramatique que je pourrais dire pour rien ?",
-    "category": "fun",
-    "spicy": 0,
-    "mood": "fun",
-    "premium": true
-  },
-  {
-    "id": "si_je_devenais_un_personnage_de_jeu",
-    "question": "Si je devenais un personnage de jeu vidéo, quelle serait ma compétence spéciale ?",
-    "category": "fun",
-    "spicy": 0,
-    "mood": "fun",
-    "premium": true
-  },
-  {
-    "id": "quel_objet_chez_moi_resume_le_mieux",
-    "question": "Quel objet chez moi résume le mieux ma personnalité ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
-  },
-  {
-    "id": "si_on_devait_ouvrir_une_boite_a",
-    "question": "Si on devait ouvrir une boîte à souvenirs, quel objet tu mettrais en premier ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
-  },
-  {
-    "id": "quelle_photo_de_nous_merite_d_etre",
-    "question": "Quelle photo de nous mérite d'être imprimée même si elle est floue ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
-  },
-  {
-    "id": "quel_souvenir_recent_risque_de_devenir_precieux",
-    "question": "Quel souvenir récent risque de devenir précieux plus tard ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
-  },
-  {
-    "id": "qu_est_ce_qu_on_devrait_arreter",
-    "question": "Qu’est-ce que nous devrions arrêter de repousser et faire enfin ensemble ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": true
-  },
-  {
-    "id": "nouveau_rituel_cinq_minutes",
-    "question": "Quel petit rituel de cinq minutes pourrions-nous créer dès cette semaine ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "romantic",
-    "premium": false
-  },
-  {
-    "id": "detail_journee_aimerais_connaitre",
-    "question": "Quel détail de ta journée aimerais-tu que je pense à te demander plus souvent ?",
-    "category": "communication",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": false
-  },
-  {
-    "id": "signe_besoin_reconfort",
-    "question": "Quel signe discret montre que tu as besoin de réconfort, même quand tu ne le dis pas ?",
-    "category": "communication",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": false
-  },
-  {
-    "id": "phrase_desaccord_securisante",
-    "question": "Quelle phrase pourrait nous aider à nous sentir en sécurité pendant un désaccord ?",
-    "category": "communication",
-    "spicy": 0,
-    "mood": "serious",
-    "premium": false
-  },
-  {
-    "id": "conversation_bien_ecoutee",
-    "question": "Lors de quelle conversation récente t'es-tu sentie particulièrement bien écoutée par moi ?",
-    "category": "communication",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": false
-  },
-  {
-    "id": "journee_theme_absurde",
-    "question": "Si nous organisions une journée sur un thème absurde, quel thème choisirais-tu ?",
-    "category": "fun",
-    "spicy": 0,
-    "mood": "fun",
-    "premium": false
-  },
-  {
-    "id": "talent_inutile_duo",
-    "question": "Quel talent complètement inutile pourrions-nous maîtriser en duo ?",
-    "category": "fun",
-    "spicy": 0,
-    "mood": "fun",
-    "premium": false
-  },
-  {
-    "id": "nom_equipe_emission",
-    "question": "Quel serait notre nom d'équipe dans une émission d'aventure ?",
-    "category": "fun",
-    "spicy": 0,
-    "mood": "fun",
-    "premium": false
-  },
-  {
-    "id": "plat_invente_couple",
-    "question": "Si notre couple était un plat inventé, quels ingrédients contiendrait-il ?",
-    "category": "fun",
-    "spicy": 0,
-    "mood": "fun",
-    "premium": false
-  },
-  {
-    "id": "mission_secrete_weekend",
-    "question": "Quelle mission secrète amusante aimerais-tu que nous réalisions ce week-end ?",
-    "category": "fun",
-    "spicy": 0,
-    "mood": "fun",
-    "premium": false
-  },
-  {
-    "id": "priorite_prochaine_annee",
-    "question": "Quelle priorité aimerais-tu que nous protégions ensemble pendant la prochaine année ?",
-    "category": "future",
-    "spicy": 0,
-    "mood": "serious",
-    "premium": false
-  },
-  {
-    "id": "projet_budget_commun",
-    "question": "Pour quel projet commun aurais-tu envie que nous commencions à économiser ?",
-    "category": "future",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": false
-  },
-  {
-    "id": "chez_nous_ideal_sensation",
-    "question": "Quelle sensation voudrais-tu ressentir en entrant dans notre futur chez-nous ?",
-    "category": "future",
-    "spicy": 0,
-    "mood": "romantic",
-    "premium": false
-  },
-  {
-    "id": "tradition_dans_dix_ans",
-    "question": "Quelle tradition aimerais-tu que nous suivions encore dans dix ans ?",
-    "category": "future",
-    "spicy": 0,
-    "mood": "romantic",
-    "premium": false
-  },
-  {
-    "id": "reussite_individuelle_soutenir",
-    "question": "Quelle réussite personnelle aimerais-tu que je t'aide à atteindre ?",
-    "category": "future",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": false
-  },
-  {
-    "id": "valeur_apprise_famille",
-    "question": "Quelle valeur reçue de ta famille veux-tu transmettre dans notre couple ?",
-    "category": "values",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": false
-  },
-  {
-    "id": "valeur_remise_en_question",
-    "question": "Quelle conviction importante as-tu remise en question depuis notre rencontre ?",
-    "category": "values",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": false
-  },
-  {
-    "id": "justice_decision_couple",
-    "question": "À quoi reconnais-tu qu'une décision est juste pour nous deux ?",
-    "category": "values",
-    "spicy": 0,
-    "mood": "serious",
-    "premium": false
-  },
-  {
-    "id": "independance_importante",
-    "question": "Quelle forme d'indépendance est essentielle à ton équilibre personnel ?",
-    "category": "values",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": false
-  },
-  {
-    "id": "limite_proches_expliquer",
-    "question": "Quelle limite avec nos proches devrions-nous mieux expliquer ou protéger ?",
-    "category": "family",
-    "spicy": 0,
-    "mood": "serious",
-    "premium": false
-  },
-  {
-    "id": "souvenir_famille_partager",
-    "question": "Quel souvenir de ton enfance aimerais-tu me faire vivre ou me raconter en détail ?",
-    "category": "family",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": false
-  },
-  {
-    "id": "fete_famille_inventer",
-    "question": "Quelle fête ou tradition familiale aimerais-tu réinventer à notre manière ?",
-    "category": "family",
-    "spicy": 0,
-    "mood": "fun",
-    "premium": false
-  },
-  {
-    "id": "dimanche_sans_contrainte",
-    "question": "À quoi ressemblerait notre dimanche idéal sans aucune contrainte ?",
-    "category": "lifestyle",
-    "spicy": 0,
-    "mood": "fun",
-    "premium": false
-  },
-  {
-    "id": "habitude_quotidienne_simplifier",
-    "question": "Quelle habitude quotidienne pourrions-nous simplifier pour avoir plus de temps ensemble ?",
-    "category": "lifestyle",
-    "spicy": 0,
-    "mood": "serious",
-    "premium": false
-  },
-  {
-    "id": "temps_seule_ideal",
-    "question": "De combien de temps seule as-tu besoin pour te sentir bien dans une semaine normale ?",
-    "category": "lifestyle",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": false
-  },
-  {
-    "id": "petit_luxe_quotidien",
-    "question": "Quel petit luxe du quotidien aimerais-tu que nous nous offrions plus souvent ?",
-    "category": "lifestyle",
-    "spicy": 0,
-    "mood": "fun",
-    "premium": false
-  },
-  {
-    "id": "moment_fierte_recente",
-    "question": "À quel moment récent as-tu été fière de nous sans forcément me le dire ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "romantic",
-    "premium": false
-  },
-  {
-    "id": "geste_reconnexion_rapide",
-    "question": "Quel geste simple nous aide le plus à nous reconnecter après une journée difficile ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": false
-  },
-  {
-    "id": "difference_complementaire",
-    "question": "Quelle différence entre nous te donne le plus l'impression que nous nous complétons ?",
-    "category": "relation",
-    "spicy": 0,
-    "mood": "romantic",
-    "premium": false
-  },
-  {
-    "id": "besoin_mieux_compris",
-    "question": "Quel besoin personnel aimerais-tu que je comprenne mieux, sans avoir à le deviner ?",
-    "category": "deep",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": false
-  },
-  {
-    "id": "peur_transformee_confiance",
-    "question": "Quelle peur liée à notre relation s'est transformée en confiance avec le temps ?",
-    "category": "deep",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": false
-  },
-  {
-    "id": "partie_de_soi_proteger",
-    "question": "Quelle partie sensible de toi aimerais-tu que je protège davantage ?",
-    "category": "deep",
-    "spicy": 0,
-    "mood": "deep",
-    "premium": false
-  },
-  {
-    "id": "ambiance_tendresse_preferee",
-    "question": "Quelle ambiance te donne le plus envie d'un moment tendre avec moi ?",
-    "category": "intimacy",
-    "spicy": 1,
-    "mood": "romantic",
-    "premium": false
-  },
-  {
-    "id": "consentement_facile_exprimer",
-    "question": "Qu'est-ce qui pourrait rendre encore plus facile l'expression de tes envies et de tes limites ?",
-    "category": "intimacy",
-    "spicy": 1,
-    "mood": "serious",
-    "premium": false
-  },
-  {
-    "id": "attention_sensuelle_non_sexuelle",
-    "question": "Quelle attention sensuelle, sans être sexuelle, te fait te sentir particulièrement proche de moi ?",
-    "category": "intimacy",
-    "spicy": 1,
-    "mood": "romantic",
-    "premium": false
+    "id": "premium_010",
+    "question": "Ton partenaire apprend quelque chose uniquement parce que ça te passionne."
   }
 ]

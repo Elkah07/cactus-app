@@ -692,6 +692,7 @@ const newGameStatus = document.getElementById("newGameStatus");
 const newGameResult = document.getElementById("newGameResult");
 const newGameAgainBtn = document.getElementById("newGameAgainBtn");
 const newGameDoneBtn = document.getElementById("newGameDoneBtn");
+const newGameAbandonBtn = document.getElementById("newGameAbandonBtn");
 const newGameDiscussBtn = document.getElementById("newGameDiscussBtn");
 const discussResultButtons = document.querySelectorAll("[data-discuss-current-result]");
 
@@ -1675,6 +1676,9 @@ validateGuessAnswerBtn.addEventListener("click", () => {
         currentGuessId = createChallengeInstanceId("guessAnswers");
     }
 
+    if (validateGuessAnswerBtn.disabled) return;
+    validateGuessAnswerBtn.disabled = true;
+
     database
         .ref("spaces/" + currentSpaceCode + "/guessAnswers/" + currentGuessId)
         .update({
@@ -1693,12 +1697,15 @@ validateGuessAnswerBtn.addEventListener("click", () => {
                     createdAt: Date.now()
                 });
         })
-        .then(() => incrementAnswersCount())
+        .then(() => awardAnswerReward("guess", currentGuessId))
         .then(() => {
             showToast("🌵 Réponse enregistrée");
             showScreen("dashboard");
         })
-        .catch((error) => showToast(getFriendlyFirebaseError(error)));
+        .catch((error) => showToast(getFriendlyFirebaseError(error)))
+        .finally(() => {
+            validateGuessAnswerBtn.disabled = false;
+        });
 });
 
 backFromGuessBtn.addEventListener("click", () => {
@@ -1710,6 +1717,9 @@ backDashboardFromGuessWaitBtn.addEventListener("click", () => {
 });
 
 validateRankingBtn.addEventListener("click", () => {
+    if (validateRankingBtn.disabled) return;
+    validateRankingBtn.disabled = true;
+
     const items = rankingList.querySelectorAll("li");
     const answer = [];
 
@@ -1728,9 +1738,12 @@ validateRankingBtn.addEventListener("click", () => {
         currentRanking.id,
         answer
     )
-        .then(() => incrementAnswersCount())
+        .then(() => awardAnswerReward("ranking", currentRankingChallengeId))
         .then(() => showRankingCompatibilityIfReady(currentRankingChallengeId))
-        .catch((error) => showToast(getFriendlyFirebaseError(error)));
+        .catch((error) => showToast(getFriendlyFirebaseError(error)))
+        .finally(() => {
+            validateRankingBtn.disabled = false;
+        });
 });
 
 nextRankingBtn.addEventListener("click", () => {
@@ -2099,13 +2112,24 @@ backToLoginBtn.addEventListener("click", () => {
 });
 
 settingsBtn.addEventListener("click", () => {
-    previousScreen = "dashboard";
+    previousScreen = (typeof lastShownScreen === "string" && lastShownScreen !== "settings")
+        ? lastShownScreen
+        : "dashboard";
     prepareAccountSettings();
     showScreen("settings");
 });
 
 backFromSettingsBtn.addEventListener("click", () => {
-    showScreen(previousScreen);
+    const navigationState = typeof getCactusHistoryState === "function"
+        ? getCactusHistoryState()
+        : null;
+
+    if (navigationState?.screen === "settings" && Number(navigationState.depth) > 0) {
+        history.back();
+        return;
+    }
+
+    showScreen(previousScreen || "dashboard");
 });
 
 saveNewPseudoBtn.addEventListener("click", () => {
@@ -4670,6 +4694,12 @@ function createNewGameChoice(label, value, className = "") {
     return button;
 }
 
+function setNewGameChoicesDisabled(disabled) {
+    newGameChoices.querySelectorAll("button").forEach((button) => {
+        button.disabled = disabled;
+    });
+}
+
 function resetNewGameStage() {
     newGameChoices.replaceChildren();
     newGameResult.replaceChildren();
@@ -4677,13 +4707,28 @@ function resetNewGameStage() {
     newGameStatus.style.display = "none";
     newGameAgainBtn.style.display = "none";
     newGameDoneBtn.style.display = "none";
+    newGameAbandonBtn.style.display = "none";
     newGameDiscussBtn.style.display = "none";
     newGamePromptDetails.textContent = "";
     clearCurrentDiscussionContext();
 }
 
+const LIMIT_REACHED_STALE_CHALLENGE_MS = 24 * 60 * 60 * 1000;
+
 function getNewGameLockPath(mode) {
     return "activeGameLocks/" + mode;
+}
+
+function isStaleUnsubmittedLimitReachedChallenge(challenge) {
+    if (!challenge || challenge.mode !== "limitReached" || challenge.status !== "answering") {
+        return false;
+    }
+
+    const creatorUid = challenge.createdBy;
+    const creatorFinished = Boolean(creatorUid && challenge.results?.[creatorUid]);
+    const createdAt = Number(challenge.createdAt || 0);
+
+    return !creatorFinished && createdAt > 0 && (Date.now() - createdAt) >= LIMIT_REACHED_STALE_CHALLENGE_MS;
 }
 
 function waitForLockedNewGameChallenge(path, challengeId, attempt = 0) {
@@ -4736,8 +4781,27 @@ function startNewGame(mode, forceNew = false) {
                 return waitForLockedNewGameChallenge(path, lockedId)
                     .then((challenge) => {
                         if (!challenge || ["completed", "skipped"].includes(challenge.status)) {
-                            return clearNewGameLockIfMatches(mode, lockedId).then(() => startNewGame(mode, forceNew));
+                            return clearNewGameLockIfMatches(mode, lockedId).then(() => {
+                                isStartingNewGame = false;
+                                startNewGame(mode, forceNew);
+                            });
                         }
+
+                        if (mode === "limitReached" && isStaleUnsubmittedLimitReachedChallenge(challenge)) {
+                            return database
+                                .ref("spaces/" + currentSpaceCode + "/" + path + "/" + lockedId)
+                                .update({
+                                    status: "skipped",
+                                    skippedAt: Date.now(),
+                                    skippedReason: "stale_unsubmitted"
+                                })
+                                .then(() => clearNewGameLockIfMatches(mode, lockedId))
+                                .then(() => {
+                                    isStartingNewGame = false;
+                                    startNewGame(mode, forceNew);
+                                });
+                        }
+
                         if (!isNewGameChallengeAvailableToCurrentUser(mode, challenge)) {
                             showToast("Ton/ta partenaire termine encore ce parcours. Il apparaîtra dès qu’il sera prêt pour toi.");
                             showScreen("allGames");
@@ -4841,10 +4905,16 @@ function renderWouldRather(challenge) {
 
 function submitWouldRatherAnswer(choice) {
     const path = NEW_GAME_MODES.wouldRather.path;
-    database.ref("spaces/" + currentSpaceCode + "/" + path + "/" + activeNewGameId + "/answers/" + currentUser.uid)
+    const challengeId = activeNewGameId;
+    setNewGameChoicesDisabled(true);
+    database.ref("spaces/" + currentSpaceCode + "/" + path + "/" + challengeId + "/answers/" + currentUser.uid)
         .set({ choice, answeredAt: Date.now(), pseudo })
+        .then(() => awardAnswerReward("wouldRather", challengeId))
         .then(() => finalizeNewGameIfReady("wouldRather"))
-        .catch((error) => showToast(getFriendlyFirebaseError(error)));
+        .catch((error) => {
+            setNewGameChoicesDisabled(false);
+            showToast(getFriendlyFirebaseError(error));
+        });
 }
 
 function countThreeYesNoAnswers(answers) {
@@ -4931,10 +5001,16 @@ function submitThreeYesNoAnswer(index, choice) {
     const counts = countThreeYesNoAnswers(challenge?.answers?.[currentUser.uid]);
     if ((choice === "yes" && counts.yes >= 3) || (choice === "no" && counts.no >= 3)) return;
     const path = NEW_GAME_MODES.threeYesNo.path;
-    database.ref("spaces/" + currentSpaceCode + "/" + path + "/" + activeNewGameId + "/answers/" + currentUser.uid + "/" + index)
+    const challengeId = activeNewGameId;
+    setNewGameChoicesDisabled(true);
+    database.ref("spaces/" + currentSpaceCode + "/" + path + "/" + challengeId + "/answers/" + currentUser.uid + "/" + index)
         .set({ choice, answeredAt: Date.now(), pseudo })
+        .then(() => counts.total === 5 ? awardAnswerReward("threeYesNo", challengeId) : false)
         .then(() => finalizeNewGameIfReady("threeYesNo"))
-        .catch((error) => showToast(getFriendlyFirebaseError(error)));
+        .catch((error) => {
+            setNewGameChoicesDisabled(false);
+            showToast(getFriendlyFirebaseError(error));
+        });
 }
 
 function getLimitReachedDraftKey(challengeId = activeNewGameId) {
@@ -5063,6 +5139,10 @@ function renderLimitReached(challenge) {
         return;
     }
 
+    if (challenge.createdBy === currentUser.uid && !results[currentUser.uid]) {
+        newGameAbandonBtn.style.display = "block";
+    }
+
     const draft = getLimitReachedDraft(challenge);
     const levelIndex = Math.min(draft.levelIndex, levels.length - 1);
     const currentLevel = levels[levelIndex];
@@ -5102,6 +5182,9 @@ function submitLimitReachedResult(result) {
     const challenge = getActiveNewGameChallenge();
     if (!challenge || challenge.results?.[currentUser.uid]) return;
     const path = NEW_GAME_MODES.limitReached.path;
+    const challengeId = activeNewGameId;
+    setNewGameChoicesDisabled(true);
+    newGameAbandonBtn.disabled = true;
     const payload = {
         acceptedAll: result.acceptedAll === true,
         completedAt: Date.now(),
@@ -5109,13 +5192,70 @@ function submitLimitReachedResult(result) {
     };
     if (!payload.acceptedAll) payload.limitLevel = Number(result.limitLevel);
 
-    database.ref("spaces/" + currentSpaceCode + "/" + path + "/" + activeNewGameId + "/results/" + currentUser.uid)
+    database.ref("spaces/" + currentSpaceCode + "/" + path + "/" + challengeId + "/results/" + currentUser.uid)
         .set(payload)
+        .then(() => awardAnswerReward("limitReached", challengeId))
         .then(() => {
             clearLimitReachedDraft();
             return finalizeNewGameIfReady("limitReached");
         })
-        .catch((error) => showToast(getFriendlyFirebaseError(error)));
+        .catch((error) => {
+            setNewGameChoicesDisabled(false);
+            newGameAbandonBtn.disabled = false;
+            showToast(getFriendlyFirebaseError(error));
+        });
+}
+
+function abandonCurrentLimitReachedChallenge() {
+    if (activeNewGameMode !== "limitReached" || !activeNewGameId) return;
+
+    const challenge = getActiveNewGameChallenge();
+    if (!challenge || challenge.createdBy !== currentUser.uid || challenge.results?.[currentUser.uid]) {
+        showToast("Ce parcours ne peut plus être abandonné.");
+        return;
+    }
+
+    if (!window.confirm("Abandonner ce parcours ? Il sera annulé pour vous deux.")) {
+        return;
+    }
+
+    newGameAbandonBtn.disabled = true;
+    const challengeId = activeNewGameId;
+    const path = NEW_GAME_MODES.limitReached.path;
+    const reference = database.ref("spaces/" + currentSpaceCode + "/" + path + "/" + challengeId);
+
+    reference.transaction((currentChallenge) => {
+        if (
+            !currentChallenge ||
+            currentChallenge.status !== "answering" ||
+            currentChallenge.createdBy !== currentUser.uid ||
+            currentChallenge.results?.[currentUser.uid]
+        ) {
+            return;
+        }
+
+        currentChallenge.status = "skipped";
+        currentChallenge.skippedAt = Date.now();
+        currentChallenge.skippedBy = currentUser.uid;
+        currentChallenge.skippedReason = "creator_abandoned";
+        return currentChallenge;
+    }).then((result) => {
+        if (!result.committed) {
+            showToast("Ce parcours a déjà changé. Recharge la page.");
+            return;
+        }
+
+        clearLimitReachedDraft();
+        return clearNewGameLockIfMatches("limitReached", challengeId).then(() => {
+            activeNewGameId = null;
+            showToast("Parcours abandonné 🌵");
+            showScreen("allGames");
+        });
+    }).catch((error) => {
+        showToast(getFriendlyFirebaseError(error));
+    }).finally(() => {
+        newGameAbandonBtn.disabled = false;
+    });
 }
 
 function renderCoupleDare(challenge) {
@@ -5167,9 +5307,15 @@ function renderCoupleDare(challenge) {
 
 function submitDareVote(choice) {
     const path = NEW_GAME_MODES.coupleDare.path;
-    database.ref("spaces/" + currentSpaceCode + "/" + path + "/" + activeNewGameId + "/votes/" + currentUser.uid)
+    const challengeId = activeNewGameId;
+    setNewGameChoicesDisabled(true);
+    database.ref("spaces/" + currentSpaceCode + "/" + path + "/" + challengeId + "/votes/" + currentUser.uid)
         .set({ choice, answeredAt: Date.now(), pseudo })
-        .catch((error) => showToast(getFriendlyFirebaseError(error)));
+        .then(() => choice === "accept" ? awardAnswerReward("coupleDare", challengeId) : false)
+        .catch((error) => {
+            setNewGameChoicesDisabled(false);
+            showToast(getFriendlyFirebaseError(error));
+        });
 }
 
 function skipCoupleDare() {
@@ -5265,6 +5411,7 @@ coupleDareBtn.addEventListener("click", () => startNewGame("coupleDare"));
 backFromNewGameBtn.addEventListener("click", () => showScreen("allGames"));
 newGameAgainBtn.addEventListener("click", () => startNewGame(activeNewGameMode, true));
 newGameDoneBtn.addEventListener("click", completeCoupleDare);
+newGameAbandonBtn.addEventListener("click", abandonCurrentLimitReachedChallenge);
 
 discussResultButtons.forEach((button) => button.addEventListener("click", saveCurrentDiscussion));
 
@@ -5282,7 +5429,9 @@ filterGamesLibrary();
 updateRecommendedGame();
 
 dashboardSettingsBtn.addEventListener("click", () => {
-    previousScreen = "dashboard";
+    previousScreen = (typeof lastShownScreen === "string" && lastShownScreen !== "settings")
+        ? lastShownScreen
+        : "dashboard";
     prepareAccountSettings();
     showScreen("settings");
 });
@@ -5696,33 +5845,30 @@ document.querySelectorAll(".editor-toolbar button").forEach((button) => {
 // FONCTIONS
 // ====================
 
-function incrementAnswersCount() {
-    if (!currentSpaceCode) {
-        return Promise.resolve();
+function awardAnswerReward(mode, challengeId) {
+    if (!currentSpaceCode || !currentUser?.uid || !mode || !challengeId) {
+        return Promise.resolve(false);
     }
 
-    const statsRef =
-        database.ref("spaces/" + currentSpaceCode + "/stats");
+    const rewardKey = (mode + "_" + challengeId + "_" + currentUser.uid)
+        .replace(/[.#$\[\]\/]/g, "_");
+    const statsRef = database.ref("spaces/" + currentSpaceCode + "/stats");
 
     return statsRef.transaction((stats) => {
-        if (!stats) {
-            stats = {};
+        stats = stats || {};
+        stats.answerRewards = stats.answerRewards || {};
+
+        if (stats.answerRewards[rewardKey]) {
+            return;
         }
 
-        stats.answersCount =
-            (stats.answersCount || 0) + 1;
-
-        stats.seeds =
-            (stats.seeds || 0) + 5;
-
-        stats.xp =
-            (stats.xp || 0) + 5;
-
-        stats.level =
-            Math.floor((stats.xp || 0) / 100) + 1;
-
+        stats.answerRewards[rewardKey] = true;
+        stats.answersCount = (stats.answersCount || 0) + 1;
+        stats.seeds = (stats.seeds || 0) + 5;
+        stats.xp = (stats.xp || 0) + 5;
+        stats.level = Math.floor((stats.xp || 0) / 100) + 1;
         return stats;
-    });
+    }).then((result) => result.committed);
 }
 
 function awardCompletedGameBonus(mode, challengeId) {
@@ -6165,7 +6311,7 @@ function submitDailyRitualAnswer() {
                     answer,
                     createdAt: Date.now()
                 })
-                .then(() => incrementAnswersCount())
+                .then(() => awardAnswerReward("dailyRitual", dateKey))
                 .then(() => finalizeDailyChallenge(dateKey));
         })
         .then(() => {
@@ -8943,6 +9089,12 @@ function startLikelyGame() {
     showScreen("likely");
 }
 
+function setButtonsDisabled(buttons, disabled) {
+    buttons.filter(Boolean).forEach((button) => {
+        button.disabled = disabled;
+    });
+}
+
 function saveLikelyAnswer(answer) {
     if (!currentLikelyQuestion) {
         alert("Question introuvable 🌵");
@@ -8952,6 +9104,9 @@ function saveLikelyAnswer(answer) {
     if (!currentLikelyId) {
         currentLikelyId = createChallengeInstanceId("likelyChallenges");
     }
+
+    if ([likelyMeBtn, likelyPartnerBtn, likelyBothBtn].some((button) => button?.disabled)) return;
+    setButtonsDisabled([likelyMeBtn, likelyPartnerBtn, likelyBothBtn], true);
 
     database
         .ref("spaces/" + currentSpaceCode + "/likelyChallenges/" + currentLikelyId)
@@ -8972,7 +9127,7 @@ function saveLikelyAnswer(answer) {
                 });
         })
         .then(() => {
-            return incrementAnswersCount();
+            return awardAnswerReward("likely", currentLikelyId);
         })
         .then(() => {
             showToast("🌵 Réponse enregistrée");
@@ -8980,6 +9135,10 @@ function saveLikelyAnswer(answer) {
             showAnswerSentScreen(() => {
                 startLikelyGame();
             });
+        })
+        .catch((error) => showToast(getFriendlyFirebaseError(error)))
+        .finally(() => {
+            setButtonsDisabled([likelyMeBtn, likelyPartnerBtn, likelyBothBtn], false);
         });
 }
 
@@ -9181,6 +9340,9 @@ function saveOkAnswer(answer) {
         currentOkId = createChallengeInstanceId("okChallenges");
     }
 
+    if ([okYesBtn, okDependsBtn, okNoBtn].some((button) => button?.disabled)) return;
+    setButtonsDisabled([okYesBtn, okDependsBtn, okNoBtn], true);
+
     database
         .ref("spaces/" + currentSpaceCode + "/okChallenges/" + currentOkId)
         .update({
@@ -9200,7 +9362,7 @@ function saveOkAnswer(answer) {
                 });
         })
         .then(() => {
-            return incrementAnswersCount();
+            return awardAnswerReward("ok", currentOkId);
         })
         .then(() => {
             showToast("🌵 Réponse enregistrée");
@@ -9208,6 +9370,10 @@ function saveOkAnswer(answer) {
             showAnswerSentScreen(() => {
                 startOkGame();
             });
+        })
+        .catch((error) => showToast(getFriendlyFirebaseError(error)))
+        .finally(() => {
+            setButtonsDisabled([okYesBtn, okDependsBtn, okNoBtn], false);
         });
 }
 
@@ -9413,6 +9579,9 @@ function saveGreenFlagAnswer(answer) {
         currentGreenFlagId = createChallengeInstanceId("greenFlagChallenges");
     }
 
+    if ([greenFlagYesBtn, greenFlagNeutralBtn, greenFlagNoBtn].some((button) => button?.disabled)) return;
+    setButtonsDisabled([greenFlagYesBtn, greenFlagNeutralBtn, greenFlagNoBtn], true);
+
     database
         .ref("spaces/" + currentSpaceCode + "/greenFlagChallenges/" + currentGreenFlagId)
         .update({
@@ -9432,7 +9601,7 @@ function saveGreenFlagAnswer(answer) {
                 });
         })
         .then(() => {
-            return incrementAnswersCount();
+            return awardAnswerReward("greenFlag", currentGreenFlagId);
         })
         .then(() => {
             showToast("🌵 Réponse enregistrée");
@@ -9440,6 +9609,10 @@ function saveGreenFlagAnswer(answer) {
             showAnswerSentScreen(() => {
                 startGreenFlagGame();
             });
+        })
+        .catch((error) => showToast(getFriendlyFirebaseError(error)))
+        .finally(() => {
+            setButtonsDisabled([greenFlagYesBtn, greenFlagNeutralBtn, greenFlagNoBtn], false);
         });
 }
 
@@ -9649,6 +9822,9 @@ function savePrincessAnswer(answer) {
         currentPrincessId = createChallengeInstanceId("princessChallenges");
     }
 
+    if ([princessYesBtn, princessDependsBtn, princessNoBtn].some((button) => button?.disabled)) return;
+    setButtonsDisabled([princessYesBtn, princessDependsBtn, princessNoBtn], true);
+
     database
         .ref("spaces/" + currentSpaceCode + "/princessChallenges/" + currentPrincessId)
         .update({
@@ -9668,7 +9844,7 @@ function savePrincessAnswer(answer) {
                 });
         })
         .then(() => {
-            return incrementAnswersCount();
+            return awardAnswerReward("princess", currentPrincessId);
         })
         .then(() => {
             showToast("👑 Réponse enregistrée");
@@ -9676,6 +9852,10 @@ function savePrincessAnswer(answer) {
             showAnswerSentScreen(() => {
                 startPrincessGame();
             });
+        })
+        .catch((error) => showToast(getFriendlyFirebaseError(error)))
+        .finally(() => {
+            setButtonsDisabled([princessYesBtn, princessDependsBtn, princessNoBtn], false);
         });
 }
 
@@ -9908,7 +10088,7 @@ function markCurrentPrincessResultSeen() {
 }
 
 async function loadCoupleQuestionsData() {
-    const response = await fetch("data/questions.json?v=42");
+    const response = await fetch("data/questions.json");
     coupleQuestions = await applyCreatorContent("questions", await response.json());
 
     console.log("Questions chargées :", coupleQuestions);
@@ -9950,6 +10130,9 @@ function saveQuestionsAnswer() {
         return;
     }
 
+    if (validateQuestionsAnswerBtn.disabled) return;
+    validateQuestionsAnswerBtn.disabled = true;
+
     if (!currentCoupleQuestionId) {
         currentCoupleQuestionId = createChallengeInstanceId("questionsChallenges");
     }
@@ -9973,10 +10156,14 @@ function saveQuestionsAnswer() {
                 });
         })
         .then(() => {
-            return incrementAnswersCount();
+            return awardAnswerReward("questions", currentCoupleQuestionId);
         })
         .then(() => {
             showScreen("dashboard");
+        })
+        .catch((error) => showToast(getFriendlyFirebaseError(error)))
+        .finally(() => {
+            validateQuestionsAnswerBtn.disabled = false;
         });
 }
 
@@ -10701,7 +10888,7 @@ const ACHIEVEMENTS = [
     { id: "level10", icon: "💚", title: "Belle complicité", description: "Atteindre le niveau 10", metric: "level", target: 10, unit: "niveau" },
     { id: "level21", icon: "👑", title: "Cactus légendaire", description: "Atteindre le niveau 21", metric: "level", target: 21, unit: "niveau" },
     { id: "harmony80", icon: "💕", title: "Sur la même longueur d’onde", description: "Atteindre 80 % de compatibilité moyenne", metric: "compatibility", target: 80, unit: "%" },
-    { id: "explorer", icon: "🧭", title: "Explorateurs", description: "Terminer une partie dans chaque mode", metric: "modes", target: 7, unit: "modes" },
+    { id: "explorer", icon: "🧭", title: "Explorateurs", description: "Terminer une partie dans chaque mode", metric: "modes", target: 11, unit: "modes" },
     { id: "days30", icon: "📅", title: "Un mois de souvenirs", description: "Atteindre 30 jours ensemble", metric: "days", target: 30, unit: "jours" }
 ];
 

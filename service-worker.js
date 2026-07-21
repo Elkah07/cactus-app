@@ -1,13 +1,13 @@
-const CACHE_VERSION = "v81";
+const CACHE_VERSION = "v82";
 const SHELL_CACHE = `cactus-shell-${CACHE_VERSION}`;
 const RUNTIME_CACHE = `cactus-runtime-${CACHE_VERSION}`;
 
 const APP_SHELL = [
     "./index.html",
-    "./css/style.css?v=81",
+    "./css/style.css?v=82",
     "./js/firebase.js",
-    "./js/script.js?v=81",
-    "./js/screens.js?v=81",
+    "./js/script.js?v=82",
+    "./js/screens.js?v=82",
     "./js/utils.js",
     "./js/storage.js",
     "./js/rankings.js",
@@ -71,7 +71,12 @@ const APP_SHELL = [
     "./assets/cactus-questions.png",
     "./assets/cactus-history.png",
     "./assets/cactus-stats.png",
-    "./assets/cactus-achievements.png"
+    "./assets/cactus-achievements.png",
+    "./assets/cactus-compatibility.png",
+    "./assets/cactus-garden.png",
+    "./assets/cactus-playing.png",
+    "./assets/cactus-profile.png",
+    "./assets/cactus-streak.png"
 ];
 
 self.addEventListener("install", (event) => {
@@ -106,6 +111,17 @@ self.addEventListener("activate", (event) => {
     );
 });
 
+async function matchCachedRequest(request) {
+    const directMatch = await caches.match(request);
+    if (directMatch) return directMatch;
+
+    const url = new URL(request.url);
+    if (url.origin !== self.location.origin || !url.search) return null;
+
+    url.search = "";
+    return caches.match(url.toString());
+}
+
 async function networkFirst(request) {
     try {
         const response = await fetch(request);
@@ -117,13 +133,13 @@ async function networkFirst(request) {
 
         return response;
     } catch (error) {
-        return (await caches.match(request)) ||
+        return (await matchCachedRequest(request)) ||
             (await caches.match("./index.html"));
     }
 }
 
 async function cacheFirstWithRefresh(request) {
-    const cachedResponse = await caches.match(request);
+    const cachedResponse = await matchCachedRequest(request);
     const updatePromise = fetch(request)
         .then(async (response) => {
             if (response.ok) {

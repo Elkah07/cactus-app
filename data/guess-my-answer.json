@@ -617,7 +617,7 @@
   },
   {
     "id": "projet_reve_nous",
-    "question": "Quel projet aimerais-tu réaliser ensemble ?"
+    "question": "Quel projet un peu fou aimerais-tu qu’on ose lancer ensemble un jour ?"
   },
   {
     "id": "ville_vivre_nous",
@@ -661,7 +661,7 @@
   },
   {
     "id": "teleportation_immediate",
-    "question": "Si tu pouvais te téléporter maintenant, où irais-tu ?"
+    "question": "Dans quel endroit aimerais-tu te réveiller demain matin avec moi ?"
   },
   {
     "id": "serie_vie",
@@ -969,7 +969,7 @@
   },
   {
     "id": "serie_titre",
-    "question": "Quel serait le titre de la série sur ta vie ?"
+    "question": "Quel titre donnerais-tu au chapitre actuel de ta vie ?"
   },
   {
     "id": "objet_perdu",
