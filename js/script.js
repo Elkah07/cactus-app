@@ -425,6 +425,7 @@ const gardenResetLayoutBtn = document.getElementById("gardenResetLayoutBtn");
 
 const notebookScreen = document.getElementById("notebookScreen");
 const openedNotebookTitle = document.getElementById("openedNotebookTitle");
+const openedNotebookEmoji = document.getElementById("openedNotebookEmoji");
 const notebookSaveStatus = document.getElementById("notebookSaveStatus");
 const notebookWordCount = document.getElementById("notebookWordCount");
 const backToGardenBtn = document.getElementById("backToGardenBtn");
@@ -4526,9 +4527,10 @@ saveEditNotebookBtn.addEventListener("click", () => {
             currentNotebookData.color = color;
             currentNotebookData.titleColor = titleColor;
 
-            openedNotebookTitle.textContent =
-                emoji + " " + title;
+            openedNotebookTitle.textContent = title;
+            if (openedNotebookEmoji) openedNotebookEmoji.textContent = emoji;
             openedNotebookTitle.style.color = titleColor;
+            applyNotebookVisualTheme(currentNotebookData);
             closeEditNotebookModal();
             showToast("Carnet personnalisé ✨");
         })
@@ -9847,13 +9849,21 @@ function loadNotebooks() {
         });
 }
 
+function applyNotebookVisualTheme(notebook = {}) {
+    const accent = getSafeProfileColor(notebook.color || "#D8F3DC");
+    const titleColor = getSafeProfileColor(notebook.titleColor || "#1B4332");
+    notebookScreen?.style.setProperty("--notebook-accent", accent);
+    notebookScreen?.style.setProperty("--notebook-title-color", titleColor);
+}
+
 function openNotebook(notebookId, notebook) {
     currentNotebookId = notebookId;
     currentNotebookData = notebook;
 
-    openedNotebookTitle.textContent =
-        (notebook.emoji || "📝") + " " + notebook.title;
+    openedNotebookTitle.textContent = notebook.title || "Carnet";
+    if (openedNotebookEmoji) openedNotebookEmoji.textContent = notebook.emoji || "📝";
     openedNotebookTitle.style.color = getSafeProfileColor(notebook.titleColor || "#1B4332");
+    applyNotebookVisualTheme(notebook);
 
     loadNotebookContent();
     showScreen("notebook");

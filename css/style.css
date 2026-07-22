@@ -10613,3 +10613,380 @@ body.organizer-sheet-open::before {
     .shopping-form-row,
     .organizer-form-grid { grid-template-columns: 1fr; }
 }
+
+/* =========================================================
+   V101 — Organisateurs compacts + carnets premium
+   ========================================================= */
+
+/* Les actions ne flottent plus au milieu des cartes. */
+.shopping-item,
+.organizer-item {
+    position: relative;
+    display: grid;
+    grid-template-columns: 46px minmax(0, 1fr) !important;
+    align-items: start;
+    gap: 12px;
+    min-height: 0;
+    padding: 15px 14px;
+    overflow: visible;
+}
+.shopping-item-copy,
+.organizer-item-copy {
+    min-width: 0;
+    padding-right: 76px;
+}
+.shopping-item-actions,
+.organizer-item-actions {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 6px;
+    margin: 0;
+}
+.shopping-item-actions button,
+.organizer-item-actions button {
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    padding: 0;
+    border: 1px solid color-mix(in srgb, var(--app-border) 84%, transparent);
+    border-radius: 11px;
+    background: color-mix(in srgb, var(--app-panel-bg) 90%, transparent);
+    box-shadow: 0 6px 15px var(--app-shadow-soft);
+    font-size: .82rem;
+    line-height: 1;
+}
+.shopping-item-actions button.is-edit,
+.organizer-item-actions button.is-edit {
+    background: color-mix(in srgb, var(--app-accent) 11%, var(--app-panel-bg));
+    color: var(--app-accent);
+}
+.shopping-item-actions button.is-delete,
+.organizer-item-actions button.is-delete {
+    width: 32px;
+    height: 32px;
+    background: color-mix(in srgb, #ff737d 10%, var(--app-panel-bg));
+    color: #ff7f88;
+}
+.shopping-item-copy > strong,
+.organizer-item-copy > strong {
+    padding-right: 0;
+    font-size: .88rem;
+}
+.shopping-item-copy > div,
+.organizer-item-copy > div {
+    margin-top: 7px;
+}
+.shopping-item-copy > small,
+.organizer-item-copy > small {
+    margin-top: 7px;
+    line-height: 1.35;
+}
+.shopping-list-screen .shopping-check,
+.daily-organizer-screen .organizer-item-check {
+    align-self: start;
+}
+
+/* Bottom sheets réellement indépendantes de l'écran parent. */
+body.organizer-sheet-open {
+    overflow: hidden !important;
+    touch-action: none;
+}
+body.organizer-sheet-open::before {
+    z-index: 9990 !important;
+    background: rgba(2, 24, 18, .72) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+}
+body.organizer-sheet-open .shopping-item-form.organizer-creation-panel,
+body.organizer-sheet-open .organizer-form.organizer-creation-panel {
+    position: fixed !important;
+    z-index: 10000 !important;
+    top: auto !important;
+    left: max(10px, env(safe-area-inset-left)) !important;
+    right: max(10px, env(safe-area-inset-right)) !important;
+    bottom: max(10px, env(safe-area-inset-bottom)) !important;
+    width: auto !important;
+    max-width: 620px !important;
+    max-height: min(78svh, 700px) !important;
+    margin: 0 auto !important;
+    transform: none;
+    border-radius: 28px 28px 22px 22px !important;
+    box-shadow: 0 30px 100px rgba(0, 0, 0, .5) !important;
+}
+body.organizer-sheet-open .shopping-form-heading,
+body.organizer-sheet-open .organizer-form-heading {
+    border-radius: 26px 26px 0 0;
+}
+
+/* Carnets dans Notre quotidien : vrais petits objets, plus premium. */
+.daily-tools-screen .daily-notebooks-strip {
+    gap: 14px;
+    padding: 24px 4px 22px;
+}
+.daily-tools-screen .daily-notebooks-strip .notebook-card {
+    flex: 0 0 166px;
+    min-height: 122px;
+    padding: 24px 15px 15px 19px;
+    border: 1px solid rgba(255,255,255,.48);
+    border-radius: 20px 20px 18px 18px;
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.42),
+        inset 9px 0 0 rgba(255,255,255,.11),
+        0 5px 0 color-mix(in srgb, #173d2e 30%, transparent),
+        0 15px 28px rgba(0,29,21,.28);
+}
+.daily-tools-screen .daily-notebooks-strip .notebook-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    border-radius: inherit;
+    background:
+        linear-gradient(90deg, rgba(19,75,57,.18) 0 1px, transparent 1px) 13px 0 / 1px 100% no-repeat,
+        linear-gradient(145deg, rgba(255,255,255,.24), transparent 45%),
+        repeating-linear-gradient(to bottom, transparent 0 26px, rgba(255,255,255,.09) 27px);
+    pointer-events: none;
+}
+.daily-tools-screen .daily-notebooks-strip .notebook-card::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 25px;
+    height: 25px;
+    border-radius: 0 0 17px 0;
+    background: linear-gradient(135deg, rgba(255,255,255,.36) 0 49%, rgba(14,62,46,.14) 51% 100%);
+    opacity: .7;
+    pointer-events: none;
+}
+.daily-tools-screen .daily-notebooks-strip .notebook-card .notebook-emoji {
+    top: -18px;
+    right: 18px;
+    font-size: 1.8rem;
+    filter: drop-shadow(0 5px 4px rgba(0,35,24,.34));
+}
+.daily-tools-screen .daily-notebooks-strip .notebook-card .notebook-emoji::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -5px;
+    width: 24px;
+    height: 8px;
+    transform: translateX(-50%) rotate(-8deg);
+    border-radius: 999px;
+    background: rgba(0,35,24,.18);
+    filter: blur(4px);
+    z-index: -1;
+}
+.daily-tools-screen .daily-notebooks-strip .notebook-card h3 {
+    position: relative;
+    z-index: 2;
+    max-width: 122px;
+    margin: 12px 0 0;
+    font-size: .9rem;
+    line-height: 1.2;
+}
+.daily-tools-screen .daily-notebooks-strip .notebook-card small {
+    position: relative;
+    z-index: 2;
+    font-size: .56rem;
+    opacity: .78;
+}
+
+/* Éditeur de carnet : vraie page reliée, teintée par le carnet. */
+#notebookScreen {
+    --notebook-accent: #D8F3DC;
+    --notebook-title-color: #1B4332;
+    min-height: 100svh;
+    padding: 14px 12px calc(118px + env(safe-area-inset-bottom));
+    background:
+        radial-gradient(circle at 12% 4%, color-mix(in srgb, var(--notebook-accent) 10%, transparent), transparent 24rem),
+        var(--app-page-bg);
+}
+.notebook-book-shell {
+    width: min(100%, 720px);
+    margin: 0 auto;
+}
+#notebookScreen .notebook-editor-header {
+    display: grid;
+    grid-template-columns: 42px minmax(0,1fr) auto;
+    align-items: center;
+    gap: 11px;
+    margin: 0 0 10px;
+    padding: 13px 14px;
+    border: 1px solid color-mix(in srgb, var(--notebook-accent) 34%, var(--app-border));
+    border-radius: 22px;
+    background:
+        radial-gradient(circle at 90% 0, color-mix(in srgb, var(--notebook-accent) 18%, transparent), transparent 9rem),
+        color-mix(in srgb, var(--app-panel-bg) 95%, var(--notebook-accent) 5%);
+    box-shadow: 0 15px 34px var(--app-shadow-soft);
+}
+.notebook-back-mini {
+    display: grid;
+    width: 42px;
+    height: 42px;
+    margin: 0;
+    padding: 0;
+    place-items: center;
+    border-radius: 14px;
+    background: color-mix(in srgb, var(--notebook-accent) 15%, var(--app-secondary-button));
+    color: var(--app-heading);
+    font-size: 1.35rem;
+}
+.notebook-editor-identity {
+    display: flex;
+    min-width: 0;
+    align-items: center;
+    gap: 10px;
+}
+.notebook-editor-emoji {
+    display: grid;
+    flex: 0 0 44px;
+    width: 44px;
+    height: 44px;
+    place-items: center;
+    border-radius: 15px;
+    background: color-mix(in srgb, var(--notebook-accent) 24%, var(--app-icon-bg));
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--notebook-accent) 32%, transparent);
+    font-size: 1.35rem;
+}
+.notebook-editor-identity > div { min-width: 0; }
+#notebookScreen .notebook-editor-header h1 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: var(--notebook-title-color);
+    font-size: 1rem;
+}
+#notebookScreen .notebook-editor-meta {
+    font-size: .54rem;
+}
+#notebookScreen .notebook-toolbar {
+    display: flex;
+    justify-content: flex-end;
+    gap: 7px;
+    margin: 0 2px 10px;
+}
+#notebookScreen .notebook-toolbar button {
+    width: auto;
+    min-height: 38px;
+    padding: 8px 12px;
+    border-radius: 13px;
+    font-size: .6rem;
+}
+
+.notebook-paper-frame {
+    position: relative;
+    overflow: hidden;
+    padding: 0 0 0 26px;
+    border: 1px solid color-mix(in srgb, var(--notebook-accent) 38%, var(--app-border));
+    border-radius: 26px;
+    background:
+        linear-gradient(90deg, color-mix(in srgb, var(--notebook-accent) 16%, var(--app-panel-bg)) 0 26px, transparent 26px),
+        color-mix(in srgb, var(--notebook-accent) 7%, var(--app-panel-bg));
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.16),
+        0 20px 50px rgba(0,24,18,.22);
+}
+.notebook-paper-frame::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+        radial-gradient(circle at 88% 8%, color-mix(in srgb, var(--notebook-accent) 10%, transparent), transparent 14rem),
+        linear-gradient(145deg, rgba(255,255,255,.07), transparent 38%);
+}
+.notebook-binding {
+    position: absolute;
+    z-index: 4;
+    top: 22px;
+    bottom: 22px;
+    left: 7px;
+    display: flex;
+    width: 16px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    pointer-events: none;
+}
+.notebook-binding i {
+    width: 13px;
+    height: 5px;
+    border: 2px solid color-mix(in srgb, var(--notebook-accent) 45%, #a9b8b1);
+    border-right: 0;
+    border-radius: 999px 0 0 999px;
+    box-shadow: 0 1px 2px rgba(0,0,0,.16);
+}
+#notebookScreen .notebook-editor {
+    position: relative;
+    z-index: 2;
+    min-height: 520px;
+    margin: 0;
+    padding: 26px 22px 130px 24px;
+    border: 0;
+    border-radius: 0;
+    outline: 0;
+    background:
+        linear-gradient(90deg, transparent 31px, color-mix(in srgb, #f08a96 20%, transparent) 32px, transparent 33px),
+        repeating-linear-gradient(to bottom, transparent 0, transparent 31px, color-mix(in srgb, var(--app-muted) 13%, transparent) 32px),
+        transparent;
+    box-shadow: none;
+    color: var(--app-text);
+    font-size: .84rem;
+    line-height: 2rem;
+}
+#notebookScreen .notebook-editor:focus {
+    border: 0;
+    box-shadow: none;
+}
+#notebookScreen .notebook-editor.is-empty::before {
+    top: 26px;
+    left: 24px;
+    font-style: italic;
+}
+#notebookScreen .editor-toolbar {
+    left: max(12px, env(safe-area-inset-left));
+    right: max(12px, env(safe-area-inset-right));
+    bottom: calc(10px + env(safe-area-inset-bottom));
+    border-color: color-mix(in srgb, var(--notebook-accent) 30%, var(--app-border));
+    background: color-mix(in srgb, var(--app-panel-bg) 93%, transparent);
+    box-shadow: 0 18px 50px rgba(0,20,14,.38);
+}
+.notebook-return-button {
+    width: 100%;
+    margin: 12px 0 0;
+    border-radius: 16px;
+}
+
+@media (max-width: 520px) {
+    .shopping-item,
+    .organizer-item {
+        grid-template-columns: 44px minmax(0, 1fr) !important;
+        padding: 14px 12px;
+    }
+    .shopping-item-copy,
+    .organizer-item-copy { padding-right: 70px; }
+    .shopping-item-actions,
+    .organizer-item-actions { top: 11px; right: 10px; }
+    #notebookScreen { padding-inline: 8px; }
+    #notebookScreen .notebook-editor-header {
+        grid-template-columns: 38px minmax(0,1fr);
+    }
+    #notebookScreen .notebook-editor-meta {
+        grid-column: 2;
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 8px;
+        margin-top: -4px;
+    }
+    .notebook-editor-emoji { width: 40px; height: 40px; flex-basis: 40px; }
+    .notebook-paper-frame { padding-left: 22px; border-radius: 22px; }
+    .notebook-binding { left: 5px; }
+    #notebookScreen .notebook-editor { min-height: 480px; padding: 22px 16px 128px 20px; }
+}

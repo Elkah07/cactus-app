@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cactus 🌵</title>
-    <link rel="stylesheet" href="css/style.css?v=100">
+    <link rel="stylesheet" href="css/style.css?v=101">
     <link rel="manifest" href="manifest.json?v=2">
     <meta name="theme-color" content="#003E2D">
 </head>
@@ -608,15 +608,23 @@
 <!-- ÉCRAN CARNET -->
 
 <div id="notebookScreen" style="display:none;">
-    <header class="notebook-editor-header">
-        <div><small>Notre carnet partagé</small><h1 id="openedNotebookTitle">Carnet</h1></div>
-        <div class="notebook-editor-meta"><span id="notebookSaveStatus">Enregistré</span><span id="notebookWordCount">0 mot</span></div>
-    </header>
+    <div class="notebook-book-shell">
+        <header class="notebook-editor-header">
+            <button type="button" class="notebook-back-mini" aria-label="Retour" onclick="document.getElementById('backToGardenBtn').click()">‹</button>
+            <div class="notebook-editor-identity">
+                <span id="openedNotebookEmoji" class="notebook-editor-emoji" aria-hidden="true">📝</span>
+                <div><small>Notre carnet partagé</small><h1 id="openedNotebookTitle">Carnet</h1></div>
+            </div>
+            <div class="notebook-editor-meta"><span id="notebookSaveStatus">Enregistré</span><span id="notebookWordCount">0 mot</span></div>
+        </header>
 
-    <div class="notebook-toolbar">
-        <button type="button" id="renameNotebookBtn" class="secondary">Modifier le carnet</button>
-        <button type="button" id="deleteNotebookBtn" class="danger-btn">Supprimer</button>
-    </div>
+        <div class="notebook-toolbar">
+            <button type="button" id="renameNotebookBtn" class="secondary">✦ Personnaliser</button>
+            <button type="button" id="deleteNotebookBtn" class="danger-btn">Supprimer</button>
+        </div>
+
+        <div class="notebook-paper-frame">
+            <div class="notebook-binding" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
 
     <div class="editor-toolbar" aria-label="Outils de mise en forme">
         <div class="editor-tool-group">
@@ -656,9 +664,12 @@
         aria-label="Contenu du carnet"
     ></div>
 
-    <button type="button" id="backToGardenBtn" class="secondary">
-        Retour à Notre quotidien
-    </button>
+        </div>
+
+        <button type="button" id="backToGardenBtn" class="notebook-return-button secondary">
+            Retour à Notre quotidien
+        </button>
+    </div>
 </div>
 
 <div id="editNotebookModal" class="edit-notebook-modal" style="display:none;" role="dialog" aria-modal="true" aria-labelledby="editNotebookModalTitle">
@@ -2630,7 +2641,7 @@
     <script src="js/storage.js"></script>
     <script src="js/rankings.js"></script>
     <script src="js/questions.js"></script>
-    <script src="js/script.js?v=100"></script>
+    <script src="js/script.js?v=101"></script>
 
 </body>
 </html>
