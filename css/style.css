@@ -14654,3 +14654,54 @@ body.has-custom-app-theme :is(.waiting-box, .comparison-box, .compatibility-scor
         animation: none !important;
     }
 }
+
+/* =========================================================
+   V114.2 — CORRECTIF "À L'HORIZON" / NOTRE QUOTIDIEN
+   La zone des prochains moments suit désormais le thème actif.
+========================================================= */
+.daily-calendar-upcoming-inline {
+    border-top-color: var(--app-border) !important;
+    background: var(--app-shell-bg) !important;
+    color: var(--app-text);
+}
+
+.daily-calendar-inline-heading small {
+    color: var(--app-accent) !important;
+}
+
+.daily-calendar-inline-heading strong {
+    color: var(--app-heading) !important;
+}
+
+.daily-calendar-inline-heading button {
+    border: 1px solid var(--app-border) !important;
+    background: var(--app-secondary-button) !important;
+    color: var(--app-heading) !important;
+}
+
+.daily-upcoming-moments-inline .daily-upcoming-moment {
+    border-color: color-mix(in srgb, var(--event-color, var(--app-accent)) 34%, var(--app-border-strong)) !important;
+    background: color-mix(in srgb, var(--event-color, var(--app-accent)) 16%, var(--app-input-bg)) !important;
+    color: var(--app-text) !important;
+}
+
+.daily-upcoming-moments-inline .daily-upcoming-moment > span {
+    background: var(--app-panel-bg) !important;
+    box-shadow: 0 6px 16px var(--app-shadow-soft) !important;
+}
+
+.daily-upcoming-moments-inline .daily-upcoming-moment strong {
+    color: var(--app-heading) !important;
+}
+
+.daily-upcoming-moments-inline .daily-upcoming-moment small {
+    color: var(--app-muted) !important;
+}
+
+.daily-upcoming-moments-inline .daily-upcoming-moment b {
+    color: var(--app-heading) !important;
+}
+
+.daily-calendar-upcoming-inline .daily-upcoming-empty {
+    color: var(--app-muted) !important;
+}
