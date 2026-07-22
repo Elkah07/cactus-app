@@ -13884,3 +13884,39 @@ body.memory-viewer-open {
         transition: none !important;
     }
 }
+
+
+/* ====================
+   V112 — CAPSULES : HEURE D’OUVERTURE
+==================== */
+.time-capsule-opening-grid {
+    align-items: start;
+}
+
+.time-capsule-open-time-label {
+    position: relative;
+}
+
+.time-capsule-open-time-label > small {
+    display: block;
+    margin: -4px 2px 9px;
+    color: var(--app-muted);
+    font-size: .5rem;
+    font-weight: 700;
+    line-height: 1.35;
+}
+
+.time-capsule-open-time-label input[type="time"] {
+    min-height: 45px;
+}
+
+.time-capsule-card-meta time {
+    font: inherit;
+    color: inherit;
+}
+
+@media (max-width: 799px) {
+    .time-capsule-open-time-label > small {
+        margin-top: -2px;
+    }
+}

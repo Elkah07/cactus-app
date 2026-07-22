@@ -394,6 +394,7 @@ const timeCapsuleForm = document.getElementById("timeCapsuleForm");
 const timeCapsuleTitleInput = document.getElementById("timeCapsuleTitleInput");
 const timeCapsuleMessageInput = document.getElementById("timeCapsuleMessageInput");
 const timeCapsuleOpenDateInput = document.getElementById("timeCapsuleOpenDateInput");
+const timeCapsuleOpenTimeInput = document.getElementById("timeCapsuleOpenTimeInput");
 const timeCapsuleAuthorInput = document.getElementById("timeCapsuleAuthorInput");
 const saveTimeCapsuleBtn = document.getElementById("saveTimeCapsuleBtn");
 const cancelTimeCapsuleBtn = document.getElementById("cancelTimeCapsuleBtn");
@@ -3707,8 +3708,8 @@ function getUnifiedCalendarEvents(spaceData = currentSpaceData || {}) {
     });
     Object.entries(spaceData.dailyTools?.timeCapsules || {}).forEach(([id, item]) => {
         if (!item?.openDate || item.archivedAt) return;
-        const canRevealTitle = Boolean(item.openedAt) || item.openDate <= getLocalDateKey() || isOwnLockedCalendarCapsule(item);
-        events.push({ id, source: "capsules", date: item.openDate, time: "", title: canRevealTitle ? (item.title || "Capsule temporelle") : "Capsule temporelle mystère", notes: "", category: "capsule", repeat: "none", showCountdown: true, emoji: item.design?.symbol || item.symbol || "⏳", color: item.design?.customColor || item.design?.accent || "#72D59D", readOnly: true });
+        const canRevealTitle = Boolean(item.openedAt) || getTimeCapsuleOpenTimestamp(item) <= Date.now() || isOwnLockedCalendarCapsule(item);
+        events.push({ id, source: "capsules", date: item.openDate, time: item.openTime || "", title: canRevealTitle ? (item.title || "Capsule temporelle") : "Capsule temporelle mystère", notes: "", category: "capsule", repeat: "none", showCountdown: true, emoji: item.design?.symbol || item.symbol || "⏳", color: item.design?.customColor || item.design?.accent || "#72D59D", readOnly: true });
     });
     return events;
 }
@@ -4475,8 +4476,10 @@ function updateTimeCapsuleCustomizer() {
     if (timeCapsulePreviewStyleName) timeCapsulePreviewStyleName.textContent = TIME_CAPSULE_STYLES[design.style].label;
     if (timeCapsulePreviewTitle) timeCapsulePreviewTitle.textContent = timeCapsuleTitleInput?.value.trim() || "Votre capsule";
     if (timeCapsulePreviewDate) {
-        timeCapsulePreviewDate.textContent = timeCapsuleOpenDateInput?.value
-            ? "À ouvrir le " + formatOrganizerDate(timeCapsuleOpenDateInput.value)
+        const previewDate = timeCapsuleOpenDateInput?.value || "";
+        const previewTime = timeCapsuleOpenTimeInput?.value || "";
+        timeCapsulePreviewDate.textContent = previewDate
+            ? "À ouvrir le " + formatOrganizerDate(previewDate, previewTime)
             : "Choisissez sa date d’ouverture";
     }
     fillTimeCapsuleParticles(timeCapsulePreviewParticles, design.effect, 8, true);
@@ -4504,9 +4507,17 @@ function animateTimeCapsuleSealing() {
 }
 
 function getTimeCapsuleOpenTimestamp(item) {
+    const storedOpenAt = Number(item?.openAt || 0);
+    if (Number.isFinite(storedOpenAt) && storedOpenAt > 0) return storedOpenAt;
     if (!item?.openDate) return 0;
-    const timestamp = new Date(item.openDate + "T00:00:00").getTime();
+    const time = /^\d{2}:\d{2}$/.test(String(item.openTime || "")) ? item.openTime : "00:00";
+    const timestamp = new Date(item.openDate + "T" + time + ":00").getTime();
     return Number.isFinite(timestamp) ? timestamp : 0;
+}
+
+function formatTimeCapsuleOpeningMoment(item = {}) {
+    if (!item.openDate) return "Date d’ouverture inconnue";
+    return formatOrganizerDate(item.openDate, item.openTime || "");
 }
 
 function getTimeCapsuleTheme(item) {
@@ -4523,9 +4534,18 @@ function getTimeCapsuleCountdownLabel(item) {
     const openAt = getTimeCapsuleOpenTimestamp(item);
     if (!openAt) return "Date d’ouverture inconnue";
     const diff = openAt - Date.now();
+    if (diff <= 0) return "Prête à être ouverte ✨";
+
+    if (item?.openTime && diff <= 86400000) {
+        const totalMinutes = Math.max(1, Math.ceil(diff / 60000));
+        if (totalMinutes < 60) return "Encore " + totalMinutes + " min avant l’ouverture";
+        const hours = Math.floor(totalMinutes / 60);
+        const minutes = totalMinutes % 60;
+        return "Encore " + hours + " h" + (minutes ? " " + String(minutes).padStart(2, "0") + " min" : "") + " avant l’ouverture";
+    }
+
     const days = Math.ceil(diff / 86400000);
-    if (days <= 0) return "Prête à être ouverte ✨";
-    if (days === 1) return "Plus qu’un jour avant l’ouverture";
+    if (days === 1) return item?.openTime ? "Ouverture demain à " + item.openTime.replace(":", "h") : "Plus qu’un jour avant l’ouverture";
     if (days < 30) return "Encore " + days + " jours de voyage";
     const months = Math.ceil(days / 30.44);
     if (months <= 12) return "Encore environ " + months + " mois";
@@ -4619,7 +4639,7 @@ function updateTimeCapsuleArchiveState(id, archived) {
 
 function renderTimeCapsules(items = {}) {
     currentTimeCapsules = items || {};
-    const allEntries = Object.entries(currentTimeCapsules).sort((a, b) => (a[1].openDate || "9999").localeCompare(b[1].openDate || "9999"));
+    const allEntries = Object.entries(currentTimeCapsules).sort((a, b) => (getTimeCapsuleOpenTimestamp(a[1]) || Number.MAX_SAFE_INTEGER) - (getTimeCapsuleOpenTimestamp(b[1]) || Number.MAX_SAFE_INTEGER));
     const now = Date.now();
     let lockedCount = 0;
     let readyCount = 0;
@@ -4673,9 +4693,9 @@ function renderTimeCapsules(items = {}) {
         const designLabel = TIME_CAPSULE_STYLES[design.style]?.label || "Capsule";
         const creatorLabel = item.createdByPseudo || getOrganizerPersonLabel(item.createdByUid) || "Votre partenaire";
         if (isPartnerMystery) {
-            meta.textContent = creatorLabel + " l’a scellée · ouverture le " + formatOrganizerDate(item.openDate);
+            meta.textContent = creatorLabel + " l’a scellée · ouverture le " + formatTimeCapsuleOpeningMoment(item);
         } else {
-            meta.textContent = (unlocked ? "Disponible depuis le " + formatOrganizerDate(item.openDate) : "Ouverture le " + formatOrganizerDate(item.openDate)) + " · " + designLabel;
+            meta.textContent = (unlocked ? "Disponible depuis le " + formatTimeCapsuleOpeningMoment(item) : "Ouverture le " + formatTimeCapsuleOpeningMoment(item)) + " · " + designLabel;
         }
 
         const teaser = document.createElement("p");
@@ -4799,6 +4819,8 @@ if (timeCapsuleRevealModal) timeCapsuleRevealModal.querySelector("[data-close-ti
 
 timeCapsuleTitleInput?.addEventListener("input", updateTimeCapsuleCustomizer);
 timeCapsuleOpenDateInput?.addEventListener("change", updateTimeCapsuleCustomizer);
+timeCapsuleOpenTimeInput?.addEventListener("change", updateTimeCapsuleCustomizer);
+timeCapsuleOpenTimeInput?.addEventListener("input", updateTimeCapsuleCustomizer);
 clearTimeCapsuleCustomColorBtn?.addEventListener("click", () => {
     timeCapsuleDraftDesign.customColor = "";
     timeCapsuleCustomColorInput.value = TIME_CAPSULE_THEMES[timeCapsuleDraftDesign.theme].accent.toUpperCase();
@@ -4824,9 +4846,15 @@ timeCapsuleForm.addEventListener("submit", (event) => {
     const title = timeCapsuleTitleInput.value.trim();
     const message = timeCapsuleMessageInput.value.trim();
     const openDate = timeCapsuleOpenDateInput.value;
+    const openTime = timeCapsuleOpenTimeInput?.value || "";
     if (!title || !message || !openDate) return;
 
     const now = Date.now();
+    const openAt = new Date(openDate + "T" + (openTime || "00:00") + ":00").getTime();
+    if (!Number.isFinite(openAt) || openAt <= now) {
+        showToast("Choisis un moment d’ouverture dans le futur");
+        return;
+    }
     const design = normalizeTimeCapsuleDesign(timeCapsuleDraftDesign);
     saveTimeCapsuleBtn.disabled = true;
     saveTimeCapsuleBtn.innerHTML = '<span aria-hidden="true">✦</span> Scellement en cours…';
@@ -4837,6 +4865,8 @@ timeCapsuleForm.addEventListener("submit", (event) => {
         title,
         message,
         openDate,
+        openTime,
+        openAt,
         author: timeCapsuleAuthorInput.value || currentUser.uid,
         design,
         createdAt: now,
@@ -4844,7 +4874,7 @@ timeCapsuleForm.addEventListener("submit", (event) => {
         createdByPseudo: pseudo
     }).then(async () => {
         await animateTimeCapsuleSealing();
-        showToast("Capsule personnalisée scellée jusqu’au " + formatOrganizerDate(openDate) + " ✨");
+        showToast("Capsule personnalisée scellée jusqu’au " + formatOrganizerDate(openDate, openTime) + " ✨");
         window.setTimeout(() => {
             timeCapsuleForm.reset();
             resetTimeCapsuleCustomizer();
@@ -4951,7 +4981,7 @@ function renderDashboardTimeCapsules(spaceData = {}) {
             if (dashboardTimeCapsuleTeaserTitle) dashboardTimeCapsuleTeaserTitle.textContent = partnerLocked.length === 1
                 ? creatorLabel + " a scellé une capsule pour le futur"
                 : creatorLabel + " a scellé " + partnerLocked.length + " capsules secrètes";
-            if (dashboardTimeCapsuleTeaserMeta) dashboardTimeCapsuleTeaserMeta.textContent = "La prochaine s’ouvrira le " + formatOrganizerDate(latest.openDate) + ". Son contenu reste secret jusque-là.";
+            if (dashboardTimeCapsuleTeaserMeta) dashboardTimeCapsuleTeaserMeta.textContent = "La prochaine s’ouvrira le " + formatTimeCapsuleOpeningMoment(latest) + ". Son contenu reste secret jusque-là.";
         } else {
             dashboardTimeCapsuleTeaser.style.display = "none";
         }
@@ -4965,7 +4995,7 @@ function renderDashboardToday(spaceData = {}) {
     Object.entries(spaceData.dailyTools?.reminders || {}).forEach(([, reminder]) => { if (reminder.date === today) items.push({ icon: "cactusIconBell", title: reminder.title, meta: reminder.time ? reminder.time.replace(":", "h") : "Aujourd’hui", screen: "reminders" }); });
     Object.entries(spaceData.dailyTools?.importantDates || {}).forEach(([, item]) => { const repeat = getCalendarRepeat(item); const dateMatch = repeat === "annual" ? (item.date || "").slice(5) === today.slice(5) : repeat === "monthly" ? Number((item.date || "").slice(8, 10)) === Number(today.slice(8, 10)) : item.date === today; if (dateMatch) items.push({ icon: "cactusIconCalendar", title: (item.emoji || getCalendarEventEmoji(item)) + " " + item.title, meta: "C’est aujourd’hui", screen: "importantDates" }); });
     Object.entries(spaceData.dailyTools?.countdowns || {}).forEach(([, item]) => { if (item.date === today) items.push({ icon: "cactusIconCountdown", title: item.title, meta: "C’est le grand jour", screen: "importantDates" }); });
-    Object.entries(spaceData.dailyTools?.timeCapsules || {}).forEach(([, item]) => { if (!item.archivedAt && !item.openedAt && item.openDate && item.openDate <= today) items.push({ icon: "cactusIconCapsule", title: "Une capsule temporelle vous attend", meta: "Le moment de l’ouvrir est arrivé ✨", screen: "timeCapsules" }); });
+    Object.entries(spaceData.dailyTools?.timeCapsules || {}).forEach(([, item]) => { if (!item.archivedAt && !item.openedAt && item.openDate && getTimeCapsuleOpenTimestamp(item) <= Date.now()) items.push({ icon: "cactusIconCapsule", title: "Une capsule temporelle vous attend", meta: "Le moment de l’ouvrir est arrivé ✨", screen: "timeCapsules" }); });
     dashboardTodayList.replaceChildren(...items.slice(0, 4).map((item) => {
         const button = document.createElement("button"); button.type = "button";
         const icon = document.createElement("span"); icon.appendChild(createCactusUiIcon(item.icon, "cactus-secondary-icon"));
@@ -9339,12 +9369,12 @@ function buildNotifications(spaceData) {
                     id: "capsule_created_" + itemId + "_" + item.createdAt,
                     type: "capsule",
                     title: "Une capsule a été scellée",
-                    message: item.title || "Un message vous attend dans le futur",
+                    message: "Une capsule secrète voyage vers vous. Son contenu restera caché jusqu’au moment d’ouverture.",
                     timestamp: item.createdAt,
                     target: { kind: "capsule", itemId, screen: "timeCapsules" }
                 });
             }
-            const openAt = item.openDate ? new Date(item.openDate + "T00:00").getTime() : Infinity;
+            const openAt = item.openDate ? getTimeCapsuleOpenTimestamp(item) : Infinity;
             if (openAt <= Date.now() && openAt > Date.now() - 30 * 86400000) {
                 notifications.push({
                     id: "capsule_open_" + itemId + "_" + openAt,

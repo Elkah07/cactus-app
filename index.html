@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cactus 🌵</title>
-    <link rel="stylesheet" href="css/style.css?v=111">
+    <link rel="stylesheet" href="css/style.css?v=112">
     <link rel="manifest" href="manifest.json?v=2">
     <meta name="theme-color" content="#003E2D">
 </head>
@@ -501,7 +501,7 @@
         <div class="time-capsule-hero-copy">
             <small>Un message qui voyage dans le temps</small>
             <strong id="timeCapsuleHeroTitle">Scellez aujourd’hui. Redécouvrez-vous plus tard.</strong>
-            <p>Écrivez un souvenir, une promesse ou une pensée. Cactus la garde fermée jusqu’au bon jour.</p>
+            <p>Écrivez un souvenir, une promesse ou une pensée. Cactus la garde fermée jusqu’au bon moment.</p>
         </div>
         <div class="time-capsule-hero-stats" aria-live="polite">
             <span><b id="timeCapsuleLockedCount">0</b><small>en voyage</small></span>
@@ -522,7 +522,11 @@
             <section class="time-capsule-builder-main">
                 <label class="time-capsule-field"><span>Le titre visible</span><input id="timeCapsuleTitleInput" type="text" maxlength="100" required placeholder="Ex. À nous dans un an…"></label>
                 <label class="time-capsule-field"><span>Le message secret</span><textarea id="timeCapsuleMessageInput" maxlength="2000" rows="6" required placeholder="Écris ce que le futur ne doit pas oublier…"></textarea></label>
-                <div class="organizer-form-grid"><label><span>Date d’ouverture</span><input id="timeCapsuleOpenDateInput" type="date" required></label><label><span>Signature</span><select id="timeCapsuleAuthorInput" aria-label="Signature"></select></label></div>
+                <div class="organizer-form-grid time-capsule-opening-grid">
+                    <label><span>Date d’ouverture</span><input id="timeCapsuleOpenDateInput" type="date" required></label>
+                    <label class="time-capsule-open-time-label"><span>Heure d’ouverture</span><input id="timeCapsuleOpenTimeInput" type="time" aria-describedby="timeCapsuleOpenTimeHint"><small id="timeCapsuleOpenTimeHint">Facultatif · sans heure précise, ouverture dès minuit.</small></label>
+                    <label><span>Signature</span><select id="timeCapsuleAuthorInput" aria-label="Signature"></select></label>
+                </div>
 
                 <section class="time-capsule-customizer" aria-labelledby="timeCapsuleCustomizeTitle">
                     <div class="time-capsule-customizer-heading"><small>Personnalisation</small><strong id="timeCapsuleCustomizeTitle">Donnez une âme à votre capsule</strong><p>Les choix seront visibles par vous deux et conservés avec le souvenir.</p></div>
@@ -2814,7 +2818,7 @@
     <script src="js/storage.js"></script>
     <script src="js/rankings.js"></script>
     <script src="js/questions.js"></script>
-    <script src="js/script.js?v=111"></script>
+    <script src="js/script.js?v=112"></script>
 
 </body>
 </html>
