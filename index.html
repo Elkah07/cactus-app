@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cactus 🌵</title>
-    <link rel="stylesheet" href="css/style.css?v=102">
+    <link rel="stylesheet" href="css/style.css?v=103">
     <link rel="manifest" href="manifest.json?v=2">
     <meta name="theme-color" content="#003E2D">
 </head>
@@ -2414,15 +2414,88 @@
         </button>
     </section>
 
-    <section class="settings-panel settings-theme-panel">
+    <section class="settings-panel settings-theme-panel app-appearance-studio">
         <div class="settings-panel-heading">
             <span id="themeSettingIcon">🌙</span>
-            <div><small>Apparence</small><strong id="themeSettingLabel">Thème sombre</strong></div>
+            <div>
+                <small>Apparence</small>
+                <strong id="themeSettingLabel">Mon univers Cactus</strong>
+            </div>
         </div>
 
-        <button type="button" id="toggleThemeBtn" class="secondary">
-            Passer au thème clair
-        </button>
+        <div class="app-appearance-preview" id="appAppearancePreview">
+            <div class="app-appearance-preview-orb" id="appAppearancePreviewOrb">🌵</div>
+            <div>
+                <small>APERÇU</small>
+                <strong id="appAppearancePreviewName">Cactus</strong>
+                <span id="appAppearancePreviewMode">Mode sombre</span>
+            </div>
+            <i></i><i></i><i></i>
+        </div>
+
+        <div class="app-appearance-block">
+            <div class="app-appearance-copy">
+                <strong>Luminosité</strong>
+                <small>Indépendante de la couleur de ton univers.</small>
+            </div>
+            <div class="app-display-mode-switch" role="radiogroup" aria-label="Mode d’affichage">
+                <button type="button" data-app-display-mode="auto">◐ Auto</button>
+                <button type="button" data-app-display-mode="light">☀ Clair</button>
+                <button type="button" data-app-display-mode="dark">☾ Sombre</button>
+            </div>
+        </div>
+
+        <div class="app-appearance-block">
+            <div class="app-appearance-copy">
+                <strong>Mon univers</strong>
+                <small>Choisis une ambiance, ou crée complètement la tienne.</small>
+            </div>
+            <div id="appUniverseChoices" class="app-universe-grid" role="radiogroup" aria-label="Univers visuel">
+                <button type="button" data-app-universe="cactus"><i></i><span>🌵</span><strong>Cactus</strong></button>
+                <button type="button" data-app-universe="coral"><i></i><span>🌸</span><strong>Corail</strong></button>
+                <button type="button" data-app-universe="lavender"><i></i><span>💜</span><strong>Lavande</strong></button>
+                <button type="button" data-app-universe="ocean"><i></i><span>🌊</span><strong>Océan</strong></button>
+                <button type="button" data-app-universe="blueberry"><i></i><span>🌙</span><strong>Myrtille</strong></button>
+                <button type="button" data-app-universe="sand"><i></i><span>✨</span><strong>Sable</strong></button>
+                <button type="button" data-app-universe="bordeaux"><i></i><span>🌹</span><strong>Bordeaux</strong></button>
+                <button type="button" data-app-universe="custom" class="is-custom"><i></i><span>🎨</span><strong>Le mien</strong></button>
+            </div>
+            <input type="hidden" id="appThemeAccentInput" value="#72E6A3">
+            <button type="button" id="appThemeCustomColorBtn" class="app-custom-theme-button" style="--theme-swatch:#72E6A3">
+                <span class="app-custom-theme-swatch"></span>
+                <span><strong>Créer ma couleur</strong><small id="appThemeCustomColorLabel">#72E6A3</small></span>
+                <b>Modifier</b>
+            </button>
+        </div>
+
+        <div class="app-theme-share-zone">
+            <div class="app-appearance-copy">
+                <strong>À deux, seulement quand vous le voulez 💌</strong>
+                <small>Ton apparence reste personnelle tant que vous ne choisissez pas de la partager.</small>
+            </div>
+
+            <div id="sharedThemeStatus" class="shared-theme-status" hidden></div>
+            <div id="themeOfferBox" class="theme-offer-box" hidden>
+                <div class="theme-offer-preview" id="themeOfferPreview">✨</div>
+                <div class="theme-offer-copy">
+                    <small id="themeOfferEyebrow">PROPOSITION</small>
+                    <strong id="themeOfferTitle">Un univers vous attend</strong>
+                    <p id="themeOfferText"></p>
+                </div>
+                <div class="theme-offer-actions">
+                    <button type="button" id="previewThemeOfferBtn" class="secondary">Aperçu</button>
+                    <button type="button" id="acceptThemeOfferBtn">Accepter</button>
+                    <button type="button" id="declineThemeOfferBtn" class="theme-text-button">Plus tard</button>
+                </div>
+            </div>
+
+            <div class="app-theme-share-actions">
+                <button type="button" id="shareThemeOnceBtn" class="secondary">💌 Envoyer mon thème</button>
+                <button type="button" id="proposeSharedThemeBtn">✨ Proposer un univers commun</button>
+                <button type="button" id="proposeSharedThemeUpdateBtn" class="secondary" hidden>Proposer mon thème comme nouvelle ambiance</button>
+                <button type="button" id="leaveSharedThemeBtn" class="theme-text-button" hidden>Revenir à mon univers personnel</button>
+            </div>
+        </div>
     </section>
 
     <section class="settings-panel notifications-preferences">
@@ -2642,7 +2715,7 @@
     <script src="js/storage.js"></script>
     <script src="js/rankings.js"></script>
     <script src="js/questions.js"></script>
-    <script src="js/script.js?v=102"></script>
+    <script src="js/script.js?v=103"></script>
 
 </body>
 </html>

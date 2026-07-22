@@ -62,6 +62,28 @@ const settingsBtn = document.getElementById("settingsBtn");
 const newPseudo = document.getElementById("newPseudo");
 const saveNewPseudoBtn = document.getElementById("saveNewPseudoBtn");
 const toggleThemeBtn = document.getElementById("toggleThemeBtn");
+const appAppearancePreview = document.getElementById("appAppearancePreview");
+const appAppearancePreviewOrb = document.getElementById("appAppearancePreviewOrb");
+const appAppearancePreviewName = document.getElementById("appAppearancePreviewName");
+const appAppearancePreviewMode = document.getElementById("appAppearancePreviewMode");
+const appUniverseChoices = document.getElementById("appUniverseChoices");
+const appDisplayModeButtons = document.querySelectorAll("[data-app-display-mode]");
+const appThemeAccentInput = document.getElementById("appThemeAccentInput");
+const appThemeCustomColorBtn = document.getElementById("appThemeCustomColorBtn");
+const appThemeCustomColorLabel = document.getElementById("appThemeCustomColorLabel");
+const sharedThemeStatus = document.getElementById("sharedThemeStatus");
+const themeOfferBox = document.getElementById("themeOfferBox");
+const themeOfferPreview = document.getElementById("themeOfferPreview");
+const themeOfferEyebrow = document.getElementById("themeOfferEyebrow");
+const themeOfferTitle = document.getElementById("themeOfferTitle");
+const themeOfferText = document.getElementById("themeOfferText");
+const previewThemeOfferBtn = document.getElementById("previewThemeOfferBtn");
+const acceptThemeOfferBtn = document.getElementById("acceptThemeOfferBtn");
+const declineThemeOfferBtn = document.getElementById("declineThemeOfferBtn");
+const shareThemeOnceBtn = document.getElementById("shareThemeOnceBtn");
+const proposeSharedThemeBtn = document.getElementById("proposeSharedThemeBtn");
+const proposeSharedThemeUpdateBtn = document.getElementById("proposeSharedThemeUpdateBtn");
+const leaveSharedThemeBtn = document.getElementById("leaveSharedThemeBtn");
 const notifyAnswersSetting = document.getElementById("notifyAnswersSetting");
 const notifyGamesSetting = document.getElementById("notifyGamesSetting");
 const notifyAchievementsSetting = document.getElementById("notifyAchievementsSetting");
@@ -1287,6 +1309,8 @@ function listenToCurrentSpace(spaceCodeValue) {
         }
 
         currentSpaceData = spaceData;
+        if (!previewingThemeOffer) applyEffectiveAppearance(spaceData);
+        if (lastShownScreen === "settings") renderAppearanceStudio();
         updateNotificationsBadge(spaceData);
         updateDailyRitualDashboard(spaceData);
         renderCactusWardrobe(spaceData);
@@ -1992,6 +2016,7 @@ function prepareAccountSettings() {
     newAccountPassword.value = "";
     updatePhoneNotificationsStatus();
     updateCreatorToolsVisibility();
+    renderAppearanceStudio();
 }
 
 function changeAccountPassword() {
@@ -2254,6 +2279,11 @@ settingsBtn.addEventListener("click", () => {
 });
 
 backFromSettingsBtn.addEventListener("click", () => {
+    if (previewingThemeOffer) {
+        previewingThemeOffer = false;
+        applyEffectiveAppearance();
+        if (previewThemeOfferBtn) previewThemeOfferBtn.textContent = "Aperçu";
+    }
     const navigationState = typeof getCactusHistoryState === "function"
         ? getCactusHistoryState()
         : null;
@@ -2304,39 +2334,374 @@ saveNewPseudoBtn.addEventListener("click", () => {
     alert("Pseudo modifié 🌵");
 });
 
+const APP_THEME_PRESETS = {
+    cactus: { name: "Cactus", emoji: "🌵", accent: "#72E6A3" },
+    coral: { name: "Corail", emoji: "🌸", accent: "#F48FA7" },
+    lavender: { name: "Lavande", emoji: "💜", accent: "#B79AF4" },
+    ocean: { name: "Océan", emoji: "🌊", accent: "#67C7E8" },
+    blueberry: { name: "Myrtille", emoji: "🌙", accent: "#6E73D8" },
+    sand: { name: "Sable", emoji: "✨", accent: "#E8B978" },
+    bordeaux: { name: "Bordeaux", emoji: "🌹", accent: "#B95B78" },
+    custom: { name: "Mon univers", emoji: "🎨", accent: "#72E6A3" }
+};
+
+const DEFAULT_APP_APPEARANCE = { mode: "dark", universe: "cactus", accent: "#72E6A3" };
+let currentPersonalAppearance = { ...DEFAULT_APP_APPEARANCE };
+let previewingThemeOffer = false;
+const appSystemThemeMedia = window.matchMedia?.("(prefers-color-scheme: dark)");
+
+function normalizeHexColor(value, fallback = "#72E6A3") {
+    const normalized = String(value || "").trim().toUpperCase();
+    return /^#[0-9A-F]{6}$/.test(normalized) ? normalized : fallback;
+}
+
+function normalizeAppAppearance(value = {}) {
+    const universe = APP_THEME_PRESETS[value.universe] ? value.universe : DEFAULT_APP_APPEARANCE.universe;
+    const fallbackAccent = APP_THEME_PRESETS[universe]?.accent || DEFAULT_APP_APPEARANCE.accent;
+    return {
+        mode: ["auto", "light", "dark"].includes(value.mode) ? value.mode : DEFAULT_APP_APPEARANCE.mode,
+        universe,
+        accent: normalizeHexColor(value.accent, fallbackAccent)
+    };
+}
+
+function appHexToRgb(hex) {
+    const safe = normalizeHexColor(hex).slice(1);
+    return {
+        r: parseInt(safe.slice(0, 2), 16),
+        g: parseInt(safe.slice(2, 4), 16),
+        b: parseInt(safe.slice(4, 6), 16)
+    };
+}
+
+function appRgbToHex({ r, g, b }) {
+    return "#" + [r, g, b].map((value) => Math.round(Math.max(0, Math.min(255, value))).toString(16).padStart(2, "0")).join("").toUpperCase();
+}
+
+function mixAppColor(colorA, colorB, weight = 0.5) {
+    const a = appHexToRgb(colorA);
+    const b = appHexToRgb(colorB);
+    return appRgbToHex({
+        r: a.r + (b.r - a.r) * weight,
+        g: a.g + (b.g - a.g) * weight,
+        b: a.b + (b.b - a.b) * weight
+    });
+}
+
+function rgbaFromAppHex(hex, alpha) {
+    const { r, g, b } = appHexToRgb(hex);
+    return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+}
+
+function getAppAccentContrast(hex) {
+    const { r, g, b } = appHexToRgb(hex);
+    const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+    return luminance > 0.62 ? "#15372C" : "#FFFFFF";
+}
+
+function resolveAppDisplayMode(mode) {
+    if (mode === "auto") return appSystemThemeMedia?.matches ? "dark" : "light";
+    return mode === "light" ? "light" : "dark";
+}
+
 function applyTheme(theme) {
     const isDark = theme === "dark";
     document.body.classList.toggle("dark-theme", isDark);
     document.documentElement.style.colorScheme = isDark ? "dark" : "light";
 
     if (themeSettingIcon) {
-        themeSettingIcon.replaceChildren(
-            createCactusUiIcon("cactusIconTheme", "cactus-secondary-icon")
-        );
-    }
-
-    if (themeSettingLabel) {
-        themeSettingLabel.textContent = isDark ? "Thème sombre" : "Thème clair";
-    }
-
-    if (toggleThemeBtn) {
-        toggleThemeBtn.textContent = isDark
-            ? "Passer au thème clair"
-            : "Passer au thème sombre";
+        themeSettingIcon.replaceChildren(createCactusUiIcon("cactusIconTheme", "cactus-secondary-icon"));
     }
 
     if (themeColorMeta) {
-        themeColorMeta.setAttribute("content", isDark ? "#003e2d" : "#effaf3");
+        const accent = currentPersonalAppearance?.accent || DEFAULT_APP_APPEARANCE.accent;
+        themeColorMeta.setAttribute("content", isDark ? mixAppColor(accent, "#001B14", 0.76) : mixAppColor(accent, "#FFFFFF", 0.82));
     }
 }
 
-toggleThemeBtn.addEventListener("click", () => {
-    const nextTheme = document.body.classList.contains("dark-theme")
-        ? "light"
-        : "dark";
+function applyAppAppearance(appearance) {
+    const normalized = normalizeAppAppearance(appearance);
+    const resolvedMode = resolveAppDisplayMode(normalized.mode);
+    const isDark = resolvedMode === "dark";
+    const accent = normalized.accent;
+    const body = document.body;
 
-    localStorage.setItem("theme", nextTheme);
-    applyTheme(nextTheme);
+    applyTheme(resolvedMode);
+    body.classList.add("has-custom-app-theme");
+    body.dataset.appUniverse = normalized.universe;
+    body.style.setProperty("--app-user-accent", accent);
+    body.style.setProperty("--app-user-accent-contrast", getAppAccentContrast(accent));
+    body.style.setProperty("--app-accent", isDark ? mixAppColor(accent, "#FFFFFF", 0.08) : mixAppColor(accent, "#173D31", 0.18));
+    body.style.setProperty("--app-border-strong", isDark ? mixAppColor(accent, "#FFFFFF", 0.05) : mixAppColor(accent, "#173D31", 0.22));
+    body.style.setProperty("--app-secondary-button", isDark ? mixAppColor(accent, "#071D18", 0.63) : mixAppColor(accent, "#FFFFFF", 0.58));
+    body.style.setProperty("--app-icon-bg", rgbaFromAppHex(accent, isDark ? 0.16 : 0.2));
+    body.style.setProperty("--app-border", rgbaFromAppHex(accent, isDark ? 0.25 : 0.22));
+    body.style.setProperty("--app-shadow", rgbaFromAppHex(mixAppColor(accent, "#000000", 0.72), isDark ? 0.35 : 0.16));
+    body.style.setProperty("--app-shadow-soft", rgbaFromAppHex(mixAppColor(accent, "#000000", 0.7), isDark ? 0.2 : 0.09));
+
+    if (isDark) {
+        const deep = mixAppColor(accent, "#00140F", 0.78);
+        const deep2 = mixAppColor(accent, "#00100C", 0.88);
+        const panel = mixAppColor(accent, "#09251D", 0.73);
+        body.style.setProperty("--app-page-bg", `radial-gradient(circle at 50% 0%, ${mixAppColor(accent, "#06271E", 0.62)}, ${deep} 52%, ${deep2})`);
+        body.style.setProperty("--app-shell-bg", deep);
+        body.style.setProperty("--app-screen-bg", `linear-gradient(180deg, ${mixAppColor(accent, "#05231A", 0.68)} 0%, ${deep2} 100%)`);
+        body.style.setProperty("--app-panel-bg", `linear-gradient(150deg, ${rgbaFromAppHex(panel, 0.96)}, ${rgbaFromAppHex(deep2, 0.97)})`);
+        body.style.setProperty("--app-input-bg", mixAppColor(accent, "#09251D", 0.72));
+        body.style.setProperty("--app-heading", "#FFFFFF");
+        body.style.setProperty("--app-text", mixAppColor(accent, "#FFFFFF", 0.86));
+        body.style.setProperty("--app-muted", mixAppColor(accent, "#DCE9E4", 0.48));
+        body.style.setProperty("--dashboard-ink", "#F7FFFA");
+        body.style.setProperty("--dashboard-muted", mixAppColor(accent, "#DCE9E4", 0.5));
+        body.style.setProperty("--dashboard-panel", rgbaFromAppHex(panel, 0.88));
+        body.style.setProperty("--dashboard-panel-strong", rgbaFromAppHex(deep, 0.96));
+    } else {
+        const pale = mixAppColor(accent, "#FFFFFF", 0.88);
+        const pale2 = mixAppColor(accent, "#FFFFFF", 0.94);
+        body.style.setProperty("--app-page-bg", `radial-gradient(circle at 50% 0%, #FFFFFF, ${pale} 52%, ${pale2})`);
+        body.style.setProperty("--app-shell-bg", pale2);
+        body.style.setProperty("--app-screen-bg", `linear-gradient(180deg, ${pale2} 0%, ${pale} 100%)`);
+        body.style.setProperty("--app-panel-bg", "rgba(255,255,255,0.9)");
+        body.style.setProperty("--app-input-bg", "#FFFFFF");
+        body.style.setProperty("--app-heading", mixAppColor(accent, "#102A22", 0.76));
+        body.style.setProperty("--app-text", mixAppColor(accent, "#19352C", 0.72));
+        body.style.setProperty("--app-muted", mixAppColor(accent, "#647A72", 0.7));
+        body.style.setProperty("--dashboard-ink", mixAppColor(accent, "#15352B", 0.76));
+        body.style.setProperty("--dashboard-muted", mixAppColor(accent, "#667D74", 0.72));
+        body.style.setProperty("--dashboard-panel", "rgba(255,255,255,0.84)");
+        body.style.setProperty("--dashboard-panel-strong", "rgba(255,255,255,0.95)");
+    }
+
+    body.style.setProperty("--dashboard-accent", accent);
+    body.style.setProperty("--dashboard-line", rgbaFromAppHex(accent, 0.2));
+    body.style.background = "var(--app-page-bg)";
+    renderAppearanceStudio();
+}
+
+function getSharedAppearance(spaceData = currentSpaceData) {
+    const shared = spaceData?.sharedAppearance;
+    if (!shared?.enabled || !currentUser?.uid || shared.acceptedMembers?.[currentUser.uid] !== true) return null;
+    return normalizeAppAppearance(shared.appearance);
+}
+
+function applyEffectiveAppearance(spaceData = currentSpaceData) {
+    const sharedAppearance = getSharedAppearance(spaceData);
+    applyAppAppearance(sharedAppearance || currentPersonalAppearance);
+}
+
+function cachePersonalAppearance(appearance) {
+    localStorage.setItem("cactusAppearance", JSON.stringify(normalizeAppAppearance(appearance)));
+}
+
+function loadCachedPersonalAppearance() {
+    try {
+        const cached = localStorage.getItem("cactusAppearance");
+        if (cached) return normalizeAppAppearance(JSON.parse(cached));
+        const legacyTheme = localStorage.getItem("theme");
+        return normalizeAppAppearance({ ...DEFAULT_APP_APPEARANCE, mode: legacyTheme === "light" ? "light" : legacyTheme === "dark" ? "dark" : "auto" });
+    } catch {
+        return { ...DEFAULT_APP_APPEARANCE };
+    }
+}
+
+function savePersonalAppearance(nextAppearance) {
+    currentPersonalAppearance = normalizeAppAppearance(nextAppearance);
+    cachePersonalAppearance(currentPersonalAppearance);
+    applyEffectiveAppearance();
+    renderAppearanceStudio();
+    if (currentUser?.uid) {
+        database.ref("users/" + currentUser.uid + "/appearance").set(currentPersonalAppearance)
+            .catch((error) => console.warn("Sauvegarde du thème impossible", error));
+    }
+}
+
+function getAppearancePartner(spaceData = currentSpaceData) {
+    if (!spaceData || !currentUser) return null;
+    return [spaceData.player1, spaceData.player2].find((player) => player?.uid && player.uid !== currentUser.uid) || null;
+}
+
+function getIncomingThemeOffer(spaceData = currentSpaceData) {
+    return currentUser?.uid ? spaceData?.themeOffers?.[currentUser.uid] || null : null;
+}
+
+function getAppearanceName(appearance) {
+    const normalized = normalizeAppAppearance(appearance);
+    return normalized.universe === "custom" ? "Univers personnalisé" : APP_THEME_PRESETS[normalized.universe].name;
+}
+
+function renderAppearanceStudio() {
+    if (!appUniverseChoices) return;
+    const appearance = currentPersonalAppearance;
+    const effective = getSharedAppearance() || appearance;
+    const resolved = resolveAppDisplayMode(effective.mode);
+    const activePreset = APP_THEME_PRESETS[appearance.universe] || APP_THEME_PRESETS.cactus;
+
+    appDisplayModeButtons.forEach((button) => {
+        button.classList.toggle("is-active", button.dataset.appDisplayMode === appearance.mode);
+    });
+    appUniverseChoices.querySelectorAll("[data-app-universe]").forEach((button) => {
+        const key = button.dataset.appUniverse;
+        button.classList.toggle("is-active", key === appearance.universe);
+        const preset = APP_THEME_PRESETS[key];
+        if (preset) button.style.setProperty("--universe-color", key === "custom" ? appearance.accent : preset.accent);
+    });
+
+    if (appThemeAccentInput) appThemeAccentInput.value = appearance.accent;
+    if (appThemeCustomColorBtn) appThemeCustomColorBtn.style.setProperty("--theme-swatch", appearance.accent);
+    if (appThemeCustomColorLabel) appThemeCustomColorLabel.textContent = appearance.accent;
+    if (appAppearancePreview) appAppearancePreview.style.setProperty("--preview-accent", effective.accent);
+    if (appAppearancePreviewOrb) appAppearancePreviewOrb.textContent = APP_THEME_PRESETS[effective.universe]?.emoji || "🎨";
+    if (appAppearancePreviewName) appAppearancePreviewName.textContent = getAppearanceName(effective);
+    if (appAppearancePreviewMode) appAppearancePreviewMode.textContent = effective.mode === "auto" ? `Auto · ${resolved === "dark" ? "sombre" : "clair"}` : `Mode ${resolved === "dark" ? "sombre" : "clair"}`;
+    if (themeSettingLabel) themeSettingLabel.textContent = getSharedAppearance() ? "Univers commun actif" : `${activePreset.emoji} ${getAppearanceName(appearance)}`;
+
+    const partner = getAppearancePartner();
+    const shared = currentSpaceData?.sharedAppearance;
+    const sharedActive = !!getSharedAppearance();
+    if (shareThemeOnceBtn) shareThemeOnceBtn.disabled = !partner;
+    if (proposeSharedThemeBtn) {
+        proposeSharedThemeBtn.disabled = !partner || sharedActive;
+        proposeSharedThemeBtn.hidden = sharedActive;
+    }
+    if (proposeSharedThemeUpdateBtn) proposeSharedThemeUpdateBtn.hidden = !sharedActive;
+    if (leaveSharedThemeBtn) leaveSharedThemeBtn.hidden = !sharedActive;
+
+    if (sharedThemeStatus) {
+        sharedThemeStatus.hidden = !sharedActive;
+        if (sharedActive) {
+            sharedThemeStatus.innerHTML = `<span>✨</span><div><small>UNIVERS COMMUN</small><strong>${getAppearanceName(shared.appearance)}</strong><p>Vous utilisez toutes les deux la même ambiance. Les changements communs demandent l’accord de l’autre.</p></div>`;
+        }
+    }
+
+    const offer = getIncomingThemeOffer();
+    if (themeOfferBox) themeOfferBox.hidden = !offer;
+    if (offer) {
+        const offered = normalizeAppAppearance(offer.appearance);
+        if (themeOfferPreview) {
+            themeOfferPreview.textContent = APP_THEME_PRESETS[offered.universe]?.emoji || "🎨";
+            themeOfferPreview.style.setProperty("--offer-color", offered.accent);
+        }
+        if (themeOfferEyebrow) themeOfferEyebrow.textContent = offer.type === "copy" ? "THÈME PARTAGÉ" : offer.type === "shared-update" ? "NOUVELLE AMBIANCE PROPOSÉE" : "UNIVERS COMMUN";
+        if (themeOfferTitle) themeOfferTitle.textContent = `${offer.fromPseudo || "Ta partenaire"} propose ${getAppearanceName(offered)}`;
+        if (themeOfferText) themeOfferText.textContent = offer.type === "copy"
+            ? "Tu peux copier ce thème sur ton compte, puis le modifier librement."
+            : offer.type === "shared-update"
+                ? "Votre univers commun ne changera que si tu acceptes cette nouvelle ambiance."
+                : "Accepte pour utiliser cette ambiance ensemble. Tu pourras revenir à ton thème personnel à tout moment.";
+        if (acceptThemeOfferBtn) acceptThemeOfferBtn.textContent = offer.type === "copy" ? "Adopter ce thème" : "Accepter ensemble";
+    }
+}
+
+async function sendThemeOffer(type) {
+    const partner = getAppearancePartner();
+    if (!currentUser || !currentSpaceCode || !partner?.uid) {
+        showToast("Ta partenaire doit d’abord rejoindre votre espace");
+        return;
+    }
+    const payload = {
+        type,
+        fromUid: currentUser.uid,
+        fromPseudo: pseudo || "Ta partenaire",
+        appearance: { ...currentPersonalAppearance },
+        createdAt: Date.now()
+    };
+    await database.ref(`spaces/${currentSpaceCode}/themeOffers/${partner.uid}`).set(payload);
+    showToast(type === "copy" ? "Ton thème a été envoyé 💌" : type === "shared-update" ? "Nouvelle ambiance proposée ✨" : "Invitation à partager votre univers envoyée ✨");
+}
+
+async function acceptIncomingThemeOffer() {
+    const offer = getIncomingThemeOffer();
+    if (!offer || !currentUser || !currentSpaceCode) return;
+    const offeredAppearance = normalizeAppAppearance(offer.appearance);
+    const offerRef = database.ref(`spaces/${currentSpaceCode}/themeOffers/${currentUser.uid}`);
+
+    if (offer.type === "copy") {
+        savePersonalAppearance(offeredAppearance);
+        await offerRef.remove();
+        showToast("Thème adopté ✨");
+        return;
+    }
+
+    if (offer.type === "shared-update") {
+        await database.ref(`spaces/${currentSpaceCode}/sharedAppearance`).update({
+            appearance: offeredAppearance,
+            updatedAt: Date.now(),
+            updatedBy: currentUser.uid
+        });
+        await offerRef.remove();
+        showToast("Votre univers commun a été mis à jour ✨");
+        return;
+    }
+
+    const members = {};
+    members[currentUser.uid] = true;
+    if (offer.fromUid) members[offer.fromUid] = true;
+    await database.ref(`spaces/${currentSpaceCode}/sharedAppearance`).set({
+        enabled: true,
+        appearance: offeredAppearance,
+        acceptedMembers: members,
+        createdAt: Date.now(),
+        createdBy: offer.fromUid || currentUser.uid
+    });
+    await offerRef.remove();
+    showToast("Votre univers commun est activé ✨");
+}
+
+async function declineIncomingThemeOffer() {
+    if (!currentUser || !currentSpaceCode) return;
+    previewingThemeOffer = false;
+    applyEffectiveAppearance();
+    await database.ref(`spaces/${currentSpaceCode}/themeOffers/${currentUser.uid}`).remove();
+    showToast("Proposition retirée");
+}
+
+function previewIncomingThemeOffer() {
+    const offer = getIncomingThemeOffer();
+    if (!offer) return;
+    previewingThemeOffer = !previewingThemeOffer;
+    if (previewingThemeOffer) {
+        applyAppAppearance(offer.appearance);
+        previewThemeOfferBtn.textContent = "Quitter l’aperçu";
+        showToast("Aperçu temporaire activé ✨");
+    } else {
+        applyEffectiveAppearance();
+        previewThemeOfferBtn.textContent = "Aperçu";
+    }
+}
+
+appDisplayModeButtons.forEach((button) => {
+    button.addEventListener("click", () => savePersonalAppearance({ ...currentPersonalAppearance, mode: button.dataset.appDisplayMode }));
+});
+
+appUniverseChoices?.querySelectorAll("[data-app-universe]").forEach((button) => {
+    button.addEventListener("click", () => {
+        const universe = button.dataset.appUniverse;
+        const preset = APP_THEME_PRESETS[universe];
+        if (!preset) return;
+        if (universe === "custom") {
+            openNotebookColorPicker("appTheme");
+            return;
+        }
+        savePersonalAppearance({ ...currentPersonalAppearance, universe, accent: preset.accent });
+    });
+});
+
+appThemeCustomColorBtn?.addEventListener("click", () => openNotebookColorPicker("appTheme"));
+shareThemeOnceBtn?.addEventListener("click", () => sendThemeOffer("copy").catch((error) => { console.warn(error); showToast("Envoi du thème impossible"); }));
+proposeSharedThemeBtn?.addEventListener("click", () => sendThemeOffer("shared").catch((error) => { console.warn(error); showToast("Invitation impossible"); }));
+proposeSharedThemeUpdateBtn?.addEventListener("click", () => sendThemeOffer("shared-update").catch((error) => { console.warn(error); showToast("Proposition impossible"); }));
+acceptThemeOfferBtn?.addEventListener("click", () => acceptIncomingThemeOffer().catch((error) => { console.warn(error); showToast("Impossible d’accepter pour le moment"); }));
+declineThemeOfferBtn?.addEventListener("click", () => declineIncomingThemeOffer().catch((error) => console.warn(error)));
+previewThemeOfferBtn?.addEventListener("click", previewIncomingThemeOffer);
+leaveSharedThemeBtn?.addEventListener("click", async () => {
+    if (!currentUser || !currentSpaceCode) return;
+    await database.ref(`spaces/${currentSpaceCode}/sharedAppearance/acceptedMembers/${currentUser.uid}`).set(false);
+    showToast("Tu retrouves ton univers personnel 🌵");
+});
+
+appSystemThemeMedia?.addEventListener?.("change", () => {
+    const effective = getSharedAppearance() || currentPersonalAppearance;
+    if (effective.mode === "auto") applyAppAppearance(effective);
 });
 
 historyBtn.addEventListener("click", () => {
@@ -4636,7 +5001,8 @@ function openNotebookColorPicker(target) {
         highlight: { input: highlightColorPicker, title: "Couleur du surlignage" },
         timeCapsule: { input: timeCapsuleCustomColorInput, title: "Couleur personnalisée de la capsule" },
         importantDate: { input: importantDateColorInput, title: "Couleur de l’événement" },
-        calendarAccent: { input: calendarAccentInput, title: "Couleur principale du calendrier" }
+        calendarAccent: { input: calendarAccentInput, title: "Couleur principale du calendrier" },
+        appTheme: { input: appThemeAccentInput, title: "Couleur de mon univers Cactus" }
     };
     const configuration = configurations[target];
     if (!configuration) return;
@@ -4796,6 +5162,9 @@ applyNotebookColorBtn.addEventListener("click", () => {
         const label = calendarAccentButton.querySelector("small");
         if (label) label.textContent = pendingNotebookColor;
         previewCalendarCustomizer();
+    } else if (activeNotebookColorTarget === "appTheme") {
+        appThemeAccentInput.value = pendingNotebookColor;
+        savePersonalAppearance({ ...currentPersonalAppearance, universe: "custom", accent: pendingNotebookColor });
     }
     closeNotebookColorPicker();
 });
@@ -14212,6 +14581,9 @@ auth.onAuthStateChanged((user) => {
                 }
 
                 applyCreatorModeFromUserData(userData);
+                currentPersonalAppearance = normalizeAppAppearance(userData.appearance || loadCachedPersonalAppearance());
+                cachePersonalAppearance(currentPersonalAppearance);
+                applyEffectiveAppearance();
                 pseudo = userData.pseudo || "";
                 displayPseudo.textContent = pseudo;
 
@@ -14238,6 +14610,8 @@ auth.onAuthStateChanged((user) => {
         stopCurrentSpaceListeners();
         currentUser = null;
         creatorModeEnabled = false;
+        currentPersonalAppearance = loadCachedPersonalAppearance();
+        applyAppAppearance(currentPersonalAppearance);
         updateCreatorToolsVisibility();
         showScreen("login");
         hideAppState();
@@ -14251,7 +14625,8 @@ loadLikelyQuestionsData();
 loadNotificationPreferences();
 updatePhoneNotificationsStatus();
 setupForegroundPushMessages();
-applyTheme(localStorage.getItem("theme") === "dark" ? "dark" : "light");
+currentPersonalAppearance = loadCachedPersonalAppearance();
+applyAppAppearance(currentPersonalAppearance);
 installSecondaryCactusIcons();
 startFirebaseConnectionMonitoring();
 
