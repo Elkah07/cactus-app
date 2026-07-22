@@ -10020,3 +10020,25 @@ body.calendar-customizer-open::before {
 @media (prefers-reduced-motion: reduce) {
     .organizer-empty-orbit::before { animation:none; }
 }
+
+
+/* v97 - Correctif structure du hero calendrier */
+.couple-calendar-hero-sky {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+}
+.couple-calendar-hero-compact > div:last-child {
+    min-width: 0;
+    width: 100%;
+}
+@media (max-width:700px) {
+    .couple-calendar-hero-compact {
+        grid-template-columns: 58px minmax(0,1fr);
+        align-items: center;
+    }
+    .couple-calendar-hero-compact > div:last-child {
+        grid-column: 2;
+    }
+}

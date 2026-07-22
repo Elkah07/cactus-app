@@ -3251,7 +3251,8 @@ function renderCoupleCalendarGrid(events) {
     const daysInMonth = new Date(year, month + 1, 0).getDate();
     const previousMonthDays = new Date(year, month, 0).getDate();
     const cells = [];
-    for (let index = 0; index < 42; index += 1) {
+    const visibleCellCount = firstWeekday + daysInMonth <= 35 ? 35 : 42;
+    for (let index = 0; index < visibleCellCount; index += 1) {
         let dayNumber = index - firstWeekday + 1;
         let cellDate;
         let outside = false;
