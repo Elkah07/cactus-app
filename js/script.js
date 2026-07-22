@@ -965,6 +965,7 @@ const cactusWaveArm = document.getElementById("cactusWaveArm");
 const cactusHeadAccessory = document.getElementById("cactusHeadAccessory");
 const cactusFaceAccessory = document.getElementById("cactusFaceAccessory");
 const cactusNeckAccessory = document.getElementById("cactusNeckAccessory");
+const cactusAccessoryForeground = document.getElementById("cactusAccessoryForeground");
 const openCactusWardrobeBtn = document.getElementById("openCactusWardrobeBtn");
 const cactusWardrobeButtonLabel = document.getElementById("cactusWardrobeButtonLabel");
 const cactusWardrobeModal = document.getElementById("cactusWardrobeModal");
@@ -14968,6 +14969,13 @@ function renderEquippedCactusAccessories(wardrobe = {}) {
             container.appendChild(image);
         }
     });
+
+    const currentStage = Number(dashboardCactusCharacter?.dataset?.cactusStage) || 1;
+    if (cactusAccessoryForeground) {
+        const showForeground = currentStage === 1 && equipped.neck === "heartNecklace";
+        cactusAccessoryForeground.src = `assets/cactus-rig/stage-${Math.min(Math.max(currentStage, 1), 6)}-accessory-foreground.webp`;
+        cactusAccessoryForeground.hidden = !showForeground;
+    }
 
     syncCactusBodyForHeadAccessory(equipped);
 }
