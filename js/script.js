@@ -197,6 +197,7 @@ const shoppingItemCategory = document.getElementById("shoppingItemCategory");
 const shoppingItemAssignee = document.getElementById("shoppingItemAssignee");
 const shoppingItemFavorite = document.getElementById("shoppingItemFavorite");
 const showShoppingFormBtn = document.getElementById("showShoppingFormBtn");
+const shoppingQuickAddBtn = document.getElementById("shoppingQuickAddBtn");
 const saveShoppingItemBtn = document.getElementById("saveShoppingItemBtn");
 const cancelShoppingEditBtn = document.getElementById("cancelShoppingEditBtn");
 const shoppingFilterButtons = document.querySelectorAll("[data-shopping-filter]");
@@ -2646,14 +2647,20 @@ backFromShoppingBtn.addEventListener("click", () => {
     showScreen("dailyTools");
 });
 cancelShoppingEditBtn.addEventListener("click", resetShoppingForm);
-showShoppingFormBtn.addEventListener("click", () => {
+function openShoppingQuickAdd() {
     resetShoppingForm();
     prepareOrganizerAssignees(shoppingItemAssignee);
-    cancelShoppingEditBtn.textContent = "Fermer";
+    cancelShoppingEditBtn.textContent = "Terminer";
     cancelShoppingEditBtn.style.display = "block";
+    shoppingFormKicker.textContent = "Ajout rapide";
+    shoppingFormTitle.textContent = "Ajoutez vos articles à la suite";
+    saveShoppingItemBtn.textContent = "Ajouter et continuer";
     setOrganizerSheetOpen(shoppingItemForm, true);
     window.setTimeout(() => shoppingItemName.focus(), 120);
-});
+}
+
+showShoppingFormBtn.addEventListener("click", openShoppingQuickAdd);
+if (shoppingQuickAddBtn) shoppingQuickAddBtn.addEventListener("click", openShoppingQuickAdd);
 
 shoppingFilterButtons.forEach((button) => {
     button.addEventListener("click", () => {
@@ -2697,16 +2704,34 @@ shoppingItemForm.addEventListener("submit", (event) => {
         });
     }
 
+    const wasEditingShoppingItem = Boolean(editingShoppingItemId);
     request.then(() => {
-        showToast(editingShoppingItemId ? "Article modifié" : "Article ajouté à la liste");
-        resetShoppingForm();
+        showToast(wasEditingShoppingItem ? "Article modifié" : "Article ajouté à la liste");
+        if (wasEditingShoppingItem) {
+            resetShoppingForm();
+            return;
+        }
+
+        // Ajout en série : on garde la feuille ouverte et les choix utiles.
+        const preservedCategory = shoppingItemCategory.value || "food";
+        const preservedAssignee = shoppingItemAssignee.value || "both";
+        shoppingItemName.value = "";
+        shoppingItemQuantity.value = "";
+        shoppingItemFavorite.checked = false;
+        shoppingItemCategory.value = preservedCategory;
+        shoppingItemAssignee.value = preservedAssignee;
+        shoppingFormKicker.textContent = "Ajout rapide";
+        shoppingFormTitle.textContent = "Article ajouté ✨ Quel est le suivant ?";
+        saveShoppingItemBtn.textContent = "Ajouter et continuer";
+        setOrganizerSheetOpen(shoppingItemForm, true);
+        window.setTimeout(() => shoppingItemName.focus(), 80);
     }).catch((error) => {
         console.error("Enregistrement de la course impossible", error);
         showToast("Impossible d’enregistrer cet article");
     }).finally(() => {
         isSavingShoppingItem = false;
         saveShoppingItemBtn.disabled = false;
-        if (!editingShoppingItemId) saveShoppingItemBtn.textContent = "Ajouter à la liste";
+        if (!wasEditingShoppingItem) saveShoppingItemBtn.textContent = "Ajouter et continuer";
     });
 });
 
