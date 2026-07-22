@@ -208,7 +208,8 @@ async function sendFcmToken(env, token, payload) {
             title: String(payload.title || "Cactus 🌵"),
             body: String(payload.body || "Une nouveauté vous attend."),
             url: String(payload.url || "./"),
-            tag: String(payload.tag || "cactus-update")
+            tag: String(payload.tag || "cactus-update"),
+            screen: String(payload.screen || "")
           },
           webpush: {
             headers: { Urgency: "high" }
@@ -229,25 +230,38 @@ function isUnregisteredFcmError(result) {
 }
 
 async function sendPushToUid(env, uid, payload, preferenceKey = null) {
-  if (!uid) return { attempted: 0, sent: 0 };
+  if (!uid) return { attempted: 0, sent: 0, failed: 0 };
   const user = await firebaseRequest(env, `users/${uid}`) || {};
   const preferences = user.pushPreferences || {};
-  if (preferenceKey && preferences[preferenceKey] === false) return { attempted: 0, sent: 0 };
+  if (preferenceKey && preferences[preferenceKey] === false) return { attempted: 0, sent: 0, failed: 0 };
 
   const devices = Object.entries(user.pushDevices || {})
     .filter(([, device]) => device && device.enabled !== false && device.token)
     .map(([deviceId, device]) => ({ deviceId, token: device.token }));
 
   let sent = 0;
+  let failed = 0;
   for (const device of devices) {
     const result = await sendFcmToken(env, device.token, payload);
     if (result.ok) {
       sent += 1;
     } else if (isUnregisteredFcmError(result)) {
       await firebaseRequest(env, `users/${uid}/pushDevices/${device.deviceId}`, { method: "DELETE" });
+    } else {
+      failed += 1;
     }
   }
-  return { attempted: devices.length, sent };
+  return { attempted: devices.length, sent, failed };
+}
+
+function summarizeDeliveries(results = []) {
+  return results.reduce((summary, result) => {
+    const value = result?.status === "fulfilled" ? result.value : { attempted: 1, sent: 0, failed: 1 };
+    summary.attempted += Number(value?.attempted || 0);
+    summary.sent += Number(value?.sent || 0);
+    summary.failed += Number(value?.failed || 0);
+    return summary;
+  }, { attempted: 0, sent: 0, failed: 0 });
 }
 
 async function processAuthenticatedEvent(request, env) {
@@ -287,7 +301,8 @@ async function processAuthenticatedEvent(request, env) {
         body: targetAlreadyAnswered
           ? `${actor.pseudo || "Ta partenaire"} vient de terminer ${config.label}. Découvrez votre résultat.`
           : `${actor.pseudo || "Ta partenaire"} a joué à ${config.label}. Ta réponse l’attend.`,
-        tag: `game-${mode}`
+        tag: `game-${mode}`,
+        screen: "dashboard"
       }, targetAlreadyAnswered ? "games" : "answers");
     });
   } else if (kind === "discussion-created") {
@@ -300,7 +315,8 @@ async function processAuthenticatedEvent(request, env) {
     jobs = targets.map((target) => sendPushToUid(env, target.uid, {
       title: "On devrait en parler 💬",
       body: `${discussion.createdByPseudo || actor.pseudo || "Ta partenaire"} a ajouté un sujet : ${discussion.title || "une réponse de Cactus"}.`,
-      tag: "discussion"
+      tag: "discussion",
+      screen: "discussions"
     }, "answers"));
   } else if (kind === "capsule-created") {
     const capsuleId = String(body.capsuleId || "");
@@ -311,8 +327,9 @@ async function processAuthenticatedEvent(request, env) {
     dispatchId = `${kind}:${spaceId}:${capsuleId}:${uid}`;
     jobs = targets.map((target) => sendPushToUid(env, target.uid, {
       title: "Une capsule a été scellée ✨",
-      body: `${capsule.createdByPseudo || actor.pseudo || "Ta partenaire"} a confié un message au futur : ${capsule.title || "Capsule temporelle"}.`,
-      tag: "capsule-created"
+      body: `${capsule.createdByPseudo || actor.pseudo || "Ta partenaire"} vient de sceller une capsule. Son contenu restera secret jusqu’au jour d’ouverture.`,
+      tag: "capsule-created",
+      screen: "timeCapsules"
     }, "garden"));
   } else if (kind === "achievement-unlocked") {
     const achievementId = String(body.achievementId || "");
@@ -324,7 +341,8 @@ async function processAuthenticatedEvent(request, env) {
     jobs = targets.map((target) => sendPushToUid(env, target.uid, {
       title: "Nouveau succès débloqué 🏆",
       body: `${actor.pseudo || "Ta partenaire"} vient de débloquer un nouveau succès dans Cactus.`,
-      tag: `achievement-${achievementId}`
+      tag: `achievement-${achievementId}`,
+      screen: "achievements"
     }, "achievements"));
   } else {
     return jsonResponse({ error: "Type d'événement inconnu." }, 400);
@@ -334,8 +352,11 @@ async function processAuthenticatedEvent(request, env) {
   if (dispatch.exists) return jsonResponse({ ok: true, duplicate: true });
 
   const results = await Promise.allSettled(jobs);
-  await markDispatched(env, dispatch.key);
-  return jsonResponse({ ok: true, results: results.length });
+  const delivery = summarizeDeliveries(results);
+  if (delivery.failed === 0) {
+    await markDispatched(env, dispatch.key);
+  }
+  return jsonResponse({ ok: delivery.failed === 0, results: results.length, delivery }, delivery.failed === 0 ? 200 : 503);
 }
 
 async function processTest(request, env) {
@@ -343,7 +364,8 @@ async function processTest(request, env) {
   const result = await sendPushToUid(env, uid, {
     title: "Test Cactus réussi 🌵",
     body: "La notification a traversé Firebase, Cloudflare et ton téléphone.",
-    tag: "cactus-remote-test"
+    tag: "cactus-remote-test",
+    screen: "settings"
   });
   return jsonResponse({ ok: true, ...result });
 }
@@ -372,6 +394,24 @@ function isDueDateTime(item, now) {
   return !item.time || item.time <= now.time;
 }
 
+function importantDateOccursToday(item, now) {
+  if (!item?.date) return false;
+  const repeat = item.repeat || (item.annual ? "annual" : "none");
+  if (repeat === "annual") return item.date.slice(5) === now.date.slice(5);
+  if (repeat === "monthly") {
+    const originalDay = Number(item.date.slice(8, 10));
+    const [year, month, day] = now.date.split("-").map(Number);
+    const lastDay = new Date(Date.UTC(year, month, 0)).getUTCDate();
+    return Math.min(originalDay, lastDay) === day;
+  }
+  return item.date === now.date;
+}
+
+function importantDateIsDue(item, now) {
+  if (!importantDateOccursToday(item, now)) return false;
+  return !item.time || item.time <= now.time;
+}
+
 async function runScheduledNotifications(env) {
   const spaces = await firebaseRequest(env, "spaces") || {};
   const now = parisNowParts();
@@ -383,12 +423,15 @@ async function runScheduledNotifications(env) {
 
     for (const [capsuleId, capsule] of Object.entries(tools.timeCapsules || {})) {
       if (!capsule.openDate || capsule.openDate > now.date || capsule.pushOpenedNotificationAt) continue;
-      await Promise.allSettled(players.map((player) => sendPushToUid(env, player.uid, {
+      const results = await Promise.allSettled(players.map((player) => sendPushToUid(env, player.uid, {
         title: "Votre capsule peut être ouverte ✨",
         body: capsule.title || "Un message de votre passé vous attend dans Cactus.",
-        tag: `capsule-${capsuleId}`
+        tag: `capsule-${capsuleId}`,
+        screen: "timeCapsules"
       }, "garden")));
-      updates[`spaces/${spaceId}/dailyTools/timeCapsules/${capsuleId}/pushOpenedNotificationAt`] = Date.now();
+      if (summarizeDeliveries(results).failed === 0) {
+        updates[`spaces/${spaceId}/dailyTools/timeCapsules/${capsuleId}/pushOpenedNotificationAt`] = Date.now();
+      }
     }
 
     for (const [reminderId, reminder] of Object.entries(tools.reminders || {})) {
@@ -396,22 +439,43 @@ async function runScheduledNotifications(env) {
       const targets = reminder.target && reminder.target !== "both"
         ? players.filter((player) => player.uid === reminder.target)
         : players;
-      await Promise.allSettled(targets.map((player) => sendPushToUid(env, player.uid, {
+      const results = await Promise.allSettled(targets.map((player) => sendPushToUid(env, player.uid, {
         title: "Rappel Cactus 🔔",
         body: reminder.title || "Un rappel vous attend.",
-        tag: `reminder-${reminderId}`
+        tag: `reminder-${reminderId}`,
+        screen: "reminders"
       }, "garden")));
-      updates[`spaces/${spaceId}/dailyTools/reminders/${reminderId}/pushNotificationAt`] = Date.now();
+      if (summarizeDeliveries(results).failed === 0) {
+        updates[`spaces/${spaceId}/dailyTools/reminders/${reminderId}/pushNotificationAt`] = Date.now();
+      }
     }
 
     for (const [countdownId, countdown] of Object.entries(tools.countdowns || {})) {
       if (!isDueDateTime(countdown, now) || countdown.pushNotificationAt) continue;
-      await Promise.allSettled(players.map((player) => sendPushToUid(env, player.uid, {
+      const results = await Promise.allSettled(players.map((player) => sendPushToUid(env, player.uid, {
         title: "Le grand jour est arrivé 🎉",
         body: countdown.title || "Votre compte à rebours est terminé.",
-        tag: `countdown-${countdownId}`
+        tag: `countdown-${countdownId}`,
+        screen: "importantDates"
       }, "garden")));
-      updates[`spaces/${spaceId}/dailyTools/countdowns/${countdownId}/pushNotificationAt`] = Date.now();
+      if (summarizeDeliveries(results).failed === 0) {
+        updates[`spaces/${spaceId}/dailyTools/countdowns/${countdownId}/pushNotificationAt`] = Date.now();
+      }
+    }
+
+    for (const [dateId, importantDate] of Object.entries(tools.importantDates || {})) {
+      if (!importantDateIsDue(importantDate, now) || importantDate.pushOccurrenceKey === now.date) continue;
+      const emoji = importantDate.emoji || "💚";
+      const results = await Promise.allSettled(players.map((player) => sendPushToUid(env, player.uid, {
+        title: `${emoji} C’est aujourd’hui`,
+        body: importantDate.title || "Un moment important vous attend aujourd’hui.",
+        tag: `important-date-${dateId}`,
+        screen: "importantDates"
+      }, "garden")));
+      if (summarizeDeliveries(results).failed === 0) {
+        updates[`spaces/${spaceId}/dailyTools/importantDates/${dateId}/pushOccurrenceKey`] = now.date;
+        updates[`spaces/${spaceId}/dailyTools/importantDates/${dateId}/pushNotificationAt`] = Date.now();
+      }
     }
   }
 

@@ -61,7 +61,6 @@ const settingsScreen = document.getElementById("settingsScreen");
 const settingsBtn = document.getElementById("settingsBtn");
 const newPseudo = document.getElementById("newPseudo");
 const saveNewPseudoBtn = document.getElementById("saveNewPseudoBtn");
-const toggleThemeBtn = document.getElementById("toggleThemeBtn");
 const appAppearancePreview = document.getElementById("appAppearancePreview");
 const appAppearancePreviewOrb = document.getElementById("appAppearancePreviewOrb");
 const appAppearancePreviewName = document.getElementById("appAppearancePreviewName");
@@ -320,9 +319,6 @@ const calendarSelectedDateEmpty = document.getElementById("calendarSelectedDateE
 const calendarAddSelectedDateBtn = document.getElementById("calendarAddSelectedDateBtn");
 const coupleTimelineList = document.getElementById("coupleTimelineList");
 const coupleTimelineEmpty = document.getElementById("coupleTimelineEmpty");
-const dailyCalendarNextTitle = document.getElementById("dailyCalendarNextTitle");
-const dailyCalendarNextMeta = document.getElementById("dailyCalendarNextMeta");
-const dailyCalendarNextCountdown = document.getElementById("dailyCalendarNextCountdown");
 const dailyUpcomingMoments = document.getElementById("dailyUpcomingMoments");
 const dailyUpcomingEmpty = document.getElementById("dailyUpcomingEmpty");
 const dashboardNextMomentCard = document.getElementById("dashboardNextMomentCard");
@@ -2436,7 +2432,7 @@ function rgbaFromAppHex(hex, alpha) {
 function getAppAccentContrast(hex) {
     const { r, g, b } = appHexToRgb(hex);
     const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
-    return luminance > 0.62 ? "#15372C" : "#FFFFFF";
+    return luminance > 0.62 ? "#17202A" : "#FFFFFF";
 }
 
 function resolveAppDisplayMode(mode) {
@@ -2444,7 +2440,7 @@ function resolveAppDisplayMode(mode) {
     return mode === "light" ? "light" : "dark";
 }
 
-function applyTheme(theme) {
+function applyTheme(theme, accentOverride = null) {
     const isDark = theme === "dark";
     document.body.classList.toggle("dark-theme", isDark);
     document.documentElement.style.colorScheme = isDark ? "dark" : "light";
@@ -2454,8 +2450,8 @@ function applyTheme(theme) {
     }
 
     if (themeColorMeta) {
-        const accent = currentPersonalAppearance?.accent || DEFAULT_APP_APPEARANCE.accent;
-        themeColorMeta.setAttribute("content", isDark ? mixAppColor(accent, "#001B14", 0.76) : mixAppColor(accent, "#FFFFFF", 0.82));
+        const accent = normalizeHexColor(accentOverride || currentPersonalAppearance?.accent || DEFAULT_APP_APPEARANCE.accent);
+        themeColorMeta.setAttribute("content", isDark ? mixAppColor(accent, "#0B1018", 0.68) : mixAppColor(accent, "#FFFFFF", 0.82));
     }
 }
 
@@ -2466,35 +2462,38 @@ function applyAppAppearance(appearance) {
     const accent = normalized.accent;
     const body = document.body;
 
-    applyTheme(resolvedMode);
+    applyTheme(resolvedMode, accent);
     body.classList.add("has-custom-app-theme");
     body.dataset.appUniverse = normalized.universe;
     body.style.setProperty("--app-user-accent", accent);
     body.style.setProperty("--app-user-accent-contrast", getAppAccentContrast(accent));
-    body.style.setProperty("--app-accent", isDark ? mixAppColor(accent, "#FFFFFF", 0.08) : mixAppColor(accent, "#173D31", 0.18));
-    body.style.setProperty("--app-border-strong", isDark ? mixAppColor(accent, "#FFFFFF", 0.05) : mixAppColor(accent, "#173D31", 0.22));
-    body.style.setProperty("--app-secondary-button", isDark ? mixAppColor(accent, "#071D18", 0.63) : mixAppColor(accent, "#FFFFFF", 0.58));
+    body.style.setProperty("--app-accent", isDark ? mixAppColor(accent, "#FFFFFF", 0.08) : mixAppColor(accent, "#25303A", 0.18));
+    body.style.setProperty("--app-border-strong", isDark ? mixAppColor(accent, "#FFFFFF", 0.05) : mixAppColor(accent, "#25303A", 0.22));
+    body.style.setProperty("--app-secondary-button", isDark ? mixAppColor(accent, "#171E29", 0.58) : mixAppColor(accent, "#FFFFFF", 0.58));
     body.style.setProperty("--app-icon-bg", rgbaFromAppHex(accent, isDark ? 0.16 : 0.2));
     body.style.setProperty("--app-border", rgbaFromAppHex(accent, isDark ? 0.25 : 0.22));
     body.style.setProperty("--app-shadow", rgbaFromAppHex(mixAppColor(accent, "#000000", 0.72), isDark ? 0.35 : 0.16));
     body.style.setProperty("--app-shadow-soft", rgbaFromAppHex(mixAppColor(accent, "#000000", 0.7), isDark ? 0.2 : 0.09));
 
     if (isDark) {
-        const deep = mixAppColor(accent, "#00140F", 0.78);
-        const deep2 = mixAppColor(accent, "#00100C", 0.88);
-        const panel = mixAppColor(accent, "#09251D", 0.73);
-        body.style.setProperty("--app-page-bg", `radial-gradient(circle at 50% 0%, ${mixAppColor(accent, "#06271E", 0.62)}, ${deep} 52%, ${deep2})`);
+        // Les anciennes bases étaient vertes, ce qui recolorait Myrtille/Lavande/Océan en vert.
+        // On part désormais de neutres sombres et seule la couleur choisie apporte la teinte.
+        const deep = mixAppColor(accent, "#0B111A", 0.66);
+        const deep2 = mixAppColor(accent, "#070B12", 0.78);
+        const panel = mixAppColor(accent, "#151C28", 0.58);
+        const input = mixAppColor(accent, "#18212E", 0.62);
+        body.style.setProperty("--app-page-bg", `radial-gradient(circle at 50% 0%, ${mixAppColor(accent, "#182131", 0.52)}, ${deep} 52%, ${deep2})`);
         body.style.setProperty("--app-shell-bg", deep);
-        body.style.setProperty("--app-screen-bg", `linear-gradient(180deg, ${mixAppColor(accent, "#05231A", 0.68)} 0%, ${deep2} 100%)`);
-        body.style.setProperty("--app-panel-bg", `linear-gradient(150deg, ${rgbaFromAppHex(panel, 0.96)}, ${rgbaFromAppHex(deep2, 0.97)})`);
-        body.style.setProperty("--app-input-bg", mixAppColor(accent, "#09251D", 0.72));
+        body.style.setProperty("--app-screen-bg", `linear-gradient(180deg, ${mixAppColor(accent, "#121A26", 0.58)} 0%, ${deep2} 100%)`);
+        body.style.setProperty("--app-panel-bg", `linear-gradient(150deg, ${rgbaFromAppHex(panel, 0.97)}, ${rgbaFromAppHex(deep2, 0.98)})`);
+        body.style.setProperty("--app-input-bg", input);
         body.style.setProperty("--app-heading", "#FFFFFF");
-        body.style.setProperty("--app-text", mixAppColor(accent, "#FFFFFF", 0.86));
-        body.style.setProperty("--app-muted", mixAppColor(accent, "#DCE9E4", 0.48));
-        body.style.setProperty("--dashboard-ink", "#F7FFFA");
-        body.style.setProperty("--dashboard-muted", mixAppColor(accent, "#DCE9E4", 0.5));
-        body.style.setProperty("--dashboard-panel", rgbaFromAppHex(panel, 0.88));
-        body.style.setProperty("--dashboard-panel-strong", rgbaFromAppHex(deep, 0.96));
+        body.style.setProperty("--app-text", mixAppColor(accent, "#F4F6FA", 0.84));
+        body.style.setProperty("--app-muted", mixAppColor(accent, "#BCC4D0", 0.62));
+        body.style.setProperty("--dashboard-ink", "#F8FAFF");
+        body.style.setProperty("--dashboard-muted", mixAppColor(accent, "#C4CBD6", 0.64));
+        body.style.setProperty("--dashboard-panel", rgbaFromAppHex(panel, 0.91));
+        body.style.setProperty("--dashboard-panel-strong", rgbaFromAppHex(deep, 0.97));
     } else {
         const pale = mixAppColor(accent, "#FFFFFF", 0.88);
         const pale2 = mixAppColor(accent, "#FFFFFF", 0.94);
@@ -2503,11 +2502,11 @@ function applyAppAppearance(appearance) {
         body.style.setProperty("--app-screen-bg", `linear-gradient(180deg, ${pale2} 0%, ${pale} 100%)`);
         body.style.setProperty("--app-panel-bg", "rgba(255,255,255,0.9)");
         body.style.setProperty("--app-input-bg", "#FFFFFF");
-        body.style.setProperty("--app-heading", mixAppColor(accent, "#102A22", 0.76));
-        body.style.setProperty("--app-text", mixAppColor(accent, "#19352C", 0.72));
-        body.style.setProperty("--app-muted", mixAppColor(accent, "#647A72", 0.7));
-        body.style.setProperty("--dashboard-ink", mixAppColor(accent, "#15352B", 0.76));
-        body.style.setProperty("--dashboard-muted", mixAppColor(accent, "#667D74", 0.72));
+        body.style.setProperty("--app-heading", mixAppColor(accent, "#17212B", 0.76));
+        body.style.setProperty("--app-text", mixAppColor(accent, "#28323C", 0.72));
+        body.style.setProperty("--app-muted", mixAppColor(accent, "#6B7280", 0.7));
+        body.style.setProperty("--dashboard-ink", mixAppColor(accent, "#1B2530", 0.76));
+        body.style.setProperty("--dashboard-muted", mixAppColor(accent, "#707887", 0.72));
         body.style.setProperty("--dashboard-panel", "rgba(255,255,255,0.84)");
         body.style.setProperty("--dashboard-panel-strong", "rgba(255,255,255,0.95)");
     }
@@ -2515,10 +2514,10 @@ function applyAppAppearance(appearance) {
     body.style.setProperty("--dashboard-accent", accent);
     body.style.setProperty("--dashboard-line", rgbaFromAppHex(accent, 0.2));
 
-    const accentDeep = isDark ? mixAppColor(accent, "#08131F", 0.74) : mixAppColor(accent, "#FFFFFF", 0.82);
-    const accentDeeper = isDark ? mixAppColor(accent, "#050A12", 0.86) : mixAppColor(accent, "#FFFFFF", 0.92);
-    const accentSurface = isDark ? mixAppColor(accent, "#111927", 0.72) : mixAppColor(accent, "#FFFFFF", 0.88);
-    const accentSurfaceStrong = isDark ? mixAppColor(accent, "#0B1420", 0.82) : mixAppColor(accent, "#FFFFFF", 0.95);
+    const accentDeep = isDark ? mixAppColor(accent, "#101723", 0.62) : mixAppColor(accent, "#FFFFFF", 0.82);
+    const accentDeeper = isDark ? mixAppColor(accent, "#080D15", 0.74) : mixAppColor(accent, "#FFFFFF", 0.92);
+    const accentSurface = isDark ? mixAppColor(accent, "#1A2230", 0.56) : mixAppColor(accent, "#FFFFFF", 0.88);
+    const accentSurfaceStrong = isDark ? mixAppColor(accent, "#111925", 0.68) : mixAppColor(accent, "#FFFFFF", 0.95);
     body.style.setProperty("--app-accent-deep", accentDeep);
     body.style.setProperty("--app-accent-deeper", accentDeeper);
     body.style.setProperty("--app-accent-surface", accentSurface);
@@ -2528,6 +2527,12 @@ function applyAppAppearance(appearance) {
     body.style.setProperty("--app-themed-nav", isDark ? rgbaFromAppHex(accentDeep, 0.94) : rgbaFromAppHex("#FFFFFF", 0.9));
     body.style.setProperty("--app-themed-card", isDark ? `linear-gradient(145deg, ${rgbaFromAppHex(accentSurface, 0.96)}, ${rgbaFromAppHex(accentDeeper, 0.97)})` : `linear-gradient(145deg, ${rgbaFromAppHex("#FFFFFF", 0.96)}, ${rgbaFromAppHex(mixAppColor(accent, "#FFFFFF", 0.9), 0.96)})`);
     body.style.setProperty("--app-themed-track", isDark ? rgbaFromAppHex(accentDeeper, 0.72) : rgbaFromAppHex(mixAppColor(accent, "#FFFFFF", 0.76), 0.9));
+    body.style.setProperty("--theme-primary", accent);
+    body.style.setProperty("--theme-primary-contrast", getAppAccentContrast(accent));
+    body.style.setProperty("--theme-primary-soft", rgbaFromAppHex(accent, isDark ? 0.18 : 0.14));
+    body.style.setProperty("--theme-surface", accentSurface);
+    body.style.setProperty("--theme-surface-strong", accentSurfaceStrong);
+    body.style.setProperty("--theme-deep", accentDeep);
     body.style.background = "var(--app-page-bg)";
     renderAppearanceStudio();
 }
@@ -4722,19 +4727,6 @@ function renderDailyLifeHub(spaceData = currentSpaceData || {}) {
         .filter(({ occurrence }) => occurrence && occurrence.getTime() >= startToday)
         .sort((a, b) => a.occurrence - b.occurrence);
     const next = upcoming[0];
-
-    if (dailyCalendarNextTitle && dailyCalendarNextMeta && dailyCalendarNextCountdown) {
-        if (next) {
-            dailyCalendarNextTitle.textContent = next.item.title || "Un moment à deux";
-            dailyCalendarNextMeta.textContent = formatCalendarOccurrence(next.item, next.occurrence);
-            dailyCalendarNextCountdown.textContent = getCalendarCountdownLabel(next.item, next.occurrence);
-            dailyCalendarNextCountdown.style.setProperty("--event-color", getCalendarEventColor(next.item));
-        } else {
-            dailyCalendarNextTitle.textContent = "Ajoutez votre première date";
-            dailyCalendarNextMeta.textContent = "Votre calendrier commun vous attend";
-            dailyCalendarNextCountdown.textContent = "+";
-        }
-    }
 
     if (dailyUpcomingMoments && dailyUpcomingEmpty) {
         const preview = upcoming.slice(0, 3);
@@ -14316,7 +14308,7 @@ function applyCoupleProfile(spaceData) {
         : "💚";
     const spaceName = profile.spaceName || "Notre coin Cactus";
 
-    dashboardScreen.style.setProperty("--dashboard-accent", accent);
+    dashboardScreen.style.setProperty("--couple-profile-accent", accent);
     coupleProfileScreen.style.setProperty("--profile-accent", accent);
     dashboardSpaceName.textContent = spaceName;
     dashboardProfileBtn.setAttribute(
@@ -14598,6 +14590,7 @@ function restoreUserSpace(userData) {
             currentSpaceData = spaceData;
             listenToCurrentSpace(currentSpaceCode);
             showScreen("dashboard");
+            window.setTimeout(openPendingNotificationScreen, 0);
         })
         .catch((error) => {
             const code = String(error?.code || "").toLowerCase();
@@ -14609,6 +14602,7 @@ function restoreUserSpace(userData) {
             console.warn("Vérification de l’espace différée", error);
             listenToCurrentSpace(currentSpaceCode);
             showScreen("dashboard");
+            window.setTimeout(openPendingNotificationScreen, 0);
         });
 }
 
@@ -14687,6 +14681,41 @@ currentPersonalAppearance = loadCachedPersonalAppearance();
 applyAppAppearance(currentPersonalAppearance);
 installSecondaryCactusIcons();
 startFirebaseConnectionMonitoring();
+
+let pendingNotificationScreen = (() => {
+    try {
+        const url = new URL(window.location.href);
+        const screen = url.searchParams.get("cactusScreen") || "";
+        if (screen) {
+            url.searchParams.delete("cactusScreen");
+            history.replaceState(history.state, "", url.pathname + url.search + url.hash);
+        }
+        return screen;
+    } catch (error) {
+        return "";
+    }
+})();
+
+function openPendingNotificationScreen() {
+    if (!pendingNotificationScreen || !currentUser || !currentSpaceCode) return false;
+    const target = pendingNotificationScreen;
+    pendingNotificationScreen = "";
+    try {
+        showScreen(target);
+        return true;
+    } catch (error) {
+        console.warn("Navigation depuis la notification impossible", error);
+        return false;
+    }
+}
+
+if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.addEventListener("message", (event) => {
+        if (event.data?.type !== "CACTUS_NOTIFICATION_CLICK") return;
+        pendingNotificationScreen = String(event.data.screen || "");
+        openPendingNotificationScreen();
+    });
+}
 
 if ("serviceWorker" in navigator) {
     const updateBanner = document.getElementById("appUpdateBanner");

@@ -39,7 +39,15 @@ self.addEventListener("notificationclick", (event) => {
                 if ("focus" in existingClient) return existingClient.focus();
             }
 
-            return self.clients.openWindow ? self.clients.openWindow(targetUrl) : undefined;
+            if (!self.clients.openWindow) return undefined;
+            if (!requestedScreen) return self.clients.openWindow(targetUrl);
+            try {
+                const deepLink = new URL(targetUrl);
+                deepLink.searchParams.set("cactusScreen", requestedScreen);
+                return self.clients.openWindow(deepLink.href);
+            } catch (error) {
+                return self.clients.openWindow(targetUrl);
+            }
         })
     );
 });
@@ -80,15 +88,15 @@ try {
     console.warn("Firebase Messaging indisponible dans le service worker", error);
 }
 
-const CACHE_VERSION = "v104";
+const CACHE_VERSION = "v105";
 const SHELL_CACHE = `cactus-shell-${CACHE_VERSION}`;
 const RUNTIME_CACHE = `cactus-runtime-${CACHE_VERSION}`;
 
 const APP_SHELL = [
     "./index.html",
-    "./css/style.css?v=93",
+    "./css/style.css?v=105",
     "./js/firebase.js?v=86",
-    "./js/script.js?v=93",
+    "./js/script.js?v=105",
     "./js/screens.js?v=84",
     "./js/utils.js",
     "./js/storage.js",

@@ -11767,3 +11767,228 @@ body.has-custom-app-theme .settings-screen .settings-account-actions > .secondar
     .settings-category-nav button { min-height: 50px; }
     .settings-category-nav button strong { font-size: .49rem; }
 }
+
+/* ====================
+   V105 — STABILISATION GLOBALE
+   Les composants de chrome utilisent enfin les variables du thème actif.
+   Les couleurs sémantiques des jeux (green/red flags, erreurs, succès) restent intactes.
+==================== */
+
+/* Les onglets Réglages occupent toujours toute la largeur, même sans onglet Créateur. */
+.settings-category-nav {
+    display: flex;
+    grid-template-columns: none;
+}
+.settings-category-nav > button {
+    flex: 1 1 0;
+}
+.settings-category-nav > button[hidden] {
+    display: none !important;
+}
+
+/* Le profil du couple garde sa couleur décorative sans écraser la couleur globale. */
+body.has-custom-app-theme #dashboardScreen {
+    --dashboard-accent: var(--app-user-accent);
+}
+body.has-custom-app-theme #coupleProfileScreen {
+    --profile-accent: var(--couple-profile-accent, var(--app-user-accent));
+}
+
+/* Écrans généraux : fonds et panneaux neutres teintés par le thème choisi. */
+body.has-custom-app-theme :is(
+    #dailyToolsScreen,
+    #shoppingListScreen,
+    #tasksScreen,
+    #remindersScreen,
+    #timeCapsulesScreen,
+    #settingsScreen,
+    #notificationsScreen,
+    #discussionsScreen,
+    #historyScreen,
+    #storyPageScreen,
+    #gardenScreen,
+    #notebookScreen
+) {
+    background: var(--app-screen-bg) !important;
+    color: var(--app-text);
+}
+
+body.has-custom-app-theme :is(
+    .daily-tools-hero,
+    .organizer-showcase,
+    .shopping-showcase,
+    .task-showcase,
+    .reminder-showcase,
+    .organizer-creation-panel,
+    .organizer-empty,
+    .shopping-history-section,
+    .settings-panel,
+    .phone-notifications-box,
+    .account-email-row,
+    .theme-offer-box,
+    .shared-theme-status,
+    .time-capsule-hero,
+    .time-capsule-creation-panel
+) {
+    border-color: var(--app-border) !important;
+    background: var(--app-themed-card) !important;
+    color: var(--app-text);
+    box-shadow: 0 12px 30px var(--app-shadow-soft);
+}
+
+body.has-custom-app-theme :is(
+    .daily-quick-card,
+    .daily-calendar-entry,
+    .shopping-item,
+    .organizer-item,
+    .shopping-history-chip,
+    .organizer-form,
+    .edit-notebook-sheet,
+    .notebook-color-sheet
+) {
+    border-color: color-mix(in srgb, var(--app-user-accent) 24%, transparent) !important;
+    background: linear-gradient(145deg,
+        color-mix(in srgb, var(--app-accent-surface) 96%, transparent),
+        color-mix(in srgb, var(--app-accent-surface-strong) 98%, transparent)) !important;
+    color: var(--app-text);
+    box-shadow: 0 10px 24px var(--app-shadow-soft);
+}
+
+body.has-custom-app-theme :is(
+    .shopping-item-copy strong,
+    .organizer-item-copy strong,
+    .organizer-showcase strong,
+    .shopping-showcase strong,
+    .task-showcase strong,
+    .reminder-showcase strong,
+    .daily-quick-card strong
+) {
+    color: var(--app-heading) !important;
+}
+body.has-custom-app-theme :is(
+    .shopping-item-copy small,
+    .organizer-item-copy small,
+    .organizer-showcase p,
+    .shopping-showcase p,
+    .task-showcase p,
+    .reminder-showcase p,
+    .daily-quick-card small
+) {
+    color: var(--app-muted) !important;
+}
+
+/* Filtres et actions quotidiennes : plus de retour au vert historique. */
+body.has-custom-app-theme :is(.organizer-filters, .shopping-filters) {
+    border-color: var(--app-border) !important;
+    background: color-mix(in srgb, var(--app-accent-surface-strong) 92%, transparent) !important;
+}
+body.has-custom-app-theme :is(.organizer-filters, .shopping-filters) button {
+    border-color: transparent !important;
+    background: var(--app-secondary-button) !important;
+    color: var(--app-heading) !important;
+}
+body.has-custom-app-theme :is(.organizer-filters, .shopping-filters) button.is-active,
+body.has-custom-app-theme :is(.organizer-filters, .shopping-filters) button[aria-pressed="true"] {
+    border-color: color-mix(in srgb, var(--app-user-accent) 45%, transparent) !important;
+    background: var(--app-user-accent) !important;
+    color: var(--app-user-accent-contrast) !important;
+}
+body.has-custom-app-theme :is(.shopping-check, .organizer-item-check) {
+    border-color: color-mix(in srgb, var(--app-user-accent) 58%, transparent) !important;
+    background: var(--app-accent-soft) !important;
+}
+body.has-custom-app-theme :is(.shopping-check, .organizer-item-check).is-checked,
+body.has-custom-app-theme .is-completed :is(.shopping-check, .organizer-item-check) {
+    background: var(--app-user-accent) !important;
+    color: var(--app-user-accent-contrast) !important;
+}
+body.has-custom-app-theme :is(.shopping-item-actions button, .organizer-item-actions button):not(.is-delete):not(.danger-btn) {
+    border-color: color-mix(in srgb, var(--app-user-accent) 26%, transparent) !important;
+    background: var(--app-accent-soft) !important;
+    color: var(--app-heading) !important;
+}
+
+/* Le prochain moment, Aujourd'hui et les notifications internes suivent aussi l'univers. */
+body.has-custom-app-theme #dashboardScreen :is(
+    .dashboard-next-moment-card,
+    .dashboard-today-widget,
+    .dashboard-activity-card,
+    .dashboard-last-activity
+) {
+    border-color: color-mix(in srgb, var(--app-user-accent) 24%, transparent) !important;
+    background: var(--app-themed-card) !important;
+    color: var(--app-heading) !important;
+    box-shadow: 0 12px 28px var(--app-shadow-soft);
+}
+body.has-custom-app-theme #dashboardScreen :is(
+    .dashboard-next-moment-copy small,
+    .dashboard-next-moment-copy span,
+    .dashboard-today-widget p,
+    .dashboard-today-list small
+) {
+    color: var(--app-muted) !important;
+}
+body.has-custom-app-theme #dashboardScreen .dashboard-next-moment-countdown,
+body.has-custom-app-theme #dashboardScreen #dashboardNextMomentCountdown {
+    color: var(--app-user-accent) !important;
+}
+
+/* Les principaux boutons utilitaires héritent du thème. Les actions dangereuses restent rouges. */
+body.has-custom-app-theme :is(
+    .organizer-add-button,
+    .shopping-quick-add-fab,
+    .shopping-floating-add,
+    .daily-life-floating-add,
+    .notebook-return-button
+):not(.danger-btn) {
+    border-color: color-mix(in srgb, var(--app-user-accent) 42%, transparent) !important;
+    background: var(--app-user-accent) !important;
+    color: var(--app-user-accent-contrast) !important;
+    box-shadow: 0 12px 26px color-mix(in srgb, var(--app-user-accent) 22%, transparent) !important;
+}
+
+/* Champs généraux des outils quotidiens. */
+body.has-custom-app-theme :is(
+    .daily-organizer-screen,
+    .settings-screen,
+    .time-capsules-screen
+) :is(input, textarea, select) {
+    border-color: color-mix(in srgb, var(--app-user-accent) 30%, transparent);
+    background: var(--app-input-bg);
+    color: var(--app-text);
+}
+
+/* Capsules : le sélecteur Archives restauré reste compact et parfaitement thémé. */
+body.has-custom-app-theme .time-capsule-view-switch {
+    border-color: var(--app-border);
+    background: color-mix(in srgb, var(--app-accent-surface-strong) 92%, transparent);
+}
+body.has-custom-app-theme .time-capsule-view-switch button {
+    color: var(--app-muted);
+}
+body.has-custom-app-theme .time-capsule-view-switch button.is-active {
+    border-color: color-mix(in srgb, var(--app-user-accent) 36%, transparent);
+    background: var(--app-accent-soft-strong);
+    color: var(--app-heading);
+}
+
+/* La mini-capsule du dashboard ne doit pas sortir de son conteneur sur les petits écrans. */
+.dashboard-cactus-section {
+    overflow: visible;
+}
+.dashboard-time-capsule-ready {
+    max-width: min(250px, 48%);
+}
+
+@media (max-width: 420px) {
+    .settings-category-nav {
+        gap: 5px;
+    }
+    .settings-category-nav > button {
+        min-width: 0;
+        padding-inline: 3px;
+    }
+    .dashboard-time-capsule-ready {
+        max-width: 47%;
+    }
+}

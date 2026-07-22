@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cactus 🌵</title>
-    <link rel="stylesheet" href="css/style.css?v=104">
+    <link rel="stylesheet" href="css/style.css?v=105">
     <link rel="manifest" href="manifest.json?v=2">
     <meta name="theme-color" content="#003E2D">
 </head>
@@ -495,6 +495,11 @@
             <span><b id="timeCapsuleOpenedCount">0</b><small>souvenirs</small></span>
         </div>
     </section>
+
+    <div class="time-capsule-view-switch" role="tablist" aria-label="Afficher les capsules">
+        <button type="button" id="timeCapsuleActiveTab" class="is-active" role="tab" aria-selected="true">En cours <span id="timeCapsuleActiveTabCount">0</span></button>
+        <button type="button" id="timeCapsuleArchiveTab" role="tab" aria-selected="false">Archives <span id="timeCapsuleArchiveTabCount">0</span></button>
+    </div>
 
     <form id="timeCapsuleForm" class="organizer-form organizer-creation-panel time-capsule-creation-panel" style="display:none;">
         <div class="organizer-form-heading"><div><small>Nouvelle capsule</small><strong>Créez un souvenir vraiment à vous</strong></div><button type="button" id="cancelTimeCapsuleBtn">Annuler</button></div>
@@ -1219,6 +1224,12 @@
 
         </div>
 
+        <button type="button" id="dashboardTimeCapsuleReady" class="dashboard-time-capsule-ready" style="display:none;" aria-label="Ouvrir les capsules temporelles prêtes">
+            <span class="dashboard-time-capsule-ready-orbit" aria-hidden="true"></span>
+            <span class="dashboard-time-capsule-ready-object" aria-hidden="true"><svg class="cactus-ui-icon"><use href="#cactusIconCapsule"></use></svg></span>
+            <span class="dashboard-time-capsule-ready-copy"><small>Le temps est arrivé</small><strong id="dashboardTimeCapsuleReadyTitle">Une capsule vous attend ✨</strong></span>
+        </button>
+
     </section>
 
     <div id="cactusWardrobeModal" class="cactus-wardrobe-modal" style="display:none;" role="dialog" aria-modal="true" aria-labelledby="cactusWardrobeTitle">
@@ -1301,6 +1312,15 @@
         <p id="dashboardTodayEmpty">Rien d’urgent aujourd’hui. Profitez de votre journée à deux.</p>
     </section>
 
+    <button type="button" id="dashboardTimeCapsuleTeaser" class="dashboard-time-capsule-teaser" style="display:none;">
+        <span id="dashboardTimeCapsuleTeaserSymbol" class="dashboard-time-capsule-teaser-symbol" aria-hidden="true">✨</span>
+        <span class="dashboard-time-capsule-teaser-copy">
+            <small>Un secret voyage vers le futur</small>
+            <strong id="dashboardTimeCapsuleTeaserTitle">Une capsule vient d’être scellée</strong>
+            <span id="dashboardTimeCapsuleTeaserMeta">Son contenu restera secret jusqu’au bon jour.</span>
+        </span>
+        <span class="dashboard-time-capsule-teaser-arrow" aria-hidden="true">›</span>
+    </button>
 
     <!-- RITUEL QUOTIDIEN -->
     <button type="button" id="dailyRitualCard" class="dashboard-daily-card">
@@ -2725,7 +2745,7 @@
     <script src="js/storage.js"></script>
     <script src="js/rankings.js"></script>
     <script src="js/questions.js"></script>
-    <script src="js/script.js?v=104"></script>
+    <script src="js/script.js?v=105"></script>
 
 </body>
 </html>
