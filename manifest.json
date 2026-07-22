@@ -1,137 +1,33 @@
 {
-  "name": "CACTUS — Pack La vraie vie à deux",
-  "total_new_top_level_contents": 600,
-  "limit_reached_extra_levels": 300,
+  "pack": "Ce qu’on ne découvre qu’avec le temps",
+  "new_playable_objects": 600,
   "distribution": {
-    "ok-ou-pas-ok": 130,
+    "ok": 130,
     "questions": 120,
     "likely": 60,
-    "guess-my-answer": 60,
-    "would-you-rather": 60,
-    "green-flag-red-flag": 60,
+    "guess": 60,
+    "wyr": 60,
+    "green": 60,
     "rankings": 60,
-    "limit-reached-scenarios": 50,
-    "limit-reached-levels": 300
+    "limits": 50
   },
+  "limit_reached_extra_levels": 300,
   "themes": [
-    {
-      "id": "argent",
-      "label": "Argent & patrimoine",
-      "top_level_contents": 60,
-      "limit_levels": 30
-    },
-    {
-      "id": "famille",
-      "label": "Famille & belle-famille",
-      "top_level_contents": 60,
-      "limit_levels": 30
-    },
-    {
-      "id": "sante_mentale",
-      "label": "Santé mentale & périodes difficiles",
-      "top_level_contents": 60,
-      "limit_levels": 30
-    },
-    {
-      "id": "maladie",
-      "label": "Maladie, handicap & vieillesse",
-      "top_level_contents": 60,
-      "limit_levels": 30
-    },
-    {
-      "id": "carriere",
-      "label": "Carrière & sacrifices",
-      "top_level_contents": 60,
-      "limit_levels": 30
-    },
-    {
-      "id": "vie_commune",
-      "label": "Vie commune réelle",
-      "top_level_contents": 60,
-      "limit_levels": 30
-    },
-    {
-      "id": "numerique",
-      "label": "Vie privée, téléphone & technologie",
-      "top_level_contents": 60,
-      "limit_levels": 30
-    },
-    {
-      "id": "mort",
-      "label": "Mort, héritage & après",
-      "top_level_contents": 60,
-      "limit_levels": 30
-    },
-    {
-      "id": "bouleversements",
-      "label": "Quand la vie change brutalement",
-      "top_level_contents": 60,
-      "limit_levels": 30
-    },
-    {
-      "id": "couple_pression",
-      "label": "Couple sous pression",
-      "top_level_contents": 60,
-      "limit_levels": 30
-    }
+    "Identité, évolution & convictions",
+    "Amitiés, vie sociale & place des autres",
+    "Intimité durable & sexualité adulte",
+    "Petites choses qui usent le couple",
+    "Morale, loyauté & dilemmes impossibles",
+    "Corps, santé & hygiène de vie",
+    "Couple LGBT+, visibilité & parentalité",
+    "Passé, secrets & anciennes versions de soi"
   ],
-  "duplicate_check": {
-    "ok-ou-pas-ok.json": {
-      "existing_before": 999,
-      "new": 130,
-      "after": 1129,
-      "id_collisions": 0,
-      "exact_text_collisions": 0
-    },
-    "questions.json": {
-      "existing_before": 660,
-      "new": 120,
-      "after": 780,
-      "id_collisions": 0,
-      "exact_text_collisions": 0
-    },
-    "likely.json": {
-      "existing_before": 335,
-      "new": 60,
-      "after": 395,
-      "id_collisions": 0,
-      "exact_text_collisions": 0
-    },
-    "guess-my-answer.json": {
-      "existing_before": 335,
-      "new": 60,
-      "after": 395,
-      "id_collisions": 0,
-      "exact_text_collisions": 0
-    },
-    "would-you-rather.json": {
-      "existing_before": 330,
-      "new": 60,
-      "after": 390,
-      "id_collisions": 0,
-      "exact_text_collisions": 0
-    },
-    "green-flag-red-flag.json": {
-      "existing_before": 330,
-      "new": 60,
-      "after": 390,
-      "id_collisions": 0,
-      "exact_text_collisions": 0
-    },
-    "rankings.json": {
-      "existing_before": 320,
-      "new": 60,
-      "after": 380,
-      "id_collisions": 0,
-      "exact_text_collisions": 0
-    },
-    "limit-reached.json": {
-      "existing_before": 87,
-      "new": 50,
-      "after": 137,
-      "id_collisions": 0,
-      "exact_text_collisions": 0
-    }
-  },
-  "base_includes_parentalite_pack": true
+  "checks": {
+    "id_collisions_with_base": 0,
+    "duplicate_new_ids": 0,
+    "exact_text_duplicates_with_base": 0,
+    "exact_text_duplicates_inside_pack": 0,
+    "fuzzy_matches_ratio_0_93_or_more": 0,
+    "all_limit_scenarios_have_6_levels": true
+  }
 }

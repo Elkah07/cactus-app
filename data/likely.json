@@ -1973,5 +1973,305 @@
     "id": "vraie_vie_likely_couple_pression_06_qui_est_le_plus_susc",
     "question": "Qui est le plus susceptible de réussir à recréer de la complicité après une longue période difficile ?",
     "category": "couple_pression"
+  },
+  {
+    "id": "temps_likely_identite_01_qui_est_le_plus_susceptible_de_changer_radicalement_de_voi",
+    "question": "Qui est le plus susceptible de changer radicalement de voie professionnelle après plusieurs années ?",
+    "category": "identite"
+  },
+  {
+    "id": "temps_likely_identite_02_qui_est_le_plus_susceptible_de_defendre_une_conviction_mem",
+    "question": "Qui est le plus susceptible de défendre une conviction même si cela crée une grosse dispute ?",
+    "category": "identite"
+  },
+  {
+    "id": "temps_likely_identite_03_qui_est_le_plus_susceptible_davoir_besoin_de_beaucoup_de_p",
+    "question": "Qui est le plus susceptible d’avoir besoin de beaucoup de projets personnels en dehors du couple ?",
+    "category": "identite"
+  },
+  {
+    "id": "temps_likely_identite_04_qui_est_le_plus_susceptible_de_se_reinventer_completement_",
+    "question": "Qui est le plus susceptible de se réinventer complètement après une période difficile ?",
+    "category": "identite"
+  },
+  {
+    "id": "temps_likely_identite_05_qui_est_le_plus_susceptible_de_remettre_en_question_une_de",
+    "question": "Qui est le plus susceptible de remettre en question une décision de vie prise plusieurs années plus tôt ?",
+    "category": "identite"
+  },
+  {
+    "id": "temps_likely_identite_06_qui_est_le_plus_susceptible_de_vouloir_partir_seul_e_quelq",
+    "question": "Qui est le plus susceptible de vouloir partir seul(e) quelque temps pour se retrouver ?",
+    "category": "identite"
+  },
+  {
+    "id": "temps_likely_identite_07_qui_est_le_plus_susceptible_de_changer_fortement_dopinion_",
+    "question": "Qui est le plus susceptible de changer fortement d’opinion sur un sujet important avec l’âge ?",
+    "category": "identite"
+  },
+  {
+    "id": "temps_likely_identite_08_qui_est_le_plus_susceptible_de_preferer_renoncer_a_un_proj",
+    "question": "Qui est le plus susceptible de préférer renoncer à un projet commun plutôt qu’à un rêve personnel ?",
+    "category": "identite"
+  },
+  {
+    "id": "temps_likely_amities_01_qui_est_le_plus_susceptible_de_raconter_une_dispute_de_cou",
+    "question": "Qui est le plus susceptible de raconter une dispute de couple à son/sa meilleur(e) ami(e) ?",
+    "category": "amities"
+  },
+  {
+    "id": "temps_likely_amities_02_qui_est_le_plus_susceptible_de_defendre_un_e_ami_e_meme_lo",
+    "question": "Qui est le plus susceptible de défendre un(e) ami(e) même lorsque son/sa partenaire est blessé(e) ?",
+    "category": "amities"
+  },
+  {
+    "id": "temps_likely_amities_03_qui_est_le_plus_susceptible_de_vouloir_partir_souvent_en_v",
+    "question": "Qui est le plus susceptible de vouloir partir souvent en vacances avec ses amis sans l’autre ?",
+    "category": "amities"
+  },
+  {
+    "id": "temps_likely_amities_04_qui_est_le_plus_susceptible_de_devenir_ami_e_avec_les_amis",
+    "question": "Qui est le plus susceptible de devenir ami(e) avec les amis de son/sa partenaire ?",
+    "category": "amities"
+  },
+  {
+    "id": "temps_likely_amities_05_qui_est_le_plus_susceptible_de_repondre_immediatement_a_un",
+    "question": "Qui est le plus susceptible de répondre immédiatement à un ami en détresse même en plein rendez-vous amoureux ?",
+    "category": "amities"
+  },
+  {
+    "id": "temps_likely_amities_06_qui_est_le_plus_susceptible_davoir_besoin_dune_vie_sociale",
+    "question": "Qui est le plus susceptible d’avoir besoin d’une vie sociale très active pour se sentir bien ?",
+    "category": "amities"
+  },
+  {
+    "id": "temps_likely_amities_07_qui_est_le_plus_susceptible_de_garder_un_e_ami_e_que_lautr",
+    "question": "Qui est le plus susceptible de garder un(e) ami(e) que l’autre ne supporte vraiment pas ?",
+    "category": "amities"
+  },
+  {
+    "id": "temps_likely_amities_08_qui_est_le_plus_susceptible_dorganiser_une_soiree_chez_vou",
+    "question": "Qui est le plus susceptible d’organiser une soirée chez vous sans prévenir assez tôt ?",
+    "category": "amities"
+  },
+  {
+    "id": "temps_likely_intimite_01_qui_est_le_plus_susceptible_doser_parler_en_premier_dune_b",
+    "question": "Qui est le plus susceptible d’oser parler en premier d’une baisse de désir ?",
+    "category": "intimite"
+  },
+  {
+    "id": "temps_likely_intimite_02_qui_est_le_plus_susceptible_de_proposer_de_consulter_un_sp",
+    "question": "Qui est le plus susceptible de proposer de consulter un spécialiste pour améliorer votre intimité ?",
+    "category": "intimite"
+  },
+  {
+    "id": "temps_likely_intimite_03_qui_est_le_plus_susceptible_davoir_besoin_de_beaucoup_de_t",
+    "question": "Qui est le plus susceptible d’avoir besoin de beaucoup de tendresse même sans sexualité ?",
+    "category": "intimite"
+  },
+  {
+    "id": "temps_likely_intimite_04_qui_est_le_plus_susceptible_de_vouloir_planifier_des_momen",
+    "question": "Qui est le plus susceptible de vouloir planifier des moments à deux pour éviter la routine ?",
+    "category": "intimite"
+  },
+  {
+    "id": "temps_likely_intimite_05_qui_est_le_plus_susceptible_de_garder_un_fantasme_secret_p",
+    "question": "Qui est le plus susceptible de garder un fantasme secret par peur d’être jugé(e) ?",
+    "category": "intimite"
+  },
+  {
+    "id": "temps_likely_intimite_06_qui_est_le_plus_susceptible_detre_blesse_e_par_une_longue_",
+    "question": "Qui est le plus susceptible d’être blessé(e) par une longue période sans compliments ni séduction ?",
+    "category": "intimite"
+  },
+  {
+    "id": "temps_likely_intimite_07_qui_est_le_plus_susceptible_de_preferer_dormir_seul_e_pour",
+    "question": "Qui est le plus susceptible de préférer dormir seul(e) pour mieux récupérer ?",
+    "category": "intimite"
+  },
+  {
+    "id": "temps_likely_intimite_08_qui_est_le_plus_susceptible_daborder_directement_un_change",
+    "question": "Qui est le plus susceptible d’aborder directement un changement d’attirance plutôt que de faire semblant ?",
+    "category": "intimite"
+  },
+  {
+    "id": "temps_likely_usure_01_qui_est_le_plus_susceptible_doublier_une_tache_apres_avoir",
+    "question": "Qui est le plus susceptible d’oublier une tâche après avoir juré qu’il/elle allait la faire ?",
+    "category": "usure"
+  },
+  {
+    "id": "temps_likely_usure_02_qui_est_le_plus_susceptible_detre_systematiquement_en_reta",
+    "question": "Qui est le plus susceptible d’être systématiquement en retard ?",
+    "category": "usure"
+  },
+  {
+    "id": "temps_likely_usure_03_qui_est_le_plus_susceptible_de_remarquer_en_premier_ce_qui",
+    "question": "Qui est le plus susceptible de remarquer en premier ce qu’il manque dans la maison ?",
+    "category": "usure"
+  },
+  {
+    "id": "temps_likely_usure_04_qui_est_le_plus_susceptible_de_vouloir_regler_une_dispute_",
+    "question": "Qui est le plus susceptible de vouloir régler une dispute immédiatement ?",
+    "category": "usure"
+  },
+  {
+    "id": "temps_likely_usure_05_qui_est_le_plus_susceptible_de_laisser_trainer_ses_affaire",
+    "question": "Qui est le plus susceptible de laisser traîner ses affaires en disant qu’il/elle rangera plus tard ?",
+    "category": "usure"
+  },
+  {
+    "id": "temps_likely_usure_06_qui_est_le_plus_susceptible_de_passer_trop_de_temps_sur_so",
+    "question": "Qui est le plus susceptible de passer trop de temps sur son téléphone pendant un moment à deux ?",
+    "category": "usure"
+  },
+  {
+    "id": "temps_likely_usure_07_qui_est_le_plus_susceptible_de_continuer_une_mauvaise_habi",
+    "question": "Qui est le plus susceptible de continuer une mauvaise habitude malgré plusieurs rappels ?",
+    "category": "usure"
+  },
+  {
+    "id": "temps_likely_usure_08_qui_est_le_plus_susceptible_de_preparer_spontanement_une_p",
+    "question": "Qui est le plus susceptible de préparer spontanément une petite attention pour casser la routine ?",
+    "category": "usure"
+  },
+  {
+    "id": "temps_likely_morale_01_qui_est_le_plus_susceptible_de_dire_une_verite_difficile_m",
+    "question": "Qui est le plus susceptible de dire une vérité difficile même si elle fait très mal ?",
+    "category": "morale"
+  },
+  {
+    "id": "temps_likely_morale_02_qui_est_le_plus_susceptible_de_proteger_un_proche_qui_a_fa",
+    "question": "Qui est le plus susceptible de protéger un proche qui a fait une grosse erreur ?",
+    "category": "morale"
+  },
+  {
+    "id": "temps_likely_morale_03_qui_est_le_plus_susceptible_de_garder_un_secret_lourd_pend",
+    "question": "Qui est le plus susceptible de garder un secret lourd pendant des années ?",
+    "category": "morale"
+  },
+  {
+    "id": "temps_likely_morale_04_qui_est_le_plus_susceptible_de_refuser_un_avantage_obtenu_",
+    "question": "Qui est le plus susceptible de refuser un avantage obtenu de manière injuste ?",
+    "category": "morale"
+  },
+  {
+    "id": "temps_likely_morale_05_qui_est_le_plus_susceptible_de_pardonner_quelquun_qui_a_si",
+    "question": "Qui est le plus susceptible de pardonner quelqu’un qui a sincèrement changé ?",
+    "category": "morale"
+  },
+  {
+    "id": "temps_likely_morale_06_qui_est_le_plus_susceptible_de_choisir_la_loyaute_plutot_q",
+    "question": "Qui est le plus susceptible de choisir la loyauté plutôt que l’honnêteté dans un dilemme impossible ?",
+    "category": "morale"
+  },
+  {
+    "id": "temps_likely_morale_07_qui_est_le_plus_susceptible_dintervenir_lorsquun_inconnu_e",
+    "question": "Qui est le plus susceptible d’intervenir lorsqu’un inconnu est traité injustement ?",
+    "category": "morale"
+  },
+  {
+    "id": "temps_likely_corps_01_qui_est_le_plus_susceptible_de_repousser_un_rendez_vous_me",
+    "question": "Qui est le plus susceptible de repousser un rendez-vous médical par peur ou flemme ?",
+    "category": "corps"
+  },
+  {
+    "id": "temps_likely_corps_02_qui_est_le_plus_susceptible_de_devenir_tres_discipline_e_a",
+    "question": "Qui est le plus susceptible de devenir très discipliné(e) avec une nouvelle routine sportive ?",
+    "category": "corps"
+  },
+  {
+    "id": "temps_likely_corps_03_qui_est_le_plus_susceptible_de_sinquieter_pour_la_sante_de",
+    "question": "Qui est le plus susceptible de s’inquiéter pour la santé de l’autre et d’insister un peu trop ?",
+    "category": "corps"
+  },
+  {
+    "id": "temps_likely_corps_04_qui_est_le_plus_susceptible_de_vouloir_tester_une_transfor",
+    "question": "Qui est le plus susceptible de vouloir tester une transformation esthétique importante ?",
+    "category": "corps"
+  },
+  {
+    "id": "temps_likely_corps_05_qui_est_le_plus_susceptible_de_changer_completement_dalime",
+    "question": "Qui est le plus susceptible de changer complètement d’alimentation du jour au lendemain ?",
+    "category": "corps"
+  },
+  {
+    "id": "temps_likely_corps_06_qui_est_le_plus_susceptible_davoir_du_mal_a_accepter_les_c",
+    "question": "Qui est le plus susceptible d’avoir du mal à accepter les changements de son propre corps avec l’âge ?",
+    "category": "corps"
+  },
+  {
+    "id": "temps_likely_corps_07_qui_est_le_plus_susceptible_de_vouloir_entrainer_lautre_da",
+    "question": "Qui est le plus susceptible de vouloir entraîner l’autre dans ses nouvelles habitudes de santé ?",
+    "category": "corps"
+  },
+  {
+    "id": "temps_likely_lgbt_01_qui_est_le_plus_susceptible_de_repondre_immediatement_a_un",
+    "question": "Qui est le plus susceptible de répondre immédiatement à une remarque homophobe ?",
+    "category": "lgbt"
+  },
+  {
+    "id": "temps_likely_lgbt_02_qui_est_le_plus_susceptible_de_privilegier_la_securite_et_",
+    "question": "Qui est le plus susceptible de privilégier la sécurité et d’éviter la confrontation dans un lieu public ?",
+    "category": "lgbt"
+  },
+  {
+    "id": "temps_likely_lgbt_03_qui_est_le_plus_susceptible_de_vouloir_afficher_davantage_",
+    "question": "Qui est le plus susceptible de vouloir afficher davantage votre couple sur les réseaux ou en public ?",
+    "category": "lgbt"
+  },
+  {
+    "id": "temps_likely_lgbt_04_qui_est_le_plus_susceptible_de_couper_rapidement_les_ponts",
+    "question": "Qui est le plus susceptible de couper rapidement les ponts avec un proche qui ne respecte pas votre relation ?",
+    "category": "lgbt"
+  },
+  {
+    "id": "temps_likely_lgbt_05_qui_est_le_plus_susceptible_de_vouloir_beaucoup_expliquer_",
+    "question": "Qui est le plus susceptible de vouloir beaucoup expliquer et sensibiliser plutôt que s’éloigner ?",
+    "category": "lgbt"
+  },
+  {
+    "id": "temps_likely_lgbt_06_qui_est_le_plus_susceptible_detre_le_la_plus_sensible_aux_",
+    "question": "Qui est le plus susceptible d’être le/la plus sensible aux différences de reconnaissance entre les deux parents ?",
+    "category": "lgbt"
+  },
+  {
+    "id": "temps_likely_lgbt_07_qui_est_le_plus_susceptible_de_vouloir_demenager_pour_vivr",
+    "question": "Qui est le plus susceptible de vouloir déménager pour vivre dans un environnement plus accueillant ?",
+    "category": "lgbt"
+  },
+  {
+    "id": "temps_likely_passe_01_qui_est_le_plus_susceptible_de_garder_une_boite_de_souveni",
+    "question": "Qui est le plus susceptible de garder une boîte de souvenirs d’anciennes relations ?",
+    "category": "passe"
+  },
+  {
+    "id": "temps_likely_passe_02_qui_est_le_plus_susceptible_de_vouloir_tout_savoir_du_pass",
+    "question": "Qui est le plus susceptible de vouloir tout savoir du passé de l’autre ?",
+    "category": "passe"
+  },
+  {
+    "id": "temps_likely_passe_03_qui_est_le_plus_susceptible_de_considerer_quune_partie_de_",
+    "question": "Qui est le plus susceptible de considérer qu’une partie de son passé doit rester privée ?",
+    "category": "passe"
+  },
+  {
+    "id": "temps_likely_passe_04_qui_est_le_plus_susceptible_davouer_spontanement_une_ancie",
+    "question": "Qui est le plus susceptible d’avouer spontanément une ancienne erreur par peur qu’elle ressorte un jour ?",
+    "category": "passe"
+  },
+  {
+    "id": "temps_likely_passe_05_qui_est_le_plus_susceptible_detre_bouleverse_e_en_decouvra",
+    "question": "Qui est le plus susceptible d’être bouleversé(e) en découvrant tard un vieux secret ?",
+    "category": "passe"
+  },
+  {
+    "id": "temps_likely_passe_06_qui_est_le_plus_susceptible_de_pardonner_facilement_une_om",
+    "question": "Qui est le plus susceptible de pardonner facilement une omission faite par honte ?",
+    "category": "passe"
+  },
+  {
+    "id": "temps_likely_passe_07_qui_est_le_plus_susceptible_de_vouloir_rencontrer_les_pers",
+    "question": "Qui est le plus susceptible de vouloir rencontrer les personnes importantes du passé de l’autre ?",
+    "category": "passe"
   }
 ]

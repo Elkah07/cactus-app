@@ -4245,5 +4245,1555 @@
         "question": "Il/elle refuse de choisir ou d’agir mais te demande d’accepter cette incertitude sans limite de temps."
       }
     ]
+  },
+  {
+    "id": "temps_limite_identite_01_la_grande_reconversion",
+    "title": "La grande reconversion",
+    "category": "identite",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Ton/ta partenaire évoque l’idée de changer un jour de métier."
+      },
+      {
+        "level": 2,
+        "question": "Il/elle commence une formation en parallèle de son travail."
+      },
+      {
+        "level": 3,
+        "question": "Il/elle veut quitter son emploi stable pour se consacrer entièrement à cette reconversion."
+      },
+      {
+        "level": 4,
+        "question": "La transition implique plusieurs années avec beaucoup moins de revenus."
+      },
+      {
+        "level": 5,
+        "question": "Vos projets communs doivent être repoussés sans date précise pour financer ce changement."
+      },
+      {
+        "level": 6,
+        "question": "Ton/ta partenaire te demande de prendre presque toute la charge financière jusqu’à ce que son nouveau projet fonctionne, sans pouvoir dire combien de temps cela durera."
+      }
+    ]
+  },
+  {
+    "id": "temps_limite_identite_02_le_besoin_de_partir_seul_e",
+    "title": "Le besoin de partir seul(e)",
+    "category": "identite",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Ton/ta partenaire souhaite faire un week-end seul(e) pour se retrouver."
+      },
+      {
+        "level": 2,
+        "question": "Il/elle veut partir une semaine sans toi chaque année."
+      },
+      {
+        "level": 3,
+        "question": "Il/elle envisage un voyage d’un mois en solitaire."
+      },
+      {
+        "level": 4,
+        "question": "Il/elle souhaite plusieurs mois à l’étranger pour vivre une expérience personnelle."
+      },
+      {
+        "level": 5,
+        "question": "Cette absence met en pause plusieurs projets communs importants."
+      },
+      {
+        "level": 6,
+        "question": "Ton/ta partenaire veut pouvoir recommencer ce type de longue absence régulièrement même si cela ne correspond pas du tout à ta vision du couple."
+      }
+    ]
+  },
+  {
+    "id": "temps_limite_identite_03_les_convictions_qui_changent",
+    "title": "Les convictions qui changent",
+    "category": "identite",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Ton/ta partenaire commence à nuancer une opinion importante que vous partagiez."
+      },
+      {
+        "level": 2,
+        "question": "Il/elle adopte plusieurs positions très différentes des tiennes."
+      },
+      {
+        "level": 3,
+        "question": "Ces désaccords deviennent fréquents dans vos conversations."
+      },
+      {
+        "level": 4,
+        "question": "Il/elle s’engage publiquement pour des idées que tu critiques fortement."
+      },
+      {
+        "level": 5,
+        "question": "Certaines de ses nouvelles convictions influencent désormais vos décisions de vie commune."
+      },
+      {
+        "level": 6,
+        "question": "Ton/ta partenaire refuse tout compromis sur ces convictions même lorsqu’elles rendent vos projets futurs difficilement compatibles."
+      }
+    ]
+  },
+  {
+    "id": "temps_limite_identite_04_la_nouvelle_spiritualite",
+    "title": "La nouvelle spiritualité",
+    "category": "identite",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Ton/ta partenaire s’intéresse davantage à une pratique spirituelle."
+      },
+      {
+        "level": 2,
+        "question": "Il/elle commence à organiser régulièrement sa vie autour de cette pratique."
+      },
+      {
+        "level": 3,
+        "question": "Il/elle souhaite que certains rituels aient une place dans votre foyer."
+      },
+      {
+        "level": 4,
+        "question": "Il/elle aimerait que vos futurs enfants soient aussi éduqués dans cette tradition."
+      },
+      {
+        "level": 5,
+        "question": "Plusieurs choix importants de votre vie doivent désormais respecter ses nouvelles convictions."
+      },
+      {
+        "level": 6,
+        "question": "Ton/ta partenaire considère qu’il/elle ne pourrait plus construire une famille avec quelqu’un qui ne partage pas suffisamment cette spiritualité."
+      }
+    ]
+  },
+  {
+    "id": "temps_limite_identite_05_le_projet_qui_passe_avant_le_couple",
+    "title": "Le projet qui passe avant le couple",
+    "category": "identite",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Ton/ta partenaire consacre beaucoup de temps à un projet personnel important."
+      },
+      {
+        "level": 2,
+        "question": "Il/elle annule parfois des moments à deux pour avancer dessus."
+      },
+      {
+        "level": 3,
+        "question": "Pendant plusieurs mois, le projet devient clairement sa priorité principale."
+      },
+      {
+        "level": 4,
+        "question": "Vos vacances et vos projets sont régulièrement adaptés à ses besoins."
+      },
+      {
+        "level": 5,
+        "question": "Il/elle refuse désormais toute concession susceptible de ralentir son projet."
+      },
+      {
+        "level": 6,
+        "question": "Ton/ta partenaire te demande d’accepter que votre couple reste au second plan pendant plusieurs années sans garantie que la situation change ensuite."
+      }
+    ]
+  },
+  {
+    "id": "temps_limite_identite_06_la_vie_quon_ne_veut_plus",
+    "title": "La vie qu’on ne veut plus",
+    "category": "identite",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Ton/ta partenaire te dit qu’il/elle se questionne sur votre mode de vie actuel."
+      },
+      {
+        "level": 2,
+        "question": "Il/elle souhaite modifier plusieurs habitudes importantes de votre quotidien."
+      },
+      {
+        "level": 3,
+        "question": "Il/elle ne veut plus vivre dans la ville où vous aviez prévu de vous installer durablement."
+      },
+      {
+        "level": 4,
+        "question": "Il/elle remet également en question d’autres projets que vous aviez construits ensemble."
+      },
+      {
+        "level": 5,
+        "question": "La vie qu’il/elle souhaite désormais ressemble très peu à celle que tu imaginais."
+      },
+      {
+        "level": 6,
+        "question": "Ton/ta partenaire te demande de choisir entre suivre ce nouveau projet de vie ou accepter que vos chemins puissent se séparer."
+      }
+    ]
+  },
+  {
+    "id": "temps_limite_identite_07_lindependance_retrouvee",
+    "title": "L’indépendance retrouvée",
+    "category": "identite",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Ton/ta partenaire veut reprendre davantage d’activités sans toi."
+      },
+      {
+        "level": 2,
+        "question": "Il/elle souhaite passer beaucoup plus de temps avec ses propres amis et projets."
+      },
+      {
+        "level": 3,
+        "question": "Il/elle préfère désormais organiser certains week-ends et vacances séparément."
+      },
+      {
+        "level": 4,
+        "question": "Vous avez de moins en moins d’activités ou de cercles sociaux communs."
+      },
+      {
+        "level": 5,
+        "question": "Ton/ta partenaire se sent oppressé(e) lorsqu’une décision personnelle doit être discutée à deux."
+      },
+      {
+        "level": 6,
+        "question": "Il/elle souhaite vivre votre couple comme un lien affectif fort mais avec presque aucune décision de vie réellement commune."
+      }
+    ]
+  },
+  {
+    "id": "temps_limite_amities_01_lami_e_qui_ne_taime_pas",
+    "title": "L’ami(e) qui ne t’aime pas",
+    "category": "amities",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Un(e) ami(e) proche de ton/ta partenaire semble simplement distant(e) avec toi."
+      },
+      {
+        "level": 2,
+        "question": "Il/elle évite souvent les moments où tu es présent(e)."
+      },
+      {
+        "level": 3,
+        "question": "Tu apprends qu’il/elle dit régulièrement qu’il/elle ne vous croit pas compatibles."
+      },
+      {
+        "level": 4,
+        "question": "Il/elle critique ouvertement votre relation devant ton/ta partenaire."
+      },
+      {
+        "level": 5,
+        "question": "Ton/ta partenaire continue à lui raconter vos problèmes de couple malgré son hostilité."
+      },
+      {
+        "level": 6,
+        "question": "Ton/ta partenaire refuse de poser la moindre limite et considère que tu dois simplement accepter cette personne dans votre vie."
+      }
+    ]
+  },
+  {
+    "id": "temps_limite_amities_02_les_confidences_sur_votre_couple",
+    "title": "Les confidences sur votre couple",
+    "category": "amities",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Ton/ta partenaire raconte parfois une petite dispute à son/sa meilleur(e) ami(e)."
+      },
+      {
+        "level": 2,
+        "question": "Il/elle partage aussi certains détails personnels pour demander conseil."
+      },
+      {
+        "level": 3,
+        "question": "Son/sa meilleur(e) ami(e) connaît presque toutes vos difficultés récurrentes."
+      },
+      {
+        "level": 4,
+        "question": "Des détails très intimes de votre relation sont racontés sans ton accord."
+      },
+      {
+        "level": 5,
+        "question": "Plusieurs amis finissent par avoir une opinion très négative de toi à partir de ces récits."
+      },
+      {
+        "level": 6,
+        "question": "Ton/ta partenaire refuse de limiter ce qu’il/elle raconte et considère que sa liberté de se confier passe avant ta vie privée."
+      }
+    ]
+  },
+  {
+    "id": "temps_limite_amities_03_les_vacances_separees",
+    "title": "Les vacances séparées",
+    "category": "amities",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Ton/ta partenaire part parfois un week-end avec ses amis."
+      },
+      {
+        "level": 2,
+        "question": "Il/elle veut faire une semaine de vacances sans toi chaque année."
+      },
+      {
+        "level": 3,
+        "question": "Certains de ses plus beaux voyages sont désormais réservés à son groupe d’amis."
+      },
+      {
+        "level": 4,
+        "question": "Votre budget et vos congés limités vous empêchent parfois de partir ensemble après ses voyages."
+      },
+      {
+        "level": 5,
+        "question": "Il/elle préfère utiliser la majorité de ses vacances pour ses amis plutôt que pour le couple."
+      },
+      {
+        "level": 6,
+        "question": "Ton/ta partenaire considère qu’il/elle n’a aucune raison de réserver du temps de vacances spécifiquement pour vous deux."
+      }
+    ]
+  },
+  {
+    "id": "temps_limite_amities_04_lamitie_fusionnelle",
+    "title": "L’amitié fusionnelle",
+    "category": "amities",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Ton/ta partenaire échange chaque jour avec un(e) ami(e) très proche."
+      },
+      {
+        "level": 2,
+        "question": "Ils/elles se racontent presque tout et se voient plusieurs fois par semaine."
+      },
+      {
+        "level": 3,
+        "question": "Cet(te) ami(e) connaît certaines choses importantes avant toi."
+      },
+      {
+        "level": 4,
+        "question": "Ton/ta partenaire annule parfois vos plans quand cette personne a besoin de lui/elle."
+      },
+      {
+        "level": 5,
+        "question": "Cette relation occupe une place émotionnelle qui te fait régulièrement sentir secondaire."
+      },
+      {
+        "level": 6,
+        "question": "Ton/ta partenaire refuse toute discussion sur les limites parce qu’il/elle considère que remettre cette amitié en question est forcément de la jalousie."
+      }
+    ]
+  },
+  {
+    "id": "temps_limite_amities_05_lancien_flirt_devenu_ami",
+    "title": "L’ancien flirt devenu ami",
+    "category": "amities",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Ton/ta partenaire garde un contact occasionnel avec une ancienne attirance."
+      },
+      {
+        "level": 2,
+        "question": "Ils/elles deviennent de nouveau très proches amicalement."
+      },
+      {
+        "level": 3,
+        "question": "Ils/elles se voient régulièrement seuls tous les deux."
+      },
+      {
+        "level": 4,
+        "question": "Ton/ta partenaire lui confie des problèmes qu’il/elle ne te raconte pas."
+      },
+      {
+        "level": 5,
+        "question": "Cette personne avoue encore avoir des sentiments mais ton/ta partenaire veut maintenir la même proximité."
+      },
+      {
+        "level": 6,
+        "question": "Ton/ta partenaire refuse de modifier quoi que ce soit à cette relation malgré ton malaise et les sentiments toujours présents de l’autre personne."
+      }
+    ]
+  },
+  {
+    "id": "temps_limite_amities_06_la_vie_sociale_qui_deborde",
+    "title": "La vie sociale qui déborde",
+    "category": "amities",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Ton/ta partenaire aime sortir plusieurs fois par semaine."
+      },
+      {
+        "level": 2,
+        "question": "Vos soirées tranquilles sont souvent remplacées par des invitations de dernière minute."
+      },
+      {
+        "level": 3,
+        "question": "Vous avez rarement un week-end entièrement à deux."
+      },
+      {
+        "level": 4,
+        "question": "Ton/ta partenaire invite régulièrement du monde chez vous sans vérifier ton envie."
+      },
+      {
+        "level": 5,
+        "question": "Quand tu demandes davantage de calme, il/elle te reproche de limiter sa liberté."
+      },
+      {
+        "level": 6,
+        "question": "Ton/ta partenaire refuse d’organiser du temps protégé pour votre couple parce qu’il/elle veut pouvoir accepter chaque occasion sociale."
+      }
+    ]
+  },
+  {
+    "id": "temps_limite_amities_07_le_choix_entre_toi_et_un_proche",
+    "title": "Le choix entre toi et un proche",
+    "category": "amities",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Un proche de ton/ta partenaire fait une remarque blessante à ton sujet."
+      },
+      {
+        "level": 2,
+        "question": "Le comportement se répète et ton/ta partenaire préfère éviter le conflit."
+      },
+      {
+        "level": 3,
+        "question": "Cette personne te manque ouvertement de respect lors de réunions importantes."
+      },
+      {
+        "level": 4,
+        "question": "Ton/ta partenaire continue à exiger ta présence à ces moments sans intervenir."
+      },
+      {
+        "level": 5,
+        "question": "Le proche pose un ultimatum et refuse désormais de te voir."
+      },
+      {
+        "level": 6,
+        "question": "Ton/ta partenaire te demande de rester à l’écart de certains événements pour préserver sa relation avec cette personne."
+      }
+    ]
+  },
+  {
+    "id": "temps_limite_intimite_01_la_difference_de_desir",
+    "title": "La différence de désir",
+    "category": "intimite",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Ton/ta partenaire a moins envie que toi pendant quelques semaines."
+      },
+      {
+        "level": 2,
+        "question": "La différence dure plusieurs mois et vos rapports deviennent rares."
+      },
+      {
+        "level": 3,
+        "question": "Vous en parlez mais aucune solution ne vous convient vraiment."
+      },
+      {
+        "level": 4,
+        "question": "La frustration commence à créer des tensions dans votre quotidien."
+      },
+      {
+        "level": 5,
+        "question": "Ton/ta partenaire ne veut plus du tout aborder le sujet et évite toute forme d’intimité par peur de créer des attentes."
+      },
+      {
+        "level": 6,
+        "question": "La situation dure depuis plusieurs années et toute tentative d’en parler se termine désormais par un conflit ou un silence complet."
+      }
+    ]
+  },
+  {
+    "id": "temps_limite_intimite_02_le_fantasme_insistant",
+    "title": "Le fantasme insistant",
+    "category": "intimite",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Ton/ta partenaire te confie un fantasme qui ne t’attire pas."
+      },
+      {
+        "level": 2,
+        "question": "Il/elle te demande une fois si tu pourrais envisager de l’essayer."
+      },
+      {
+        "level": 3,
+        "question": "Il/elle revient régulièrement sur le sujet malgré tes hésitations."
+      },
+      {
+        "level": 4,
+        "question": "Ton refus devient une source visible de frustration pour lui/elle."
+      },
+      {
+        "level": 5,
+        "question": "Il/elle te fait sentir que tu bloques une partie importante de son épanouissement."
+      },
+      {
+        "level": 6,
+        "question": "Ton/ta partenaire te demande d’accepter au moins une fois quelque chose que tu ne souhaites clairement pas pour prouver que tu fais un effort pour votre couple."
+      }
+    ]
+  },
+  {
+    "id": "temps_limite_intimite_03_la_tendresse_qui_disparait",
+    "title": "La tendresse qui disparaît",
+    "category": "intimite",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Vous vous faites un peu moins de câlins qu’avant."
+      },
+      {
+        "level": 2,
+        "question": "Les gestes tendres deviennent rares dans le quotidien."
+      },
+      {
+        "level": 3,
+        "question": "Les baisers et contacts physiques existent presque uniquement lors des rapports sexuels."
+      },
+      {
+        "level": 4,
+        "question": "Ton/ta partenaire évite aussi les câlins lorsque tu en demandes."
+      },
+      {
+        "level": 5,
+        "question": "Tu te sens régulièrement rejeté(e) même en dehors de toute attente sexuelle."
+      },
+      {
+        "level": 6,
+        "question": "Ton/ta partenaire considère que la tendresse n’est simplement plus importante après plusieurs années et ne souhaite pas faire d’effort sur ce point."
+      }
+    ]
+  },
+  {
+    "id": "temps_limite_intimite_04_dormir_separement",
+    "title": "Dormir séparément",
+    "category": "intimite",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Ton/ta partenaire veut dormir seul(e) une nuit après une grosse fatigue."
+      },
+      {
+        "level": 2,
+        "question": "Il/elle préfère parfois une autre chambre pour mieux récupérer."
+      },
+      {
+        "level": 3,
+        "question": "Les nuits séparées deviennent plusieurs fois par semaine."
+      },
+      {
+        "level": 4,
+        "question": "Ton/ta partenaire dort presque toujours seul(e) mais vous gardez des moments tendres ailleurs."
+      },
+      {
+        "level": 5,
+        "question": "Cette organisation réduit fortement votre proximité et vos moments spontanés."
+      },
+      {
+        "level": 6,
+        "question": "Ton/ta partenaire ne veut plus jamais partager le même lit, même en vacances ou lors de moments particuliers, alors que cela compte beaucoup pour toi."
+      }
+    ]
+  },
+  {
+    "id": "temps_limite_intimite_05_la_baisse_dattirance",
+    "title": "La baisse d’attirance",
+    "category": "intimite",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Ton/ta partenaire semble moins démonstratif/ve après un changement de ton apparence."
+      },
+      {
+        "level": 2,
+        "question": "Il/elle t’avoue que son attirance a un peu diminué."
+      },
+      {
+        "level": 3,
+        "question": "Il/elle évite certains moments intimes à cause de ce changement."
+      },
+      {
+        "level": 4,
+        "question": "Il/elle commence à suggérer régulièrement des changements physiques que tu pourrais faire."
+      },
+      {
+        "level": 5,
+        "question": "Tu sens que ton corps devient un sujet de tension récurrent entre vous."
+      },
+      {
+        "level": 6,
+        "question": "Ton/ta partenaire conditionne clairement le retour de votre intimité au fait que tu modifies ton apparence selon ses préférences."
+      }
+    ]
+  },
+  {
+    "id": "temps_limite_intimite_06_la_sexualite_racontee_aux_autres",
+    "title": "La sexualité racontée aux autres",
+    "category": "intimite",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Ton/ta partenaire évoque parfois votre vie sexuelle de façon générale avec un ami proche."
+      },
+      {
+        "level": 2,
+        "question": "Il/elle partage des anecdotes plus précises sans citer de détails très intimes."
+      },
+      {
+        "level": 3,
+        "question": "Tu apprends que ses amis connaissent certaines de tes préférences personnelles."
+      },
+      {
+        "level": 4,
+        "question": "Des détails concernant ton corps ou tes complexes ont été racontés."
+      },
+      {
+        "level": 5,
+        "question": "Plusieurs personnes de votre entourage connaissent désormais des éléments que tu considérais strictement privés."
+      },
+      {
+        "level": 6,
+        "question": "Ton/ta partenaire refuse de limiter ces confidences parce qu’il/elle considère que sa propre vie sexuelle lui appartient entièrement, même lorsqu’elle révèle des choses sur toi."
+      }
+    ]
+  },
+  {
+    "id": "temps_limite_intimite_07_lintimite_mise_sous_pression",
+    "title": "L’intimité mise sous pression",
+    "category": "intimite",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Ton/ta partenaire exprime parfois sa frustration lorsque vous avez peu de rapports."
+      },
+      {
+        "level": 2,
+        "question": "Il/elle te demande régulièrement pourquoi tu n’as pas envie."
+      },
+      {
+        "level": 3,
+        "question": "Après plusieurs refus, son humeur change et il/elle devient distant(e)."
+      },
+      {
+        "level": 4,
+        "question": "Tu commences à accepter certains moments surtout pour éviter une tension ensuite."
+      },
+      {
+        "level": 5,
+        "question": "Ton/ta partenaire sait que tu te forces parfois mais considère que c’est un compromis normal dans un couple."
+      },
+      {
+        "level": 6,
+        "question": "Le refus devient presque impossible à exprimer sans culpabilité, peur de conflit ou conséquence émotionnelle importante."
+      }
+    ]
+  },
+  {
+    "id": "temps_limite_usure_01_le_retard_chronique",
+    "title": "Le retard chronique",
+    "category": "usure",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Ton/ta partenaire arrive parfois dix minutes en retard."
+      },
+      {
+        "level": 2,
+        "question": "Le retard devient presque systématique pour vos sorties."
+      },
+      {
+        "level": 3,
+        "question": "Vous ratez régulièrement des réservations ou le début d’événements."
+      },
+      {
+        "level": 4,
+        "question": "Il/elle est ponctuel(le) pour le travail et ses amis mais rarement pour toi."
+      },
+      {
+        "level": 5,
+        "question": "Malgré plusieurs disputes, ton/ta partenaire ne met en place aucun changement concret."
+      },
+      {
+        "level": 6,
+        "question": "Il/elle te demande désormais de mentir sur l’heure des rendez-vous pour compenser son retard et considère que le problème vient surtout de ton manque de souplesse."
+      }
+    ]
+  },
+  {
+    "id": "temps_limite_usure_02_lecran_qui_grignote_vos_moments",
+    "title": "L’écran qui grignote vos moments",
+    "category": "usure",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Ton/ta partenaire consulte parfois son téléphone pendant vos repas."
+      },
+      {
+        "level": 2,
+        "question": "Il/elle le regarde presque chaque fois qu’une notification arrive."
+      },
+      {
+        "level": 3,
+        "question": "Vos soirées sont souvent passées côte à côte mais chacun sur son écran."
+      },
+      {
+        "level": 4,
+        "question": "Même pendant vos conversations importantes, son attention est régulièrement interrompue."
+      },
+      {
+        "level": 5,
+        "question": "Il/elle refuse toute période sans téléphone parce qu’il/elle trouve cette demande contrôlante."
+      },
+      {
+        "level": 6,
+        "question": "Tu as le sentiment d’être constamment en compétition avec son écran, mais ton/ta partenaire considère que cela ne mérite aucun changement."
+      }
+    ]
+  },
+  {
+    "id": "temps_limite_usure_03_la_charge_mentale",
+    "title": "La charge mentale",
+    "category": "usure",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Tu rappelles parfois à ton/ta partenaire certaines tâches."
+      },
+      {
+        "level": 2,
+        "question": "Tu dois penser à la majorité des rendez-vous et choses à acheter."
+      },
+      {
+        "level": 3,
+        "question": "Ton/ta partenaire fait ce que tu demandes mais prend rarement l’initiative."
+      },
+      {
+        "level": 4,
+        "question": "Tu deviens responsable de presque toute l’organisation invisible du foyer."
+      },
+      {
+        "level": 5,
+        "question": "Quand tu arrêtes de rappeler, plusieurs choses importantes ne sont simplement plus faites."
+      },
+      {
+        "level": 6,
+        "question": "Ton/ta partenaire considère que puisque tu es meilleur(e) pour organiser, il est logique que cette responsabilité reste principalement la tienne."
+      }
+    ]
+  },
+  {
+    "id": "temps_limite_usure_04_les_promesses_oubliees",
+    "title": "Les promesses oubliées",
+    "category": "usure",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Ton/ta partenaire oublie parfois une petite chose promise."
+      },
+      {
+        "level": 2,
+        "question": "Les oublis se répètent sur des sujets du quotidien."
+      },
+      {
+        "level": 3,
+        "question": "Il/elle s’excuse sincèrement mais ne change aucune méthode d’organisation."
+      },
+      {
+        "level": 4,
+        "question": "Tu ne peux plus vraiment compter sur certaines promesses sans vérifier derrière."
+      },
+      {
+        "level": 5,
+        "question": "Des engagements importants commencent aussi à être oubliés."
+      },
+      {
+        "level": 6,
+        "question": "Ton/ta partenaire te reproche de ne plus lui faire confiance tout en refusant toute solution concrète pour devenir plus fiable."
+      }
+    ]
+  },
+  {
+    "id": "temps_limite_usure_05_la_dispute_sans_pause",
+    "title": "La dispute sans pause",
+    "category": "usure",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Ton/ta partenaire préfère parler immédiatement après un conflit."
+      },
+      {
+        "level": 2,
+        "question": "Il/elle te suit parfois de pièce en pièce lorsque tu demandes quelques minutes."
+      },
+      {
+        "level": 3,
+        "question": "Il/elle vit toute demande de pause comme un abandon ou une fuite."
+      },
+      {
+        "level": 4,
+        "question": "Tu n’arrives presque plus à obtenir du calme avant une discussion difficile."
+      },
+      {
+        "level": 5,
+        "question": "Les conversations deviennent plus violentes parce que tu te sens obligé(e) de parler en étant encore submergé(e)."
+      },
+      {
+        "level": 6,
+        "question": "Ton/ta partenaire refuse catégoriquement de respecter un temps de pause et considère que tu perds le droit de revenir sur le sujet si tu ne le règles pas immédiatement."
+      }
+    ]
+  },
+  {
+    "id": "temps_limite_usure_06_le_desordre_permanent",
+    "title": "Le désordre permanent",
+    "category": "usure",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Ton/ta partenaire laisse souvent quelques affaires traîner."
+      },
+      {
+        "level": 2,
+        "question": "Les espaces communs sont régulièrement encombrés malgré vos accords."
+      },
+      {
+        "level": 3,
+        "question": "Tu ranges souvent derrière lui/elle pour pouvoir utiliser les pièces."
+      },
+      {
+        "level": 4,
+        "question": "Lorsque tu arrêtes, le logement devient rapidement difficile à vivre pour toi."
+      },
+      {
+        "level": 5,
+        "question": "Ton/ta partenaire considère que ton besoin d’ordre est ton problème personnel."
+      },
+      {
+        "level": 6,
+        "question": "Il/elle refuse désormais toute répartition ou standard commun et te dit de ranger seul(e) si l’état du logement te dérange."
+      }
+    ]
+  },
+  {
+    "id": "temps_limite_usure_07_les_attentions_qui_seteignent",
+    "title": "Les attentions qui s’éteignent",
+    "category": "usure",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Les surprises deviennent naturellement plus rares avec les années."
+      },
+      {
+        "level": 2,
+        "question": "Ton/ta partenaire organise très peu de moments à deux spontanément."
+      },
+      {
+        "level": 3,
+        "question": "Les compliments et gestes tendres diminuent aussi fortement."
+      },
+      {
+        "level": 4,
+        "question": "Tu as l’impression d’être aimé(e) mais plus vraiment choisi(e) ou courtisé(e)."
+      },
+      {
+        "level": 5,
+        "question": "Après plusieurs discussions, ton/ta partenaire fait des efforts seulement quelques jours."
+      },
+      {
+        "level": 6,
+        "question": "Il/elle considère finalement que demander encore de la séduction ou des petites attentions après tant d’années est une attente irréaliste et refuse d’y accorder de l’importance."
+      }
+    ]
+  },
+  {
+    "id": "temps_limite_morale_01_le_secret_de_lami_infidele",
+    "title": "Le secret de l’ami infidèle",
+    "category": "morale",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Ton/ta partenaire apprend qu’un ami a embrassé quelqu’un d’autre une fois."
+      },
+      {
+        "level": 2,
+        "question": "L’ami avoue que cela s’est reproduit mais promet d’arrêter."
+      },
+      {
+        "level": 3,
+        "question": "Ton/ta partenaire continue à garder le secret plusieurs mois."
+      },
+      {
+        "level": 4,
+        "question": "L’ami entretient désormais une véritable double relation."
+      },
+      {
+        "level": 5,
+        "question": "Tu connais personnellement la personne trompée et elle vous fait confiance."
+      },
+      {
+        "level": 6,
+        "question": "Ton/ta partenaire te demande aussi de mentir activement pour couvrir son ami si la personne trompée commence à poser des questions."
+      }
+    ]
+  },
+  {
+    "id": "temps_limite_morale_02_proteger_un_proche",
+    "title": "Protéger un proche",
+    "category": "morale",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Un membre de la famille de ton/ta partenaire fait une petite erreur et lui demande de ne rien dire."
+      },
+      {
+        "level": 2,
+        "question": "La faute a des conséquences pour une autre personne."
+      },
+      {
+        "level": 3,
+        "question": "Ton/ta partenaire aide son proche à éviter une sanction importante."
+      },
+      {
+        "level": 4,
+        "question": "Il/elle commence à mentir à plusieurs personnes pour le protéger."
+      },
+      {
+        "level": 5,
+        "question": "Le comportement du proche se répète parce qu’il sait qu’il sera couvert."
+      },
+      {
+        "level": 6,
+        "question": "Ton/ta partenaire refuse toujours de cesser de le protéger même lorsque d’autres personnes subissent directement les conséquences."
+      }
+    ]
+  },
+  {
+    "id": "temps_limite_morale_03_le_travail_contraire_aux_valeurs",
+    "title": "Le travail contraire aux valeurs",
+    "category": "morale",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Ton/ta partenaire accepte une mission pour une entreprise qu’il/elle n’apprécie pas beaucoup."
+      },
+      {
+        "level": 2,
+        "question": "Il/elle découvre que certaines pratiques vont clairement contre ses valeurs."
+      },
+      {
+        "level": 3,
+        "question": "Le salaire élevé devient important pour votre niveau de vie."
+      },
+      {
+        "level": 4,
+        "question": "Il/elle doit désormais participer directement à des décisions qu’il/elle juge douteuses."
+      },
+      {
+        "level": 5,
+        "question": "Votre stabilité financière dépend fortement de ce poste et quitter devient très coûteux."
+      },
+      {
+        "level": 6,
+        "question": "Ton/ta partenaire décide finalement que l’argent et votre confort justifient de rester même s’il/elle contribue personnellement à des pratiques qu’il/elle considère nocives."
+      }
+    ]
+  },
+  {
+    "id": "temps_limite_morale_04_la_verite_qui_detruit",
+    "title": "La vérité qui détruit",
+    "category": "morale",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Ton/ta partenaire découvre un vieux secret familial qui ne change rien au présent."
+      },
+      {
+        "level": 2,
+        "question": "Ce secret concerne directement une personne qui ignore tout."
+      },
+      {
+        "level": 3,
+        "question": "Le révéler pourrait profondément bouleverser plusieurs relations."
+      },
+      {
+        "level": 4,
+        "question": "Une personne commence à prendre des décisions importantes sur la base d’une version fausse de l’histoire."
+      },
+      {
+        "level": 5,
+        "question": "Ton/ta partenaire est désormais la seule personne capable de rétablir la vérité."
+      },
+      {
+        "level": 6,
+        "question": "Il/elle décide de ne jamais parler et te demande de garder toi aussi le silence, même si cela signifie laisser quelqu’un construire sa vie sur un mensonge majeur."
+      }
+    ]
+  },
+  {
+    "id": "temps_limite_morale_05_laide_qui_devient_complicite",
+    "title": "L’aide qui devient complicité",
+    "category": "morale",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Ton/ta partenaire aide un proche qui traverse une mauvaise passe."
+      },
+      {
+        "level": 2,
+        "question": "Le proche recommence les mêmes erreurs malgré l’aide reçue."
+      },
+      {
+        "level": 3,
+        "question": "Ton/ta partenaire continue à lui fournir de l’argent et à réparer les conséquences."
+      },
+      {
+        "level": 4,
+        "question": "Il/elle te demande aussi de cacher certains problèmes au reste de la famille."
+      },
+      {
+        "level": 5,
+        "question": "Le proche commence à compter sur vous pour éviter systématiquement les conséquences de ses choix."
+      },
+      {
+        "level": 6,
+        "question": "Ton/ta partenaire refuse toute limite et considère qu’abandonner ce proche serait moralement pire que continuer à faciliter ses comportements destructeurs."
+      }
+    ]
+  },
+  {
+    "id": "temps_limite_morale_06_la_promesse_impossible",
+    "title": "La promesse impossible",
+    "category": "morale",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Ton/ta partenaire promet à un proche de garder une information sensible."
+      },
+      {
+        "level": 2,
+        "question": "L’information te concerne indirectement mais pas de manière grave."
+      },
+      {
+        "level": 3,
+        "question": "Tu commences à prendre des décisions sans connaître un élément important."
+      },
+      {
+        "level": 4,
+        "question": "Ton/ta partenaire sait que cette information changerait probablement ton choix."
+      },
+      {
+        "level": 5,
+        "question": "Le secret risque maintenant d’avoir une conséquence durable sur ta vie."
+      },
+      {
+        "level": 6,
+        "question": "Ton/ta partenaire choisit malgré tout de respecter sa promesse et te laisse prendre une décision majeure sans connaître la vérité."
+      }
+    ]
+  },
+  {
+    "id": "temps_limite_corps_01_le_refus_de_consulter",
+    "title": "Le refus de consulter",
+    "category": "corps",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Ton/ta partenaire repousse un rendez-vous médical pour un problème mineur."
+      },
+      {
+        "level": 2,
+        "question": "Le symptôme dure plusieurs semaines mais il/elle préfère attendre."
+      },
+      {
+        "level": 3,
+        "question": "Le problème commence à affecter son quotidien et votre organisation."
+      },
+      {
+        "level": 4,
+        "question": "Plusieurs proches s’inquiètent mais ton/ta partenaire refuse toujours tout examen."
+      },
+      {
+        "level": 5,
+        "question": "Son état se dégrade et tu dois prendre en charge davantage de choses au quotidien."
+      },
+      {
+        "level": 6,
+        "question": "Ton/ta partenaire refuse encore toute aide médicale et te demande de cesser complètement d’en parler malgré les conséquences croissantes sur sa santé et votre vie commune."
+      }
+    ]
+  },
+  {
+    "id": "temps_limite_corps_02_le_sport_qui_prend_toute_la_place",
+    "title": "Le sport qui prend toute la place",
+    "category": "corps",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Ton/ta partenaire commence à faire du sport plusieurs fois par semaine."
+      },
+      {
+        "level": 2,
+        "question": "Il/elle organise une grande partie de ses soirées autour de l’entraînement."
+      },
+      {
+        "level": 3,
+        "question": "Vos week-ends sont régulièrement adaptés à ses compétitions ou objectifs."
+      },
+      {
+        "level": 4,
+        "question": "Il/elle refuse de manquer une séance même pour certains événements importants."
+      },
+      {
+        "level": 5,
+        "question": "Votre alimentation, vos vacances et votre budget sont de plus en plus organisés autour de cette pratique."
+      },
+      {
+        "level": 6,
+        "question": "Ton/ta partenaire considère désormais que toute personne qui ne suit pas son rythme manque de discipline et te pousse constamment à changer pour lui/elle ressembler."
+      }
+    ]
+  },
+  {
+    "id": "temps_limite_corps_03_les_remarques_sur_le_corps",
+    "title": "Les remarques sur le corps",
+    "category": "corps",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Ton/ta partenaire te fait occasionnellement une remarque sur une habitude de santé."
+      },
+      {
+        "level": 2,
+        "question": "Il/elle commence à commenter régulièrement ce que tu manges ou ton activité physique."
+      },
+      {
+        "level": 3,
+        "question": "Certaines remarques concernent directement ton poids ou ton apparence."
+      },
+      {
+        "level": 4,
+        "question": "Il/elle te propose souvent des programmes ou changements que tu n’as pas demandés."
+      },
+      {
+        "level": 5,
+        "question": "Tu te sens observé(e) et jugé(e) dans tes choix quotidiens."
+      },
+      {
+        "level": 6,
+        "question": "Ton/ta partenaire estime qu’il/elle a le droit de contrôler davantage tes habitudes parce que ton corps et ta santé auront aussi des conséquences sur sa propre vie."
+      }
+    ]
+  },
+  {
+    "id": "temps_limite_corps_04_la_transformation_esthetique",
+    "title": "La transformation esthétique",
+    "category": "corps",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Ton/ta partenaire envisage une intervention esthétique légère."
+      },
+      {
+        "level": 2,
+        "question": "Il/elle commence à prévoir plusieurs interventions plus importantes."
+      },
+      {
+        "level": 3,
+        "question": "Une grande partie de son argent personnel y est consacrée."
+      },
+      {
+        "level": 4,
+        "question": "Il/elle n’est jamais satisfait(e) longtemps du résultat et veut continuer."
+      },
+      {
+        "level": 5,
+        "question": "Cette recherche de transformation affecte son humeur, vos finances et votre intimité."
+      },
+      {
+        "level": 6,
+        "question": "Ton/ta partenaire refuse toute aide psychologique ou discussion sur son rapport à son corps et prévoit de s’endetter pour de nouvelles interventions."
+      }
+    ]
+  },
+  {
+    "id": "temps_limite_corps_05_le_mode_de_vie_impose",
+    "title": "Le mode de vie imposé",
+    "category": "corps",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Ton/ta partenaire adopte une alimentation et une routine plus saines."
+      },
+      {
+        "level": 2,
+        "question": "Il/elle aimerait que tu participes à certains changements."
+      },
+      {
+        "level": 3,
+        "question": "Il/elle ne veut plus certains aliments ou habitudes dans votre logement."
+      },
+      {
+        "level": 4,
+        "question": "Vos sorties et repas sont presque toujours choisis selon ses nouvelles règles."
+      },
+      {
+        "level": 5,
+        "question": "Il/elle critique régulièrement tes choix lorsqu’ils ne correspondent pas à son mode de vie."
+      },
+      {
+        "level": 6,
+        "question": "Ton/ta partenaire te demande finalement d’adopter complètement ses habitudes pour continuer à vivre ensemble harmonieusement."
+      }
+    ]
+  },
+  {
+    "id": "temps_limite_corps_06_le_tabac_dans_le_couple",
+    "title": "Le tabac dans le couple",
+    "category": "corps",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Ton/ta partenaire fume occasionnellement en soirée."
+      },
+      {
+        "level": 2,
+        "question": "Il/elle commence à fumer tous les jours mais uniquement dehors."
+      },
+      {
+        "level": 3,
+        "question": "L’odeur et les dépenses commencent à te déranger fortement."
+      },
+      {
+        "level": 4,
+        "question": "Malgré plusieurs tentatives, il/elle ne souhaite plus vraiment arrêter."
+      },
+      {
+        "level": 5,
+        "question": "Vous envisagez des projets de santé ou de famille qui rendent le sujet plus important pour toi."
+      },
+      {
+        "level": 6,
+        "question": "Ton/ta partenaire considère que son tabagisme est strictement personnel et refuse toute discussion, même sur ses conséquences concrètes pour votre futur commun."
+      }
+    ]
+  },
+  {
+    "id": "temps_limite_lgbt_01_la_famille_qui_ne_te_reconnait_pas",
+    "title": "La famille qui ne te reconnaît pas",
+    "category": "lgbt",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Un membre de la famille de ton/ta partenaire semble encore maladroit avec votre relation."
+      },
+      {
+        "level": 2,
+        "question": "Il/elle évite de parler de toi comme du/de la partenaire."
+      },
+      {
+        "level": 3,
+        "question": "Lors de certains événements, vous êtes présenté(e)s comme de simples amis."
+      },
+      {
+        "level": 4,
+        "question": "Ton/ta partenaire te demande de ne pas corriger cette présentation pour éviter un conflit."
+      },
+      {
+        "level": 5,
+        "question": "Des années passent et ta place reste volontairement cachée auprès d’une partie de la famille."
+      },
+      {
+        "level": 6,
+        "question": "Ton/ta partenaire refuse de poser une limite et te demande de continuer à accepter cette invisibilité pour pouvoir garder sa famille proche."
+      }
+    ]
+  },
+  {
+    "id": "temps_limite_lgbt_02_la_securite_en_public",
+    "title": "La sécurité en public",
+    "category": "lgbt",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Ton/ta partenaire préfère parfois éviter de vous tenir la main dans certains lieux."
+      },
+      {
+        "level": 2,
+        "question": "Il/elle devient très prudent(e) dès que vous êtes dans une ville inconnue."
+      },
+      {
+        "level": 3,
+        "question": "Même dans des endroits relativement sûrs, il/elle évite presque toute marque d’affection."
+      },
+      {
+        "level": 4,
+        "question": "Vous renoncez régulièrement à certains lieux ou voyages par peur des réactions."
+      },
+      {
+        "level": 5,
+        "question": "Ton/ta partenaire veut que votre couple reste discret dans presque tous les espaces publics."
+      },
+      {
+        "level": 6,
+        "question": "Il/elle refuse désormais toute visibilité extérieure, même dans les contextes sûrs, alors que tu vis de plus en plus cela comme une négation de votre relation."
+      }
+    ]
+  },
+  {
+    "id": "temps_limite_lgbt_03_le_parent_non_reconnu",
+    "title": "Le parent non reconnu",
+    "category": "lgbt",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Vous discutez d’un projet d’enfant et de la place du parent qui ne porterait pas la grossesse."
+      },
+      {
+        "level": 2,
+        "question": "Certaines démarches juridiques sont plus complexes que prévu."
+      },
+      {
+        "level": 3,
+        "question": "Des proches parlent régulièrement du parent porteur comme du « vrai parent »."
+      },
+      {
+        "level": 4,
+        "question": "Ton/ta partenaire hésite à reprendre sa famille lorsqu’elle minimise ta place."
+      },
+      {
+        "level": 5,
+        "question": "Des décisions importantes commencent à être prises en privilégiant systématiquement le lien biologique ou la grossesse."
+      },
+      {
+        "level": 6,
+        "question": "Ton/ta partenaire considère finalement qu’il est naturel que le parent ayant porté l’enfant ait plus de poids dans les grandes décisions familiales."
+      }
+    ]
+  },
+  {
+    "id": "temps_limite_lgbt_04_les_remarques_familiales",
+    "title": "Les remarques familiales",
+    "category": "lgbt",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Un proche fait occasionnellement une remarque maladroite sur votre couple."
+      },
+      {
+        "level": 2,
+        "question": "Les remarques deviennent plus fréquentes malgré vos explications."
+      },
+      {
+        "level": 3,
+        "question": "La personne plaisante régulièrement sur vos rôles ou votre parentalité."
+      },
+      {
+        "level": 4,
+        "question": "Ton/ta partenaire continue à vous demander de participer à toutes les réunions sans intervenir vraiment."
+      },
+      {
+        "level": 5,
+        "question": "Les remarques commencent aussi à viser vos éventuels enfants ou votre projet de famille."
+      },
+      {
+        "level": 6,
+        "question": "Ton/ta partenaire refuse de réduire les contacts avec ce proche et considère que vous devez simplement apprendre à ne plus réagir."
+      }
+    ]
+  },
+  {
+    "id": "temps_limite_lgbt_05_la_visibilite_du_couple",
+    "title": "La visibilité du couple",
+    "category": "lgbt",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Ton/ta partenaire publie très peu de choses sur votre relation."
+      },
+      {
+        "level": 2,
+        "question": "Il/elle préfère aussi rester discret/ète dans certains contextes professionnels."
+      },
+      {
+        "level": 3,
+        "question": "Plusieurs personnes de son entourage ignorent encore que vous êtes ensemble après longtemps."
+      },
+      {
+        "level": 4,
+        "question": "Ton/ta partenaire évite de t’accompagner à certains événements où votre relation serait évidente."
+      },
+      {
+        "level": 5,
+        "question": "Tu commences à avoir le sentiment d’être compartimenté(e) dans une partie cachée de sa vie."
+      },
+      {
+        "level": 6,
+        "question": "Ton/ta partenaire te dit qu’il/elle ne souhaite probablement jamais vivre votre relation ouvertement dans une grande partie de ses espaces sociaux."
+      }
+    ]
+  },
+  {
+    "id": "temps_limite_passe_01_le_passe_progressivement_decouvert",
+    "title": "Le passé progressivement découvert",
+    "category": "passe",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Ton/ta partenaire mentionne tardivement une ancienne relation importante."
+      },
+      {
+        "level": 2,
+        "question": "Tu découvres qu’elle a duré beaucoup plus longtemps qu’il/elle te l’avait laissé penser."
+      },
+      {
+        "level": 3,
+        "question": "Plusieurs détails importants avaient volontairement été minimisés."
+      },
+      {
+        "level": 4,
+        "question": "Tu apprends par quelqu’un d’autre qu’ils/elles sont resté(e)s en contact pendant le début de votre relation."
+      },
+      {
+        "level": 5,
+        "question": "Ton/ta partenaire reconnaît avoir caché ces éléments parce qu’il/elle craignait ta réaction."
+      },
+      {
+        "level": 6,
+        "question": "D’autres versions de son histoire commencent à être remises en question et tu ne sais plus clairement quelles parties de son passé t’ont été racontées honnêtement."
+      }
+    ]
+  },
+  {
+    "id": "temps_limite_passe_02_la_boite_de_souvenirs",
+    "title": "La boîte de souvenirs",
+    "category": "passe",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Ton/ta partenaire garde quelques photos anciennes dans ses archives."
+      },
+      {
+        "level": 2,
+        "question": "Il/elle conserve aussi des lettres et cadeaux importants d’un ex."
+      },
+      {
+        "level": 3,
+        "question": "La boîte est régulièrement ressortie avec nostalgie."
+      },
+      {
+        "level": 4,
+        "question": "Ton/ta partenaire relit parfois ces lettres lorsqu’il/elle traverse une période difficile."
+      },
+      {
+        "level": 5,
+        "question": "Il/elle cache certains nouveaux échanges avec cet ex dans la même boîte numérique ou physique."
+      },
+      {
+        "level": 6,
+        "question": "Tu découvres que cette collection sert aussi à entretenir une relation émotionnelle actuelle que ton/ta partenaire t’avait présentée comme totalement terminée."
+      }
+    ]
+  },
+  {
+    "id": "temps_limite_passe_03_le_jardin_secret",
+    "title": "Le jardin secret",
+    "category": "passe",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Ton/ta partenaire ne veut pas répondre à certaines questions sur son adolescence."
+      },
+      {
+        "level": 2,
+        "question": "Une période entière de plusieurs années reste très floue pour toi."
+      },
+      {
+        "level": 3,
+        "question": "Des personnes de son entourage font parfois référence à des événements dont tu ignores tout."
+      },
+      {
+        "level": 4,
+        "question": "Certaines réactions actuelles semblent directement liées à cette période mais ton/ta partenaire refuse toujours d’en parler."
+      },
+      {
+        "level": 5,
+        "question": "Ce silence commence à affecter des décisions importantes de votre couple."
+      },
+      {
+        "level": 6,
+        "question": "Ton/ta partenaire exige que tu acceptes les conséquences de ce passé dans votre vie commune tout en refusant définitivement de te donner le moindre contexte."
+      }
+    ]
+  },
+  {
+    "id": "temps_limite_passe_04_le_secret_revele_par_un_ex",
+    "title": "Le secret révélé par un ex",
+    "category": "passe",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Un ex contacte ton/ta partenaire pour évoquer un vieux souvenir."
+      },
+      {
+        "level": 2,
+        "question": "Cette personne te dit ensuite qu’un élément important de l’histoire racontée est faux."
+      },
+      {
+        "level": 3,
+        "question": "Ton/ta partenaire reconnaît une petite partie du mensonge."
+      },
+      {
+        "level": 4,
+        "question": "D’autres détails vérifiables montrent que la réalité était beaucoup plus différente que ce que tu pensais."
+      },
+      {
+        "level": 5,
+        "question": "Le mensonge concerne aussi une période où vous étiez déjà en train de vous rapprocher."
+      },
+      {
+        "level": 6,
+        "question": "Ton/ta partenaire refuse encore de raconter toute la vérité et te demande de choisir entre lui faire confiance maintenant ou continuer à fouiller le passé."
+      }
+    ]
+  },
+  {
+    "id": "temps_limite_passe_05_lancienne_faute_grave",
+    "title": "L’ancienne faute grave",
+    "category": "passe",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Ton/ta partenaire t’avoue avoir fait quelque chose de très mauvais quand il/elle était beaucoup plus jeune."
+      },
+      {
+        "level": 2,
+        "question": "La faute a réellement blessé une autre personne."
+      },
+      {
+        "level": 3,
+        "question": "Il/elle n’a jamais essayé de réparer directement ce qu’il/elle pouvait réparer."
+      },
+      {
+        "level": 4,
+        "question": "Ton/ta partenaire te demande de ne jamais en parler et considère avoir suffisamment changé."
+      },
+      {
+        "level": 5,
+        "question": "Tu apprends que la personne blessée subit encore certaines conséquences aujourd’hui."
+      },
+      {
+        "level": 6,
+        "question": "Ton/ta partenaire refuse toute forme de responsabilité actuelle et estime que remettre ce passé sur la table serait injuste envers la personne qu’il/elle est devenue."
+      }
+    ]
   }
 ]

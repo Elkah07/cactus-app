@@ -1578,5 +1578,245 @@
   {
     "id": "vraie_vie_guess_couple_pression_06_quelle_phrase_te_fer",
     "question": "Quelle phrase te ferait le plus peur à entendre de la part de ton/ta partenaire sur votre relation ?"
+  },
+  {
+    "id": "temps_guess_identite_01_quel_aspect_de_ta_personnalite_aimerais_tu_ne_jamais_perdr",
+    "question": "Quel aspect de ta personnalité aimerais-tu ne jamais perdre avec les années ?"
+  },
+  {
+    "id": "temps_guess_identite_02_quel_reve_personnel_serais_tu_le_moins_pret_e_a_abandonner",
+    "question": "Quel rêve personnel serais-tu le moins prêt(e) à abandonner pour votre couple ?"
+  },
+  {
+    "id": "temps_guess_identite_03_quel_changement_de_vie_radical_pourrais_tu_le_plus_facilem",
+    "question": "Quel changement de vie radical pourrais-tu le plus facilement envisager dans dix ans ?"
+  },
+  {
+    "id": "temps_guess_identite_04_quelle_conviction_actuelle_te_semble_la_plus_impossible_a_",
+    "question": "Quelle conviction actuelle te semble la plus impossible à négocier ?"
+  },
+  {
+    "id": "temps_guess_identite_05_quel_projet_aimerais_tu_absolument_accomplir_seul_e_meme_e",
+    "question": "Quel projet aimerais-tu absolument accomplir seul(e), même en étant en couple ?"
+  },
+  {
+    "id": "temps_guess_identite_06_quel_signe_te_ferait_penser_que_tu_nes_plus_la_meme_person",
+    "question": "Quel signe te ferait penser que tu n’es plus la même personne qu’au début de votre relation ?"
+  },
+  {
+    "id": "temps_guess_identite_07_quelle_partie_de_ta_vie_souhaiterais_tu_toujours_garder_tr",
+    "question": "Quelle partie de ta vie souhaiterais-tu toujours garder très personnelle ?"
+  },
+  {
+    "id": "temps_guess_identite_08_quel_changement_chez_ton_ta_partenaire_aurait_le_plus_de_c",
+    "question": "Quel changement chez ton/ta partenaire aurait le plus de chances de te déstabiliser ?"
+  },
+  {
+    "id": "temps_guess_amities_01_combien_de_soirees_par_semaine_aimerais_tu_idealement_pouv",
+    "question": "Combien de soirées par semaine aimerais-tu idéalement pouvoir consacrer à tes amis sans ton/ta partenaire ?"
+  },
+  {
+    "id": "temps_guess_amities_02_quel_comportement_dun_e_ami_e_de_ton_ta_partenaire_serait_",
+    "question": "Quel comportement d’un(e) ami(e) de ton/ta partenaire serait le plus difficile à tolérer ?"
+  },
+  {
+    "id": "temps_guess_amities_03_quelle_information_sur_votre_couple_refuserais_tu_que_ton_",
+    "question": "Quelle information sur votre couple refuserais-tu que ton/ta partenaire raconte à ses amis ?"
+  },
+  {
+    "id": "temps_guess_amities_04_quel_type_de_voyage_prefererais_tu_faire_uniquement_avec_d",
+    "question": "Quel type de voyage préférerais-tu faire uniquement avec des amis ?"
+  },
+  {
+    "id": "temps_guess_amities_05_quel_ami_ou_quelle_amie_appellerais_tu_en_premier_apres_un",
+    "question": "Quel ami ou quelle amie appellerais-tu en premier après une très grosse dispute de couple ?"
+  },
+  {
+    "id": "temps_guess_amities_06_quelle_limite_poserais_tu_a_une_amitie_entre_ton_ta_parten",
+    "question": "Quelle limite poserais-tu à une amitié entre ton/ta partenaire et un ancien flirt ?"
+  },
+  {
+    "id": "temps_guess_amities_07_quel_moment_important_voudrais_tu_presque_toujours_vivre_d",
+    "question": "Quel moment important voudrais-tu presque toujours vivre d’abord avec ton/ta partenaire plutôt qu’avec tes amis ?"
+  },
+  {
+    "id": "temps_guess_amities_08_quelle_frequence_de_sorties_separees_te_semblerait_ideale_",
+    "question": "Quelle fréquence de sorties séparées te semblerait idéale dans une vie de couple bien installée ?"
+  },
+  {
+    "id": "temps_guess_intimite_01_quel_geste_non_sexuel_te_fait_te_sentir_le_plus_desire_e",
+    "question": "Quel geste non sexuel te fait te sentir le plus désiré(e) ?"
+  },
+  {
+    "id": "temps_guess_intimite_02_quelle_frequence_dintimite_te_semblerait_ideale_dans_une_p",
+    "question": "Quelle fréquence d’intimité te semblerait idéale dans une période de vie calme ?"
+  },
+  {
+    "id": "temps_guess_intimite_03_quel_sujet_intime_aurais_tu_le_plus_de_mal_a_aborder_spont",
+    "question": "Quel sujet intime aurais-tu le plus de mal à aborder spontanément ?"
+  },
+  {
+    "id": "temps_guess_intimite_04_quelle_forme_de_tendresse_te_manquerait_le_plus_si_votre_s",
+    "question": "Quelle forme de tendresse te manquerait le plus si votre sexualité diminuait ?"
+  },
+  {
+    "id": "temps_guess_intimite_05_quelle_place_la_spontaneite_devrait_elle_avoir_par_rapport",
+    "question": "Quelle place la spontanéité devrait-elle avoir par rapport aux moments intimes planifiés ?"
+  },
+  {
+    "id": "temps_guess_intimite_06_quel_changement_physique_chez_toi_aurait_le_plus_de_chance",
+    "question": "Quel changement physique chez toi aurait le plus de chances d’affecter ta confiance intime ?"
+  },
+  {
+    "id": "temps_guess_intimite_07_quelle_limite_concernant_la_pornographie_serait_la_plus_im",
+    "question": "Quelle limite concernant la pornographie serait la plus importante pour toi ?"
+  },
+  {
+    "id": "temps_guess_intimite_08_quel_serait_ton_premier_reflexe_si_vous_traversiez_une_lon",
+    "question": "Quel serait ton premier réflexe si vous traversiez une longue période de déconnexion intime ?"
+  },
+  {
+    "id": "temps_guess_usure_01_quelle_habitude_quotidienne_de_ton_ta_partenaire_tagacerai",
+    "question": "Quelle habitude quotidienne de ton/ta partenaire t’agacerait le plus si elle devenait permanente ?"
+  },
+  {
+    "id": "temps_guess_usure_02_combien_de_minutes_de_retard_regulier_commenceraient_reell",
+    "question": "Combien de minutes de retard régulier commenceraient réellement à t’énerver ?"
+  },
+  {
+    "id": "temps_guess_usure_03_quelle_tache_domestique_detesterais_tu_devoir_gerer_presqu",
+    "question": "Quelle tâche domestique détesterais-tu devoir gérer presque seul(e) ?"
+  },
+  {
+    "id": "temps_guess_usure_04_quel_comportement_pendant_une_dispute_te_fatigue_le_plus",
+    "question": "Quel comportement pendant une dispute te fatigue le plus ?"
+  },
+  {
+    "id": "temps_guess_usure_05_quelle_petite_attention_aimerais_tu_recevoir_encore_apres_",
+    "question": "Quelle petite attention aimerais-tu recevoir encore après vingt ans de relation ?"
+  },
+  {
+    "id": "temps_guess_usure_06_quel_moment_de_la_journee_voudrais_tu_preserver_le_plus_so",
+    "question": "Quel moment de la journée voudrais-tu préserver le plus souvent sans téléphone ?"
+  },
+  {
+    "id": "temps_guess_usure_07_quelle_mauvaise_habitude_personnelle_reconnais_tu_avoir_le",
+    "question": "Quelle mauvaise habitude personnelle reconnais-tu avoir le plus de mal à changer ?"
+  },
+  {
+    "id": "temps_guess_usure_08_quel_signe_te_ferait_penser_que_la_routine_commence_a_abim",
+    "question": "Quel signe te ferait penser que la routine commence à abîmer votre couple ?"
+  },
+  {
+    "id": "temps_guess_morale_01_quelle_situation_pourrait_le_plus_facilement_te_pousser_a_",
+    "question": "Quelle situation pourrait le plus facilement te pousser à mentir pour protéger quelqu’un ?"
+  },
+  {
+    "id": "temps_guess_morale_02_quelle_faute_passee_aurait_le_plus_de_mal_a_ne_pas_changer",
+    "question": "Quelle faute passée aurait le plus de mal à ne pas changer ton regard sur une personne ?"
+  },
+  {
+    "id": "temps_guess_morale_03_quel_principe_moral_serais_tu_le_moins_pret_e_a_trahir_mem",
+    "question": "Quel principe moral serais-tu le moins prêt(e) à trahir même pour beaucoup d’argent ?"
+  },
+  {
+    "id": "temps_guess_morale_04_dans_quel_cas_briserais_tu_le_plus_facilement_une_promesse",
+    "question": "Dans quel cas briserais-tu le plus facilement une promesse de secret ?"
+  },
+  {
+    "id": "temps_guess_morale_05_quelle_injustice_te_donnerait_le_plus_envie_dintervenir_me",
+    "question": "Quelle injustice te donnerait le plus envie d’intervenir même si elle ne te concerne pas ?"
+  },
+  {
+    "id": "temps_guess_morale_06_quel_type_de_verite_prefererais_tu_peut_etre_ne_jamais_app",
+    "question": "Quel type de vérité préférerais-tu peut-être ne jamais apprendre ?"
+  },
+  {
+    "id": "temps_guess_morale_07_quelle_valeur_choisirais_tu_en_premier_entre_loyaute_honne",
+    "question": "Quelle valeur choisirais-tu en premier entre loyauté, honnêteté, justice, compassion et liberté ?"
+  },
+  {
+    "id": "temps_guess_corps_01_quelle_habitude_de_sante_aimerais_tu_le_plus_ameliorer_che",
+    "question": "Quelle habitude de santé aimerais-tu le plus améliorer chez toi dans les prochaines années ?"
+  },
+  {
+    "id": "temps_guess_corps_02_quel_changement_physique_personnel_aurais_tu_le_plus_de_ma",
+    "question": "Quel changement physique personnel aurais-tu le plus de mal à accepter ?"
+  },
+  {
+    "id": "temps_guess_corps_03_quelle_habitude_dhygiene_ou_de_vie_chez_un_une_partenaire_",
+    "question": "Quelle habitude d’hygiène ou de vie chez un/une partenaire te dérangerait le plus ?"
+  },
+  {
+    "id": "temps_guess_corps_04_quel_type_de_chirurgie_esthetique_pourrais_tu_le_plus_faci",
+    "question": "Quel type de chirurgie esthétique pourrais-tu le plus facilement envisager pour toi-même ?"
+  },
+  {
+    "id": "temps_guess_corps_05_quel_comportement_te_ferait_le_plus_vite_insister_pour_que",
+    "question": "Quel comportement te ferait le plus vite insister pour que ton/ta partenaire consulte un médecin ?"
+  },
+  {
+    "id": "temps_guess_corps_06_quelle_activite_physique_pourrais_tu_reellement_pratiquer_",
+    "question": "Quelle activité physique pourrais-tu réellement pratiquer régulièrement à deux ?"
+  },
+  {
+    "id": "temps_guess_corps_07_quel_changement_de_mode_de_vie_serais_tu_le_moins_pret_e_a",
+    "question": "Quel changement de mode de vie serais-tu le moins prêt(e) à adopter pour suivre ton/ta partenaire ?"
+  },
+  {
+    "id": "temps_guess_lgbt_01_quelle_remarque_exterieure_sur_votre_couple_te_blesserait_",
+    "question": "Quelle remarque extérieure sur votre couple te blesserait le plus ?"
+  },
+  {
+    "id": "temps_guess_lgbt_02_dans_quel_contexte_serais_tu_le_la_moins_a_laise_dafficher",
+    "question": "Dans quel contexte serais-tu le/la moins à l’aise d’afficher publiquement votre relation ?"
+  },
+  {
+    "id": "temps_guess_lgbt_03_quelle_reaction_attendrais_tu_dabord_de_ton_ta_partenaire_",
+    "question": "Quelle réaction attendrais-tu d’abord de ton/ta partenaire face à une remarque homophobe ?"
+  },
+  {
+    "id": "temps_guess_lgbt_04_quel_degre_de_distance_prendrais_tu_avec_un_proche_qui_ref",
+    "question": "Quel degré de distance prendrais-tu avec un proche qui refuse de reconnaître votre couple ?"
+  },
+  {
+    "id": "temps_guess_lgbt_05_quel_aspect_de_la_parentalite_lgbt_te_semblerait_le_plus_i",
+    "question": "Quel aspect de la parentalité LGBT+ te semblerait le plus important à anticiper ?"
+  },
+  {
+    "id": "temps_guess_lgbt_06_quel_pays_ou_type_de_lieu_eviterais_tu_le_plus_facilement_",
+    "question": "Quel pays ou type de lieu éviterais-tu le plus facilement pour des raisons de sécurité en tant que couple ?"
+  },
+  {
+    "id": "temps_guess_lgbt_07_quelle_forme_de_visibilite_de_votre_couple_te_semble_la_pl",
+    "question": "Quelle forme de visibilité de votre couple te semble la plus importante : famille, travail, réseaux ou espace public ?"
+  },
+  {
+    "id": "temps_guess_passe_01_quelle_partie_de_ton_passe_aimerais_tu_le_moins_voir_racon",
+    "question": "Quelle partie de ton passé aimerais-tu le moins voir racontée par quelqu’un d’autre ?"
+  },
+  {
+    "id": "temps_guess_passe_02_quel_souvenir_dune_ancienne_relation_pourrais_tu_vouloir_g",
+    "question": "Quel souvenir d’une ancienne relation pourrais-tu vouloir garder toute ta vie ?"
+  },
+  {
+    "id": "temps_guess_passe_03_quelle_question_sur_ton_passe_te_mettrait_le_plus_mal_a_la",
+    "question": "Quelle question sur ton passé te mettrait le plus mal à l’aise ?"
+  },
+  {
+    "id": "temps_guess_passe_04_quel_type_de_secret_passe_te_semblerait_indispensable_a_re",
+    "question": "Quel type de secret passé te semblerait indispensable à révéler avant un engagement important ?"
+  },
+  {
+    "id": "temps_guess_passe_05_quelle_ancienne_version_de_toi_surprendrait_le_plus_ton_ta",
+    "question": "Quelle ancienne version de toi surprendrait le plus ton/ta partenaire actuel(le) ?"
+  },
+  {
+    "id": "temps_guess_passe_06_quel_detail_sur_les_ex_prefererais_tu_ne_jamais_connaitre",
+    "question": "Quel détail sur les ex préférerais-tu ne jamais connaître ?"
+  },
+  {
+    "id": "temps_guess_passe_07_quelle_omission_pourrais_tu_le_plus_facilement_comprendre_",
+    "question": "Quelle omission pourrais-tu le plus facilement comprendre si elle était motivée par la honte ?"
   }
 ]

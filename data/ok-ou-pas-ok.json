@@ -4514,5 +4514,525 @@
   {
     "id": "vraie_vie_ok_couple_pression_13_ton_ta_partenaire_souhai",
     "question": "Ton/ta partenaire souhaite redéfinir complètement les règles de votre couple après une longue période de crise."
+  },
+  {
+    "id": "temps_ok_identite_01_ton_ta_partenaire_change_profondement_dopinions_politiques",
+    "question": "Ton/ta partenaire change profondément d’opinions politiques au fil des années et ne partage presque plus tes convictions."
+  },
+  {
+    "id": "temps_ok_identite_02_ton_ta_partenaire_decide_a_40_ans_de_repartir_de_zero_prof",
+    "question": "Ton/ta partenaire décide à 40 ans de repartir de zéro professionnellement alors que votre vie est très stable."
+  },
+  {
+    "id": "temps_ok_identite_03_ton_ta_partenaire_adopte_une_nouvelle_religion_et_souhaite",
+    "question": "Ton/ta partenaire adopte une nouvelle religion et souhaite qu’elle prenne davantage de place dans votre quotidien."
+  },
+  {
+    "id": "temps_ok_identite_04_ton_ta_partenaire_abandonne_une_passion_tres_importante_po",
+    "question": "Ton/ta partenaire abandonne une passion très importante pour lui/elle parce qu’elle ne correspond plus à la personne qu’il/elle veut devenir."
+  },
+  {
+    "id": "temps_ok_identite_05_ton_ta_partenaire_refuse_un_projet_de_couple_parce_quil_el",
+    "question": "Ton/ta partenaire refuse un projet de couple parce qu’il/elle considère qu’il limiterait trop son évolution personnelle."
+  },
+  {
+    "id": "temps_ok_identite_06_ton_ta_partenaire_souhaite_prendre_plusieurs_mois_seul_e_p",
+    "question": "Ton/ta partenaire souhaite prendre plusieurs mois seul(e) pour faire le point sur sa vie sans remettre officiellement votre couple en cause."
+  },
+  {
+    "id": "temps_ok_identite_07_ton_ta_partenaire_change_completement_de_style_dentourage_",
+    "question": "Ton/ta partenaire change complètement de style, d’entourage et de rythme de vie après une période de remise en question."
+  },
+  {
+    "id": "temps_ok_identite_08_ton_ta_partenaire_veut_consacrer_beaucoup_plus_de_temps_a_",
+    "question": "Ton/ta partenaire veut consacrer beaucoup plus de temps à un engagement militant qui ne te parle pas du tout."
+  },
+  {
+    "id": "temps_ok_identite_09_ton_ta_partenaire_considere_quil_elle_na_pas_a_rester_cohe",
+    "question": "Ton/ta partenaire considère qu’il/elle n’a pas à rester cohérent(e) avec les projets qu’il/elle imaginait dix ans plus tôt."
+  },
+  {
+    "id": "temps_ok_identite_10_ton_ta_partenaire_souhaite_vivre_plusieurs_experiences_imp",
+    "question": "Ton/ta partenaire souhaite vivre plusieurs expériences importantes sans toi afin de préserver son indépendance."
+  },
+  {
+    "id": "temps_ok_identite_11_ton_ta_partenaire_refuse_de_faire_un_compromis_sur_un_reve",
+    "question": "Ton/ta partenaire refuse de faire un compromis sur un rêve personnel même si cela retarde fortement un projet commun."
+  },
+  {
+    "id": "temps_ok_identite_12_ton_ta_partenaire_change_davis_sur_le_mariage_apres_vous_a",
+    "question": "Ton/ta partenaire change d’avis sur le mariage après vous avoir longtemps imaginé(e)s marié(e)s."
+  },
+  {
+    "id": "temps_ok_identite_13_ton_ta_partenaire_ne_veut_plus_du_tout_du_mode_de_vie_que_",
+    "question": "Ton/ta partenaire ne veut plus du tout du mode de vie que vous aviez choisi ensemble quelques années plus tôt."
+  },
+  {
+    "id": "temps_ok_identite_14_ton_ta_partenaire_veut_reprendre_son_nom_de_naissance_ou_m",
+    "question": "Ton/ta partenaire veut reprendre son nom de naissance ou modifier la manière dont il/elle se présente socialement après des années de couple."
+  },
+  {
+    "id": "temps_ok_identite_15_ton_ta_partenaire_souhaite_recommencer_des_etudes_longues_",
+    "question": "Ton/ta partenaire souhaite recommencer des études longues alors que cela bouleverse votre organisation et vos finances."
+  },
+  {
+    "id": "temps_ok_identite_16_ton_ta_partenaire_refuse_de_renoncer_a_une_valeur_personne",
+    "question": "Ton/ta partenaire refuse de renoncer à une valeur personnelle importante même si elle crée régulièrement des tensions entre vous."
+  },
+  {
+    "id": "temps_ok_identite_17_ton_ta_partenaire_te_dit_quil_elle_a_besoin_de_ne_plus_etr",
+    "question": "Ton/ta partenaire te dit qu’il/elle a besoin de ne plus être défini(e) principalement par votre couple dans sa vie sociale."
+  },
+  {
+    "id": "temps_ok_amities_01_ton_ta_partenaire_raconte_en_detail_vos_disputes_a_son_sa_",
+    "question": "Ton/ta partenaire raconte en détail vos disputes à son/sa meilleur(e) ami(e) sans t’en parler."
+  },
+  {
+    "id": "temps_ok_amities_02_ton_ta_partenaire_part_une_semaine_en_vacances_avec_ses_am",
+    "question": "Ton/ta partenaire part une semaine en vacances avec ses amis sans toi chaque année."
+  },
+  {
+    "id": "temps_ok_amities_03_un_ami_tres_proche_de_ton_ta_partenaire_ne_taime_clairemen",
+    "question": "Un ami très proche de ton/ta partenaire ne t’aime clairement pas et refuse presque toujours de te voir."
+  },
+  {
+    "id": "temps_ok_amities_04_ton_ta_partenaire_reste_tres_proche_dune_personne_qui_ta_g",
+    "question": "Ton/ta partenaire reste très proche d’une personne qui t’a gravement manqué de respect."
+  },
+  {
+    "id": "temps_ok_amities_05_ton_ta_partenaire_annonce_parfois_ses_grandes_nouvelles_a_",
+    "question": "Ton/ta partenaire annonce parfois ses grandes nouvelles à son/sa meilleur(e) ami(e) avant de te les raconter."
+  },
+  {
+    "id": "temps_ok_amities_06_ton_ta_partenaire_voit_plusieurs_fois_par_semaine_un_e_ami",
+    "question": "Ton/ta partenaire voit plusieurs fois par semaine un(e) ami(e) avec qui il/elle a eu une histoire il y a longtemps."
+  },
+  {
+    "id": "temps_ok_amities_07_ton_ta_partenaire_prefere_garder_certains_problemes_person",
+    "question": "Ton/ta partenaire préfère garder certains problèmes personnels uniquement pour ses amis et ne t’en parle jamais."
+  },
+  {
+    "id": "temps_ok_amities_08_ton_ta_partenaire_recoit_regulierement_ses_amis_chez_vous_",
+    "question": "Ton/ta partenaire reçoit régulièrement ses amis chez vous sans te demander avant."
+  },
+  {
+    "id": "temps_ok_amities_09_ton_ta_partenaire_ne_veut_presque_jamais_melanger_son_grou",
+    "question": "Ton/ta partenaire ne veut presque jamais mélanger son groupe d’amis avec toi."
+  },
+  {
+    "id": "temps_ok_amities_10_ton_ta_partenaire_passe_chaque_anniversaire_important_avec",
+    "question": "Ton/ta partenaire passe chaque anniversaire important avec son groupe d’amis historique, même si cela tombe sur un projet de couple."
+  },
+  {
+    "id": "temps_ok_amities_11_ton_ta_partenaire_prete_souvent_votre_logement_a_ses_amis_",
+    "question": "Ton/ta partenaire prête souvent votre logement à ses amis lorsque vous êtes absent(e)s."
+  },
+  {
+    "id": "temps_ok_amities_12_un_e_ami_e_de_ton_ta_partenaire_lappelle_a_nimporte_quelle",
+    "question": "Un(e) ami(e) de ton/ta partenaire l’appelle à n’importe quelle heure et il/elle répond toujours, même pendant vos moments à deux."
+  },
+  {
+    "id": "temps_ok_amities_13_ton_ta_partenaire_veut_continuer_a_etre_tres_proche_dune_p",
+    "question": "Ton/ta partenaire veut continuer à être très proche d’une personne qui critique régulièrement votre relation."
+  },
+  {
+    "id": "temps_ok_amities_14_ton_ta_partenaire_accepte_que_ses_amis_se_moquent_de_toi_t",
+    "question": "Ton/ta partenaire accepte que ses amis se moquent de toi tant qu’il/elle considère que c’est de l’humour."
+  },
+  {
+    "id": "temps_ok_amities_15_ton_ta_partenaire_souhaite_organiser_plusieurs_voyages_imp",
+    "question": "Ton/ta partenaire souhaite organiser plusieurs voyages importants uniquement avec ses amis."
+  },
+  {
+    "id": "temps_ok_amities_16_ton_ta_partenaire_garde_une_amitie_tres_fusionnelle_dont_c",
+    "question": "Ton/ta partenaire garde une amitié très fusionnelle dont certaines limites te mettent mal à l’aise."
+  },
+  {
+    "id": "temps_ok_amities_17_ton_ta_partenaire_refuse_de_reduire_ses_sorties_sociales_a",
+    "question": "Ton/ta partenaire refuse de réduire ses sorties sociales alors que vous avez très peu de temps ensemble."
+  },
+  {
+    "id": "temps_ok_intimite_01_ton_ta_partenaire_na_presque_plus_de_desir_sexuel_pendant_",
+    "question": "Ton/ta partenaire n’a presque plus de désir sexuel pendant plusieurs mois mais refuse d’en parler."
+  },
+  {
+    "id": "temps_ok_intimite_02_ton_ta_partenaire_regarde_regulierement_de_la_pornographie",
+    "question": "Ton/ta partenaire regarde régulièrement de la pornographie sans t’en parler alors que le sujet est sensible entre vous."
+  },
+  {
+    "id": "temps_ok_intimite_03_ton_ta_partenaire_veut_essayer_une_pratique_intime_qui_ne_",
+    "question": "Ton/ta partenaire veut essayer une pratique intime qui ne t’attire pas du tout et revient souvent sur le sujet."
+  },
+  {
+    "id": "temps_ok_intimite_04_ton_ta_partenaire_souhaite_dormir_separement_plusieurs_nui",
+    "question": "Ton/ta partenaire souhaite dormir séparément plusieurs nuits par semaine parce qu’il/elle dort mieux seul(e)."
+  },
+  {
+    "id": "temps_ok_intimite_05_ton_ta_partenaire_te_dit_que_son_attirance_physique_pour_t",
+    "question": "Ton/ta partenaire te dit que son attirance physique pour toi a diminué après un changement important de ton corps."
+  },
+  {
+    "id": "temps_ok_intimite_06_ton_ta_partenaire_ne_veut_plus_du_tout_initier_les_rapport",
+    "question": "Ton/ta partenaire ne veut plus du tout initier les rapports mais attend toujours que tu le fasses."
+  },
+  {
+    "id": "temps_ok_intimite_07_ton_ta_partenaire_prefere_parfois_se_satisfaire_seul_e_plu",
+    "question": "Ton/ta partenaire préfère parfois se satisfaire seul(e) plutôt que partager un moment intime avec toi."
+  },
+  {
+    "id": "temps_ok_intimite_08_ton_ta_partenaire_parle_tres_librement_de_votre_sexualite_",
+    "question": "Ton/ta partenaire parle très librement de votre sexualité avec ses amis."
+  },
+  {
+    "id": "temps_ok_intimite_09_ton_ta_partenaire_veut_planifier_vos_moments_intimes_dans_",
+    "question": "Ton/ta partenaire veut planifier vos moments intimes dans l’agenda pour éviter que la routine les fasse disparaître."
+  },
+  {
+    "id": "temps_ok_intimite_10_ton_ta_partenaire_considere_quun_couple_peut_etre_parfaite",
+    "question": "Ton/ta partenaire considère qu’un couple peut être parfaitement heureux avec très peu de rapports sexuels."
+  },
+  {
+    "id": "temps_ok_intimite_11_ton_ta_partenaire_te_demande_de_ne_plus_faire_certains_com",
+    "question": "Ton/ta partenaire te demande de ne plus faire certains compliments sur son corps parce qu’ils le/la mettent mal à l’aise."
+  },
+  {
+    "id": "temps_ok_intimite_12_ton_ta_partenaire_garde_pour_lui_elle_un_fantasme_importan",
+    "question": "Ton/ta partenaire garde pour lui/elle un fantasme important parce qu’il/elle craint ton jugement."
+  },
+  {
+    "id": "temps_ok_intimite_13_ton_ta_partenaire_souhaite_consulter_un_sexologue_pour_un_",
+    "question": "Ton/ta partenaire souhaite consulter un sexologue pour un problème qui vous concerne tous les deux."
+  },
+  {
+    "id": "temps_ok_intimite_14_ton_ta_partenaire_refuse_tout_contact_physique_pendant_une",
+    "question": "Ton/ta partenaire refuse tout contact physique pendant une période difficile, y compris les câlins."
+  },
+  {
+    "id": "temps_ok_intimite_15_ton_ta_partenaire_veut_que_lintimite_reste_totalement_spon",
+    "question": "Ton/ta partenaire veut que l’intimité reste totalement spontanée et rejette toute discussion sur la fréquence."
+  },
+  {
+    "id": "temps_ok_intimite_16_ton_ta_partenaire_trouve_normal_davoir_parfois_des_attiran",
+    "question": "Ton/ta partenaire trouve normal d’avoir parfois des attirances fortes pour d’autres personnes sans t’en parler."
+  },
+  {
+    "id": "temps_ok_intimite_17_ton_ta_partenaire_te_demande_de_modifier_une_habitude_dhyg",
+    "question": "Ton/ta partenaire te demande de modifier une habitude d’hygiène ou de soin du corps parce qu’elle affecte son désir."
+  },
+  {
+    "id": "temps_ok_usure_01_ton_ta_partenaire_est_presque_toujours_en_retard_y_compris",
+    "question": "Ton/ta partenaire est presque toujours en retard, y compris pour les événements importants."
+  },
+  {
+    "id": "temps_ok_usure_02_ton_ta_partenaire_laisse_systematiquement_les_demarches_ad",
+    "question": "Ton/ta partenaire laisse systématiquement les démarches administratives à l’autre."
+  },
+  {
+    "id": "temps_ok_usure_03_ton_ta_partenaire_regarde_son_telephone_pendant_presque_to",
+    "question": "Ton/ta partenaire regarde son téléphone pendant presque tous vos repas."
+  },
+  {
+    "id": "temps_ok_usure_04_ton_ta_partenaire_promet_regulierement_de_faire_quelque_ch",
+    "question": "Ton/ta partenaire promet régulièrement de faire quelque chose puis oublie."
+  },
+  {
+    "id": "temps_ok_usure_05_ton_ta_partenaire_laisse_toujours_lautre_remarquer_et_orga",
+    "question": "Ton/ta partenaire laisse toujours l’autre remarquer et organiser les tâches du quotidien."
+  },
+  {
+    "id": "temps_ok_usure_06_ton_ta_partenaire_a_besoin_de_regler_une_dispute_immediate",
+    "question": "Ton/ta partenaire a besoin de régler une dispute immédiatement alors que toi tu as besoin de plusieurs heures de calme."
+  },
+  {
+    "id": "temps_ok_usure_07_ton_ta_partenaire_ne_remplace_jamais_ce_quil_elle_finit_da",
+    "question": "Ton/ta partenaire ne remplace jamais ce qu’il/elle finit dans la maison et attend que l’autre s’en charge."
+  },
+  {
+    "id": "temps_ok_usure_08_ton_ta_partenaire_interrompt_souvent_tes_histoires_pour_pa",
+    "question": "Ton/ta partenaire interrompt souvent tes histoires pour parler d’autre chose."
+  },
+  {
+    "id": "temps_ok_usure_09_ton_ta_partenaire_repond_tres_peu_aux_messages_importants_",
+    "question": "Ton/ta partenaire répond très peu aux messages importants mais est constamment actif/ve sur les réseaux."
+  },
+  {
+    "id": "temps_ok_usure_10_ton_ta_partenaire_ne_prepare_presque_jamais_spontanement_u",
+    "question": "Ton/ta partenaire ne prépare presque jamais spontanément un moment à deux."
+  },
+  {
+    "id": "temps_ok_usure_11_ton_ta_partenaire_laisse_regulierement_trainer_ses_affaire",
+    "question": "Ton/ta partenaire laisse régulièrement traîner ses affaires dans les espaces communs malgré vos discussions."
+  },
+  {
+    "id": "temps_ok_usure_12_ton_ta_partenaire_soupire_ou_montre_son_agacement_des_que_",
+    "question": "Ton/ta partenaire soupire ou montre son agacement dès que tu lui rappelles une tâche oubliée."
+  },
+  {
+    "id": "temps_ok_usure_13_ton_ta_partenaire_te_demande_souvent_ou_se_trouvent_des_ob",
+    "question": "Ton/ta partenaire te demande souvent où se trouvent des objets qu’il/elle pourrait chercher seul(e)."
+  },
+  {
+    "id": "temps_ok_usure_14_ton_ta_partenaire_raconte_plusieurs_fois_les_memes_problem",
+    "question": "Ton/ta partenaire raconte plusieurs fois les mêmes problèmes sans jamais mettre en place les solutions dont vous avez parlé."
+  },
+  {
+    "id": "temps_ok_usure_15_ton_ta_partenaire_arrive_a_lheure_pour_ses_amis_et_son_tra",
+    "question": "Ton/ta partenaire arrive à l’heure pour ses amis et son travail mais presque jamais pour vos rendez-vous."
+  },
+  {
+    "id": "temps_ok_usure_16_ton_ta_partenaire_fait_souvent_des_blagues_a_tes_depens_de",
+    "question": "Ton/ta partenaire fait souvent des blagues à tes dépens devant d’autres personnes alors que tu lui as dit que cela t’agace."
+  },
+  {
+    "id": "temps_ok_usure_17_ton_ta_partenaire_considere_que_les_petites_attentions_dev",
+    "question": "Ton/ta partenaire considère que les petites attentions deviennent moins nécessaires après plusieurs années de relation."
+  },
+  {
+    "id": "temps_ok_morale_01_ton_ta_partenaire_refuse_de_denoncer_un_proche_qui_a_commi",
+    "question": "Ton/ta partenaire refuse de dénoncer un proche qui a commis quelque chose d’illégal sans victime directe."
+  },
+  {
+    "id": "temps_ok_morale_02_ton_ta_partenaire_decouvre_quun_de_ses_meilleurs_amis_trom",
+    "question": "Ton/ta partenaire découvre qu’un de ses meilleurs amis trompe son/sa partenaire et décide de garder le secret."
+  },
+  {
+    "id": "temps_ok_morale_03_ton_ta_partenaire_ment_a_sa_famille_pour_proteger_un_secre",
+    "question": "Ton/ta partenaire ment à sa famille pour protéger un secret que tu lui as confié."
+  },
+  {
+    "id": "temps_ok_morale_04_ton_ta_partenaire_accepte_un_travail_tres_bien_paye_dans_u",
+    "question": "Ton/ta partenaire accepte un travail très bien payé dans une entreprise dont il/elle désapprouve fortement certaines pratiques."
+  },
+  {
+    "id": "temps_ok_morale_05_ton_ta_partenaire_garde_de_largent_trouve_dans_un_lieu_pub",
+    "question": "Ton/ta partenaire garde de l’argent trouvé dans un lieu public alors qu’il serait possible d’en rechercher le propriétaire."
+  },
+  {
+    "id": "temps_ok_morale_06_ton_ta_partenaire_couvre_un_collegue_qui_a_fait_une_faute_",
+    "question": "Ton/ta partenaire couvre un collègue qui a fait une faute grave pour éviter qu’il perde son emploi."
+  },
+  {
+    "id": "temps_ok_morale_07_ton_ta_partenaire_considere_quil_est_parfois_acceptable_de",
+    "question": "Ton/ta partenaire considère qu’il est parfois acceptable de mentir pour éviter une souffrance inutile."
+  },
+  {
+    "id": "temps_ok_morale_08_ton_ta_partenaire_refuse_de_te_dire_une_verite_concernant_",
+    "question": "Ton/ta partenaire refuse de te dire une vérité concernant un proche parce qu’il/elle a promis de garder le secret."
+  },
+  {
+    "id": "temps_ok_morale_09_ton_ta_partenaire_choisit_toujours_de_defendre_publiquemen",
+    "question": "Ton/ta partenaire choisit toujours de défendre publiquement sa famille puis de discuter du problème en privé, même lorsqu’il/elle pense qu’ils ont tort."
+  },
+  {
+    "id": "temps_ok_morale_10_ton_ta_partenaire_pense_quon_peut_pardonner_presque_nimpor",
+    "question": "Ton/ta partenaire pense qu’on peut pardonner presque n’importe quoi à quelqu’un qui a réellement changé."
+  },
+  {
+    "id": "temps_ok_morale_11_ton_ta_partenaire_utilise_une_information_confidentielle_p",
+    "question": "Ton/ta partenaire utilise une information confidentielle pour empêcher quelqu’un de faire un choix qu’il/elle juge dangereux."
+  },
+  {
+    "id": "temps_ok_morale_12_ton_ta_partenaire_ment_sur_son_identite_ou_sa_situation_po",
+    "question": "Ton/ta partenaire ment sur son identité ou sa situation pour obtenir un avantage qu’il/elle estime mérité."
+  },
+  {
+    "id": "temps_ok_morale_13_ton_ta_partenaire_refuse_de_rendre_un_objet_tres_couteux_a",
+    "question": "Ton/ta partenaire refuse de rendre un objet très coûteux acheté à un prix manifestement erroné par un commerce."
+  },
+  {
+    "id": "temps_ok_morale_14_ton_ta_partenaire_aide_financierement_quelquun_dont_il_ell",
+    "question": "Ton/ta partenaire aide financièrement quelqu’un dont il/elle sait que l’argent pourrait être utilisé de manière irresponsable."
+  },
+  {
+    "id": "temps_ok_morale_15_ton_ta_partenaire_pense_quil_faut_parfois_proteger_une_per",
+    "question": "Ton/ta partenaire pense qu’il faut parfois protéger une personne aimée des conséquences de ses propres actes."
+  },
+  {
+    "id": "temps_ok_morale_16_ton_ta_partenaire_decouvre_une_information_qui_pourrait_de",
+    "question": "Ton/ta partenaire découvre une information qui pourrait détruire une famille et choisit de ne jamais la révéler."
+  },
+  {
+    "id": "temps_ok_corps_01_ton_ta_partenaire_prend_beaucoup_de_poids_et_te_dit_quil_e",
+    "question": "Ton/ta partenaire prend beaucoup de poids et te dit qu’il/elle ne veut aucune remarque sur sa santé ou son apparence."
+  },
+  {
+    "id": "temps_ok_corps_02_ton_ta_partenaire_refuse_daller_chez_le_medecin_malgre_un_",
+    "question": "Ton/ta partenaire refuse d’aller chez le médecin malgré un symptôme inquiétant qui dure depuis plusieurs mois."
+  },
+  {
+    "id": "temps_ok_corps_03_ton_ta_partenaire_devient_extremement_sportif_ve_et_organi",
+    "question": "Ton/ta partenaire devient extrêmement sportif/ve et organise désormais presque tout son quotidien autour de l’entraînement."
+  },
+  {
+    "id": "temps_ok_corps_04_ton_ta_partenaire_souhaite_faire_une_chirurgie_esthetique_",
+    "question": "Ton/ta partenaire souhaite faire une chirurgie esthétique importante sans vraiment discuter de ses motivations avec toi."
+  },
+  {
+    "id": "temps_ok_corps_05_ton_ta_partenaire_suit_un_regime_tres_strict_qui_modifie_f",
+    "question": "Ton/ta partenaire suit un régime très strict qui modifie fortement vos repas et vos sorties."
+  },
+  {
+    "id": "temps_ok_corps_06_ton_ta_partenaire_te_dit_franchement_quun_changement_de_to",
+    "question": "Ton/ta partenaire te dit franchement qu’un changement de ton corps affecte son attirance."
+  },
+  {
+    "id": "temps_ok_corps_07_ton_ta_partenaire_fume_mais_refuse_que_le_sujet_soit_discu",
+    "question": "Ton/ta partenaire fume mais refuse que le sujet soit discuté parce qu’il/elle considère que cela concerne uniquement son corps."
+  },
+  {
+    "id": "temps_ok_corps_08_ton_ta_partenaire_depense_une_somme_importante_chaque_mois",
+    "question": "Ton/ta partenaire dépense une somme importante chaque mois dans des soins esthétiques alors que votre budget est serré."
+  },
+  {
+    "id": "temps_ok_corps_09_ton_ta_partenaire_veut_que_vous_adoptiez_ensemble_son_nouv",
+    "question": "Ton/ta partenaire veut que vous adoptiez ensemble son nouveau mode de vie très sportif."
+  },
+  {
+    "id": "temps_ok_corps_10_ton_ta_partenaire_commente_regulierement_ce_que_tu_manges_",
+    "question": "Ton/ta partenaire commente régulièrement ce que tu manges parce qu’il/elle s’inquiète pour ta santé."
+  },
+  {
+    "id": "temps_ok_corps_11_ton_ta_partenaire_refuse_tous_les_examens_medicaux_prevent",
+    "question": "Ton/ta partenaire refuse tous les examens médicaux préventifs par peur des résultats."
+  },
+  {
+    "id": "temps_ok_corps_12_ton_ta_partenaire_utilise_des_produits_ou_traitements_esth",
+    "question": "Ton/ta partenaire utilise des produits ou traitements esthétiques risqués malgré tes inquiétudes."
+  },
+  {
+    "id": "temps_ok_corps_13_ton_ta_partenaire_veut_arreter_completement_lalcool_et_te_",
+    "question": "Ton/ta partenaire veut arrêter complètement l’alcool et te demande de ne plus en boire à la maison."
+  },
+  {
+    "id": "temps_ok_corps_14_ton_ta_partenaire_developpe_une_obsession_pour_son_apparen",
+    "question": "Ton/ta partenaire développe une obsession pour son apparence qui prend beaucoup de place dans votre quotidien."
+  },
+  {
+    "id": "temps_ok_corps_15_ton_ta_partenaire_ne_veut_plus_participer_a_certaines_acti",
+    "question": "Ton/ta partenaire ne veut plus participer à certaines activités de couple parce qu’il/elle se sent mal dans son corps."
+  },
+  {
+    "id": "temps_ok_corps_16_ton_ta_partenaire_souhaite_que_vous_dormiez_mangiez_et_fas",
+    "question": "Ton/ta partenaire souhaite que vous dormiez, mangiez et fassiez du sport selon une routine très stricte pour optimiser votre santé."
+  },
+  {
+    "id": "temps_ok_lgbt_01_ton_ta_partenaire_te_presente_comme_un_e_ami_e_devant_cert",
+    "question": "Ton/ta partenaire te présente comme un(e) ami(e) devant certains membres de sa famille pour éviter les tensions."
+  },
+  {
+    "id": "temps_ok_lgbt_02_ton_ta_partenaire_refuse_de_tenir_ta_main_dans_certains_li",
+    "question": "Ton/ta partenaire refuse de tenir ta main dans certains lieux par peur des réactions des autres."
+  },
+  {
+    "id": "temps_ok_lgbt_03_ton_ta_partenaire_veut_que_votre_couple_reste_tres_discret",
+    "question": "Ton/ta partenaire veut que votre couple reste très discret sur les réseaux sociaux pour préserver votre sécurité et votre vie privée."
+  },
+  {
+    "id": "temps_ok_lgbt_04_ton_ta_partenaire_accepte_que_sa_famille_te_respecte_en_pr",
+    "question": "Ton/ta partenaire accepte que sa famille te respecte en privé mais évite de reconnaître votre relation devant d’autres proches."
+  },
+  {
+    "id": "temps_ok_lgbt_05_ton_ta_partenaire_veut_que_vous_quittiez_un_lieu_lorsquune",
+    "question": "Ton/ta partenaire veut que vous quittiez un lieu lorsqu’une remarque homophobe est faite plutôt que de répondre."
+  },
+  {
+    "id": "temps_ok_lgbt_06_ton_ta_partenaire_refuse_de_retourner_dans_une_destination",
+    "question": "Ton/ta partenaire refuse de retourner dans une destination où vous vous êtes senti(e)s en insécurité en tant que couple."
+  },
+  {
+    "id": "temps_ok_lgbt_07_ton_ta_partenaire_souhaite_que_vous_expliquiez_tres_tot_a_",
+    "question": "Ton/ta partenaire souhaite que vous expliquiez très tôt à vos futurs enfants comment parler de leur famille face aux remarques extérieures."
+  },
+  {
+    "id": "temps_ok_lgbt_08_ton_ta_partenaire_considere_que_la_personne_qui_porte_even",
+    "question": "Ton/ta partenaire considère que la personne qui porte éventuellement un enfant ne devrait pas avoir plus de poids dans les décisions parentales."
+  },
+  {
+    "id": "temps_ok_lgbt_09_ton_ta_partenaire_veut_que_vous_coupiez_les_ponts_avec_un_",
+    "question": "Ton/ta partenaire veut que vous coupiez les ponts avec un proche qui refuse de reconnaître pleinement votre couple."
+  },
+  {
+    "id": "temps_ok_lgbt_10_ton_ta_partenaire_souhaite_repondre_frontalement_a_chaque_",
+    "question": "Ton/ta partenaire souhaite répondre frontalement à chaque remarque du type « qui fait l’homme ou la femme dans votre couple ? »."
+  },
+  {
+    "id": "temps_ok_lgbt_11_ton_ta_partenaire_prefere_ne_pas_afficher_de_symbole_lgbt_",
+    "question": "Ton/ta partenaire préfère ne pas afficher de symbole LGBT+ chez vous lorsque certains membres de sa famille viennent."
+  },
+  {
+    "id": "temps_ok_lgbt_12_ton_ta_partenaire_veut_choisir_un_parcours_de_parentalite_",
+    "question": "Ton/ta partenaire veut choisir un parcours de parentalité plus coûteux mais qui protège davantage juridiquement les deux parents."
+  },
+  {
+    "id": "temps_ok_lgbt_13_ton_ta_partenaire_accepte_de_participer_a_des_evenements_f",
+    "question": "Ton/ta partenaire accepte de participer à des événements familiaux où tu n’es pas invité(e) en tant que partenaire."
+  },
+  {
+    "id": "temps_ok_lgbt_14_ton_ta_partenaire_souhaite_changer_de_ville_pour_vivre_dan",
+    "question": "Ton/ta partenaire souhaite changer de ville pour vivre dans un environnement où votre couple se sentirait plus libre et visible."
+  },
+  {
+    "id": "temps_ok_lgbt_15_ton_ta_partenaire_veut_que_vous_soyez_tres_visibles_comme_",
+    "question": "Ton/ta partenaire veut que vous soyez très visibles comme couple afin de ne jamais donner l’impression de vous cacher."
+  },
+  {
+    "id": "temps_ok_passe_01_ton_ta_partenaire_ne_veut_pas_te_raconter_certains_details",
+    "question": "Ton/ta partenaire ne veut pas te raconter certains détails de ses anciennes relations et considère qu’ils ne te concernent pas."
+  },
+  {
+    "id": "temps_ok_passe_02_ton_ta_partenaire_garde_des_lettres_photos_et_objets_impor",
+    "question": "Ton/ta partenaire garde des lettres, photos et objets importants d’un ancien amour dans une boîte personnelle."
+  },
+  {
+    "id": "temps_ok_passe_03_ton_ta_partenaire_tavoue_apres_plusieurs_annees_quil_elle_",
+    "question": "Ton/ta partenaire t’avoue après plusieurs années qu’il/elle a volontairement minimisé un élément important de son passé au début de votre relation."
+  },
+  {
+    "id": "temps_ok_passe_04_un_ex_de_ton_ta_partenaire_te_revele_quelque_chose_de_vrai",
+    "question": "Un ex de ton/ta partenaire te révèle quelque chose de vrai que ton/ta partenaire ne t’avait jamais raconté."
+  },
+  {
+    "id": "temps_ok_passe_05_ton_ta_partenaire_refuse_de_te_dire_avec_combien_de_person",
+    "question": "Ton/ta partenaire refuse de te dire avec combien de personnes il/elle a eu des relations avant toi."
+  },
+  {
+    "id": "temps_ok_passe_06_ton_ta_partenaire_garde_contact_avec_une_personne_liee_a_u",
+    "question": "Ton/ta partenaire garde contact avec une personne liée à une période de sa vie dont il/elle ne veut jamais te parler."
+  },
+  {
+    "id": "temps_ok_passe_07_ton_ta_partenaire_a_fait_dans_le_passe_quelque_chose_quil_",
+    "question": "Ton/ta partenaire a fait dans le passé quelque chose qu’il/elle condamne aujourd’hui mais ne souhaite pas entrer dans les détails."
+  },
+  {
+    "id": "temps_ok_passe_08_ton_ta_partenaire_supprime_danciens_messages_et_photos_ava",
+    "question": "Ton/ta partenaire supprime d’anciens messages et photos avant de te laisser utiliser un vieux téléphone."
+  },
+  {
+    "id": "temps_ok_passe_09_ton_ta_partenaire_tapprend_quune_partie_importante_de_lhis",
+    "question": "Ton/ta partenaire t’apprend qu’une partie importante de l’histoire de votre rencontre ne s’est pas exactement passée comme il/elle te l’avait racontée."
+  },
+  {
+    "id": "temps_ok_passe_10_ton_ta_partenaire_ne_veut_pas_que_tu_poses_de_questions_su",
+    "question": "Ton/ta partenaire ne veut pas que tu poses de questions sur une ancienne période de sa vie parce qu’elle reste trop douloureuse."
+  },
+  {
+    "id": "temps_ok_passe_11_ton_ta_partenaire_conserve_un_secret_confie_par_un_ex_meme",
+    "question": "Ton/ta partenaire conserve un secret confié par un ex même si ce secret pourrait expliquer certains comportements actuels."
+  },
+  {
+    "id": "temps_ok_passe_12_ton_ta_partenaire_te_dit_quil_elle_ne_veut_jamais_que_tu_r",
+    "question": "Ton/ta partenaire te dit qu’il/elle ne veut jamais que tu rencontres certaines personnes de son passé."
+  },
+  {
+    "id": "temps_ok_passe_13_ton_ta_partenaire_a_encore_un_tatouage_ou_un_objet_symboli",
+    "question": "Ton/ta partenaire a encore un tatouage ou un objet symbolique lié à une ancienne relation et ne veut pas s’en séparer."
+  },
+  {
+    "id": "temps_ok_passe_14_ton_ta_partenaire_apprend_quelque_chose_de_tres_lourd_sur_",
+    "question": "Ton/ta partenaire apprend quelque chose de très lourd sur ton passé par quelqu’un d’autre avant que tu aies choisi de lui en parler."
+  },
+  {
+    "id": "temps_ok_passe_15_ton_ta_partenaire_considere_quil_existe_des_choses_quon_pe",
+    "question": "Ton/ta partenaire considère qu’il existe des choses qu’on peut légitimement ne jamais raconter, même après toute une vie ensemble."
   }
 ]

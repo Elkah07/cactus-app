@@ -1558,5 +1558,245 @@
   {
     "id": "vraie_vie_green_couple_pression_06_ton_ta_partenaire_pe",
     "question": "Ton/ta partenaire pense qu’avoir des enfants oblige toujours à rester ensemble, quelle que soit la qualité de la relation."
+  },
+  {
+    "id": "temps_green_identite_01_ton_ta_partenaire_encourage_tes_projets_personnels_meme_lo",
+    "question": "Ton/ta partenaire encourage tes projets personnels même lorsqu’ils ne l’intéressent pas directement."
+  },
+  {
+    "id": "temps_green_identite_02_ton_ta_partenaire_pense_quun_couple_solide_doit_pouvoir_su",
+    "question": "Ton/ta partenaire pense qu’un couple solide doit pouvoir survivre à de grandes évolutions individuelles."
+  },
+  {
+    "id": "temps_green_identite_03_ton_ta_partenaire_considere_que_changer_davis_sur_un_proje",
+    "question": "Ton/ta partenaire considère que changer d’avis sur un projet commun est une trahison de la parole donnée."
+  },
+  {
+    "id": "temps_green_identite_04_ton_ta_partenaire_sait_expliquer_quil_elle_change_sans_te_",
+    "question": "Ton/ta partenaire sait expliquer qu’il/elle change sans te faire sentir que toute votre histoire était une erreur."
+  },
+  {
+    "id": "temps_green_identite_05_ton_ta_partenaire_souhaite_conserver_des_espaces_ou_il_ell",
+    "question": "Ton/ta partenaire souhaite conserver des espaces où il/elle peut exister sans être défini(e) par votre couple."
+  },
+  {
+    "id": "temps_green_identite_06_ton_ta_partenaire_pense_que_lamour_devrait_toujours_passer",
+    "question": "Ton/ta partenaire pense que l’amour devrait toujours passer avant n’importe quel rêve personnel."
+  },
+  {
+    "id": "temps_green_identite_07_ton_ta_partenaire_accepte_de_reinterroger_regulierement_vo",
+    "question": "Ton/ta partenaire accepte de réinterroger régulièrement vos projets plutôt que de suivre automatiquement un plan ancien."
+  },
+  {
+    "id": "temps_green_identite_08_ton_ta_partenaire_peut_respecter_une_conviction_importante",
+    "question": "Ton/ta partenaire peut respecter une conviction importante pour toi même s’il/elle ne la partage pas."
+  },
+  {
+    "id": "temps_green_amities_01_ton_ta_partenaire_sait_defendre_votre_relation_lorsquun_pr",
+    "question": "Ton/ta partenaire sait défendre votre relation lorsqu’un proche te manque de respect."
+  },
+  {
+    "id": "temps_green_amities_02_ton_ta_partenaire_conserve_des_amities_fortes_sans_te_dema",
+    "question": "Ton/ta partenaire conserve des amitiés fortes sans te demander d’être présent(e) partout."
+  },
+  {
+    "id": "temps_green_amities_03_ton_ta_partenaire_raconte_systematiquement_vos_disputes_a_",
+    "question": "Ton/ta partenaire raconte systématiquement vos disputes à plusieurs amis avant de t’en reparler."
+  },
+  {
+    "id": "temps_green_amities_04_ton_ta_partenaire_sait_poser_une_limite_a_un_e_ami_e_qui_p",
+    "question": "Ton/ta partenaire sait poser une limite à un(e) ami(e) qui prend trop de place dans votre quotidien."
+  },
+  {
+    "id": "temps_green_amities_05_ton_ta_partenaire_tencourage_a_garder_une_vraie_vie_social",
+    "question": "Ton/ta partenaire t’encourage à garder une vraie vie sociale indépendante."
+  },
+  {
+    "id": "temps_green_amities_06_ton_ta_partenaire_considere_que_ses_amis_historiques_passe",
+    "question": "Ton/ta partenaire considère que ses amis historiques passeront toujours avant n’importe quelle relation amoureuse."
+  },
+  {
+    "id": "temps_green_amities_07_ton_ta_partenaire_peut_apprecier_quun_de_tes_proches_ne_la",
+    "question": "Ton/ta partenaire peut apprécier qu’un de tes proches ne l’aime pas sans te demander de choisir un camp."
+  },
+  {
+    "id": "temps_green_amities_08_ton_ta_partenaire_respecte_quune_confidence_faite_par_un_a",
+    "question": "Ton/ta partenaire respecte qu’une confidence faite par un ami ne lui appartienne pas et ne te la raconte pas automatiquement."
+  },
+  {
+    "id": "temps_green_intimite_01_ton_ta_partenaire_peut_entendre_un_refus_intime_sans_boude",
+    "question": "Ton/ta partenaire peut entendre un refus intime sans bouder ni faire culpabiliser."
+  },
+  {
+    "id": "temps_green_intimite_02_ton_ta_partenaire_considere_que_les_differences_de_desir_d",
+    "question": "Ton/ta partenaire considère que les différences de désir doivent pouvoir être discutées sans honte."
+  },
+  {
+    "id": "temps_green_intimite_03_ton_ta_partenaire_pense_quune_baisse_de_sexualite_signifie",
+    "question": "Ton/ta partenaire pense qu’une baisse de sexualité signifie forcément qu’il n’y a plus d’amour."
+  },
+  {
+    "id": "temps_green_intimite_04_ton_ta_partenaire_sait_entretenir_la_seduction_sans_attend",
+    "question": "Ton/ta partenaire sait entretenir la séduction sans attendre systématiquement un rapport sexuel en retour."
+  },
+  {
+    "id": "temps_green_intimite_05_ton_ta_partenaire_accepte_quun_fantasme_puisse_etre_racont",
+    "question": "Ton/ta partenaire accepte qu’un fantasme puisse être raconté sans devenir une demande à réaliser."
+  },
+  {
+    "id": "temps_green_intimite_06_ton_ta_partenaire_considere_que_son_besoin_sexuel_devrait_",
+    "question": "Ton/ta partenaire considère que son besoin sexuel devrait passer avant ton inconfort si la période sans rapports dure trop longtemps."
+  },
+  {
+    "id": "temps_green_intimite_07_ton_ta_partenaire_peut_parler_de_son_corps_et_de_ses_compl",
+    "question": "Ton/ta partenaire peut parler de son corps et de ses complexes sans que toute la conversation devienne centrée sur le désir de l’autre."
+  },
+  {
+    "id": "temps_green_intimite_08_ton_ta_partenaire_serait_pret_e_a_chercher_de_laide_exteri",
+    "question": "Ton/ta partenaire serait prêt(e) à chercher de l’aide extérieure si votre intimité devenait une source durable de souffrance."
+  },
+  {
+    "id": "temps_green_usure_01_ton_ta_partenaire_remarque_les_taches_a_faire_sans_attendr",
+    "question": "Ton/ta partenaire remarque les tâches à faire sans attendre que tu les lui attribues."
+  },
+  {
+    "id": "temps_green_usure_02_ton_ta_partenaire_sait_reconnaitre_quune_petite_habitude_r",
+    "question": "Ton/ta partenaire sait reconnaître qu’une petite habitude répétée peut devenir un vrai problème pour l’autre."
+  },
+  {
+    "id": "temps_green_usure_03_ton_ta_partenaire_considere_que_dire_je_suis_comme_ca_suff",
+    "question": "Ton/ta partenaire considère que dire « je suis comme ça » suffit pour ne jamais changer un comportement qui te blesse."
+  },
+  {
+    "id": "temps_green_usure_04_ton_ta_partenaire_peut_mettre_son_telephone_de_cote_sponta",
+    "question": "Ton/ta partenaire peut mettre son téléphone de côté spontanément pendant vos moments importants."
+  },
+  {
+    "id": "temps_green_usure_05_ton_ta_partenaire_tient_compte_de_tes_demandes_meme_lorsqu",
+    "question": "Ton/ta partenaire tient compte de tes demandes même lorsqu’il/elle trouve le problème peu important."
+  },
+  {
+    "id": "temps_green_usure_06_ton_ta_partenaire_fait_des_efforts_uniquement_quelques_jou",
+    "question": "Ton/ta partenaire fait des efforts uniquement quelques jours après chaque grosse dispute puis recommence comme avant."
+  },
+  {
+    "id": "temps_green_usure_07_ton_ta_partenaire_sait_sexcuser_pour_les_petites_negligenc",
+    "question": "Ton/ta partenaire sait s’excuser pour les petites négligences sans attendre qu’elles deviennent une énorme crise."
+  },
+  {
+    "id": "temps_green_usure_08_ton_ta_partenaire_continue_a_creer_des_petites_attentions_",
+    "question": "Ton/ta partenaire continue à créer des petites attentions même lorsque votre relation est très installée."
+  },
+  {
+    "id": "temps_green_morale_01_ton_ta_partenaire_peut_reconnaitre_quune_personne_quil_ell",
+    "question": "Ton/ta partenaire peut reconnaître qu’une personne qu’il/elle aime a tort sans cesser de la soutenir humainement."
+  },
+  {
+    "id": "temps_green_morale_02_ton_ta_partenaire_pense_quune_promesse_de_secret_peut_etre",
+    "question": "Ton/ta partenaire pense qu’une promesse de secret peut être rompue s’il existe un vrai danger pour quelqu’un."
+  },
+  {
+    "id": "temps_green_morale_03_ton_ta_partenaire_considere_que_la_loyaute_envers_ses_proc",
+    "question": "Ton/ta partenaire considère que la loyauté envers ses proches justifie de mentir presque systématiquement pour eux."
+  },
+  {
+    "id": "temps_green_morale_04_ton_ta_partenaire_sait_distinguer_pardonner_quelquun_et_mi",
+    "question": "Ton/ta partenaire sait distinguer pardonner quelqu’un et minimiser ce qu’il/elle a fait."
+  },
+  {
+    "id": "temps_green_morale_05_ton_ta_partenaire_peut_renoncer_a_un_avantage_important_si",
+    "question": "Ton/ta partenaire peut renoncer à un avantage important s’il/elle le considère profondément injuste."
+  },
+  {
+    "id": "temps_green_morale_06_ton_ta_partenaire_pense_que_ses_intentions_suffisent_a_ren",
+    "question": "Ton/ta partenaire pense que ses intentions suffisent à rendre acceptable une action qui fait beaucoup de mal."
+  },
+  {
+    "id": "temps_green_morale_07_ton_ta_partenaire_accepte_que_deux_personnes_puissent_avoi",
+    "question": "Ton/ta partenaire accepte que deux personnes puissent avoir des valeurs morales différentes sans chercher immédiatement à convaincre l’autre."
+  },
+  {
+    "id": "temps_green_corps_01_ton_ta_partenaire_peut_parler_de_sante_sans_humilier_ni_co",
+    "question": "Ton/ta partenaire peut parler de santé sans humilier ni contrôler ton corps."
+  },
+  {
+    "id": "temps_green_corps_02_ton_ta_partenaire_respecte_quune_decision_esthetique_puiss",
+    "question": "Ton/ta partenaire respecte qu’une décision esthétique puisse être personnelle tout en exprimant honnêtement ses inquiétudes."
+  },
+  {
+    "id": "temps_green_corps_03_ton_ta_partenaire_considere_quil_elle_peut_commenter_ton_p",
+    "question": "Ton/ta partenaire considère qu’il/elle peut commenter ton poids autant qu’il/elle veut parce qu’il/elle t’aime."
+  },
+  {
+    "id": "temps_green_corps_04_ton_ta_partenaire_tencourage_a_consulter_lorsque_quelque_c",
+    "question": "Ton/ta partenaire t’encourage à consulter lorsque quelque chose l’inquiète sans prétendre décider à ta place."
+  },
+  {
+    "id": "temps_green_corps_05_ton_ta_partenaire_sait_adapter_ses_attentes_lorsque_ton_co",
+    "question": "Ton/ta partenaire sait adapter ses attentes lorsque ton corps ou ton énergie changent."
+  },
+  {
+    "id": "temps_green_corps_06_ton_ta_partenaire_pense_quun_changement_physique_important",
+    "question": "Ton/ta partenaire pense qu’un changement physique important justifie naturellement de faire moins d’efforts de tendresse ou de séduction."
+  },
+  {
+    "id": "temps_green_corps_07_ton_ta_partenaire_peut_avoir_une_hygiene_de_vie_differente",
+    "question": "Ton/ta partenaire peut avoir une hygiène de vie différente de la tienne sans transformer chaque repas ou activité en jugement."
+  },
+  {
+    "id": "temps_green_lgbt_01_ton_ta_partenaire_te_defend_clairement_lorsquun_proche_min",
+    "question": "Ton/ta partenaire te défend clairement lorsqu’un proche minimise ou nie votre relation."
+  },
+  {
+    "id": "temps_green_lgbt_02_ton_ta_partenaire_respecte_que_ton_niveau_de_confort_avec_",
+    "question": "Ton/ta partenaire respecte que ton niveau de confort avec la visibilité publique puisse être différent du sien."
+  },
+  {
+    "id": "temps_green_lgbt_03_ton_ta_partenaire_considere_quil_est_normal_de_te_presente",
+    "question": "Ton/ta partenaire considère qu’il est normal de te présenter comme un(e) simple ami(e) aussi longtemps que sa famille le demande."
+  },
+  {
+    "id": "temps_green_lgbt_04_ton_ta_partenaire_prend_au_serieux_les_questions_juridique",
+    "question": "Ton/ta partenaire prend au sérieux les questions juridiques et administratives liées à votre éventuelle parentalité."
+  },
+  {
+    "id": "temps_green_lgbt_05_ton_ta_partenaire_sait_choisir_votre_securite_sans_te_fair",
+    "question": "Ton/ta partenaire sait choisir votre sécurité sans te faire sentir qu’il/elle a honte de votre couple."
+  },
+  {
+    "id": "temps_green_lgbt_06_ton_ta_partenaire_pense_que_les_remarques_homophobes_de_sa",
+    "question": "Ton/ta partenaire pense que les remarques homophobes de sa famille doivent être tolérées pour préserver la paix familiale."
+  },
+  {
+    "id": "temps_green_lgbt_07_ton_ta_partenaire_cherche_a_ce_que_les_deux_parents_aient_",
+    "question": "Ton/ta partenaire cherche à ce que les deux parents aient une place pleinement reconnue, indépendamment de la grossesse ou du lien biologique."
+  },
+  {
+    "id": "temps_green_passe_01_ton_ta_partenaire_peut_parler_de_ses_erreurs_passees_sans_",
+    "question": "Ton/ta partenaire peut parler de ses erreurs passées sans chercher à les minimiser."
+  },
+  {
+    "id": "temps_green_passe_02_ton_ta_partenaire_respecte_que_certaines_blessures_ancienn",
+    "question": "Ton/ta partenaire respecte que certaines blessures anciennes puissent rester privées tant qu’elles n’affectent pas votre relation."
+  },
+  {
+    "id": "temps_green_passe_03_ton_ta_partenaire_considere_que_mentir_sur_son_passe_est_a",
+    "question": "Ton/ta partenaire considère que mentir sur son passé est acceptable tant que la vérité ne peut pas être découverte."
+  },
+  {
+    "id": "temps_green_passe_04_ton_ta_partenaire_sait_faire_la_difference_entre_comprendr",
+    "question": "Ton/ta partenaire sait faire la différence entre comprendre une ancienne version de toi et excuser tout ce qu’elle a fait."
+  },
+  {
+    "id": "temps_green_passe_05_ton_ta_partenaire_peut_garder_des_souvenirs_danciennes_rel",
+    "question": "Ton/ta partenaire peut garder des souvenirs d’anciennes relations sans comparer constamment votre couple au passé."
+  },
+  {
+    "id": "temps_green_passe_06_ton_ta_partenaire_exige_de_connaitre_tous_les_details_de_t",
+    "question": "Ton/ta partenaire exige de connaître tous les détails de tes anciennes relations pour se sentir en sécurité."
+  },
+  {
+    "id": "temps_green_passe_07_ton_ta_partenaire_prefere_tavouer_une_verite_genante_lui_e",
+    "question": "Ton/ta partenaire préfère t’avouer une vérité gênante lui/elle-même plutôt que prendre le risque que tu l’apprennes par quelqu’un d’autre."
   }
 ]

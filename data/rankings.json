@@ -2,7 +2,7 @@
   "version": 1,
   "app": "Cactus",
   "type": "ranking_library",
-  "total": 380,
+  "total": 440,
   "duplicate_ids": [],
   "rankings": [
     {
@@ -5008,6 +5008,786 @@
         "Capacité à changer"
       ],
       "category": "vraie_vie_a_deux"
+    },
+    {
+      "id": "temps_ranking_identite_01_classe_ces_dimensions_de_lidentite_selon_celles_quil_serai",
+      "title": "Classe ces dimensions de l’identité selon celles qu’il serait le plus difficile de voir changer fortement chez ton/ta partenaire.",
+      "items": [
+        "Valeurs",
+        "Convictions politiques",
+        "Religion ou spiritualité",
+        "Ambitions",
+        "Mode de vie",
+        "Rapport à la famille"
+      ],
+      "category": "ce_quon_decouvre_avec_le_temps"
+    },
+    {
+      "id": "temps_ranking_identite_02_classe_ces_besoins_personnels_du_plus_important_au_moins_i",
+      "title": "Classe ces besoins personnels du plus important au moins important pour rester toi-même dans une relation.",
+      "items": [
+        "Temps seul(e)",
+        "Amis personnels",
+        "Projets propres",
+        "Indépendance financière",
+        "Liberté d’opinion",
+        "Espace physique personnel"
+      ],
+      "category": "ce_quon_decouvre_avec_le_temps"
+    },
+    {
+      "id": "temps_ranking_identite_03_classe_ces_changements_selon_ceux_qui_demanderaient_le_plu",
+      "title": "Classe ces changements selon ceux qui demanderaient le plus d’adaptation au couple.",
+      "items": [
+        "Changer de métier",
+        "Changer de pays",
+        "Changer de religion",
+        "Changer de projet familial",
+        "Changer complètement de rythme de vie",
+        "Changer de valeurs politiques"
+      ],
+      "category": "ce_quon_decouvre_avec_le_temps"
+    },
+    {
+      "id": "temps_ranking_identite_04_classe_ces_qualites_selon_celles_qui_aident_le_plus_un_cou",
+      "title": "Classe ces qualités selon celles qui aident le plus un couple à évoluer sans se perdre.",
+      "items": [
+        "Curiosité",
+        "Souplesse",
+        "Honnêteté",
+        "Autonomie",
+        "Patience",
+        "Capacité à renégocier les projets"
+      ],
+      "category": "ce_quon_decouvre_avec_le_temps"
+    },
+    {
+      "id": "temps_ranking_identite_05_classe_ces_reves_selon_ceux_quil_serait_le_plus_difficile_",
+      "title": "Classe ces rêves selon ceux qu’il serait le plus difficile de reporter pour ton/ta partenaire.",
+      "items": [
+        "Carrière",
+        "Voyage au long cours",
+        "Projet créatif",
+        "Études",
+        "Vivre à l’étranger",
+        "Engagement personnel"
+      ],
+      "category": "ce_quon_decouvre_avec_le_temps"
+    },
+    {
+      "id": "temps_ranking_identite_06_classe_ces_phrases_selon_celles_qui_te_rassureraient_le_pl",
+      "title": "Classe ces phrases selon celles qui te rassureraient le plus face à un grand changement de ton/ta partenaire.",
+      "items": [
+        "Je change, mais je veux toujours construire avec toi",
+        "Je ne sais pas encore où cela me mène",
+        "J’ai besoin que tu me laisses essayer",
+        "Je veux qu’on redéfinisse nos projets",
+        "Je ne veux pas que tu changes pour me suivre",
+        "On peut trouver une nouvelle façon d’être ensemble"
+      ],
+      "category": "ce_quon_decouvre_avec_le_temps"
+    },
+    {
+      "id": "temps_ranking_identite_07_classe_ces_elements_selon_ceux_qui_devraient_le_moins_depe",
+      "title": "Classe ces éléments selon ceux qui devraient le moins dépendre de l’avis du couple.",
+      "items": [
+        "Style personnel",
+        "Amis",
+        "Convictions",
+        "Orientation professionnelle",
+        "Loisirs",
+        "Spiritualité"
+      ],
+      "category": "ce_quon_decouvre_avec_le_temps"
+    },
+    {
+      "id": "temps_ranking_identite_08_classe_ces_situations_selon_celles_qui_te_feraient_le_plus",
+      "title": "Classe ces situations selon celles qui te feraient le plus questionner votre compatibilité future.",
+      "items": [
+        "Valeurs devenues opposées",
+        "Rêves géographiques incompatibles",
+        "Rapport au travail opposé",
+        "Projet familial différent",
+        "Modes de vie incompatibles",
+        "Besoins d’indépendance très différents"
+      ],
+      "category": "ce_quon_decouvre_avec_le_temps"
+    },
+    {
+      "id": "temps_ranking_amities_01_classe_ces_comportements_dun_ami_de_ton_ta_partenaire_du_p",
+      "title": "Classe ces comportements d’un ami de ton/ta partenaire du plus difficile au plus facile à accepter.",
+      "items": [
+        "Te manquer de respect",
+        "Critiquer votre relation",
+        "Flirter avec ton/ta partenaire",
+        "Exiger beaucoup de disponibilité",
+        "Partager vos secrets",
+        "Refuser systématiquement de te voir"
+      ],
+      "category": "ce_quon_decouvre_avec_le_temps"
+    },
+    {
+      "id": "temps_ranking_amities_02_classe_ces_moments_selon_ceux_que_tu_aimerais_le_plus_vivr",
+      "title": "Classe ces moments selon ceux que tu aimerais le plus vivre en priorité avec ton/ta partenaire.",
+      "items": [
+        "Grande nouvelle",
+        "Anniversaire",
+        "Voyage important",
+        "Réussite professionnelle",
+        "Période difficile",
+        "Célébration familiale"
+      ],
+      "category": "ce_quon_decouvre_avec_le_temps"
+    },
+    {
+      "id": "temps_ranking_amities_03_classe_ces_limites_sociales_selon_leur_importance_dans_un_",
+      "title": "Classe ces limites sociales selon leur importance dans un couple.",
+      "items": [
+        "Respecter les moments à deux",
+        "Prévenir avant d’inviter",
+        "Protéger les confidences du couple",
+        "Garder des amis personnels",
+        "Défendre son/sa partenaire",
+        "Pouvoir voyager séparément"
+      ],
+      "category": "ce_quon_decouvre_avec_le_temps"
+    },
+    {
+      "id": "temps_ranking_amities_04_classe_ces_situations_selon_celles_qui_pourraient_le_plus_",
+      "title": "Classe ces situations selon celles qui pourraient le plus ressembler à une tromperie émotionnelle pour toi.",
+      "items": [
+        "Tout raconter à un ami avant son couple",
+        "Messages constants toute la journée",
+        "Secrets importants partagés uniquement avec un ami",
+        "Jalousie envers les relations de cet ami",
+        "Priorité systématique donnée à l’ami",
+        "Forte intimité physique non sexuelle"
+      ],
+      "category": "ce_quon_decouvre_avec_le_temps"
+    },
+    {
+      "id": "temps_ranking_amities_05_classe_ces_types_de_sorties_selon_celles_que_tu_aimerais_l",
+      "title": "Classe ces types de sorties selon celles que tu aimerais le plus faire parfois sans ton/ta partenaire.",
+      "items": [
+        "Week-end entre amis",
+        "Concert",
+        "Restaurant",
+        "Festival",
+        "Voyage d’une semaine",
+        "Soirée improvisée"
+      ],
+      "category": "ce_quon_decouvre_avec_le_temps"
+    },
+    {
+      "id": "temps_ranking_amities_06_classe_ces_qualites_du_plus_important_au_moins_important_c",
+      "title": "Classe ces qualités du plus important au moins important chez les amis proches de ton/ta partenaire.",
+      "items": [
+        "Respectueux envers votre couple",
+        "Fiables",
+        "Indépendants",
+        "Honnêtes",
+        "Accueillants",
+        "Capables de poser des limites"
+      ],
+      "category": "ce_quon_decouvre_avec_le_temps"
+    },
+    {
+      "id": "temps_ranking_amities_07_classe_ces_desaccords_sociaux_selon_ceux_qui_seraient_les_",
+      "title": "Classe ces désaccords sociaux selon ceux qui seraient les plus difficiles à gérer.",
+      "items": [
+        "L’un très sociable, l’autre casanier",
+        "Amis qui ne s’entendent pas",
+        "Rythmes de sortie opposés",
+        "Peu d’amis en commun",
+        "Besoin de vacances séparées",
+        "Familles et amis mélangés en permanence"
+      ],
+      "category": "ce_quon_decouvre_avec_le_temps"
+    },
+    {
+      "id": "temps_ranking_amities_08_classe_ces_personnes_selon_celles_dont_lavis_pourrait_le_p",
+      "title": "Classe ces personnes selon celles dont l’avis pourrait le plus influencer une décision de couple chez toi.",
+      "items": [
+        "Meilleur(e) ami(e)",
+        "Parent",
+        "Frère ou sœur",
+        "Ami de longue date",
+        "Thérapeute",
+        "Personne extérieure au conflit"
+      ],
+      "category": "ce_quon_decouvre_avec_le_temps"
+    },
+    {
+      "id": "temps_ranking_intimite_01_classe_ces_formes_dintimite_selon_celles_qui_comptent_le_p",
+      "title": "Classe ces formes d’intimité selon celles qui comptent le plus pour toi à long terme.",
+      "items": [
+        "Sexualité",
+        "Câlins",
+        "Baisers",
+        "Compliments",
+        "Conversations profondes",
+        "Dormir ensemble"
+      ],
+      "category": "ce_quon_decouvre_avec_le_temps"
+    },
+    {
+      "id": "temps_ranking_intimite_02_classe_ces_difficultes_selon_celles_qui_seraient_les_plus_",
+      "title": "Classe ces difficultés selon celles qui seraient les plus compliquées à traverser en couple.",
+      "items": [
+        "Différence de désir",
+        "Perte de confiance corporelle",
+        "Manque de tendresse",
+        "Routine",
+        "Douleur ou maladie",
+        "Désaccord sur la pornographie"
+      ],
+      "category": "ce_quon_decouvre_avec_le_temps"
+    },
+    {
+      "id": "temps_ranking_intimite_03_classe_ces_facons_de_preserver_la_seduction_selon_celles_q",
+      "title": "Classe ces façons de préserver la séduction selon celles qui te parlent le plus.",
+      "items": [
+        "Rendez-vous réguliers",
+        "Compliments",
+        "Nouveauté",
+        "Temps sans téléphone",
+        "Prendre soin de soi",
+        "Surprises"
+      ],
+      "category": "ce_quon_decouvre_avec_le_temps"
+    },
+    {
+      "id": "temps_ranking_intimite_04_classe_ces_sujets_intimes_du_plus_difficile_au_plus_facile",
+      "title": "Classe ces sujets intimes du plus difficile au plus facile à aborder.",
+      "items": [
+        "Baisse d’attirance",
+        "Fantasmes",
+        "Fréquence",
+        "Pornographie",
+        "Complexes corporels",
+        "Besoin de dormir séparément"
+      ],
+      "category": "ce_quon_decouvre_avec_le_temps"
+    },
+    {
+      "id": "temps_ranking_intimite_05_classe_ces_besoins_selon_ceux_qui_te_feraient_le_plus_souf",
+      "title": "Classe ces besoins selon ceux qui te feraient le plus souffrir s’ils disparaissaient longtemps.",
+      "items": [
+        "Être désiré(e)",
+        "Être touché(e)",
+        "Être embrassé(e)",
+        "Être complimenté(e)",
+        "Avoir du temps seul à deux",
+        "Pouvoir parler librement de sexualité"
+      ],
+      "category": "ce_quon_decouvre_avec_le_temps"
+    },
+    {
+      "id": "temps_ranking_intimite_06_classe_ces_reactions_de_la_plus_aidante_a_la_moins_aidante",
+      "title": "Classe ces réactions de la plus aidante à la moins aidante face à une longue baisse de désir.",
+      "items": [
+        "Écouter sans pression",
+        "Chercher les causes ensemble",
+        "Consulter",
+        "Créer d’autres formes d’intimité",
+        "Attendre sans en parler",
+        "Multiplier les initiatives"
+      ],
+      "category": "ce_quon_decouvre_avec_le_temps"
+    },
+    {
+      "id": "temps_ranking_intimite_07_classe_ces_changements_de_vie_selon_ceux_qui_pourraient_le",
+      "title": "Classe ces changements de vie selon ceux qui pourraient le plus bouleverser votre intimité.",
+      "items": [
+        "Naissance d’un enfant",
+        "Maladie",
+        "Stress professionnel",
+        "Vieillissement",
+        "Longue distance",
+        "Changement corporel important"
+      ],
+      "category": "ce_quon_decouvre_avec_le_temps"
+    },
+    {
+      "id": "temps_ranking_intimite_08_classe_ces_qualites_selon_celles_qui_comptent_le_plus_pour",
+      "title": "Classe ces qualités selon celles qui comptent le plus pour une intimité durable.",
+      "items": [
+        "Confiance",
+        "Communication",
+        "Respect des limites",
+        "Curiosité",
+        "Tendresse",
+        "Humour"
+      ],
+      "category": "ce_quon_decouvre_avec_le_temps"
+    },
+    {
+      "id": "temps_ranking_usure_01_classe_ces_petites_habitudes_selon_celles_qui_tuseraient_l",
+      "title": "Classe ces petites habitudes selon celles qui t’useraient le plus à long terme.",
+      "items": [
+        "Retards constants",
+        "Téléphone omniprésent",
+        "Promesses oubliées",
+        "Désordre",
+        "Manque d’initiative",
+        "Interrompre souvent"
+      ],
+      "category": "ce_quon_decouvre_avec_le_temps"
+    },
+    {
+      "id": "temps_ranking_usure_02_classe_ces_taches_selon_celles_dont_la_charge_mentale_te_p",
+      "title": "Classe ces tâches selon celles dont la charge mentale te pèserait le plus si tu les gérais seul(e).",
+      "items": [
+        "Administratif",
+        "Courses",
+        "Ménage",
+        "Rendez-vous",
+        "Budget",
+        "Organisation sociale"
+      ],
+      "category": "ce_quon_decouvre_avec_le_temps"
+    },
+    {
+      "id": "temps_ranking_usure_03_classe_ces_signes_de_routine_selon_ceux_qui_tinquieteraien",
+      "title": "Classe ces signes de routine selon ceux qui t’inquiéteraient le plus.",
+      "items": [
+        "Plus de rendez-vous à deux",
+        "Peu de compliments",
+        "Téléphones constants",
+        "Peu de conversations profondes",
+        "Toujours les mêmes activités",
+        "Aucune surprise"
+      ],
+      "category": "ce_quon_decouvre_avec_le_temps"
+    },
+    {
+      "id": "temps_ranking_usure_04_classe_ces_reactions_selon_celles_qui_tagaceraient_le_plus",
+      "title": "Classe ces réactions selon celles qui t’agaceraient le plus quand tu fais une remarque.",
+      "items": [
+        "Soupirer",
+        "Se justifier immédiatement",
+        "Promettre sans agir",
+        "Minimiser",
+        "Retourner le reproche",
+        "Ignorer"
+      ],
+      "category": "ce_quon_decouvre_avec_le_temps"
+    },
+    {
+      "id": "temps_ranking_usure_05_classe_ces_petites_attentions_selon_celles_que_tu_voudrais",
+      "title": "Classe ces petites attentions selon celles que tu voudrais le plus garder toute la vie.",
+      "items": [
+        "Messages spontanés",
+        "Préparer un repas",
+        "Compliments",
+        "Surprises",
+        "Demander comment va l’autre",
+        "Organiser un moment à deux"
+      ],
+      "category": "ce_quon_decouvre_avec_le_temps"
+    },
+    {
+      "id": "temps_ranking_usure_06_classe_ces_differences_de_quotidien_selon_celles_qui_serai",
+      "title": "Classe ces différences de quotidien selon celles qui seraient les plus difficiles à gérer.",
+      "items": [
+        "Propreté",
+        "Ponctualité",
+        "Sommeil",
+        "Téléphone",
+        "Besoin de parler",
+        "Organisation"
+      ],
+      "category": "ce_quon_decouvre_avec_le_temps"
+    },
+    {
+      "id": "temps_ranking_usure_07_classe_ces_strategies_selon_celles_qui_taideraient_le_plus",
+      "title": "Classe ces stratégies selon celles qui t’aideraient le plus contre la routine.",
+      "items": [
+        "Rendez-vous réguliers",
+        "Nouvelles activités",
+        "Temps sans écran",
+        "Voyages",
+        "Petits rituels spontanés",
+        "Plus de temps séparé"
+      ],
+      "category": "ce_quon_decouvre_avec_le_temps"
+    },
+    {
+      "id": "temps_ranking_usure_08_classe_ces_qualites_selon_celles_qui_empechent_le_plus_les",
+      "title": "Classe ces qualités selon celles qui empêchent le plus les petites choses de devenir de gros problèmes.",
+      "items": [
+        "Fiabilité",
+        "Écoute",
+        "Initiative",
+        "Souplesse",
+        "Humour",
+        "Capacité à changer"
+      ],
+      "category": "ce_quon_decouvre_avec_le_temps"
+    },
+    {
+      "id": "temps_ranking_morale_01_classe_ces_valeurs_du_plus_important_au_moins_important_lo",
+      "title": "Classe ces valeurs du plus important au moins important lorsqu’elles entrent en conflit.",
+      "items": [
+        "Honnêteté",
+        "Loyauté",
+        "Justice",
+        "Compassion",
+        "Liberté",
+        "Responsabilité"
+      ],
+      "category": "ce_quon_decouvre_avec_le_temps"
+    },
+    {
+      "id": "temps_ranking_morale_02_classe_ces_secrets_selon_ceux_quil_serait_le_plus_difficil",
+      "title": "Classe ces secrets selon ceux qu’il serait le plus difficile de garder.",
+      "items": [
+        "Infidélité d’un proche",
+        "Faute illégale",
+        "Maladie cachée",
+        "Dette importante",
+        "Secret familial",
+        "Erreur professionnelle grave"
+      ],
+      "category": "ce_quon_decouvre_avec_le_temps"
+    },
+    {
+      "id": "temps_ranking_morale_03_classe_ces_raisons_de_mentir_selon_celles_que_tu_pourrais_",
+      "title": "Classe ces raisons de mentir selon celles que tu pourrais le mieux comprendre.",
+      "items": [
+        "Protéger quelqu’un",
+        "Éviter une souffrance inutile",
+        "Préserver sa vie privée",
+        "Éviter une punition",
+        "Obtenir un avantage",
+        "Tenir une promesse"
+      ],
+      "category": "ce_quon_decouvre_avec_le_temps"
+    },
+    {
+      "id": "temps_ranking_morale_04_classe_ces_situations_de_celle_qui_te_pousserait_le_plus_a",
+      "title": "Classe ces situations de celle qui te pousserait le plus à intervenir à celle qui te pousserait le moins.",
+      "items": [
+        "Harcèlement public",
+        "Injustice au travail",
+        "Ami trompé",
+        "Vol sans violence",
+        "Discrimination",
+        "Mensonge familial"
+      ],
+      "category": "ce_quon_decouvre_avec_le_temps"
+    },
+    {
+      "id": "temps_ranking_morale_05_classe_ces_actes_selon_ceux_qui_seraient_les_plus_difficil",
+      "title": "Classe ces actes selon ceux qui seraient les plus difficiles à pardonner malgré un vrai changement.",
+      "items": [
+        "Trahison",
+        "Violence",
+        "Escroquerie",
+        "Abandon",
+        "Mensonge prolongé",
+        "Lâcheté face à une injustice"
+      ],
+      "category": "ce_quon_decouvre_avec_le_temps"
+    },
+    {
+      "id": "temps_ranking_morale_06_classe_ces_principes_selon_ceux_qui_devraient_le_moins_dep",
+      "title": "Classe ces principes selon ceux qui devraient le moins dépendre des circonstances.",
+      "items": [
+        "Consentement",
+        "Fidélité à sa parole",
+        "Respect de la loi",
+        "Protection des proches",
+        "Honnêteté",
+        "Respect de la vie privée"
+      ],
+      "category": "ce_quon_decouvre_avec_le_temps"
+    },
+    {
+      "id": "temps_ranking_morale_07_classe_ces_dilemmes_selon_ceux_sur_lesquels_un_desaccord_d",
+      "title": "Classe ces dilemmes selon ceux sur lesquels un désaccord de couple serait le plus difficile pour toi.",
+      "items": [
+        "Dénoncer un proche",
+        "Révéler une infidélité",
+        "Aider quelqu’un irresponsable",
+        "Accepter un travail immoral",
+        "Mentir pour protéger",
+        "Pardonner une faute grave"
+      ],
+      "category": "ce_quon_decouvre_avec_le_temps"
+    },
+    {
+      "id": "temps_ranking_corps_01_classe_ces_differences_dhygiene_de_vie_selon_celles_qui_se",
+      "title": "Classe ces différences d’hygiène de vie selon celles qui seraient les plus difficiles à gérer.",
+      "items": [
+        "Tabac",
+        "Alcool",
+        "Sport",
+        "Alimentation",
+        "Sommeil",
+        "Suivi médical"
+      ],
+      "category": "ce_quon_decouvre_avec_le_temps"
+    },
+    {
+      "id": "temps_ranking_corps_02_classe_ces_sujets_corporels_du_plus_difficile_au_plus_faci",
+      "title": "Classe ces sujets corporels du plus difficile au plus facile à aborder avec ton/ta partenaire.",
+      "items": [
+        "Poids",
+        "Hygiène",
+        "Attirance",
+        "Chirurgie esthétique",
+        "Vieillissement",
+        "Santé sexuelle"
+      ],
+      "category": "ce_quon_decouvre_avec_le_temps"
+    },
+    {
+      "id": "temps_ranking_corps_03_classe_ces_changements_selon_ceux_qui_demanderaient_le_plu",
+      "title": "Classe ces changements selon ceux qui demanderaient le plus d’adaptation dans le couple.",
+      "items": [
+        "Maladie chronique",
+        "Perte de mobilité",
+        "Prise ou perte de poids importante",
+        "Addiction",
+        "Routine sportive extrême",
+        "Régime médical strict"
+      ],
+      "category": "ce_quon_decouvre_avec_le_temps"
+    },
+    {
+      "id": "temps_ranking_corps_04_classe_ces_formes_de_soutien_selon_celles_qui_te_semblerai",
+      "title": "Classe ces formes de soutien selon celles qui te sembleraient les plus utiles face à un complexe corporel.",
+      "items": [
+        "Écouter",
+        "Rassurer",
+        "Ne pas insister",
+        "Encourager un professionnel",
+        "Faire des activités ensemble",
+        "Complimenter autrement"
+      ],
+      "category": "ce_quon_decouvre_avec_le_temps"
+    },
+    {
+      "id": "temps_ranking_corps_05_classe_ces_limites_selon_celles_qui_te_paraissent_les_plus",
+      "title": "Classe ces limites selon celles qui te paraissent les plus légitimes concernant la santé de l’autre.",
+      "items": [
+        "Refuser la fumée à la maison",
+        "Insister pour consulter en cas de danger",
+        "Refuser de financer un comportement risqué",
+        "Parler d’un impact sur les enfants",
+        "Proposer une activité commune",
+        "Demander un changement d’hygiène"
+      ],
+      "category": "ce_quon_decouvre_avec_le_temps"
+    },
+    {
+      "id": "temps_ranking_corps_06_classe_ces_qualites_selon_celles_qui_aideraient_le_plus_a_",
+      "title": "Classe ces qualités selon celles qui aideraient le plus à traverser les changements physiques du temps.",
+      "items": [
+        "Tendresse",
+        "Humour",
+        "Communication",
+        "Acceptation",
+        "Prendre soin de soi",
+        "Capacité d’adaptation"
+      ],
+      "category": "ce_quon_decouvre_avec_le_temps"
+    },
+    {
+      "id": "temps_ranking_corps_07_classe_ces_habitudes_selon_celles_que_tu_aimerais_le_plus_",
+      "title": "Classe ces habitudes selon celles que tu aimerais le plus partager à deux.",
+      "items": [
+        "Marcher",
+        "Cuisiner sainement",
+        "Faire du sport",
+        "Dormir à heures régulières",
+        "Bilans médicaux",
+        "Limiter les écrans"
+      ],
+      "category": "ce_quon_decouvre_avec_le_temps"
+    },
+    {
+      "id": "temps_ranking_lgbt_01_classe_ces_formes_de_reconnaissance_familiale_selon_celles",
+      "title": "Classe ces formes de reconnaissance familiale selon celles qui compteraient le plus pour toi.",
+      "items": [
+        "Être invité(e) comme partenaire",
+        "Être nommé(e) correctement",
+        "Être inclus(e) dans les photos",
+        "Être consulté(e) dans les événements familiaux",
+        "Être présenté(e) clairement",
+        "Être considéré(e) comme parent à part entière"
+      ],
+      "category": "ce_quon_decouvre_avec_le_temps"
+    },
+    {
+      "id": "temps_ranking_lgbt_02_classe_ces_situations_selon_celles_qui_te_mettraient_le_pl",
+      "title": "Classe ces situations selon celles qui te mettraient le plus mal à l’aise en tant que couple.",
+      "items": [
+        "Insultes directes",
+        "Regards insistants",
+        "Questions intrusives",
+        "Famille qui nie la relation",
+        "Discrimination au travail",
+        "Insécurité lors d’un voyage"
+      ],
+      "category": "ce_quon_decouvre_avec_le_temps"
+    },
+    {
+      "id": "temps_ranking_lgbt_03_classe_ces_priorites_selon_leur_importance_avant_un_projet",
+      "title": "Classe ces priorités selon leur importance avant un projet parental LGBT+.",
+      "items": [
+        "Sécurité juridique",
+        "Désir des deux partenaires",
+        "Place du parent non porteur",
+        "Budget",
+        "Choix du parcours",
+        "Soutien familial"
+      ],
+      "category": "ce_quon_decouvre_avec_le_temps"
+    },
+    {
+      "id": "temps_ranking_lgbt_04_classe_ces_reactions_selon_celles_qui_te_conviendraient_le",
+      "title": "Classe ces réactions selon celles qui te conviendraient le plus face à une remarque homophobe.",
+      "items": [
+        "Répondre calmement",
+        "Partir",
+        "Faire de l’humour",
+        "Ignorer",
+        "Demander de l’aide",
+        "Poser une limite ferme"
+      ],
+      "category": "ce_quon_decouvre_avec_le_temps"
+    },
+    {
+      "id": "temps_ranking_lgbt_05_classe_ces_espaces_selon_ceux_ou_il_serait_le_plus_importa",
+      "title": "Classe ces espaces selon ceux où il serait le plus important pour toi de pouvoir vivre votre couple librement.",
+      "items": [
+        "Maison",
+        "Famille",
+        "Travail",
+        "Rue",
+        "Vacances",
+        "Réseaux sociaux"
+      ],
+      "category": "ce_quon_decouvre_avec_le_temps"
+    },
+    {
+      "id": "temps_ranking_lgbt_06_classe_ces_sujets_selon_ceux_qui_pourraient_creer_le_plus_",
+      "title": "Classe ces sujets selon ceux qui pourraient créer le plus de tension dans un couple LGBT+.",
+      "items": [
+        "Niveau de visibilité",
+        "Rapport aux familles",
+        "Projet parental",
+        "Sécurité en public",
+        "Militantisme",
+        "Choix du lieu de vie"
+      ],
+      "category": "ce_quon_decouvre_avec_le_temps"
+    },
+    {
+      "id": "temps_ranking_lgbt_07_classe_ces_formes_de_soutien_selon_celles_qui_compteraient",
+      "title": "Classe ces formes de soutien selon celles qui compteraient le plus face à une famille non acceptante.",
+      "items": [
+        "Défendre le couple",
+        "Poser des limites",
+        "Réduire les contacts",
+        "Expliquer patiemment",
+        "Créer une famille choisie",
+        "Protéger les enfants"
+      ],
+      "category": "ce_quon_decouvre_avec_le_temps"
+    },
+    {
+      "id": "temps_ranking_passe_01_classe_ces_informations_du_passe_selon_celles_quil_serait_",
+      "title": "Classe ces informations du passé selon celles qu’il serait le plus important de connaître avant un engagement majeur.",
+      "items": [
+        "Dette ancienne",
+        "Enfant ou responsabilité familiale",
+        "Condamnation judiciaire",
+        "Ancienne addiction",
+        "Infidélités répétées",
+        "Problème de santé transmissible"
+      ],
+      "category": "ce_quon_decouvre_avec_le_temps"
+    },
+    {
+      "id": "temps_ranking_passe_02_classe_ces_souvenirs_dex_selon_ceux_que_tu_accepterais_le_",
+      "title": "Classe ces souvenirs d’ex selon ceux que tu accepterais le plus facilement que ton/ta partenaire conserve.",
+      "items": [
+        "Photos",
+        "Lettres",
+        "Bijoux",
+        "Cadeaux importants",
+        "Messages",
+        "Tatouage symbolique"
+      ],
+      "category": "ce_quon_decouvre_avec_le_temps"
+    },
+    {
+      "id": "temps_ranking_passe_03_classe_ces_omissions_selon_celles_qui_fragiliseraient_le_p",
+      "title": "Classe ces omissions selon celles qui fragiliseraient le plus ta confiance si tu les découvrais tard.",
+      "items": [
+        "Ancienne relation importante",
+        "Dette",
+        "Erreur illégale",
+        "Contact maintenu avec un ex",
+        "Mensonge sur votre rencontre",
+        "Ancienne addiction"
+      ],
+      "category": "ce_quon_decouvre_avec_le_temps"
+    },
+    {
+      "id": "temps_ranking_passe_04_classe_ces_raisons_de_cacher_son_passe_selon_celles_que_tu",
+      "title": "Classe ces raisons de cacher son passé selon celles que tu comprendrais le mieux.",
+      "items": [
+        "Honte",
+        "Traumatisme",
+        "Protéger quelqu’un",
+        "Peur d’être quitté(e)",
+        "Considérer que c’est privé",
+        "Vouloir oublier"
+      ],
+      "category": "ce_quon_decouvre_avec_le_temps"
+    },
+    {
+      "id": "temps_ranking_passe_05_classe_ces_questions_selon_celles_auxquelles_tu_trouverais",
+      "title": "Classe ces questions selon celles auxquelles tu trouverais le plus normal de ne pas répondre.",
+      "items": [
+        "Nombre de partenaires",
+        "Détails sexuels",
+        "Anciennes disputes",
+        "Secrets d’un ex",
+        "Erreurs d’adolescence",
+        "Périodes traumatiques"
+      ],
+      "category": "ce_quon_decouvre_avec_le_temps"
+    },
+    {
+      "id": "temps_ranking_passe_06_classe_ces_reactions_selon_celles_qui_taideraient_le_plus_",
+      "title": "Classe ces réactions selon celles qui t’aideraient le plus après la découverte d’un vieux secret.",
+      "items": [
+        "Explication complète",
+        "Excuses",
+        "Temps seul(e)",
+        "Preuves de changement",
+        "Thérapie",
+        "Parler à une personne extérieure"
+      ],
+      "category": "ce_quon_decouvre_avec_le_temps"
+    },
+    {
+      "id": "temps_ranking_passe_07_classe_ces_principes_selon_ceux_qui_comptent_le_plus_pour_",
+      "title": "Classe ces principes selon ceux qui comptent le plus pour parler du passé en couple.",
+      "items": [
+        "Honnêteté",
+        "Respect de la vie privée",
+        "Contexte",
+        "Absence de jugement",
+        "Responsabilité",
+        "Droit à l’évolution"
+      ],
+      "category": "ce_quon_decouvre_avec_le_temps"
     }
   ],
   "packs": {
@@ -9650,6 +10430,10 @@
           "Capacité à changer"
         ]
       }
-    ]
+    ],
+    "ce_quon_decouvre_avec_le_temps": {
+      "count": 60,
+      "label": "Ce qu’on ne découvre qu’avec le temps"
+    }
   }
 }

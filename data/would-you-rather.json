@@ -2728,5 +2728,425 @@
     "question": "Si ton/ta partenaire doute de ses sentiments, tu préfères…",
     "optionA": "Le savoir dès les premiers doutes",
     "optionB": "Qu’il/elle prenne le temps de comprendre avant de t’en parler"
+  },
+  {
+    "id": "temps_wyr_identite_01_si_vos_chemins_personnels_commencaient_a_diverger_tu_prefe",
+    "category": "identite",
+    "question": "Si vos chemins personnels commençaient à diverger, tu préfères…",
+    "optionA": "Ralentir certains projets pour essayer de retrouver une direction commune",
+    "optionB": "Accepter que chacun avance plus librement quitte à prendre le risque de s’éloigner"
+  },
+  {
+    "id": "temps_wyr_identite_02_pour_un_reve_tres_important_tu_preferes",
+    "category": "identite",
+    "question": "Pour un rêve très important, tu préfères…",
+    "optionA": "Le reporter plusieurs années pour préserver un projet commun",
+    "optionB": "Le poursuivre maintenant même si votre couple doit s’adapter fortement"
+  },
+  {
+    "id": "temps_wyr_identite_03_avec_le_temps_tu_preferes",
+    "category": "identite",
+    "question": "Avec le temps, tu préfères…",
+    "optionA": "Construire une identité de couple très forte",
+    "optionB": "Préserver deux vies personnelles très développées qui se rejoignent"
+  },
+  {
+    "id": "temps_wyr_identite_04_si_ton_ta_partenaire_changeait_profondement_de_convictions",
+    "category": "identite",
+    "question": "Si ton/ta partenaire changeait profondément de convictions, tu préfères…",
+    "optionA": "Multiplier les discussions pour essayer de rester aligné(e)s",
+    "optionB": "Accepter certaines divergences sans chercher à les résoudre"
+  },
+  {
+    "id": "temps_wyr_identite_05_a_long_terme_quel_profil_de_partenaire_te_correspond_le_mi",
+    "category": "identite",
+    "question": "À long terme, quel profil de partenaire te correspond le mieux ?",
+    "optionA": "Quelqu’un d’assez stable dans sa manière de vivre et ses projets",
+    "optionB": "Quelqu’un qui se réinvente souvent même si cela rend l’avenir moins prévisible"
+  },
+  {
+    "id": "temps_wyr_identite_06_si_lun_de_vous_voulait_completement_changer_de_vie_tu_pref",
+    "category": "identite",
+    "question": "Si l’un de vous voulait complètement changer de vie, tu préfères…",
+    "optionA": "Décider ensemble du rythme et des limites du changement",
+    "optionB": "Laisser celui ou celle concerné(e) décider d’abord pour lui/elle-même"
+  },
+  {
+    "id": "temps_wyr_identite_07_tu_preferes",
+    "category": "identite",
+    "question": "Tu préfères…",
+    "optionA": "Renoncer parfois à des ambitions personnelles pour protéger votre équilibre",
+    "optionB": "Accepter que certaines ambitions passent temporairement avant le couple"
+  },
+  {
+    "id": "temps_wyr_identite_08_a_long_terme_tu_preferes",
+    "category": "identite",
+    "question": "À long terme, tu préfères…",
+    "optionA": "Évoluer surtout côte à côte",
+    "optionB": "Pouvoir évoluer très différemment tant que le lien reste fort"
+  },
+  {
+    "id": "temps_wyr_amities_01_pour_vos_problemes_de_couple_tu_preferes",
+    "category": "amities",
+    "question": "Pour vos problèmes de couple, tu préfères…",
+    "optionA": "Que chacun puisse se confier librement à un proche de confiance",
+    "optionB": "Que les sujets les plus intimes restent presque toujours entre vous"
+  },
+  {
+    "id": "temps_wyr_amities_02_pour_les_vacances_tu_preferes",
+    "category": "amities",
+    "question": "Pour les vacances, tu préfères…",
+    "optionA": "Faire presque tous les grands voyages ensemble",
+    "optionB": "Garder régulièrement de vrais voyages séparés avec vos amis"
+  },
+  {
+    "id": "temps_wyr_amities_03_si_ton_ta_partenaire_et_ton_ta_meilleur_e_ami_e_ne_sentend",
+    "category": "amities",
+    "question": "Si ton/ta partenaire et ton/ta meilleur(e) ami(e) ne s’entendent pas, tu préfères…",
+    "optionA": "Les voir séparément et ne pas forcer leur relation",
+    "optionB": "Essayer activement de créer une relation correcte entre eux"
+  },
+  {
+    "id": "temps_wyr_amities_04_tu_preferes",
+    "category": "amities",
+    "question": "Tu préfères…",
+    "optionA": "Avoir beaucoup d’amis en commun",
+    "optionB": "Conserver surtout deux cercles sociaux distincts"
+  },
+  {
+    "id": "temps_wyr_amities_05_si_un_ami_critique_regulierement_votre_couple_tu_preferes",
+    "category": "amities",
+    "question": "Si un ami critique régulièrement votre couple, tu préfères…",
+    "optionA": "Que ton/ta partenaire pose rapidement une limite claire",
+    "optionB": "Qu’il/elle laisse passer tant que cela ne change pas ses propres choix"
+  },
+  {
+    "id": "temps_wyr_amities_06_pour_une_amitie_tres_fusionnelle_tu_preferes",
+    "category": "amities",
+    "question": "Pour une amitié très fusionnelle, tu préfères…",
+    "optionA": "Avoir des limites explicites qui rassurent le couple",
+    "optionB": "Faire confiance sans définir beaucoup de règles"
+  },
+  {
+    "id": "temps_wyr_amities_07_quand_un_proche_traverse_une_crise_tu_preferes",
+    "category": "amities",
+    "question": "Quand un proche traverse une crise, tu préfères…",
+    "optionA": "Que ton/ta partenaire soit disponible même si vos plans sautent souvent",
+    "optionB": "Que vos engagements à deux restent prioritaires sauf urgence réelle"
+  },
+  {
+    "id": "temps_wyr_amities_08_a_long_terme_tu_preferes",
+    "category": "amities",
+    "question": "À long terme, tu préfères…",
+    "optionA": "Une vie sociale très remplie avec beaucoup de monde autour de vous",
+    "optionB": "Une vie plus intime avec quelques proches et beaucoup de temps à deux"
+  },
+  {
+    "id": "temps_wyr_intimite_01_si_votre_desir_devient_tres_different_tu_preferes",
+    "category": "intimite",
+    "question": "Si votre désir devient très différent, tu préfères…",
+    "optionA": "En parler très régulièrement même si les discussions sont inconfortables",
+    "optionB": "Laisser davantage de temps sans en faire un sujet permanent"
+  },
+  {
+    "id": "temps_wyr_intimite_02_pour_preserver_lintimite_tu_preferes",
+    "category": "intimite",
+    "question": "Pour préserver l’intimité, tu préfères…",
+    "optionA": "Planifier parfois des moments à deux",
+    "optionB": "Compter surtout sur la spontanéité"
+  },
+  {
+    "id": "temps_wyr_intimite_03_si_la_sexualite_diminue_beaucoup_tu_preferes",
+    "category": "intimite",
+    "question": "Si la sexualité diminue beaucoup, tu préfères…",
+    "optionA": "Multiplier les autres formes de proximité physique",
+    "optionB": "Concentrer vos efforts sur le retour du désir sexuel"
+  },
+  {
+    "id": "temps_wyr_intimite_04_face_a_un_fantasme_que_lautre_ne_partage_pas_tu_preferes",
+    "category": "intimite",
+    "question": "Face à un fantasme que l’autre ne partage pas, tu préfères…",
+    "optionA": "Pouvoir en parler librement sans chercher forcément à le réaliser",
+    "optionB": "Le garder personnel s’il risque de créer un malaise inutile"
+  },
+  {
+    "id": "temps_wyr_intimite_05_si_un_probleme_intime_dure_tu_preferes",
+    "category": "intimite",
+    "question": "Si un problème intime dure, tu préfères…",
+    "optionA": "Consulter assez vite un professionnel",
+    "optionB": "Essayer longtemps de le résoudre uniquement entre vous"
+  },
+  {
+    "id": "temps_wyr_intimite_06_pour_dormir_mieux_tu_preferes",
+    "category": "intimite",
+    "question": "Pour dormir mieux, tu préfères…",
+    "optionA": "Accepter parfois des chambres séparées",
+    "optionB": "Garder le même lit presque toujours quitte à moins bien dormir"
+  },
+  {
+    "id": "temps_wyr_intimite_07_si_ton_attirance_change_tu_preferes",
+    "category": "intimite",
+    "question": "Si ton attirance change, tu préfères…",
+    "optionA": "En parler honnêtement avec beaucoup de précautions",
+    "optionB": "Ne pas tout verbaliser tant que l’amour et le respect restent présents"
+  },
+  {
+    "id": "temps_wyr_intimite_08_a_long_terme_tu_preferes",
+    "category": "intimite",
+    "question": "À long terme, tu préfères…",
+    "optionA": "Une relation très tendre avec peu de sexualité",
+    "optionB": "Une sexualité encore importante même avec moins de moments de tendresse quotidienne"
+  },
+  {
+    "id": "temps_wyr_usure_01_apres_une_dispute_tu_preferes",
+    "category": "usure",
+    "question": "Après une dispute, tu préfères…",
+    "optionA": "Parler rapidement même si les émotions sont encore fortes",
+    "optionB": "Faire une vraie pause avant de reprendre la conversation"
+  },
+  {
+    "id": "temps_wyr_usure_02_dans_lorganisation_des_taches_tu_preferes",
+    "category": "usure",
+    "question": "Dans l’organisation des tâches, tu préfères…",
+    "optionA": "Une répartition claire et définie",
+    "optionB": "Une organisation souple où chacun fait ce qu’il voit"
+  },
+  {
+    "id": "temps_wyr_usure_03_face_a_une_mauvaise_habitude_repetee_tu_preferes",
+    "category": "usure",
+    "question": "Face à une mauvaise habitude répétée, tu préfères…",
+    "optionA": "En reparler franchement chaque fois que nécessaire",
+    "optionB": "Choisir certaines choses à accepter pour ne pas tout transformer en conflit"
+  },
+  {
+    "id": "temps_wyr_usure_04_pour_preserver_vos_moments_a_deux_tu_preferes",
+    "category": "usure",
+    "question": "Pour préserver vos moments à deux, tu préfères…",
+    "optionA": "Des règles précises sur le téléphone",
+    "optionB": "Faire confiance sans créer de règle particulière"
+  },
+  {
+    "id": "temps_wyr_usure_05_quand_lun_oublie_souvent_tu_preferes",
+    "category": "usure",
+    "question": "Quand l’un oublie souvent, tu préfères…",
+    "optionA": "Utiliser des listes et rappels partagés",
+    "optionB": "Considérer que chacun doit apprendre à gérer seul ses responsabilités"
+  },
+  {
+    "id": "temps_wyr_usure_06_avec_la_routine_tu_preferes",
+    "category": "usure",
+    "question": "Avec la routine, tu préfères…",
+    "optionA": "Planifier régulièrement des moments spéciaux",
+    "optionB": "Laisser les bons moments apparaître spontanément"
+  },
+  {
+    "id": "temps_wyr_usure_07_pour_la_maison_tu_preferes",
+    "category": "usure",
+    "question": "Pour la maison, tu préfères…",
+    "optionA": "Un niveau de rangement élevé avec des efforts réguliers",
+    "optionB": "Plus de désordre mais beaucoup moins de tensions sur le sujet"
+  },
+  {
+    "id": "temps_wyr_usure_08_si_un_defaut_te_fatigue_depuis_des_annees_tu_preferes",
+    "category": "usure",
+    "question": "Si un défaut te fatigue depuis des années, tu préfères…",
+    "optionA": "Continuer à demander un changement",
+    "optionB": "Accepter qu’il fasse probablement partie de la personne"
+  },
+  {
+    "id": "temps_wyr_morale_01_si_un_proche_fait_quelque_chose_de_grave_tu_preferes",
+    "category": "morale",
+    "question": "Si un proche fait quelque chose de grave, tu préfères…",
+    "optionA": "L’aider d’abord puis l’encourager à assumer les conséquences",
+    "optionB": "Refuser de l’aider tant qu’il/elle n’assume pas ce qu’il/elle a fait"
+  },
+  {
+    "id": "temps_wyr_morale_02_face_a_une_verite_qui_ne_ferait_que_blesser_tu_preferes",
+    "category": "morale",
+    "question": "Face à une vérité qui ne ferait que blesser, tu préfères…",
+    "optionA": "La dire malgré tout",
+    "optionB": "La garder si elle ne change aucune décision importante"
+  },
+  {
+    "id": "temps_wyr_morale_03_si_ton_ta_meilleur_e_ami_e_trompe_son_sa_partenaire_tu_pre",
+    "category": "morale",
+    "question": "Si ton/ta meilleur(e) ami(e) trompe son/sa partenaire, tu préfères…",
+    "optionA": "Lui donner un délai pour l’avouer lui/elle-même",
+    "optionB": "Prévenir directement la personne trompée s’il/elle refuse"
+  },
+  {
+    "id": "temps_wyr_morale_04_pour_proteger_votre_famille_dune_grosse_difficulte_financi",
+    "category": "morale",
+    "question": "Pour protéger votre famille d’une grosse difficulté financière, tu préfères…",
+    "optionA": "Accepter temporairement un travail contraire à certaines de tes valeurs",
+    "optionB": "Refuser même si votre niveau de vie chute fortement"
+  },
+  {
+    "id": "temps_wyr_morale_05_quand_quelquun_a_profondement_change_tu_preferes",
+    "category": "morale",
+    "question": "Quand quelqu’un a profondément changé, tu préfères…",
+    "optionA": "Juger surtout la personne qu’il/elle est devenue",
+    "optionB": "Considérer que certains actes passés doivent toujours compter"
+  },
+  {
+    "id": "temps_wyr_morale_06_entre_une_promesse_et_la_securite_de_quelquun_tu_preferes",
+    "category": "morale",
+    "question": "Entre une promesse et la sécurité de quelqu’un, tu préfères…",
+    "optionA": "Rompre la promesse si tu penses qu’il y a un vrai risque",
+    "optionB": "Respecter la confidentialité sauf danger immédiat et certain"
+  },
+  {
+    "id": "temps_wyr_morale_07_dans_un_conflit_familial_tu_preferes",
+    "category": "morale",
+    "question": "Dans un conflit familial, tu préfères…",
+    "optionA": "Défendre ton/ta partenaire devant les autres puis discuter en privé",
+    "optionB": "Dire immédiatement si tu penses que ton/ta partenaire a tort"
+  },
+  {
+    "id": "temps_wyr_corps_01_si_tu_tinquietes_pour_la_sante_de_ton_ta_partenaire_tu_pre",
+    "category": "corps",
+    "question": "Si tu t’inquiètes pour la santé de ton/ta partenaire, tu préfères…",
+    "optionA": "Insister franchement même au risque de l’agacer",
+    "optionB": "Respecter davantage son autonomie tant qu’il/elle comprend les risques"
+  },
+  {
+    "id": "temps_wyr_corps_02_pour_votre_hygiene_de_vie_tu_preferes",
+    "category": "corps",
+    "question": "Pour votre hygiène de vie, tu préfères…",
+    "optionA": "Avoir des habitudes assez similaires",
+    "optionB": "Que chacun vive selon son propre rythme sans chercher à aligner l’autre"
+  },
+  {
+    "id": "temps_wyr_corps_03_si_ton_attirance_change_avec_le_corps_de_lautre_tu_prefere",
+    "category": "corps",
+    "question": "Si ton attirance change avec le corps de l’autre, tu préfères…",
+    "optionA": "Pouvoir en parler honnêtement avec énormément de tact",
+    "optionB": "Ne pas verbaliser ce qui pourrait blesser si la relation reste solide"
+  },
+  {
+    "id": "temps_wyr_corps_04_pour_une_chirurgie_esthetique_importante_tu_preferes",
+    "category": "corps",
+    "question": "Pour une chirurgie esthétique importante, tu préfères…",
+    "optionA": "Que le couple en parle longuement avant la décision",
+    "optionB": "Que la décision appartienne presque entièrement à la personne concernée"
+  },
+  {
+    "id": "temps_wyr_corps_05_si_lun_devient_tres_sportif_tu_preferes",
+    "category": "corps",
+    "question": "Si l’un devient très sportif, tu préfères…",
+    "optionA": "Essayer de partager une partie de ce nouveau mode de vie",
+    "optionB": "Préserver vos habitudes communes même si vous avez des rythmes différents"
+  },
+  {
+    "id": "temps_wyr_corps_06_face_a_une_mauvaise_habitude_de_sante_tu_preferes",
+    "category": "corps",
+    "question": "Face à une mauvaise habitude de santé, tu préfères…",
+    "optionA": "Que ton/ta partenaire te dise clairement qu’il/elle s’inquiète",
+    "optionB": "Qu’il/elle évite les remarques sauf si tu demandes son avis"
+  },
+  {
+    "id": "temps_wyr_corps_07_avec_lage_tu_preferes",
+    "category": "corps",
+    "question": "Avec l’âge, tu préfères…",
+    "optionA": "Mettre beaucoup d’énergie à rester en forme ensemble",
+    "optionB": "Accepter davantage les changements sans transformer la santé en projet permanent"
+  },
+  {
+    "id": "temps_wyr_lgbt_01_face_a_une_famille_qui_tolere_mais_ne_reconnait_pas_vraime",
+    "category": "lgbt",
+    "question": "Face à une famille qui tolère mais ne reconnaît pas vraiment votre couple, tu préfères…",
+    "optionA": "Garder le lien tout en posant progressivement des limites",
+    "optionB": "Prendre rapidement de la distance tant que la reconnaissance n’est pas complète"
+  },
+  {
+    "id": "temps_wyr_lgbt_02_dans_un_lieu_ou_vous_vous_sentez_observe_e_s_tu_preferes",
+    "category": "lgbt",
+    "question": "Dans un lieu où vous vous sentez observé(e)s, tu préfères…",
+    "optionA": "Rester naturel(le)s tant qu’il n’y a pas de danger concret",
+    "optionB": "Adapter votre comportement pour éviter une situation risquée"
+  },
+  {
+    "id": "temps_wyr_lgbt_03_pour_la_parentalite_tu_preferes",
+    "category": "lgbt",
+    "question": "Pour la parentalité, tu préfères…",
+    "optionA": "Privilégier avant tout la solution qui vous ressemble émotionnellement",
+    "optionB": "Privilégier la solution qui offre le cadre juridique le plus simple et sécurisant"
+  },
+  {
+    "id": "temps_wyr_lgbt_04_face_a_une_remarque_homophobe_tu_preferes",
+    "category": "lgbt",
+    "question": "Face à une remarque homophobe, tu préfères…",
+    "optionA": "Répondre et poser une limite",
+    "optionB": "Partir et protéger votre énergie"
+  },
+  {
+    "id": "temps_wyr_lgbt_05_pour_votre_visibilite_en_ligne_tu_preferes",
+    "category": "lgbt",
+    "question": "Pour votre visibilité en ligne, tu préfères…",
+    "optionA": "Partager naturellement votre couple comme n’importe qui",
+    "optionB": "Garder votre relation assez privée pour limiter l’exposition"
+  },
+  {
+    "id": "temps_wyr_lgbt_06_avec_des_proches_difficiles_tu_preferes",
+    "category": "lgbt",
+    "question": "Avec des proches difficiles, tu préfères…",
+    "optionA": "Continuer à expliquer patiemment tant qu’il y a une évolution possible",
+    "optionB": "Considérer que l’éducation des autres n’est pas votre responsabilité"
+  },
+  {
+    "id": "temps_wyr_lgbt_07_pour_vivre_librement_tu_preferes",
+    "category": "lgbt",
+    "question": "Pour vivre librement, tu préfères…",
+    "optionA": "Rester près de vos proches même dans un environnement moins ouvert",
+    "optionB": "Vous éloigner si une autre ville vous permet de vous sentir beaucoup plus en sécurité"
+  },
+  {
+    "id": "temps_wyr_passe_01_pour_le_passe_amoureux_tu_preferes",
+    "category": "passe",
+    "question": "Pour le passé amoureux, tu préfères…",
+    "optionA": "Connaître beaucoup de détails pour mieux comprendre l’autre",
+    "optionB": "Connaître seulement ce qui a encore une importance aujourd’hui"
+  },
+  {
+    "id": "temps_wyr_passe_02_face_a_une_vieille_erreur_sans_consequence_actuelle_tu_pre",
+    "category": "passe",
+    "question": "Face à une vieille erreur sans conséquence actuelle, tu préfères…",
+    "optionA": "Que ton/ta partenaire te la raconte malgré tout",
+    "optionB": "Qu’il/elle puisse la garder privée si cette personne n’existe plus vraiment"
+  },
+  {
+    "id": "temps_wyr_passe_03_si_une_verite_difficile_ne_change_rien_au_present_tu_prefe",
+    "category": "passe",
+    "question": "Si une vérité difficile ne change rien au présent, tu préfères…",
+    "optionA": "La savoir même vingt ans plus tard",
+    "optionB": "Ne pas la connaître si elle ne peut qu’ajouter de la douleur"
+  },
+  {
+    "id": "temps_wyr_passe_04_pour_les_souvenirs_dex_tu_preferes",
+    "category": "passe",
+    "question": "Pour les souvenirs d’ex, tu préfères…",
+    "optionA": "Pouvoir conserver certains objets importants sans problème",
+    "optionB": "Tourner la page matériellement et ne presque rien garder"
+  },
+  {
+    "id": "temps_wyr_passe_05_si_quelquun_du_passe_revele_un_secret_tu_preferes",
+    "category": "passe",
+    "question": "Si quelqu’un du passé révèle un secret, tu préfères…",
+    "optionA": "Écouter d’abord ton/ta partenaire avant de juger",
+    "optionB": "Chercher toi-même davantage d’informations pour vérifier"
+  },
+  {
+    "id": "temps_wyr_passe_06_dans_une_relation_longue_tu_preferes",
+    "category": "passe",
+    "question": "Dans une relation longue, tu préfères…",
+    "optionA": "Réduire progressivement presque tous les jardins secrets",
+    "optionB": "Garder toujours une part de vie intérieure totalement personnelle"
+  },
+  {
+    "id": "temps_wyr_passe_07_si_ton_ta_partenaire_a_profondement_change_tu_preferes",
+    "category": "passe",
+    "question": "Si ton/ta partenaire a profondément changé, tu préfères…",
+    "optionA": "Connaître précisément la personne qu’il/elle était avant",
+    "optionB": "Te concentrer surtout sur la personne qu’il/elle est avec toi aujourd’hui"
   }
 ]
