@@ -14963,7 +14963,7 @@ function renderEquippedCactusAccessories(wardrobe = {}) {
         if (item) {
             const image = document.createElement("img");
             const stage = Number(dashboardCactusCharacter?.dataset?.cactusStage) || 1;
-            image.src = `assets/cactus-accessory-overlays/stage-${Math.min(Math.max(stage, 1), 6)}-${item.id}.webp`;
+            image.src = `assets/cactus-accessory-overlays/stage-${Math.min(Math.max(stage, 1), 6)}-${item.id}.webp?v=1145`;
             image.alt = "";
             container.dataset.accessoryId = item.id;
             container.appendChild(image);
@@ -14972,7 +14972,7 @@ function renderEquippedCactusAccessories(wardrobe = {}) {
 
     const currentStage = Number(dashboardCactusCharacter?.dataset?.cactusStage) || 1;
     if (cactusAccessoryForeground) {
-        const showForeground = currentStage === 1 && equipped.neck === "heartNecklace";
+        const showForeground = false;
         cactusAccessoryForeground.src = `assets/cactus-rig/stage-${Math.min(Math.max(currentStage, 1), 6)}-accessory-foreground.webp`;
         cactusAccessoryForeground.hidden = !showForeground;
     }
