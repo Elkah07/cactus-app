@@ -1,0 +1,3713 @@
+{
+  "version": 1,
+  "description": "Contenus premium ciblés selon la configuration du couple. Les contenus historiques sans champ audience restent universels.",
+  "audiences": {
+    "wlw": "Couple de femmes",
+    "mlm": "Couple d’hommes",
+    "hetero": "Couple femme / homme",
+    "other": "Autre configuration / queer",
+    "universal": "Questions universelles uniquement"
+  },
+  "packs": {
+    "ranking": [
+      {
+        "id": "aud_wlw_ranking_01",
+        "title": "Classe ces réactions quand on vous prend pour des amies, de celle que tu préfères à celle qui t’agace le plus.",
+        "items": [
+          "Corriger avec un sourire",
+          "Répondre ‘c’est ma partenaire’ très naturellement",
+          "Faire une blague",
+          "Laisser passer",
+          "S’embrasser pour clarifier",
+          "Expliquer longuement votre histoire"
+        ],
+        "category": "couple_personnalise",
+        "audience": [
+          "wlw"
+        ]
+      },
+      {
+        "id": "aud_wlw_ranking_02",
+        "title": "Classe ces façons de célébrer votre couple de femmes selon celles qui te ressemblent le plus.",
+        "items": [
+          "Une Pride ensemble",
+          "Un week-end dans un lieu queer-friendly",
+          "Une soirée films LGBTQ+",
+          "Un dîner avec votre famille choisie",
+          "Un voyage romantique classique",
+          "Une journée sans parler du tout d’orientation"
+        ],
+        "category": "couple_personnalise",
+        "audience": [
+          "wlw"
+        ]
+      },
+      {
+        "id": "aud_wlw_ranking_03",
+        "title": "Classe ces sujets selon ceux qu’il serait le plus important d’aborder avant un projet d’enfant.",
+        "items": [
+          "Le parcours envisagé",
+          "La place de chacune comme parent",
+          "Les familles",
+          "Le nom de famille",
+          "Les questions administratives",
+          "La manière d’en parler à l’enfant"
+        ],
+        "category": "couple_personnalise",
+        "audience": [
+          "wlw"
+        ]
+      },
+      {
+        "id": "aud_wlw_ranking_04",
+        "title": "Classe ces limites autour des ex dans un petit cercle queer, de la plus importante à la moins importante.",
+        "items": [
+          "Pas de secret",
+          "Pas de flirt ambigu",
+          "Prévenir avant une sortie en tête-à-tête",
+          "Respecter les malaises de l’autre",
+          "Pouvoir rester amis",
+          "Éviter de comparer les relations"
+        ],
+        "category": "couple_personnalise",
+        "audience": [
+          "wlw"
+        ]
+      },
+      {
+        "id": "aud_wlw_ranking_05",
+        "title": "Classe ces moments selon ceux où tu aimerais le plus sentir que ton/ta partenaire est fière de votre couple.",
+        "items": [
+          "Devant la famille",
+          "Devant les amis",
+          "Au travail",
+          "Dans la rue",
+          "Sur les réseaux",
+          "Dans un événement LGBTQ+"
+        ],
+        "category": "couple_personnalise",
+        "audience": [
+          "wlw"
+        ]
+      },
+      {
+        "id": "aud_mlm_ranking_01",
+        "title": "Classe ces réactions quand on vous prend pour des amis, de celle que tu préfères à celle qui t’agace le plus.",
+        "items": [
+          "Corriger avec un sourire",
+          "Répondre ‘c’est mon partenaire’ naturellement",
+          "Faire une blague",
+          "Laisser passer",
+          "S’embrasser pour clarifier",
+          "Expliquer longuement votre histoire"
+        ],
+        "category": "couple_personnalise",
+        "audience": [
+          "mlm"
+        ]
+      },
+      {
+        "id": "aud_mlm_ranking_02",
+        "title": "Classe ces façons de célébrer votre couple d’hommes selon celles qui te ressemblent le plus.",
+        "items": [
+          "Une Pride ensemble",
+          "Un week-end LGBTQ+-friendly",
+          "Une soirée avec votre famille choisie",
+          "Un voyage romantique classique",
+          "Une soirée culture queer",
+          "Une journée où l’orientation n’est jamais le sujet"
+        ],
+        "category": "couple_personnalise",
+        "audience": [
+          "mlm"
+        ]
+      },
+      {
+        "id": "aud_mlm_ranking_03",
+        "title": "Classe ces limites autour des ex dans un même cercle gay, de la plus importante à la moins importante.",
+        "items": [
+          "Pas de secret",
+          "Pas de flirt ambigu",
+          "Prévenir avant une sortie en tête-à-tête",
+          "Respecter les malaises de l’autre",
+          "Pouvoir rester amis",
+          "Éviter de comparer les relations"
+        ],
+        "category": "couple_personnalise",
+        "audience": [
+          "mlm"
+        ]
+      },
+      {
+        "id": "aud_mlm_ranking_04",
+        "title": "Classe ces moments selon ceux où tu aimerais le plus sentir que ton/ta partenaire est fier/fière de votre couple.",
+        "items": [
+          "Devant la famille",
+          "Devant les amis",
+          "Au travail",
+          "Dans la rue",
+          "Sur les réseaux",
+          "Dans un événement LGBTQ+"
+        ],
+        "category": "couple_personnalise",
+        "audience": [
+          "mlm"
+        ]
+      },
+      {
+        "id": "aud_mlm_ranking_05",
+        "title": "Classe ces sujets selon ceux qu’il serait le plus important d’aborder avant un projet parental.",
+        "items": [
+          "Le parcours envisagé",
+          "La place de chacun comme parent",
+          "Les familles",
+          "Le nom de famille",
+          "Les questions administratives",
+          "La manière d’en parler à l’enfant"
+        ],
+        "category": "couple_personnalise",
+        "audience": [
+          "mlm"
+        ]
+      },
+      {
+        "id": "aud_hetero_ranking_01",
+        "title": "Classe ces attentes traditionnelles selon celles que tu voudrais le plus éviter dans votre couple.",
+        "items": [
+          "L’homme doit toujours payer",
+          "La femme gère la maison",
+          "L’homme doit faire la demande",
+          "La femme change de nom",
+          "L’homme ne montre pas ses émotions",
+          "La femme organise la vie familiale"
+        ],
+        "category": "couple_personnalise",
+        "audience": [
+          "hetero"
+        ]
+      },
+      {
+        "id": "aud_hetero_ranking_02",
+        "title": "Classe ces sujets selon ceux qu’il faudrait le plus clarifier pour éviter les rôles de genre automatiques.",
+        "items": [
+          "Les dépenses",
+          "Les tâches ménagères",
+          "La charge mentale",
+          "La carrière",
+          "La parentalité",
+          "Les relations avec les familles"
+        ],
+        "category": "couple_personnalise",
+        "audience": [
+          "hetero"
+        ]
+      },
+      {
+        "id": "aud_hetero_ranking_03",
+        "title": "Classe ces traditions de mariage selon celles que tu aimerais le plus réinventer.",
+        "items": [
+          "La demande",
+          "Le nom de famille",
+          "Les tenues",
+          "L’entrée à la cérémonie",
+          "Les discours",
+          "La répartition des dépenses"
+        ],
+        "category": "couple_personnalise",
+        "audience": [
+          "hetero"
+        ]
+      },
+      {
+        "id": "aud_hetero_ranking_04",
+        "title": "Classe ces preuves d’égalité selon celles qui comptent le plus pour toi.",
+        "items": [
+          "Partager la charge mentale",
+          "Soutenir les deux carrières",
+          "Respecter les mêmes libertés",
+          "Partager les responsabilités familiales",
+          "Pouvoir être vulnérable",
+          "Décider sans pression extérieure"
+        ],
+        "category": "couple_personnalise",
+        "audience": [
+          "hetero"
+        ]
+      },
+      {
+        "id": "aud_hetero_ranking_05",
+        "title": "Classe ces situations selon celles où tu voudrais le plus que votre couple résiste aux attentes des autres.",
+        "items": [
+          "Devant vos familles",
+          "Au travail",
+          "Avec vos amis",
+          "Dans l’organisation du foyer",
+          "Dans la parentalité",
+          "Pendant un mariage ou une cérémonie"
+        ],
+        "category": "couple_personnalise",
+        "audience": [
+          "hetero"
+        ]
+      },
+      {
+        "id": "aud_other_ranking_01",
+        "title": "Classe ces façons de présenter votre relation selon celles qui te mettent le plus à l’aise.",
+        "items": [
+          "Utiliser un mot précis",
+          "Dire simplement ‘mon/ma partenaire’",
+          "Utiliser vos prénoms sans expliquer",
+          "Adapter selon le contexte",
+          "Faire une blague",
+          "Ne donner aucune précision"
+        ],
+        "category": "couple_personnalise",
+        "audience": [
+          "other"
+        ]
+      },
+      {
+        "id": "aud_other_ranking_02",
+        "title": "Classe ces soutiens selon ceux qui comptent le plus quand une personne se trompe sur ton identité.",
+        "items": [
+          "Corriger immédiatement",
+          "Te demander ce que tu veux",
+          "Changer de sujet pour te protéger",
+          "Reprendre la personne plus tard",
+          "Te rassurer en privé",
+          "Te laisser entièrement gérer"
+        ],
+        "category": "couple_personnalise",
+        "audience": [
+          "other"
+        ]
+      },
+      {
+        "id": "aud_other_ranking_03",
+        "title": "Classe ces éléments selon ceux qui devraient rester le plus privés sans permission explicite.",
+        "items": [
+          "Un ancien prénom",
+          "Des pronoms ou une identité non publique",
+          "Des anciennes photos",
+          "Un parcours médical",
+          "Votre configuration relationnelle",
+          "Votre projet parental"
+        ],
+        "category": "couple_personnalise",
+        "audience": [
+          "other"
+        ]
+      },
+      {
+        "id": "aud_other_ranking_04",
+        "title": "Classe ces espaces selon ceux où tu aimerais le plus pouvoir être totalement vous-mêmes.",
+        "items": [
+          "Avec vos amis",
+          "Avec vos familles",
+          "Au travail",
+          "Dans la rue",
+          "En voyage",
+          "Sur les réseaux"
+        ],
+        "category": "couple_personnalise",
+        "audience": [
+          "other"
+        ]
+      },
+      {
+        "id": "aud_other_ranking_05",
+        "title": "Classe ces valeurs selon celles qui protègent le mieux un couple dont les identités peuvent évoluer.",
+        "items": [
+          "L’écoute",
+          "La confidentialité",
+          "La curiosité respectueuse",
+          "La souplesse",
+          "La défense mutuelle",
+          "La liberté de se redéfinir"
+        ],
+        "category": "couple_personnalise",
+        "audience": [
+          "other"
+        ]
+      }
+    ],
+    "questions": [
+      {
+        "id": "aud_wlw_q_01",
+        "question": "Quand quelqu’un vous prend pour de simples amies, comment aimerais-tu que ton/ta partenaire réagisse ?",
+        "category": "couple_personnalise",
+        "spicy": 0,
+        "mood": "deep",
+        "premium": true,
+        "audience": [
+          "wlw"
+        ]
+      },
+      {
+        "id": "aud_wlw_q_02",
+        "question": "Quelle place aimerais-tu que votre couple prenne dans les espaces LGBTQ+ qui comptent pour toi ?",
+        "category": "couple_personnalise",
+        "spicy": 0,
+        "mood": "deep",
+        "premium": true,
+        "audience": [
+          "wlw"
+        ]
+      },
+      {
+        "id": "aud_wlw_q_03",
+        "question": "Si l’une de vous se sentait moins à l’aise que l’autre avec les gestes d’affection en public, comment aimerais-tu gérer cette différence ?",
+        "category": "couple_personnalise",
+        "spicy": 0,
+        "mood": "deep",
+        "premium": true,
+        "audience": [
+          "wlw"
+        ]
+      },
+      {
+        "id": "aud_wlw_q_04",
+        "question": "Quel a été ou quel serait le moment où tu te sentirais le plus fière d’être présentée clairement comme sa partenaire ?",
+        "category": "couple_personnalise",
+        "spicy": 0,
+        "mood": "deep",
+        "premium": true,
+        "audience": [
+          "wlw"
+        ]
+      },
+      {
+        "id": "aud_wlw_q_05",
+        "question": "Si vos familles n’avaient pas le même niveau d’acceptation de votre relation, qu’attendrais-tu de ton/ta partenaire ?",
+        "category": "couple_personnalise",
+        "spicy": 0,
+        "mood": "deep",
+        "premium": true,
+        "audience": [
+          "wlw"
+        ]
+      },
+      {
+        "id": "aud_wlw_q_06",
+        "question": "Comment te sentirais-tu si votre cercle queer était si petit que vous croisiez souvent des ex ou anciennes histoires ?",
+        "category": "couple_personnalise",
+        "spicy": 0,
+        "mood": "deep",
+        "premium": true,
+        "audience": [
+          "wlw"
+        ]
+      },
+      {
+        "id": "aud_wlw_q_07",
+        "question": "Si vous vouliez des enfants un jour, quelle partie du parcours aimerais-tu le plus décider ensemble en priorité ?",
+        "category": "couple_personnalise",
+        "spicy": 0,
+        "mood": "deep",
+        "premium": true,
+        "audience": [
+          "wlw"
+        ]
+      },
+      {
+        "id": "aud_wlw_q_08",
+        "question": "Qu’aimerais-tu que votre mariage ou engagement fasse différemment des rôles traditionnels de ‘la mariée et du marié’ ?",
+        "category": "couple_personnalise",
+        "spicy": 0,
+        "mood": "deep",
+        "premium": true,
+        "audience": [
+          "wlw"
+        ]
+      },
+      {
+        "id": "aud_wlw_q_09",
+        "question": "Quelle remarque sur les couples de femmes t’agace le plus et comment aimerais-tu que ton/ta partenaire y réponde ?",
+        "category": "couple_personnalise",
+        "spicy": 0,
+        "mood": "deep",
+        "premium": true,
+        "audience": [
+          "wlw"
+        ]
+      },
+      {
+        "id": "aud_wlw_q_10",
+        "question": "Comment aimerais-tu être soutenue si quelqu’un fétichisait ou sexualisait votre couple ?",
+        "category": "couple_personnalise",
+        "spicy": 0,
+        "mood": "deep",
+        "premium": true,
+        "audience": [
+          "wlw"
+        ]
+      },
+      {
+        "id": "aud_wlw_q_11",
+        "question": "Si l’une de vous était beaucoup plus visible ou engagée publiquement sur les sujets LGBTQ+ que l’autre, où placerais-tu la limite entre soutien et pression ?",
+        "category": "couple_personnalise",
+        "spicy": 0,
+        "mood": "deep",
+        "premium": true,
+        "audience": [
+          "wlw"
+        ]
+      },
+      {
+        "id": "aud_wlw_q_12",
+        "question": "Quelle représentation d’un couple de femmes à l’écran ressemble le plus à la relation que tu aimerais construire ?",
+        "category": "couple_personnalise",
+        "spicy": 0,
+        "mood": "deep",
+        "premium": true,
+        "audience": [
+          "wlw"
+        ]
+      },
+      {
+        "id": "aud_wlw_q_13",
+        "question": "Si l’on vous demandait sans cesse ‘qui est l’homme dans le couple’, quelle réponse te ferait le plus rire ou te satisferait le plus ?",
+        "category": "couple_personnalise",
+        "spicy": 0,
+        "mood": "deep",
+        "premium": true,
+        "audience": [
+          "wlw"
+        ]
+      },
+      {
+        "id": "aud_wlw_q_14",
+        "question": "Quelle tradition aimerais-tu inventer pour célébrer votre histoire sans copier les codes classiques du couple ?",
+        "category": "couple_personnalise",
+        "spicy": 0,
+        "mood": "deep",
+        "premium": true,
+        "audience": [
+          "wlw"
+        ]
+      },
+      {
+        "id": "aud_wlw_q_15",
+        "question": "Dans dix ans, qu’aimerais-tu que les jeunes couples de femmes puissent vivre plus facilement que vous aujourd’hui ?",
+        "category": "couple_personnalise",
+        "spicy": 0,
+        "mood": "deep",
+        "premium": true,
+        "audience": [
+          "wlw"
+        ]
+      },
+      {
+        "id": "aud_mlm_q_01",
+        "question": "Quand quelqu’un vous prend pour de simples amis, comment aimerais-tu que ton/ta partenaire réagisse ?",
+        "category": "couple_personnalise",
+        "spicy": 0,
+        "mood": "deep",
+        "premium": true,
+        "audience": [
+          "mlm"
+        ]
+      },
+      {
+        "id": "aud_mlm_q_02",
+        "question": "Quelle place aimerais-tu que votre couple prenne dans les espaces LGBTQ+ qui comptent pour toi ?",
+        "category": "couple_personnalise",
+        "spicy": 0,
+        "mood": "deep",
+        "premium": true,
+        "audience": [
+          "mlm"
+        ]
+      },
+      {
+        "id": "aud_mlm_q_03",
+        "question": "Comment aimerais-tu gérer une différence entre vous concernant les gestes d’affection en public ?",
+        "category": "couple_personnalise",
+        "spicy": 0,
+        "mood": "deep",
+        "premium": true,
+        "audience": [
+          "mlm"
+        ]
+      },
+      {
+        "id": "aud_mlm_q_04",
+        "question": "Quel serait pour toi le moment le plus fort où ton/ta partenaire te présenterait clairement comme son partenaire ?",
+        "category": "couple_personnalise",
+        "spicy": 0,
+        "mood": "deep",
+        "premium": true,
+        "audience": [
+          "mlm"
+        ]
+      },
+      {
+        "id": "aud_mlm_q_05",
+        "question": "Si vos familles n’avaient pas le même niveau d’acceptation, qu’attendrais-tu concrètement de ton/ta partenaire ?",
+        "category": "couple_personnalise",
+        "spicy": 0,
+        "mood": "deep",
+        "premium": true,
+        "audience": [
+          "mlm"
+        ]
+      },
+      {
+        "id": "aud_mlm_q_06",
+        "question": "Comment poserais-tu vos limites si plusieurs ex faisaient partie du même cercle d’amis gay que vous ?",
+        "category": "couple_personnalise",
+        "spicy": 0,
+        "mood": "deep",
+        "premium": true,
+        "audience": [
+          "mlm"
+        ]
+      },
+      {
+        "id": "aud_mlm_q_07",
+        "question": "Quel stéréotype sur les couples d’hommes aimerais-tu le plus voir disparaître ?",
+        "category": "couple_personnalise",
+        "spicy": 0,
+        "mood": "deep",
+        "premium": true,
+        "audience": [
+          "mlm"
+        ]
+      },
+      {
+        "id": "aud_mlm_q_08",
+        "question": "Comment aimerais-tu que votre couple gère les injonctions autour de la masculinité ou de la vulnérabilité ?",
+        "category": "couple_personnalise",
+        "spicy": 0,
+        "mood": "deep",
+        "premium": true,
+        "audience": [
+          "mlm"
+        ]
+      },
+      {
+        "id": "aud_mlm_q_09",
+        "question": "Si vous vouliez des enfants, quelle question liée au parcours parental devrait être discutée en premier selon toi ?",
+        "category": "couple_personnalise",
+        "spicy": 0,
+        "mood": "deep",
+        "premium": true,
+        "audience": [
+          "mlm"
+        ]
+      },
+      {
+        "id": "aud_mlm_q_10",
+        "question": "Quelle place l’un de vous devrait-il avoir dans le coming out de l’autre auprès de sa famille ou de son travail ?",
+        "category": "couple_personnalise",
+        "spicy": 0,
+        "mood": "deep",
+        "premium": true,
+        "audience": [
+          "mlm"
+        ]
+      },
+      {
+        "id": "aud_mlm_q_11",
+        "question": "Comment aimerais-tu être soutenu si quelqu’un faisait une remarque homophobe ‘pour rire’ devant vous ?",
+        "category": "couple_personnalise",
+        "spicy": 0,
+        "mood": "deep",
+        "premium": true,
+        "audience": [
+          "mlm"
+        ]
+      },
+      {
+        "id": "aud_mlm_q_12",
+        "question": "Si l’un de vous aimait beaucoup les bars et soirées gay et l’autre pas du tout, comment trouveriez-vous un équilibre ?",
+        "category": "couple_personnalise",
+        "spicy": 0,
+        "mood": "deep",
+        "premium": true,
+        "audience": [
+          "mlm"
+        ]
+      },
+      {
+        "id": "aud_mlm_q_13",
+        "question": "Quelle tradition de mariage aimerais-tu réinventer parce qu’elle suppose automatiquement une mariée et un marié ?",
+        "category": "couple_personnalise",
+        "spicy": 0,
+        "mood": "deep",
+        "premium": true,
+        "audience": [
+          "mlm"
+        ]
+      },
+      {
+        "id": "aud_mlm_q_14",
+        "question": "Dans quelle situation te sentirais-tu le plus fier que votre couple soit visible ?",
+        "category": "couple_personnalise",
+        "spicy": 0,
+        "mood": "deep",
+        "premium": true,
+        "audience": [
+          "mlm"
+        ]
+      },
+      {
+        "id": "aud_mlm_q_15",
+        "question": "Dans dix ans, qu’aimerais-tu que les jeunes couples d’hommes puissent vivre plus facilement que vous aujourd’hui ?",
+        "category": "couple_personnalise",
+        "spicy": 0,
+        "mood": "deep",
+        "premium": true,
+        "audience": [
+          "mlm"
+        ]
+      },
+      {
+        "id": "aud_hetero_q_01",
+        "question": "Quelle attente traditionnelle liée au fait d’être un couple femme-homme aimerais-tu le plus refuser dans votre relation ?",
+        "category": "couple_personnalise",
+        "spicy": 0,
+        "mood": "deep",
+        "premium": true,
+        "audience": [
+          "hetero"
+        ]
+      },
+      {
+        "id": "aud_hetero_q_02",
+        "question": "Comment aimerais-tu décider qui fait une demande en mariage si vous vouliez vous fiancer un jour ?",
+        "category": "couple_personnalise",
+        "spicy": 0,
+        "mood": "deep",
+        "premium": true,
+        "audience": [
+          "hetero"
+        ]
+      },
+      {
+        "id": "aud_hetero_q_03",
+        "question": "Quelle importance donnerais-tu au choix du nom de famille si vous vous mariiez ou aviez des enfants ?",
+        "category": "couple_personnalise",
+        "spicy": 0,
+        "mood": "deep",
+        "premium": true,
+        "audience": [
+          "hetero"
+        ]
+      },
+      {
+        "id": "aud_hetero_q_04",
+        "question": "Comment aimerais-tu répartir les dépenses du couple sans laisser les attentes de genre décider à votre place ?",
+        "category": "couple_personnalise",
+        "spicy": 0,
+        "mood": "deep",
+        "premium": true,
+        "audience": [
+          "hetero"
+        ]
+      },
+      {
+        "id": "aud_hetero_q_05",
+        "question": "Quel rôle invisible du quotidien faudrait-il surveiller pour éviter qu’il repose automatiquement davantage sur l’un de vous ?",
+        "category": "couple_personnalise",
+        "spicy": 0,
+        "mood": "deep",
+        "premium": true,
+        "audience": [
+          "hetero"
+        ]
+      },
+      {
+        "id": "aud_hetero_q_06",
+        "question": "Comment parleriez-vous d’un éventuel projet de grossesse sans supposer que toute la charge physique et mentale revient à la femme du couple ?",
+        "category": "couple_personnalise",
+        "spicy": 0,
+        "mood": "deep",
+        "premium": true,
+        "audience": [
+          "hetero"
+        ]
+      },
+      {
+        "id": "aud_hetero_q_07",
+        "question": "Quelle limite autour des amitiés avec des personnes du genre qui pourrait attirer l’un de vous te paraît réellement saine ?",
+        "category": "couple_personnalise",
+        "spicy": 0,
+        "mood": "deep",
+        "premium": true,
+        "audience": [
+          "hetero"
+        ]
+      },
+      {
+        "id": "aud_hetero_q_08",
+        "question": "Si une carrière devait temporairement passer avant l’autre, comment éviterais-tu que le choix soit dicté par les rôles traditionnels ?",
+        "category": "couple_personnalise",
+        "spicy": 0,
+        "mood": "deep",
+        "premium": true,
+        "audience": [
+          "hetero"
+        ]
+      },
+      {
+        "id": "aud_hetero_q_09",
+        "question": "Comment aimerais-tu que votre couple protège l’espace émotionnel de l’homme sans lui demander d’être toujours ‘fort’ ?",
+        "category": "couple_personnalise",
+        "spicy": 0,
+        "mood": "deep",
+        "premium": true,
+        "audience": [
+          "hetero"
+        ]
+      },
+      {
+        "id": "aud_hetero_q_10",
+        "question": "Comment éviter que la femme du couple devienne automatiquement la personne qui organise, anticipe et prend soin de tout ?",
+        "category": "couple_personnalise",
+        "spicy": 0,
+        "mood": "deep",
+        "premium": true,
+        "audience": [
+          "hetero"
+        ]
+      },
+      {
+        "id": "aud_hetero_q_11",
+        "question": "Quelle remarque de famille sur ‘ce qu’un homme ou une femme devrait faire’ vous ferait poser une limite claire ?",
+        "category": "couple_personnalise",
+        "spicy": 0,
+        "mood": "deep",
+        "premium": true,
+        "audience": [
+          "hetero"
+        ]
+      },
+      {
+        "id": "aud_hetero_q_12",
+        "question": "Quelle tradition de mariage hétéro aimerais-tu garder, modifier ou supprimer complètement ?",
+        "category": "couple_personnalise",
+        "spicy": 0,
+        "mood": "deep",
+        "premium": true,
+        "audience": [
+          "hetero"
+        ]
+      },
+      {
+        "id": "aud_hetero_q_13",
+        "question": "Si vous aviez des enfants, comment aimerais-tu répartir concrètement les congés, nuits et rendez-vous ?",
+        "category": "couple_personnalise",
+        "spicy": 0,
+        "mood": "deep",
+        "premium": true,
+        "audience": [
+          "hetero"
+        ]
+      },
+      {
+        "id": "aud_hetero_q_14",
+        "question": "Comment aimerais-tu partager la responsabilité de la contraception ou de la santé reproductive dans votre couple ?",
+        "category": "couple_personnalise",
+        "spicy": 0,
+        "mood": "deep",
+        "premium": true,
+        "audience": [
+          "hetero"
+        ]
+      },
+      {
+        "id": "aud_hetero_q_15",
+        "question": "Quel exemple aimerais-tu que votre couple donne d’une relation femme-homme qui ne reproduit pas les vieux clichés ?",
+        "category": "couple_personnalise",
+        "spicy": 0,
+        "mood": "deep",
+        "premium": true,
+        "audience": [
+          "hetero"
+        ]
+      },
+      {
+        "id": "aud_other_q_01",
+        "question": "Quel mot ou quelle façon de présenter votre relation vous ressemble le mieux aujourd’hui ?",
+        "category": "couple_personnalise",
+        "spicy": 0,
+        "mood": "deep",
+        "premium": true,
+        "audience": [
+          "other"
+        ]
+      },
+      {
+        "id": "aud_other_q_02",
+        "question": "Comment aimerais-tu que ton/ta partenaire réagisse si quelqu’un se trompait sur ton genre, tes pronoms ou la nature de votre couple ?",
+        "category": "couple_personnalise",
+        "spicy": 0,
+        "mood": "deep",
+        "premium": true,
+        "audience": [
+          "other"
+        ]
+      },
+      {
+        "id": "aud_other_q_03",
+        "question": "Quelle place les étiquettes devraient-elles avoir dans votre relation : utiles, évolutives ou presque aucune ?",
+        "category": "couple_personnalise",
+        "spicy": 0,
+        "mood": "deep",
+        "premium": true,
+        "audience": [
+          "other"
+        ]
+      },
+      {
+        "id": "aud_other_q_04",
+        "question": "Si la manière dont l’un de vous se définit évoluait, de quoi auriez-vous besoin pour traverser ce changement ensemble ?",
+        "category": "couple_personnalise",
+        "spicy": 0,
+        "mood": "deep",
+        "premium": true,
+        "audience": [
+          "other"
+        ]
+      },
+      {
+        "id": "aud_other_q_05",
+        "question": "Quelle information sur votre couple devrait rester entièrement privée, même auprès de personnes bien intentionnées ?",
+        "category": "couple_personnalise",
+        "spicy": 0,
+        "mood": "deep",
+        "premium": true,
+        "audience": [
+          "other"
+        ]
+      },
+      {
+        "id": "aud_other_q_06",
+        "question": "Comment aimerais-tu être soutenu(e) face aux formulaires, démarches ou situations qui ne prévoient pas votre configuration de couple ?",
+        "category": "couple_personnalise",
+        "spicy": 0,
+        "mood": "deep",
+        "premium": true,
+        "audience": [
+          "other"
+        ]
+      },
+      {
+        "id": "aud_other_q_07",
+        "question": "Quelle place votre famille choisie occupe-t-elle ou aimerais-tu qu’elle occupe dans votre histoire ?",
+        "category": "couple_personnalise",
+        "spicy": 0,
+        "mood": "deep",
+        "premium": true,
+        "audience": [
+          "other"
+        ]
+      },
+      {
+        "id": "aud_other_q_08",
+        "question": "Comment décideriez-vous ensemble dans quels endroits être très visibles et dans lesquels privilégier votre sécurité ?",
+        "category": "couple_personnalise",
+        "spicy": 0,
+        "mood": "deep",
+        "premium": true,
+        "audience": [
+          "other"
+        ]
+      },
+      {
+        "id": "aud_other_q_09",
+        "question": "Quel type de question intrusive sur votre couple aimerais-tu ne plus jamais avoir à entendre ?",
+        "category": "couple_personnalise",
+        "spicy": 0,
+        "mood": "deep",
+        "premium": true,
+        "audience": [
+          "other"
+        ]
+      },
+      {
+        "id": "aud_other_q_10",
+        "question": "Comment aimerais-tu que votre partenaire protège une ancienne identité, un ancien prénom ou une information intime te concernant ?",
+        "category": "couple_personnalise",
+        "spicy": 0,
+        "mood": "deep",
+        "premium": true,
+        "audience": [
+          "other"
+        ]
+      },
+      {
+        "id": "aud_other_q_11",
+        "question": "Quelle serait pour toi la meilleure manière de parler de votre couple à de nouvelles personnes sans devoir vous expliquer entièrement ?",
+        "category": "couple_personnalise",
+        "spicy": 0,
+        "mood": "deep",
+        "premium": true,
+        "audience": [
+          "other"
+        ]
+      },
+      {
+        "id": "aud_other_q_12",
+        "question": "Si vous aviez un projet parental, quels mots ou rôles aimeriez-vous choisir librement plutôt que recevoir automatiquement ?",
+        "category": "couple_personnalise",
+        "spicy": 0,
+        "mood": "deep",
+        "premium": true,
+        "audience": [
+          "other"
+        ]
+      },
+      {
+        "id": "aud_other_q_13",
+        "question": "Dans quels espaces te sens-tu le plus libre d’être pleinement toi-même avec ton/ta partenaire ?",
+        "category": "couple_personnalise",
+        "spicy": 0,
+        "mood": "deep",
+        "premium": true,
+        "audience": [
+          "other"
+        ]
+      },
+      {
+        "id": "aud_other_q_14",
+        "question": "Comment aimerais-tu que votre couple réagisse si vos façons de vivre ou de nommer vos identités devenaient très différentes ?",
+        "category": "couple_personnalise",
+        "spicy": 0,
+        "mood": "deep",
+        "premium": true,
+        "audience": [
+          "other"
+        ]
+      },
+      {
+        "id": "aud_other_q_15",
+        "question": "Quelle évolution de la société rendrait votre quotidien de couple le plus simple dans dix ans ?",
+        "category": "couple_personnalise",
+        "spicy": 0,
+        "mood": "deep",
+        "premium": true,
+        "audience": [
+          "other"
+        ]
+      }
+    ],
+    "guess": [
+      {
+        "id": "aud_wlw_guess_01",
+        "question": "Quelle réaction de ton/ta partenaire te ferait le plus plaisir si quelqu’un vous présentait comme de simples amies ?",
+        "audience": [
+          "wlw"
+        ]
+      },
+      {
+        "id": "aud_wlw_guess_02",
+        "question": "Quel endroit LGBTQ+ ton/ta partenaire rêverait le plus de découvrir avec toi ?",
+        "audience": [
+          "wlw"
+        ]
+      },
+      {
+        "id": "aud_wlw_guess_03",
+        "question": "Quelle remarque stéréotypée sur les couples de femmes agace le plus ton/ta partenaire ?",
+        "audience": [
+          "wlw"
+        ]
+      },
+      {
+        "id": "aud_wlw_guess_04",
+        "question": "Quel niveau d’affection en public met le plus à l’aise ton/ta partenaire ?",
+        "audience": [
+          "wlw"
+        ]
+      },
+      {
+        "id": "aud_wlw_guess_05",
+        "question": "Quelle personne de son entourage ton/ta partenaire voudrait le plus voir soutenir ouvertement votre couple ?",
+        "audience": [
+          "wlw"
+        ]
+      },
+      {
+        "id": "aud_wlw_guess_06",
+        "question": "Quel aspect d’un éventuel projet d’enfant ton/ta partenaire voudrait décider en premier ?",
+        "audience": [
+          "wlw"
+        ]
+      },
+      {
+        "id": "aud_wlw_guess_07",
+        "question": "Quelle célébrité ou personnage féminin ton/ta partenaire choisirait pour jouer votre histoire dans un film ?",
+        "audience": [
+          "wlw"
+        ]
+      },
+      {
+        "id": "aud_wlw_guess_08",
+        "question": "Quelle tradition de mariage ton/ta partenaire supprimerait sans hésiter ?",
+        "audience": [
+          "wlw"
+        ]
+      },
+      {
+        "id": "aud_wlw_guess_09",
+        "question": "Dans quel contexte ton/ta partenaire se sentirait le plus fière de dire clairement ‘c’est ma partenaire’ ?",
+        "audience": [
+          "wlw"
+        ]
+      },
+      {
+        "id": "aud_wlw_guess_10",
+        "question": "Quelle petite habitude de votre couple ton/ta partenaire trouve la plus typiquement ‘vous deux’ ?",
+        "audience": [
+          "wlw"
+        ]
+      },
+      {
+        "id": "aud_mlm_guess_01",
+        "question": "Quelle réaction de ton/ta partenaire serait la plus probable si quelqu’un vous présentait comme de simples amis ?",
+        "audience": [
+          "mlm"
+        ]
+      },
+      {
+        "id": "aud_mlm_guess_02",
+        "question": "Quel stéréotype sur les couples d’hommes agace le plus ton/ta partenaire ?",
+        "audience": [
+          "mlm"
+        ]
+      },
+      {
+        "id": "aud_mlm_guess_03",
+        "question": "Quel niveau d’affection en public met le plus à l’aise ton/ta partenaire ?",
+        "audience": [
+          "mlm"
+        ]
+      },
+      {
+        "id": "aud_mlm_guess_04",
+        "question": "Quel endroit LGBTQ+ ton/ta partenaire rêverait le plus de découvrir avec toi ?",
+        "audience": [
+          "mlm"
+        ]
+      },
+      {
+        "id": "aud_mlm_guess_05",
+        "question": "Quel proche ton/ta partenaire voudrait le plus voir soutenir ouvertement votre couple ?",
+        "audience": [
+          "mlm"
+        ]
+      },
+      {
+        "id": "aud_mlm_guess_06",
+        "question": "Quel aspect d’un éventuel projet parental ton/ta partenaire voudrait décider en premier ?",
+        "audience": [
+          "mlm"
+        ]
+      },
+      {
+        "id": "aud_mlm_guess_07",
+        "question": "Quelle tradition de mariage ton/ta partenaire supprimerait sans hésiter ?",
+        "audience": [
+          "mlm"
+        ]
+      },
+      {
+        "id": "aud_mlm_guess_08",
+        "question": "Quelle remarque homophobe ‘banalisée’ ton/ta partenaire supporte le moins ?",
+        "audience": [
+          "mlm"
+        ]
+      },
+      {
+        "id": "aud_mlm_guess_09",
+        "question": "Dans quel contexte ton/ta partenaire se sentirait le plus fier de dire clairement ‘c’est mon partenaire’ ?",
+        "audience": [
+          "mlm"
+        ]
+      },
+      {
+        "id": "aud_mlm_guess_10",
+        "question": "Quelle petite habitude de votre couple ton/ta partenaire trouve la plus typiquement ‘vous deux’ ?",
+        "audience": [
+          "mlm"
+        ]
+      },
+      {
+        "id": "aud_hetero_guess_01",
+        "question": "Quelle attente traditionnelle liée aux rôles homme-femme agace le plus ton/ta partenaire ?",
+        "audience": [
+          "hetero"
+        ]
+      },
+      {
+        "id": "aud_hetero_guess_02",
+        "question": "Qui ton/ta partenaire imagine-t-il/elle faire une éventuelle demande en mariage ?",
+        "audience": [
+          "hetero"
+        ]
+      },
+      {
+        "id": "aud_hetero_guess_03",
+        "question": "Quel système de partage des dépenses ton/ta partenaire trouverait le plus juste ?",
+        "audience": [
+          "hetero"
+        ]
+      },
+      {
+        "id": "aud_hetero_guess_04",
+        "question": "Quelle tâche invisible du quotidien ton/ta partenaire trouve la plus fatigante ?",
+        "audience": [
+          "hetero"
+        ]
+      },
+      {
+        "id": "aud_hetero_guess_05",
+        "question": "Quelle tradition de mariage ton/ta partenaire supprimerait sans hésiter ?",
+        "audience": [
+          "hetero"
+        ]
+      },
+      {
+        "id": "aud_hetero_guess_06",
+        "question": "Quelle remarque sexiste de la famille ton/ta partenaire supporterait le moins ?",
+        "audience": [
+          "hetero"
+        ]
+      },
+      {
+        "id": "aud_hetero_guess_07",
+        "question": "Quel modèle de répartition du congé parental ton/ta partenaire choisirait idéalement ?",
+        "audience": [
+          "hetero"
+        ]
+      },
+      {
+        "id": "aud_hetero_guess_08",
+        "question": "Quelle limite autour des amitiés avec des personnes potentiellement attirantes rassurerait le plus ton/ta partenaire ?",
+        "audience": [
+          "hetero"
+        ]
+      },
+      {
+        "id": "aud_hetero_guess_09",
+        "question": "Quel domaine de la relation ton/ta partenaire refuse le plus de voir décidé par les rôles de genre ?",
+        "audience": [
+          "hetero"
+        ]
+      },
+      {
+        "id": "aud_hetero_guess_10",
+        "question": "Quel exemple de couple femme-homme célèbre ton/ta partenaire trouve le plus inspirant ?",
+        "audience": [
+          "hetero"
+        ]
+      },
+      {
+        "id": "aud_other_guess_01",
+        "question": "Quel mot ton/ta partenaire préfère-t-il/elle pour décrire votre relation à de nouvelles personnes ?",
+        "audience": [
+          "other"
+        ]
+      },
+      {
+        "id": "aud_other_guess_02",
+        "question": "Quelle réaction de ton/ta partenaire serait la plus probable si quelqu’un utilisait les mauvais pronoms pour toi ?",
+        "audience": [
+          "other"
+        ]
+      },
+      {
+        "id": "aud_other_guess_03",
+        "question": "Quelle étiquette relationnelle ton/ta partenaire trouve la moins importante ?",
+        "audience": [
+          "other"
+        ]
+      },
+      {
+        "id": "aud_other_guess_04",
+        "question": "Dans quel contexte ton/ta partenaire préfère-t-il/elle garder votre relation la plus privée ?",
+        "audience": [
+          "other"
+        ]
+      },
+      {
+        "id": "aud_other_guess_05",
+        "question": "Quelle question intrusive sur votre couple agace le plus ton/ta partenaire ?",
+        "audience": [
+          "other"
+        ]
+      },
+      {
+        "id": "aud_other_guess_06",
+        "question": "Quel endroit ton/ta partenaire considère comme le plus sûr pour être totalement vous-mêmes ?",
+        "audience": [
+          "other"
+        ]
+      },
+      {
+        "id": "aud_other_guess_07",
+        "question": "Quelle personne de votre famille choisie ton/ta partenaire appellerait en premier en cas de grande nouvelle ?",
+        "audience": [
+          "other"
+        ]
+      },
+      {
+        "id": "aud_other_guess_08",
+        "question": "Quelle information personnelle ton/ta partenaire considère comme absolument interdite à partager sans permission ?",
+        "audience": [
+          "other"
+        ]
+      },
+      {
+        "id": "aud_other_guess_09",
+        "question": "Quel symbole ou mot représenterait le mieux votre couple selon ton/ta partenaire ?",
+        "audience": [
+          "other"
+        ]
+      },
+      {
+        "id": "aud_other_guess_10",
+        "question": "Quelle évolution sociale ton/ta partenaire voudrait voir arriver le plus vite ?",
+        "audience": [
+          "other"
+        ]
+      }
+    ],
+    "likely": [
+      {
+        "id": "aud_wlw_likely_01",
+        "question": "Qui est le plus susceptible de corriger immédiatement quelqu’un qui vous présente comme de simples amies ?",
+        "category": "couple_personnalise",
+        "audience": [
+          "wlw"
+        ]
+      },
+      {
+        "id": "aud_wlw_likely_02",
+        "question": "Qui est le plus susceptible de proposer d’aller à une Pride juste pour l’ambiance ?",
+        "category": "couple_personnalise",
+        "audience": [
+          "wlw"
+        ]
+      },
+      {
+        "id": "aud_wlw_likely_03",
+        "question": "Qui est le plus susceptible de repérer en deux secondes un autre couple de femmes dans une série ?",
+        "category": "couple_personnalise",
+        "audience": [
+          "wlw"
+        ]
+      },
+      {
+        "id": "aud_wlw_likely_04",
+        "question": "Qui est le plus susceptible de répondre avec humour à une question maladroite sur votre couple ?",
+        "category": "couple_personnalise",
+        "audience": [
+          "wlw"
+        ]
+      },
+      {
+        "id": "aud_wlw_likely_05",
+        "question": "Qui est le plus susceptible de vouloir tenir la main de l’autre même quand tout le monde regarde ?",
+        "category": "couple_personnalise",
+        "audience": [
+          "wlw"
+        ]
+      },
+      {
+        "id": "aud_wlw_likely_06",
+        "question": "Qui est le plus susceptible de garder une amitié naturelle avec une ex sans y voir de problème ?",
+        "category": "couple_personnalise",
+        "audience": [
+          "wlw"
+        ]
+      },
+      {
+        "id": "aud_wlw_likely_07",
+        "question": "Qui est le plus susceptible de faire une playlist entière de chansons d’amour queer ?",
+        "category": "couple_personnalise",
+        "audience": [
+          "wlw"
+        ]
+      },
+      {
+        "id": "aud_wlw_likely_08",
+        "question": "Qui est le plus susceptible de vouloir un mariage qui casse complètement les traditions ?",
+        "category": "couple_personnalise",
+        "audience": [
+          "wlw"
+        ]
+      },
+      {
+        "id": "aud_wlw_likely_09",
+        "question": "Qui est le plus susceptible de défendre l’autre face à une remarque lesbophobe ?",
+        "category": "couple_personnalise",
+        "audience": [
+          "wlw"
+        ]
+      },
+      {
+        "id": "aud_wlw_likely_10",
+        "question": "Qui est le plus susceptible de connaître le plus de références de culture lesbienne ?",
+        "category": "couple_personnalise",
+        "audience": [
+          "wlw"
+        ]
+      },
+      {
+        "id": "aud_mlm_likely_01",
+        "question": "Qui est le plus susceptible de corriger immédiatement quelqu’un qui vous présente comme de simples amis ?",
+        "category": "couple_personnalise",
+        "audience": [
+          "mlm"
+        ]
+      },
+      {
+        "id": "aud_mlm_likely_02",
+        "question": "Qui est le plus susceptible de proposer une soirée dans un bar gay juste pour danser ?",
+        "category": "couple_personnalise",
+        "audience": [
+          "mlm"
+        ]
+      },
+      {
+        "id": "aud_mlm_likely_03",
+        "question": "Qui est le plus susceptible de répondre avec humour à une remarque maladroite sur votre couple ?",
+        "category": "couple_personnalise",
+        "audience": [
+          "mlm"
+        ]
+      },
+      {
+        "id": "aud_mlm_likely_04",
+        "question": "Qui est le plus susceptible de vouloir tenir la main de l’autre même quand tout le monde regarde ?",
+        "category": "couple_personnalise",
+        "audience": [
+          "mlm"
+        ]
+      },
+      {
+        "id": "aud_mlm_likely_05",
+        "question": "Qui est le plus susceptible de défendre l’autre face à une remarque homophobe ?",
+        "category": "couple_personnalise",
+        "audience": [
+          "mlm"
+        ]
+      },
+      {
+        "id": "aud_mlm_likely_06",
+        "question": "Qui est le plus susceptible de rester ami avec une ex-relation du même cercle social ?",
+        "category": "couple_personnalise",
+        "audience": [
+          "mlm"
+        ]
+      },
+      {
+        "id": "aud_mlm_likely_07",
+        "question": "Qui est le plus susceptible de parler ouvertement de ses émotions malgré les clichés sur la masculinité ?",
+        "category": "couple_personnalise",
+        "audience": [
+          "mlm"
+        ]
+      },
+      {
+        "id": "aud_mlm_likely_08",
+        "question": "Qui est le plus susceptible de vouloir un mariage qui casse toutes les traditions ?",
+        "category": "couple_personnalise",
+        "audience": [
+          "mlm"
+        ]
+      },
+      {
+        "id": "aud_mlm_likely_09",
+        "question": "Qui est le plus susceptible de repérer instantanément un couple d’hommes dans une série ?",
+        "category": "couple_personnalise",
+        "audience": [
+          "mlm"
+        ]
+      },
+      {
+        "id": "aud_mlm_likely_10",
+        "question": "Qui est le plus susceptible de connaître le plus de références de culture gay ?",
+        "category": "couple_personnalise",
+        "audience": [
+          "mlm"
+        ]
+      },
+      {
+        "id": "aud_hetero_likely_01",
+        "question": "Qui est le plus susceptible de refuser une tradition juste parce qu’elle dit ‘c’est à l’homme de le faire’ ou ‘c’est à la femme de le faire’ ?",
+        "category": "couple_personnalise",
+        "audience": [
+          "hetero"
+        ]
+      },
+      {
+        "id": "aud_hetero_likely_02",
+        "question": "Qui est le plus susceptible de faire une demande en mariage en premier, peu importe les conventions ?",
+        "category": "couple_personnalise",
+        "audience": [
+          "hetero"
+        ]
+      },
+      {
+        "id": "aud_hetero_likely_03",
+        "question": "Qui est le plus susceptible de remarquer qu’une tâche invisible du quotidien repose toujours sur la même personne ?",
+        "category": "couple_personnalise",
+        "audience": [
+          "hetero"
+        ]
+      },
+      {
+        "id": "aud_hetero_likely_04",
+        "question": "Qui est le plus susceptible de répondre à un proche qui dit que ‘l’homme doit payer’ ?",
+        "category": "couple_personnalise",
+        "audience": [
+          "hetero"
+        ]
+      },
+      {
+        "id": "aud_hetero_likely_05",
+        "question": "Qui est le plus susceptible de défendre le droit de l’autre à avoir des amis proches de n’importe quel genre ?",
+        "category": "couple_personnalise",
+        "audience": [
+          "hetero"
+        ]
+      },
+      {
+        "id": "aud_hetero_likely_06",
+        "question": "Qui est le plus susceptible de vouloir partager le congé parental le plus équitablement possible ?",
+        "category": "couple_personnalise",
+        "audience": [
+          "hetero"
+        ]
+      },
+      {
+        "id": "aud_hetero_likely_07",
+        "question": "Qui est le plus susceptible de remettre en question une tradition de mariage trop genrée ?",
+        "category": "couple_personnalise",
+        "audience": [
+          "hetero"
+        ]
+      },
+      {
+        "id": "aud_hetero_likely_08",
+        "question": "Qui est le plus susceptible de dire franchement qu’il/elle a besoin de soutien émotionnel ?",
+        "category": "couple_personnalise",
+        "audience": [
+          "hetero"
+        ]
+      },
+      {
+        "id": "aud_hetero_likely_09",
+        "question": "Qui est le plus susceptible d’organiser toute la logistique du couple sans même s’en rendre compte ?",
+        "category": "couple_personnalise",
+        "audience": [
+          "hetero"
+        ]
+      },
+      {
+        "id": "aud_hetero_likely_10",
+        "question": "Qui est le plus susceptible de corriger un proche qui fait une remarque sexiste sur votre couple ?",
+        "category": "couple_personnalise",
+        "audience": [
+          "hetero"
+        ]
+      },
+      {
+        "id": "aud_other_likely_01",
+        "question": "Qui est le plus susceptible de corriger immédiatement quelqu’un qui utilise le mauvais terme pour décrire votre couple ?",
+        "category": "couple_personnalise",
+        "audience": [
+          "other"
+        ]
+      },
+      {
+        "id": "aud_other_likely_02",
+        "question": "Qui est le plus susceptible de changer d’étiquette parce qu’un autre mot lui correspond mieux avec le temps ?",
+        "category": "couple_personnalise",
+        "audience": [
+          "other"
+        ]
+      },
+      {
+        "id": "aud_other_likely_03",
+        "question": "Qui est le plus susceptible de personnaliser complètement la manière dont vous vous présentez comme couple ?",
+        "category": "couple_personnalise",
+        "audience": [
+          "other"
+        ]
+      },
+      {
+        "id": "aud_other_likely_04",
+        "question": "Qui est le plus susceptible de répondre avec humour à une question beaucoup trop intrusive ?",
+        "category": "couple_personnalise",
+        "audience": [
+          "other"
+        ]
+      },
+      {
+        "id": "aud_other_likely_05",
+        "question": "Qui est le plus susceptible de défendre les pronoms ou l’identité de l’autre face à un proche ?",
+        "category": "couple_personnalise",
+        "audience": [
+          "other"
+        ]
+      },
+      {
+        "id": "aud_other_likely_06",
+        "question": "Qui est le plus susceptible de construire une grande famille choisie autour de votre couple ?",
+        "category": "couple_personnalise",
+        "audience": [
+          "other"
+        ]
+      },
+      {
+        "id": "aud_other_likely_07",
+        "question": "Qui est le plus susceptible de repérer immédiatement qu’un formulaire ne prévoit pas votre situation ?",
+        "category": "couple_personnalise",
+        "audience": [
+          "other"
+        ]
+      },
+      {
+        "id": "aud_other_likely_08",
+        "question": "Qui est le plus susceptible de vouloir être très visible publiquement en tant que couple queer ?",
+        "category": "couple_personnalise",
+        "audience": [
+          "other"
+        ]
+      },
+      {
+        "id": "aud_other_likely_09",
+        "question": "Qui est le plus susceptible de préférer garder les détails de son identité entièrement privés ?",
+        "category": "couple_personnalise",
+        "audience": [
+          "other"
+        ]
+      },
+      {
+        "id": "aud_other_likely_10",
+        "question": "Qui est le plus susceptible d’inventer un mot ou un surnom rien qu’à vous pour parler de votre relation ?",
+        "category": "couple_personnalise",
+        "audience": [
+          "other"
+        ]
+      }
+    ],
+    "ok": [
+      {
+        "id": "aud_wlw_ok_01",
+        "question": "Ton/ta partenaire laisse sa famille te présenter comme ‘son amie’ pour éviter une discussion.",
+        "audience": [
+          "wlw"
+        ]
+      },
+      {
+        "id": "aud_wlw_ok_02",
+        "question": "Ton/ta partenaire reste très proche d’une ex qui fait partie du même cercle d’amies queer que vous.",
+        "audience": [
+          "wlw"
+        ]
+      },
+      {
+        "id": "aud_wlw_ok_03",
+        "question": "Ton/ta partenaire veut aller seul(e) dans un bar lesbien où son ex travaille régulièrement.",
+        "audience": [
+          "wlw"
+        ]
+      },
+      {
+        "id": "aud_wlw_ok_04",
+        "question": "Une connaissance sexualise votre couple et ton/ta partenaire préfère en rire plutôt que la reprendre.",
+        "audience": [
+          "wlw"
+        ]
+      },
+      {
+        "id": "aud_wlw_ok_05",
+        "question": "Ton/ta partenaire publie beaucoup de contenu LGBTQ+ sur votre couple alors que tu préfères rester discrète.",
+        "audience": [
+          "wlw"
+        ]
+      },
+      {
+        "id": "aud_wlw_ok_06",
+        "question": "Ton/ta partenaire refuse les gestes d’affection en public uniquement dans certains endroits par peur de réactions hostiles.",
+        "audience": [
+          "wlw"
+        ]
+      },
+      {
+        "id": "aud_wlw_ok_07",
+        "question": "Ton/ta partenaire participe à une Pride sans toi avec un groupe de nouvelles amies rencontrées récemment.",
+        "audience": [
+          "wlw"
+        ]
+      },
+      {
+        "id": "aud_wlw_ok_08",
+        "question": "Ton/ta partenaire garde sur une application de rencontre queer un ancien profil ‘juste pour voir les événements’.",
+        "audience": [
+          "wlw"
+        ]
+      },
+      {
+        "id": "aud_wlw_ok_09",
+        "question": "Ton/ta partenaire ne veut pas que vous soyez identifiées comme un couple devant certains collègues.",
+        "audience": [
+          "wlw"
+        ]
+      },
+      {
+        "id": "aud_wlw_ok_10",
+        "question": "Ton/ta partenaire veut que vous choisissiez dès maintenant laquelle porterait une éventuelle grossesse, sans savoir si vous voulez des enfants.",
+        "audience": [
+          "wlw"
+        ]
+      },
+      {
+        "id": "aud_wlw_ok_11",
+        "question": "Ton/ta partenaire est amie avec plusieurs personnes avec qui elle a flirté parce que le cercle queer de votre ville est petit.",
+        "audience": [
+          "wlw"
+        ]
+      },
+      {
+        "id": "aud_wlw_ok_12",
+        "question": "Ton/ta partenaire te demande de ne pas corriger une personne âgée qui vous prend pour des sœurs.",
+        "audience": [
+          "wlw"
+        ]
+      },
+      {
+        "id": "aud_wlw_ok_13",
+        "question": "Ton/ta partenaire veut participer à un voyage réservé aux femmes queer sans toi.",
+        "audience": [
+          "wlw"
+        ]
+      },
+      {
+        "id": "aud_wlw_ok_14",
+        "question": "Ton/ta partenaire trouve normal de plaisanter sur le fait que votre couple ‘compte moins’ parce qu’il n’y a pas d’homme.",
+        "audience": [
+          "wlw"
+        ]
+      },
+      {
+        "id": "aud_wlw_ok_15",
+        "question": "Ton/ta partenaire veut utiliser un symbole LGBTQ+ très visible à votre mariage alors que tu préfères quelque chose de discret.",
+        "audience": [
+          "wlw"
+        ]
+      },
+      {
+        "id": "aud_mlm_ok_01",
+        "question": "Ton/ta partenaire laisse sa famille te présenter comme ‘son ami’ pour éviter une discussion.",
+        "audience": [
+          "mlm"
+        ]
+      },
+      {
+        "id": "aud_mlm_ok_02",
+        "question": "Ton/ta partenaire reste très proche d’un ex qui fait partie du même cercle d’amis gay que vous.",
+        "audience": [
+          "mlm"
+        ]
+      },
+      {
+        "id": "aud_mlm_ok_03",
+        "question": "Ton/ta partenaire veut aller seul(e) dans un bar gay où son ex travaille régulièrement.",
+        "audience": [
+          "mlm"
+        ]
+      },
+      {
+        "id": "aud_mlm_ok_04",
+        "question": "Un ami fait une blague homophobe et ton/ta partenaire préfère rire pour éviter un conflit.",
+        "audience": [
+          "mlm"
+        ]
+      },
+      {
+        "id": "aud_mlm_ok_05",
+        "question": "Ton/ta partenaire publie beaucoup de contenu LGBTQ+ sur votre couple alors que tu préfères rester discret.",
+        "audience": [
+          "mlm"
+        ]
+      },
+      {
+        "id": "aud_mlm_ok_06",
+        "question": "Ton/ta partenaire refuse les gestes d’affection en public uniquement dans certains endroits par peur de réactions hostiles.",
+        "audience": [
+          "mlm"
+        ]
+      },
+      {
+        "id": "aud_mlm_ok_07",
+        "question": "Ton/ta partenaire participe à une Pride sans toi avec un nouveau groupe d’amis rencontrés récemment.",
+        "audience": [
+          "mlm"
+        ]
+      },
+      {
+        "id": "aud_mlm_ok_08",
+        "question": "Ton/ta partenaire garde sur une application de rencontre gay un ancien profil ‘juste pour les événements’.",
+        "audience": [
+          "mlm"
+        ]
+      },
+      {
+        "id": "aud_mlm_ok_09",
+        "question": "Ton/ta partenaire ne veut pas que vous soyez identifiés comme un couple devant certains collègues.",
+        "audience": [
+          "mlm"
+        ]
+      },
+      {
+        "id": "aud_mlm_ok_10",
+        "question": "Ton/ta partenaire fréquente régulièrement des soirées où plusieurs personnes avec qui il/elle a eu une histoire sont présentes.",
+        "audience": [
+          "mlm"
+        ]
+      },
+      {
+        "id": "aud_mlm_ok_11",
+        "question": "Ton/ta partenaire te demande de ne pas corriger une personne âgée qui vous prend pour des frères ou des amis.",
+        "audience": [
+          "mlm"
+        ]
+      },
+      {
+        "id": "aud_mlm_ok_12",
+        "question": "Ton/ta partenaire veut participer à un voyage réservé à un groupe d’hommes queer sans toi.",
+        "audience": [
+          "mlm"
+        ]
+      },
+      {
+        "id": "aud_mlm_ok_13",
+        "question": "Ton/ta partenaire trouve normal de plaisanter sur le fait que l’un de vous doit forcément être ‘le plus féminin’ du couple.",
+        "audience": [
+          "mlm"
+        ]
+      },
+      {
+        "id": "aud_mlm_ok_14",
+        "question": "Ton/ta partenaire évite de parler de votre couple avec ses collègues depuis plusieurs années.",
+        "audience": [
+          "mlm"
+        ]
+      },
+      {
+        "id": "aud_mlm_ok_15",
+        "question": "Ton/ta partenaire veut un symbole LGBTQ+ très visible à votre mariage alors que tu préfères quelque chose de discret.",
+        "audience": [
+          "mlm"
+        ]
+      },
+      {
+        "id": "aud_hetero_ok_01",
+        "question": "Ton/ta partenaire estime que l’homme du couple devrait toujours payer les rendez-vous.",
+        "audience": [
+          "hetero"
+        ]
+      },
+      {
+        "id": "aud_hetero_ok_02",
+        "question": "Ton/ta partenaire pense que la demande en mariage devrait forcément venir de l’homme.",
+        "audience": [
+          "hetero"
+        ]
+      },
+      {
+        "id": "aud_hetero_ok_03",
+        "question": "Ton/ta partenaire veut que la femme du couple prenne automatiquement le nom de l’homme en cas de mariage.",
+        "audience": [
+          "hetero"
+        ]
+      },
+      {
+        "id": "aud_hetero_ok_04",
+        "question": "Ton/ta partenaire considère normal que la majorité des tâches ménagères soient gérées par la femme si l’homme travaille davantage.",
+        "audience": [
+          "hetero"
+        ]
+      },
+      {
+        "id": "aud_hetero_ok_05",
+        "question": "Ton/ta partenaire trouve gênant qu’un homme parle souvent de ses émotions ou pleure devant sa partenaire.",
+        "audience": [
+          "hetero"
+        ]
+      },
+      {
+        "id": "aud_hetero_ok_06",
+        "question": "Ton/ta partenaire pense qu’une femme en couple ne devrait pas avoir de meilleur ami homme.",
+        "audience": [
+          "hetero"
+        ]
+      },
+      {
+        "id": "aud_hetero_ok_07",
+        "question": "Ton/ta partenaire pense qu’un homme en couple ne devrait pas avoir de meilleure amie femme.",
+        "audience": [
+          "hetero"
+        ]
+      },
+      {
+        "id": "aud_hetero_ok_08",
+        "question": "Ton/ta partenaire laisse sa famille plaisanter régulièrement sur le fait que ‘c’est toi qui portes la culotte’ dans votre couple.",
+        "audience": [
+          "hetero"
+        ]
+      },
+      {
+        "id": "aud_hetero_ok_09",
+        "question": "Ton/ta partenaire considère que l’organisation de la contraception concerne surtout la femme du couple.",
+        "audience": [
+          "hetero"
+        ]
+      },
+      {
+        "id": "aud_hetero_ok_10",
+        "question": "Ton/ta partenaire veut que la carrière de l’homme passe en priorité si vous avez des enfants.",
+        "audience": [
+          "hetero"
+        ]
+      },
+      {
+        "id": "aud_hetero_ok_11",
+        "question": "Ton/ta partenaire veut que la carrière de la personne qui gagne le plus passe toujours en priorité, même si cela renforce un déséquilibre durable.",
+        "audience": [
+          "hetero"
+        ]
+      },
+      {
+        "id": "aud_hetero_ok_12",
+        "question": "Ton/ta partenaire refuse une répartition exacte des dépenses parce qu’il/elle préfère garder des rôles traditionnels.",
+        "audience": [
+          "hetero"
+        ]
+      },
+      {
+        "id": "aud_hetero_ok_13",
+        "question": "Ton/ta partenaire ne voit aucun problème à ce qu’un parent donne systématiquement des conseils différents à l’homme et à la femme du couple.",
+        "audience": [
+          "hetero"
+        ]
+      },
+      {
+        "id": "aud_hetero_ok_14",
+        "question": "Ton/ta partenaire veut une cérémonie de mariage entièrement traditionnelle même si certaines traditions te mettent mal à l’aise.",
+        "audience": [
+          "hetero"
+        ]
+      },
+      {
+        "id": "aud_hetero_ok_15",
+        "question": "Ton/ta partenaire considère que certaines tâches parentales seront forcément plus naturelles pour la femme du couple.",
+        "audience": [
+          "hetero"
+        ]
+      },
+      {
+        "id": "aud_other_ok_01",
+        "question": "Ton/ta partenaire utilise devant sa famille un ancien terme pour parler de toi parce qu’il/elle ne veut pas encore expliquer votre situation.",
+        "audience": [
+          "other"
+        ]
+      },
+      {
+        "id": "aud_other_ok_02",
+        "question": "Ton/ta partenaire partage tes pronoms ou ton identité à quelqu’un sans te demander auparavant.",
+        "audience": [
+          "other"
+        ]
+      },
+      {
+        "id": "aud_other_ok_03",
+        "question": "Ton/ta partenaire corrige systématiquement chaque erreur de pronoms, même quand tu préfèrerais parfois laisser passer.",
+        "audience": [
+          "other"
+        ]
+      },
+      {
+        "id": "aud_other_ok_04",
+        "question": "Ton/ta partenaire refuse toute étiquette pour votre relation alors que tu aimerais pouvoir la nommer clairement.",
+        "audience": [
+          "other"
+        ]
+      },
+      {
+        "id": "aud_other_ok_05",
+        "question": "Ton/ta partenaire veut afficher publiquement votre couple queer alors que tu préfères rester discret/discrète.",
+        "audience": [
+          "other"
+        ]
+      },
+      {
+        "id": "aud_other_ok_06",
+        "question": "Ton/ta partenaire conserve d’anciennes photos ou informations liées à une identité passée sur ses réseaux.",
+        "audience": [
+          "other"
+        ]
+      },
+      {
+        "id": "aud_other_ok_07",
+        "question": "Ton/ta partenaire explique votre configuration de couple en détail à des inconnus pour répondre à leurs questions.",
+        "audience": [
+          "other"
+        ]
+      },
+      {
+        "id": "aud_other_ok_08",
+        "question": "Ton/ta partenaire utilise un surnom ou un rôle parental pour toi sans vérifier qu’il te convient.",
+        "audience": [
+          "other"
+        ]
+      },
+      {
+        "id": "aud_other_ok_09",
+        "question": "Ton/ta partenaire accepte qu’un proche utilise un terme qui te met mal à l’aise pour éviter un conflit familial.",
+        "audience": [
+          "other"
+        ]
+      },
+      {
+        "id": "aud_other_ok_10",
+        "question": "Ton/ta partenaire préfère certains espaces LGBTQ+ où tu ne te sens pas totalement inclus(e).",
+        "audience": [
+          "other"
+        ]
+      },
+      {
+        "id": "aud_other_ok_11",
+        "question": "Ton/ta partenaire veut que vous répondiez toujours franchement aux questions sur votre couple, même lorsqu’elles sont intrusives.",
+        "audience": [
+          "other"
+        ]
+      },
+      {
+        "id": "aud_other_ok_12",
+        "question": "Ton/ta partenaire change la façon de définir votre relation sans t’en parler avant.",
+        "audience": [
+          "other"
+        ]
+      },
+      {
+        "id": "aud_other_ok_13",
+        "question": "Ton/ta partenaire publie une ancienne photo de toi que tu ne souhaites plus voir circuler.",
+        "audience": [
+          "other"
+        ]
+      },
+      {
+        "id": "aud_other_ok_14",
+        "question": "Ton/ta partenaire veut que votre famille choisie soit prioritaire sur certaines relations familiales biologiques.",
+        "audience": [
+          "other"
+        ]
+      },
+      {
+        "id": "aud_other_ok_15",
+        "question": "Ton/ta partenaire refuse d’adapter votre façon de vous présenter même dans un endroit où tu ne te sens pas en sécurité.",
+        "audience": [
+          "other"
+        ]
+      }
+    ],
+    "greenFlag": [
+      {
+        "id": "aud_wlw_green_01",
+        "question": "Quelqu’un qui vous présente naturellement comme un couple sans attendre que vous vous justifiiez.",
+        "audience": [
+          "wlw"
+        ]
+      },
+      {
+        "id": "aud_wlw_green_02",
+        "question": "Quelqu’un qui reprend calmement une personne qui vous appelle ‘les copines’ alors qu’elle sait que vous êtes ensemble.",
+        "audience": [
+          "wlw"
+        ]
+      },
+      {
+        "id": "aud_wlw_green_03",
+        "question": "Quelqu’un qui respecte totalement le rythme de son/sa partenaire concernant le coming out.",
+        "audience": [
+          "wlw"
+        ]
+      },
+      {
+        "id": "aud_wlw_green_04",
+        "question": "Quelqu’un qui sait distinguer une vraie inquiétude de sécurité d’une honte de montrer son couple en public.",
+        "audience": [
+          "wlw"
+        ]
+      },
+      {
+        "id": "aud_wlw_green_05",
+        "question": "Quelqu’un qui ne fétichise jamais les couples de femmes et recadre ses proches quand ils le font.",
+        "audience": [
+          "wlw"
+        ]
+      },
+      {
+        "id": "aud_wlw_green_06",
+        "question": "Quelqu’un qui peut rester ami avec une ex tout en posant des limites parfaitement claires.",
+        "audience": [
+          "wlw"
+        ]
+      },
+      {
+        "id": "aud_wlw_green_07",
+        "question": "Quelqu’un qui parle des projets d’enfants sans supposer automatiquement qui porterait une grossesse.",
+        "audience": [
+          "wlw"
+        ]
+      },
+      {
+        "id": "aud_wlw_green_08",
+        "question": "Quelqu’un qui refuse de reproduire des rôles ‘homme/femme’ artificiels dans un couple de femmes.",
+        "audience": [
+          "wlw"
+        ]
+      },
+      {
+        "id": "aud_wlw_green_09",
+        "question": "Quelqu’un qui protège la vie privée du couple dans les espaces queer où tout le monde se connaît.",
+        "audience": [
+          "wlw"
+        ]
+      },
+      {
+        "id": "aud_wlw_green_10",
+        "question": "Quelqu’un qui célèbre l’identité de son/sa partenaire sans en faire toute sa personnalité.",
+        "audience": [
+          "wlw"
+        ]
+      },
+      {
+        "id": "aud_mlm_green_01",
+        "question": "Quelqu’un qui vous présente naturellement comme un couple sans attendre que vous vous justifiiez.",
+        "audience": [
+          "mlm"
+        ]
+      },
+      {
+        "id": "aud_mlm_green_02",
+        "question": "Quelqu’un qui reprend calmement une personne qui vous appelle ‘les copains’ alors qu’elle sait que vous êtes ensemble.",
+        "audience": [
+          "mlm"
+        ]
+      },
+      {
+        "id": "aud_mlm_green_03",
+        "question": "Quelqu’un qui respecte totalement le rythme de son/sa partenaire concernant le coming out.",
+        "audience": [
+          "mlm"
+        ]
+      },
+      {
+        "id": "aud_mlm_green_04",
+        "question": "Quelqu’un qui ne confond jamais discrétion choisie et honte de son couple.",
+        "audience": [
+          "mlm"
+        ]
+      },
+      {
+        "id": "aud_mlm_green_05",
+        "question": "Quelqu’un qui recadre immédiatement les blagues homophobes, même quand elles viennent de ses amis.",
+        "audience": [
+          "mlm"
+        ]
+      },
+      {
+        "id": "aud_mlm_green_06",
+        "question": "Quelqu’un qui peut rester ami avec un ex tout en posant des limites parfaitement claires.",
+        "audience": [
+          "mlm"
+        ]
+      },
+      {
+        "id": "aud_mlm_green_07",
+        "question": "Quelqu’un qui sait être vulnérable sans transformer la masculinité en compétition.",
+        "audience": [
+          "mlm"
+        ]
+      },
+      {
+        "id": "aud_mlm_green_08",
+        "question": "Quelqu’un qui parle des projets parentaux sans supposer que certaines options sont impossibles ou moins légitimes.",
+        "audience": [
+          "mlm"
+        ]
+      },
+      {
+        "id": "aud_mlm_green_09",
+        "question": "Quelqu’un qui refuse d’imposer des rôles ‘masculin/féminin’ artificiels dans un couple d’hommes.",
+        "audience": [
+          "mlm"
+        ]
+      },
+      {
+        "id": "aud_mlm_green_10",
+        "question": "Quelqu’un qui célèbre l’identité de son/sa partenaire sans en faire toute sa personnalité.",
+        "audience": [
+          "mlm"
+        ]
+      },
+      {
+        "id": "aud_hetero_green_01",
+        "question": "Quelqu’un qui partage les dépenses selon ce qui est juste pour le couple plutôt que selon le genre.",
+        "audience": [
+          "hetero"
+        ]
+      },
+      {
+        "id": "aud_hetero_green_02",
+        "question": "Quelqu’un qui considère qu’une demande en mariage peut venir de n’importe lequel des deux partenaires.",
+        "audience": [
+          "hetero"
+        ]
+      },
+      {
+        "id": "aud_hetero_green_03",
+        "question": "Quelqu’un qui remarque et partage aussi la charge mentale invisible du quotidien.",
+        "audience": [
+          "hetero"
+        ]
+      },
+      {
+        "id": "aud_hetero_green_04",
+        "question": "Quelqu’un qui ne transforme jamais la vulnérabilité d’un homme en faiblesse.",
+        "audience": [
+          "hetero"
+        ]
+      },
+      {
+        "id": "aud_hetero_green_05",
+        "question": "Quelqu’un qui ne suppose jamais qu’une femme doit naturellement organiser la maison ou la vie sociale du couple.",
+        "audience": [
+          "hetero"
+        ]
+      },
+      {
+        "id": "aud_hetero_green_06",
+        "question": "Quelqu’un qui respecte les amitiés de son/sa partenaire sans appliquer des règles différentes selon le genre.",
+        "audience": [
+          "hetero"
+        ]
+      },
+      {
+        "id": "aud_hetero_green_07",
+        "question": "Quelqu’un qui parle de contraception et de santé reproductive comme d’une responsabilité commune.",
+        "audience": [
+          "hetero"
+        ]
+      },
+      {
+        "id": "aud_hetero_green_08",
+        "question": "Quelqu’un qui refuse que les familles décident des rôles de chacun dans le couple.",
+        "audience": [
+          "hetero"
+        ]
+      },
+      {
+        "id": "aud_hetero_green_09",
+        "question": "Quelqu’un qui répartit un éventuel projet parental selon les capacités et envies plutôt que selon les habitudes traditionnelles.",
+        "audience": [
+          "hetero"
+        ]
+      },
+      {
+        "id": "aud_hetero_green_10",
+        "question": "Quelqu’un qui choisit les traditions de mariage pour leur sens, pas parce que ‘ça se fait comme ça’.",
+        "audience": [
+          "hetero"
+        ]
+      },
+      {
+        "id": "aud_other_green_01",
+        "question": "Quelqu’un qui demande toujours quels mots et pronoms son/sa partenaire souhaite utiliser aujourd’hui.",
+        "audience": [
+          "other"
+        ]
+      },
+      {
+        "id": "aud_other_green_02",
+        "question": "Quelqu’un qui ne révèle jamais une identité, un ancien prénom ou une information intime sans permission.",
+        "audience": [
+          "other"
+        ]
+      },
+      {
+        "id": "aud_other_green_03",
+        "question": "Quelqu’un qui accepte qu’une étiquette puisse évoluer sans considérer que la relation devient moins vraie.",
+        "audience": [
+          "other"
+        ]
+      },
+      {
+        "id": "aud_other_green_04",
+        "question": "Quelqu’un qui corrige les autres quand son/sa partenaire le souhaite, mais sait aussi respecter son choix de laisser passer.",
+        "audience": [
+          "other"
+        ]
+      },
+      {
+        "id": "aud_other_green_05",
+        "question": "Quelqu’un qui ne transforme pas l’identité queer de son/sa partenaire en sujet de curiosité publique.",
+        "audience": [
+          "other"
+        ]
+      },
+      {
+        "id": "aud_other_green_06",
+        "question": "Quelqu’un qui sait défendre le couple face aux formulaires ou situations administratives mal adaptées sans humilier son/sa partenaire.",
+        "audience": [
+          "other"
+        ]
+      },
+      {
+        "id": "aud_other_green_07",
+        "question": "Quelqu’un qui respecte autant la famille choisie que les liens biologiques importants pour son/sa partenaire.",
+        "audience": [
+          "other"
+        ]
+      },
+      {
+        "id": "aud_other_green_08",
+        "question": "Quelqu’un qui prend la sécurité au sérieux sans utiliser la peur comme excuse pour cacher son couple partout.",
+        "audience": [
+          "other"
+        ]
+      },
+      {
+        "id": "aud_other_green_09",
+        "question": "Quelqu’un qui laisse son/sa partenaire choisir librement les mots liés à un éventuel rôle parental.",
+        "audience": [
+          "other"
+        ]
+      },
+      {
+        "id": "aud_other_green_10",
+        "question": "Quelqu’un qui comprend qu’aimer une personne inclut aussi respecter la manière dont elle se définit elle-même.",
+        "audience": [
+          "other"
+        ]
+      }
+    ],
+    "princess": [
+      {
+        "id": "aud_wlw_princess_01",
+        "question": "Ton/ta partenaire te présente clairement comme sa partenaire quand quelqu’un suppose que vous êtes de simples amies.",
+        "audience": [
+          "wlw"
+        ]
+      },
+      {
+        "id": "aud_wlw_princess_02",
+        "question": "Ton/ta partenaire vérifie discrètement que tu te sens en sécurité avant de te prendre la main dans un nouvel endroit.",
+        "audience": [
+          "wlw"
+        ]
+      },
+      {
+        "id": "aud_wlw_princess_03",
+        "question": "Ton/ta partenaire recadre immédiatement une personne qui sexualise votre couple.",
+        "audience": [
+          "wlw"
+        ]
+      },
+      {
+        "id": "aud_wlw_princess_04",
+        "question": "Ton/ta partenaire apprend les dates et événements LGBTQ+ importants pour toi afin de les célébrer ensemble.",
+        "audience": [
+          "wlw"
+        ]
+      },
+      {
+        "id": "aud_wlw_princess_05",
+        "question": "Ton/ta partenaire te laisse choisir ton propre rythme pour parler de votre relation à ta famille.",
+        "audience": [
+          "wlw"
+        ]
+      },
+      {
+        "id": "aud_wlw_princess_06",
+        "question": "Ton/ta partenaire prépare une escapade dans un endroit où vous pourrez être totalement vous-mêmes sans vous surveiller.",
+        "audience": [
+          "wlw"
+        ]
+      },
+      {
+        "id": "aud_wlw_princess_07",
+        "question": "Ton/ta partenaire pense spontanément aux deux familles lorsque vous organisez une fête de couple.",
+        "audience": [
+          "wlw"
+        ]
+      },
+      {
+        "id": "aud_wlw_princess_08",
+        "question": "Ton/ta partenaire refuse qu’on impose des rôles genrés à votre mariage ou dans votre quotidien.",
+        "audience": [
+          "wlw"
+        ]
+      },
+      {
+        "id": "aud_wlw_princess_09",
+        "question": "Ton/ta partenaire garde une place pour toi dans son cercle queer sans t’obliger à adopter toutes ses habitudes.",
+        "audience": [
+          "wlw"
+        ]
+      },
+      {
+        "id": "aud_wlw_princess_10",
+        "question": "Ton/ta partenaire te rappelle régulièrement qu’elle est fière de votre couple, même dans les périodes où le monde extérieur est lourd.",
+        "audience": [
+          "wlw"
+        ]
+      },
+      {
+        "id": "aud_mlm_princess_01",
+        "question": "Ton/ta partenaire te présente clairement comme son partenaire quand quelqu’un suppose que vous êtes de simples amis.",
+        "audience": [
+          "mlm"
+        ]
+      },
+      {
+        "id": "aud_mlm_princess_02",
+        "question": "Ton/ta partenaire vérifie discrètement que tu te sens en sécurité avant de te prendre la main dans un nouvel endroit.",
+        "audience": [
+          "mlm"
+        ]
+      },
+      {
+        "id": "aud_mlm_princess_03",
+        "question": "Ton/ta partenaire recadre une blague homophobe même si elle vient de ses propres amis.",
+        "audience": [
+          "mlm"
+        ]
+      },
+      {
+        "id": "aud_mlm_princess_04",
+        "question": "Ton/ta partenaire respecte ton rythme pour parler de votre relation à ta famille.",
+        "audience": [
+          "mlm"
+        ]
+      },
+      {
+        "id": "aud_mlm_princess_05",
+        "question": "Ton/ta partenaire organise une escapade dans un endroit où vous pourrez être totalement vous-mêmes sans vous surveiller.",
+        "audience": [
+          "mlm"
+        ]
+      },
+      {
+        "id": "aud_mlm_princess_06",
+        "question": "Ton/ta partenaire défend ta vulnérabilité quand quelqu’un te dit que tu devrais ‘être plus un homme’.",
+        "audience": [
+          "mlm"
+        ]
+      },
+      {
+        "id": "aud_mlm_princess_07",
+        "question": "Ton/ta partenaire pense spontanément aux deux familles lorsque vous organisez une fête de couple.",
+        "audience": [
+          "mlm"
+        ]
+      },
+      {
+        "id": "aud_mlm_princess_08",
+        "question": "Ton/ta partenaire refuse qu’on impose des rôles genrés à votre mariage ou dans votre quotidien.",
+        "audience": [
+          "mlm"
+        ]
+      },
+      {
+        "id": "aud_mlm_princess_09",
+        "question": "Ton/ta partenaire te laisse une vraie place dans son cercle LGBTQ+ sans t’obliger à adopter toutes ses habitudes.",
+        "audience": [
+          "mlm"
+        ]
+      },
+      {
+        "id": "aud_mlm_princess_10",
+        "question": "Ton/ta partenaire te rappelle régulièrement qu’il/elle est fier/fière de votre couple, même quand l’extérieur est moins simple.",
+        "audience": [
+          "mlm"
+        ]
+      },
+      {
+        "id": "aud_hetero_princess_01",
+        "question": "Ton/ta partenaire refuse de te laisser porter seul(e) la charge mentale parce que ‘c’est plus naturel pour toi’.",
+        "audience": [
+          "hetero"
+        ]
+      },
+      {
+        "id": "aud_hetero_princess_02",
+        "question": "Ton/ta partenaire défend votre propre manière de fonctionner quand sa famille vous impose des rôles homme-femme.",
+        "audience": [
+          "hetero"
+        ]
+      },
+      {
+        "id": "aud_hetero_princess_03",
+        "question": "Ton/ta partenaire partage spontanément la responsabilité de la contraception ou des rendez-vous liés à la santé reproductive.",
+        "audience": [
+          "hetero"
+        ]
+      },
+      {
+        "id": "aud_hetero_princess_04",
+        "question": "Ton/ta partenaire te soutient dans ta carrière même quand cela bouscule ce que les autres attendent de votre couple.",
+        "audience": [
+          "hetero"
+        ]
+      },
+      {
+        "id": "aud_hetero_princess_05",
+        "question": "Ton/ta partenaire te laisse être vulnérable sans associer tes émotions à ton genre.",
+        "audience": [
+          "hetero"
+        ]
+      },
+      {
+        "id": "aud_hetero_princess_06",
+        "question": "Ton/ta partenaire organise aussi les anniversaires, cadeaux et rendez-vous familiaux au lieu de laisser cette charge à une seule personne.",
+        "audience": [
+          "hetero"
+        ]
+      },
+      {
+        "id": "aud_hetero_princess_07",
+        "question": "Ton/ta partenaire respecte tes amitiés proches sans imposer des règles différentes selon le genre de tes amis.",
+        "audience": [
+          "hetero"
+        ]
+      },
+      {
+        "id": "aud_hetero_princess_08",
+        "question": "Ton/ta partenaire serait prêt(e) à faire une demande en mariage ou à en recevoir une sans se soucier des conventions.",
+        "audience": [
+          "hetero"
+        ]
+      },
+      {
+        "id": "aud_hetero_princess_09",
+        "question": "Ton/ta partenaire veut décider avec toi du nom de famille plutôt que de considérer une option comme automatique.",
+        "audience": [
+          "hetero"
+        ]
+      },
+      {
+        "id": "aud_hetero_princess_10",
+        "question": "Ton/ta partenaire construit avec toi un couple où aucun geste d’attention n’est considéré comme ‘le rôle de l’homme’ ou ‘le rôle de la femme’.",
+        "audience": [
+          "hetero"
+        ]
+      },
+      {
+        "id": "aud_other_princess_01",
+        "question": "Ton/ta partenaire utilise toujours les mots et pronoms qui te correspondent, même quand personne d’autre ne les entend.",
+        "audience": [
+          "other"
+        ]
+      },
+      {
+        "id": "aud_other_princess_02",
+        "question": "Ton/ta partenaire te demande avant de partager une information sur ton identité ou votre configuration de couple.",
+        "audience": [
+          "other"
+        ]
+      },
+      {
+        "id": "aud_other_princess_03",
+        "question": "Ton/ta partenaire te défend face à une erreur blessante sans prendre toute la place à ta place.",
+        "audience": [
+          "other"
+        ]
+      },
+      {
+        "id": "aud_other_princess_04",
+        "question": "Ton/ta partenaire supprime ou protège une ancienne photo dès que tu lui dis qu’elle te met mal à l’aise.",
+        "audience": [
+          "other"
+        ]
+      },
+      {
+        "id": "aud_other_princess_05",
+        "question": "Ton/ta partenaire apprend spontanément comment remplir correctement un formulaire ou une réservation qui ne prévoit pas votre situation.",
+        "audience": [
+          "other"
+        ]
+      },
+      {
+        "id": "aud_other_princess_06",
+        "question": "Ton/ta partenaire célèbre les personnes de ta famille choisie comme des proches qui comptent réellement.",
+        "audience": [
+          "other"
+        ]
+      },
+      {
+        "id": "aud_other_princess_07",
+        "question": "Ton/ta partenaire respecte une évolution de ton identité sans te faire culpabiliser de changer.",
+        "audience": [
+          "other"
+        ]
+      },
+      {
+        "id": "aud_other_princess_08",
+        "question": "Ton/ta partenaire adapte la visibilité de votre couple selon ce qui vous fait sentir tous les deux en sécurité.",
+        "audience": [
+          "other"
+        ]
+      },
+      {
+        "id": "aud_other_princess_09",
+        "question": "Ton/ta partenaire te laisse choisir les mots qui décrivent votre rôle dans le couple et un éventuel projet parental.",
+        "audience": [
+          "other"
+        ]
+      },
+      {
+        "id": "aud_other_princess_10",
+        "question": "Ton/ta partenaire te rappelle que tu n’as jamais besoin de te simplifier pour être plus facile à expliquer aux autres.",
+        "audience": [
+          "other"
+        ]
+      }
+    ],
+    "wouldRather": [
+      {
+        "id": "aud_wlw_wyr_01",
+        "category": "sortie",
+        "question": "Pour une journée qui célèbre votre couple, tu préfères…",
+        "optionA": "Une Pride immense avec toute l’énergie autour de vous",
+        "optionB": "Un week-end intime dans un lieu queer-friendly où vous êtes tranquilles",
+        "audience": [
+          "wlw"
+        ]
+      },
+      {
+        "id": "aud_wlw_wyr_02",
+        "category": "couple",
+        "question": "Quand quelqu’un vous prend pour des amies, tu préfères…",
+        "optionA": "Corriger naturellement à chaque fois",
+        "optionB": "Laisser passer sauf si la personne compte vraiment",
+        "audience": [
+          "wlw"
+        ]
+      },
+      {
+        "id": "aud_wlw_wyr_03",
+        "category": "mariage",
+        "question": "Pour votre engagement, tu préfères…",
+        "optionA": "Créer une cérémonie sans aucun rôle traditionnel",
+        "optionB": "Garder quelques traditions mais les réinventer à votre manière",
+        "audience": [
+          "wlw"
+        ]
+      },
+      {
+        "id": "aud_wlw_wyr_04",
+        "category": "famille",
+        "question": "Face à un proche qui met du temps à accepter votre couple, tu préfères…",
+        "optionA": "Lui laisser du temps s’il reste respectueux",
+        "optionB": "Prendre immédiatement de la distance tant qu’il ne vous reconnaît pas comme couple",
+        "audience": [
+          "wlw"
+        ]
+      },
+      {
+        "id": "aud_wlw_wyr_05",
+        "category": "public",
+        "question": "Pour les gestes d’affection en public, tu préfères…",
+        "optionA": "Ne jamais laisser le regard des autres décider à votre place",
+        "optionB": "Adapter selon le lieu pour vous sentir toutes les deux en sécurité",
+        "audience": [
+          "wlw"
+        ]
+      },
+      {
+        "id": "aud_wlw_wyr_06",
+        "category": "voyage",
+        "question": "Pour vos prochaines vacances, tu préfères…",
+        "optionA": "Une destination connue pour sa grande scène LGBTQ+",
+        "optionB": "Un endroit isolé où personne ne s’intéresse à vous",
+        "audience": [
+          "wlw"
+        ]
+      },
+      {
+        "id": "aud_wlw_wyr_07",
+        "category": "amis",
+        "question": "Dans un petit cercle queer où plusieurs ex se connaissent, tu préfères…",
+        "optionA": "Tout le monde reste ami si les limites sont claires",
+        "optionB": "Garder des cercles séparés pour protéger votre tranquillité",
+        "audience": [
+          "wlw"
+        ]
+      },
+      {
+        "id": "aud_wlw_wyr_08",
+        "category": "enfants",
+        "question": "Pour un éventuel projet d’enfant, tu préfères…",
+        "optionA": "Parler très tôt de toutes les options possibles",
+        "optionB": "Attendre que le projet devienne concret avant de décider quoi que ce soit",
+        "audience": [
+          "wlw"
+        ]
+      },
+      {
+        "id": "aud_wlw_wyr_09",
+        "category": "visibilite",
+        "question": "Pour votre relation sur les réseaux, tu préfères…",
+        "optionA": "Assumer clairement votre couple et partager vos moments",
+        "optionB": "Garder votre relation presque entièrement privée",
+        "audience": [
+          "wlw"
+        ]
+      },
+      {
+        "id": "aud_wlw_wyr_10",
+        "category": "culture",
+        "question": "Pour une soirée spéciale, tu préfères…",
+        "optionA": "Un marathon de films et séries queer cultes",
+        "optionB": "Une soirée complètement normale où votre orientation n’est jamais le sujet",
+        "audience": [
+          "wlw"
+        ]
+      },
+      {
+        "id": "aud_mlm_wyr_01",
+        "category": "sortie",
+        "question": "Pour une journée qui célèbre votre couple, tu préfères…",
+        "optionA": "Une Pride immense avec toute l’énergie autour de vous",
+        "optionB": "Un week-end intime dans un lieu LGBTQ+-friendly où vous êtes tranquilles",
+        "audience": [
+          "mlm"
+        ]
+      },
+      {
+        "id": "aud_mlm_wyr_02",
+        "category": "couple",
+        "question": "Quand quelqu’un vous prend pour des amis, tu préfères…",
+        "optionA": "Corriger naturellement à chaque fois",
+        "optionB": "Laisser passer sauf si la personne compte vraiment",
+        "audience": [
+          "mlm"
+        ]
+      },
+      {
+        "id": "aud_mlm_wyr_03",
+        "category": "mariage",
+        "question": "Pour votre engagement, tu préfères…",
+        "optionA": "Créer une cérémonie sans aucun rôle traditionnel",
+        "optionB": "Garder quelques traditions mais les réinventer à votre manière",
+        "audience": [
+          "mlm"
+        ]
+      },
+      {
+        "id": "aud_mlm_wyr_04",
+        "category": "famille",
+        "question": "Face à un proche qui met du temps à accepter votre couple, tu préfères…",
+        "optionA": "Lui laisser du temps s’il reste respectueux",
+        "optionB": "Prendre immédiatement de la distance tant qu’il ne vous reconnaît pas comme couple",
+        "audience": [
+          "mlm"
+        ]
+      },
+      {
+        "id": "aud_mlm_wyr_05",
+        "category": "public",
+        "question": "Pour les gestes d’affection en public, tu préfères…",
+        "optionA": "Ne jamais laisser le regard des autres décider à votre place",
+        "optionB": "Adapter selon le lieu pour vous sentir tous les deux en sécurité",
+        "audience": [
+          "mlm"
+        ]
+      },
+      {
+        "id": "aud_mlm_wyr_06",
+        "category": "sortie",
+        "question": "Pour une soirée entre amis, tu préfères…",
+        "optionA": "Un bar gay très animé",
+        "optionB": "Un endroit complètement classique où votre orientation n’est jamais le sujet",
+        "audience": [
+          "mlm"
+        ]
+      },
+      {
+        "id": "aud_mlm_wyr_07",
+        "category": "amis",
+        "question": "Dans un petit cercle queer où plusieurs ex se connaissent, tu préfères…",
+        "optionA": "Tout le monde reste ami si les limites sont claires",
+        "optionB": "Garder des cercles séparés pour protéger votre tranquillité",
+        "audience": [
+          "mlm"
+        ]
+      },
+      {
+        "id": "aud_mlm_wyr_08",
+        "category": "parentalite",
+        "question": "Pour un éventuel projet parental, tu préfères…",
+        "optionA": "Parler très tôt des différentes voies possibles",
+        "optionB": "Attendre que le projet devienne concret avant de choisir un parcours",
+        "audience": [
+          "mlm"
+        ]
+      },
+      {
+        "id": "aud_mlm_wyr_09",
+        "category": "visibilite",
+        "question": "Pour votre relation sur les réseaux, tu préfères…",
+        "optionA": "Assumer clairement votre couple et partager vos moments",
+        "optionB": "Garder votre relation presque entièrement privée",
+        "audience": [
+          "mlm"
+        ]
+      },
+      {
+        "id": "aud_mlm_wyr_10",
+        "category": "emotion",
+        "question": "Quand l’un de vous traverse une période difficile, tu préfères…",
+        "optionA": "Parler immédiatement de tout, même si c’est inconfortable",
+        "optionB": "Laisser d’abord du temps et revenir à la conversation plus tard",
+        "audience": [
+          "mlm"
+        ]
+      },
+      {
+        "id": "aud_hetero_wyr_01",
+        "category": "mariage",
+        "question": "Pour une éventuelle demande en mariage, tu préfères…",
+        "optionA": "Que celui ou celle qui en a envie se lance en premier",
+        "optionB": "Garder la tradition selon laquelle une personne précise fait la demande",
+        "audience": [
+          "hetero"
+        ]
+      },
+      {
+        "id": "aud_hetero_wyr_02",
+        "category": "argent",
+        "question": "Pour vos rendez-vous, tu préfères…",
+        "optionA": "Partager selon vos moyens réels",
+        "optionB": "Alterner ou inviter sans règle fixe",
+        "audience": [
+          "hetero"
+        ]
+      },
+      {
+        "id": "aud_hetero_wyr_03",
+        "category": "nom",
+        "question": "En cas de mariage, tu préfères…",
+        "optionA": "Créer votre propre solution pour le nom de famille",
+        "optionB": "Garder chacun votre nom sans vous poser davantage de questions",
+        "audience": [
+          "hetero"
+        ]
+      },
+      {
+        "id": "aud_hetero_wyr_04",
+        "category": "quotidien",
+        "question": "Pour les tâches de la maison, tu préfères…",
+        "optionA": "Une répartition très explicite et régulièrement rééquilibrée",
+        "optionB": "Fonctionner spontanément tant que personne ne se sent lésé",
+        "audience": [
+          "hetero"
+        ]
+      },
+      {
+        "id": "aud_hetero_wyr_05",
+        "category": "famille",
+        "question": "Face à un proche qui impose des rôles homme-femme à votre couple, tu préfères…",
+        "optionA": "Le corriger immédiatement",
+        "optionB": "Laisser couler tant qu’il ne décide pas réellement à votre place",
+        "audience": [
+          "hetero"
+        ]
+      },
+      {
+        "id": "aud_hetero_wyr_06",
+        "category": "amis",
+        "question": "Pour les amitiés potentiellement ambiguës, tu préfères…",
+        "optionA": "Les mêmes règles exactement pour les deux partenaires",
+        "optionB": "Des limites adaptées à chaque relation selon l’histoire et le contexte",
+        "audience": [
+          "hetero"
+        ]
+      },
+      {
+        "id": "aud_hetero_wyr_07",
+        "category": "parentalite",
+        "question": "Avec un enfant, tu préfères…",
+        "optionA": "Chercher une répartition la plus égale possible de chaque tâche",
+        "optionB": "Répartir selon les préférences de chacun même si les rôles deviennent très différents",
+        "audience": [
+          "hetero"
+        ]
+      },
+      {
+        "id": "aud_hetero_wyr_08",
+        "category": "carriere",
+        "question": "Si une carrière exigeait un gros sacrifice, tu préfères…",
+        "optionA": "Décider uniquement selon le projet le plus important à ce moment-là",
+        "optionB": "Toujours protéger au maximum l’équilibre des deux carrières",
+        "audience": [
+          "hetero"
+        ]
+      },
+      {
+        "id": "aud_hetero_wyr_09",
+        "category": "traditions",
+        "question": "Pour votre couple, tu préfères…",
+        "optionA": "Réinventer presque toutes les traditions genrées",
+        "optionB": "Garder celles qui vous font plaisir sans vous soucier de leur origine",
+        "audience": [
+          "hetero"
+        ]
+      },
+      {
+        "id": "aud_hetero_wyr_10",
+        "category": "emotion",
+        "question": "Quand l’homme du couple traverse une période difficile, tu préfères…",
+        "optionA": "En parler très ouvertement et immédiatement",
+        "optionB": "Respecter son besoin de temps tout en gardant une porte ouverte",
+        "audience": [
+          "hetero"
+        ]
+      },
+      {
+        "id": "aud_other_wyr_01",
+        "category": "identite",
+        "question": "Pour présenter votre relation, tu préfères…",
+        "optionA": "Un mot clair que vous utilisez presque partout",
+        "optionB": "Adapter les mots selon les personnes et les contextes",
+        "audience": [
+          "other"
+        ]
+      },
+      {
+        "id": "aud_other_wyr_02",
+        "category": "pronoms",
+        "question": "Quand quelqu’un se trompe sur ton identité, tu préfères que ton/ta partenaire…",
+        "optionA": "Corrige immédiatement à ta place",
+        "optionB": "Attende de voir si tu souhaites intervenir toi-même",
+        "audience": [
+          "other"
+        ]
+      },
+      {
+        "id": "aud_other_wyr_03",
+        "category": "visibilite",
+        "question": "Pour votre couple, tu préfères…",
+        "optionA": "Être très visible quand c’est possible",
+        "optionB": "Garder votre histoire principalement dans votre cercle proche",
+        "audience": [
+          "other"
+        ]
+      },
+      {
+        "id": "aud_other_wyr_04",
+        "category": "famille",
+        "question": "Pour votre famille choisie, tu préfères…",
+        "optionA": "L’intégrer pleinement à toutes vos grandes célébrations",
+        "optionB": "Garder des moments séparés entre famille biologique et famille choisie",
+        "audience": [
+          "other"
+        ]
+      },
+      {
+        "id": "aud_other_wyr_05",
+        "category": "etiquettes",
+        "question": "Si une étiquette ne vous correspond plus, tu préfères…",
+        "optionA": "En choisir rapidement une nouvelle",
+        "optionB": "Ne plus en utiliser du tout pendant un temps",
+        "audience": [
+          "other"
+        ]
+      },
+      {
+        "id": "aud_other_wyr_06",
+        "category": "securite",
+        "question": "Dans un nouvel endroit, tu préfères…",
+        "optionA": "Être vous-mêmes immédiatement et ajuster seulement s’il y a un problème",
+        "optionB": "Observer d’abord l’ambiance avant de montrer clairement votre relation",
+        "audience": [
+          "other"
+        ]
+      },
+      {
+        "id": "aud_other_wyr_07",
+        "category": "vie_privee",
+        "question": "Face à une question intrusive, tu préfères…",
+        "optionA": "Répondre franchement pour normaliser votre réalité",
+        "optionB": "Dire clairement que cela ne regarde pas la personne",
+        "audience": [
+          "other"
+        ]
+      },
+      {
+        "id": "aud_other_wyr_08",
+        "category": "souvenirs",
+        "question": "Pour les anciennes photos liées à une identité passée, tu préfères…",
+        "optionA": "Les garder privées comme partie de votre histoire",
+        "optionB": "Les supprimer complètement si elles ne correspondent plus à la personne actuelle",
+        "audience": [
+          "other"
+        ]
+      },
+      {
+        "id": "aud_other_wyr_09",
+        "category": "parentalite",
+        "question": "Pour un éventuel projet parental, tu préfères…",
+        "optionA": "Inventer vos propres noms et rôles",
+        "optionB": "Choisir parmi les mots familiaux déjà connus qui vous conviennent le mieux",
+        "audience": [
+          "other"
+        ]
+      },
+      {
+        "id": "aud_other_wyr_10",
+        "category": "communaute",
+        "question": "Pour vos espaces sociaux, tu préfères…",
+        "optionA": "Un cercle principalement queer où vous avez peu à expliquer",
+        "optionB": "Un cercle très mélangé où votre couple n’est qu’un aspect parmi d’autres",
+        "audience": [
+          "other"
+        ]
+      }
+    ],
+    "threeYesNo": [
+      {
+        "id": "aud_wlw_tyn_01",
+        "title": "Notre couple dans le regard des autres",
+        "audience": [
+          "wlw"
+        ],
+        "situations": [
+          {
+            "id": "aud_wlw_tyn_01_01",
+            "category": "visibilite",
+            "text": "On se tient la main partout, même si certaines personnes nous dévisagent."
+          },
+          {
+            "id": "aud_wlw_tyn_01_02",
+            "category": "famille",
+            "text": "Je laisse un membre de ma famille te présenter comme mon amie pendant encore un an pour éviter le conflit."
+          },
+          {
+            "id": "aud_wlw_tyn_01_03",
+            "category": "communaute",
+            "text": "Je pars un week-end dans un festival queer avec mes amies sans toi."
+          },
+          {
+            "id": "aud_wlw_tyn_01_04",
+            "category": "ex",
+            "text": "Je reste très proche d’une ex parce qu’elle fait partie de mon cercle d’amies depuis des années."
+          },
+          {
+            "id": "aud_wlw_tyn_01_05",
+            "category": "reseaux",
+            "text": "Je publie une vidéo très visible sur notre couple sans te demander avant."
+          },
+          {
+            "id": "aud_wlw_tyn_01_06",
+            "category": "fierte",
+            "text": "Je corrige chaque personne qui suppose que nous sommes sœurs ou amies, même quand ça crée un moment gênant."
+          }
+        ]
+      },
+      {
+        "id": "aud_wlw_tyn_02",
+        "title": "Entre fierté, famille et futur",
+        "audience": [
+          "wlw"
+        ],
+        "situations": [
+          {
+            "id": "aud_wlw_tyn_02_01",
+            "category": "mariage",
+            "text": "Je veux une cérémonie qui supprime complètement toutes les traditions genrées."
+          },
+          {
+            "id": "aud_wlw_tyn_02_02",
+            "category": "enfants",
+            "text": "Je veux décider très tôt laquelle de nous porterait une éventuelle grossesse."
+          },
+          {
+            "id": "aud_wlw_tyn_02_03",
+            "category": "famille",
+            "text": "Je refuse d’aller chez un proche qui ne reconnaît pas notre couple."
+          },
+          {
+            "id": "aud_wlw_tyn_02_04",
+            "category": "public",
+            "text": "Je veux qu’on s’embrasse en public sans jamais adapter notre comportement au lieu."
+          },
+          {
+            "id": "aud_wlw_tyn_02_05",
+            "category": "communaute",
+            "text": "Je souhaite qu’une grande partie de nos amis soient issus de la communauté LGBTQ+."
+          },
+          {
+            "id": "aud_wlw_tyn_02_06",
+            "category": "vie_privee",
+            "text": "Je ne veux jamais publier notre relation en ligne, même pour un anniversaire important."
+          }
+        ]
+      },
+      {
+        "id": "aud_mlm_tyn_01",
+        "title": "Notre couple dans le regard des autres",
+        "audience": [
+          "mlm"
+        ],
+        "situations": [
+          {
+            "id": "aud_mlm_tyn_01_01",
+            "category": "visibilite",
+            "text": "On se tient la main partout, même si certaines personnes nous dévisagent."
+          },
+          {
+            "id": "aud_mlm_tyn_01_02",
+            "category": "famille",
+            "text": "Je laisse un membre de ma famille te présenter comme mon ami pendant encore un an pour éviter le conflit."
+          },
+          {
+            "id": "aud_mlm_tyn_01_03",
+            "category": "communaute",
+            "text": "Je pars un week-end dans un festival queer avec mes amis sans toi."
+          },
+          {
+            "id": "aud_mlm_tyn_01_04",
+            "category": "ex",
+            "text": "Je reste très proche d’un ex parce qu’il fait partie de mon cercle d’amis depuis des années."
+          },
+          {
+            "id": "aud_mlm_tyn_01_05",
+            "category": "reseaux",
+            "text": "Je publie une vidéo très visible sur notre couple sans te demander avant."
+          },
+          {
+            "id": "aud_mlm_tyn_01_06",
+            "category": "fierte",
+            "text": "Je corrige chaque personne qui suppose que nous sommes frères ou amis, même quand ça crée un moment gênant."
+          }
+        ]
+      },
+      {
+        "id": "aud_mlm_tyn_02",
+        "title": "Entre fierté, sorties et futur",
+        "audience": [
+          "mlm"
+        ],
+        "situations": [
+          {
+            "id": "aud_mlm_tyn_02_01",
+            "category": "mariage",
+            "text": "Je veux une cérémonie qui supprime complètement toutes les traditions genrées."
+          },
+          {
+            "id": "aud_mlm_tyn_02_02",
+            "category": "parentalite",
+            "text": "Je veux qu’on choisisse très tôt la voie que nous utiliserions pour devenir parents."
+          },
+          {
+            "id": "aud_mlm_tyn_02_03",
+            "category": "famille",
+            "text": "Je refuse d’aller chez un proche qui ne reconnaît pas notre couple."
+          },
+          {
+            "id": "aud_mlm_tyn_02_04",
+            "category": "public",
+            "text": "Je veux qu’on s’embrasse en public sans jamais adapter notre comportement au lieu."
+          },
+          {
+            "id": "aud_mlm_tyn_02_05",
+            "category": "sorties",
+            "text": "Je veux continuer à aller régulièrement seul dans des bars gay même si tu n’aimes pas ces endroits."
+          },
+          {
+            "id": "aud_mlm_tyn_02_06",
+            "category": "vie_privee",
+            "text": "Je ne veux jamais publier notre relation en ligne, même pour un anniversaire important."
+          }
+        ]
+      },
+      {
+        "id": "aud_hetero_tyn_01",
+        "title": "Les rôles que les autres veulent choisir pour nous",
+        "audience": [
+          "hetero"
+        ],
+        "situations": [
+          {
+            "id": "aud_hetero_tyn_01_01",
+            "category": "argent",
+            "text": "Je veux que l’homme du couple paie toujours les rendez-vous parce que j’aime cette tradition."
+          },
+          {
+            "id": "aud_hetero_tyn_01_02",
+            "category": "mariage",
+            "text": "Je veux que la demande en mariage vienne forcément de l’homme."
+          },
+          {
+            "id": "aud_hetero_tyn_01_03",
+            "category": "nom",
+            "text": "Je veux que la femme change automatiquement de nom en cas de mariage."
+          },
+          {
+            "id": "aud_hetero_tyn_01_04",
+            "category": "quotidien",
+            "text": "Je préfère que la personne la plus organisée gère presque toute la charge mentale, même si c’est toujours la même."
+          },
+          {
+            "id": "aud_hetero_tyn_01_05",
+            "category": "amis",
+            "text": "Je veux interdire à mon/ma partenaire les amitiés très proches avec des personnes du genre qui pourrait l’attirer."
+          },
+          {
+            "id": "aud_hetero_tyn_01_06",
+            "category": "famille",
+            "text": "Je laisse nos familles plaisanter sur les rôles homme-femme tant qu’elles ne nous imposent rien concrètement."
+          }
+        ]
+      },
+      {
+        "id": "aud_hetero_tyn_02",
+        "title": "Notre version du couple",
+        "audience": [
+          "hetero"
+        ],
+        "situations": [
+          {
+            "id": "aud_hetero_tyn_02_01",
+            "category": "carriere",
+            "text": "Si nous avons un enfant, la carrière de la personne qui gagne le plus passe automatiquement en priorité pendant cinq ans."
+          },
+          {
+            "id": "aud_hetero_tyn_02_02",
+            "category": "parentalite",
+            "text": "Je veux une répartition exactement 50/50 de toutes les tâches parentales, même si certaines nous conviennent mieux à l’un qu’à l’autre."
+          },
+          {
+            "id": "aud_hetero_tyn_02_03",
+            "category": "argent",
+            "text": "Je veux que toutes nos dépenses soient communes dès que nous vivons ensemble."
+          },
+          {
+            "id": "aud_hetero_tyn_02_04",
+            "category": "mariage",
+            "text": "Je veux supprimer toutes les traditions genrées de notre mariage."
+          },
+          {
+            "id": "aud_hetero_tyn_02_05",
+            "category": "emotion",
+            "text": "Je veux que nous parlions immédiatement de chaque problème, même quand l’un de nous a besoin de temps."
+          },
+          {
+            "id": "aud_hetero_tyn_02_06",
+            "category": "famille",
+            "text": "Je suis prêt(e) à prendre mes distances avec un proche qui insiste pour nous imposer des rôles traditionnels."
+          }
+        ]
+      },
+      {
+        "id": "aud_other_tyn_01",
+        "title": "Notre couple sans mode d’emploi",
+        "audience": [
+          "other"
+        ],
+        "situations": [
+          {
+            "id": "aud_other_tyn_01_01",
+            "category": "identite",
+            "text": "Je change la manière de définir notre relation sur mes réseaux sans t’en parler avant."
+          },
+          {
+            "id": "aud_other_tyn_01_02",
+            "category": "pronoms",
+            "text": "Je corrige chaque personne qui utilise les mauvais pronoms pour toi, même si tu ne me l’as pas demandé."
+          },
+          {
+            "id": "aud_other_tyn_01_03",
+            "category": "famille",
+            "text": "Je laisse ma famille utiliser un ancien terme pour parler de toi pendant encore un an afin d’éviter un conflit."
+          },
+          {
+            "id": "aud_other_tyn_01_04",
+            "category": "visibilite",
+            "text": "Je veux être très visible publiquement en tant que couple queer, même si tu préfères rester discret/discrète."
+          },
+          {
+            "id": "aud_other_tyn_01_05",
+            "category": "vie_privee",
+            "text": "Je réponds aux questions personnelles sur ton identité parce que je pense que cela aide les gens à comprendre."
+          },
+          {
+            "id": "aud_other_tyn_01_06",
+            "category": "famille_choisie",
+            "text": "Je considère notre famille choisie prioritaire sur tout proche biologique qui ne respecte pas notre couple."
+          }
+        ]
+      },
+      {
+        "id": "aud_other_tyn_02",
+        "title": "Étiquettes, sécurité et futur",
+        "audience": [
+          "other"
+        ],
+        "situations": [
+          {
+            "id": "aud_other_tyn_02_01",
+            "category": "etiquettes",
+            "text": "Je refuse totalement d’utiliser une étiquette pour notre relation, même si cela t’aiderait à te sentir reconnu(e)."
+          },
+          {
+            "id": "aud_other_tyn_02_02",
+            "category": "securite",
+            "text": "Je veux qu’on adapte toujours notre visibilité dès qu’un endroit me paraît potentiellement hostile."
+          },
+          {
+            "id": "aud_other_tyn_02_03",
+            "category": "souvenirs",
+            "text": "Je garde en privé toutes les anciennes photos de toi, même celles que tu préférerais voir disparaître."
+          },
+          {
+            "id": "aud_other_tyn_02_04",
+            "category": "parentalite",
+            "text": "Je veux inventer nos propres noms de parents plutôt qu’utiliser des termes existants."
+          },
+          {
+            "id": "aud_other_tyn_02_05",
+            "category": "administratif",
+            "text": "Je suis prêt(e) à contester systématiquement chaque formulaire ou administration qui ne prévoit pas notre situation."
+          },
+          {
+            "id": "aud_other_tyn_02_06",
+            "category": "communaute",
+            "text": "Je souhaite que la majorité de notre cercle proche soit queer pour que nous ayons moins à nous expliquer."
+          }
+        ]
+      }
+    ],
+    "limitReached": [
+      {
+        "id": "aud_wlw_limit_01",
+        "title": "Toujours présentées comme “amies”",
+        "category": "visibilite",
+        "audience": [
+          "wlw"
+        ],
+        "levels": [
+          {
+            "level": 1,
+            "question": "Un membre éloigné de sa famille pense encore que vous êtes de simples amies."
+          },
+          {
+            "level": 2,
+            "question": "Ton/ta partenaire ne corrige pas ce membre de la famille quand vous le voyez rarement."
+          },
+          {
+            "level": 3,
+            "question": "Ton/ta partenaire te demande de jouer le rôle de l’amie pendant un repas familial important."
+          },
+          {
+            "level": 4,
+            "question": "Ton/ta partenaire refuse que vous ayez le moindre geste affectueux devant toute sa famille."
+          },
+          {
+            "level": 5,
+            "question": "Ton/ta partenaire te présente comme son amie même à des proches qui connaissent déjà la vérité."
+          },
+          {
+            "level": 6,
+            "question": "Ton/ta partenaire veut maintenir cette version indéfiniment et refuse toute discussion sur le sujet."
+          }
+        ]
+      },
+      {
+        "id": "aud_wlw_limit_02",
+        "title": "L’ex dans le même cercle queer",
+        "category": "ex",
+        "audience": [
+          "wlw"
+        ],
+        "levels": [
+          {
+            "level": 1,
+            "question": "L’ex de ton/ta partenaire fait partie d’un grand groupe d’amies que vous croisez parfois."
+          },
+          {
+            "level": 2,
+            "question": "Ton/ta partenaire discute régulièrement avec cette ex lors des sorties de groupe."
+          },
+          {
+            "level": 3,
+            "question": "Ton/ta partenaire échange aussi des messages privés avec cette ex de temps en temps."
+          },
+          {
+            "level": 4,
+            "question": "Ton/ta partenaire voit cette ex seul(e) pour boire un café afin de parler de choses personnelles."
+          },
+          {
+            "level": 5,
+            "question": "Ton/ta partenaire part un week-end entre amies où cette ex est présente sans toi."
+          },
+          {
+            "level": 6,
+            "question": "Ton/ta partenaire te dit qu’il/elle ne changera jamais cette proximité, même si l’ex avoue encore avoir des sentiments."
+          }
+        ]
+      },
+      {
+        "id": "aud_wlw_limit_03",
+        "title": "La visibilité de votre couple",
+        "category": "visibilite",
+        "audience": [
+          "wlw"
+        ],
+        "levels": [
+          {
+            "level": 1,
+            "question": "Ton/ta partenaire préfère ne presque jamais publier votre couple sur les réseaux."
+          },
+          {
+            "level": 2,
+            "question": "Ton/ta partenaire évite aussi de vous montrer comme un couple devant certains collègues."
+          },
+          {
+            "level": 3,
+            "question": "Ton/ta partenaire refuse les gestes d’affection dans la plupart des lieux publics."
+          },
+          {
+            "level": 4,
+            "question": "Ton/ta partenaire demande que tu ne mentionnes pas votre relation quand vous rencontrez de nouvelles personnes."
+          },
+          {
+            "level": 5,
+            "question": "Ton/ta partenaire supprime une photo de vous parce que des connaissances pourraient comprendre que vous êtes ensemble."
+          },
+          {
+            "level": 6,
+            "question": "Ton/ta partenaire affirme qu’il/elle ne voudra jamais être publiquement identifié(e) comme étant en couple avec une personne du même genre."
+          }
+        ]
+      },
+      {
+        "id": "aud_mlm_limit_01",
+        "title": "Toujours présentés comme “amis”",
+        "category": "visibilite",
+        "audience": [
+          "mlm"
+        ],
+        "levels": [
+          {
+            "level": 1,
+            "question": "Un membre éloigné de sa famille pense encore que vous êtes de simples amis."
+          },
+          {
+            "level": 2,
+            "question": "Ton/ta partenaire ne corrige pas ce membre de la famille quand vous le voyez rarement."
+          },
+          {
+            "level": 3,
+            "question": "Ton/ta partenaire te demande de jouer le rôle de l’ami pendant un repas familial important."
+          },
+          {
+            "level": 4,
+            "question": "Ton/ta partenaire refuse que vous ayez le moindre geste affectueux devant toute sa famille."
+          },
+          {
+            "level": 5,
+            "question": "Ton/ta partenaire te présente comme son ami même à des proches qui connaissent déjà la vérité."
+          },
+          {
+            "level": 6,
+            "question": "Ton/ta partenaire veut maintenir cette version indéfiniment et refuse toute discussion sur le sujet."
+          }
+        ]
+      },
+      {
+        "id": "aud_mlm_limit_02",
+        "title": "L’ex dans le même cercle gay",
+        "category": "ex",
+        "audience": [
+          "mlm"
+        ],
+        "levels": [
+          {
+            "level": 1,
+            "question": "L’ex de ton/ta partenaire fait partie d’un grand groupe d’amis que vous croisez parfois."
+          },
+          {
+            "level": 2,
+            "question": "Ton/ta partenaire discute régulièrement avec cet ex lors des sorties de groupe."
+          },
+          {
+            "level": 3,
+            "question": "Ton/ta partenaire échange aussi des messages privés avec cet ex de temps en temps."
+          },
+          {
+            "level": 4,
+            "question": "Ton/ta partenaire voit cet ex seul(e) pour boire un café et parler de choses personnelles."
+          },
+          {
+            "level": 5,
+            "question": "Ton/ta partenaire part un week-end entre amis où cet ex est présent sans toi."
+          },
+          {
+            "level": 6,
+            "question": "Ton/ta partenaire refuse de changer cette proximité même après que l’ex avoue encore avoir des sentiments."
+          }
+        ]
+      },
+      {
+        "id": "aud_mlm_limit_03",
+        "title": "La visibilité de votre couple",
+        "category": "visibilite",
+        "audience": [
+          "mlm"
+        ],
+        "levels": [
+          {
+            "level": 1,
+            "question": "Ton/ta partenaire préfère ne presque jamais publier votre couple sur les réseaux."
+          },
+          {
+            "level": 2,
+            "question": "Ton/ta partenaire évite aussi de vous montrer comme un couple devant certains collègues."
+          },
+          {
+            "level": 3,
+            "question": "Ton/ta partenaire refuse les gestes d’affection dans la plupart des lieux publics."
+          },
+          {
+            "level": 4,
+            "question": "Ton/ta partenaire demande que tu ne mentionnes pas votre relation quand vous rencontrez de nouvelles personnes."
+          },
+          {
+            "level": 5,
+            "question": "Ton/ta partenaire supprime une photo de vous parce que des connaissances pourraient comprendre que vous êtes ensemble."
+          },
+          {
+            "level": 6,
+            "question": "Ton/ta partenaire affirme qu’il/elle ne voudra jamais être publiquement identifié(e) comme étant en couple avec une personne du même genre."
+          }
+        ]
+      },
+      {
+        "id": "aud_hetero_limit_01",
+        "title": "Les rôles “traditionnels” qui s’installent",
+        "category": "roles",
+        "audience": [
+          "hetero"
+        ],
+        "levels": [
+          {
+            "level": 1,
+            "question": "Ton/ta partenaire plaisante parfois en disant qu’une tâche est ‘plutôt un truc d’homme’ ou ‘plutôt un truc de femme’."
+          },
+          {
+            "level": 2,
+            "question": "Ton/ta partenaire préfère réellement que certaines tâches soient réparties selon ces rôles."
+          },
+          {
+            "level": 3,
+            "question": "Ton/ta partenaire attend que tu prennes en charge presque toute une catégorie du quotidien uniquement à cause de ton genre."
+          },
+          {
+            "level": 4,
+            "question": "Ton/ta partenaire laisse aussi sa famille te reprocher de ne pas tenir ce rôle."
+          },
+          {
+            "level": 5,
+            "question": "Ton/ta partenaire refuse de rééquilibrer les tâches même quand tu expliques que cela t’épuise."
+          },
+          {
+            "level": 6,
+            "question": "Ton/ta partenaire considère que votre couple ne fonctionnerait pas si vous abandonniez ces rôles traditionnels."
+          }
+        ]
+      },
+      {
+        "id": "aud_hetero_limit_02",
+        "title": "La demande et le mariage déjà écrits d’avance",
+        "category": "mariage",
+        "audience": [
+          "hetero"
+        ],
+        "levels": [
+          {
+            "level": 1,
+            "question": "Ton/ta partenaire a une préférence très forte sur la personne qui devrait faire une éventuelle demande en mariage."
+          },
+          {
+            "level": 2,
+            "question": "Ton/ta partenaire considère qu’une demande venant de l’autre personne serait ‘bizarre’."
+          },
+          {
+            "level": 3,
+            "question": "Ton/ta partenaire veut aussi que plusieurs traditions de mariage soient suivies selon les rôles homme-femme."
+          },
+          {
+            "level": 4,
+            "question": "Ton/ta partenaire refuse d’adapter une tradition qui te met personnellement mal à l’aise."
+          },
+          {
+            "level": 5,
+            "question": "Ton/ta partenaire demande à sa famille de faire pression sur toi pour respecter ces traditions."
+          },
+          {
+            "level": 6,
+            "question": "Ton/ta partenaire affirme qu’il/elle préférerait ne pas se marier du tout plutôt que de construire une cérémonie différente."
+          }
+        ]
+      },
+      {
+        "id": "aud_hetero_limit_03",
+        "title": "Les amitiés selon le genre",
+        "category": "jalousie",
+        "audience": [
+          "hetero"
+        ],
+        "levels": [
+          {
+            "level": 1,
+            "question": "Ton/ta partenaire se sent parfois un peu jaloux/jalouse d’une amitié proche avec une personne qui pourrait t’attirer."
+          },
+          {
+            "level": 2,
+            "question": "Ton/ta partenaire demande à être prévenu(e) avant vos sorties en tête-à-tête."
+          },
+          {
+            "level": 3,
+            "question": "Ton/ta partenaire préfère que tu évites les soirées tardives seul(e) avec cette personne."
+          },
+          {
+            "level": 4,
+            "question": "Ton/ta partenaire te demande de réduire fortement cette amitié malgré l’absence de flirt."
+          },
+          {
+            "level": 5,
+            "question": "Ton/ta partenaire veut une règle générale interdisant toute amitié très proche avec certaines personnes selon leur genre."
+          },
+          {
+            "level": 6,
+            "question": "Ton/ta partenaire exige que tu coupes le contact avec plusieurs amis uniquement parce qu’une attirance serait théoriquement possible."
+          }
+        ]
+      },
+      {
+        "id": "aud_other_limit_01",
+        "title": "Les mots qui définissent votre relation",
+        "category": "identite",
+        "audience": [
+          "other"
+        ],
+        "levels": [
+          {
+            "level": 1,
+            "question": "Ton/ta partenaire préfère un mot différent du tien pour décrire votre relation."
+          },
+          {
+            "level": 2,
+            "question": "Ton/ta partenaire utilise son terme préféré avec ses proches même quand tu es présent(e)."
+          },
+          {
+            "level": 3,
+            "question": "Ton/ta partenaire corrige les personnes qui utilisent le mot que toi tu préfères."
+          },
+          {
+            "level": 4,
+            "question": "Ton/ta partenaire publie une nouvelle définition de votre relation sans t’en parler."
+          },
+          {
+            "level": 5,
+            "question": "Ton/ta partenaire refuse d’utiliser le moindre terme qui te permette de te sentir reconnu(e)."
+          },
+          {
+            "level": 6,
+            "question": "Ton/ta partenaire affirme que ta manière de nommer votre relation est fausse et ne veut plus en discuter."
+          }
+        ]
+      },
+      {
+        "id": "aud_other_limit_02",
+        "title": "Une information personnelle révélée",
+        "category": "vie_privee",
+        "audience": [
+          "other"
+        ],
+        "levels": [
+          {
+            "level": 1,
+            "question": "Ton/ta partenaire mentionne à un ami une information sur ton identité que tu pensais privée."
+          },
+          {
+            "level": 2,
+            "question": "Ton/ta partenaire en parle à plusieurs proches pour qu’ils comprennent mieux votre couple."
+          },
+          {
+            "level": 3,
+            "question": "Ton/ta partenaire répond aussi aux questions de connaissances sans te consulter."
+          },
+          {
+            "level": 4,
+            "question": "Ton/ta partenaire publie indirectement cette information sur les réseaux."
+          },
+          {
+            "level": 5,
+            "question": "Ton/ta partenaire refuse de supprimer la publication parce qu’elle lui semble positive."
+          },
+          {
+            "level": 6,
+            "question": "Ton/ta partenaire continue à partager cette information malgré ta demande explicite d’arrêter."
+          }
+        ]
+      },
+      {
+        "id": "aud_other_limit_03",
+        "title": "Votre visibilité dans les lieux peu sûrs",
+        "category": "securite",
+        "audience": [
+          "other"
+        ],
+        "levels": [
+          {
+            "level": 1,
+            "question": "Ton/ta partenaire préfère être discret/discrète dans un endroit qu’il/elle connaît mal."
+          },
+          {
+            "level": 2,
+            "question": "Ton/ta partenaire demande aussi d’éviter les gestes affectueux dans plusieurs lieux publics."
+          },
+          {
+            "level": 3,
+            "question": "Ton/ta partenaire veut que vous adaptiez systématiquement votre façon de vous présenter avec des inconnus."
+          },
+          {
+            "level": 4,
+            "question": "Ton/ta partenaire refuse d’être identifié(e) comme ton/ta partenaire dans tout environnement nouveau."
+          },
+          {
+            "level": 5,
+            "question": "Ton/ta partenaire évite les photos publiques et les événements où votre relation pourrait être visible."
+          },
+          {
+            "level": 6,
+            "question": "Ton/ta partenaire affirme que votre couple devrait toujours rester caché dans l’espace public, même dans des lieux sûrs."
+          }
+        ]
+      }
+    ]
+  }
+}

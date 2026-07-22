@@ -908,6 +908,13 @@ const profileColorButtons = document.querySelectorAll("[data-profile-color]");
 const profileColorField = document.getElementById("profileColorField");
 const profileColorCursor = document.getElementById("profileColorCursor");
 const profileHueInput = document.getElementById("profileHueInput");
+const profileCoupleTypeInput = document.getElementById("profileCoupleTypeInput");
+const profileCoupleTypeButtons = document.querySelectorAll("[data-profile-couple-type]");
+const coupleTypeOnboardingModal = document.getElementById("coupleTypeOnboardingModal");
+const coupleTypeOnboardingInput = document.getElementById("coupleTypeOnboardingInput");
+const coupleTypeOnboardingButtons = document.querySelectorAll("[data-onboarding-couple-type]");
+const saveCoupleTypeOnboardingBtn = document.getElementById("saveCoupleTypeOnboardingBtn");
+const laterCoupleTypeOnboardingBtn = document.getElementById("laterCoupleTypeOnboardingBtn");
 const saveCoupleProfileBtn = document.getElementById("saveCoupleProfileBtn");
 const openStoryFromProfileBtn = document.getElementById("openStoryFromProfileBtn");
 
@@ -1739,6 +1746,36 @@ let wouldRatherQuestions = [];
 let threeYesNoSituations = [];
 let limitReachedScenarios = [];
 let coupleDares = [];
+let audienceContentPacks = {};
+const audienceContentPacksPromise = fetch("data/audience-packs.json")
+    .then((response) => {
+        if (!response.ok) throw new Error("Pack de personnalisation indisponible");
+        return response.json();
+    })
+    .then((payload) => {
+        audienceContentPacks = payload?.packs || {};
+        return audienceContentPacks;
+    })
+    .catch((error) => {
+        console.warn("Contenus personnalisés indisponibles, catalogue universel conservé", error);
+        audienceContentPacks = {};
+        return audienceContentPacks;
+    });
+
+function mergeAudienceContent(mode, baseItems) {
+    return audienceContentPacksPromise.then((packs) => {
+        const additions = Array.isArray(packs?.[mode]) ? packs[mode] : [];
+        const merged = [...(Array.isArray(baseItems) ? baseItems : []), ...additions];
+        const seen = new Set();
+        return merged.filter((item) => {
+            const id = String(item?.id || "");
+            if (!id || seen.has(id)) return false;
+            seen.add(id);
+            return true;
+        });
+    });
+}
+
 let activeNewGameMode = null;
 let activeNewGameId = null;
 let isStartingNewGame = false;
@@ -1859,6 +1896,7 @@ function listenToCurrentSpace(spaceCodeValue) {
 
         updateRelationshipDays(spaceData.story);
         applyCoupleProfile(spaceData);
+        maybeShowCoupleTypeOnboarding(spaceData);
 
         let partner = null;
 
@@ -1951,6 +1989,7 @@ async function loadRankingsData() {
     } else {
         rankings = data.rankings || [];
     }
+    rankings = await mergeAudienceContent("ranking", rankings);
     rankings = await applyCreatorContent("ranking", rankings);
 
     console.log("Classements chargés :", rankings);
@@ -1970,13 +2009,20 @@ async function loadNewGamesData() {
         limitReachedResponse.json(),
         daresResponse.json()
     ]);
+
+    [wouldRatherQuestions, threeYesNoSituations, limitReachedScenarios] = await Promise.all([
+        mergeAudienceContent("wouldRather", wouldRatherQuestions),
+        mergeAudienceContent("threeYesNo", threeYesNoSituations),
+        mergeAudienceContent("limitReached", limitReachedScenarios)
+    ]);
 }
 
 async function loadLikelyQuestionsData() {
     const response =
         await fetch("data/likely.json");
 
-    likelyQuestions = await applyCreatorContent("likely", await response.json());
+    likelyQuestions = await mergeAudienceContent("likely", await response.json());
+    likelyQuestions = await applyCreatorContent("likely", likelyQuestions);
 
     console.log(
         "Questions Likely chargées :",
@@ -1986,7 +2032,8 @@ async function loadLikelyQuestionsData() {
 
 async function loadOkQuestionsData() {
     const response = await fetch("data/ok-ou-pas-ok.json");
-    okQuestions = await applyCreatorContent("ok", await response.json());
+    okQuestions = await mergeAudienceContent("ok", await response.json());
+    okQuestions = await applyCreatorContent("ok", okQuestions);
 
     console.log("Questions OK ou Pas OK chargées :", okQuestions);
 }
@@ -6643,27 +6690,61 @@ function getChallengeInstanceId(challenge, fallbackField = null) {
     return challenge._challengeId || challenge.challengeId || (fallbackField ? challenge[fallbackField] : null) || null;
 }
 
+const COUPLE_TYPE_VALUES = new Set(["wlw", "mlm", "hetero", "other", "universal"]);
+
+function normalizeCoupleType(value) {
+    const normalized = String(value || "").trim().toLowerCase();
+    return COUPLE_TYPE_VALUES.has(normalized) ? normalized : "";
+}
+
+function getCurrentCoupleType(spaceData = currentSpaceData) {
+    return normalizeCoupleType(spaceData?.profile?.coupleType);
+}
+
+function normalizeContentAudiences(item) {
+    const raw = item?.audience;
+    if (!raw) return ["all"];
+    const values = Array.isArray(raw) ? raw : [raw];
+    const normalized = values.map((value) => String(value || "").trim().toLowerCase()).filter(Boolean);
+    return normalized.length ? normalized : ["all"];
+}
+
+function isContentCompatibleWithCouple(item, coupleType = getCurrentCoupleType()) {
+    const audiences = normalizeContentAudiences(item);
+    if (audiences.includes("all")) return true;
+    if (!coupleType || coupleType === "universal") return false;
+    return audiences.includes(coupleType);
+}
+
+function getAudienceEligibleItems(items, spaceData = currentSpaceData) {
+    if (!Array.isArray(items)) return [];
+    const coupleType = getCurrentCoupleType(spaceData);
+    const filtered = items.filter((item) => isContentCompatibleWithCouple(item, coupleType));
+    return filtered.length ? filtered : items.filter((item) => normalizeContentAudiences(item).includes("all"));
+}
+
 function selectFreshGameItem(items, mode, currentId = null, challengePath = null) {
-    if (!Array.isArray(items) || items.length === 0) return null;
+    const audienceItems = getAudienceEligibleItems(items);
+    if (!audienceItems.length) return null;
 
     const blockedIds = getActiveChallengeIds(challengePath);
-    let history = readGameHistory(mode).filter((id) => items.some((item) => String(item.id) === String(id)));
-    const eligible = items.filter((item) => {
+    let history = readGameHistory(mode).filter((id) => audienceItems.some((item) => String(item.id) === String(id)));
+    const eligible = audienceItems.filter((item) => {
         return String(item.id) !== String(currentId || "") && !blockedIds.has(String(item.id));
     });
     let fresh = eligible.filter((item) => !history.includes(String(item.id)));
 
     if (fresh.length === 0) {
-        const recentToKeep = Math.min(12, Math.max(1, Math.floor(items.length * 0.12)));
+        const recentToKeep = Math.min(12, Math.max(1, Math.floor(audienceItems.length * 0.12)));
         history = history.slice(-recentToKeep);
         fresh = eligible.filter((item) => !history.includes(String(item.id)));
     }
 
-    const pool = fresh.length > 0 ? fresh : (eligible.length > 0 ? eligible : items);
+    const pool = fresh.length > 0 ? fresh : (eligible.length > 0 ? eligible : audienceItems);
     const selected = pool[Math.floor(Math.random() * pool.length)];
     history = history.filter((id) => String(id) !== String(selected.id));
     history.push(String(selected.id));
-    writeGameHistory(mode, history.slice(-items.length));
+    writeGameHistory(mode, history.slice(-audienceItems.length));
     return selected;
 }
 
@@ -6677,7 +6758,8 @@ function setGameSkipAvailability(mode, available, items = []) {
     if (!available || !progress) return;
 
     const seen = new Set(readGameHistory(mode));
-    const remaining = Math.max(0, items.filter((item) => !seen.has(String(item.id))).length);
+    const audienceItems = getAudienceEligibleItems(items);
+    const remaining = Math.max(0, audienceItems.filter((item) => !seen.has(String(item.id))).length);
     progress.textContent = remaining > 0
         ? remaining + " encore inédite" + (remaining > 1 ? "s" : "")
         : "Catalogue parcouru · nouvelle rotation";
@@ -8598,6 +8680,92 @@ profileAvatarButtons.forEach((button) => {
     });
 });
 
+const COUPLE_TYPE_LABELS = {
+    wlw: "Couple de femmes",
+    mlm: "Couple d’hommes",
+    hetero: "Couple femme / homme",
+    other: "Autre configuration",
+    universal: "Questions universelles uniquement"
+};
+
+function setSelectedProfileCoupleType(value) {
+    const coupleType = normalizeCoupleType(value);
+    if (!profileCoupleTypeInput) return;
+    profileCoupleTypeInput.value = coupleType;
+    profileCoupleTypeButtons.forEach((button) => {
+        const selected = button.dataset.profileCoupleType === coupleType;
+        button.classList.toggle("is-selected", selected);
+        button.setAttribute("aria-checked", String(selected));
+    });
+}
+
+profileCoupleTypeButtons.forEach((button) => {
+    button.addEventListener("click", () => setSelectedProfileCoupleType(button.dataset.profileCoupleType));
+});
+
+function setSelectedOnboardingCoupleType(value) {
+    const coupleType = normalizeCoupleType(value);
+    if (!coupleTypeOnboardingInput) return;
+    coupleTypeOnboardingInput.value = coupleType;
+    coupleTypeOnboardingButtons.forEach((button) => {
+        const selected = button.dataset.onboardingCoupleType === coupleType;
+        button.classList.toggle("is-selected", selected);
+        button.setAttribute("aria-checked", String(selected));
+    });
+    if (saveCoupleTypeOnboardingBtn) saveCoupleTypeOnboardingBtn.disabled = !coupleType;
+}
+
+coupleTypeOnboardingButtons.forEach((button) => {
+    button.addEventListener("click", () => setSelectedOnboardingCoupleType(button.dataset.onboardingCoupleType));
+});
+
+let coupleTypeOnboardingDeferredForSpace = "";
+
+function closeCoupleTypeOnboarding() {
+    if (coupleTypeOnboardingModal) coupleTypeOnboardingModal.style.display = "none";
+    document.body.classList.remove("couple-type-onboarding-open");
+}
+
+function maybeShowCoupleTypeOnboarding(spaceData = currentSpaceData) {
+    if (!coupleTypeOnboardingModal || !currentSpaceCode || !currentUser) return;
+    if (getCurrentCoupleType(spaceData)) {
+        closeCoupleTypeOnboarding();
+        return;
+    }
+    if (lastShownScreen !== "dashboard" || coupleTypeOnboardingDeferredForSpace === currentSpaceCode) return;
+    if (!spaceData?.story) return;
+    setSelectedOnboardingCoupleType("");
+    coupleTypeOnboardingModal.style.display = "flex";
+    document.body.classList.add("couple-type-onboarding-open");
+}
+
+saveCoupleTypeOnboardingBtn?.addEventListener("click", () => {
+    const coupleType = normalizeCoupleType(coupleTypeOnboardingInput?.value);
+    if (!coupleType || !currentSpaceCode || !currentUser) return;
+    saveCoupleTypeOnboardingBtn.disabled = true;
+    saveCoupleTypeOnboardingBtn.textContent = "Personnalisation…";
+    database.ref("spaces/" + currentSpaceCode + "/profile").update({
+        coupleType,
+        coupleTypeUpdatedAt: Date.now(),
+        coupleTypeUpdatedBy: currentUser.uid,
+        coupleTypeUpdatedByPseudo: pseudo
+    }).then(() => {
+        closeCoupleTypeOnboarding();
+        showToast("Questions personnalisées pour votre couple ✨");
+    }).catch((error) => {
+        console.error("Impossible d’enregistrer le type de couple", error);
+        showToast("Impossible d’enregistrer ce choix");
+    }).finally(() => {
+        saveCoupleTypeOnboardingBtn.disabled = false;
+        saveCoupleTypeOnboardingBtn.textContent = "Personnaliser nos questions";
+    });
+});
+
+laterCoupleTypeOnboardingBtn?.addEventListener("click", () => {
+    coupleTypeOnboardingDeferredForSpace = currentSpaceCode;
+    closeCoupleTypeOnboarding();
+});
+
 profileSpaceNameInput.addEventListener("input", () => {
     profileSpaceNamePreview.textContent = profileSpaceNameInput.value.trim() || "Notre coin Cactus";
 });
@@ -9131,7 +9299,9 @@ function getDailyQuestionForDate(dateKey) {
         hash = ((hash << 5) - hash + source.charCodeAt(index)) | 0;
     }
 
-    return coupleQuestions[Math.abs(hash) % coupleQuestions.length];
+    const eligibleQuestions = getAudienceEligibleItems(coupleQuestions);
+    if (!eligibleQuestions.length) return null;
+    return eligibleQuestions[Math.abs(hash) % eligibleQuestions.length];
 }
 
 function ensureDailyChallenge() {
@@ -11580,13 +11750,14 @@ async function loadGuessQuestionsData() {
     const response = await fetch("data/guess-my-answer.json");
     const data = await response.json();
 
-    guessQuestions = await applyCreatorContent("guess", data);
+    guessQuestions = await mergeAudienceContent("guess", data);
+    guessQuestions = await applyCreatorContent("guess", guessQuestions);
 
     console.log("Questions Devine ma réponse chargées :", guessQuestions);
 }
 
 function getRandomGuessQuestion() {
-    return getRandomItem(guessQuestions);
+    return getRandomItem(getAudienceEligibleItems(guessQuestions));
 }
 
 function displayGuessChallenges(challenges) {
@@ -12994,7 +13165,8 @@ function markCurrentOkResultSeen() {
 
 async function loadGreenFlagQuestionsData() {
     const response = await fetch("data/green-flag-red-flag.json");
-    greenFlagQuestions = await applyCreatorContent("greenFlag", await response.json());
+    greenFlagQuestions = await mergeAudienceContent("greenFlag", await response.json());
+    greenFlagQuestions = await applyCreatorContent("greenFlag", greenFlagQuestions);
 
     console.log("Questions Green Flag chargées :", greenFlagQuestions);
 }
@@ -13236,7 +13408,8 @@ function markCurrentGreenFlagResultSeen() {
 
 async function loadPrincessQuestionsData() {
     const response = await fetch("data/princess-treatment.json");
-    princessQuestions = await applyCreatorContent("princess", await response.json());
+    princessQuestions = await mergeAudienceContent("princess", await response.json());
+    princessQuestions = await applyCreatorContent("princess", princessQuestions);
 
     console.log("Questions Princess Treatment chargées :", princessQuestions);
 }
@@ -13544,7 +13717,8 @@ function markCurrentPrincessResultSeen() {
 
 async function loadCoupleQuestionsData() {
     const response = await fetch("data/questions.json");
-    coupleQuestions = await applyCreatorContent("questions", await response.json());
+    coupleQuestions = await mergeAudienceContent("questions", await response.json());
+    coupleQuestions = await applyCreatorContent("questions", coupleQuestions);
 
     console.log("Questions chargées :", coupleQuestions);
 }
@@ -15422,6 +15596,7 @@ function openCoupleProfile() {
     profileSpaceNameInput.value = profile.spaceName || "Notre coin Cactus";
     profileCactusNameInput.value = profile.cactusName || "Cactou";
     profileMottoInput.value = profile.motto || "Notre petit monde à deux.";
+    setSelectedProfileCoupleType(profile.coupleType || "");
     setProfileAccentColor(getSafeProfileColor(profile.accentColor));
     showScreen("coupleProfile");
 }
@@ -15430,9 +15605,14 @@ function saveCoupleProfile() {
     const spaceName = profileSpaceNameInput.value.trim();
     const cactusName = profileCactusNameInput.value.trim();
     const motto = profileMottoInput.value.trim();
+    const coupleType = normalizeCoupleType(profileCoupleTypeInput?.value);
 
     if (!spaceName || !cactusName || !motto) {
         showToast("Complète les informations du profil");
+        return;
+    }
+    if (!coupleType) {
+        showToast("Choisis la configuration de votre couple");
         return;
     }
 
@@ -15442,6 +15622,7 @@ function saveCoupleProfile() {
         spaceName,
         cactusName,
         motto,
+        coupleType,
         accentColor: getSafeProfileColor(profileAccentInput.value),
         updatedAt: Date.now(),
         updatedBy: currentUser.uid,
@@ -15462,6 +15643,7 @@ function saveCoupleProfile() {
                     spaceName,
                     cactusName,
                     motto,
+                    coupleType,
                     accentColor: updates.accentColor,
                     updatedAt: updates.updatedAt,
                     updatedBy: updates.updatedBy,
