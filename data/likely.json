@@ -1498,5 +1498,180 @@
     "id": "cactus_premium_300",
     "question": "Qui est le plus susceptible de dire « ça va être drôle » juste avant qu’une situation devienne chaotique ?",
     "category": "aventure"
+  },
+  {
+    "id": "parentalite_likely_001_qui_est_le_plus_susceptible_de_ced",
+    "question": "Qui est le plus susceptible de céder après avoir dit non à votre enfant ?",
+    "category": "futurs_parents"
+  },
+  {
+    "id": "parentalite_likely_002_qui_est_le_plus_susceptible_detre_",
+    "question": "Qui est le plus susceptible d’être appelé en premier par votre ado après une grosse bêtise ?",
+    "category": "futurs_parents"
+  },
+  {
+    "id": "parentalite_likely_003_qui_est_le_plus_susceptible_de_ver",
+    "question": "Qui est le plus susceptible de vérifier discrètement que votre enfant est bien rentré après une soirée ?",
+    "category": "futurs_parents"
+  },
+  {
+    "id": "parentalite_likely_004_qui_est_le_plus_susceptible_dimpos",
+    "question": "Qui est le plus susceptible d’imposer l’heure de retour la plus stricte ?",
+    "category": "futurs_parents"
+  },
+  {
+    "id": "parentalite_likely_005_qui_est_le_plus_susceptible_de_fai",
+    "question": "Qui est le plus susceptible de faire semblant d’être sévère puis de craquer cinq minutes plus tard ?",
+    "category": "futurs_parents"
+  },
+  {
+    "id": "parentalite_likely_006_qui_est_le_plus_susceptible_de_def",
+    "question": "Qui est le plus susceptible de défendre votre enfant face à un professeur avant d’avoir toute l’histoire ?",
+    "category": "futurs_parents"
+  },
+  {
+    "id": "parentalite_likely_007_qui_est_le_plus_susceptible_de_dem",
+    "question": "Qui est le plus susceptible de demander à voir le téléphone de votre ado en cas de doute ?",
+    "category": "futurs_parents"
+  },
+  {
+    "id": "parentalite_likely_008_qui_est_le_plus_susceptible_de_gar",
+    "question": "Qui est le plus susceptible de garder un secret confié par votre enfant ?",
+    "category": "futurs_parents"
+  },
+  {
+    "id": "parentalite_likely_009_qui_est_le_plus_susceptible_de_rac",
+    "question": "Qui est le plus susceptible de raconter à l’autre parent un secret important par inquiétude ?",
+    "category": "futurs_parents"
+  },
+  {
+    "id": "parentalite_likely_010_qui_est_le_plus_susceptible_de_dir",
+    "question": "Qui est le plus susceptible de dire oui à une soirée alors que l’autre parent avait déjà dit non ?",
+    "category": "futurs_parents"
+  },
+  {
+    "id": "parentalite_likely_011_qui_est_le_plus_susceptible_daller",
+    "question": "Qui est le plus susceptible d’aller récupérer votre ado à 3 h du matin sans faire de sermon sur le trajet ?",
+    "category": "futurs_parents"
+  },
+  {
+    "id": "parentalite_likely_012_qui_est_le_plus_susceptible_de_par",
+    "question": "Qui est le plus susceptible de parler ouvertement de sexualité avec vos enfants ?",
+    "category": "futurs_parents"
+  },
+  {
+    "id": "parentalite_likely_013_qui_est_le_plus_susceptible_detre_",
+    "question": "Qui est le plus susceptible d’être gêné(e) par les premières relations amoureuses de votre enfant ?",
+    "category": "futurs_parents"
+  },
+  {
+    "id": "parentalite_likely_014_qui_est_le_plus_susceptible_daccep",
+    "question": "Qui est le plus susceptible d’accepter rapidement que le/la partenaire de votre ado dorme à la maison ?",
+    "category": "futurs_parents"
+  },
+  {
+    "id": "parentalite_likely_015_qui_est_le_plus_susceptible_de_vou",
+    "question": "Qui est le plus susceptible de vouloir connaître tous les amis de votre enfant ?",
+    "category": "futurs_parents"
+  },
+  {
+    "id": "parentalite_likely_016_qui_est_le_plus_susceptible_davoir",
+    "question": "Qui est le plus susceptible d’avoir du mal à laisser votre enfant partir seul(e) en voyage ?",
+    "category": "futurs_parents"
+  },
+  {
+    "id": "parentalite_likely_017_qui_est_le_plus_susceptible_de_fin",
+    "question": "Qui est le plus susceptible de financer un projet un peu fou de votre enfant ?",
+    "category": "futurs_parents"
+  },
+  {
+    "id": "parentalite_likely_018_qui_est_le_plus_susceptible_de_pou",
+    "question": "Qui est le plus susceptible de pousser votre enfant à poursuivre ses études ?",
+    "category": "futurs_parents"
+  },
+  {
+    "id": "parentalite_likely_019_qui_est_le_plus_susceptible_daccep",
+    "question": "Qui est le plus susceptible d’accepter une réorientation complète sans paniquer ?",
+    "category": "futurs_parents"
+  },
+  {
+    "id": "parentalite_likely_020_qui_est_le_plus_susceptible_de_don",
+    "question": "Qui est le plus susceptible de donner trop d’argent de poche ?",
+    "category": "futurs_parents"
+  },
+  {
+    "id": "parentalite_likely_021_qui_est_le_plus_susceptible_dappre",
+    "question": "Qui est le plus susceptible d’apprendre très tôt à votre enfant à gérer un budget ?",
+    "category": "futurs_parents"
+  },
+  {
+    "id": "parentalite_likely_022_qui_est_le_plus_susceptible_de_lai",
+    "question": "Qui est le plus susceptible de laisser votre enfant faire une erreur pour qu’il/elle apprenne par lui-même ?",
+    "category": "futurs_parents"
+  },
+  {
+    "id": "parentalite_likely_023_qui_est_le_plus_susceptible_dannul",
+    "question": "Qui est le plus susceptible d’annuler une punition jugée trop sévère ?",
+    "category": "futurs_parents"
+  },
+  {
+    "id": "parentalite_likely_024_qui_est_le_plus_susceptible_de_res",
+    "question": "Qui est le plus susceptible de rester ferme jusqu’au bout sur une conséquence annoncée ?",
+    "category": "futurs_parents"
+  },
+  {
+    "id": "parentalite_likely_025_qui_est_le_plus_susceptible_de_ple",
+    "question": "Qui est le plus susceptible de pleurer le jour où votre enfant quitte la maison ?",
+    "category": "futurs_parents"
+  },
+  {
+    "id": "parentalite_likely_026_qui_est_le_plus_susceptible_dappel",
+    "question": "Qui est le plus susceptible d’appeler votre enfant adulte tous les jours juste pour prendre des nouvelles ?",
+    "category": "futurs_parents"
+  },
+  {
+    "id": "parentalite_likely_027_qui_est_le_plus_susceptible_detre_",
+    "question": "Qui est le plus susceptible d’être le parent préféré pour demander une autorisation difficile ?",
+    "category": "futurs_parents"
+  },
+  {
+    "id": "parentalite_likely_028_qui_est_le_plus_susceptible_de_rep",
+    "question": "Qui est le plus susceptible de repérer le premier qu’un adolescent ne va pas bien ?",
+    "category": "futurs_parents"
+  },
+  {
+    "id": "parentalite_likely_029_qui_est_le_plus_susceptible_de_pro",
+    "question": "Qui est le plus susceptible de proposer spontanément une thérapie si votre enfant en a besoin ?",
+    "category": "futurs_parents"
+  },
+  {
+    "id": "parentalite_likely_030_qui_est_le_plus_susceptible_de_pre",
+    "question": "Qui est le plus susceptible de prendre personnellement une phase de rejet de votre ado ?",
+    "category": "futurs_parents"
+  },
+  {
+    "id": "parentalite_likely_031_qui_est_le_plus_susceptible_de_se_",
+    "question": "Qui est le plus susceptible de se disputer avec un membre de la famille pour défendre les limites de votre enfant ?",
+    "category": "futurs_parents"
+  },
+  {
+    "id": "parentalite_likely_032_qui_est_le_plus_susceptible_daccep",
+    "question": "Qui est le plus susceptible d’accepter immédiatement un changement radical de style de votre ado ?",
+    "category": "futurs_parents"
+  },
+  {
+    "id": "parentalite_likely_033_qui_est_le_plus_susceptible_de_fai",
+    "question": "Qui est le plus susceptible de faire des recherches pendant des heures avant de prendre une décision parentale ?",
+    "category": "futurs_parents"
+  },
+  {
+    "id": "parentalite_likely_034_qui_est_le_plus_susceptible_de_dir",
+    "question": "Qui est le plus susceptible de dire « demande à l’autre parent » pour éviter de trancher ?",
+    "category": "futurs_parents"
+  },
+  {
+    "id": "parentalite_likely_035_qui_est_le_plus_susceptible_de_dev",
+    "question": "Qui est le plus susceptible de devenir le parent le plus strict alors qu’aujourd’hui il/elle pense être le plus cool ?",
+    "category": "futurs_parents"
   }
 ]

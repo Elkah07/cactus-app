@@ -1198,5 +1198,125 @@
   {
     "id": "green_red_300",
     "question": "Quelqu’un qui considère qu’aimer quelqu’un signifie aussi parfois le laisser faire un choix qu’on ne comprend pas."
+  },
+  {
+    "id": "parentalite_green_red_001_ton_ta_partenaire_pense_quun_enfan",
+    "question": "Ton/ta partenaire pense qu’un enfant doit pouvoir appeler ses parents après une grosse bêtise sans craindre que la première réaction soit une punition."
+  },
+  {
+    "id": "parentalite_green_red_002_ton_ta_partenaire_fouillerait_regu",
+    "question": "Ton/ta partenaire fouillerait régulièrement le téléphone de votre ado sans raison particulière."
+  },
+  {
+    "id": "parentalite_green_red_003_ton_ta_partenaire_prefere_discuter",
+    "question": "Ton/ta partenaire préfère discuter d’une punition avec toi en privé plutôt que vous contredire devant l’enfant."
+  },
+  {
+    "id": "parentalite_green_red_004_ton_ta_partenaire_considere_que_so",
+    "question": "Ton/ta partenaire considère que son avis doit toujours avoir plus de poids lorsqu’il/elle estime être le parent le plus expérimenté."
+  },
+  {
+    "id": "parentalite_green_red_005_ton_ta_partenaire_accepterait_que_",
+    "question": "Ton/ta partenaire accepterait que votre enfant consulte un psychologue sans exiger de connaître le contenu des séances."
+  },
+  {
+    "id": "parentalite_green_red_006_ton_ta_partenaire_pense_quun_adole",
+    "question": "Ton/ta partenaire pense qu’un adolescent ne devrait avoir aucun secret pour ses parents."
+  },
+  {
+    "id": "parentalite_green_red_007_ton_ta_partenaire_veut_que_vos_enf",
+    "question": "Ton/ta partenaire veut que vos enfants puissent parler librement de sexualité, de contraception et de relations sans craindre d’être jugés."
+  },
+  {
+    "id": "parentalite_green_red_008_ton_ta_partenaire_refuserait_que_l",
+    "question": "Ton/ta partenaire refuserait que le/la partenaire de votre enfant dorme à la maison même après sa majorité."
+  },
+  {
+    "id": "parentalite_green_red_009_ton_ta_partenaire_pense_que_lhonne",
+    "question": "Ton/ta partenaire pense que l’honnêteté d’un enfant devrait être prise en compte lorsqu’une sanction est décidée."
+  },
+  {
+    "id": "parentalite_green_red_010_ton_ta_partenaire_annule_parfois_u",
+    "question": "Ton/ta partenaire annule parfois une règle qu’il/elle trouve injuste sans t’en parler d’abord."
+  },
+  {
+    "id": "parentalite_green_red_011_ton_ta_partenaire_estime_quun_enfa",
+    "question": "Ton/ta partenaire estime qu’un enfant majeur vivant à la maison doit respecter certaines règles mais conserver une vraie vie privée."
+  },
+  {
+    "id": "parentalite_green_red_012_ton_ta_partenaire_voudrait_control",
+    "question": "Ton/ta partenaire voudrait contrôler les dépenses de votre enfant majeur tant que vous l’aidez financièrement."
+  },
+  {
+    "id": "parentalite_green_red_013_ton_ta_partenaire_est_pret_e_a_sou",
+    "question": "Ton/ta partenaire est prêt(e) à soutenir une réorientation d’études même si cela coûte plus cher et retarde l’entrée dans la vie active."
+  },
+  {
+    "id": "parentalite_green_red_014_ton_ta_partenaire_considere_quun_e",
+    "question": "Ton/ta partenaire considère qu’un enfant qui a de mauvaises notes manque forcément d’efforts."
+  },
+  {
+    "id": "parentalite_green_red_015_ton_ta_partenaire_pense_que_le_bie",
+    "question": "Ton/ta partenaire pense que le bien-être mental peut parfois justifier de ralentir les études ou de faire une pause."
+  },
+  {
+    "id": "parentalite_green_red_016_ton_ta_partenaire_veut_apprendre_t",
+    "question": "Ton/ta partenaire veut apprendre très tôt à vos enfants à gérer un budget, quitte à les laisser faire de petites erreurs."
+  },
+  {
+    "id": "parentalite_green_red_017_ton_ta_partenaire_pense_quun_paren",
+    "question": "Ton/ta partenaire pense qu’un parent doit toujours défendre son enfant publiquement, même lorsqu’il/elle a tort."
+  },
+  {
+    "id": "parentalite_green_red_018_ton_ta_partenaire_est_capable_de_r",
+    "question": "Ton/ta partenaire est capable de reconnaître devant votre enfant qu’il/elle s’est trompé(e) ou qu’une punition était injuste."
+  },
+  {
+    "id": "parentalite_green_red_019_ton_ta_partenaire_considere_quun_e",
+    "question": "Ton/ta partenaire considère qu’un enfant doit faire des câlins ou embrasser les membres de la famille par politesse."
+  },
+  {
+    "id": "parentalite_green_red_020_ton_ta_partenaire_respecterait_imm",
+    "question": "Ton/ta partenaire respecterait immédiatement le refus de votre enfant de voir un proche avec qui il/elle se sent mal."
+  },
+  {
+    "id": "parentalite_green_red_021_ton_ta_partenaire_pense_que_les_op",
+    "question": "Ton/ta partenaire pense que les opinions politiques ou religieuses de votre enfant doivent rester libres, même si elles vous déplaisent."
+  },
+  {
+    "id": "parentalite_green_red_022_ton_ta_partenaire_se_moquerait_du_",
+    "question": "Ton/ta partenaire se moquerait du nouveau style de votre ado pour lui faire comprendre qu’il/elle le trouve ridicule."
+  },
+  {
+    "id": "parentalite_green_red_023_ton_ta_partenaire_serait_pret_e_a_",
+    "question": "Ton/ta partenaire serait prêt(e) à aller chercher votre ado en pleine nuit sans lui faire la morale tant qu’il/elle n’est pas en sécurité."
+  },
+  {
+    "id": "parentalite_green_red_024_ton_ta_partenaire_considere_quauto",
+    "question": "Ton/ta partenaire considère qu’autoriser un adolescent à boire un peu sous surveillance est une meilleure prévention que l’interdiction totale."
+  },
+  {
+    "id": "parentalite_green_red_025_ton_ta_partenaire_pense_quune_cons",
+    "question": "Ton/ta partenaire pense qu’une consommation de cannabis occasionnelle chez un ado devrait automatiquement entraîner une punition très lourde."
+  },
+  {
+    "id": "parentalite_green_red_026_ton_ta_partenaire_veut_que_vous_de",
+    "question": "Ton/ta partenaire veut que vous décidiez ensemble des grandes règles éducatives avant d’avoir des enfants."
+  },
+  {
+    "id": "parentalite_green_red_027_ton_ta_partenaire_affirme_quil_ell",
+    "question": "Ton/ta partenaire affirme qu’il/elle ne changera jamais d’avis sur l’éducation, même si la réalité avec les enfants est différente de ce qu’il/elle imaginait."
+  },
+  {
+    "id": "parentalite_green_red_028_ton_ta_partenaire_serait_capable_d",
+    "question": "Ton/ta partenaire serait capable de soutenir votre enfant s’il/elle choisissait une vie très différente de celle que vous aviez imaginée pour lui/elle."
+  },
+  {
+    "id": "parentalite_green_red_029_ton_ta_partenaire_pense_quun_enfan",
+    "question": "Ton/ta partenaire pense qu’un enfant adulte vous doit des visites régulières parce que vous l’avez élevé."
+  },
+  {
+    "id": "parentalite_green_red_030_ton_ta_partenaire_veut_que_votre_e",
+    "question": "Ton/ta partenaire veut que votre enfant sache qu’il/elle pourra toujours revenir à la maison en cas de difficulté, même à l’âge adulte."
   }
 ]

@@ -2,7 +2,7 @@
   "version": 1,
   "app": "Cactus",
   "type": "ranking_library",
-  "total": 300,
+  "total": 320,
   "duplicate_ids": [],
   "rankings": [
     {
@@ -3968,6 +3968,266 @@
         "Lire les pensées"
       ],
       "category": "dilemmes_debats_revelateurs"
+    },
+    {
+      "id": "parentalite_ranking_001_classe_ces_valeurs_de_la_plus_",
+      "title": "Classe ces valeurs de la plus importante à la moins importante à transmettre à vos enfants.",
+      "items": [
+        "Honnêteté",
+        "Respect",
+        "Autonomie",
+        "Empathie",
+        "Courage",
+        "Responsabilité"
+      ],
+      "category": "futur_projets_vie"
+    },
+    {
+      "id": "parentalite_ranking_002_classe_ces_situations_de_celle",
+      "title": "Classe ces situations de celle qui t’inquiéterait le plus à celle qui t’inquiéterait le moins chez votre ado.",
+      "items": [
+        "Consommation de drogues",
+        "Relation toxique",
+        "Isolement social",
+        "Échec scolaire",
+        "Mauvaises fréquentations",
+        "Mensonges répétés"
+      ],
+      "category": "futur_projets_vie"
+    },
+    {
+      "id": "parentalite_ranking_003_classe_ces_libertes_selon_lord",
+      "title": "Classe ces libertés selon l’ordre dans lequel tu serais prêt(e) à les accorder à votre enfant.",
+      "items": [
+        "Sortir seul(e) le soir",
+        "Dormir chez son/sa partenaire",
+        "Voyager entre amis",
+        "Gérer son argent seul(e)",
+        "Ne plus partager sa localisation",
+        "Décider seul(e) de ses études"
+      ],
+      "category": "futur_projets_vie"
+    },
+    {
+      "id": "parentalite_ranking_004_classe_ces_comportements_paren",
+      "title": "Classe ces comportements parentaux du plus grave au moins grave selon toi.",
+      "items": [
+        "Fouiller le téléphone sans raison",
+        "Humilier devant les autres",
+        "Annuler les règles de l’autre parent",
+        "Comparer les frères et sœurs",
+        "Refuser de s’excuser",
+        "Utiliser le silence comme punition"
+      ],
+      "category": "futur_projets_vie"
+    },
+    {
+      "id": "parentalite_ranking_005_classe_ces_regles_selon_celles",
+      "title": "Classe ces règles selon celles qui seraient les plus importantes chez vous avec un adolescent.",
+      "items": [
+        "Prévenir en cas de retard",
+        "Ne pas mentir sur l’endroit où il/elle est",
+        "Respecter les autres à la maison",
+        "Participer aux tâches",
+        "Maintenir un minimum d’efforts scolaires",
+        "Répondre aux appels importants"
+      ],
+      "category": "futur_projets_vie"
+    },
+    {
+      "id": "parentalite_ranking_006_classe_ces_reactions_selon_cel",
+      "title": "Classe ces réactions selon celles qui te ressembleraient le plus si votre ado rentrait ivre.",
+      "items": [
+        "Vérifier d’abord qu’il/elle va bien",
+        "Attendre le lendemain pour discuter",
+        "Confisquer immédiatement les sorties",
+        "Demander exactement ce qui s’est passé",
+        "Appeler les parents des amis",
+        "Faire une grosse mise au point sur les risques"
+      ],
+      "category": "futur_projets_vie"
+    },
+    {
+      "id": "parentalite_ranking_007_classe_ces_sujets_du_plus_diff",
+      "title": "Classe ces sujets du plus difficile au plus facile à aborder avec votre futur ado.",
+      "items": [
+        "Sexualité",
+        "Drogues",
+        "Santé mentale",
+        "Pornographie",
+        "Relations toxiques",
+        "Argent"
+      ],
+      "category": "futur_projets_vie"
+    },
+    {
+      "id": "parentalite_ranking_008_classe_ces_choix_selon_ceux_qu",
+      "title": "Classe ces choix selon ceux que tu aurais le plus de mal à accepter de la part de votre enfant adulte.",
+      "items": [
+        "Arrêter ses études",
+        "Vivre très loin",
+        "Rester dans une relation que tu juges mauvaise",
+        "S’endetter",
+        "Couper les ponts avec la famille",
+        "Choisir un métier très précaire"
+      ],
+      "category": "futur_projets_vie"
+    },
+    {
+      "id": "parentalite_ranking_009_classe_ces_qualites_du_parent_",
+      "title": "Classe ces qualités du parent que tu aimerais le plus être.",
+      "items": [
+        "Rassurant(e)",
+        "Juste",
+        "À l’écoute",
+        "Cohérent(e)",
+        "Ouvert(e)",
+        "Capable de poser des limites"
+      ],
+      "category": "futur_projets_vie"
+    },
+    {
+      "id": "parentalite_ranking_010_classe_ces_situations_selon_ce",
+      "title": "Classe ces situations selon celles où tu interviendrais le plus rapidement.",
+      "items": [
+        "Votre enfant est harcelé",
+        "Votre enfant harcèle quelqu’un",
+        "Votre ado ne mange presque plus",
+        "Votre ado s’isole totalement",
+        "Votre ado sèche les cours",
+        "Votre ado ment sur ses sorties"
+      ],
+      "category": "futur_projets_vie"
+    },
+    {
+      "id": "parentalite_ranking_011_classe_ces_formes_daide_selon_",
+      "title": "Classe ces formes d’aide selon celles que tu serais le plus prêt(e) à offrir à votre enfant adulte.",
+      "items": [
+        "Le/la réhéberger",
+        "Payer une formation",
+        "Prêter de l’argent",
+        "Garder ses enfants",
+        "L’aider à déménager loin",
+        "Financer une thérapie"
+      ],
+      "category": "futur_projets_vie"
+    },
+    {
+      "id": "parentalite_ranking_012_classe_ces_depenses_selon_cell",
+      "title": "Classe ces dépenses selon celles que tu aurais le plus envie de financer pour votre ado.",
+      "items": [
+        "Permis de conduire",
+        "Voyage scolaire",
+        "Ordinateur",
+        "Activité sportive ou artistique",
+        "Premier véhicule",
+        "Vêtements de marque"
+      ],
+      "category": "futur_projets_vie"
+    },
+    {
+      "id": "parentalite_ranking_013_classe_ces_consequences_de_la_",
+      "title": "Classe ces conséquences de la plus acceptable à la moins acceptable après une grosse bêtise.",
+      "items": [
+        "Réduire les sorties",
+        "Retirer temporairement le téléphone",
+        "Réparer ou rembourser les dégâts",
+        "Ajouter des tâches à la maison",
+        "Supprimer l’argent de poche",
+        "Interdire de voir certains amis"
+      ],
+      "category": "futur_projets_vie"
+    },
+    {
+      "id": "parentalite_ranking_014_classe_ces_criteres_selon_leur",
+      "title": "Classe ces critères selon leur importance pour autoriser une soirée.",
+      "items": [
+        "Connaître le lieu",
+        "Connaître les amis présents",
+        "Avoir un moyen de rentrer",
+        "Savoir s’il y aura de l’alcool",
+        "Avoir une heure de retour",
+        "Pouvoir joindre votre enfant"
+      ],
+      "category": "futur_projets_vie"
+    },
+    {
+      "id": "parentalite_ranking_015_classe_ces_limites_de_la_plus_",
+      "title": "Classe ces limites de la plus importante à la moins importante concernant la vie privée de votre ado.",
+      "items": [
+        "Ne pas lire ses messages sans raison grave",
+        "Frapper avant d’entrer dans sa chambre",
+        "Ne pas raconter ses confidences à la famille",
+        "Respecter son journal intime",
+        "Ne pas imposer la géolocalisation permanente",
+        "Le/la laisser voir un médecin seul(e)"
+      ],
+      "category": "futur_projets_vie"
+    },
+    {
+      "id": "parentalite_ranking_016_classe_ces_evenements_selon_ce",
+      "title": "Classe ces événements selon ceux qui te rendraient le/la plus émotif/ve comme parent.",
+      "items": [
+        "Son premier jour d’école",
+        "Sa première relation sérieuse",
+        "Son permis",
+        "Son départ de la maison",
+        "Son mariage ou engagement important",
+        "La naissance de son propre enfant"
+      ],
+      "category": "futur_projets_vie"
+    },
+    {
+      "id": "parentalite_ranking_017_classe_ces_desaccords_selon_ce",
+      "title": "Classe ces désaccords selon ceux qui pourraient le plus facilement créer un conflit entre vous comme parents.",
+      "items": [
+        "Les punitions",
+        "L’argent",
+        "Les heures de sortie",
+        "Les études",
+        "La vie amoureuse de l’ado",
+        "Les relations avec la famille élargie"
+      ],
+      "category": "futur_projets_vie"
+    },
+    {
+      "id": "parentalite_ranking_018_classe_ces_signes_selon_ceux_q",
+      "title": "Classe ces signes selon ceux qui te feraient le plus rapidement penser que votre ado ne va pas bien.",
+      "items": [
+        "Il/elle s’isole",
+        "Son humeur change brutalement",
+        "Ses résultats chutent",
+        "Il/elle ne voit plus ses amis",
+        "Son sommeil change",
+        "Il/elle devient très secret/secrète"
+      ],
+      "category": "futur_projets_vie"
+    },
+    {
+      "id": "parentalite_ranking_019_classe_ces_phrases_selon_celle",
+      "title": "Classe ces phrases selon celles que tu voudrais le plus que votre enfant puisse dire de vous à 25 ans.",
+      "items": [
+        "Je pouvais tout leur dire",
+        "Ils m’ont laissé devenir moi-même",
+        "Ils étaient là quand j’en avais besoin",
+        "Ils savaient poser des limites",
+        "Ils reconnaissaient leurs erreurs",
+        "Ils m’ont appris à me débrouiller"
+      ],
+      "category": "futur_projets_vie"
+    },
+    {
+      "id": "parentalite_ranking_020_classe_ces_priorites_de_la_plu",
+      "title": "Classe ces priorités de la plus importante à la moins importante pour l’avenir de votre enfant.",
+      "items": [
+        "Être heureux/se",
+        "Être autonome",
+        "Avoir de bonnes relations",
+        "Avoir une situation stable",
+        "Être en bonne santé",
+        "Faire quelque chose qui a du sens"
+      ],
+      "category": "futur_projets_vie"
     }
   ],
   "packs": {
@@ -7644,6 +7904,248 @@
           "Téléphone et vie privée",
           "Jalousie",
           "Enfants"
+        ]
+      }
+    ],
+    "parentalite_education": [
+      {
+        "id": "parentalite_ranking_001_classe_ces_valeurs_de_la_plus_",
+        "title": "Classe ces valeurs de la plus importante à la moins importante à transmettre à vos enfants.",
+        "items": [
+          "Honnêteté",
+          "Respect",
+          "Autonomie",
+          "Empathie",
+          "Courage",
+          "Responsabilité"
+        ]
+      },
+      {
+        "id": "parentalite_ranking_002_classe_ces_situations_de_celle",
+        "title": "Classe ces situations de celle qui t’inquiéterait le plus à celle qui t’inquiéterait le moins chez votre ado.",
+        "items": [
+          "Consommation de drogues",
+          "Relation toxique",
+          "Isolement social",
+          "Échec scolaire",
+          "Mauvaises fréquentations",
+          "Mensonges répétés"
+        ]
+      },
+      {
+        "id": "parentalite_ranking_003_classe_ces_libertes_selon_lord",
+        "title": "Classe ces libertés selon l’ordre dans lequel tu serais prêt(e) à les accorder à votre enfant.",
+        "items": [
+          "Sortir seul(e) le soir",
+          "Dormir chez son/sa partenaire",
+          "Voyager entre amis",
+          "Gérer son argent seul(e)",
+          "Ne plus partager sa localisation",
+          "Décider seul(e) de ses études"
+        ]
+      },
+      {
+        "id": "parentalite_ranking_004_classe_ces_comportements_paren",
+        "title": "Classe ces comportements parentaux du plus grave au moins grave selon toi.",
+        "items": [
+          "Fouiller le téléphone sans raison",
+          "Humilier devant les autres",
+          "Annuler les règles de l’autre parent",
+          "Comparer les frères et sœurs",
+          "Refuser de s’excuser",
+          "Utiliser le silence comme punition"
+        ]
+      },
+      {
+        "id": "parentalite_ranking_005_classe_ces_regles_selon_celles",
+        "title": "Classe ces règles selon celles qui seraient les plus importantes chez vous avec un adolescent.",
+        "items": [
+          "Prévenir en cas de retard",
+          "Ne pas mentir sur l’endroit où il/elle est",
+          "Respecter les autres à la maison",
+          "Participer aux tâches",
+          "Maintenir un minimum d’efforts scolaires",
+          "Répondre aux appels importants"
+        ]
+      },
+      {
+        "id": "parentalite_ranking_006_classe_ces_reactions_selon_cel",
+        "title": "Classe ces réactions selon celles qui te ressembleraient le plus si votre ado rentrait ivre.",
+        "items": [
+          "Vérifier d’abord qu’il/elle va bien",
+          "Attendre le lendemain pour discuter",
+          "Confisquer immédiatement les sorties",
+          "Demander exactement ce qui s’est passé",
+          "Appeler les parents des amis",
+          "Faire une grosse mise au point sur les risques"
+        ]
+      },
+      {
+        "id": "parentalite_ranking_007_classe_ces_sujets_du_plus_diff",
+        "title": "Classe ces sujets du plus difficile au plus facile à aborder avec votre futur ado.",
+        "items": [
+          "Sexualité",
+          "Drogues",
+          "Santé mentale",
+          "Pornographie",
+          "Relations toxiques",
+          "Argent"
+        ]
+      },
+      {
+        "id": "parentalite_ranking_008_classe_ces_choix_selon_ceux_qu",
+        "title": "Classe ces choix selon ceux que tu aurais le plus de mal à accepter de la part de votre enfant adulte.",
+        "items": [
+          "Arrêter ses études",
+          "Vivre très loin",
+          "Rester dans une relation que tu juges mauvaise",
+          "S’endetter",
+          "Couper les ponts avec la famille",
+          "Choisir un métier très précaire"
+        ]
+      },
+      {
+        "id": "parentalite_ranking_009_classe_ces_qualites_du_parent_",
+        "title": "Classe ces qualités du parent que tu aimerais le plus être.",
+        "items": [
+          "Rassurant(e)",
+          "Juste",
+          "À l’écoute",
+          "Cohérent(e)",
+          "Ouvert(e)",
+          "Capable de poser des limites"
+        ]
+      },
+      {
+        "id": "parentalite_ranking_010_classe_ces_situations_selon_ce",
+        "title": "Classe ces situations selon celles où tu interviendrais le plus rapidement.",
+        "items": [
+          "Votre enfant est harcelé",
+          "Votre enfant harcèle quelqu’un",
+          "Votre ado ne mange presque plus",
+          "Votre ado s’isole totalement",
+          "Votre ado sèche les cours",
+          "Votre ado ment sur ses sorties"
+        ]
+      },
+      {
+        "id": "parentalite_ranking_011_classe_ces_formes_daide_selon_",
+        "title": "Classe ces formes d’aide selon celles que tu serais le plus prêt(e) à offrir à votre enfant adulte.",
+        "items": [
+          "Le/la réhéberger",
+          "Payer une formation",
+          "Prêter de l’argent",
+          "Garder ses enfants",
+          "L’aider à déménager loin",
+          "Financer une thérapie"
+        ]
+      },
+      {
+        "id": "parentalite_ranking_012_classe_ces_depenses_selon_cell",
+        "title": "Classe ces dépenses selon celles que tu aurais le plus envie de financer pour votre ado.",
+        "items": [
+          "Permis de conduire",
+          "Voyage scolaire",
+          "Ordinateur",
+          "Activité sportive ou artistique",
+          "Premier véhicule",
+          "Vêtements de marque"
+        ]
+      },
+      {
+        "id": "parentalite_ranking_013_classe_ces_consequences_de_la_",
+        "title": "Classe ces conséquences de la plus acceptable à la moins acceptable après une grosse bêtise.",
+        "items": [
+          "Réduire les sorties",
+          "Retirer temporairement le téléphone",
+          "Réparer ou rembourser les dégâts",
+          "Ajouter des tâches à la maison",
+          "Supprimer l’argent de poche",
+          "Interdire de voir certains amis"
+        ]
+      },
+      {
+        "id": "parentalite_ranking_014_classe_ces_criteres_selon_leur",
+        "title": "Classe ces critères selon leur importance pour autoriser une soirée.",
+        "items": [
+          "Connaître le lieu",
+          "Connaître les amis présents",
+          "Avoir un moyen de rentrer",
+          "Savoir s’il y aura de l’alcool",
+          "Avoir une heure de retour",
+          "Pouvoir joindre votre enfant"
+        ]
+      },
+      {
+        "id": "parentalite_ranking_015_classe_ces_limites_de_la_plus_",
+        "title": "Classe ces limites de la plus importante à la moins importante concernant la vie privée de votre ado.",
+        "items": [
+          "Ne pas lire ses messages sans raison grave",
+          "Frapper avant d’entrer dans sa chambre",
+          "Ne pas raconter ses confidences à la famille",
+          "Respecter son journal intime",
+          "Ne pas imposer la géolocalisation permanente",
+          "Le/la laisser voir un médecin seul(e)"
+        ]
+      },
+      {
+        "id": "parentalite_ranking_016_classe_ces_evenements_selon_ce",
+        "title": "Classe ces événements selon ceux qui te rendraient le/la plus émotif/ve comme parent.",
+        "items": [
+          "Son premier jour d’école",
+          "Sa première relation sérieuse",
+          "Son permis",
+          "Son départ de la maison",
+          "Son mariage ou engagement important",
+          "La naissance de son propre enfant"
+        ]
+      },
+      {
+        "id": "parentalite_ranking_017_classe_ces_desaccords_selon_ce",
+        "title": "Classe ces désaccords selon ceux qui pourraient le plus facilement créer un conflit entre vous comme parents.",
+        "items": [
+          "Les punitions",
+          "L’argent",
+          "Les heures de sortie",
+          "Les études",
+          "La vie amoureuse de l’ado",
+          "Les relations avec la famille élargie"
+        ]
+      },
+      {
+        "id": "parentalite_ranking_018_classe_ces_signes_selon_ceux_q",
+        "title": "Classe ces signes selon ceux qui te feraient le plus rapidement penser que votre ado ne va pas bien.",
+        "items": [
+          "Il/elle s’isole",
+          "Son humeur change brutalement",
+          "Ses résultats chutent",
+          "Il/elle ne voit plus ses amis",
+          "Son sommeil change",
+          "Il/elle devient très secret/secrète"
+        ]
+      },
+      {
+        "id": "parentalite_ranking_019_classe_ces_phrases_selon_celle",
+        "title": "Classe ces phrases selon celles que tu voudrais le plus que votre enfant puisse dire de vous à 25 ans.",
+        "items": [
+          "Je pouvais tout leur dire",
+          "Ils m’ont laissé devenir moi-même",
+          "Ils étaient là quand j’en avais besoin",
+          "Ils savaient poser des limites",
+          "Ils reconnaissaient leurs erreurs",
+          "Ils m’ont appris à me débrouiller"
+        ]
+      },
+      {
+        "id": "parentalite_ranking_020_classe_ces_priorites_de_la_plu",
+        "title": "Classe ces priorités de la plus importante à la moins importante pour l’avenir de votre enfant.",
+        "items": [
+          "Être heureux/se",
+          "Être autonome",
+          "Avoir de bonnes relations",
+          "Avoir une situation stable",
+          "Être en bonne santé",
+          "Faire quelque chose qui a du sens"
         ]
       }
     ]

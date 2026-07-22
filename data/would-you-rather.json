@@ -2098,5 +2098,215 @@
     "question": "Tu préfères découvrir que votre rencontre était…",
     "optionA": "Un hasard incroyablement improbable",
     "optionB": "Quelque chose qui aurait fini par arriver dans toutes les versions de votre vie"
+  },
+  {
+    "id": "parentalite_wyr_001_avec_un_ado_qui_commence_a_tester_",
+    "category": "futur",
+    "question": "Avec un ado qui commence à tester les limites, tu préfères…",
+    "optionA": "Qu’il/elle te raconte presque tout mais fasse parfois de grosses bêtises",
+    "optionB": "Qu’il/elle soit très sage mais garde toute sa vie privée pour lui/elle"
+  },
+  {
+    "id": "parentalite_wyr_002_si_votre_enfant_de_16_ans_experime",
+    "category": "futur",
+    "question": "Si votre enfant de 16 ans expérimente quelque chose en cachette, tu préfères découvrir…",
+    "optionA": "Qu’il/elle fume parfois du cannabis",
+    "optionB": "Qu’il/elle boit régulièrement en soirée"
+  },
+  {
+    "id": "parentalite_wyr_003_pour_la_confiance_avec_votre_ado_t",
+    "category": "futur",
+    "question": "Pour la confiance avec votre ado, tu préfères…",
+    "optionA": "Avoir sa localisation en permanence mais ne jamais fouiller son téléphone",
+    "optionB": "Ne jamais le/la géolocaliser mais pouvoir regarder son téléphone en cas de gros doute"
+  },
+  {
+    "id": "parentalite_wyr_004_concernant_les_relations_amoureuse",
+    "category": "futur",
+    "question": "Concernant les relations amoureuses de votre enfant, tu préfères…",
+    "optionA": "Qu’il/elle vous raconte tout, même des détails que tu préférerais ne pas connaître",
+    "optionB": "Qu’il/elle reste très discret/discrète mais vienne vous voir dès qu’il y a un problème"
+  },
+  {
+    "id": "parentalite_wyr_005_pour_une_premiere_grosse_desobeiss",
+    "category": "futur",
+    "question": "Pour une première grosse désobéissance, tu préfères…",
+    "optionA": "Une sanction immédiate mais courte",
+    "optionB": "Une longue discussion avec une conséquence décidée ensemble"
+  },
+  {
+    "id": "parentalite_wyr_006_si_votre_enfant_ment_tu_preferes",
+    "category": "futur",
+    "question": "Si votre enfant ment, tu préfères…",
+    "optionA": "Un gros mensonge avoué spontanément le lendemain",
+    "optionB": "Plusieurs petits mensonges que vous découvrez vous-mêmes"
+  },
+  {
+    "id": "parentalite_wyr_007_pour_les_etudes_tu_preferes_que_vo",
+    "category": "futur",
+    "question": "Pour les études, tu préfères que votre enfant…",
+    "optionA": "Continue une voie sécurisée qu’il/elle n’aime pas vraiment",
+    "optionB": "Quitte tout pour un projet passionnant mais très incertain"
+  },
+  {
+    "id": "parentalite_wyr_008_si_votre_enfant_majeur_vit_encore_",
+    "category": "futur",
+    "question": "Si votre enfant majeur vit encore chez vous, tu préfères…",
+    "optionA": "Qu’il/elle participe financièrement mais fasse peu de tâches",
+    "optionB": "Qu’il/elle ne paie rien mais prenne une grosse part des tâches de la maison"
+  },
+  {
+    "id": "parentalite_wyr_009_pour_largent_de_poche_tu_preferes",
+    "category": "futur",
+    "question": "Pour l’argent de poche, tu préfères…",
+    "optionA": "Donner une somme fixe et le/la laisser se débrouiller même s’il/elle dépense tout",
+    "optionB": "Contrôler davantage les dépenses mais aider quand il/elle se trompe"
+  },
+  {
+    "id": "parentalite_wyr_010_si_votre_ado_veut_gagner_de_largen",
+    "category": "futur",
+    "question": "Si votre ado veut gagner de l’argent, tu préfères…",
+    "optionA": "Un petit travail classique qui prend du temps sur les week-ends",
+    "optionB": "Une activité en ligne plus libre mais que vous comprenez moins bien"
+  },
+  {
+    "id": "parentalite_wyr_011_pour_les_sorties_a_17_ans_tu_prefe",
+    "category": "futur",
+    "question": "Pour les sorties à 17 ans, tu préfères…",
+    "optionA": "Une heure de retour stricte mais peu de questions",
+    "optionB": "Une heure plus souple à condition de savoir exactement avec qui et où il/elle est"
+  },
+  {
+    "id": "parentalite_wyr_012_pour_les_vacances_de_votre_ado_tu_",
+    "category": "futur",
+    "question": "Pour les vacances de votre ado, tu préfères…",
+    "optionA": "Le/la laisser partir une semaine entre amis près de chez vous",
+    "optionB": "Le/la laisser partir trois jours beaucoup plus loin avec un adulte que vous connaissez peu"
+  },
+  {
+    "id": "parentalite_wyr_013_si_votre_enfant_fait_une_erreur_im",
+    "category": "futur",
+    "question": "Si votre enfant fait une erreur importante, tu préfères…",
+    "optionA": "Le/la laisser en subir les conséquences pour apprendre",
+    "optionB": "Intervenir pour limiter les dégâts même s’il/elle apprend moins de l’erreur"
+  },
+  {
+    "id": "parentalite_wyr_014_concernant_la_vie_privee_tu_prefer",
+    "category": "futur",
+    "question": "Concernant la vie privée, tu préfères…",
+    "optionA": "Un enfant qui garde beaucoup de choses pour lui/elle mais ne ment jamais",
+    "optionB": "Un enfant qui raconte énormément de choses mais arrange parfois la vérité"
+  },
+  {
+    "id": "parentalite_wyr_015_si_votre_ado_ne_va_pas_bien_tu_pre",
+    "category": "futur",
+    "question": "Si votre ado ne va pas bien, tu préfères…",
+    "optionA": "Qu’il/elle parle beaucoup à un thérapeute mais très peu à vous",
+    "optionB": "Qu’il/elle vous parle énormément mais refuse toute aide extérieure"
+  },
+  {
+    "id": "parentalite_wyr_016_pour_les_regles_de_maison_tu_prefe",
+    "category": "futur",
+    "question": "Pour les règles de maison, tu préfères…",
+    "optionA": "Peu de règles mais des conséquences très fermes quand elles sont dépassées",
+    "optionB": "Beaucoup de règles avec de la souplesse selon les circonstances"
+  },
+  {
+    "id": "parentalite_wyr_017_si_vous_netes_pas_daccord_sur_une_",
+    "category": "futur",
+    "question": "Si vous n’êtes pas d’accord sur une punition, tu préfères…",
+    "optionA": "La maintenir devant l’enfant puis en reparler entre vous",
+    "optionB": "Dire immédiatement devant l’enfant que vous n’êtes pas d’accord"
+  },
+  {
+    "id": "parentalite_wyr_018_pour_leducation_tu_preferes_etre",
+    "category": "futur",
+    "question": "Pour l’éducation, tu préfères être…",
+    "optionA": "Le parent vers qui l’enfant vient quand il/elle a peur d’être jugé(e)",
+    "optionB": "Le parent dont la parole est rarement contestée"
+  },
+  {
+    "id": "parentalite_wyr_019_si_votre_enfant_adopte_des_convict",
+    "category": "futur",
+    "question": "Si votre enfant adopte des convictions opposées aux vôtres, tu préfères…",
+    "optionA": "Qu’il/elle en parle constamment et vous challenge",
+    "optionB": "Qu’il/elle évite complètement le sujet avec vous"
+  },
+  {
+    "id": "parentalite_wyr_020_si_votre_enfant_coupe_les_ponts_av",
+    "category": "futur",
+    "question": "Si votre enfant coupe les ponts avec un proche de la famille, tu préfères…",
+    "optionA": "Respecter sa décision sans chercher à réconcilier",
+    "optionB": "Continuer à essayer de réparer le lien même s’il/elle vous demande d’arrêter"
+  },
+  {
+    "id": "parentalite_wyr_021_pour_le_telephone_dun_ado_tu_prefe",
+    "category": "futur",
+    "question": "Pour le téléphone d’un ado, tu préfères…",
+    "optionA": "Aucun contrôle technique mais beaucoup de discussions",
+    "optionB": "Des contrôles parentaux stricts mais moins de discussions au quotidien"
+  },
+  {
+    "id": "parentalite_wyr_022_si_votre_enfant_veut_changer_radic",
+    "category": "futur",
+    "question": "Si votre enfant veut changer radicalement de style, tu préfères…",
+    "optionA": "Le/la laisser tout essayer tant que c’est réversible",
+    "optionB": "Fixer certaines limites jusqu’à sa majorité"
+  },
+  {
+    "id": "parentalite_wyr_023_concernant_les_taches_menageres_tu",
+    "category": "futur",
+    "question": "Concernant les tâches ménagères, tu préfères…",
+    "optionA": "Une petite somme d’argent liée aux tâches effectuées",
+    "optionB": "Considérer que participer à la maison est normal et ne doit pas être payé"
+  },
+  {
+    "id": "parentalite_wyr_024_si_votre_enfant_adulte_traverse_un",
+    "category": "futur",
+    "question": "Si votre enfant adulte traverse une mauvaise période financière, tu préfères…",
+    "optionA": "L’héberger aussi longtemps que nécessaire avec des règles claires",
+    "optionB": "L’aider financièrement pour qu’il/elle garde son indépendance"
+  },
+  {
+    "id": "parentalite_wyr_025_pour_une_grosse_decision_de_vie_a_",
+    "category": "futur",
+    "question": "Pour une grosse décision de vie à 18 ans, tu préfères…",
+    "optionA": "Donner ton avis très clairement même si ça crée un conflit",
+    "optionB": "Rester en retrait même si tu penses qu’il/elle fait une erreur"
+  },
+  {
+    "id": "parentalite_wyr_026_si_votre_enfant_commet_une_faute_g",
+    "category": "futur",
+    "question": "Si votre enfant commet une faute grave, tu préfères…",
+    "optionA": "Le/la soutenir émotionnellement tout en le/la laissant assumer pleinement les conséquences",
+    "optionB": "Essayer d’abord de le/la protéger puis régler la question des conséquences ensuite"
+  },
+  {
+    "id": "parentalite_wyr_027_pour_les_premieres_soirees_tu_pref",
+    "category": "futur",
+    "question": "Pour les premières soirées, tu préfères…",
+    "optionA": "Autoriser plus tôt pour apprendre progressivement à gérer",
+    "optionB": "Interdire plus longtemps puis donner davantage de liberté d’un coup"
+  },
+  {
+    "id": "parentalite_wyr_028_pour_votre_relation_avec_votre_enf",
+    "category": "futur",
+    "question": "Pour votre relation avec votre enfant adulte, tu préfères…",
+    "optionA": "Être très proches et tout savoir de vos vies",
+    "optionB": "Avoir plus de distance mais une relation très paisible"
+  },
+  {
+    "id": "parentalite_wyr_029_si_votre_enfant_veut_vivre_tres_lo",
+    "category": "futur",
+    "question": "Si votre enfant veut vivre très loin, tu préfères…",
+    "optionA": "Le/la voir rarement mais savoir qu’il/elle vit exactement la vie qu’il/elle veut",
+    "optionB": "Le/la savoir plus proche mais dans une vie qui lui correspond un peu moins"
+  },
+  {
+    "id": "parentalite_wyr_030_comme_parents_tu_preferes_que_votr",
+    "category": "futur",
+    "question": "Comme parents, tu préfères que votre enfant vous décrive plus tard comme…",
+    "optionA": "Très rassurants mais parfois trop protecteurs",
+    "optionB": "Très libres et confiants mais parfois pas assez présents"
   }
 ]

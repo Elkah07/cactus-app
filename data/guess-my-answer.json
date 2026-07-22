@@ -1198,5 +1198,145 @@
   {
     "id": "petit_reve_realiste",
     "question": "Quel petit rêve aimerais-tu réaliser cette année ?"
+  },
+  {
+    "id": "parentalite_guess_001_a_quel_age_laisserais_tu_notre_enfan",
+    "question": "À quel âge laisserais-tu notre enfant rentrer seul(e) tard le soir ?"
+  },
+  {
+    "id": "parentalite_guess_002_quelle_serait_lheure_de_retour_ideal",
+    "question": "Quelle serait l’heure de retour idéale pour notre enfant à 16 ans le week-end ?"
+  },
+  {
+    "id": "parentalite_guess_003_a_quel_age_accepterais_tu_que_le_la_",
+    "question": "À quel âge accepterais-tu que le/la partenaire de notre enfant dorme à la maison ?"
+  },
+  {
+    "id": "parentalite_guess_004_quelle_serait_ta_premiere_reaction_s",
+    "question": "Quelle serait ta première réaction si notre ado rentrait ivre pour la première fois ?"
+  },
+  {
+    "id": "parentalite_guess_005_quel_comportement_adolescent_aurais_",
+    "question": "Quel comportement adolescent aurais-tu le plus de mal à accepter ?"
+  },
+  {
+    "id": "parentalite_guess_006_quelle_substance_te_ferait_le_plus_p",
+    "question": "Quelle substance te ferait le plus peur si notre enfant nous avouait en consommer ?"
+  },
+  {
+    "id": "parentalite_guess_007_quelle_regle_serait_non_negociable_p",
+    "question": "Quelle règle serait non négociable pour toi concernant les soirées ?"
+  },
+  {
+    "id": "parentalite_guess_008_quel_serait_ton_premier_reflexe_si_n",
+    "question": "Quel serait ton premier réflexe si notre enfant ne répondait plus depuis plusieurs heures ?"
+  },
+  {
+    "id": "parentalite_guess_009_a_partir_de_quel_age_laisserais_tu_n",
+    "question": "À partir de quel âge laisserais-tu notre enfant voyager seul(e) avec des amis ?"
+  },
+  {
+    "id": "parentalite_guess_010_quel_serait_le_pays_ou_le_type_de_vo",
+    "question": "Quel serait le pays ou le type de voyage que tu aurais le plus de mal à le/la laisser faire seul(e) ?"
+  },
+  {
+    "id": "parentalite_guess_011_quelle_liberte_serais_tu_pret_e_a_ac",
+    "question": "Quelle liberté serais-tu prêt(e) à accorder plus tôt que la plupart des parents ?"
+  },
+  {
+    "id": "parentalite_guess_012_quelle_liberte_serais_tu_probablemen",
+    "question": "Quelle liberté serais-tu probablement le/la dernier(ère) à accorder ?"
+  },
+  {
+    "id": "parentalite_guess_013_quel_sujet_de_vie_privee_te_semblera",
+    "question": "Quel sujet de vie privée te semblerait totalement interdit à fouiller sans raison grave ?"
+  },
+  {
+    "id": "parentalite_guess_014_dans_quelle_situation_pourrais_tu_fo",
+    "question": "Dans quelle situation pourrais-tu fouiller le téléphone de notre enfant ?"
+  },
+  {
+    "id": "parentalite_guess_015_quel_secret_de_notre_enfant_te_sembl",
+    "question": "Quel secret de notre enfant te semblerait impossible à garder pour toi ?"
+  },
+  {
+    "id": "parentalite_guess_016_quelle_punition_utiliserais_tu_le_pl",
+    "question": "Quelle punition utiliserais-tu le plus naturellement ?"
+  },
+  {
+    "id": "parentalite_guess_017_quelle_punition_refuserais_tu_catego",
+    "question": "Quelle punition refuserais-tu catégoriquement d’utiliser ?"
+  },
+  {
+    "id": "parentalite_guess_018_quelle_qualite_voudrais_tu_absolumen",
+    "question": "Quelle qualité voudrais-tu absolument transmettre à notre enfant ?"
+  },
+  {
+    "id": "parentalite_guess_019_quelle_valeur_educative_serait_la_pl",
+    "question": "Quelle valeur éducative serait la plus importante pour toi ?"
+  },
+  {
+    "id": "parentalite_guess_020_quel_defaut_chez_notre_enfant_te_fer",
+    "question": "Quel défaut chez notre enfant te ferait le plus peur de reproduire l’un de nos propres défauts ?"
+  },
+  {
+    "id": "parentalite_guess_021_quelle_matiere_ou_activite_pousserai",
+    "question": "Quelle matière ou activité pousserais-tu le plus notre enfant à essayer ?"
+  },
+  {
+    "id": "parentalite_guess_022_quel_choix_detudes_aurais_tu_le_plus",
+    "question": "Quel choix d’études aurais-tu le plus de mal à soutenir ?"
+  },
+  {
+    "id": "parentalite_guess_023_jusqua_quel_age_serais_tu_pret_e_a_f",
+    "question": "Jusqu’à quel âge serais-tu prêt(e) à financer les études de notre enfant ?"
+  },
+  {
+    "id": "parentalite_guess_024_a_partir_de_quel_salaire_demanderais",
+    "question": "À partir de quel salaire demanderais-tu à notre enfant majeur de participer aux dépenses s’il/elle vit chez nous ?"
+  },
+  {
+    "id": "parentalite_guess_025_quel_montant_dargent_de_poche_te_sem",
+    "question": "Quel montant d’argent de poche te semblerait raisonnable pour un ado de 16 ans ?"
+  },
+  {
+    "id": "parentalite_guess_026_quelle_depense_importante_serais_tu_",
+    "question": "Quelle dépense importante serais-tu le plus susceptible de refuser de financer ?"
+  },
+  {
+    "id": "parentalite_guess_027_quel_serait_ton_plus_grand_stress_si",
+    "question": "Quel serait ton plus grand stress si notre enfant commençait une relation amoureuse sérieuse très jeune ?"
+  },
+  {
+    "id": "parentalite_guess_028_quelle_question_aimerais_tu_que_notr",
+    "question": "Quelle question aimerais-tu que notre enfant puisse toujours venir te poser sans avoir peur ?"
+  },
+  {
+    "id": "parentalite_guess_029_quel_sujet_voudrais_tu_aborder_avec_",
+    "question": "Quel sujet voudrais-tu aborder avec nos enfants plus ouvertement que nos propres parents ne l’ont fait ?"
+  },
+  {
+    "id": "parentalite_guess_030_quel_type_de_parent_penses_tu_deveni",
+    "question": "Quel type de parent penses-tu devenir : strict, souple, anxieux, protecteur ou très confiant ?"
+  },
+  {
+    "id": "parentalite_guess_031_quelle_phrase_de_parent_penses_tu_re",
+    "question": "Quelle phrase de parent penses-tu répéter le plus souvent ?"
+  },
+  {
+    "id": "parentalite_guess_032_quel_moment_de_la_vie_de_notre_enfan",
+    "question": "Quel moment de la vie de notre enfant risque de te rendre le/la plus émotif/ve ?"
+  },
+  {
+    "id": "parentalite_guess_033_quelle_decision_prise_par_notre_enfa",
+    "question": "Quelle décision prise par notre enfant adulte aurais-tu le plus de mal à ne pas commenter ?"
+  },
+  {
+    "id": "parentalite_guess_034_quel_serait_le_desaccord_educatif_le",
+    "question": "Quel serait le désaccord éducatif le plus probable entre nous ?"
+  },
+  {
+    "id": "parentalite_guess_035_quelle_serait_selon_toi_ta_plus_gran",
+    "question": "Quelle serait, selon toi, ta plus grande force comme parent ?"
   }
 ]

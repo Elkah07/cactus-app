@@ -4798,5 +4798,485 @@
     "spicy": 0,
     "mood": "spicy",
     "premium": true
+  },
+  {
+    "id": "parentalite_question_001_comment_reagirais_tu_si_notre_",
+    "question": "Comment réagirais-tu si notre enfant de 16 ans nous avouait qu’il/elle fume du cannabis régulièrement ?",
+    "category": "family",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "parentalite_question_002_quelle_serait_ta_premiere_reac",
+    "question": "Quelle serait ta première réaction si notre ado rentrait complètement ivre pour la première fois ?",
+    "category": "family",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "parentalite_question_003_prefererais_tu_que_notre_enfan",
+    "question": "Préférerais-tu que notre enfant nous appelle à 3 h du matin après une grosse bêtise plutôt qu’il/elle essaie de la gérer seul(e) ? Pourquoi ?",
+    "category": "family",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "parentalite_question_004_jusquou_serais_tu_pret_e_a_fer",
+    "question": "Jusqu’où serais-tu prêt(e) à fermer les yeux sur une transgression si notre enfant venait nous l’avouer de lui-même ?",
+    "category": "values",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "parentalite_question_005_quelle_regle_concernant_lalcoo",
+    "question": "Quelle règle concernant l’alcool serait la plus importante pour toi avec un adolescent ?",
+    "category": "family",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "parentalite_question_006_comment_distinguerais_tu_une_e",
+    "question": "Comment distinguerais-tu une expérimentation adolescente d’un comportement qui nécessite une vraie intervention ?",
+    "category": "family",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "parentalite_question_007_est_ce_que_tu_prefererais_une_",
+    "question": "Est-ce que tu préférerais une politique de tolérance zéro sur les substances ou une approche basée sur le dialogue et la réduction des risques ?",
+    "category": "values",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "parentalite_question_008_que_ferais_tu_si_notre_enfant_",
+    "question": "Que ferais-tu si notre enfant refusait catégoriquement d’arrêter de fréquenter quelqu’un que nous jugeons dangereux ?",
+    "category": "family",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "parentalite_question_009_a_quel_moment_penses_tu_quun_p",
+    "question": "À quel moment penses-tu qu’un parent a le droit de fouiller le téléphone de son enfant ?",
+    "category": "values",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "parentalite_question_010_pourrais_tu_lire_les_messages_",
+    "question": "Pourrais-tu lire les messages privés de notre ado sans son accord si tu pensais qu’il/elle était en danger ?",
+    "category": "family",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "parentalite_question_011_quelle_part_de_vie_privee_devr",
+    "question": "Quelle part de vie privée devrait rester totalement inaccessible aux parents, même avec un adolescent ?",
+    "category": "values",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "parentalite_question_012_comment_reagirais_tu_si_notre_",
+    "question": "Comment réagirais-tu si notre enfant nous mentait pendant plusieurs mois sur une relation amoureuse ?",
+    "category": "family",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "parentalite_question_013_a_partir_de_quel_age_serais_tu",
+    "question": "À partir de quel âge serais-tu à l’aise avec le fait que le/la partenaire de notre enfant dorme à la maison ?",
+    "category": "future",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "parentalite_question_014_quelles_regles_fixerais_tu_si_",
+    "question": "Quelles règles fixerais-tu si notre ado voulait recevoir son/sa partenaire dans sa chambre ?",
+    "category": "future",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "parentalite_question_015_comment_reagirais_tu_si_notre_",
+    "question": "Comment réagirais-tu si notre enfant de 17 ans avait plusieurs relations rapprochées en peu de temps ?",
+    "category": "family",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "parentalite_question_016_penses_tu_que_la_vie_sentiment",
+    "question": "Penses-tu que la vie sentimentale de notre ado nous regarde tant qu’il/elle se protège et respecte les règles de la maison ?",
+    "category": "values",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "parentalite_question_017_que_ferais_tu_si_notre_enfant_",
+    "question": "Que ferais-tu si notre enfant nous demandait une contraception mais refusait que nous posions des questions ?",
+    "category": "family",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "parentalite_question_018_comment_voudrais_tu_parler_de_",
+    "question": "Comment voudrais-tu parler de sexualité avec nos futurs enfants pour qu’ils puissent nous faire confiance ?",
+    "category": "future",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "parentalite_question_019_que_ferais_tu_si_notre_adolesc",
+    "question": "Que ferais-tu si notre adolescent nous annonçait une grossesse ou une future parentalité très jeune ?",
+    "category": "family",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "parentalite_question_020_quelle_serait_ta_reaction_si_n",
+    "question": "Quelle serait ta réaction si notre enfant abandonnait ses études pour un projet très risqué mais qui le/la passionne réellement ?",
+    "category": "future",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "parentalite_question_021_serais_tu_pret_e_a_financer_pl",
+    "question": "Serais-tu prêt(e) à financer plusieurs réorientations d’études si notre enfant cherche encore sa voie ? Jusqu’où ?",
+    "category": "future",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "parentalite_question_022_comment_reagirais_tu_si_notre_",
+    "question": "Comment réagirais-tu si notre enfant avait de très mauvaises notes malgré beaucoup d’efforts ?",
+    "category": "family",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "parentalite_question_023_et_si_notre_enfant_avait_dexce",
+    "question": "Et si notre enfant avait d’excellentes notes mais séchait régulièrement les cours ?",
+    "category": "family",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "parentalite_question_024_quelle_importance_donnerais_tu",
+    "question": "Quelle importance donnerais-tu aux études par rapport au bien-être mental de notre enfant ?",
+    "category": "values",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "parentalite_question_025_que_ferais_tu_si_notre_enfant_",
+    "question": "Que ferais-tu si notre enfant voulait commencer à travailler très jeune pour devenir indépendant(e) ?",
+    "category": "future",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "parentalite_question_026_jusqua_quel_age_serais_tu_pret",
+    "question": "Jusqu’à quel âge serais-tu prêt(e) à aider financièrement notre enfant adulte ?",
+    "category": "future",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "parentalite_question_027_dans_quelles_circonstances_pou",
+    "question": "Dans quelles circonstances pourrais-tu demander à notre enfant majeur de quitter la maison ?",
+    "category": "family",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "parentalite_question_028_est_ce_quun_enfant_majeur_qui_",
+    "question": "Est-ce qu’un enfant majeur qui travaille devrait obligatoirement participer financièrement s’il vit encore chez ses parents ?",
+    "category": "values",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "parentalite_question_029_quelle_erreur_financiere_laiss",
+    "question": "Quelle erreur financière laisserais-tu notre enfant faire seul(e), même en sachant qu’il/elle risque de la regretter ?",
+    "category": "values",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "parentalite_question_030_comment_apprendrais_tu_a_notre",
+    "question": "Comment apprendrais-tu à notre enfant à gérer son argent sans tout contrôler ?",
+    "category": "future",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "parentalite_question_031_que_ferais_tu_si_notre_enfant_",
+    "question": "Que ferais-tu si notre enfant adulte nous demandait une grosse somme d’argent après avoir ignoré tous nos conseils ?",
+    "category": "family",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "parentalite_question_032_quel_comportement_de_notre_enf",
+    "question": "Quel comportement de notre enfant adolescent aurait le plus de chances de te faire perdre ton calme ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "parentalite_question_033_quelle_punition_te_semble_tota",
+    "question": "Quelle punition te semble totalement inacceptable, même dans une situation grave ?",
+    "category": "values",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "parentalite_question_034_est_ce_que_lhonnetete_devrait_",
+    "question": "Est-ce que l’honnêteté devrait toujours réduire une punition ?",
+    "category": "values",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "parentalite_question_035_que_ferais_tu_si_nous_etions_c",
+    "question": "Que ferais-tu si nous étions complètement en désaccord sur la sanction à donner à notre enfant ?",
+    "category": "communication",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "parentalite_question_036_penses_tu_quil_faut_toujours_p",
+    "question": "Penses-tu qu’il faut toujours présenter un front uni devant les enfants, même lorsqu’on n’est pas d’accord entre parents ?",
+    "category": "communication",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "parentalite_question_037_quelle_decision_parentale_pour",
+    "question": "Quelle décision parentale pourrait provoquer le plus gros conflit entre nous ?",
+    "category": "communication",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "parentalite_question_038_comment_voudrais_tu_quon_se_pa",
+    "question": "Comment voudrais-tu qu’on se parle si l’un de nous pense que l’autre est trop strict avec notre enfant ?",
+    "category": "communication",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "parentalite_question_039_que_ferais_tu_si_notre_enfant_",
+    "question": "Que ferais-tu si notre enfant disait qu’il/elle préfère se confier à l’un de nous et refuse de parler à l’autre ?",
+    "category": "family",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "parentalite_question_040_pourrais_tu_garder_un_secret_i",
+    "question": "Pourrais-tu garder un secret important confié par notre enfant sans m’en parler ? Où placerais-tu la limite ?",
+    "category": "communication",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "parentalite_question_041_comment_reagirais_tu_si_notre_",
+    "question": "Comment réagirais-tu si notre enfant nous demandait de l’appeler par un nouveau prénom ?",
+    "category": "family",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "parentalite_question_042_que_ferais_tu_si_notre_enfant_",
+    "question": "Que ferais-tu si notre enfant adoptait une religion ou des convictions totalement opposées aux nôtres ?",
+    "category": "values",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "parentalite_question_043_jusquou_devrions_nous_accepter",
+    "question": "Jusqu’où devrions-nous accepter des opinions très différentes des nôtres chez notre enfant ?",
+    "category": "values",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "parentalite_question_044_comment_reagirais_tu_si_notre_",
+    "question": "Comment réagirais-tu si notre ado ne voulait plus voir une partie de la famille ?",
+    "category": "family",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "parentalite_question_045_est_ce_quon_devrait_obliger_un",
+    "question": "Est-ce qu’on devrait obliger un enfant à maintenir un lien familial qu’il/elle ne souhaite plus ?",
+    "category": "values",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "parentalite_question_046_que_ferais_tu_si_notre_enfant_",
+    "question": "Que ferais-tu si notre enfant nous disait qu’il/elle a besoin d’un psychologue mais refuse de nous expliquer pourquoi ?",
+    "category": "family",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "parentalite_question_047_comment_reagirais_tu_si_notre_",
+    "question": "Comment réagirais-tu si notre adolescent demandait régulièrement des journées de pause pour sa santé mentale ?",
+    "category": "family",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "parentalite_question_048_que_ferais_tu_si_notre_enfant_",
+    "question": "Que ferais-tu si notre enfant était harcelé à l’école mais refusait catégoriquement qu’on intervienne ?",
+    "category": "family",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "parentalite_question_049_et_si_nous_decouvrions_que_not",
+    "question": "Et si nous découvrions que notre enfant est lui-même l’auteur de harcèlement ?",
+    "category": "family",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "parentalite_question_050_comment_reagirais_tu_si_notre_",
+    "question": "Comment réagirais-tu si notre enfant avait commis quelque chose de grave et nous demandait de le/la défendre malgré tout ?",
+    "category": "family",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "parentalite_question_051_y_a_t_il_une_faute_que_notre_e",
+    "question": "Y a-t-il une faute que notre enfant pourrait commettre et qui changerait profondément la façon dont tu le/la regardes ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "parentalite_question_052_que_ferais_tu_si_notre_enfant_",
+    "question": "Que ferais-tu si notre enfant adulte coupait tout contact avec nous après un conflit ?",
+    "category": "family",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "parentalite_question_053_comment_reagirais_tu_si_notre_",
+    "question": "Comment réagirais-tu si notre enfant voulait partir vivre à l’autre bout du monde dès sa majorité ?",
+    "category": "future",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "parentalite_question_054_a_quel_age_te_semblerait_il_ra",
+    "question": "À quel âge te semblerait-il raisonnable de laisser notre enfant voyager seul(e) ?",
+    "category": "future",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "parentalite_question_055_quelle_liberte_aurais_tu_le_pl",
+    "question": "Quelle liberté aurais-tu le plus de mal à accorder à un adolescent ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "parentalite_question_056_sur_quel_sujet_serais_tu_proba",
+    "question": "Sur quel sujet serais-tu probablement le parent le plus permissif ?",
+    "category": "future",
+    "spicy": 0,
+    "mood": "fun",
+    "premium": true
+  },
+  {
+    "id": "parentalite_question_057_sur_quel_sujet_serais_tu_proba",
+    "question": "Sur quel sujet serais-tu probablement le parent le plus strict ?",
+    "category": "future",
+    "spicy": 0,
+    "mood": "fun",
+    "premium": true
+  },
+  {
+    "id": "parentalite_question_058_quelle_habitude_de_nos_propres",
+    "question": "Quelle habitude de nos propres parents voudrais-tu absolument reproduire avec nos enfants ?",
+    "category": "family",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "parentalite_question_059_quelle_habitude_educative_de_n",
+    "question": "Quelle habitude éducative de nos familles voudrais-tu absolument éviter de reproduire ?",
+    "category": "family",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "parentalite_question_060_quel_genre_de_parent_esperes_t",
+    "question": "Quel genre de parent espères-tu que notre enfant dira que tu étais lorsqu’il/elle sera adulte ?",
+    "category": "future",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
   }
 ]

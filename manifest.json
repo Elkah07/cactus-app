@@ -1,22 +1,43 @@
 {
-  "name": "Cactus",
-  "short_name": "Cactus",
-  "description": "Le petit espace complice des couples qui poussent ensemble",
-  "start_url": "./index.html",
-  "display": "standalone",
-  "background_color": "#003E2D",
-  "theme_color": "#003E2D",
-  "orientation": "portrait",
-  "icons": [
-    {
-      "src": "icons/icon-192-v2.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "icons/icon-512-v2.png",
-      "sizes": "512x512",
-      "type": "image/png"
-    }
+  "name": "CACTUS — Pack transversal Enfants & éducation",
+  "total_new_objects": 300,
+  "counts": {
+    "ok-ou-pas-ok": 70,
+    "questions": 60,
+    "likely": 35,
+    "guess-my-answer": 35,
+    "would-you-rather": 30,
+    "green-flag-red-flag": 30,
+    "rankings": 20,
+    "limit-reached": 20
+  },
+  "limit_reached_levels": 120,
+  "duplicate_exact_text_hits_against_current_project": 0,
+  "files": [
+    "ok-ou-pas-ok-parentalite-70.json",
+    "questions-parentalite-60.json",
+    "likely-parentalite-35.json",
+    "guess-my-answer-parentalite-35.json",
+    "would-you-rather-parentalite-30.json",
+    "green-flag-red-flag-parentalite-30.json",
+    "rankings-parentalite-20.json",
+    "limit-reached-parentalite-20.json"
+  ],
+  "themes": [
+    "éducation",
+    "adolescence",
+    "discipline",
+    "vie privée",
+    "alcool",
+    "tabac",
+    "cannabis",
+    "sexualité et relations",
+    "argent",
+    "études",
+    "réseaux sociaux",
+    "santé mentale",
+    "autonomie",
+    "famille",
+    "désaccords entre parents"
   ]
 }

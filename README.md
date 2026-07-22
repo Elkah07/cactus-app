@@ -1,52 +1,24 @@
-# Cactus 🌵
+# CACTUS — Pack transversal « Enfants & éducation »
 
-Application web pour couples à distance.
+Ce pack contient **300 nouveaux objets de contenu** répartis dans 8 modes de jeu.
 
-## Objectif
+- C’est OK ou Pas OK ? : 70
+- Questions : 60
+- Qui est le plus susceptible de… : 35
+- Devine ma réponse : 35
+- Tu préfères ? : 30
+- Green Flag / Red Flag : 30
+- Classements : 20
+- Limite atteinte : 20 scénarios, soit **120 niveaux progressifs**
 
-Créer une app où deux partenaires peuvent jouer à des mini-jeux pour se découvrir, comparer leurs réponses et discuter.
+Le dossier `nouveaux-contenus` contient uniquement les ajouts.
+Le dossier `fichiers-complets-prets-a-remplacer/data` contient les fichiers actuels du projet avec les nouveaux contenus déjà fusionnés.
 
-## V1
+Contrôles effectués :
+- 300 IDs nouveaux et uniques
+- aucune collision d’ID avec le projet fourni
+- 0 doublon textuel exact détecté avec les catalogues actuels
+- tous les scénarios Limite atteinte contiennent exactement 6 niveaux
+- tous les JSON sont valides
 
-- [x] Écran accueil
-- [x] Écran pseudo
-- [x] Écran espace couple
-- [x] Dashboard
-- [x] Mode Classements
-- [x] Chargement depuis JSON
-- [x] Drag & drop en swap
-- [x] Sauvegarde locale
-- [ ] Firebase Auth
-- [ ] Vrais espaces couple
-- [ ] Comparaison avec partenaire
-- [ ] Version mobile / PWA
-
-## Structure
-
-```txt
-css/
-  style.css
-
-data/
-  rankings.json
-  questions.json
-  green-red-flags.json
-  guess-my-answer.json
-  ok-pas-ok.json
-  princess-treatment.json
-  who-is-most-likely.json
-
-js/
-  script.js
-  screens.js
-  utils.js
-  storage.js
-  rankings.js
-  questions.js
-```
-
-## Notes
-
-Pour tester en local, utiliser Live Server dans VS Code.
-
-Plus tard, le projet pourra devenir une PWA installable sur téléphone, puis éventuellement une vraie app mobile avec Capacitor ou React Native.
+Les situations couvrent notamment : tabac, vapotage, cannabis, alcool, soirées, relations amoureuses, sexualité et contraception sans contenu explicite, téléphone et vie privée, réseaux sociaux, études, argent, santé mentale, autonomie, famille élargie, discipline et désaccords entre parents.

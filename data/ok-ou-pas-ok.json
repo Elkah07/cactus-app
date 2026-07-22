@@ -3714,5 +3714,285 @@
   {
     "id": "changer_vie_sans_plan",
     "question": "Ton partenaire veut tout quitter sans avoir de plan précis."
+  },
+  {
+    "id": "parentalite_ok_001_votre_enfant_de_16_ans_fume_regulier",
+    "question": "Votre enfant de 16 ans fume régulièrement des cigarettes."
+  },
+  {
+    "id": "parentalite_ok_002_votre_ado_de_16_ans_vapote_tous_les_",
+    "question": "Votre ado de 16 ans vapote tous les jours mais affirme ne jamais toucher aux cigarettes."
+  },
+  {
+    "id": "parentalite_ok_003_votre_enfant_de_17_ans_vous_avoue_qu",
+    "question": "Votre enfant de 17 ans vous avoue qu’il/elle fume du cannabis de temps en temps avec ses amis."
+  },
+  {
+    "id": "parentalite_ok_004_votre_ado_vous_demande_lautorisation",
+    "question": "Votre ado vous demande l’autorisation de fumer du cannabis à la maison plutôt qu’à l’extérieur."
+  },
+  {
+    "id": "parentalite_ok_005_votre_enfant_majeur_consomme_du_cann",
+    "question": "Votre enfant majeur consomme du cannabis chez vous tant qu’il/elle ne conduit pas ensuite."
+  },
+  {
+    "id": "parentalite_ok_006_votre_enfant_de_16_ans_boit_occasion",
+    "question": "Votre enfant de 16 ans boit occasionnellement un verre d’alcool pendant un repas de famille."
+  },
+  {
+    "id": "parentalite_ok_007_votre_ado_de_17_ans_va_a_une_soiree_",
+    "question": "Votre ado de 17 ans va à une soirée où vous savez qu’il y aura de l’alcool."
+  },
+  {
+    "id": "parentalite_ok_008_votre_enfant_de_16_ans_rentre_ivre_d",
+    "question": "Votre enfant de 16 ans rentre ivre d’une soirée pour la première fois."
+  },
+  {
+    "id": "parentalite_ok_009_votre_ado_cache_une_bouteille_dalcoo",
+    "question": "Votre ado cache une bouteille d’alcool dans sa chambre."
+  },
+  {
+    "id": "parentalite_ok_010_votre_enfant_vous_appelle_en_pleine_",
+    "question": "Votre enfant vous appelle en pleine nuit pour venir le chercher après avoir trop bu."
+  },
+  {
+    "id": "parentalite_ok_011_votre_enfant_de_17_ans_ramene_une_pe",
+    "question": "Votre enfant de 17 ans ramène une personne différente à la maison deux soirs d’affilée."
+  },
+  {
+    "id": "parentalite_ok_012_votre_ado_de_16_ans_veut_que_son_sa_",
+    "question": "Votre ado de 16 ans veut que son/sa partenaire dorme régulièrement à la maison."
+  },
+  {
+    "id": "parentalite_ok_013_votre_enfant_de_15_ans_demande_a_dor",
+    "question": "Votre enfant de 15 ans demande à dormir chez son/sa partenaire."
+  },
+  {
+    "id": "parentalite_ok_014_votre_ado_ferme_sa_porte_a_cle_lorsq",
+    "question": "Votre ado ferme sa porte à clé lorsqu’il/elle reçoit son/sa partenaire dans sa chambre."
+  },
+  {
+    "id": "parentalite_ok_015_votre_enfant_de_17_ans_part_un_week_",
+    "question": "Votre enfant de 17 ans part un week-end seul avec son/sa partenaire."
+  },
+  {
+    "id": "parentalite_ok_016_votre_ado_refuse_de_vous_dire_avec_q",
+    "question": "Votre ado refuse de vous dire avec qui il/elle sort mais respecte toujours son heure de retour."
+  },
+  {
+    "id": "parentalite_ok_017_votre_enfant_de_16_ans_veut_partir_u",
+    "question": "Votre enfant de 16 ans veut partir une semaine en vacances uniquement avec ses amis."
+  },
+  {
+    "id": "parentalite_ok_018_votre_ado_de_15_ans_va_seul_e_a_un_f",
+    "question": "Votre ado de 15 ans va seul(e) à un festival avec un groupe d’amis plus âgés."
+  },
+  {
+    "id": "parentalite_ok_019_votre_enfant_de_17_ans_rentre_reguli",
+    "question": "Votre enfant de 17 ans rentre régulièrement à 3 h du matin le week-end."
+  },
+  {
+    "id": "parentalite_ok_020_votre_ado_depasse_de_deux_heures_lhe",
+    "question": "Votre ado dépasse de deux heures l’heure de retour sans prévenir, mais répond immédiatement quand vous l’appelez."
+  },
+  {
+    "id": "parentalite_ok_021_votre_enfant_de_15_ans_refuse_de_vou",
+    "question": "Votre enfant de 15 ans refuse de vous donner le code de son téléphone."
+  },
+  {
+    "id": "parentalite_ok_022_vous_lisez_les_messages_de_votre_ado",
+    "question": "Vous lisez les messages de votre ado sans lui demander parce que vous avez un mauvais pressentiment."
+  },
+  {
+    "id": "parentalite_ok_023_votre_enfant_de_14_ans_possede_des_c",
+    "question": "Votre enfant de 14 ans possède des comptes sur les réseaux sociaux que vous ne suivez pas."
+  },
+  {
+    "id": "parentalite_ok_024_votre_ado_publie_des_photos_tres_per",
+    "question": "Votre ado publie des photos très personnelles mais non interdites sur les réseaux sociaux."
+  },
+  {
+    "id": "parentalite_ok_025_votre_enfant_bloque_les_deux_parents",
+    "question": "Votre enfant bloque les deux parents sur un réseau social pour avoir un espace privé."
+  },
+  {
+    "id": "parentalite_ok_026_votre_ado_passe_plus_de_six_heures_p",
+    "question": "Votre ado passe plus de six heures par jour sur son téléphone pendant les vacances."
+  },
+  {
+    "id": "parentalite_ok_027_votre_enfant_de_16_ans_gagne_de_larg",
+    "question": "Votre enfant de 16 ans gagne de l’argent sur les réseaux sociaux sans vous montrer exactement ce qu’il/elle publie."
+  },
+  {
+    "id": "parentalite_ok_028_votre_ado_refuse_totalement_la_geolo",
+    "question": "Votre ado refuse totalement la géolocalisation de son téléphone quand il/elle sort."
+  },
+  {
+    "id": "parentalite_ok_029_votre_enfant_seche_parfois_les_cours",
+    "question": "Votre enfant sèche parfois les cours mais garde d’excellentes notes."
+  },
+  {
+    "id": "parentalite_ok_030_votre_ado_veut_arreter_le_lycee_a_17",
+    "question": "Votre ado veut arrêter le lycée à 17 ans pour commencer à travailler."
+  },
+  {
+    "id": "parentalite_ok_031_votre_enfant_veut_abandonner_des_etu",
+    "question": "Votre enfant veut abandonner des études prestigieuses pour une voie beaucoup moins sécurisée qui le/la passionne."
+  },
+  {
+    "id": "parentalite_ok_032_votre_ado_refuse_de_faire_ses_devoir",
+    "question": "Votre ado refuse de faire ses devoirs tant que ses résultats restent au-dessus de la moyenne."
+  },
+  {
+    "id": "parentalite_ok_033_votre_enfant_majeur_change_detudes_p",
+    "question": "Votre enfant majeur change d’études pour la troisième fois et vous demande encore de tout financer."
+  },
+  {
+    "id": "parentalite_ok_034_votre_ado_de_16_ans_veut_travailler_",
+    "question": "Votre ado de 16 ans veut travailler tous les week-ends en plus du lycée."
+  },
+  {
+    "id": "parentalite_ok_035_votre_enfant_vous_demande_de_ne_pas_",
+    "question": "Votre enfant vous demande de ne pas assister à une réunion avec son école malgré de mauvaises notes."
+  },
+  {
+    "id": "parentalite_ok_036_votre_ado_est_exclu_e_temporairement",
+    "question": "Votre ado est exclu(e) temporairement du lycée après avoir insulté un professeur."
+  },
+  {
+    "id": "parentalite_ok_037_votre_enfant_majeur_vit_chez_vous_sa",
+    "question": "Votre enfant majeur vit chez vous sans payer de loyer mais participe sérieusement aux tâches de la maison."
+  },
+  {
+    "id": "parentalite_ok_038_votre_enfant_majeur_vit_chez_vous_tr",
+    "question": "Votre enfant majeur vit chez vous, travaille, mais refuse de participer financièrement aux dépenses du foyer."
+  },
+  {
+    "id": "parentalite_ok_039_votre_ado_depense_tout_son_argent_de",
+    "question": "Votre ado dépense tout son argent de poche le premier jour puis vous redemande de l’argent."
+  },
+  {
+    "id": "parentalite_ok_040_votre_enfant_de_16_ans_veut_utiliser",
+    "question": "Votre enfant de 16 ans veut utiliser toutes ses économies pour acheter un objet très cher."
+  },
+  {
+    "id": "parentalite_ok_041_votre_ado_travaille_et_refuse_de_vou",
+    "question": "Votre ado travaille et refuse de vous dire combien il/elle gagne ou ce qu’il/elle fait de son argent."
+  },
+  {
+    "id": "parentalite_ok_042_votre_enfant_majeur_contracte_un_pet",
+    "question": "Votre enfant majeur contracte un petit crédit à la consommation sans vous en parler."
+  },
+  {
+    "id": "parentalite_ok_043_votre_ado_veut_se_faire_percer_malgr",
+    "question": "Votre ado veut se faire percer malgré le désaccord d’un des deux parents."
+  },
+  {
+    "id": "parentalite_ok_044_votre_enfant_de_17_ans_veut_se_faire",
+    "question": "Votre enfant de 17 ans veut se faire tatouer dès le jour de ses 18 ans."
+  },
+  {
+    "id": "parentalite_ok_045_votre_ado_change_radicalement_de_sty",
+    "question": "Votre ado change radicalement de style et d’apparence alors que cela vous déplaît."
+  },
+  {
+    "id": "parentalite_ok_046_votre_enfant_refuse_de_participer_au",
+    "question": "Votre enfant refuse de participer aux repas de famille parce qu’il/elle ne supporte plus certains proches."
+  },
+  {
+    "id": "parentalite_ok_047_votre_ado_ne_veut_plus_voir_un_membr",
+    "question": "Votre ado ne veut plus voir un membre de la famille qui, selon vous, n’a rien fait de grave."
+  },
+  {
+    "id": "parentalite_ok_048_votre_enfant_veut_changer_de_religio",
+    "question": "Votre enfant veut changer de religion ou s’éloigner complètement de celle de la famille."
+  },
+  {
+    "id": "parentalite_ok_049_votre_ado_exprime_des_opinions_polit",
+    "question": "Votre ado exprime des opinions politiques totalement opposées aux vôtres à la maison."
+  },
+  {
+    "id": "parentalite_ok_050_votre_enfant_veut_changer_de_prenom_",
+    "question": "Votre enfant veut changer de prénom d’usage et demande à toute la famille de le respecter."
+  },
+  {
+    "id": "parentalite_ok_051_votre_ado_demande_a_consulter_un_psy",
+    "question": "Votre ado demande à consulter un psychologue sans vous expliquer pourquoi."
+  },
+  {
+    "id": "parentalite_ok_052_votre_enfant_refuse_de_vous_raconter",
+    "question": "Votre enfant refuse de vous raconter ce qui se dit pendant ses séances de thérapie."
+  },
+  {
+    "id": "parentalite_ok_053_votre_ado_demande_une_journee_sans_e",
+    "question": "Votre ado demande une journée sans école parce qu’il/elle se sent mentalement épuisé(e)."
+  },
+  {
+    "id": "parentalite_ok_054_votre_enfant_veut_prendre_une_contra",
+    "question": "Votre enfant veut prendre une contraception sans que l’autre parent soit mis au courant immédiatement."
+  },
+  {
+    "id": "parentalite_ok_055_votre_ado_vous_demande_de_garder_sec",
+    "question": "Votre ado vous demande de garder secret un problème personnel qu’il/elle ne veut pas encore dire à l’autre parent."
+  },
+  {
+    "id": "parentalite_ok_056_votre_enfant_de_16_ans_veut_aller_se",
+    "question": "Votre enfant de 16 ans veut aller seul(e) chez le médecin pour parler d’un sujet intime."
+  },
+  {
+    "id": "parentalite_ok_057_votre_ado_frequente_quelquun_que_vou",
+    "question": "Votre ado fréquente quelqu’un que vous considérez comme une très mauvaise influence."
+  },
+  {
+    "id": "parentalite_ok_058_votre_enfant_reste_ami_avec_une_pers",
+    "question": "Votre enfant reste ami avec une personne qui lui a déjà menti et causé beaucoup de problèmes."
+  },
+  {
+    "id": "parentalite_ok_059_votre_ado_recoit_a_la_maison_un_ami_",
+    "question": "Votre ado reçoit à la maison un ami que l’un des deux parents ne veut plus voir chez vous."
+  },
+  {
+    "id": "parentalite_ok_060_votre_enfant_vous_ment_sur_lendroit_",
+    "question": "Votre enfant vous ment sur l’endroit où il/elle passe la soirée mais vous avoue la vérité le lendemain."
+  },
+  {
+    "id": "parentalite_ok_061_votre_ado_commet_une_grosse_betise_m",
+    "question": "Votre ado commet une grosse bêtise mais vient vous l’avouer spontanément avant que vous ne la découvriez."
+  },
+  {
+    "id": "parentalite_ok_062_votre_enfant_refuse_une_punition_qui",
+    "question": "Votre enfant refuse une punition qu’il/elle considère injuste et demande à en discuter avant de l’appliquer."
+  },
+  {
+    "id": "parentalite_ok_063_lun_des_deux_parents_annule_discrete",
+    "question": "L’un des deux parents annule discrètement une punition donnée par l’autre parce qu’il/elle la trouve excessive."
+  },
+  {
+    "id": "parentalite_ok_064_vous_ne_punissez_pas_votre_enfant_po",
+    "question": "Vous ne punissez pas votre enfant pour une mauvaise note s’il/elle peut montrer qu’il/elle a réellement travaillé."
+  },
+  {
+    "id": "parentalite_ok_065_votre_enfant_de_14_ans_refuse_de_fai",
+    "question": "Votre enfant de 14 ans refuse de faire la bise ou un câlin à des membres de la famille."
+  },
+  {
+    "id": "parentalite_ok_066_votre_ado_veut_passer_noel_avec_la_f",
+    "question": "Votre ado veut passer Noël avec la famille de son/sa partenaire plutôt qu’avec vous."
+  },
+  {
+    "id": "parentalite_ok_067_votre_enfant_majeur_choisit_de_parti",
+    "question": "Votre enfant majeur choisit de partir vivre très loin malgré votre inquiétude."
+  },
+  {
+    "id": "parentalite_ok_068_votre_ado_veut_voyager_seul_e_a_letr",
+    "question": "Votre ado veut voyager seul(e) à l’étranger dès ses 17 ans."
+  },
+  {
+    "id": "parentalite_ok_069_votre_enfant_de_18_ans_vous_annonce_",
+    "question": "Votre enfant de 18 ans vous annonce qu’il/elle souhaite emménager avec son/sa partenaire après seulement quelques mois de relation."
+  },
+  {
+    "id": "parentalite_ok_070_votre_enfant_adulte_coupe_tout_conta",
+    "question": "Votre enfant adulte coupe tout contact avec un membre proche de la famille et vous demande de respecter sa décision."
   }
 ]
