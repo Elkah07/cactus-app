@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cactus 🌵</title>
-    <link rel="stylesheet" href="css/style.css?v=115">
+    <link rel="stylesheet" href="css/style.css?v=1142">
     <link rel="manifest" href="manifest.json?v=2">
     <meta name="theme-color" content="#003E2D">
 </head>
@@ -1781,21 +1781,6 @@
         <input id="profileCactusNameInput" type="text" maxlength="30" placeholder="Cactou">
         <label for="profileMottoInput">Notre petite phrase</label>
         <input id="profileMottoInput" type="text" maxlength="100" placeholder="Notre petit monde à deux.">
-
-        <fieldset class="profile-couple-type-picker">
-            <legend>Notre couple</legend>
-            <p>Ce choix personnalise les questions proposées. Les questions universelles restent toujours disponibles.</p>
-            <input id="profileCoupleTypeInput" type="hidden" value="">
-            <div class="profile-couple-type-grid" role="radiogroup" aria-label="Choisir la configuration de notre couple">
-                <button type="button" data-profile-couple-type="wlw" role="radio" aria-checked="false"><span>👩‍❤️‍👩</span><strong>Couple de femmes</strong><small>Universel + contenus WLW</small></button>
-                <button type="button" data-profile-couple-type="mlm" role="radio" aria-checked="false"><span>👨‍❤️‍👨</span><strong>Couple d’hommes</strong><small>Universel + contenus MLM</small></button>
-                <button type="button" data-profile-couple-type="hetero" role="radio" aria-checked="false"><span>👩‍❤️‍👨</span><strong>Couple femme / homme</strong><small>Universel + contenus dédiés</small></button>
-                <button type="button" data-profile-couple-type="other" role="radio" aria-checked="false"><span>🌈</span><strong>Autre configuration</strong><small>Universel + contenus queer</small></button>
-                <button type="button" data-profile-couple-type="universal" role="radio" aria-checked="false"><span>✨</span><strong>Universel uniquement</strong><small>Aucune question ciblée</small></button>
-            </div>
-            <small class="profile-couple-type-note">Vous pourrez modifier ce choix à tout moment. Il est partagé dans votre espace Cactus.</small>
-        </fieldset>
-
         <fieldset class="profile-color-picker">
             <legend>Notre couleur</legend>
             <div class="profile-color-preview-row">
@@ -2752,27 +2737,6 @@
         </div>
     </div>
 
-
-    <div id="coupleTypeOnboardingModal" class="couple-type-onboarding-modal" style="display:none;" role="dialog" aria-modal="true" aria-labelledby="coupleTypeOnboardingTitle">
-        <div class="couple-type-onboarding-backdrop"></div>
-        <section class="couple-type-onboarding-sheet">
-            <div class="couple-type-onboarding-visual" aria-hidden="true">🌵💚</div>
-            <small>Une expérience encore plus personnelle</small>
-            <h2 id="coupleTypeOnboardingTitle">Quel type de couple êtes-vous ?</h2>
-            <p>Cactus utilisera ce choix uniquement pour vous proposer des questions plus pertinentes. Toutes les questions universelles restent dans votre catalogue.</p>
-            <input id="coupleTypeOnboardingInput" type="hidden" value="">
-            <div class="couple-type-onboarding-grid" role="radiogroup" aria-label="Choisir la configuration du couple">
-                <button type="button" data-onboarding-couple-type="wlw" role="radio" aria-checked="false"><span>👩‍❤️‍👩</span><strong>Couple de femmes</strong></button>
-                <button type="button" data-onboarding-couple-type="mlm" role="radio" aria-checked="false"><span>👨‍❤️‍👨</span><strong>Couple d’hommes</strong></button>
-                <button type="button" data-onboarding-couple-type="hetero" role="radio" aria-checked="false"><span>👩‍❤️‍👨</span><strong>Femme / homme</strong></button>
-                <button type="button" data-onboarding-couple-type="other" role="radio" aria-checked="false"><span>🌈</span><strong>Autre configuration</strong></button>
-            </div>
-            <button type="button" id="saveCoupleTypeOnboardingBtn" disabled>Personnaliser nos questions</button>
-            <button type="button" id="laterCoupleTypeOnboardingBtn" class="secondary">Plus tard</button>
-            <small class="couple-type-privacy-note">Ce réglage est partagé uniquement dans votre espace et peut être modifié depuis Profil du couple.</small>
-        </section>
-    </div>
-
     <aside
         id="appUpdateBanner"
         class="app-update-banner"
@@ -2816,7 +2780,7 @@
     <script src="js/storage.js"></script>
     <script src="js/rankings.js"></script>
     <script src="js/questions.js"></script>
-    <script src="js/script.js?v=115"></script>
+    <script src="js/script.js?v=114"></script>
 
 </body>
 </html>

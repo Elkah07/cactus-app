@@ -16,61 +16,66 @@
 .cactus-accessory-neck[data-accessory-id="pinkBow"] { top: var(--bow-top); left: var(--bow-left, 50%); width: var(--bow-width); }
 
 .cactus-accessory.is-equipped img {
-    filter: drop-shadow(0 6px 4px rgba(0, 34, 23, 0.28));
+    filter: drop-shadow(0 3px 3px rgba(0, 34, 23, 0.22));
 }
 
+/* ====================
+   ANCRAGES ACCESSOIRES CACTOU — V114.2
+   Chaque évolution a sa propre silhouette dans un canevas transparent.
+   Les accessoires sont donc ancrés sur le corps visible, niveau par niveau.
+==================== */
 .dashboard-cactus-character[data-cactus-stage="1"] {
-    --flower-top: 12%; --flower-width: 34%;
-    --party-top: 1%; --party-width: 20%;
-    --crown-top: 8%; --crown-width: 30%;
-    --glasses-top: 40%; --glasses-width: 36%;
-    --necklace-top: 53%; --necklace-width: 29%;
-    --bow-top: 60%; --bow-width: 17%;
+    --flower-top: 12%; --flower-left: 52%; --flower-width: 28%;
+    --party-top: 7%; --party-left: 52%; --party-width: 15%;
+    --crown-top: 13%; --crown-left: 52%; --crown-width: 23%;
+    --glasses-top: 39.5%; --glasses-left: 52%; --glasses-width: 24%;
+    --necklace-top: 61.5%; --necklace-left: 52%; --necklace-width: 20%;
+    --bow-top: 66%; --bow-left: 52%; --bow-width: 13%;
 }
 
 .dashboard-cactus-character[data-cactus-stage="2"] {
-    --flower-top: 14%; --flower-width: 32%;
-    --party-top: 6%; --party-width: 19%;
-    --crown-top: 11%; --crown-width: 28%;
-    --glasses-top: 41%; --glasses-width: 34%;
-    --necklace-top: 47%; --necklace-left: 51%; --necklace-width: 24%;
-    --bow-top: 53%; --bow-left: 51%; --bow-width: 16%;
+    --flower-top: 13%; --flower-left: 52%; --flower-width: 27%;
+    --party-top: 8%; --party-left: 52%; --party-width: 15%;
+    --crown-top: 14%; --crown-left: 52%; --crown-width: 22%;
+    --glasses-top: 39%; --glasses-left: 52%; --glasses-width: 22%;
+    --necklace-top: 54%; --necklace-left: 52%; --necklace-width: 18%;
+    --bow-top: 57%; --bow-left: 52%; --bow-width: 12%;
 }
 
 .dashboard-cactus-character[data-cactus-stage="3"] {
-    --flower-top: 5%; --flower-width: 36%;
-    --party-top: -3%; --party-width: 21%;
-    --crown-top: 2%; --crown-width: 32%;
-    --glasses-top: 34%; --glasses-width: 35%;
-    --necklace-top: 48%; --necklace-left: 48%; --necklace-width: 29%;
-    --bow-top: 53%; --bow-left: 43%; --bow-width: 16%;
+    --flower-top: 5%; --flower-left: 53%; --flower-width: 29%;
+    --party-top: 0%; --party-left: 53%; --party-width: 16%;
+    --crown-top: 7%; --crown-left: 53%; --crown-width: 24%;
+    --glasses-top: 34%; --glasses-left: 52.5%; --glasses-width: 23%;
+    --necklace-top: 47%; --necklace-left: 51%; --necklace-width: 20%;
+    --bow-top: 50%; --bow-left: 51%; --bow-width: 13%;
 }
 
 .dashboard-cactus-character[data-cactus-stage="4"] {
-    --flower-top: 6%; --flower-width: 38%;
-    --party-top: -2%; --party-width: 22%;
-    --crown-top: 3%; --crown-width: 34%;
-    --glasses-top: 35%; --glasses-width: 35%;
-    --necklace-top: 46%; --necklace-left: 46%; --necklace-width: 25%;
-    --bow-top: 50%; --bow-left: 42%; --bow-width: 16%;
+    --flower-top: 6%; --flower-left: 51%; --flower-width: 30%;
+    --party-top: 1%; --party-left: 51%; --party-width: 16%;
+    --crown-top: 8%; --crown-left: 51%; --crown-width: 24%;
+    --glasses-top: 34%; --glasses-left: 49%; --glasses-width: 23%;
+    --necklace-top: 46%; --necklace-left: 48%; --necklace-width: 19%;
+    --bow-top: 49%; --bow-left: 46%; --bow-width: 12%;
 }
 
 .dashboard-cactus-character[data-cactus-stage="5"] {
-    --flower-top: 7%; --flower-width: 39%;
-    --party-top: -1%; --party-width: 23%;
-    --crown-top: 4%; --crown-width: 35%;
-    --glasses-top: 35%; --glasses-width: 36%;
-    --necklace-top: 51%; --necklace-left: 49%; --necklace-width: 31%;
-    --bow-top: 56%; --bow-left: 48%; --bow-width: 18%;
+    --flower-top: 7%; --flower-left: 55%; --flower-width: 31%;
+    --party-top: 1%; --party-left: 55%; --party-width: 17%;
+    --crown-top: 9%; --crown-left: 55%; --crown-width: 25%;
+    --glasses-top: 35%; --glasses-left: 51%; --glasses-width: 24%;
+    --necklace-top: 49%; --necklace-left: 50%; --necklace-width: 21%;
+    --bow-top: 53%; --bow-left: 50%; --bow-width: 13%;
 }
 
 .dashboard-cactus-character[data-cactus-stage="6"] {
-    --flower-top: 8%; --flower-width: 39%;
-    --party-top: 0%; --party-width: 23%;
-    --crown-top: 5%; --crown-width: 35%;
-    --glasses-top: 36%; --glasses-width: 36%;
-    --necklace-top: 51%; --necklace-left: 49%; --necklace-width: 31%;
-    --bow-top: 56%; --bow-left: 48%; --bow-width: 18%;
+    --flower-top: 6%; --flower-left: 52%; --flower-width: 31%;
+    --party-top: 0%; --party-left: 52%; --party-width: 17%;
+    --crown-top: 8%; --crown-left: 52%; --crown-width: 25%;
+    --glasses-top: 35%; --glasses-left: 50%; --glasses-width: 24%;
+    --necklace-top: 49%; --necklace-left: 49%; --necklace-width: 21%;
+    --bow-top: 53%; --bow-left: 49%; --bow-width: 13%;
 }
 
 .dashboard-cactus-interactions {
@@ -2276,13 +2281,19 @@ body.dashboard-active .top-right-btn {
 }
 
 .cactus-accessory-head {
-    top: 8%;
-    width: 42%;
+    z-index: 5;
+    top: var(--flower-top, 8%);
+    width: var(--flower-width, 30%);
+}
+
+.cactus-accessory-face {
+    z-index: 6;
 }
 
 .cactus-accessory-neck {
-    top: 55%;
-    width: 35%;
+    z-index: 5;
+    top: var(--necklace-top, 55%);
+    width: var(--necklace-width, 22%);
 }
 
 @keyframes cactus-idle-breathe {
@@ -14656,270 +14667,62 @@ body.has-custom-app-theme :is(.waiting-box, .comparison-box, .compatibility-scor
 }
 
 /* =========================================================
-   V114.2 — CORRECTIF "À L'HORIZON" / NOTRE QUOTIDIEN
-   La zone des prochains moments suit désormais le thème actif.
-========================================================= */
-.daily-calendar-upcoming-inline {
-    border-top-color: var(--app-border) !important;
-    background: var(--app-shell-bg) !important;
-    color: var(--app-text);
+   V114.1 — CORRECTIF CONTRASTE « À L'HORIZON »
+   Le bloc utilisait encore un fond blanc fixe tandis que ses textes
+   suivaient le thème sombre, ce qui les rendait presque invisibles.
+   ========================================================= */
+.daily-calendar-overview {
+    background: var(--app-panel-bg);
+    border-color: var(--app-border-soft);
 }
 
-.daily-calendar-inline-heading small {
-    color: var(--app-accent) !important;
+.daily-calendar-upcoming-inline {
+    position: relative;
+    color: var(--app-heading);
+    background: color-mix(in srgb, var(--app-panel-bg) 92%, var(--app-user-accent) 8%);
+    border-top-color: var(--app-border-soft);
 }
 
 .daily-calendar-inline-heading strong {
     color: var(--app-heading) !important;
+    opacity: 1;
+}
+
+.daily-calendar-inline-heading small {
+    color: var(--app-user-accent) !important;
+    opacity: 1;
 }
 
 .daily-calendar-inline-heading button {
-    border: 1px solid var(--app-border) !important;
-    background: var(--app-secondary-button) !important;
-    color: var(--app-heading) !important;
+    color: var(--app-user-accent-contrast) !important;
+    background: var(--app-user-accent) !important;
 }
 
 .daily-upcoming-moments-inline .daily-upcoming-moment {
-    border-color: color-mix(in srgb, var(--event-color, var(--app-accent)) 34%, var(--app-border-strong)) !important;
-    background: color-mix(in srgb, var(--event-color, var(--app-accent)) 16%, var(--app-input-bg)) !important;
-    color: var(--app-text) !important;
+    color: var(--app-heading) !important;
+    background: color-mix(in srgb, var(--app-panel-bg) 82%, var(--event-color, var(--app-user-accent)) 18%) !important;
+    border-color: color-mix(in srgb, var(--event-color, var(--app-user-accent)) 42%, var(--app-border-soft)) !important;
 }
 
 .daily-upcoming-moments-inline .daily-upcoming-moment > span {
-    background: var(--app-panel-bg) !important;
-    box-shadow: 0 6px 16px var(--app-shadow-soft) !important;
+    background: var(--app-icon-bg) !important;
 }
 
 .daily-upcoming-moments-inline .daily-upcoming-moment strong {
     color: var(--app-heading) !important;
+    opacity: 1;
 }
 
 .daily-upcoming-moments-inline .daily-upcoming-moment small {
     color: var(--app-muted) !important;
+    opacity: 1;
 }
 
 .daily-upcoming-moments-inline .daily-upcoming-moment b {
     color: var(--app-heading) !important;
+    opacity: .86;
 }
 
 .daily-calendar-upcoming-inline .daily-upcoming-empty {
     color: var(--app-muted) !important;
-}
-
-/* =========================================================
-   V115 — PERSONNALISATION SELON LA CONFIGURATION DU COUPLE
-========================================================= */
-.profile-couple-type-picker {
-    margin: 2px 0 4px;
-    padding: 16px;
-    border: 1px solid color-mix(in srgb, var(--profile-accent, var(--app-accent)) 28%, var(--app-border-soft));
-    border-radius: 22px;
-    background: color-mix(in srgb, var(--app-panel-bg) 92%, transparent);
-}
-
-.profile-couple-type-picker legend {
-    padding: 0 7px;
-    color: var(--app-heading);
-    font-size: .75rem;
-    font-weight: 900;
-}
-
-.profile-couple-type-picker > p {
-    margin: 0 0 12px;
-    color: var(--app-muted);
-    font-size: .63rem;
-    line-height: 1.45;
-}
-
-.profile-couple-type-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 9px;
-}
-
-.couple-profile-form .profile-couple-type-grid button,
-.couple-type-onboarding-grid button {
-    width: 100%;
-    min-width: 0;
-    margin: 0;
-    border: 1px solid color-mix(in srgb, var(--app-accent) 20%, var(--app-border-soft));
-    background: color-mix(in srgb, var(--app-panel-bg) 86%, var(--app-icon-bg));
-    color: var(--app-heading);
-    box-shadow: none;
-    text-align: left;
-}
-
-.couple-profile-form .profile-couple-type-grid button {
-    display: grid;
-    grid-template-columns: 34px minmax(0, 1fr);
-    grid-template-areas: "icon title" "icon copy";
-    align-items: center;
-    gap: 1px 9px;
-    min-height: 72px;
-    padding: 10px 11px;
-    border-radius: 17px;
-}
-
-.profile-couple-type-grid button > span {
-    grid-area: icon;
-    font-size: 1.45rem;
-}
-
-.profile-couple-type-grid button > strong {
-    grid-area: title;
-    overflow: hidden;
-    font-size: .69rem;
-    text-overflow: ellipsis;
-}
-
-.profile-couple-type-grid button > small {
-    grid-area: copy;
-    color: var(--app-muted);
-    font-size: .51rem;
-    line-height: 1.25;
-}
-
-.couple-profile-form .profile-couple-type-grid button.is-selected,
-.couple-type-onboarding-grid button.is-selected {
-    border-color: color-mix(in srgb, var(--profile-accent, var(--app-accent)) 76%, white 8%);
-    background: color-mix(in srgb, var(--profile-accent, var(--app-accent)) 18%, var(--app-panel-bg));
-    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--profile-accent, var(--app-accent)) 42%, transparent),
-                0 10px 22px color-mix(in srgb, var(--profile-accent, var(--app-accent)) 12%, transparent);
-}
-
-.profile-couple-type-note {
-    display: block;
-    margin-top: 10px;
-    color: var(--app-muted);
-    font-size: .55rem;
-    line-height: 1.4;
-}
-
-body.couple-type-onboarding-open {
-    overflow: hidden;
-}
-
-.couple-type-onboarding-modal {
-    position: fixed;
-    z-index: 1800;
-    inset: 0;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    padding: 14px max(14px, env(safe-area-inset-right)) max(14px, env(safe-area-inset-bottom)) max(14px, env(safe-area-inset-left));
-}
-
-.couple-type-onboarding-backdrop {
-    position: absolute;
-    inset: 0;
-    background: rgba(8, 18, 23, .7);
-    backdrop-filter: blur(10px);
-}
-
-.couple-type-onboarding-sheet {
-    position: relative;
-    z-index: 1;
-    width: min(100%, 470px);
-    max-height: min(88svh, 760px);
-    overflow: auto;
-    padding: 20px;
-    border: 1px solid color-mix(in srgb, var(--app-accent) 28%, var(--app-border-soft));
-    border-radius: 29px;
-    background: var(--app-panel-bg);
-    color: var(--app-heading);
-    box-shadow: 0 28px 80px rgba(0, 0, 0, .34);
-    overscroll-behavior: contain;
-}
-
-.couple-type-onboarding-visual {
-    display: grid;
-    width: 66px;
-    height: 66px;
-    place-items: center;
-    margin-bottom: 12px;
-    border-radius: 22px;
-    background: color-mix(in srgb, var(--app-accent) 16%, var(--app-icon-bg));
-    font-size: 1.7rem;
-}
-
-.couple-type-onboarding-sheet > small:first-of-type {
-    color: var(--app-accent);
-    font-size: .6rem;
-    font-weight: 950;
-    letter-spacing: .08em;
-    text-transform: uppercase;
-}
-
-.couple-type-onboarding-sheet h2 {
-    margin: 4px 0 7px;
-    color: var(--app-heading);
-    font-size: 1.3rem;
-    line-height: 1.15;
-}
-
-.couple-type-onboarding-sheet > p {
-    margin: 0 0 15px;
-    color: var(--app-muted);
-    font-size: .69rem;
-    line-height: 1.5;
-}
-
-.couple-type-onboarding-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8px;
-    margin-bottom: 14px;
-}
-
-.couple-type-onboarding-grid button {
-    display: flex;
-    min-height: 58px;
-    align-items: center;
-    gap: 8px;
-    padding: 10px;
-    border-radius: 16px;
-}
-
-.couple-type-onboarding-grid button > span {
-    flex: none;
-    font-size: 1.25rem;
-}
-
-.couple-type-onboarding-grid button > strong {
-    font-size: .64rem;
-    line-height: 1.2;
-}
-
-#saveCoupleTypeOnboardingBtn,
-#laterCoupleTypeOnboardingBtn {
-    margin: 8px 0 0;
-}
-
-#saveCoupleTypeOnboardingBtn:disabled {
-    opacity: .46;
-}
-
-.couple-type-privacy-note {
-    display: block;
-    margin-top: 11px;
-    color: var(--app-muted);
-    font-size: .53rem;
-    line-height: 1.4;
-    text-align: center;
-}
-
-@media (max-width: 390px) {
-    .profile-couple-type-grid,
-    .couple-type-onboarding-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .couple-profile-form .profile-couple-type-grid button {
-        min-height: 62px;
-    }
-
-    .couple-type-onboarding-sheet {
-        padding: 17px;
-        border-radius: 25px;
-    }
 }
