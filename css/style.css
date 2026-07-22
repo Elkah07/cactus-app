@@ -13107,3 +13107,33 @@ body.has-custom-app-theme .card :is(.top-left-btn, .top-center-btn, .top-right-b
     background: color-mix(in srgb, var(--app-accent-surface) 94%, transparent) !important;
     color: var(--app-heading) !important;
 }
+
+/* ====================
+   V110.2 — DERNIERS BOUTONS HISTORIQUES LIÉS AU THÈME
+   Certains boutons ciblés par ID avaient une spécificité supérieure au moteur de thème.
+==================== */
+body.has-custom-app-theme .card :is(
+    #rankingBtn,
+    #createSpaceBtn,
+    #goPseudoBtn,
+    #savePseudoBtn,
+    #validateRankingBtn,
+    #nextRankingBtn
+) {
+    border: 1px solid color-mix(in srgb, var(--app-user-accent) 32%, transparent);
+    background: var(--app-user-accent);
+    color: var(--app-user-accent-contrast);
+    box-shadow: 0 10px 22px color-mix(in srgb, var(--app-user-accent) 18%, transparent);
+}
+
+body.has-custom-app-theme .card :is(
+    #rankingBtn,
+    #createSpaceBtn,
+    #goPseudoBtn,
+    #savePseudoBtn,
+    #validateRankingBtn,
+    #nextRankingBtn
+):hover {
+    background: color-mix(in srgb, var(--app-user-accent) 84%, var(--app-heading));
+    color: var(--app-user-accent-contrast);
+}
