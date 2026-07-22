@@ -106,6 +106,10 @@ const creatorResetAchievementsBtn = document.getElementById("creatorResetAchieve
 const creatorResetDailyBtn = document.getElementById("creatorResetDailyBtn");
 const creatorTestNotificationBtn = document.getElementById("creatorTestNotificationBtn");
 const creatorAccessoryCalibrationBtn = document.getElementById("creatorAccessoryCalibrationBtn");
+const creatorCactusEvolutionPreview = document.getElementById("creatorCactusEvolutionPreview");
+const creatorCactusEvolutionStatus = document.getElementById("creatorCactusEvolutionStatus");
+const creatorCactusEvolutionButtons = document.querySelectorAll("[data-creator-cactus-stage]");
+let creatorCactusStagePreview = null;
 const cactusAccessoryCalibrationModal = document.getElementById("cactusAccessoryCalibrationModal");
 const closeCactusCalibrationBtn = document.getElementById("closeCactusCalibrationBtn");
 const cactusCalibrationStage = document.getElementById("cactusCalibrationStage");
@@ -8380,6 +8384,20 @@ if (creatorModeToggle) {
     });
 }
 
+creatorCactusEvolutionButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+        if (!isCreatorModeEnabled()) return;
+        const requestedStage = button.dataset.creatorCactusStage;
+        creatorCactusStagePreview = requestedStage === "real"
+            ? null
+            : Math.min(6, Math.max(1, Number(requestedStage) || 1));
+        updateCactusEvolution(currentSpaceData?.stats?.level || 1);
+        showToast(creatorCactusStagePreview
+            ? `Aperçu évolution ${creatorCactusStagePreview} activé 🧪`
+            : "Retour à l’évolution réelle 🌵");
+    });
+});
+
 creatorSetSeedsBtn.addEventListener("click", () => {
     setCreatorStatValue("seeds", Number(creatorSeedsAmount.value));
 });
@@ -9006,7 +9024,9 @@ function updateCreatorToolsVisibility() {
     }
 
     creatorToolsPanel.style.display = active ? "block" : "none";
+    if (creatorCactusEvolutionPreview) creatorCactusEvolutionPreview.hidden = !active;
     if (active) loadCreatorReportsCount();
+    syncCreatorCactusEvolutionPreviewUi();
 
     if (lastShownScreen === "timeCapsules") {
         renderTimeCapsules(currentTimeCapsules);
@@ -9016,7 +9036,9 @@ function updateCreatorToolsVisibility() {
 function setCreatorModeEnabled(enabled) {
     if (!isCreatorAccount() || !currentUser) return Promise.resolve();
     creatorModeEnabled = Boolean(enabled);
+    if (!creatorModeEnabled) creatorCactusStagePreview = null;
     updateCreatorToolsVisibility();
+    if (currentSpaceData) updateCactusEvolution(currentSpaceData.stats?.level || 1);
 
     return database.ref("users/" + currentUser.uid + "/creatorModeEnabled")
         .set(creatorModeEnabled)
@@ -15596,11 +15618,40 @@ const CACTUS_EVOLUTIONS = [
 
 let lastRenderedCactusStage = null;
 
+function getCreatorPreviewCactusEvolution() {
+    if (!isCreatorModeEnabled() || !creatorCactusStagePreview) return null;
+    return CACTUS_EVOLUTIONS.find((stage) => stage.stageNumber === creatorCactusStagePreview) || null;
+}
+
+function syncCreatorCactusEvolutionPreviewUi() {
+    if (!creatorCactusEvolutionPreview) return;
+    const active = isCreatorModeEnabled();
+    creatorCactusEvolutionPreview.hidden = !active;
+
+    const previewEvolution = getCreatorPreviewCactusEvolution();
+    if (creatorCactusEvolutionStatus) {
+        creatorCactusEvolutionStatus.textContent = previewEvolution
+            ? `Évolution ${previewEvolution.stageNumber} · ${previewEvolution.name}`
+            : "Évolution réelle";
+    }
+
+    creatorCactusEvolutionButtons.forEach((button) => {
+        const value = button.dataset.creatorCactusStage;
+        const selected = previewEvolution
+            ? Number(value) === previewEvolution.stageNumber
+            : value === "real";
+        button.classList.toggle("is-active", selected);
+        button.setAttribute("aria-pressed", String(selected));
+    });
+}
+
 function updateCactusEvolution(level) {
     const safeLevel = Math.max(Number(level) || 1, 1);
-    const evolution = CACTUS_EVOLUTIONS.find((stage) => {
+    const realEvolution = CACTUS_EVOLUTIONS.find((stage) => {
         return safeLevel >= stage.minimumLevel;
     });
+    const previewEvolution = getCreatorPreviewCactusEvolution();
+    const evolution = previewEvolution || realEvolution;
 
     if (mainCactusImage) {
         const shouldAnimate =
@@ -15629,7 +15680,10 @@ function updateCactusEvolution(level) {
         lastRenderedCactusStage = evolution.minimumLevel;
     }
 
-    currentCactusEvolutionMessage = evolution.message;
+    currentCactusEvolutionMessage = previewEvolution
+        ? `Aperçu créateur : ${evolution.name}. Les données réelles ne changent pas.`
+        : evolution.message;
+    syncCreatorCactusEvolutionPreviewUi();
     if (dashboardCactusMessage) {
         renderCactusLivingAmbience(currentSpaceData || {});
     }

@@ -5308,6 +5308,106 @@ body:not(.dark-theme) .dashboard-daily-streak { background: #fff0c7; color: #9b5
     text-align: center;
 }
 
+
+/* Aperçu des évolutions réservé au mode créateur */
+.creator-cactus-evolution-preview {
+    position: relative;
+    z-index: 6;
+    width: min(100%, 430px);
+    margin: 8px auto 14px;
+    padding: 10px 11px;
+    border: 1px solid rgba(255, 183, 74, 0.42);
+    border-radius: 18px;
+    background: color-mix(in srgb, var(--app-panel-bg) 92%, #ffbd58 8%);
+    box-shadow: 0 10px 26px rgba(26, 64, 48, 0.08);
+}
+
+.creator-cactus-evolution-preview[hidden] {
+    display: none !important;
+}
+
+.creator-cactus-evolution-preview-heading {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+    text-align: left;
+}
+
+.creator-cactus-evolution-preview-heading > span {
+    display: grid;
+    place-items: center;
+    width: 30px;
+    height: 30px;
+    flex: 0 0 30px;
+    border-radius: 10px;
+    background: rgba(255, 189, 88, 0.2);
+}
+
+.creator-cactus-evolution-preview-heading div {
+    min-width: 0;
+}
+
+.creator-cactus-evolution-preview-heading small,
+.creator-cactus-evolution-preview-heading strong {
+    display: block;
+}
+
+.creator-cactus-evolution-preview-heading small {
+    color: var(--app-muted);
+    font-size: 0.58rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.creator-cactus-evolution-preview-heading strong {
+    margin-top: 1px;
+    color: var(--app-heading);
+    font-size: 0.74rem;
+}
+
+.creator-cactus-evolution-preview-controls {
+    display: grid;
+    grid-template-columns: 1.45fr repeat(6, minmax(0, 1fr));
+    gap: 5px;
+}
+
+.creator-cactus-evolution-preview-controls button {
+    min-width: 0;
+    min-height: 34px;
+    margin: 0;
+    padding: 6px 4px;
+    border: 1px solid var(--app-border);
+    border-radius: 10px;
+    background: var(--app-secondary-button);
+    color: var(--app-heading);
+    font-size: 0.66rem;
+    font-weight: 900;
+}
+
+.creator-cactus-evolution-preview-controls button.is-active {
+    border-color: #ffbd58;
+    background: #ffbd58;
+    color: #4b2c06;
+    box-shadow: 0 4px 12px rgba(255, 189, 88, 0.2);
+}
+
+.creator-cactus-evolution-preview-note {
+    display: block;
+    margin-top: 7px;
+    color: var(--app-muted);
+    font-size: 0.55rem;
+    line-height: 1.3;
+    text-align: center;
+}
+
+@media (max-width: 390px) {
+    .creator-cactus-evolution-preview-controls {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
+
 .garden-planted-item.is-selected {
     border-radius: 14px;
     outline: 3px solid rgba(255, 255, 255, 0.95);
