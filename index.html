@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cactus 🌵</title>
-    <link rel="stylesheet" href="css/style.css?v=113">
+    <link rel="stylesheet" href="css/style.css?v=1131">
     <link rel="manifest" href="manifest.json?v=2">
     <meta name="theme-color" content="#003E2D">
 </head>
@@ -761,6 +761,10 @@
                 <span><strong id="historyFavoritesCount">0</strong> favoris</span>
                 <span class="memories-hidden-count" hidden><strong id="historyPersonalCount">0</strong></span>
             </p>
+            <button type="button" id="memoriesStoryBtn" class="memories-story-link">
+                <svg class="cactus-ui-icon" width="18" height="18" aria-hidden="true"><use href="#cactusIconStory"></use></svg>
+                <span>Notre histoire</span>
+            </button>
         </div>
         <button type="button" id="historyQuickAddBtn" class="memories-hub-add" aria-label="Ajouter un souvenir">＋</button>
     </header>
@@ -1469,10 +1473,10 @@
 
         <button
             type="button"
-            onclick="openStoryPage()"
+            id="dashboardMemoriesBtn"
         >
-            <span><svg class="cactus-ui-icon" width="30" height="30" aria-hidden="true"><use href="#cactusIconStory"></use></svg></span>
-            <small>Notre histoire</small>
+            <span><svg class="cactus-ui-icon" width="30" height="30" aria-hidden="true"><use href="#cactusIconMemories"></use></svg></span>
+            <small>Souvenirs</small>
         </button>
 
         <button
@@ -2776,7 +2780,7 @@
     <script src="js/storage.js"></script>
     <script src="js/rankings.js"></script>
     <script src="js/questions.js"></script>
-    <script src="js/script.js?v=113"></script>
+    <script src="js/script.js?v=1131"></script>
 
 </body>
 </html>

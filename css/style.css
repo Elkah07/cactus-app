@@ -14342,3 +14342,44 @@ body.memory-viewer-open {
 @media (prefers-reduced-motion: reduce) {
     #historyScreen .memories-fab { transition: none !important; }
 }
+
+
+/* =========================================================
+   V113.1 — ACCÈS DIRECT AUX SOUVENIRS
+   ========================================================= */
+#historyScreen .memories-story-link {
+    display: inline-flex;
+    width: auto;
+    min-height: 27px;
+    align-items: center;
+    gap: 5px;
+    margin: 7px 0 0;
+    padding: 5px 9px;
+    border: 1px solid color-mix(in srgb, var(--app-accent) 42%, var(--app-border-soft));
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--app-accent) 12%, var(--app-panel-bg)) !important;
+    color: var(--app-heading) !important;
+    box-shadow: none;
+    font-size: .58rem;
+    font-weight: 900;
+    line-height: 1;
+}
+#historyScreen .memories-story-link:hover,
+#historyScreen .memories-story-link:active {
+    background: color-mix(in srgb, var(--app-accent) 20%, var(--app-panel-bg)) !important;
+    transform: translateY(-1px);
+}
+#historyScreen .memories-story-link .cactus-ui-icon {
+    width: 17px;
+    height: 17px;
+    flex: none;
+}
+
+@media (max-width: 390px) {
+    #historyScreen .memories-story-link {
+        min-height: 25px;
+        margin-top: 6px;
+        padding: 4px 8px;
+        font-size: .54rem;
+    }
+}

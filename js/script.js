@@ -177,6 +177,8 @@ const cactusCelebration = document.getElementById("cactusCelebration");
 
 const historyScreen = document.getElementById("historyScreen");
 const historyBtn = document.getElementById("historyBtn");
+const dashboardMemoriesBtn = document.getElementById("dashboardMemoriesBtn");
+const memoriesStoryBtn = document.getElementById("memoriesStoryBtn");
 const backFromHistoryBtn = document.getElementById("backFromHistoryBtn");
 const showMemoryFormBtn = document.getElementById("showMemoryFormBtn");
 const memoryForm = document.getElementById("memoryForm");
@@ -2857,11 +2859,15 @@ function openNewMemoryFromHub(withPhoto = false) {
     if (withPhoto) window.setTimeout(() => memoryPhotoInput?.click(), 220);
 }
 
-historyBtn.addEventListener("click", () => {
-    setMemoriesView("photos", { instant: true });
+function openMemoriesHub(view = "photos") {
+    setMemoriesView(view, { instant: true });
     loadMemories();
     showScreen("history");
-});
+}
+
+historyBtn.addEventListener("click", () => openMemoriesHub("photos"));
+dashboardMemoriesBtn?.addEventListener("click", () => openMemoriesHub("photos"));
+memoriesStoryBtn?.addEventListener("click", () => openStoryPage("history"));
 
 memoriesViewButtons.forEach((button) => {
     button.addEventListener("click", () => setMemoriesView(button.dataset.memoriesView));
@@ -5935,18 +5941,16 @@ editStoryBtn.addEventListener("click", () => {
 });
 
 backFromStoryPageBtn.addEventListener("click", () => {
-    showScreen("dashboard");
+    if (storyPageReturnScreen === "history") openMemoriesHub("photos");
+    else showScreen("dashboard");
 });
 
 storyPageBackTopBtn.addEventListener("click", () => {
-    showScreen("dashboard");
+    if (storyPageReturnScreen === "history") openMemoriesHub("photos");
+    else showScreen("dashboard");
 });
 
-storyMemoriesBtn.addEventListener("click", () => {
-    setMemoriesView("photos", { instant: true });
-    showScreen("history");
-    loadMemories();
-});
+storyMemoriesBtn.addEventListener("click", () => openMemoriesHub("photos"));
 
 openAllGamesBtn.addEventListener("click", () => {
     renderGameInbox();
@@ -14957,7 +14961,10 @@ function saveCoupleProfile() {
         });
 }
 
-function openStoryPage() {
+let storyPageReturnScreen = "dashboard";
+
+function openStoryPage(returnScreen = "dashboard") {
+    storyPageReturnScreen = returnScreen === "history" ? "history" : "dashboard";
     database
         .ref("spaces/" + currentSpaceCode + "/story")
         .once("value")
