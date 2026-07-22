@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cactus 🌵</title>
-    <link rel="stylesheet" href="css/style.css?v=108">
+    <link rel="stylesheet" href="css/style.css?v=109">
     <link rel="manifest" href="manifest.json?v=2">
     <meta name="theme-color" content="#003E2D">
 </head>
@@ -125,6 +125,20 @@
         <img src="assets/cactus-main.png" alt="Notre quotidien Cactus" loading="lazy" decoding="async">
         <div><small>Votre vie à deux</small><h1>Notre quotidien</h1><p>Le calendrier de votre histoire, vos petites organisations et tout ce que vous construisez ensemble.</p></div>
     </header>
+
+    <section class="daily-pulse" aria-labelledby="dailyPulseTitle">
+        <div class="daily-pulse-heading">
+            <div><small>En un coup d’œil</small><h2 id="dailyPulseTitle">Aujourd’hui chez vous deux</h2></div>
+            <span id="dailyPulseMood" aria-hidden="true">✨</span>
+        </div>
+        <p id="dailyPulseSummary">Votre petit tableau de bord se prépare.</p>
+        <div class="daily-pulse-grid">
+            <button type="button" onclick="showScreen('shopping')"><span><svg class="cactus-ui-icon" aria-hidden="true"><use href="#cactusIconShopping"></use></svg></span><strong id="dailyPulseShopping">0</strong><small>à acheter</small></button>
+            <button type="button" onclick="showScreen('tasks')"><span><svg class="cactus-ui-icon" aria-hidden="true"><use href="#cactusIconTasks"></use></svg></span><strong id="dailyPulseTasks">0</strong><small>tâches</small></button>
+            <button type="button" onclick="showScreen('reminders')"><span><svg class="cactus-ui-icon" aria-hidden="true"><use href="#cactusIconBell"></use></svg></span><strong id="dailyPulseReminders">0</strong><small>rappels</small></button>
+            <button type="button" onclick="showScreen('timeCapsules')"><span><svg class="cactus-ui-icon" aria-hidden="true"><use href="#cactusIconCapsule"></use></svg></span><strong id="dailyPulseCapsules">0</strong><small>capsules prêtes</small></button>
+        </div>
+    </section>
 
     <section class="daily-calendar-overview" aria-labelledby="dailyCalendarOverviewTitle">
         <button type="button" id="openImportantDatesBtn" class="daily-calendar-entry" onclick="showScreen('importantDates')">
@@ -260,7 +274,7 @@
     <div id="shoppingEmptyState" class="shopping-empty-state organizer-empty-beautified"><div class="organizer-empty-orbit shopping-orbit"><i></i><i></i><i></i><svg class="cactus-ui-icon" width="62" height="62" aria-hidden="true"><use href="#cactusIconShopping"></use></svg></div><strong>Votre panier attend sa première idée</strong><p>Ajoutez un article et votre liste se synchronise à deux.</p><button type="button" onclick="document.getElementById('showShoppingFormBtn').click()">+ Ajouter un article</button></div>
 
     <button type="button" id="clearCompletedShoppingBtn" class="secondary shopping-clear-button" style="display:none;">Supprimer les articles terminés</button>
-    <section id="shoppingHistorySection" class="shopping-history-section" style="display:none;"><div class="organizer-section-heading"><div><small>Réutiliser rapidement</small><strong>Historique et favoris</strong></div></div><div id="shoppingHistoryList" class="shopping-history-list"></div></section>
+    <section id="shoppingHistorySection" class="shopping-history-section" style="display:none;"><div class="organizer-section-heading"><div><small>Ajout express</small><strong>Vos favoris et récents</strong></div></div><div id="shoppingHistoryList" class="shopping-history-list"></div></section>
     <button type="button" id="shoppingQuickAddBtn" class="shopping-quick-add-fab" aria-label="Ajouter rapidement un article"><span aria-hidden="true">＋</span><strong>Ajouter</strong></button>
 </div>
 
@@ -2745,7 +2759,7 @@
     <script src="js/storage.js"></script>
     <script src="js/rankings.js"></script>
     <script src="js/questions.js"></script>
-    <script src="js/script.js?v=105"></script>
+    <script src="js/script.js?v=109"></script>
 
 </body>
 </html>

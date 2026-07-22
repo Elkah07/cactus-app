@@ -320,6 +320,12 @@ const calendarAddSelectedDateBtn = document.getElementById("calendarAddSelectedD
 const coupleTimelineList = document.getElementById("coupleTimelineList");
 const coupleTimelineEmpty = document.getElementById("coupleTimelineEmpty");
 const dailyUpcomingMoments = document.getElementById("dailyUpcomingMoments");
+const dailyPulseSummary = document.getElementById("dailyPulseSummary");
+const dailyPulseMood = document.getElementById("dailyPulseMood");
+const dailyPulseShopping = document.getElementById("dailyPulseShopping");
+const dailyPulseTasks = document.getElementById("dailyPulseTasks");
+const dailyPulseReminders = document.getElementById("dailyPulseReminders");
+const dailyPulseCapsules = document.getElementById("dailyPulseCapsules");
 const dailyUpcomingEmpty = document.getElementById("dailyUpcomingEmpty");
 const dashboardNextMomentCard = document.getElementById("dashboardNextMomentCard");
 const dashboardNextMomentEmoji = document.getElementById("dashboardNextMomentEmoji");
@@ -1024,6 +1030,7 @@ let editingCalendarSource = "importantDates";
 let activeCoupleCalendarView = "calendar";
 let selectedCoupleCalendarDate = "";
 let coupleCalendarCursor = new Date(new Date().getFullYear(), new Date().getMonth(), 1);
+let coupleCalendarTransition = "";
 let currentCountdowns = {};
 let currentTimeCapsules = {};
 let timeCapsuleViewMode = "active";
@@ -3016,7 +3023,8 @@ function renderShoppingHistory(entries, savedHistory = {}) {
         const button = document.createElement("button");
         button.type = "button";
         button.className = "shopping-history-chip";
-        button.textContent = (item.favorite ? "★ " : "+ ") + (item.name || "Article") + (item.quantity ? " · " + item.quantity : "");
+        const historyCategory = SHOPPING_CATEGORIES[item.category] || SHOPPING_CATEGORIES.other;
+        button.textContent = historyCategory.emoji + " " + (item.favorite ? "★ " : "+ ") + (item.name || "Article") + (item.quantity ? " · " + item.quantity : "");
         button.addEventListener("click", () => {
             const now = Date.now();
             database.ref("spaces/" + currentSpaceCode + "/dailyTools/shopping/items").push({
@@ -3211,9 +3219,25 @@ function isPastDate(value, time = "23:59") {
     return new Date(value + "T" + (time || "23:59")).getTime() < Date.now();
 }
 
-function createOrganizerItem({ title, details, badges = [], meta, completed = false, overdue = false, onToggle, onEdit, onDelete }) {
+function getOrganizerRelativeLabel(value, time = "23:59") {
+    if (!value) return "";
+    const target = new Date(value + "T" + (time || "23:59"));
+    if (Number.isNaN(target.getTime())) return "";
+    const now = new Date();
+    const today = new Date(now.getFullYear(), now.getMonth(), now.getDate()).getTime();
+    const targetDay = new Date(target.getFullYear(), target.getMonth(), target.getDate()).getTime();
+    const diff = Math.round((targetDay - today) / 86400000);
+    if (diff < -1) return "En retard de " + Math.abs(diff) + " j";
+    if (diff === -1) return "En retard d’un jour";
+    if (diff === 0) return "Aujourd’hui";
+    if (diff === 1) return "Demain";
+    if (diff <= 7) return "Dans " + diff + " jours";
+    return "";
+}
+
+function createOrganizerItem({ title, details, badges = [], meta, completed = false, overdue = false, toneClass = "", onToggle, onEdit, onDelete }) {
     const article = document.createElement("article");
-    article.className = "organizer-item" + (completed ? " is-completed" : "") + (overdue ? " is-overdue" : "");
+    article.className = "organizer-item" + (completed ? " is-completed" : "") + (overdue ? " is-overdue" : "") + (toneClass ? " " + toneClass : "");
     if (onToggle) {
         const check = document.createElement("button");
         check.type = "button";
@@ -3311,10 +3335,10 @@ function renderTasks(tasks) {
         badges: [
             { label: getOrganizerPersonLabel(task.assignee), className: "is-person" },
             { label: ({ low: "Tranquille", medium: "Importante", high: "Urgente" })[task.priority] || "Importante", className: "is-priority-" + (task.priority || "medium") },
-            ...(task.dueDate ? [{ label: formatOrganizerDate(task.dueDate), className: "is-date" }] : [])
+            ...(task.dueDate ? [{ label: (getOrganizerRelativeLabel(task.dueDate) || formatOrganizerDate(task.dueDate)), className: "is-date" }] : [])
         ],
-        meta: task.completed ? "Terminée par " + (task.completedByPseudo || "Cactus") : "Créée par " + (task.createdByPseudo || "Cactus"),
-        completed: task.completed, overdue: !task.completed && isPastDate(task.dueDate),
+        meta: task.completed ? "Terminée par " + (task.completedByPseudo || "Cactus") : (task.dueDate ? formatOrganizerDate(task.dueDate) + " · " : "") + "Créée par " + (task.createdByPseudo || "Cactus"),
+        completed: task.completed, overdue: !task.completed && isPastDate(task.dueDate), toneClass: "is-priority-" + (task.priority || "medium"),
         onToggle: () => database.ref("spaces/" + currentSpaceCode + "/dailyTools/tasks/" + id).update({ completed: !task.completed, completedAt: !task.completed ? Date.now() : null, completedBy: !task.completed ? currentUser.uid : null, completedByPseudo: !task.completed ? pseudo : null, updatedAt: Date.now(), updatedBy: currentUser.uid }),
         onEdit: () => { editingTaskId = id; taskTitleInput.value = task.title || ""; taskDetailsInput.value = task.details || ""; prepareOrganizerAssignees(taskAssigneeInput); taskAssigneeInput.value = task.assignee || "both"; taskPriorityInput.value = task.priority || "medium"; taskDueDateInput.value = task.dueDate || ""; taskFormKicker.textContent = "Modification"; taskFormTitle.textContent = "Modifier cette tâche"; saveTaskBtn.textContent = "Enregistrer"; cancelTaskEditBtn.textContent = "Annuler"; cancelTaskEditBtn.style.display = "block"; setOrganizerSheetOpen(taskForm, true); },
         onDelete: () => { if (confirm("Supprimer cette tâche ?")) database.ref("spaces/" + currentSpaceCode + "/dailyTools/tasks/" + id).remove(); }
@@ -3351,7 +3375,7 @@ function renderReminders(reminders) {
     if (remindersHeroText) remindersHeroText.textContent = nextReminder ? formatOrganizerDate(nextReminder.date, nextReminder.time) : "Posez ici les petites choses à ne pas oublier.";
     if (remindersHeroNext) remindersHeroNext.textContent = nextReminder ? getCountdownLabel({ date: nextReminder.date, time: nextReminder.time }) : "Rien de prévu";
     const visible = entries.filter(([, item]) => activeReminderFilter === "all" || (activeReminderFilter === "past" ? getReminderTimestamp(item) < now : getReminderTimestamp(item) >= now)).sort((a, b) => getReminderTimestamp(a[1]) - getReminderTimestamp(b[1]));
-    renderOrganizerGroups(remindersList, visible, getReminderTimestamp, ([id, item]) => createOrganizerItem({ title: item.title, details: item.details, badges: [{ label: formatOrganizerDate(item.date, item.time), className: "is-date" }, { label: getOrganizerPersonLabel(item.target), className: "is-person" }], meta: "Créé par " + (item.createdByPseudo || "Cactus"), overdue: getReminderTimestamp(item) < now,
+    renderOrganizerGroups(remindersList, visible, getReminderTimestamp, ([id, item]) => createOrganizerItem({ title: item.title, details: item.details, badges: [{ label: getOrganizerRelativeLabel(item.date, item.time) || formatOrganizerDate(item.date, item.time), className: "is-date" }, { label: getOrganizerPersonLabel(item.target), className: "is-person" }], meta: formatOrganizerDate(item.date, item.time) + " · Créé par " + (item.createdByPseudo || "Cactus"), overdue: getReminderTimestamp(item) < now, toneClass: getReminderTimestamp(item) >= now && getReminderTimestamp(item) - now <= 86400000 ? "is-soon" : "",
         onEdit: () => { editingReminderId = id; reminderTitleInput.value = item.title || ""; reminderDetailsInput.value = item.details || ""; reminderDateInput.value = item.date || ""; reminderTimeInput.value = item.time || ""; prepareOrganizerAssignees(reminderTargetInput); reminderTargetInput.value = item.target || "both"; reminderFormKicker.textContent = "Modification"; reminderFormTitle.textContent = "Modifier ce rappel"; saveReminderBtn.textContent = "Enregistrer"; cancelReminderEditBtn.textContent = "Annuler"; cancelReminderEditBtn.style.display = "block"; setOrganizerSheetOpen(reminderForm, true); },
         onDelete: () => { if (confirm("Supprimer ce rappel ?")) database.ref("spaces/" + currentSpaceCode + "/dailyTools/reminders/" + id).remove(); }
     }));
@@ -3688,9 +3712,11 @@ function deleteCalendarEvent(eventItem) {
 }
 
 function createCalendarEventCard(eventItem, { compact = false, timeline = false } = {}) {
-    const occurrence = getCalendarEventNextDate(eventItem);
+    const historicalOccurrence = timeline ? makeLocalCalendarDate(eventItem.date, eventItem.time || "12:00") : null;
+    const occurrence = historicalOccurrence || getCalendarEventNextDate(eventItem);
+    const historical = Boolean(timeline && historicalOccurrence && historicalOccurrence.getTime() < new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate()).getTime());
     const article = document.createElement("article");
-    article.className = "calendar-event-card" + (compact ? " is-compact" : "") + (timeline ? " is-timeline" : "") + (eventItem.readOnly ? " is-readonly" : "");
+    article.className = "calendar-event-card" + (compact ? " is-compact" : "") + (timeline ? " is-timeline" : "") + (historical ? " is-past-event" : "") + (eventItem.readOnly ? " is-readonly" : "");
     article.style.setProperty("--event-color", getCalendarEventColor(eventItem));
 
     const icon = document.createElement("span"); icon.className = "calendar-event-emoji"; icon.textContent = getCalendarEventEmoji(eventItem);
@@ -3706,7 +3732,7 @@ function createCalendarEventCard(eventItem, { compact = false, timeline = false 
     if (eventItem.legacyCountdown) { const legacy = document.createElement("small"); legacy.textContent = "Compte à rebours importé"; badges.appendChild(legacy); }
     copy.appendChild(badges);
 
-    const countdown = document.createElement("b"); countdown.className = "calendar-event-countdown"; countdown.textContent = getCalendarCountdownLabel(eventItem, occurrence);
+    const countdown = document.createElement("b"); countdown.className = "calendar-event-countdown"; countdown.textContent = historical ? "Souvenir" : getCalendarCountdownLabel(eventItem, occurrence);
     article.append(icon, copy, countdown);
     if (!eventItem.readOnly && !compact) {
         const actions = document.createElement("div"); actions.className = "calendar-event-actions";
@@ -3752,6 +3778,14 @@ function renderCoupleCalendarGrid(events) {
         cells.push(button);
     }
     coupleCalendarGrid.replaceChildren(...cells);
+    if (coupleCalendarTransition) {
+        const transitionClass = coupleCalendarTransition === "next" ? "is-month-enter-next" : "is-month-enter-prev";
+        coupleCalendarGrid.classList.remove("is-month-enter-next", "is-month-enter-prev");
+        void coupleCalendarGrid.offsetWidth;
+        coupleCalendarGrid.classList.add(transitionClass);
+        window.setTimeout(() => coupleCalendarGrid.classList.remove(transitionClass), 320);
+        coupleCalendarTransition = "";
+    }
 }
 
 function renderSelectedCalendarDay(events) {
@@ -3774,12 +3808,24 @@ function renderCalendarTimeline(events) {
     const sorted = [...events].filter((item) => item.date).sort((a, b) => String(a.date).localeCompare(String(b.date)) || (a.createdAt || 0) - (b.createdAt || 0));
     const fragment = document.createDocumentFragment();
     let currentYear = null;
+    let nowDividerAdded = false;
+    const todayStart = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate()).getTime();
     sorted.forEach((item) => {
         const parts = getCalendarDateParts(item.date);
         if (!parts) return;
+        const itemTimestamp = makeLocalCalendarDate(item.date, item.time || "12:00")?.getTime() || 0;
+        const isPastTimelineItem = itemTimestamp < todayStart;
+        if (!isPastTimelineItem && !nowDividerAdded) {
+            const nowDivider = document.createElement("div");
+            nowDivider.className = "couple-timeline-now";
+            nowDivider.innerHTML = "<span></span><strong>Aujourd’hui</strong><span></span>";
+            fragment.appendChild(nowDivider);
+            nowDividerAdded = true;
+            currentYear = null;
+        }
         const year = parts[0];
         if (year !== currentYear) { const heading = document.createElement("h3"); heading.className = "couple-timeline-year"; heading.textContent = year; fragment.appendChild(heading); currentYear = year; }
-        const row = document.createElement("div"); row.className = "couple-timeline-row"; row.style.setProperty("--event-color", getCalendarEventColor(item));
+        const row = document.createElement("div"); row.className = "couple-timeline-row " + (isPastTimelineItem ? "is-past" : "is-future"); row.style.setProperty("--event-color", getCalendarEventColor(item));
         const rail = document.createElement("span"); rail.className = "couple-timeline-rail"; rail.innerHTML = '<i></i>';
         const card = createCalendarEventCard(item, { timeline: true });
         row.append(rail, card); fragment.appendChild(row);
@@ -3843,8 +3889,8 @@ importantDateCategoryInput.addEventListener("change", applyCalendarCategoryPrese
 importantDateRepeatInput.addEventListener("change", () => { importantDateAnnualInput.checked = importantDateRepeatInput.value === "annual"; });
 importantDateColorButton.addEventListener("click", () => openNotebookColorPicker("importantDate"));
 coupleCalendarViewButtons.forEach((button) => button.addEventListener("click", () => setCoupleCalendarView(button.dataset.coupleCalendarView)));
-calendarMonthPrev.addEventListener("click", () => { coupleCalendarCursor = new Date(coupleCalendarCursor.getFullYear(), coupleCalendarCursor.getMonth() - 1, 1); renderImportantDates(currentImportantDates); });
-calendarMonthNext.addEventListener("click", () => { coupleCalendarCursor = new Date(coupleCalendarCursor.getFullYear(), coupleCalendarCursor.getMonth() + 1, 1); renderImportantDates(currentImportantDates); });
+calendarMonthPrev.addEventListener("click", () => { coupleCalendarTransition = "prev"; coupleCalendarCursor = new Date(coupleCalendarCursor.getFullYear(), coupleCalendarCursor.getMonth() - 1, 1); renderImportantDates(currentImportantDates); });
+calendarMonthNext.addEventListener("click", () => { coupleCalendarTransition = "next"; coupleCalendarCursor = new Date(coupleCalendarCursor.getFullYear(), coupleCalendarCursor.getMonth() + 1, 1); renderImportantDates(currentImportantDates); });
 calendarTodayBtn.addEventListener("click", () => { const now = new Date(); coupleCalendarCursor = new Date(now.getFullYear(), now.getMonth(), 1); selectedCoupleCalendarDate = getLocalDateKey(now); renderImportantDates(currentImportantDates); });
 calendarAddSelectedDateBtn.addEventListener("click", () => { resetImportantDateForm(); importantDateValueInput.value = selectedCoupleCalendarDate || getLocalDateKey(); importantDateForm.style.display = "block"; importantDateForm.scrollIntoView({ behavior: "smooth", block: "start" }); window.setTimeout(() => importantDateTitleInput.focus(), 80); });
 
@@ -4727,6 +4773,28 @@ function renderDailyLifeHub(spaceData = currentSpaceData || {}) {
         .filter(({ occurrence }) => occurrence && occurrence.getTime() >= startToday)
         .sort((a, b) => a.occurrence - b.occurrence);
     const next = upcoming[0];
+
+    const shoppingPending = Object.values(spaceData.dailyTools?.shopping?.items || {}).filter((item) => !item.completed).length;
+    const tasksPending = Object.values(spaceData.dailyTools?.tasks || {}).filter((item) => !item.completed).length;
+    const reminderEntries = Object.values(spaceData.dailyTools?.reminders || {});
+    const remindersSoon = reminderEntries.filter((item) => {
+        const timestamp = getReminderTimestamp(item);
+        return timestamp >= Date.now() && timestamp <= Date.now() + 7 * 86400000;
+    }).length;
+    const capsulesReady = Object.values(spaceData.dailyTools?.timeCapsules || {}).filter((item) => !item.archivedAt && !item.openedAt && (!item.openDate || getTimeCapsuleOpenTimestamp(item) <= Date.now())).length;
+    if (dailyPulseShopping) dailyPulseShopping.textContent = shoppingPending;
+    if (dailyPulseTasks) dailyPulseTasks.textContent = tasksPending;
+    if (dailyPulseReminders) dailyPulseReminders.textContent = remindersSoon;
+    if (dailyPulseCapsules) dailyPulseCapsules.textContent = capsulesReady;
+    if (dailyPulseSummary) {
+        const pieces = [];
+        if (shoppingPending) pieces.push(shoppingPending + " article" + (shoppingPending > 1 ? "s" : "") + " à acheter");
+        if (tasksPending) pieces.push(tasksPending + " tâche" + (tasksPending > 1 ? "s" : "") + " à faire");
+        if (remindersSoon) pieces.push(remindersSoon + " rappel" + (remindersSoon > 1 ? "s" : "") + " cette semaine");
+        if (capsulesReady) pieces.push(capsulesReady + " capsule" + (capsulesReady > 1 ? "s" : "") + " prête" + (capsulesReady > 1 ? "s" : ""));
+        dailyPulseSummary.textContent = pieces.length ? pieces.slice(0, 3).join(" · ") : "Tout est calme aujourd’hui. Profitez simplement de votre journée à deux.";
+        if (dailyPulseMood) dailyPulseMood.textContent = capsulesReady ? "💌" : (tasksPending + shoppingPending > 5 ? "🌵" : "✨");
+    }
 
     if (dailyUpcomingMoments && dailyUpcomingEmpty) {
         const preview = upcoming.slice(0, 3);
@@ -10275,12 +10343,25 @@ function loadNotebooks() {
                     title.textContent = notebook.title;
                     title.style.color = getSafeProfileColor(notebook.titleColor || "#1B4332");
 
-                    const meta = document.createElement("small");
-                    meta.textContent = "Par " + (notebook.createdBy || "Cactus");
+                    const preview = document.createElement("p");
+                    preview.className = "notebook-card-preview";
+                    const previewHolder = document.createElement("div");
+                    previewHolder.innerHTML = sanitizeNotebookHtml(notebook.contentHtml || "");
+                    const previewText = (previewHolder.textContent || "").replace(/\s+/g, " ").trim();
+                    preview.textContent = previewText ? previewText.slice(0, 72) + (previewText.length > 72 ? "…" : "") : "Une page encore blanche, prête pour vos idées.";
 
+                    const meta = document.createElement("small");
+                    const notebookDate = notebook.updatedAt || notebook.createdAt;
+                    meta.textContent = notebookDate ? "Mis à jour " + new Date(notebookDate).toLocaleDateString("fr-FR", { day: "numeric", month: "short" }) : "Par " + (notebook.createdBy || "Cactus");
+
+                    const corner = document.createElement("span");
+                    corner.className = "notebook-card-corner";
+                    corner.setAttribute("aria-hidden", "true");
                     card.appendChild(emoji);
                     card.appendChild(title);
+                    card.appendChild(preview);
                     card.appendChild(meta);
+                    card.appendChild(corner);
 
                     card.addEventListener("click", () => {
                         openNotebook(notebookId, notebook);

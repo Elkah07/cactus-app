@@ -12674,3 +12674,123 @@ body.organizer-sheet-open .organizer-form.organizer-creation-panel {
         font-size: 1.05rem;
     }
 }
+
+
+/* =========================================================
+   V109 · NOTRE QUOTIDIEN PREMIUM
+   Passe visuelle et interactions sans modifier les données
+========================================================= */
+
+.daily-pulse {
+    position: relative;
+    overflow: hidden;
+    margin: 12px 0 14px;
+    padding: 15px;
+    border: 1px solid color-mix(in srgb, var(--app-accent) 24%, var(--app-border-soft));
+    border-radius: 23px;
+    background:
+        radial-gradient(circle at 92% 4%, color-mix(in srgb, var(--app-accent) 16%, transparent), transparent 34%),
+        linear-gradient(145deg, color-mix(in srgb, var(--app-panel-bg) 96%, var(--app-accent) 4%), var(--app-panel-bg));
+    box-shadow: 0 13px 34px color-mix(in srgb, var(--app-bg) 66%, transparent);
+}
+.daily-pulse::after {
+    content: "";
+    position: absolute;
+    width: 110px;
+    height: 110px;
+    right: -66px;
+    bottom: -72px;
+    border: 1px solid color-mix(in srgb, var(--app-accent) 18%, transparent);
+    border-radius: 50%;
+}
+.daily-pulse-heading { display:flex; align-items:center; justify-content:space-between; gap:12px; }
+.daily-pulse-heading small { display:block; color:var(--app-accent); font-size:.55rem; font-weight:900; letter-spacing:.08em; text-transform:uppercase; }
+.daily-pulse-heading h2 { margin-top:2px; color:var(--app-heading); font-size:.94rem; }
+#dailyPulseMood { display:grid; place-items:center; width:38px; height:38px; border-radius:14px; background:color-mix(in srgb,var(--app-accent) 14%,var(--app-icon-bg)); font-size:1.1rem; animation:cactusSoftFloat 5s ease-in-out infinite; }
+.daily-pulse > p { position:relative; z-index:1; margin-top:7px; color:var(--app-muted); font-size:.66rem; line-height:1.45; }
+.daily-pulse-grid { position:relative; z-index:1; display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:7px; margin-top:12px; }
+.daily-pulse-grid button { min-width:0; margin:0; padding:9px 5px 8px; border:1px solid color-mix(in srgb,var(--app-accent) 15%,var(--app-border-soft)); border-radius:16px; background:color-mix(in srgb,var(--app-icon-bg) 82%,transparent); color:var(--app-heading); box-shadow:none; }
+.daily-pulse-grid button span { display:grid; place-items:center; width:27px; height:27px; margin:0 auto 5px; border-radius:10px; background:color-mix(in srgb,var(--app-accent) 12%,transparent); color:var(--app-accent); }
+.daily-pulse-grid button svg { width:17px; height:17px; }
+.daily-pulse-grid button strong,.daily-pulse-grid button small { display:block; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.daily-pulse-grid button strong { font-size:.8rem; }
+.daily-pulse-grid button small { margin-top:1px; color:var(--app-muted); font-size:.48rem; }
+
+/* Courses : sensation plus rapide, plus tactile */
+.shopping-item { transition:transform .22s ease, opacity .22s ease, border-color .22s ease, background .22s ease; }
+.shopping-item:active { transform:scale(.985); }
+.shopping-item.is-completed { animation:cactusItemChecked .38s ease both; }
+.shopping-item.is-completed .shopping-check { animation:cactusCheckPop .38s cubic-bezier(.2,.85,.3,1.35); }
+@keyframes cactusItemChecked { 0%{transform:scale(1)} 48%{transform:scale(.975)} 100%{transform:scale(1);opacity:.72} }
+@keyframes cactusCheckPop { 0%{transform:scale(.7) rotate(-12deg)} 70%{transform:scale(1.16) rotate(3deg)} 100%{transform:scale(1)} }
+.shopping-history-section { padding:13px; border:1px solid var(--app-border-soft); border-radius:20px; background:color-mix(in srgb,var(--app-panel-bg) 94%,var(--app-accent) 6%); }
+.shopping-history-list { display:flex; gap:7px; overflow-x:auto; padding:3px 1px 5px; scrollbar-width:none; }
+.shopping-history-list::-webkit-scrollbar { display:none; }
+.shopping-history-chip { flex:0 0 auto; width:auto; max-width:225px; margin:0; padding:8px 11px; border:1px solid color-mix(in srgb,var(--app-accent) 18%,var(--app-border-soft)); border-radius:999px; background:var(--app-icon-bg); color:var(--app-heading); box-shadow:none; font-size:.59rem; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+
+/* Tâches et rappels : la priorité se lit sans ouvrir la carte */
+.organizer-item { --organizer-tone:var(--app-accent); position:relative; overflow:hidden; }
+.organizer-item::before { content:""; position:absolute; inset:0 auto 0 0; width:3px; border-radius:3px; background:var(--organizer-tone); opacity:.72; }
+.organizer-item.is-priority-low { --organizer-tone:#73cfa0; }
+.organizer-item.is-priority-medium { --organizer-tone:#f0b85d; }
+.organizer-item.is-priority-high,.organizer-item.is-overdue { --organizer-tone:#ef6f78; }
+.organizer-item.is-soon { --organizer-tone:#8f82e8; box-shadow:0 12px 28px color-mix(in srgb,#8f82e8 12%,transparent); }
+.organizer-badge.is-priority-low { background:rgba(115,207,160,.14); color:#62b88d; }
+.organizer-badge.is-priority-medium { background:rgba(240,184,93,.14); color:#d89a3c; }
+.organizer-badge.is-priority-high { background:rgba(239,111,120,.14); color:#e56670; }
+.organizer-badge.is-date { font-weight:850; }
+.organizer-period-heading { display:flex; align-items:center; gap:8px; }
+.organizer-period-heading::after { content:""; height:1px; flex:1; background:linear-gradient(90deg,var(--app-border-soft),transparent); }
+
+/* Calendrier : passages de mois plus doux */
+.couple-calendar-grid.is-month-enter-next { animation:cactusCalendarNext .28s ease both; }
+.couple-calendar-grid.is-month-enter-prev { animation:cactusCalendarPrev .28s ease both; }
+@keyframes cactusCalendarNext { from{opacity:.15;transform:translateX(14px)} to{opacity:1;transform:none} }
+@keyframes cactusCalendarPrev { from{opacity:.15;transform:translateX(-14px)} to{opacity:1;transform:none} }
+.couple-timeline-row { transition:opacity .2s ease, filter .2s ease; }
+.couple-timeline-row.is-past { opacity:.72; }
+.couple-timeline-row.is-past .calendar-event-card { background:color-mix(in srgb,var(--app-panel-bg) 95%,var(--app-muted) 5%); }
+.couple-timeline-row.is-past .couple-timeline-rail i { filter:saturate(.65); opacity:.72; }
+.couple-timeline-row.is-future .calendar-event-card { box-shadow:0 12px 28px color-mix(in srgb,var(--event-color) 9%,transparent); }
+.calendar-event-card.is-past-event .calendar-event-countdown { color:var(--app-muted); font-size:.62rem; }
+.couple-timeline-now { display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:10px; margin:13px 0; color:var(--app-accent); }
+.couple-timeline-now span { height:1px; background:linear-gradient(90deg,transparent,var(--app-accent)); opacity:.42; }
+.couple-timeline-now span:last-child { background:linear-gradient(90deg,var(--app-accent),transparent); }
+.couple-timeline-now strong { padding:6px 10px; border:1px solid color-mix(in srgb,var(--app-accent) 28%,transparent); border-radius:999px; background:color-mix(in srgb,var(--app-accent) 11%,var(--app-panel-bg)); font-size:.58rem; text-transform:uppercase; letter-spacing:.06em; }
+
+/* Carnets : vraies petites couvertures dans le quotidien */
+.daily-notebooks-strip .notebook-card {
+    position:relative;
+    isolation:isolate;
+    min-height:178px;
+    padding:24px 17px 16px 25px;
+    overflow:visible;
+    border:1px solid rgba(255,255,255,.2);
+    border-radius:8px 18px 18px 8px;
+    box-shadow:8px 11px 0 color-mix(in srgb,var(--app-bg) 46%,transparent), 0 17px 34px rgba(0,0,0,.16);
+    transform:rotate(-.5deg);
+}
+.daily-notebooks-strip .notebook-card:nth-child(even) { transform:rotate(.65deg); }
+.daily-notebooks-strip .notebook-card::before { content:""; position:absolute; z-index:-1; left:7px; top:5px; bottom:5px; width:7px; border-radius:4px; background:linear-gradient(90deg,rgba(0,0,0,.2),rgba(255,255,255,.25)); opacity:.5; }
+.daily-notebooks-strip .notebook-card::after { content:""; position:absolute; left:18px; top:0; bottom:0; width:1px; background:rgba(255,255,255,.28); box-shadow:3px 0 rgba(0,0,0,.08); }
+.daily-notebooks-strip .notebook-emoji { top:-17px; left:20px; width:43px; height:43px; border:1px solid rgba(255,255,255,.55); box-shadow:0 9px 18px rgba(0,0,0,.2); transform:rotate(-7deg); }
+.daily-notebooks-strip .notebook-card h3 { margin-top:17px; font-size:.92rem; line-height:1.2; }
+.notebook-card-preview { display:-webkit-box; margin-top:8px; overflow:hidden; color:color-mix(in srgb,currentColor 68%,transparent); font-size:.59rem; line-height:1.42; -webkit-box-orient:vertical; -webkit-line-clamp:3; line-clamp:3; }
+.daily-notebooks-strip .notebook-card > small { margin-top:auto; padding-top:10px; font-size:.5rem; opacity:.7; }
+.notebook-card-corner { position:absolute; right:0; bottom:0; width:28px; height:28px; border-radius:15px 0 17px 0; background:linear-gradient(135deg,rgba(255,255,255,.08) 48%,rgba(255,255,255,.52) 50%); opacity:.55; }
+
+/* Capsules : cohérence avec le reste du quotidien, sans écraser leur personnalité */
+.time-capsules-screen .time-capsule-view-switch { padding:4px; border:1px solid var(--app-border-soft); background:color-mix(in srgb,var(--app-panel-bg) 92%,transparent); box-shadow:0 10px 24px color-mix(in srgb,var(--app-bg) 56%,transparent); }
+.time-capsules-screen .time-capsule-view-switch button { min-height:38px; border-radius:13px; transition:transform .18s ease,background .18s ease,color .18s ease; }
+.time-capsules-screen .time-capsule-view-switch button.is-active { transform:translateY(-1px); box-shadow:0 8px 18px color-mix(in srgb,var(--app-accent) 13%,transparent); }
+
+@media (max-width:380px) {
+    .daily-pulse { padding:13px; }
+    .daily-pulse-grid { gap:5px; }
+    .daily-pulse-grid button { padding-inline:3px; }
+    .daily-pulse-grid button small { font-size:.44rem; }
+}
+
+@media (prefers-reduced-motion:reduce) {
+    #dailyPulseMood,.shopping-item.is-completed,.shopping-item.is-completed .shopping-check,.couple-calendar-grid.is-month-enter-next,.couple-calendar-grid.is-month-enter-prev { animation:none !important; }
+}
