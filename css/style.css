@@ -12794,3 +12794,169 @@ body.organizer-sheet-open .organizer-form.organizer-creation-panel {
 @media (prefers-reduced-motion:reduce) {
     #dailyPulseMood,.shopping-item.is-completed,.shopping-item.is-completed .shopping-check,.couple-calendar-grid.is-month-enter-next,.couple-calendar-grid.is-month-enter-prev { animation:none !important; }
 }
+
+
+/* =========================================================
+   V110 — CACTUS VIVANT + LUDOTHÈQUE ACCORDÉE AU THÈME
+   ========================================================= */
+
+/* Les cartes de jeux utilisent maintenant uniquement des nuances dérivées
+   du thème actif. Les classes historiques gardent leur rôle de variété,
+   mais plus aucune ne force une palette verte indépendante. */
+body.has-custom-app-theme #dashboardScreen .game-ranking,
+body.has-custom-app-theme #allGamesScreen .card-green {
+    background: linear-gradient(150deg, var(--game-card-1-start), var(--game-card-1-end));
+}
+body.has-custom-app-theme #dashboardScreen .game-guess,
+body.has-custom-app-theme #allGamesScreen .card-purple {
+    background: linear-gradient(150deg, var(--game-card-2-start), var(--game-card-2-end));
+}
+body.has-custom-app-theme #dashboardScreen .game-questions,
+body.has-custom-app-theme #allGamesScreen .card-yellow,
+body.has-custom-app-theme #allGamesScreen .card-coral {
+    background: linear-gradient(150deg, var(--game-card-3-start), var(--game-card-3-end));
+}
+body.has-custom-app-theme #allGamesScreen .card-mint,
+body.has-custom-app-theme #allGamesScreen .card-lime {
+    background: linear-gradient(150deg, var(--game-card-4-start), var(--game-card-4-end));
+}
+body.has-custom-app-theme #allGamesScreen .card-pink,
+body.has-custom-app-theme #allGamesScreen .card-gold {
+    background: linear-gradient(150deg, var(--game-card-5-start), var(--game-card-5-end));
+}
+body.has-custom-app-theme #allGamesScreen .card-blue {
+    background: linear-gradient(150deg, var(--game-card-6-start), var(--game-card-6-end));
+}
+
+body.has-custom-app-theme #dashboardScreen .dashboard-game-card {
+    border-color: color-mix(in srgb, var(--app-user-accent) 32%, transparent);
+    color: var(--game-card-ink);
+    box-shadow: 0 14px 30px color-mix(in srgb, var(--app-user-accent) 15%, transparent);
+}
+body.has-custom-app-theme #dashboardScreen .dashboard-game-card .dashboard-game-title,
+body.has-custom-app-theme #allGamesScreen .home-game-card > span {
+    color: var(--game-card-ink);
+}
+body.has-custom-app-theme #dashboardScreen .dashboard-game-card > span[id$="CountLabel"],
+body.has-custom-app-theme #allGamesScreen .home-game-card > small {
+    color: var(--game-card-muted);
+}
+body.has-custom-app-theme #allGamesScreen .home-game-card {
+    border-color: color-mix(in srgb, var(--app-user-accent) 28%, rgba(255,255,255,.14));
+    box-shadow: 0 14px 28px color-mix(in srgb, var(--app-user-accent) 12%, var(--app-shadow-soft));
+}
+body.has-custom-app-theme #allGamesScreen .home-game-card > em {
+    color: var(--game-card-ink);
+    background: var(--game-card-pill);
+    border: 1px solid color-mix(in srgb, var(--app-user-accent) 18%, transparent);
+}
+body.has-custom-app-theme #allGamesScreen .home-game-card img,
+body.has-custom-app-theme #dashboardScreen .dashboard-game-card img {
+    filter: drop-shadow(0 9px 12px color-mix(in srgb, var(--app-user-accent) 18%, transparent));
+}
+
+/* Ambiance vivante autour du cactus. Aucun gros bloc supplémentaire :
+   les réactions se fondent dans la scène déjà existante. */
+.dashboard-living-ambience {
+    --living-color: var(--app-user-accent, #72E6A3);
+    position: absolute;
+    z-index: 1;
+    inset: 34px 10px 14px;
+    overflow: hidden;
+    pointer-events: none;
+}
+.dashboard-living-ambience span {
+    position: absolute;
+    display: grid;
+    width: 24px;
+    height: 24px;
+    place-items: center;
+    color: color-mix(in srgb, var(--living-color) 72%, #ffffff);
+    font-size: .9rem;
+    opacity: .58;
+    filter: drop-shadow(0 3px 8px color-mix(in srgb, var(--living-color) 22%, transparent));
+    animation: cactusLivingParticle 5.6s ease-in-out infinite;
+}
+.dashboard-living-ambience span:nth-child(1) { left: 12%; top: 28%; animation-delay: -1.1s; }
+.dashboard-living-ambience span:nth-child(2) { right: 13%; top: 17%; animation-delay: -3.4s; font-size: .72rem; }
+.dashboard-living-ambience span:nth-child(3) { right: 7%; top: 51%; animation-delay: -2.1s; }
+.dashboard-living-ambience span:nth-child(4) { left: 7%; top: 59%; animation-delay: -4.4s; font-size: .7rem; }
+.dashboard-living-ambience span:nth-child(5) { left: 29%; top: 12%; animation-delay: -2.8s; font-size: .68rem; }
+.dashboard-living-ambience span:nth-child(6) { right: 28%; top: 70%; animation-delay: -.5s; font-size: .74rem; }
+
+.dashboard-cactus-message[data-living-symbol]::before {
+    content: attr(data-living-symbol);
+    position: absolute;
+    top: -10px;
+    right: -8px;
+    display: grid;
+    width: 28px;
+    height: 28px;
+    place-items: center;
+    border: 1px solid color-mix(in srgb, var(--app-user-accent) 30%, transparent);
+    border-radius: 50%;
+    background: var(--dashboard-panel-strong);
+    box-shadow: 0 7px 16px rgba(0,0,0,.15);
+    font-size: .78rem;
+}
+.dashboard-cactus-message.is-living-special {
+    border-color: color-mix(in srgb, var(--living-color, var(--app-user-accent)) 45%, transparent);
+    box-shadow: 0 14px 34px color-mix(in srgb, var(--living-color, var(--app-user-accent)) 16%, transparent);
+}
+
+#dashboardScreen[data-cactus-mood="celebration"] .dashboard-living-ambience span,
+#dashboardScreen[data-cactus-mood="love"] .dashboard-living-ambience span,
+#dashboardScreen[data-cactus-mood="reunion"] .dashboard-living-ambience span,
+#dashboardScreen[data-cactus-mood="capsule"] .dashboard-living-ambience span {
+    opacity: .86;
+    animation-duration: 4.1s;
+}
+#dashboardScreen[data-cactus-mood="night"] .dashboard-cactus-glow {
+    opacity: .72;
+    filter: blur(5px);
+}
+#dashboardScreen[data-cactus-mood="morning"] .dashboard-cactus-glow {
+    opacity: .9;
+}
+
+#dashboardScreen.is-living-entering .dashboard-cactus-character {
+    animation: cactusLivingArrival .78s cubic-bezier(.2,.9,.3,1.18) both;
+}
+#dashboardScreen.is-living-entering .dashboard-stats-grid,
+#dashboardScreen.is-living-entering .dashboard-next-moment-card,
+#dashboardScreen.is-living-entering .dashboard-daily-card,
+#dashboardScreen.is-living-entering .dashboard-discussions-card,
+#dashboardScreen.is-living-entering .dashboard-games-section {
+    animation: cactusLivingRise .56s ease both;
+}
+#dashboardScreen.is-living-entering .dashboard-stats-grid { animation-delay: .08s; }
+#dashboardScreen.is-living-entering .dashboard-next-moment-card { animation-delay: .13s; }
+#dashboardScreen.is-living-entering .dashboard-daily-card { animation-delay: .17s; }
+#dashboardScreen.is-living-entering .dashboard-discussions-card { animation-delay: .21s; }
+#dashboardScreen.is-living-entering .dashboard-games-section { animation-delay: .25s; }
+
+@keyframes cactusLivingParticle {
+    0%, 100% { transform: translate3d(0, 4px, 0) scale(.9) rotate(-5deg); opacity: .32; }
+    50% { transform: translate3d(0, -8px, 0) scale(1.08) rotate(6deg); opacity: .86; }
+}
+@keyframes cactusLivingArrival {
+    0% { transform: translateY(12px) scale(.94) rotate(-1deg); opacity: .72; }
+    62% { transform: translateY(-4px) scale(1.025) rotate(1deg); opacity: 1; }
+    100% { transform: translateY(0) scale(1) rotate(0); opacity: 1; }
+}
+@keyframes cactusLivingRise {
+    from { transform: translateY(8px); opacity: .45; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .dashboard-living-ambience span,
+    #dashboardScreen.is-living-entering .dashboard-cactus-character,
+    #dashboardScreen.is-living-entering .dashboard-stats-grid,
+    #dashboardScreen.is-living-entering .dashboard-next-moment-card,
+    #dashboardScreen.is-living-entering .dashboard-daily-card,
+    #dashboardScreen.is-living-entering .dashboard-discussions-card,
+    #dashboardScreen.is-living-entering .dashboard-games-section {
+        animation: none !important;
+    }
+}

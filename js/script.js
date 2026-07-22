@@ -928,6 +928,7 @@ const mainCactusImage =
 
 const dashboardCactusMessage =
     document.getElementById("dashboardCactusMessage");
+const dashboardLivingAmbience = document.getElementById("dashboardLivingAmbience");
 const dashboardCactusCharacter = document.querySelector(".dashboard-cactus-character");
 const cactusWaveArm = document.getElementById("cactusWaveArm");
 const cactusHeadAccessory = document.getElementById("cactusHeadAccessory");
@@ -1324,6 +1325,7 @@ function listenToCurrentSpace(spaceCodeValue) {
         renderDashboardToday(spaceData);
         renderDailyLifeHub(spaceData);
         renderDashboardTimeCapsules(spaceData);
+        renderCactusLivingAmbience(spaceData);
         renderDiscussionsDashboard(spaceData);
         refreshDiscussionButtons();
 
@@ -2540,6 +2542,37 @@ function applyAppAppearance(appearance) {
     body.style.setProperty("--theme-surface", accentSurface);
     body.style.setProperty("--theme-surface-strong", accentSurfaceStrong);
     body.style.setProperty("--theme-deep", accentDeep);
+
+    // Palette des jeux : toutes les cartes dérivent désormais du thème actif.
+    // On conserve plusieurs nuances pour que la ludothèque reste vivante sans revenir au vert historique.
+    const gameNeutralLight = "#FFFFFF";
+    const gameNeutralDark = "#151C28";
+    const gameDeepDark = "#0C111A";
+    const gameMixes = isDark
+        ? [
+            [mixAppColor(accent, gameNeutralDark, 0.44), mixAppColor(accent, gameDeepDark, 0.66)],
+            [mixAppColor(accent, gameNeutralDark, 0.56), mixAppColor(accent, gameDeepDark, 0.74)],
+            [mixAppColor(accent, gameNeutralDark, 0.34), mixAppColor(accent, gameDeepDark, 0.59)],
+            [mixAppColor(accent, gameNeutralDark, 0.66), mixAppColor(accent, gameDeepDark, 0.8)],
+            [mixAppColor(accent, gameNeutralDark, 0.49), mixAppColor(accent, gameDeepDark, 0.69)],
+            [mixAppColor(accent, gameNeutralDark, 0.26), mixAppColor(accent, gameDeepDark, 0.53)]
+        ]
+        : [
+            [mixAppColor(accent, gameNeutralLight, 0.44), mixAppColor(accent, gameNeutralLight, 0.7)],
+            [mixAppColor(accent, gameNeutralLight, 0.58), mixAppColor(accent, gameNeutralLight, 0.8)],
+            [mixAppColor(accent, gameNeutralLight, 0.34), mixAppColor(accent, gameNeutralLight, 0.64)],
+            [mixAppColor(accent, gameNeutralLight, 0.68), mixAppColor(accent, gameNeutralLight, 0.86)],
+            [mixAppColor(accent, gameNeutralLight, 0.5), mixAppColor(accent, gameNeutralLight, 0.74)],
+            [mixAppColor(accent, gameNeutralLight, 0.26), mixAppColor(accent, gameNeutralLight, 0.58)]
+        ];
+    gameMixes.forEach(([start, end], index) => {
+        body.style.setProperty(`--game-card-${index + 1}-start`, start);
+        body.style.setProperty(`--game-card-${index + 1}-end`, end);
+    });
+    body.style.setProperty("--game-card-ink", isDark ? "#F8FAFF" : mixAppColor(accent, "#15202A", 0.78));
+    body.style.setProperty("--game-card-muted", isDark ? mixAppColor(accent, "#D9DEE7", 0.78) : mixAppColor(accent, "#4B5563", 0.72));
+    body.style.setProperty("--game-card-pill", rgbaFromAppHex(accent, isDark ? 0.22 : 0.14));
+
     body.style.background = "var(--app-page-bg)";
     renderAppearanceStudio();
 }
@@ -4880,6 +4913,95 @@ function renderDashboardToday(spaceData = {}) {
     }));
     dashboardTodayEmpty.style.display = items.length ? "none" : "block";
 }
+let currentCactusEvolutionMessage = "Votre cactus veille sur votre histoire.";
+let dashboardLivingEntranceTimer = null;
+
+function getTodayCactusLivingEvents(spaceData = currentSpaceData || {}) {
+    const today = new Date();
+    return getUnifiedCalendarEvents(spaceData).filter((item) => calendarEventOccursOnDate(item, today));
+}
+
+function getCactusLivingContext(spaceData = currentSpaceData || {}) {
+    const todayEvents = getTodayCactusLivingEvents(spaceData);
+    const categoryPriority = ["anniversary", "couple", "birthday", "reunion", "trip", "celebration", "concert", "project", "appointment", "capsule"];
+    const featuredEvent = categoryPriority
+        .map((category) => todayEvents.find((item) => item.category === category))
+        .find(Boolean) || todayEvents[0] || null;
+
+    const readyCapsules = Object.values(spaceData.dailyTools?.timeCapsules || {}).filter((item) => {
+        return item && !item.archivedAt && !item.openedAt && (!item.openDate || getTimeCapsuleOpenTimestamp(item) <= Date.now());
+    });
+
+    if (featuredEvent) {
+        const emoji = getCalendarEventEmoji(featuredEvent);
+        const title = String(featuredEvent.title || "Un moment à deux").trim();
+        const category = featuredEvent.category || "other";
+        const map = {
+            anniversary: { mood: "love", message: `Aujourd’hui, c’est ${title} 💚`, symbols: ["♥", "✦", "✨", "♡", "✧", "♥"] },
+            couple: { mood: "love", message: `Aujourd’hui, c’est ${title} 💚`, symbols: ["♥", "✦", "✨", "♡", "✧", "♥"] },
+            birthday: { mood: "celebration", message: `${title} se fête aujourd’hui 🎂`, symbols: ["🎉", "✦", "✨", "✧", "🎈", "✦"] },
+            reunion: { mood: "reunion", message: `Le grand jour est arrivé : ${title} ✨`, symbols: ["♥", "✦", "✨", "✧", "💚", "✦"] },
+            trip: { mood: "adventure", message: `Une aventure commence aujourd’hui : ${title} ✈️`, symbols: ["✦", "✨", "·", "✧", "✦", "⋆"] },
+            celebration: { mood: "celebration", message: `${title}, c’est aujourd’hui 🎉`, symbols: ["🎉", "✦", "✨", "✧", "⋆", "✦"] },
+            concert: { mood: "celebration", message: `${title} vous attend aujourd’hui 🎵`, symbols: ["♪", "✦", "✨", "♫", "✧", "✦"] },
+            capsule: { mood: "capsule", message: "Le futur vient de vous rendre une capsule ✨", symbols: ["✦", "⏳", "✨", "✧", "💌", "✦"] },
+            project: { mood: "focus", message: `Un joli projet vous attend aujourd’hui : ${title}`, symbols: ["✦", "✨", "·", "✧", "✦", "⋆"] },
+            appointment: { mood: "focus", message: `${title} est prévu aujourd’hui 📍`, symbols: ["✦", "·", "✨", "✧", "·", "✦"] }
+        };
+        const preset = map[category] || { mood: "special", message: `${emoji} ${title}, c’est aujourd’hui`, symbols: ["✦", "✨", "✧", "·", "✦", "⋆"] };
+        return { ...preset, symbol: emoji, color: getCalendarEventColor(featuredEvent), special: true };
+    }
+
+    if (readyCapsules.length) {
+        return {
+            mood: "capsule",
+            symbol: "⏳",
+            color: currentPersonalAppearance?.accent || DEFAULT_APP_APPEARANCE.accent,
+            special: true,
+            message: readyCapsules.length === 1 ? "Une capsule vous attend. Le futur a sonné ✨" : `${readyCapsules.length} capsules sont prêtes à retrouver le présent ✨`,
+            symbols: ["✦", "⏳", "✨", "✧", "💌", "✦"]
+        };
+    }
+
+    const hour = new Date().getHours();
+    const cactusName = spaceData.profile?.cactusName || "Votre cactus";
+    if (hour < 11) {
+        return { mood: "morning", symbol: "☀️", special: false, color: currentPersonalAppearance?.accent, message: `Bonjour ✨ ${cactusName} se réveille avec vous.`, symbols: ["✦", "☀", "✧", "✨", "·", "✦"] };
+    }
+    if (hour >= 20) {
+        return { mood: "night", symbol: "🌙", special: false, color: currentPersonalAppearance?.accent, message: `Petite soirée dans votre coin Cactus 🌙 ${currentCactusEvolutionMessage}`, symbols: ["✦", "☾", "✧", "✨", "·", "✦"] };
+    }
+    return { mood: "day", symbol: "🌵", special: false, color: currentPersonalAppearance?.accent, message: `${cactusName} veille sur votre petite vie à deux 🌵`, symbols: ["✦", "✧", "✨", "·", "✦", "⋆"] };
+}
+
+function renderCactusLivingAmbience(spaceData = currentSpaceData || {}) {
+    if (!dashboardScreen || !dashboardCactusMessage) return;
+    const context = getCactusLivingContext(spaceData);
+    dashboardScreen.dataset.cactusMood = context.mood || "day";
+    dashboardCactusMessage.dataset.livingSymbol = context.symbol || "🌵";
+    dashboardCactusMessage.classList.toggle("is-living-special", Boolean(context.special));
+    const livingColor = normalizeHexColor(context.color, currentPersonalAppearance?.accent || DEFAULT_APP_APPEARANCE.accent);
+    dashboardCactusMessage.style.setProperty("--living-color", livingColor);
+    dashboardCactusMessage.textContent = context.message || currentCactusEvolutionMessage;
+
+    if (dashboardLivingAmbience) {
+        dashboardLivingAmbience.style.setProperty("--living-color", livingColor);
+        const particles = Array.from(dashboardLivingAmbience.children);
+        const symbols = context.symbols || ["✦", "✧", "✨", "·", "✦", "⋆"];
+        particles.forEach((particle, index) => { particle.textContent = symbols[index % symbols.length]; });
+    }
+}
+
+function triggerDashboardLivingEntrance() {
+    if (!dashboardScreen) return;
+    window.clearTimeout(dashboardLivingEntranceTimer);
+    dashboardScreen.classList.remove("is-living-entering");
+    void dashboardScreen.offsetWidth;
+    dashboardScreen.classList.add("is-living-entering");
+    dashboardLivingEntranceTimer = window.setTimeout(() => dashboardScreen.classList.remove("is-living-entering"), 1100);
+    renderCactusLivingAmbience(currentSpaceData || {});
+}
+
 dashboardTodayOpenBtn.addEventListener("click", () => showScreen("dailyTools"));
 if (dashboardTimeCapsuleReady) dashboardTimeCapsuleReady.addEventListener("click", () => { setTimeCapsuleViewMode("active"); showScreen("timeCapsules"); });
 if (dashboardTimeCapsuleTeaser) dashboardTimeCapsuleTeaser.addEventListener("click", () => { setTimeCapsuleViewMode("active"); showScreen("timeCapsules"); });
@@ -14193,15 +14315,14 @@ function updateCactusEvolution(level) {
         lastRenderedCactusStage = evolution.minimumLevel;
     }
 
+    currentCactusEvolutionMessage = evolution.message;
     if (dashboardCactusMessage) {
-        const cactusName = currentSpaceData?.profile?.cactusName;
-        dashboardCactusMessage.textContent = cactusName
-            ? cactusName + " — " + evolution.message
-            : evolution.message;
+        renderCactusLivingAmbience(currentSpaceData || {});
     }
 }
 
 function loadCoupleStats() {
+    triggerDashboardLivingEntrance();
     if (currentSpaceData) {
         updateDashboardRelationStats(
             buildRelationStatistics(currentSpaceData)
