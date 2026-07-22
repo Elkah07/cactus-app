@@ -13137,3 +13137,151 @@ body.has-custom-app-theme .card :is(
     background: color-mix(in srgb, var(--app-user-accent) 84%, var(--app-heading));
     color: var(--app-user-accent-contrast);
 }
+
+/* ====================
+   V110.3 — STATS + PALETTE PROFIL COHÉRENTES AVEC LE THÈME
+   L'écran Statistiques utilisait encore son ancienne identité verte en mode sombre.
+   Les pastilles "Notre couleur" étaient aussi écrasées par le style global des boutons.
+==================== */
+
+/* Statistiques : le décor complet suit l'univers personnel, en clair comme en sombre. */
+body.has-custom-app-theme.stats-active {
+    background: var(--app-page-bg) !important;
+}
+
+body.has-custom-app-theme.stats-active .card {
+    border-color: color-mix(in srgb, var(--app-user-accent) 26%, transparent) !important;
+    background: var(--app-shell-bg) !important;
+    box-shadow: 0 26px 64px var(--app-shadow) !important;
+}
+
+body.has-custom-app-theme #statsScreen.relation-stats-screen {
+    background: var(--app-screen-bg) !important;
+    color: var(--app-text);
+}
+
+body.has-custom-app-theme #statsScreen .stats-back-btn {
+    border-color: color-mix(in srgb, var(--app-user-accent) 34%, transparent) !important;
+    background: var(--app-accent-soft-strong) !important;
+    color: var(--app-heading) !important;
+}
+
+body.has-custom-app-theme #statsScreen .stats-back-btn:hover {
+    background: color-mix(in srgb, var(--app-user-accent) 34%, var(--app-accent-surface)) !important;
+}
+
+body.has-custom-app-theme #statsScreen :is(
+    .stats-header small,
+    .stats-section-heading small,
+    .stats-section-title small,
+    .stats-eyebrow
+) {
+    color: color-mix(in srgb, var(--app-user-accent) 78%, var(--app-heading)) !important;
+}
+
+body.has-custom-app-theme #statsScreen :is(
+    .stats-header h1,
+    .stats-hero strong,
+    .stats-summary-card strong,
+    .stats-section-heading h2,
+    .stats-section-title h2,
+    .stats-mode-heading strong,
+    .stats-records-grid strong,
+    .stats-empty-state strong
+) {
+    color: var(--app-heading) !important;
+}
+
+body.has-custom-app-theme #statsScreen :is(
+    .stats-hero p,
+    .stats-loading,
+    .stats-summary-card small,
+    .stats-compatibility-panel > p,
+    .stats-mode-heading small,
+    .stats-records-grid small,
+    .stats-empty-state p
+) {
+    color: var(--app-muted) !important;
+}
+
+body.has-custom-app-theme #statsScreen :is(
+    .stats-hero,
+    .stats-summary-card,
+    .stats-section,
+    .stats-records-grid article,
+    .stats-empty-state
+) {
+    border-color: color-mix(in srgb, var(--app-user-accent) 24%, transparent) !important;
+    background: var(--app-themed-card) !important;
+    box-shadow: 0 12px 28px var(--app-shadow-soft) !important;
+}
+
+body.has-custom-app-theme #statsScreen .stats-hero-glow {
+    background: color-mix(in srgb, var(--app-user-accent) 24%, transparent) !important;
+}
+
+body.has-custom-app-theme #statsScreen .stats-section-title > span {
+    background: var(--app-accent-soft) !important;
+    color: color-mix(in srgb, var(--app-user-accent) 76%, var(--app-heading)) !important;
+}
+
+body.has-custom-app-theme #statsScreen :is(.stats-progress-track, .stats-mode-track) {
+    background: var(--app-themed-track) !important;
+}
+
+body.has-custom-app-theme #statsScreen .stats-mode-icon {
+    background: var(--app-accent-soft) !important;
+}
+
+/* Les petites barres par mode ne reprennent plus les anciennes couleurs vertes codées en JS. */
+body.has-custom-app-theme #statsScreen .stats-mode-track > div {
+    background: linear-gradient(90deg,
+        color-mix(in srgb, var(--app-user-accent) 82%, white),
+        var(--app-user-accent)) !important;
+    box-shadow: 0 0 10px color-mix(in srgb, var(--app-user-accent) 24%, transparent);
+}
+
+body.has-custom-app-theme #statsScreen .stats-records-grid strong {
+    color: color-mix(in srgb, var(--app-user-accent) 68%, var(--app-heading)) !important;
+}
+
+body.has-custom-app-theme #statsScreen .stats-empty-state {
+    border-style: dashed !important;
+}
+
+body.has-custom-app-theme #statsScreen .stats-empty-state button {
+    border-color: color-mix(in srgb, var(--app-user-accent) 34%, transparent) !important;
+    background: var(--app-user-accent) !important;
+    color: var(--app-user-accent-contrast) !important;
+}
+
+body.has-custom-app-theme #statsScreen button:focus-visible {
+    outline-color: color-mix(in srgb, var(--app-user-accent) 72%, transparent) !important;
+}
+
+/* Profil du couple : chaque choix de couleur garde toujours sa vraie teinte.
+   Cette règle doit rester après les règles globales qui recolorent les boutons. */
+body.has-custom-app-theme .card .couple-profile-form .profile-color-palette button[data-profile-color] {
+    border-color: transparent !important;
+    background-color: var(--swatch) !important;
+    background-image: none !important;
+    color: transparent !important;
+    box-shadow: inset 0 1px rgba(255, 255, 255, 0.45), 0 6px 14px var(--app-shadow-soft) !important;
+}
+
+body.has-custom-app-theme .card .couple-profile-form .profile-color-palette button[data-profile-color]:hover {
+    background-color: var(--swatch) !important;
+}
+
+body.has-custom-app-theme .card .couple-profile-form .profile-color-palette button[data-profile-color].is-selected {
+    border-color: var(--app-heading) !important;
+    background-color: var(--swatch) !important;
+    box-shadow:
+        0 0 0 3px var(--app-panel-bg),
+        0 0 0 5px var(--swatch),
+        0 9px 18px var(--app-shadow-soft) !important;
+}
+
+body.has-custom-app-theme .card .couple-profile-form .profile-color-palette button[data-profile-color].is-selected::after {
+    color: #173342 !important;
+}
