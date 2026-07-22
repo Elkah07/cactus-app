@@ -11993,3 +11993,379 @@ body.has-custom-app-theme .time-capsule-view-switch button.is-active {
         max-width: 47%;
     }
 }
+
+/* ====================
+   V107 — FINITION PREMIUM
+   Passe purement visuelle : hiérarchie, densité et cohérence.
+==================== */
+
+/* ---------- Dashboard : plus compact, plus calme ---------- */
+#dashboardScreen.dashboard-home {
+    padding-inline: 16px;
+    padding-bottom: 18px;
+}
+
+#dashboardScreen .dashboard-topbar {
+    align-items: center;
+    gap: 9px;
+    margin-bottom: 4px;
+}
+
+#dashboardScreen .dashboard-profile-btn,
+#dashboardScreen .dashboard-settings-btn,
+#dashboardScreen .dashboard-notifications-btn {
+    width: 46px;
+    height: 46px;
+}
+
+#dashboardScreen .dashboard-couple-title {
+    min-width: 0;
+}
+
+#dashboardScreen .dashboard-space-name {
+    letter-spacing: .075em;
+}
+
+#dashboardScreen .dashboard-cactus-section {
+    margin-top: 2px;
+}
+
+#dashboardScreen .dashboard-stats-grid {
+    gap: 8px;
+    margin-top: 10px;
+}
+
+#dashboardScreen .dashboard-stat-card {
+    min-height: 104px;
+    padding: 13px 8px 11px;
+    border-radius: 21px;
+}
+
+#dashboardScreen .dashboard-stat-card > span:first-child {
+    margin-bottom: 5px;
+}
+
+#dashboardScreen .dashboard-next-moment-card,
+#dashboardScreen .dashboard-today-widget,
+#dashboardScreen .dashboard-daily-card,
+#dashboardScreen .dashboard-discussions-card,
+#dashboardScreen .dashboard-last-activity {
+    border-radius: 22px;
+}
+
+#dashboardScreen .dashboard-next-moment-card {
+    min-height: 74px;
+    padding: 11px 13px;
+}
+
+#dashboardScreen .dashboard-next-moment-emoji {
+    width: 44px;
+    height: 44px;
+    border-radius: 14px;
+}
+
+#dashboardScreen .dashboard-today-widget {
+    padding: 13px 14px;
+}
+
+#dashboardScreen .dashboard-today-widget header {
+    margin-bottom: 9px;
+}
+
+#dashboardScreen .dashboard-featured-games {
+    gap: 9px;
+}
+
+#dashboardScreen .dashboard-game-card {
+    border-radius: 22px;
+}
+
+#dashboardScreen .dashboard-all-games-btn,
+#dashboardScreen .dashboard-last-activity {
+    min-height: 58px;
+}
+
+#dashboardScreen .dashboard-bottom-nav {
+    padding: 7px 5px calc(7px + env(safe-area-inset-bottom));
+    border-radius: 23px;
+}
+
+#dashboardScreen .dashboard-bottom-nav button {
+    min-height: 52px;
+    border-radius: 17px;
+}
+
+/* ---------- Réglages : vraie page structurée ---------- */
+.settings-screen {
+    max-width: 720px;
+    margin-inline: auto;
+    padding-top: 10px;
+}
+
+.settings-topbar {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.settings-topbar-copy h1 {
+    font-size: 1.12rem;
+}
+
+.settings-topbar-copy p {
+    max-width: 420px;
+}
+
+.settings-category-nav {
+    top: max(6px, env(safe-area-inset-top));
+    gap: 6px;
+    margin-bottom: 12px;
+    padding: 5px;
+    border: 1px solid var(--app-border);
+    border-radius: 19px;
+    background: color-mix(in srgb, var(--app-panel-bg) 94%, transparent);
+    box-shadow: 0 9px 24px var(--app-shadow-soft);
+    backdrop-filter: blur(16px);
+}
+
+.settings-category-nav > button {
+    min-height: 48px;
+    padding: 6px 5px;
+    gap: 3px;
+    border: 1px solid transparent;
+    border-radius: 14px;
+    background: transparent;
+    color: var(--app-muted);
+    box-shadow: none;
+}
+
+.settings-category-nav > button span {
+    font-size: .95rem;
+}
+
+.settings-category-nav > button strong {
+    font-size: .53rem;
+    letter-spacing: .015em;
+}
+
+.settings-category-nav > button.is-active {
+    border-color: color-mix(in srgb, var(--app-user-accent, var(--app-accent)) 34%, transparent);
+    background: color-mix(in srgb, var(--app-user-accent, var(--app-accent)) 14%, var(--app-panel-bg));
+    color: var(--app-heading);
+    box-shadow: 0 7px 18px var(--app-shadow-soft);
+}
+
+.settings-screen .settings-panel {
+    margin-bottom: 11px;
+    padding: 16px;
+    border-radius: 22px;
+    box-shadow: 0 10px 28px var(--app-shadow-soft);
+}
+
+.settings-screen .settings-panel-heading {
+    margin-bottom: 13px;
+}
+
+.settings-screen .settings-panel-heading > span {
+    width: 42px;
+    height: 42px;
+    border-radius: 14px;
+}
+
+.settings-screen .settings-panel-heading strong {
+    font-size: .98rem;
+}
+
+.settings-screen .settings-panel-heading small {
+    letter-spacing: .065em;
+}
+
+/* Studio apparence : moins de blocs géants, plus de lisibilité. */
+.app-appearance-preview {
+    min-height: 110px;
+    margin-bottom: 13px;
+    padding: 14px;
+    border-radius: 19px;
+}
+
+.app-appearance-preview-orb {
+    width: 58px;
+    height: 58px;
+    border-radius: 18px;
+}
+
+.app-appearance-block,
+.app-theme-share-zone {
+    padding: 14px;
+    border-radius: 19px;
+}
+
+.app-display-mode-switch {
+    gap: 6px;
+    padding: 5px;
+    border-radius: 16px;
+}
+
+.app-display-mode-switch button {
+    min-height: 43px;
+    border-radius: 12px;
+}
+
+.app-universe-grid {
+    gap: 8px;
+}
+
+.app-universe-grid button {
+    min-height: 104px;
+    padding: 10px 6px;
+    border-radius: 18px;
+}
+
+.app-universe-grid button i {
+    width: 42px;
+    height: 42px;
+}
+
+.app-custom-theme-button {
+    min-height: 68px;
+    border-radius: 18px;
+}
+
+.app-theme-share-actions {
+    gap: 7px;
+}
+
+.app-theme-share-actions button {
+    min-height: 46px;
+    border-radius: 14px;
+}
+
+/* Notifications et compte : densité régulière. */
+.notifications-preferences > label,
+.creator-mode-switch {
+    min-height: 52px;
+    border-radius: 15px;
+}
+
+.phone-notifications-box,
+.account-email-row,
+.account-export-box,
+.settings-account-actions {
+    border-radius: 18px;
+}
+
+.settings-screen input:not([type="checkbox"]):not([type="radio"]),
+.settings-screen select,
+.settings-screen textarea {
+    min-height: 50px;
+    border-radius: 15px;
+}
+
+.settings-screen button:not(.settings-topbar-back):not(.theme-text-button):not([data-settings-tab]):not([data-app-universe]) {
+    border-radius: 15px;
+}
+
+/* ---------- Cohérence générale des écrans secondaires ---------- */
+.secondary-screen-hero,
+.organizer-showcase,
+.shopping-showcase,
+.task-showcase,
+.reminder-showcase,
+.time-capsule-hero {
+    border-radius: 22px;
+}
+
+.daily-quick-card,
+.shopping-item,
+.organizer-item,
+.calendar-event-card {
+    border-radius: 20px;
+}
+
+/* ---------- Petits écrans ---------- */
+@media (max-width: 420px) {
+    #dashboardScreen.dashboard-home {
+        padding-inline: 14px;
+    }
+
+    #dashboardScreen .dashboard-stat-card {
+        min-height: 98px;
+        border-radius: 19px;
+    }
+
+    .settings-screen {
+        padding-inline: 10px;
+    }
+
+    .settings-topbar {
+        grid-template-columns: 42px minmax(0, 1fr) 46px;
+        gap: 8px;
+        padding: 8px;
+    }
+
+    .settings-topbar-back {
+        width: 42px;
+        height: 42px;
+        border-radius: 13px;
+    }
+
+    .settings-topbar-visual {
+        width: 46px;
+        height: 46px;
+        border-radius: 14px;
+    }
+
+    .settings-topbar-visual img {
+        width: 54px;
+        height: 54px;
+    }
+
+    .settings-category-nav {
+        gap: 4px;
+        padding: 4px;
+        border-radius: 17px;
+    }
+
+    .settings-category-nav > button {
+        min-height: 46px;
+        padding-inline: 2px;
+    }
+
+    .settings-category-nav > button strong {
+        font-size: .47rem;
+    }
+
+    .settings-screen .settings-panel {
+        padding: 14px;
+        border-radius: 20px;
+    }
+
+    .app-universe-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 6px;
+    }
+
+    .app-universe-grid button {
+        min-height: 92px;
+        padding: 8px 3px;
+        border-radius: 16px;
+    }
+
+    .app-universe-grid button i {
+        width: 36px;
+        height: 36px;
+    }
+
+    .app-universe-grid button strong {
+        font-size: .55rem;
+    }
+}
+
+@media (max-width: 350px) {
+    .settings-category-nav > button strong {
+        display: none;
+    }
+    .settings-category-nav > button span {
+        font-size: 1.08rem;
+    }
+}
