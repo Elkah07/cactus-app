@@ -284,6 +284,9 @@ const saveCalendarSettingsBtn = document.getElementById("saveCalendarSettingsBtn
 const resetCalendarSettingsBtn = document.getElementById("resetCalendarSettingsBtn");
 const calendarHeroEmoji = document.getElementById("calendarHeroEmoji");
 const calendarCustomizerPreviewSymbol = document.getElementById("calendarCustomizerPreviewSymbol");
+const calendarStudioTabs = document.querySelectorAll("[data-calendar-studio-tab]");
+const calendarStudioPanels = document.querySelectorAll("[data-calendar-studio-panel]");
+const calendarVisualSettingButtons = document.querySelectorAll("[data-calendar-setting-target]");
 const calendarSelectedDateTitle = document.getElementById("calendarSelectedDateTitle");
 const calendarSelectedDateEvents = document.getElementById("calendarSelectedDateEvents");
 const calendarSelectedDateEmpty = document.getElementById("calendarSelectedDateEmpty");
@@ -2991,6 +2994,12 @@ function syncCalendarCustomizerControls(settings = draftCoupleCalendarSettings) 
     if (calendarLookInput) calendarLookInput.value = settings.look;
     if (calendarEventStyleInput) calendarEventStyleInput.value = settings.eventStyle;
     if (calendarCustomizerPreviewSymbol) calendarCustomizerPreviewSymbol.textContent = settings.symbol;
+    calendarVisualSettingButtons.forEach((button) => {
+        const target = document.getElementById(button.dataset.calendarSettingTarget || "");
+        const active = Boolean(target && target.value === button.dataset.calendarSettingValue);
+        button.classList.toggle("is-selected", active);
+        button.setAttribute("aria-pressed", active ? "true" : "false");
+    });
     if (calendarWeekendTintInput) calendarWeekendTintInput.checked = settings.weekendTint;
     if (calendarDecorationsInput) calendarDecorationsInput.checked = settings.decorations;
 }
@@ -3021,6 +3030,11 @@ function openCalendarCustomizer() {
     applyCoupleCalendarSettings(draftCoupleCalendarSettings, { rerender: true });
     calendarCustomizerPanel.style.display = "block";
     document.body.classList.add("calendar-customizer-open");
+    calendarStudioTabs.forEach((button, index) => button.classList.toggle("is-active", index === 0));
+    calendarStudioPanels.forEach((panel, index) => {
+        panel.classList.toggle("is-active", index === 0);
+        panel.hidden = index !== 0;
+    });
 }
 
 function closeCalendarCustomizer({ restore = true } = {}) {
@@ -3372,6 +3386,25 @@ calendarMonthNext.addEventListener("click", () => { coupleCalendarCursor = new D
 calendarTodayBtn.addEventListener("click", () => { const now = new Date(); coupleCalendarCursor = new Date(now.getFullYear(), now.getMonth(), 1); selectedCoupleCalendarDate = getLocalDateKey(now); renderImportantDates(currentImportantDates); });
 calendarAddSelectedDateBtn.addEventListener("click", () => { resetImportantDateForm(); importantDateValueInput.value = selectedCoupleCalendarDate || getLocalDateKey(); importantDateForm.style.display = "block"; importantDateForm.scrollIntoView({ behavior: "smooth", block: "start" }); window.setTimeout(() => importantDateTitleInput.focus(), 80); });
 
+calendarStudioTabs.forEach((button) => {
+    button.addEventListener("click", () => {
+        const target = button.dataset.calendarStudioTab;
+        calendarStudioTabs.forEach((item) => item.classList.toggle("is-active", item === button));
+        calendarStudioPanels.forEach((panel) => {
+            const active = panel.dataset.calendarStudioPanel === target;
+            panel.classList.toggle("is-active", active);
+            panel.hidden = !active;
+        });
+    });
+});
+calendarVisualSettingButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+        const target = document.getElementById(button.dataset.calendarSettingTarget || "");
+        if (!target) return;
+        target.value = button.dataset.calendarSettingValue || target.value;
+        target.dispatchEvent(new Event("change", { bubbles: true }));
+    });
+});
 calendarCustomizeBtn?.addEventListener("click", openCalendarCustomizer);
 closeCalendarCustomizerBtn?.addEventListener("click", () => closeCalendarCustomizer({ restore: true }));
 calendarAccentButton?.addEventListener("click", () => openNotebookColorPicker("calendarAccent"));

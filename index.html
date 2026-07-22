@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cactus 🌵</title>
-    <link rel="stylesheet" href="css/style.css?v=97">
+    <link rel="stylesheet" href="css/style.css?v=98">
     <link rel="manifest" href="manifest.json?v=2">
     <meta name="theme-color" content="#003E2D">
 </head>
@@ -311,49 +311,93 @@
         <div><small>Votre temps à deux</small><strong>Votre histoire, date après date.</strong><p>Retrouvailles, anniversaires, voyages et petits moments réunis au même endroit.</p></div>
     </section>
 
-    <section id="calendarCustomizerPanel" class="calendar-customizer-panel" style="display:none;" aria-label="Personnalisation du calendrier">
-        <div class="calendar-customizer-heading">
-            <div><small>Votre calendrier, votre univers</small><h2>Personnaliser notre calendrier</h2><p>L’apparence claire ou sombre suit automatiquement le thème de l’application.</p></div>
+    <section id="calendarCustomizerPanel" class="calendar-customizer-panel calendar-studio" style="display:none;" aria-label="Personnalisation du calendrier">
+        <div class="calendar-studio-heading">
+            <div>
+                <small>Votre calendrier, votre univers</small>
+                <h2>Créer notre ambiance</h2>
+                <p>Quelques choix simples, un résultat vraiment à vous.</p>
+            </div>
             <button type="button" id="closeCalendarCustomizerBtn" aria-label="Fermer">×</button>
         </div>
 
-        <div class="calendar-customizer-preview" aria-hidden="true">
-            <div class="calendar-customizer-preview-icon"><span id="calendarCustomizerPreviewSymbol">💚</span></div>
-            <div><small>Aperçu partagé</small><strong id="calendarCustomizerPreviewTitle">Notre calendrier</strong><span>12 · 13 · 14 · <b>15</b> · 16</span></div>
+        <div class="calendar-studio-preview" aria-hidden="true">
+            <div class="calendar-studio-preview-top">
+                <div class="calendar-customizer-preview-icon"><span id="calendarCustomizerPreviewSymbol">💚</span></div>
+                <div><small>Aperçu en direct</small><strong id="calendarCustomizerPreviewTitle">Notre calendrier</strong></div>
+                <span class="calendar-studio-preview-chip">Juillet</span>
+            </div>
+            <div class="calendar-studio-miniweek"><span>12</span><span>13</span><span>14</span><b>15</b><span>16</span><span>17</span><span>18</span></div>
         </div>
 
-        <div class="calendar-customizer-section">
-            <span class="calendar-customizer-label">Palette de couleur</span>
-            <div id="calendarThemeChoices" class="calendar-theme-choices" role="radiogroup" aria-label="Palette du calendrier">
-                <button type="button" data-calendar-theme="cactus"><i></i><strong>Cactus</strong><small>Vert frais</small></button>
-                <button type="button" data-calendar-theme="cream"><i></i><strong>Sable</strong><small>Doré doux</small></button>
-                <button type="button" data-calendar-theme="lavender"><i></i><strong>Lavande</strong><small>Violet tendre</small></button>
-                <button type="button" data-calendar-theme="sunset"><i></i><strong>Corail</strong><small>Rose chaud</small></button>
-                <button type="button" data-calendar-theme="ocean"><i></i><strong>Océan</strong><small>Bleu calme</small></button>
-                <button type="button" data-calendar-theme="night"><i></i><strong>Myrtille</strong><small>Bleu violet</small></button>
+        <div class="calendar-studio-tabs" role="tablist" aria-label="Sections de personnalisation">
+            <button type="button" class="is-active" data-calendar-studio-tab="ambiance">🎨 <span>Ambiance</span></button>
+            <button type="button" data-calendar-studio-tab="appearance">▦ <span>Apparence</span></button>
+            <button type="button" data-calendar-studio-tab="details">✦ <span>Détails</span></button>
+        </div>
+
+        <div class="calendar-studio-panel is-active" data-calendar-studio-panel="ambiance">
+            <div class="calendar-studio-section-heading"><strong>Choisissez votre univers</strong><small>La couleur s’adapte automatiquement au thème clair ou sombre.</small></div>
+            <div id="calendarThemeChoices" class="calendar-theme-choices calendar-theme-swatches" role="radiogroup" aria-label="Palette du calendrier">
+                <button type="button" data-calendar-theme="cactus" aria-label="Cactus"><i></i><strong>Cactus</strong></button>
+                <button type="button" data-calendar-theme="cream" aria-label="Sable"><i></i><strong>Sable</strong></button>
+                <button type="button" data-calendar-theme="lavender" aria-label="Lavande"><i></i><strong>Lavande</strong></button>
+                <button type="button" data-calendar-theme="sunset" aria-label="Corail"><i></i><strong>Corail</strong></button>
+                <button type="button" data-calendar-theme="ocean" aria-label="Océan"><i></i><strong>Océan</strong></button>
+                <button type="button" data-calendar-theme="night" aria-label="Myrtille"><i></i><strong>Myrtille</strong></button>
+            </div>
+
+            <div class="calendar-studio-pair">
+                <div class="calendar-studio-tile calendar-studio-color-tile">
+                    <span class="calendar-studio-tile-label">Couleur signature</span>
+                    <input type="hidden" id="calendarAccentInput" value="#72D59D">
+                    <button type="button" id="calendarAccentButton" class="notebook-color-button calendar-accent-button" style="--control-color:#72D59D"><span aria-hidden="true"></span><strong>Personnaliser</strong><small>#72D59D</small></button>
+                </div>
+                <label class="calendar-studio-tile calendar-symbol-control">
+                    <span class="calendar-studio-tile-label">Notre symbole</span>
+                    <div class="calendar-studio-emoji-row"><input id="calendarSymbolInput" type="text" maxlength="8" value="💚" inputmode="text" aria-label="Emoji du calendrier"><span>Votre emoji</span></div>
+                </label>
             </div>
         </div>
 
-        <div class="calendar-customizer-grid">
-            <div class="calendar-customizer-control">
-                <span>Couleur précise</span>
-                <input type="hidden" id="calendarAccentInput" value="#72D59D">
-                <button type="button" id="calendarAccentButton" class="notebook-color-button calendar-accent-button" style="--control-color:#72D59D"><span aria-hidden="true"></span><span>Choisir une couleur</span><small>#72D59D</small></button>
+        <div class="calendar-studio-panel" data-calendar-studio-panel="appearance" hidden>
+            <div class="calendar-studio-section-heading"><strong>Le style du calendrier</strong><small>Touchez simplement le rendu que vous préférez.</small></div>
+            <select id="calendarLookInput" class="calendar-native-setting" aria-label="Style des cases"><option value="soft">Doux et arrondi</option><option value="clean">Minimaliste</option><option value="story">Carnet de souvenirs</option></select>
+            <div class="calendar-visual-choices calendar-look-choices">
+                <button type="button" data-calendar-setting-target="calendarLookInput" data-calendar-setting-value="soft"><span class="calendar-look-demo demo-soft"><i></i><i></i><i></i></span><strong>Doux</strong><small>Rond et chaleureux</small></button>
+                <button type="button" data-calendar-setting-target="calendarLookInput" data-calendar-setting-value="clean"><span class="calendar-look-demo demo-clean"><i></i><i></i><i></i></span><strong>Minimal</strong><small>Fin et épuré</small></button>
+                <button type="button" data-calendar-setting-target="calendarLookInput" data-calendar-setting-value="story"><span class="calendar-look-demo demo-story"><i></i><i></i><i></i></span><strong>Souvenirs</strong><small>Plus vivant</small></button>
             </div>
-            <label class="calendar-customizer-control calendar-symbol-control"><span>Symbole du calendrier</span><div><input id="calendarSymbolInput" type="text" maxlength="8" value="💚" inputmode="text" aria-label="Emoji du calendrier"><small>Votre emoji</small></div></label>
-            <label class="calendar-customizer-control"><span>Style des cases</span><select id="calendarLookInput"><option value="soft">Doux et arrondi</option><option value="clean">Minimaliste</option><option value="story">Carnet de souvenirs</option></select></label>
-            <label class="calendar-customizer-control"><span>Événements dans les jours</span><select id="calendarEventStyleInput"><option value="emoji">Emojis</option><option value="dots">Points colorés</option><option value="soft">Emojis discrets</option></select></label>
-            <label class="calendar-customizer-control"><span>Premier jour de la semaine</span><select id="calendarWeekStartInput"><option value="monday">Lundi</option><option value="sunday">Dimanche</option></select></label>
+
+            <div class="calendar-studio-section-heading calendar-studio-subheading"><strong>Les événements dans les jours</strong></div>
+            <select id="calendarEventStyleInput" class="calendar-native-setting" aria-label="Affichage des événements"><option value="emoji">Emojis</option><option value="dots">Points colorés</option><option value="soft">Emojis discrets</option></select>
+            <div class="calendar-visual-choices calendar-event-visual-choices">
+                <button type="button" data-calendar-setting-target="calendarEventStyleInput" data-calendar-setting-value="emoji"><span class="calendar-event-demo">🌵 💌</span><strong>Emojis</strong></button>
+                <button type="button" data-calendar-setting-target="calendarEventStyleInput" data-calendar-setting-value="dots"><span class="calendar-event-demo demo-dots">● ● ●</span><strong>Points</strong></button>
+                <button type="button" data-calendar-setting-target="calendarEventStyleInput" data-calendar-setting-value="soft"><span class="calendar-event-demo demo-soft-events">🌵</span><strong>Discret</strong></button>
+            </div>
         </div>
 
-        <div class="calendar-customizer-toggles">
-            <label><input id="calendarWeekendTintInput" type="checkbox" checked><span><strong>Différencier les week-ends</strong><small>Une légère nuance pour les repérer.</small></span></label>
-            <label><input id="calendarDecorationsInput" type="checkbox" checked><span><strong>Petits détails animés</strong><small>Quelques étoiles discrètes autour du calendrier.</small></span></label>
+        <div class="calendar-studio-panel" data-calendar-studio-panel="details" hidden>
+            <div class="calendar-studio-section-heading"><strong>Vos petits réglages</strong><small>Les détails pratiques sans transformer la personnalisation en formulaire.</small></div>
+            <select id="calendarWeekStartInput" class="calendar-native-setting" aria-label="Premier jour de la semaine"><option value="monday">Lundi</option><option value="sunday">Dimanche</option></select>
+            <div class="calendar-week-choice">
+                <span>La semaine commence le</span>
+                <div>
+                    <button type="button" data-calendar-setting-target="calendarWeekStartInput" data-calendar-setting-value="monday">Lundi</button>
+                    <button type="button" data-calendar-setting-target="calendarWeekStartInput" data-calendar-setting-value="sunday">Dimanche</button>
+                </div>
+            </div>
+
+            <div class="calendar-customizer-toggles calendar-studio-toggles">
+                <label><input id="calendarWeekendTintInput" type="checkbox" checked><span class="calendar-toggle-visual"></span><span><strong>Nuancer les week-ends</strong><small>Pour les repérer d’un coup d’œil.</small></span></label>
+                <label><input id="calendarDecorationsInput" type="checkbox" checked><span class="calendar-toggle-visual"></span><span><strong>Petites animations</strong><small>Quelques détails vivants autour du calendrier.</small></span></label>
+            </div>
         </div>
 
-        <div class="calendar-customizer-actions">
+        <div class="calendar-customizer-actions calendar-studio-actions">
             <button type="button" id="resetCalendarSettingsBtn" class="secondary">Réinitialiser</button>
-            <button type="button" id="saveCalendarSettingsBtn">Enregistrer pour nous deux</button>
+            <button type="button" id="saveCalendarSettingsBtn">Enregistrer ✨</button>
         </div>
     </section>
 
@@ -2587,7 +2631,7 @@
     <script src="js/storage.js"></script>
     <script src="js/rankings.js"></script>
     <script src="js/questions.js"></script>
-    <script src="js/script.js?v=97"></script>
+    <script src="js/script.js?v=98"></script>
 
 </body>
 </html>
