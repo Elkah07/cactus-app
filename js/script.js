@@ -2398,18 +2398,25 @@ backFromDailyToolsBtn.addEventListener("click", () => {
 });
 
 const SHOPPING_CATEGORIES = {
-    produce: { label: "Fruits et légumes", className: "is-produce" },
-    bakery: { label: "Boulangerie", className: "is-bakery" },
-    fresh: { label: "Frais", className: "is-fresh" },
-    frozen: { label: "Surgelés", className: "is-frozen" },
-    food: { label: "Épicerie", className: "is-food" },
-    drinks: { label: "Boissons", className: "is-drinks" },
-    hygiene: { label: "Hygiène", className: "is-hygiene" },
-    home: { label: "Maison", className: "is-home" },
-    party: { label: "Fête", className: "is-party" },
-    gifts: { label: "Cadeaux", className: "is-gifts" },
-    other: { label: "Autre", className: "is-other" }
+    produce: { label: "Fruits et légumes", className: "is-produce", emoji: "🥬" },
+    bakery: { label: "Boulangerie", className: "is-bakery", emoji: "🥖" },
+    fresh: { label: "Frais", className: "is-fresh", emoji: "🧀" },
+    frozen: { label: "Surgelés", className: "is-frozen", emoji: "❄️" },
+    food: { label: "Épicerie", className: "is-food", emoji: "🛒" },
+    drinks: { label: "Boissons", className: "is-drinks", emoji: "🥤" },
+    hygiene: { label: "Hygiène", className: "is-hygiene", emoji: "🧴" },
+    home: { label: "Maison", className: "is-home", emoji: "🏠" },
+    party: { label: "Fête", className: "is-party", emoji: "🎉" },
+    gifts: { label: "Cadeaux", className: "is-gifts", emoji: "🎁" },
+    other: { label: "Autre", className: "is-other", emoji: "✨" }
 };
+
+function setOrganizerSheetOpen(form, open) {
+    if (!form) return;
+    form.style.display = open ? "block" : "none";
+    document.body.classList.toggle("organizer-sheet-open", open);
+}
+
 
 function resetShoppingForm() {
     editingShoppingItemId = null;
@@ -2419,7 +2426,7 @@ function resetShoppingForm() {
     shoppingFormTitle.textContent = "Que faut-il acheter ?";
     saveShoppingItemBtn.textContent = "Ajouter à la liste";
     cancelShoppingEditBtn.style.display = "none";
-    shoppingItemForm.style.display = "none";
+    setOrganizerSheetOpen(shoppingItemForm, false);
 }
 
 function startShoppingItemEdit(itemId) {
@@ -2436,9 +2443,9 @@ function startShoppingItemEdit(itemId) {
     shoppingFormKicker.textContent = "Modification";
     shoppingFormTitle.textContent = "Modifier cet article";
     saveShoppingItemBtn.textContent = "Enregistrer les changements";
+    cancelShoppingEditBtn.textContent = "Annuler";
     cancelShoppingEditBtn.style.display = "block";
-    shoppingItemForm.style.display = "block";
-    shoppingItemForm.scrollIntoView({ behavior: "smooth", block: "start" });
+    setOrganizerSheetOpen(shoppingItemForm, true);
     window.setTimeout(() => shoppingItemName.focus(), 250);
 }
 
@@ -2488,12 +2495,13 @@ function renderShoppingList(items) {
         if (category.label !== previousShoppingCategory) {
             const aisleHeading = document.createElement("h2");
             aisleHeading.className = "shopping-aisle-heading";
-            aisleHeading.textContent = category.label;
+            aisleHeading.textContent = category.emoji + "  " + category.label;
             fragment.appendChild(aisleHeading);
             previousShoppingCategory = category.label;
         }
         const article = document.createElement("article");
-        article.className = "shopping-item" + (item.completed ? " is-completed" : "");
+        article.className = "shopping-item " + category.className + (item.completed ? " is-completed" : "");
+        article.style.setProperty("--shopping-category-emoji", `"${category.emoji}"`);
 
         const checkButton = document.createElement("button");
         checkButton.type = "button";
@@ -2537,7 +2545,9 @@ function renderShoppingList(items) {
         actions.className = "shopping-item-actions";
         const editButton = document.createElement("button");
         editButton.type = "button";
-        editButton.textContent = "Modifier";
+        editButton.className = "is-edit";
+        editButton.textContent = "✎";
+        editButton.setAttribute("aria-label", "Modifier " + (item.name || "cet article"));
         editButton.addEventListener("click", () => startShoppingItemEdit(itemId));
         const deleteButton = document.createElement("button");
         deleteButton.type = "button";
@@ -2638,8 +2648,10 @@ cancelShoppingEditBtn.addEventListener("click", resetShoppingForm);
 showShoppingFormBtn.addEventListener("click", () => {
     resetShoppingForm();
     prepareOrganizerAssignees(shoppingItemAssignee);
-    shoppingItemForm.style.display = "block";
-    window.setTimeout(() => shoppingItemName.focus(), 80);
+    cancelShoppingEditBtn.textContent = "Fermer";
+    cancelShoppingEditBtn.style.display = "block";
+    setOrganizerSheetOpen(shoppingItemForm, true);
+    window.setTimeout(() => shoppingItemName.focus(), 120);
 });
 
 shoppingFilterButtons.forEach((button) => {
@@ -2785,7 +2797,7 @@ function createOrganizerItem({ title, details, badges = [], meta, completed = fa
     const actions = document.createElement("div");
     actions.className = "organizer-item-actions";
     const edit = document.createElement("button");
-    edit.type = "button"; edit.textContent = "Modifier"; edit.addEventListener("click", onEdit);
+    edit.type = "button"; edit.className = "is-edit"; edit.textContent = "✎"; edit.setAttribute("aria-label", "Modifier"); edit.addEventListener("click", onEdit);
     const remove = document.createElement("button");
     remove.type = "button"; remove.className = "is-delete"; remove.textContent = "×"; remove.setAttribute("aria-label", "Supprimer"); remove.addEventListener("click", onDelete);
     actions.append(edit, remove);
@@ -2824,7 +2836,7 @@ function renderOrganizerGroups(container, entries, timestampGetter, itemRenderer
 function resetTaskForm() {
     editingTaskId = null; taskForm.reset(); prepareOrganizerAssignees(taskAssigneeInput); taskPriorityInput.value = "medium";
     taskFormKicker.textContent = "Nouvelle tâche"; taskFormTitle.textContent = "Que faut-il faire ?"; saveTaskBtn.textContent = "Ajouter la tâche"; cancelTaskEditBtn.style.display = "none";
-    taskForm.style.display = "none";
+    setOrganizerSheetOpen(taskForm, false);
 }
 
 function renderTasks(tasks) {
@@ -2854,7 +2866,7 @@ function renderTasks(tasks) {
         meta: task.completed ? "Terminée par " + (task.completedByPseudo || "Cactus") : "Créée par " + (task.createdByPseudo || "Cactus"),
         completed: task.completed, overdue: !task.completed && isPastDate(task.dueDate),
         onToggle: () => database.ref("spaces/" + currentSpaceCode + "/dailyTools/tasks/" + id).update({ completed: !task.completed, completedAt: !task.completed ? Date.now() : null, completedBy: !task.completed ? currentUser.uid : null, completedByPseudo: !task.completed ? pseudo : null, updatedAt: Date.now(), updatedBy: currentUser.uid }),
-        onEdit: () => { editingTaskId = id; taskTitleInput.value = task.title || ""; taskDetailsInput.value = task.details || ""; prepareOrganizerAssignees(taskAssigneeInput); taskAssigneeInput.value = task.assignee || "both"; taskPriorityInput.value = task.priority || "medium"; taskDueDateInput.value = task.dueDate || ""; taskFormKicker.textContent = "Modification"; taskFormTitle.textContent = "Modifier cette tâche"; saveTaskBtn.textContent = "Enregistrer"; cancelTaskEditBtn.style.display = "block"; taskForm.style.display = "block"; taskForm.scrollIntoView({ behavior: "smooth" }); },
+        onEdit: () => { editingTaskId = id; taskTitleInput.value = task.title || ""; taskDetailsInput.value = task.details || ""; prepareOrganizerAssignees(taskAssigneeInput); taskAssigneeInput.value = task.assignee || "both"; taskPriorityInput.value = task.priority || "medium"; taskDueDateInput.value = task.dueDate || ""; taskFormKicker.textContent = "Modification"; taskFormTitle.textContent = "Modifier cette tâche"; saveTaskBtn.textContent = "Enregistrer"; cancelTaskEditBtn.textContent = "Annuler"; cancelTaskEditBtn.style.display = "block"; setOrganizerSheetOpen(taskForm, true); },
         onDelete: () => { if (confirm("Supprimer cette tâche ?")) database.ref("spaces/" + currentSpaceCode + "/dailyTools/tasks/" + id).remove(); }
     })));
     tasksEmptyState.style.display = visible.length ? "none" : "flex";
@@ -2868,13 +2880,13 @@ taskForm.addEventListener("submit", (event) => {
     saveTaskBtn.disabled = true; request.then(() => { showToast(editingTaskId ? "Tâche modifiée" : "Tâche ajoutée"); resetTaskForm(); }).catch(() => showToast("Impossible d’enregistrer la tâche")).finally(() => { saveTaskBtn.disabled = false; });
 });
 cancelTaskEditBtn.addEventListener("click", resetTaskForm);
-showTaskFormBtn.addEventListener("click", () => { resetTaskForm(); taskForm.style.display = "block"; window.setTimeout(() => taskTitleInput.focus(), 80); });
+showTaskFormBtn.addEventListener("click", () => { resetTaskForm(); cancelTaskEditBtn.textContent = "Fermer"; cancelTaskEditBtn.style.display = "block"; setOrganizerSheetOpen(taskForm, true); window.setTimeout(() => taskTitleInput.focus(), 120); });
 taskFilterButtons.forEach((button) => button.addEventListener("click", () => { activeTaskFilter = button.dataset.taskFilter; taskFilterButtons.forEach((item) => item.classList.toggle("is-active", item === button)); renderTasks(currentTasks); }));
 
 function resetReminderForm() {
     editingReminderId = null; reminderForm.reset(); prepareOrganizerAssignees(reminderTargetInput);
     reminderFormKicker.textContent = "Nouveau rappel"; reminderFormTitle.textContent = "Que faut-il retenir ?"; saveReminderBtn.textContent = "Ajouter le rappel"; cancelReminderEditBtn.style.display = "none";
-    reminderForm.style.display = "none";
+    setOrganizerSheetOpen(reminderForm, false);
 }
 
 function getReminderTimestamp(reminder) { return new Date((reminder.date || "9999-12-31") + "T" + (reminder.time || "23:59")).getTime(); }
@@ -2890,14 +2902,14 @@ function renderReminders(reminders) {
     if (remindersHeroNext) remindersHeroNext.textContent = nextReminder ? getCountdownLabel({ date: nextReminder.date, time: nextReminder.time }) : "Rien de prévu";
     const visible = entries.filter(([, item]) => activeReminderFilter === "all" || (activeReminderFilter === "past" ? getReminderTimestamp(item) < now : getReminderTimestamp(item) >= now)).sort((a, b) => getReminderTimestamp(a[1]) - getReminderTimestamp(b[1]));
     renderOrganizerGroups(remindersList, visible, getReminderTimestamp, ([id, item]) => createOrganizerItem({ title: item.title, details: item.details, badges: [{ label: formatOrganizerDate(item.date, item.time), className: "is-date" }, { label: getOrganizerPersonLabel(item.target), className: "is-person" }], meta: "Créé par " + (item.createdByPseudo || "Cactus"), overdue: getReminderTimestamp(item) < now,
-        onEdit: () => { editingReminderId = id; reminderTitleInput.value = item.title || ""; reminderDetailsInput.value = item.details || ""; reminderDateInput.value = item.date || ""; reminderTimeInput.value = item.time || ""; prepareOrganizerAssignees(reminderTargetInput); reminderTargetInput.value = item.target || "both"; reminderFormKicker.textContent = "Modification"; reminderFormTitle.textContent = "Modifier ce rappel"; saveReminderBtn.textContent = "Enregistrer"; cancelReminderEditBtn.style.display = "block"; reminderForm.style.display = "block"; reminderForm.scrollIntoView({ behavior: "smooth" }); },
+        onEdit: () => { editingReminderId = id; reminderTitleInput.value = item.title || ""; reminderDetailsInput.value = item.details || ""; reminderDateInput.value = item.date || ""; reminderTimeInput.value = item.time || ""; prepareOrganizerAssignees(reminderTargetInput); reminderTargetInput.value = item.target || "both"; reminderFormKicker.textContent = "Modification"; reminderFormTitle.textContent = "Modifier ce rappel"; saveReminderBtn.textContent = "Enregistrer"; cancelReminderEditBtn.textContent = "Annuler"; cancelReminderEditBtn.style.display = "block"; setOrganizerSheetOpen(reminderForm, true); },
         onDelete: () => { if (confirm("Supprimer ce rappel ?")) database.ref("spaces/" + currentSpaceCode + "/dailyTools/reminders/" + id).remove(); }
     }));
     remindersEmptyState.style.display = visible.length ? "none" : "flex";
 }
 reminderForm.addEventListener("submit", (event) => { event.preventDefault(); const title = reminderTitleInput.value.trim(); if (!title || !reminderDateInput.value) return; const now = Date.now(); const payload = { title, details: reminderDetailsInput.value.trim(), date: reminderDateInput.value, time: reminderTimeInput.value || "", target: reminderTargetInput.value || "both", updatedAt: now, updatedBy: currentUser.uid, updatedByPseudo: pseudo }; const base = "spaces/" + currentSpaceCode + "/dailyTools/reminders"; const request = editingReminderId ? database.ref(base + "/" + editingReminderId).update(payload) : database.ref(base).push({ ...payload, createdAt: now, createdByUid: currentUser.uid, createdByPseudo: pseudo }); saveReminderBtn.disabled = true; request.then(() => { showToast(editingReminderId ? "Rappel modifié" : "Rappel ajouté"); resetReminderForm(); }).catch(() => showToast("Impossible d’enregistrer le rappel")).finally(() => { saveReminderBtn.disabled = false; }); });
 cancelReminderEditBtn.addEventListener("click", resetReminderForm);
-showReminderFormBtn.addEventListener("click", () => { resetReminderForm(); reminderForm.style.display = "block"; window.setTimeout(() => reminderTitleInput.focus(), 80); });
+showReminderFormBtn.addEventListener("click", () => { resetReminderForm(); cancelReminderEditBtn.textContent = "Fermer"; cancelReminderEditBtn.style.display = "block"; setOrganizerSheetOpen(reminderForm, true); window.setTimeout(() => reminderTitleInput.focus(), 120); });
 reminderFilterButtons.forEach((button) => button.addEventListener("click", () => { activeReminderFilter = button.dataset.reminderFilter; reminderFilterButtons.forEach((item) => item.classList.toggle("is-active", item === button)); renderReminders(currentReminders); }));
 
 const IMPORTANT_DATE_CATEGORIES = {
