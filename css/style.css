@@ -14726,3 +14726,28 @@ body.has-custom-app-theme :is(.waiting-box, .comparison-box, .compatibility-scor
 .daily-calendar-upcoming-inline .daily-upcoming-empty {
     color: var(--app-muted) !important;
 }
+
+
+/* =========================================================
+   V114.3 — ACCESSOIRES CACTOU CALÉS SUR LES 6 CORPS RÉELS
+========================================================= */
+#dashboardScreen .dashboard-cactus-character .cactus-accessory {
+    position: absolute !important;
+    inset: 0 !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    transform: none !important;
+    overflow: visible !important;
+}
+#dashboardScreen .dashboard-cactus-character .cactus-accessory img {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    filter: drop-shadow(0 2px 2px rgba(18, 35, 26, 0.14));
+}
+#dashboardScreen .dashboard-cactus-character .cactus-accessory-head { z-index: 5; }
+#dashboardScreen .dashboard-cactus-character .cactus-accessory-face { z-index: 6; }
+#dashboardScreen .dashboard-cactus-character .cactus-accessory-neck { z-index: 7; }
