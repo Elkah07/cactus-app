@@ -14768,3 +14768,308 @@ body.has-custom-app-theme :is(.waiting-box, .comparison-box, .compatibility-scor
 }
 #dashboardScreen .dashboard-cactus-character .cactus-accessory-head { z-index: 5 !important; }
 #dashboardScreen .dashboard-cactus-character .cactus-accessory-face { z-index: 6 !important; }
+
+/* =========================================================
+   V114.6 — STUDIO DE CALIBRATION DES ACCESSOIRES CACTOU
+   Les accessoires utilisent désormais des images recadrées et
+   des coordonnées enregistrées par niveau dans l'espace partagé.
+========================================================= */
+#dashboardScreen .dashboard-cactus-character .cactus-accessory img {
+    position: absolute !important;
+    left: var(--cactus-accessory-x, 50%) !important;
+    top: var(--cactus-accessory-y, 50%) !important;
+    width: var(--cactus-accessory-width, 30%) !important;
+    height: auto !important;
+    max-width: none !important;
+    object-fit: contain !important;
+    transform: translate(-50%, -50%) rotate(var(--cactus-accessory-rotation, 0deg)) !important;
+    transform-origin: 50% 50% !important;
+    filter: drop-shadow(0 2px 3px rgba(10, 28, 20, .16));
+}
+
+body.cactus-calibration-open {
+    overflow: hidden !important;
+}
+
+.cactus-calibration-modal {
+    position: fixed;
+    z-index: 1800;
+    inset: 0;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 10px;
+}
+
+.cactus-calibration-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(4, 18, 24, .72);
+    backdrop-filter: blur(10px);
+}
+
+.cactus-calibration-sheet {
+    position: relative;
+    z-index: 1;
+    width: min(620px, 100%);
+    max-height: min(94svh, 920px);
+    overflow: auto;
+    padding: 18px;
+    border: 1px solid color-mix(in srgb, var(--app-accent) 32%, transparent);
+    border-radius: 30px 30px 22px 22px;
+    color: var(--app-heading);
+    background: color-mix(in srgb, var(--app-panel-bg) 94%, #07131a 6%);
+    box-shadow: 0 -24px 70px rgba(0, 0, 0, .34);
+    overscroll-behavior: contain;
+}
+
+.cactus-calibration-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 8px;
+}
+
+.cactus-calibration-header small,
+.cactus-calibration-header h2 {
+    display: block;
+    margin: 0;
+}
+
+.cactus-calibration-header small {
+    color: var(--app-accent);
+    font-size: .62rem;
+    font-weight: 900;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+}
+
+.cactus-calibration-header h2 {
+    margin-top: 3px;
+    font-size: 1.15rem;
+}
+
+.cactus-calibration-header > button {
+    width: 42px;
+    height: 42px;
+    min-width: 42px;
+    margin: 0;
+    padding: 0;
+    border-radius: 50%;
+    font-size: 1.35rem;
+}
+
+.cactus-calibration-intro {
+    margin: 0 0 14px;
+    color: var(--app-muted);
+    font-size: .69rem;
+    line-height: 1.5;
+}
+
+.cactus-calibration-selectors {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+
+.cactus-calibration-selectors label {
+    display: grid;
+    gap: 6px;
+    color: var(--app-muted);
+    font-size: .62rem;
+    font-weight: 850;
+}
+
+.cactus-calibration-selectors select {
+    width: 100%;
+    margin: 0;
+    min-height: 44px;
+}
+
+.cactus-calibration-preview-shell {
+    display: grid;
+    justify-items: center;
+    gap: 9px;
+    padding: 13px;
+    border: 1px solid color-mix(in srgb, var(--app-accent) 22%, transparent);
+    border-radius: 24px;
+    background:
+        radial-gradient(circle at 50% 42%, color-mix(in srgb, var(--app-accent) 15%, transparent), transparent 42%),
+        color-mix(in srgb, var(--app-icon-bg) 74%, transparent);
+}
+
+.cactus-calibration-preview-shell > small {
+    max-width: 400px;
+    color: var(--app-muted);
+    font-size: .61rem;
+    line-height: 1.4;
+    text-align: center;
+}
+
+.cactus-calibration-preview {
+    position: relative;
+    width: min(320px, 76vw);
+    aspect-ratio: 1;
+    overflow: hidden;
+    border: 1px dashed color-mix(in srgb, var(--app-accent) 34%, transparent);
+    border-radius: 26px;
+    background: color-mix(in srgb, var(--app-bg) 72%, transparent);
+    touch-action: none;
+    user-select: none;
+}
+
+.cactus-calibration-grid {
+    position: absolute;
+    z-index: 0;
+    inset: 0;
+    opacity: .32;
+    pointer-events: none;
+    background-image:
+        linear-gradient(to right, color-mix(in srgb, var(--app-accent) 22%, transparent) 1px, transparent 1px),
+        linear-gradient(to bottom, color-mix(in srgb, var(--app-accent) 22%, transparent) 1px, transparent 1px);
+    background-size: 10% 10%;
+}
+
+#cactusCalibrationBody {
+    position: absolute;
+    z-index: 1;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    pointer-events: none;
+    filter: drop-shadow(0 14px 18px rgba(0, 0, 0, .18));
+}
+
+.cactus-calibration-accessory {
+    position: absolute;
+    z-index: 3;
+    left: var(--cactus-accessory-x, 50%);
+    top: var(--cactus-accessory-y, 50%);
+    width: var(--cactus-accessory-width, 30%);
+    height: auto;
+    max-width: none;
+    cursor: grab;
+    touch-action: none;
+    user-select: none;
+    -webkit-user-drag: none;
+    transform: translate(-50%, -50%) rotate(var(--cactus-accessory-rotation, 0deg));
+    transform-origin: 50% 50%;
+    filter: drop-shadow(0 3px 4px rgba(0, 0, 0, .18));
+}
+
+.cactus-calibration-accessory.is-dragging {
+    cursor: grabbing;
+    filter: drop-shadow(0 8px 10px rgba(0, 0, 0, .24));
+}
+
+.cactus-calibration-controls {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 14px;
+    margin-top: 14px;
+}
+
+.cactus-calibration-controls label {
+    display: grid;
+    gap: 7px;
+    margin: 0;
+}
+
+.cactus-calibration-controls label > span {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    color: var(--app-muted);
+    font-size: .63rem;
+    font-weight: 850;
+}
+
+.cactus-calibration-controls output {
+    color: var(--app-heading);
+    font-weight: 950;
+}
+
+.cactus-calibration-controls input[type="range"] {
+    width: 100%;
+    margin: 0;
+    accent-color: var(--app-accent);
+}
+
+.cactus-calibration-fine-tools {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 12px;
+    margin-top: 14px;
+}
+
+.cactus-calibration-nudge {
+    display: grid;
+    grid-template-columns: repeat(3, 42px);
+    grid-template-rows: repeat(2, 42px);
+    gap: 5px;
+}
+
+.cactus-calibration-nudge button,
+.cactus-calibration-size-tools button {
+    min-height: 42px;
+    margin: 0;
+    padding: 7px;
+    border-radius: 13px;
+    font-size: .68rem;
+}
+
+.cactus-calibration-nudge button:nth-child(1) { grid-column: 2; grid-row: 1; }
+.cactus-calibration-nudge button:nth-child(2) { grid-column: 1; grid-row: 2; }
+.cactus-calibration-nudge button:nth-child(3) { grid-column: 2; grid-row: 2; }
+.cactus-calibration-nudge button:nth-child(4) { grid-column: 3; grid-row: 2; }
+
+.cactus-calibration-size-tools {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+}
+
+.cactus-calibration-actions {
+    display: grid;
+    grid-template-columns: .85fr 1.4fr;
+    gap: 9px;
+    margin-top: 15px;
+}
+
+.cactus-calibration-actions button {
+    margin: 0;
+    min-height: 48px;
+}
+
+.cactus-calibration-status {
+    margin: 10px 0 0;
+    padding: 9px 11px;
+    border-radius: 13px;
+    color: var(--app-muted);
+    background: color-mix(in srgb, var(--app-icon-bg) 78%, transparent);
+    font-size: .61rem;
+    font-weight: 800;
+    text-align: center;
+}
+
+.cactus-calibration-status[data-state="dirty"] { color: #f0b84c; }
+.cactus-calibration-status[data-state="saved"] { color: var(--app-accent); }
+.cactus-calibration-status[data-state="error"] { color: #ff7d88; }
+
+@media (max-width: 520px) {
+    .cactus-calibration-modal { padding: 5px; }
+    .cactus-calibration-sheet {
+        max-height: calc(100svh - 10px);
+        padding: 15px 13px calc(15px + env(safe-area-inset-bottom));
+        border-radius: 26px 26px 16px 16px;
+    }
+    .cactus-calibration-selectors,
+    .cactus-calibration-controls { grid-template-columns: 1fr; }
+    .cactus-calibration-preview { width: min(300px, 82vw); }
+    .cactus-calibration-fine-tools { grid-template-columns: 1fr; }
+    .cactus-calibration-nudge { justify-self: center; }
+    .cactus-calibration-actions { grid-template-columns: 1fr; }
+}

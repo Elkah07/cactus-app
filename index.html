@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cactus 🌵</title>
-    <link rel="stylesheet" href="css/style.css?v=1144">
+    <link rel="stylesheet" href="css/style.css?v=1146">
     <link rel="manifest" href="manifest.json?v=2">
     <meta name="theme-color" content="#003E2D">
 </head>
@@ -2653,10 +2653,83 @@
             <button type="button" id="creatorResetAchievementsBtn">🔒 Réinitialiser les succès</button>
             <button type="button" id="creatorResetDailyBtn">🔥 Réinitialiser aujourd’hui</button>
             <button type="button" id="creatorTestNotificationBtn">🔔 Tester une notification</button>
+            <button type="button" id="creatorAccessoryCalibrationBtn">🧩 Calibrer les accessoires</button>
         </div>
 
         <p>Ces actions modifient l’espace commun utilisé avec ta partenaire.</p>
     </section>
+
+    <div id="cactusAccessoryCalibrationModal" class="cactus-calibration-modal" style="display:none;" role="dialog" aria-modal="true" aria-labelledby="cactusCalibrationTitle">
+        <div class="cactus-calibration-backdrop" data-close-cactus-calibration></div>
+        <section class="cactus-calibration-sheet">
+            <header class="cactus-calibration-header">
+                <div><small>Studio créatrice</small><h2 id="cactusCalibrationTitle">Calibrer les accessoires</h2></div>
+                <button type="button" id="closeCactusCalibrationBtn" aria-label="Fermer">×</button>
+            </header>
+
+            <p class="cactus-calibration-intro">Choisis un niveau et un accessoire, puis déplace-le directement sur Cactou. Les réglages enregistrés sont partagés dans votre espace et s'appliquent aux deux partenaires.</p>
+
+            <div class="cactus-calibration-selectors">
+                <label>Niveau de Cactou
+                    <select id="cactusCalibrationStage">
+                        <option value="1">Niveau 1 · Bébé cactus</option>
+                        <option value="2">Niveau 2 · Jeune cactus</option>
+                        <option value="3">Niveau 3 · Cactus curieux</option>
+                        <option value="4">Niveau 4 · Cactus complice</option>
+                        <option value="5">Niveau 5 · Cactus épanoui</option>
+                        <option value="6">Niveau 6 · Cactus légendaire</option>
+                    </select>
+                </label>
+                <label>Accessoire
+                    <select id="cactusCalibrationAccessory">
+                        <option value="flowerHat">👒 Chapeau fleuri</option>
+                        <option value="partyHat">🎉 Chapeau de fête</option>
+                        <option value="goldCrown">👑 Couronne cœur</option>
+                        <option value="roundGlasses">👓 Lunettes dorées</option>
+                        <option value="heartNecklace">💗 Collier cœur</option>
+                        <option value="pinkBow">🎀 Nœud corail</option>
+                    </select>
+                </label>
+            </div>
+
+            <div class="cactus-calibration-preview-shell">
+                <div id="cactusCalibrationPreview" class="cactus-calibration-preview" data-stage="1">
+                    <span class="cactus-calibration-grid" aria-hidden="true"></span>
+                    <img id="cactusCalibrationBody" src="assets/cactus-rig/stage-1-body.webp" alt="Aperçu de Cactou">
+                    <img id="cactusCalibrationAccessoryImage" class="cactus-calibration-accessory" src="assets/cactus-accessories-trimmed/roundGlasses.webp" alt="Accessoire à calibrer">
+                </div>
+                <small>☝️ Fais glisser l’accessoire directement sur Cactou. Utilise ensuite les réglages fins ci-dessous.</small>
+            </div>
+
+            <div class="cactus-calibration-controls">
+                <label><span>Horizontal <output id="cactusCalibrationXValue">50%</output></span><input id="cactusCalibrationX" type="range" min="0" max="100" step="0.1" value="50"></label>
+                <label><span>Vertical <output id="cactusCalibrationYValue">50%</output></span><input id="cactusCalibrationY" type="range" min="0" max="100" step="0.1" value="50"></label>
+                <label><span>Taille <output id="cactusCalibrationWidthValue">30%</output></span><input id="cactusCalibrationWidth" type="range" min="5" max="80" step="0.1" value="30"></label>
+                <label><span>Rotation <output id="cactusCalibrationRotationValue">0°</output></span><input id="cactusCalibrationRotation" type="range" min="-45" max="45" step="0.5" value="0"></label>
+            </div>
+
+            <div class="cactus-calibration-fine-tools" aria-label="Réglages fins">
+                <div class="cactus-calibration-nudge">
+                    <button type="button" data-calibration-nudge="0,-0.5" aria-label="Monter">↑</button>
+                    <button type="button" data-calibration-nudge="-0.5,0" aria-label="Déplacer à gauche">←</button>
+                    <button type="button" data-calibration-nudge="0,0.5" aria-label="Descendre">↓</button>
+                    <button type="button" data-calibration-nudge="0.5,0" aria-label="Déplacer à droite">→</button>
+                </div>
+                <div class="cactus-calibration-size-tools">
+                    <button type="button" data-calibration-size="-0.5">− Taille</button>
+                    <button type="button" data-calibration-size="0.5">＋ Taille</button>
+                    <button type="button" data-calibration-rotate="-1">↶ Tourner</button>
+                    <button type="button" data-calibration-rotate="1">↷ Tourner</button>
+                </div>
+            </div>
+
+            <div class="cactus-calibration-actions">
+                <button type="button" id="resetCactusCalibrationBtn" class="secondary">Valeurs par défaut</button>
+                <button type="button" id="saveCactusCalibrationBtn">Enregistrer cette position</button>
+            </div>
+            <p id="cactusCalibrationStatus" class="cactus-calibration-status">Aucun changement non enregistré.</p>
+        </section>
+    </div>
 
     <div id="questionReportModal" class="question-report-modal" style="display:none;" role="dialog" aria-modal="true" aria-labelledby="questionReportTitle">
         <div class="question-report-backdrop" data-close-question-report></div>
@@ -2781,7 +2854,7 @@
     <script src="js/storage.js"></script>
     <script src="js/rankings.js"></script>
     <script src="js/questions.js"></script>
-    <script src="js/script.js?v=1145"></script>
+    <script src="js/script.js?v=1146"></script>
 
 </body>
 </html>

@@ -88,15 +88,15 @@ try {
     console.warn("Firebase Messaging indisponible dans le service worker", error);
 }
 
-const CACHE_VERSION = "v1145";
+const CACHE_VERSION = "v1146";
 const SHELL_CACHE = `cactus-shell-${CACHE_VERSION}`;
 const RUNTIME_CACHE = `cactus-runtime-${CACHE_VERSION}`;
 
 const APP_SHELL = [
     "./index.html",
-    "./css/style.css?v=1144",
+    "./css/style.css?v=1146",
     "./js/firebase.js?v=86",
-    "./js/script.js?v=1145",
+    "./js/script.js?v=1146",
     "./js/screens.js?v=108",
     "./js/utils.js",
     "./js/storage.js",
@@ -149,6 +149,12 @@ const APP_SHELL = [
     "./assets/cactus-accessories/round-glasses.webp",
     "./assets/cactus-accessories/heart-necklace.webp",
     "./assets/cactus-accessories/pink-bow.webp",
+    "./assets/cactus-accessories-trimmed/flowerHat.webp",
+    "./assets/cactus-accessories-trimmed/partyHat.webp",
+    "./assets/cactus-accessories-trimmed/goldCrown.webp",
+    "./assets/cactus-accessories-trimmed/roundGlasses.webp",
+    "./assets/cactus-accessories-trimmed/heartNecklace.webp",
+    "./assets/cactus-accessories-trimmed/pinkBow.webp",
     "./assets/cactus-accessory-overlays/stage-1-flowerHat.webp",
     "./assets/cactus-accessory-overlays/stage-1-partyHat.webp",
     "./assets/cactus-accessory-overlays/stage-1-goldCrown.webp",

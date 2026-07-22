@@ -105,6 +105,25 @@ const creatorUnlockAchievementsBtn = document.getElementById("creatorUnlockAchie
 const creatorResetAchievementsBtn = document.getElementById("creatorResetAchievementsBtn");
 const creatorResetDailyBtn = document.getElementById("creatorResetDailyBtn");
 const creatorTestNotificationBtn = document.getElementById("creatorTestNotificationBtn");
+const creatorAccessoryCalibrationBtn = document.getElementById("creatorAccessoryCalibrationBtn");
+const cactusAccessoryCalibrationModal = document.getElementById("cactusAccessoryCalibrationModal");
+const closeCactusCalibrationBtn = document.getElementById("closeCactusCalibrationBtn");
+const cactusCalibrationStage = document.getElementById("cactusCalibrationStage");
+const cactusCalibrationAccessory = document.getElementById("cactusCalibrationAccessory");
+const cactusCalibrationPreview = document.getElementById("cactusCalibrationPreview");
+const cactusCalibrationBody = document.getElementById("cactusCalibrationBody");
+const cactusCalibrationAccessoryImage = document.getElementById("cactusCalibrationAccessoryImage");
+const cactusCalibrationX = document.getElementById("cactusCalibrationX");
+const cactusCalibrationY = document.getElementById("cactusCalibrationY");
+const cactusCalibrationWidth = document.getElementById("cactusCalibrationWidth");
+const cactusCalibrationRotation = document.getElementById("cactusCalibrationRotation");
+const cactusCalibrationXValue = document.getElementById("cactusCalibrationXValue");
+const cactusCalibrationYValue = document.getElementById("cactusCalibrationYValue");
+const cactusCalibrationWidthValue = document.getElementById("cactusCalibrationWidthValue");
+const cactusCalibrationRotationValue = document.getElementById("cactusCalibrationRotationValue");
+const resetCactusCalibrationBtn = document.getElementById("resetCactusCalibrationBtn");
+const saveCactusCalibrationBtn = document.getElementById("saveCactusCalibrationBtn");
+const cactusCalibrationStatus = document.getElementById("cactusCalibrationStatus");
 const creatorOpenReportsBtn = document.getElementById("creatorOpenReportsBtn");
 const creatorReportsCount = document.getElementById("creatorReportsCount");
 const questionReportModal = document.getElementById("questionReportModal");
@@ -139,7 +158,7 @@ const creatorRankingItems = document.getElementById("creatorRankingItems");
 const creatorContentEnabled = document.getElementById("creatorContentEnabled");
 const saveCreatorContentBtn = document.getElementById("saveCreatorContentBtn");
 const restoreCreatorContentBtn = document.getElementById("restoreCreatorContentBtn");
-document.body.append(questionReportModal, creatorReportsModal, creatorContentModal);
+document.body.append(questionReportModal, creatorReportsModal, creatorContentModal, cactusAccessoryCalibrationModal);
 const themeSettingIcon = document.getElementById("themeSettingIcon");
 const themeSettingLabel = document.getElementById("themeSettingLabel");
 const themeColorMeta = document.querySelector('meta[name="theme-color"]');
@@ -14933,12 +14952,12 @@ function getLikelyChosenTarget(answerData) {
 }
 
 const CACTUS_ACCESSORY_CATALOG = [
-    { id: "flowerHat", name: "Chapeau fleuri", slot: "head", cost: 120, image: "assets/cactus-accessories/flower-hat.webp" },
-    { id: "partyHat", name: "Chapeau de fête", slot: "head", cost: 90, image: "assets/cactus-accessories/party-hat.webp" },
-    { id: "goldCrown", name: "Couronne cœur", slot: "head", cost: 300, image: "assets/cactus-accessories/gold-crown.webp" },
-    { id: "roundGlasses", name: "Lunettes dorées", slot: "face", cost: 150, image: "assets/cactus-accessories/round-glasses.webp" },
-    { id: "heartNecklace", name: "Collier cœur", slot: "neck", cost: 180, image: "assets/cactus-accessories/heart-necklace.webp" },
-    { id: "pinkBow", name: "Nœud corail", slot: "neck", cost: 110, image: "assets/cactus-accessories/pink-bow.webp" }
+    { id: "flowerHat", name: "Chapeau fleuri", slot: "head", cost: 120, image: "assets/cactus-accessories/flower-hat.webp", calibrationImage: "assets/cactus-accessories-trimmed/flowerHat.webp" },
+    { id: "partyHat", name: "Chapeau de fête", slot: "head", cost: 90, image: "assets/cactus-accessories/party-hat.webp", calibrationImage: "assets/cactus-accessories-trimmed/partyHat.webp" },
+    { id: "goldCrown", name: "Couronne cœur", slot: "head", cost: 300, image: "assets/cactus-accessories/gold-crown.webp", calibrationImage: "assets/cactus-accessories-trimmed/goldCrown.webp" },
+    { id: "roundGlasses", name: "Lunettes dorées", slot: "face", cost: 150, image: "assets/cactus-accessories/round-glasses.webp", calibrationImage: "assets/cactus-accessories-trimmed/roundGlasses.webp" },
+    { id: "heartNecklace", name: "Collier cœur", slot: "neck", cost: 180, image: "assets/cactus-accessories/heart-necklace.webp", calibrationImage: "assets/cactus-accessories-trimmed/heartNecklace.webp" },
+    { id: "pinkBow", name: "Nœud corail", slot: "neck", cost: 110, image: "assets/cactus-accessories/pink-bow.webp", calibrationImage: "assets/cactus-accessories-trimmed/pinkBow.webp" }
 ];
 
 const CACTUS_ACCESSORY_SLOTS = {
@@ -14946,6 +14965,89 @@ const CACTUS_ACCESSORY_SLOTS = {
     face: cactusFaceAccessory,
     neck: cactusNeckAccessory
 };
+
+
+const CACTUS_ACCESSORY_DEFAULT_CALIBRATION = {
+    1: {
+        flowerHat: { x: 52, y: 20.4, width: 28, rotation: 0 },
+        partyHat: { x: 52, y: 17, width: 15, rotation: 0 },
+        goldCrown: { x: 52, y: 20, width: 23, rotation: 0 },
+        roundGlasses: { x: 52, y: 44.4, width: 24, rotation: 0 },
+        heartNecklace: { x: 52, y: 67.9, width: 20, rotation: 0 },
+        pinkBow: { x: 52, y: 69.7, width: 13, rotation: 0 }
+    },
+    2: {
+        flowerHat: { x: 52, y: 21.1, width: 27, rotation: 0 },
+        partyHat: { x: 52, y: 18, width: 15, rotation: 0 },
+        goldCrown: { x: 52, y: 20.7, width: 22, rotation: 0 },
+        roundGlasses: { x: 52, y: 43.5, width: 22, rotation: 0 },
+        heartNecklace: { x: 52, y: 59.8, width: 18, rotation: 0 },
+        pinkBow: { x: 52, y: 60.4, width: 12, rotation: 0 }
+    },
+    3: {
+        flowerHat: { x: 53, y: 13.7, width: 29, rotation: 0 },
+        partyHat: { x: 53, y: 10.7, width: 16, rotation: 0 },
+        goldCrown: { x: 53, y: 14.3, width: 24, rotation: 0 },
+        roundGlasses: { x: 52.5, y: 38.7, width: 23, rotation: 0 },
+        heartNecklace: { x: 51, y: 53.4, width: 20, rotation: 0 },
+        pinkBow: { x: 51, y: 53.7, width: 13, rotation: 0 }
+    },
+    4: {
+        flowerHat: { x: 51, y: 15, width: 30, rotation: 0 },
+        partyHat: { x: 51, y: 11.7, width: 16, rotation: 0 },
+        goldCrown: { x: 51, y: 15.3, width: 24, rotation: 0 },
+        roundGlasses: { x: 49, y: 38.7, width: 23, rotation: 0 },
+        heartNecklace: { x: 48, y: 52.1, width: 19, rotation: 0 },
+        pinkBow: { x: 46, y: 52.4, width: 12, rotation: 0 }
+    },
+    5: {
+        flowerHat: { x: 55, y: 16.3, width: 31, rotation: 0 },
+        partyHat: { x: 55, y: 12.3, width: 17, rotation: 0 },
+        goldCrown: { x: 55, y: 16.6, width: 25, rotation: 0 },
+        roundGlasses: { x: 51, y: 39.9, width: 24, rotation: 0 },
+        heartNecklace: { x: 50, y: 55.7, width: 21, rotation: 0 },
+        pinkBow: { x: 50, y: 56.7, width: 13, rotation: 0 }
+    },
+    6: {
+        flowerHat: { x: 52, y: 15.3, width: 31, rotation: 0 },
+        partyHat: { x: 52, y: 11.3, width: 17, rotation: 0 },
+        goldCrown: { x: 52, y: 15.6, width: 25, rotation: 0 },
+        roundGlasses: { x: 50, y: 39.9, width: 24, rotation: 0 },
+        heartNecklace: { x: 49, y: 55.7, width: 21, rotation: 0 },
+        pinkBow: { x: 49, y: 56.7, width: 13, rotation: 0 }
+    }
+};
+
+function clampCactusCalibrationNumber(value, min, max, fallback) {
+    const parsed = Number(value);
+    if (!Number.isFinite(parsed)) return fallback;
+    return Math.min(max, Math.max(min, parsed));
+}
+
+function normalizeCactusAccessoryCalibration(value = {}, fallback = {}) {
+    return {
+        x: clampCactusCalibrationNumber(value.x, 0, 100, fallback.x ?? 50),
+        y: clampCactusCalibrationNumber(value.y, 0, 100, fallback.y ?? 50),
+        width: clampCactusCalibrationNumber(value.width, 5, 80, fallback.width ?? 30),
+        rotation: clampCactusCalibrationNumber(value.rotation, -45, 45, fallback.rotation ?? 0)
+    };
+}
+
+function getCactusAccessoryCalibration(stage, itemId) {
+    const safeStage = Math.min(6, Math.max(1, Number(stage) || 1));
+    const fallback = CACTUS_ACCESSORY_DEFAULT_CALIBRATION[safeStage]?.[itemId] || { x: 50, y: 50, width: 30, rotation: 0 };
+    const saved = currentSpaceData?.cactusAccessoryCalibration?.[safeStage]?.[itemId] || {};
+    return normalizeCactusAccessoryCalibration(saved, fallback);
+}
+
+function applyCactusAccessoryCalibration(image, calibration) {
+    if (!image) return;
+    const safe = normalizeCactusAccessoryCalibration(calibration, { x: 50, y: 50, width: 30, rotation: 0 });
+    image.style.setProperty("--cactus-accessory-x", safe.x + "%");
+    image.style.setProperty("--cactus-accessory-y", safe.y + "%");
+    image.style.setProperty("--cactus-accessory-width", safe.width + "%");
+    image.style.setProperty("--cactus-accessory-rotation", safe.rotation + "deg");
+}
 
 function renderEquippedCactusAccessories(wardrobe = {}) {
     const equipped = wardrobe.equipped || {};
@@ -14962,9 +15064,10 @@ function renderEquippedCactusAccessories(wardrobe = {}) {
 
         if (item) {
             const image = document.createElement("img");
-            const stage = Number(dashboardCactusCharacter?.dataset?.cactusStage) || 1;
-            image.src = `assets/cactus-accessory-overlays/stage-${Math.min(Math.max(stage, 1), 6)}-${item.id}.webp?v=1145`;
+            const stage = Math.min(Math.max(Number(dashboardCactusCharacter?.dataset?.cactusStage) || 1, 1), 6);
+            image.src = item.calibrationImage + "?v=1146";
             image.alt = "";
+            applyCactusAccessoryCalibration(image, getCactusAccessoryCalibration(stage, item.id));
             container.dataset.accessoryId = item.id;
             container.appendChild(image);
         }
@@ -15111,6 +15214,217 @@ removeCactusAccessoriesBtn.addEventListener("click", () => {
 document.addEventListener("keydown", (event) => {
     if (event.key === "Escape" && cactusWardrobeModal.style.display !== "none") {
         closeCactusWardrobe();
+    }
+});
+
+let cactusCalibrationDraft = null;
+let cactusCalibrationDragState = null;
+
+function getCactusCalibrationSelectedStage() {
+    return Math.min(6, Math.max(1, Number(cactusCalibrationStage?.value) || 1));
+}
+
+function getCactusCalibrationSelectedItem() {
+    return CACTUS_ACCESSORY_CATALOG.find((item) => item.id === cactusCalibrationAccessory?.value) || CACTUS_ACCESSORY_CATALOG[0];
+}
+
+function formatCactusCalibrationValue(value, suffix) {
+    const rounded = Math.round(Number(value) * 10) / 10;
+    return Number.isInteger(rounded) ? rounded + suffix : rounded.toFixed(1) + suffix;
+}
+
+function setCactusCalibrationStatus(message, state = "neutral") {
+    if (!cactusCalibrationStatus) return;
+    cactusCalibrationStatus.textContent = message;
+    cactusCalibrationStatus.dataset.state = state;
+}
+
+function syncCactusCalibrationControls() {
+    if (!cactusCalibrationDraft) return;
+    const calibration = normalizeCactusAccessoryCalibration(cactusCalibrationDraft, cactusCalibrationDraft);
+    cactusCalibrationDraft = calibration;
+
+    cactusCalibrationX.value = calibration.x;
+    cactusCalibrationY.value = calibration.y;
+    cactusCalibrationWidth.value = calibration.width;
+    cactusCalibrationRotation.value = calibration.rotation;
+
+    cactusCalibrationXValue.textContent = formatCactusCalibrationValue(calibration.x, "%");
+    cactusCalibrationYValue.textContent = formatCactusCalibrationValue(calibration.y, "%");
+    cactusCalibrationWidthValue.textContent = formatCactusCalibrationValue(calibration.width, "%");
+    cactusCalibrationRotationValue.textContent = formatCactusCalibrationValue(calibration.rotation, "°");
+
+    applyCactusAccessoryCalibration(cactusCalibrationAccessoryImage, calibration);
+}
+
+function loadCactusCalibrationSelection() {
+    if (!cactusCalibrationPreview || !cactusCalibrationBody || !cactusCalibrationAccessoryImage) return;
+    const stage = getCactusCalibrationSelectedStage();
+    const item = getCactusCalibrationSelectedItem();
+    cactusCalibrationPreview.dataset.stage = String(stage);
+    cactusCalibrationBody.src = item.slot === "head"
+        ? `assets/cactus-rig/stage-${stage}-body-bare.webp`
+        : `assets/cactus-rig/stage-${stage}-body.webp`;
+    cactusCalibrationAccessoryImage.src = item.calibrationImage + "?v=1146";
+    cactusCalibrationAccessoryImage.alt = item.name;
+    cactusCalibrationDraft = { ...getCactusAccessoryCalibration(stage, item.id) };
+    syncCactusCalibrationControls();
+
+    const hasSaved = Boolean(currentSpaceData?.cactusAccessoryCalibration?.[stage]?.[item.id]);
+    setCactusCalibrationStatus(
+        hasSaved ? "Position enregistrée chargée. Tu peux encore l’ajuster." : "Position par défaut chargée. Déplace l’accessoire puis enregistre.",
+        hasSaved ? "saved" : "neutral"
+    );
+}
+
+function updateCactusCalibrationDraft(patch, message = "Réglage modifié · pense à enregistrer.") {
+    cactusCalibrationDraft = normalizeCactusAccessoryCalibration(
+        { ...(cactusCalibrationDraft || {}), ...patch },
+        cactusCalibrationDraft || {}
+    );
+    syncCactusCalibrationControls();
+    setCactusCalibrationStatus(message, "dirty");
+}
+
+function openCactusAccessoryCalibrationStudio() {
+    if (!isCreatorModeEnabled()) {
+        showToast("Active d’abord le mode créateur 🧪");
+        return;
+    }
+    if (!currentSpaceCode) {
+        showToast("Aucun espace Cactus actif");
+        return;
+    }
+    cactusAccessoryCalibrationModal.style.display = "flex";
+    document.body.classList.add("cactus-calibration-open");
+    loadCactusCalibrationSelection();
+}
+
+function closeCactusAccessoryCalibrationStudio() {
+    cactusAccessoryCalibrationModal.style.display = "none";
+    document.body.classList.remove("cactus-calibration-open");
+    cactusCalibrationDragState = null;
+}
+
+function saveCactusAccessoryCalibration() {
+    if (!isCreatorModeEnabled() || !currentSpaceCode || !cactusCalibrationDraft) return;
+    const stage = getCactusCalibrationSelectedStage();
+    const item = getCactusCalibrationSelectedItem();
+    const payload = normalizeCactusAccessoryCalibration(cactusCalibrationDraft, CACTUS_ACCESSORY_DEFAULT_CALIBRATION[stage]?.[item.id]);
+    saveCactusCalibrationBtn.disabled = true;
+    setCactusCalibrationStatus("Enregistrement…", "saving");
+
+    database.ref(`spaces/${currentSpaceCode}/cactusAccessoryCalibration/${stage}/${item.id}`)
+        .set(payload)
+        .then(() => {
+            currentSpaceData = currentSpaceData || {};
+            currentSpaceData.cactusAccessoryCalibration = currentSpaceData.cactusAccessoryCalibration || {};
+            currentSpaceData.cactusAccessoryCalibration[stage] = currentSpaceData.cactusAccessoryCalibration[stage] || {};
+            currentSpaceData.cactusAccessoryCalibration[stage][item.id] = payload;
+            renderEquippedCactusAccessories(currentSpaceData.cactusWardrobe || {});
+            setCactusCalibrationStatus(`${item.name} · niveau ${stage} enregistré ✓`, "saved");
+            showToast("Position enregistrée ✓");
+        })
+        .catch((error) => {
+            console.error("Calibration accessoire impossible", error);
+            setCactusCalibrationStatus("Impossible d’enregistrer pour le moment.", "error");
+            showToast("Enregistrement impossible");
+        })
+        .finally(() => {
+            saveCactusCalibrationBtn.disabled = false;
+        });
+}
+
+if (creatorAccessoryCalibrationBtn) {
+    creatorAccessoryCalibrationBtn.addEventListener("click", openCactusAccessoryCalibrationStudio);
+}
+if (closeCactusCalibrationBtn) closeCactusCalibrationBtn.addEventListener("click", closeCactusAccessoryCalibrationStudio);
+if (cactusAccessoryCalibrationModal) {
+    cactusAccessoryCalibrationModal.querySelector("[data-close-cactus-calibration]")?.addEventListener("click", closeCactusAccessoryCalibrationStudio);
+}
+if (cactusCalibrationStage) cactusCalibrationStage.addEventListener("change", loadCactusCalibrationSelection);
+if (cactusCalibrationAccessory) cactusCalibrationAccessory.addEventListener("change", loadCactusCalibrationSelection);
+
+[
+    [cactusCalibrationX, "x"],
+    [cactusCalibrationY, "y"],
+    [cactusCalibrationWidth, "width"],
+    [cactusCalibrationRotation, "rotation"]
+].forEach(([control, key]) => {
+    control?.addEventListener("input", () => updateCactusCalibrationDraft({ [key]: Number(control.value) }));
+});
+
+cactusAccessoryCalibrationModal?.querySelectorAll("[data-calibration-nudge]").forEach((button) => {
+    button.addEventListener("click", () => {
+        const [dx, dy] = button.dataset.calibrationNudge.split(",").map(Number);
+        updateCactusCalibrationDraft({
+            x: (cactusCalibrationDraft?.x || 50) + dx,
+            y: (cactusCalibrationDraft?.y || 50) + dy
+        });
+    });
+});
+
+cactusAccessoryCalibrationModal?.querySelectorAll("[data-calibration-size]").forEach((button) => {
+    button.addEventListener("click", () => updateCactusCalibrationDraft({
+        width: (cactusCalibrationDraft?.width || 30) + Number(button.dataset.calibrationSize)
+    }));
+});
+
+cactusAccessoryCalibrationModal?.querySelectorAll("[data-calibration-rotate]").forEach((button) => {
+    button.addEventListener("click", () => updateCactusCalibrationDraft({
+        rotation: (cactusCalibrationDraft?.rotation || 0) + Number(button.dataset.calibrationRotate)
+    }));
+});
+
+resetCactusCalibrationBtn?.addEventListener("click", () => {
+    const stage = getCactusCalibrationSelectedStage();
+    const item = getCactusCalibrationSelectedItem();
+    cactusCalibrationDraft = { ...(CACTUS_ACCESSORY_DEFAULT_CALIBRATION[stage]?.[item.id] || { x: 50, y: 50, width: 30, rotation: 0 }) };
+    syncCactusCalibrationControls();
+    setCactusCalibrationStatus("Valeurs par défaut restaurées localement · enregistre pour les appliquer.", "dirty");
+});
+
+saveCactusCalibrationBtn?.addEventListener("click", saveCactusAccessoryCalibration);
+
+cactusCalibrationAccessoryImage?.addEventListener("pointerdown", (event) => {
+    if (!cactusCalibrationDraft || !cactusCalibrationPreview) return;
+    event.preventDefault();
+    const rect = cactusCalibrationPreview.getBoundingClientRect();
+    cactusCalibrationDragState = {
+        pointerId: event.pointerId,
+        startClientX: event.clientX,
+        startClientY: event.clientY,
+        startX: cactusCalibrationDraft.x,
+        startY: cactusCalibrationDraft.y,
+        width: rect.width || 1,
+        height: rect.height || 1
+    };
+    cactusCalibrationAccessoryImage.setPointerCapture?.(event.pointerId);
+    cactusCalibrationAccessoryImage.classList.add("is-dragging");
+});
+
+cactusCalibrationAccessoryImage?.addEventListener("pointermove", (event) => {
+    const drag = cactusCalibrationDragState;
+    if (!drag || drag.pointerId !== event.pointerId) return;
+    event.preventDefault();
+    updateCactusCalibrationDraft({
+        x: drag.startX + ((event.clientX - drag.startClientX) / drag.width) * 100,
+        y: drag.startY + ((event.clientY - drag.startClientY) / drag.height) * 100
+    }, "Position déplacée · pense à enregistrer.");
+});
+
+function stopCactusCalibrationDrag(event) {
+    if (!cactusCalibrationDragState || (event && cactusCalibrationDragState.pointerId !== event.pointerId)) return;
+    cactusCalibrationAccessoryImage?.classList.remove("is-dragging");
+    cactusCalibrationDragState = null;
+}
+
+cactusCalibrationAccessoryImage?.addEventListener("pointerup", stopCactusCalibrationDrag);
+cactusCalibrationAccessoryImage?.addEventListener("pointercancel", stopCactusCalibrationDrag);
+
+document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && cactusAccessoryCalibrationModal?.style.display !== "none") {
+        closeCactusAccessoryCalibrationStudio();
     }
 });
 
