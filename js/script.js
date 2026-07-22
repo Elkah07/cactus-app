@@ -8409,7 +8409,7 @@ creatorCactusEvolutionButtons.forEach((button) => {
         creatorCactusStagePreview = requestedStage === "real"
             ? null
             : Math.min(6, Math.max(1, Number(requestedStage) || 1));
-        updateCactusEvolution(currentSpaceData?.stats?.level || 1);
+        updateCactusEvolution(getCactusLevelFromStats(currentSpaceData?.stats));
         showToast(creatorCactusStagePreview
             ? `Aperçu évolution ${creatorCactusStagePreview} activé 🧪`
             : "Retour à l’évolution réelle 🌵");
@@ -8754,6 +8754,26 @@ document.querySelectorAll(".editor-toolbar button").forEach((button) => {
 // FONCTIONS
 // ====================
 
+const CACTUS_ECONOMY = Object.freeze({
+    xpPerLevel: 200,
+    answerXp: 1,
+    answerSeeds: 0,
+    completionXp: 4,
+    completionSeeds: 3
+});
+
+function getCactusLevelFromXp(xp) {
+    return Math.floor(Math.max(Number(xp) || 0, 0) / CACTUS_ECONOMY.xpPerLevel) + 1;
+}
+
+function getCactusLevelFromStats(stats) {
+    if (stats && Number.isFinite(Number(stats.xp))) {
+        return getCactusLevelFromXp(stats.xp);
+    }
+
+    return Math.max(Number(stats?.level) || 1, 1);
+}
+
 function awardAnswerReward(mode, challengeId) {
     if (!currentSpaceCode || !currentUser?.uid || !mode || !challengeId) {
         return Promise.resolve(false);
@@ -8773,9 +8793,9 @@ function awardAnswerReward(mode, challengeId) {
 
         stats.answerRewards[rewardKey] = true;
         stats.answersCount = (stats.answersCount || 0) + 1;
-        stats.seeds = (stats.seeds || 0) + 5;
-        stats.xp = (stats.xp || 0) + 5;
-        stats.level = Math.floor((stats.xp || 0) / 100) + 1;
+        stats.seeds = (stats.seeds || 0) + CACTUS_ECONOMY.answerSeeds;
+        stats.xp = (stats.xp || 0) + CACTUS_ECONOMY.answerXp;
+        stats.level = getCactusLevelFromXp(stats.xp);
         return stats;
     }).then((result) => result.committed);
 }
@@ -8797,14 +8817,14 @@ function awardCompletedGameBonus(mode, challengeId) {
         }
 
         stats.completionRewards[rewardKey] = true;
-        stats.seeds = (stats.seeds || 0) + 10;
-        stats.xp = (stats.xp || 0) + 10;
-        stats.level = Math.floor(stats.xp / 100) + 1;
+        stats.seeds = (stats.seeds || 0) + CACTUS_ECONOMY.completionSeeds;
+        stats.xp = (stats.xp || 0) + CACTUS_ECONOMY.completionXp;
+        stats.level = getCactusLevelFromXp(stats.xp);
 
         return stats;
     }).then((result) => {
         if (result.committed) {
-            showToast("🎉 Partie terminée : +10 XP et +10 graines");
+            showToast(`🎉 Partie terminée : +${CACTUS_ECONOMY.completionXp} XP et +${CACTUS_ECONOMY.completionSeeds} graines`);
         }
 
         return result.committed;
@@ -9057,7 +9077,7 @@ function setCreatorModeEnabled(enabled) {
     creatorModeEnabled = Boolean(enabled);
     if (!creatorModeEnabled) creatorCactusStagePreview = null;
     updateCreatorToolsVisibility();
-    if (currentSpaceData) updateCactusEvolution(currentSpaceData.stats?.level || 1);
+    if (currentSpaceData) updateCactusEvolution(getCactusLevelFromStats(currentSpaceData.stats));
 
     return database.ref("users/" + currentUser.uid + "/creatorModeEnabled")
         .set(creatorModeEnabled)
@@ -9101,7 +9121,7 @@ function setCreatorXp(value) {
     const xp = Math.floor(value);
     database
         .ref("spaces/" + currentSpaceCode + "/stats")
-        .update({ xp, level: Math.floor(xp / 100) + 1 })
+        .update({ xp, level: getCactusLevelFromXp(xp) })
         .then(() => showToast("⭐ XP et niveau mis à jour"));
 }
 
@@ -12990,7 +13010,8 @@ function listenToOkChallenges() {
     completedAt: Date.now(),
     compatibility: calculateChoiceCompatibility(
         Object.values(answers)[0].answer,
-        Object.values(answers)[1].answer
+        Object.values(answers)[1].answer,
+        "ok"
     )
 }).then(() => {
     return awardCompletedGameBonus("ok", id);
@@ -13079,19 +13100,23 @@ function showPendingOkResult() {
     okPartnerAnswer.textContent =
         partnerAnswer ? partnerAnswer.answer : "Pas encore répondu";
 
-    if (
-    myAnswer &&
-    partnerAnswer &&
-    myAnswer.answer === partnerAnswer.answer
-) {
-    okVerdictEmoji.textContent = "💚";
-    okVerdictText.textContent =
-        "Vous avez la même limite.";
-} else {
-    okVerdictEmoji.textContent = "👀";
-    okVerdictText.textContent =
-        "Vous ne placez pas la limite au même endroit.";
-}
+    const okCompatibility = myAnswer && partnerAnswer
+        ? calculateChoiceCompatibility(myAnswer.answer, partnerAnswer.answer, "ok")
+        : null;
+
+    if (okCompatibility === 100) {
+        okVerdictEmoji.textContent = "💚";
+        okVerdictText.textContent =
+            "Vous placez la limite au même endroit.";
+    } else if (okCompatibility === 50) {
+        okVerdictEmoji.textContent = "🌿";
+        okVerdictText.textContent =
+            "Vos limites sont proches, avec une nuance entre vous.";
+    } else {
+        okVerdictEmoji.textContent = "👀";
+        okVerdictText.textContent =
+            "Vous placez la limite à des endroits très différents.";
+    }
 
     setCurrentDiscussionContext({
         mode: "ok",
@@ -13229,7 +13254,8 @@ function listenToGreenFlagChallenges() {
     completedAt: Date.now(),
     compatibility: calculateChoiceCompatibility(
         Object.values(answers)[0].answer,
-        Object.values(answers)[1].answer
+        Object.values(answers)[1].answer,
+        "greenFlag"
     )
 }).then(() => {
     return awardCompletedGameBonus("greenFlag", id);
@@ -13321,19 +13347,23 @@ function showPendingGreenFlagResult() {
     greenFlagPartnerAnswer.textContent =
         partnerAnswer ? partnerAnswer.answer : "Pas encore répondu";
 
-   if (
-    myAnswer &&
-    partnerAnswer &&
-    myAnswer.answer === partnerAnswer.answer
-) {
-    greenFlagVerdictEmoji.textContent = "💚";
-    greenFlagVerdictText.textContent =
-        "Vous lisez ce comportement de la même façon.";
-} else {
-    greenFlagVerdictEmoji.textContent = "👀";
-    greenFlagVerdictText.textContent =
-        "Vous n’avez pas la même lecture de ce comportement.";
-}
+    const greenFlagCompatibility = myAnswer && partnerAnswer
+        ? calculateChoiceCompatibility(myAnswer.answer, partnerAnswer.answer, "greenFlag")
+        : null;
+
+    if (greenFlagCompatibility === 100) {
+        greenFlagVerdictEmoji.textContent = "💚";
+        greenFlagVerdictText.textContent =
+            "Vous lisez ce comportement de la même façon.";
+    } else if (greenFlagCompatibility === 50) {
+        greenFlagVerdictEmoji.textContent = "🌿";
+        greenFlagVerdictText.textContent =
+            "Vos lectures sont proches, avec une nuance entre vous.";
+    } else {
+        greenFlagVerdictEmoji.textContent = "👀";
+        greenFlagVerdictText.textContent =
+            "Vous êtes aux deux extrémités sur ce comportement.";
+    }
 
     setCurrentDiscussionContext({
         mode: "greenFlag",
@@ -13476,7 +13506,8 @@ function listenToPrincessChallenges() {
     completedAt: Date.now(),
     compatibility: calculateChoiceCompatibility(
         Object.values(answers)[0].answer,
-        Object.values(answers)[1].answer
+        Object.values(answers)[1].answer,
+        "princess"
     )
 }).then(() => {
     return awardCompletedGameBonus("princess", id);
@@ -13623,19 +13654,23 @@ function showPendingPrincessResult() {
             ? partnerAnswer.answer
             : "Pas encore répondu";
 
-    if (
-    myAnswer &&
-    partnerAnswer &&
-    myAnswer.answer === partnerAnswer.answer
-) {
-    princessVerdictEmoji.textContent = "👑";
-    princessVerdictText.textContent =
-        "Vous avez la même vision du Princess Treatment.";
-} else {
-    princessVerdictEmoji.textContent = "👀";
-    princessVerdictText.textContent =
-        "Vous n’avez pas tout à fait la même vision.";
-}
+    const princessCompatibility = myAnswer && partnerAnswer
+        ? calculateChoiceCompatibility(myAnswer.answer, partnerAnswer.answer, "princess")
+        : null;
+
+    if (princessCompatibility === 100) {
+        princessVerdictEmoji.textContent = "👑";
+        princessVerdictText.textContent =
+            "Vous avez la même vision du Princess Treatment.";
+    } else if (princessCompatibility === 50) {
+        princessVerdictEmoji.textContent = "✨";
+        princessVerdictText.textContent =
+            "Votre vision est proche, mais le curseur n’est pas exactement au même endroit.";
+    } else {
+        princessVerdictEmoji.textContent = "👀";
+        princessVerdictText.textContent =
+            "Vous avez une vision très différente de ce qui relève du Princess Treatment.";
+    }
 
     setCurrentDiscussionContext({
         mode: "princess",
@@ -13777,10 +13812,7 @@ function listenToQuestionsChallenges() {
                         .update({
     status: "completed",
     completedAt: Date.now(),
-    compatibility: calculateChoiceCompatibility(
-        Object.values(answers)[0].answer,
-        Object.values(answers)[1].answer
-    )
+    compatibility: null
 }).then(() => {
     return awardCompletedGameBonus("questions", id);
 });
@@ -14503,7 +14535,7 @@ function getAchievementMetric(metric, stats, relationStats) {
     const values = {
         answers: Math.max(stats.answersCount || 0, relationStats.totalAnswers || 0),
         games: relationStats.totalGames || 0,
-        level: stats.level || Math.floor((stats.xp || 0) / 100) + 1,
+        level: getCactusLevelFromStats(stats),
         compatibility: relationStats.averageCompatibility || 0,
         modes: relationStats.modes.filter((mode) => mode.completedCount > 0).length,
         days: relationStats.daysTogether || 0
@@ -14797,6 +14829,10 @@ function getCompletedItemCompatibility(modeKey, item) {
         return calculateLikelyCompatibility(item.answers);
     }
 
+    if (["ok", "greenFlag", "princess"].includes(modeKey)) {
+        return getChoiceCompatibilityFromAnswers(modeKey, item.answers);
+    }
+
     return typeof item.compatibility === "number"
         ? Math.max(0, Math.min(item.compatibility, 100))
         : null;
@@ -15035,7 +15071,13 @@ function getPartnerPseudo() {
     return "ton/ta partenaire";
 }
 
-function calculateChoiceCompatibility(answerA, answerB) {
+const MODE_COMPATIBILITY_SCALES = Object.freeze({
+    ok: ["Pas OK", "Ça dépend", "OK"],
+    greenFlag: ["Red Flag", "Neutre", "Green Flag"],
+    princess: ["C’est normal", "Mitigé", "Princess Treatment"]
+});
+
+function calculateChoiceCompatibility(answerA, answerB, mode = "") {
     if (!answerA || !answerB) {
         return 0;
     }
@@ -15044,7 +15086,31 @@ function calculateChoiceCompatibility(answerA, answerB) {
         return 100;
     }
 
-    return 0;
+    const scale = MODE_COMPATIBILITY_SCALES[mode];
+    if (!scale) {
+        return 0;
+    }
+
+    const indexA = scale.indexOf(answerA);
+    const indexB = scale.indexOf(answerB);
+    if (indexA < 0 || indexB < 0) {
+        return 0;
+    }
+
+    const maximumDistance = Math.max(scale.length - 1, 1);
+    const distance = Math.abs(indexA - indexB);
+    return Math.round((1 - distance / maximumDistance) * 100);
+}
+
+function getChoiceCompatibilityFromAnswers(mode, answers) {
+    const values = Object.values(answers || {});
+    if (values.length < 2) return null;
+
+    const answerA = values[0]?.answer;
+    const answerB = values[1]?.answer;
+    if (!answerA || !answerB) return null;
+
+    return calculateChoiceCompatibility(answerA, answerB, mode);
 }
 
 function getLikelyChosenTarget(answerData) {
@@ -15808,8 +15874,12 @@ function loadCoupleStats() {
             const stats = snapshot.val() || {};
 
             const seeds = stats.seeds || 0;
-            const level = stats.level || 1;
             const xp = stats.xp || 0;
+            const level = getCactusLevelFromXp(xp);
+
+            if (Number(stats.level) !== level) {
+                database.ref("spaces/" + currentSpaceCode + "/stats/level").set(level);
+            }
 
             if (seedsStat) {
                 seedsStat.textContent = seeds;
@@ -15825,7 +15895,7 @@ function loadCoupleStats() {
 
             updateCactusEvolution(level);
 
-            const xpPerLevel = 100;
+            const xpPerLevel = CACTUS_ECONOMY.xpPerLevel;
             const xpInsideCurrentLevel = xp % xpPerLevel;
             const progressPercent =
                 Math.min((xpInsideCurrentLevel / xpPerLevel) * 100, 100);
@@ -16001,13 +16071,13 @@ function applyCoupleProfile(spaceData) {
     }
 
     const relationStats = buildRelationStatistics(spaceData);
-    profileLevelSummary.textContent = spaceData.stats?.level || 1;
+    profileLevelSummary.textContent = getCactusLevelFromStats(spaceData.stats);
     profileCompatibilitySummary.textContent = relationStats.totalGames > 0
         ? relationStats.averageCompatibility + "%"
         : "—";
     profileMemoriesSummary.textContent = Object.keys(spaceData.memories || {}).length;
     profileGamesSummary.textContent = relationStats.totalGames || 0;
-    updateCactusEvolution(spaceData.stats?.level || 1);
+    updateCactusEvolution(getCactusLevelFromStats(spaceData.stats));
 }
 
 function openCoupleProfile() {
