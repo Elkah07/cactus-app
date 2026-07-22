@@ -735,6 +735,9 @@ const backFromQuestionsBtn = document.getElementById("backFromQuestionsBtn");
 const questionsResultQuestion = document.getElementById("questionsResultQuestion");
 const questionsMyAnswer = document.getElementById("questionsMyAnswer");
 const questionsPartnerAnswer = document.getElementById("questionsPartnerAnswer");
+const questionsReactionBox = document.getElementById("questionsReactionBox");
+const questionsReactionStatus = document.getElementById("questionsReactionStatus");
+const questionsReactionButtons = document.querySelectorAll("[data-question-reaction]");
 
 const nextQuestionsBtn = document.getElementById("nextQuestionsBtn");
 const backDashboardFromQuestionsBtn = document.getElementById("backDashboardFromQuestionsBtn");
@@ -6349,6 +6352,12 @@ validateQuestionsAnswerBtn.addEventListener("click", () => {
     saveQuestionsAnswer();
 });
 
+questionsReactionButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+        saveQuestionsReaction(button.dataset.questionReaction);
+    });
+});
+
 backFromQuestionsBtn.addEventListener("click", () => {
     showScreen("dashboard");
 });
@@ -7488,9 +7497,35 @@ function getNewGameChallenges(mode, spaceData = currentSpaceData) {
 
 function isNewGameChallengeAvailableToCurrentUser(mode, challenge) {
     if (!challenge || ["completed", "skipped"].includes(challenge.status)) return false;
-    if (mode !== "limitReached") return true;
-    if (challenge.createdBy === currentUser?.uid) return true;
-    return Boolean(challenge.results?.[challenge.createdBy]);
+
+    const uid = currentUser?.uid;
+    if (!uid) return false;
+
+    // Les jeux asynchrones ne doivent jamais bloquer un joueur qui a déjà fait sa part.
+    // Une partie reste disponible pour la personne qui doit encore répondre, tandis que
+    // l'autre peut immédiatement lancer une nouvelle manche du même mode.
+    if (mode === "wouldRather") {
+        return !challenge.answers?.[uid];
+    }
+
+    if (mode === "threeYesNo") {
+        return countThreeYesNoAnswers(challenge.answers?.[uid]).total < 6;
+    }
+
+    if (mode === "limitReached") {
+        if (challenge.createdBy === uid) {
+            return !challenge.results?.[uid];
+        }
+        return Boolean(challenge.results?.[challenge.createdBy]) && !challenge.results?.[uid];
+    }
+
+    if (mode === "coupleDare") {
+        const votes = challenge.votes || {};
+        const accepted = Object.values(votes).filter((vote) => vote.choice === "accept").length;
+        return !votes[uid] || accepted >= 2;
+    }
+
+    return true;
 }
 
 function findOpenNewGameChallenge(mode) {
@@ -7579,6 +7614,7 @@ function resetNewGameStage() {
     newGameResult.replaceChildren();
     newGameResult.style.display = "none";
     newGameStatus.style.display = "none";
+    newGameAgainBtn.textContent = "Nouvelle partie";
     newGameAgainBtn.style.display = "none";
     newGameDoneBtn.style.display = "none";
     newGameAbandonBtn.style.display = "none";
@@ -7677,9 +7713,13 @@ function startNewGame(mode, forceNew = false) {
                         }
 
                         if (!isNewGameChallengeAvailableToCurrentUser(mode, challenge)) {
-                            showToast("Ton/ta partenaire termine encore ce parcours. Il apparaîtra dès qu’il sera prêt pour toi.");
-                            showScreen("allGames");
-                            return;
+                            // Ce verrou appartient à une manche sur laquelle cette personne a déjà joué.
+                            // On libère uniquement le verrou de création, jamais la partie elle-même :
+                            // le/la partenaire pourra toujours la retrouver et répondre à son tour.
+                            return clearNewGameLockIfMatches(mode, lockedId).then(() => {
+                                isStartingNewGame = false;
+                                startNewGame(mode, forceNew);
+                            });
                         }
                         if (!currentSpaceData[path]) currentSpaceData[path] = {};
                         currentSpaceData[path][lockedId] = challenge;
@@ -7742,7 +7782,9 @@ function renderWouldRather(challenge) {
     }
 
     if (answerEntries.length < 2) {
-        setNewGameStatus("Réponse enregistrée", "Votre partenaire doit encore faire son choix secret.");
+        setNewGameStatus("Réponse enregistrée", "Votre partenaire doit encore faire son choix secret. Tu peux continuer à jouer en attendant.");
+        newGameAgainBtn.textContent = "Autre question";
+        newGameAgainBtn.style.display = "block";
         return;
     }
 
@@ -7785,6 +7827,7 @@ function submitWouldRatherAnswer(choice) {
         .set({ choice, answeredAt: Date.now(), pseudo })
         .then(() => awardAnswerReward("wouldRather", challengeId))
         .then(() => finalizeNewGameIfReady("wouldRather"))
+        .then(() => clearNewGameLockIfMatches("wouldRather", challengeId))
         .catch((error) => {
             setNewGameChoicesDisabled(false);
             showToast(getFriendlyFirebaseError(error));
@@ -7835,7 +7878,9 @@ function renderThreeYesNo(challenge) {
         return uid !== currentUser.uid && countThreeYesNoAnswers(answers).total === 6;
     });
     if (!partnerFinished) {
-        setNewGameStatus("Tes six choix sont verrouillés", "Ton partenaire termine encore sa répartition 3 oui / 3 non.");
+        setNewGameStatus("Tes six choix sont verrouillés", "Ton partenaire termine encore sa répartition 3 oui / 3 non. Tu peux lancer une autre partie en attendant.");
+        newGameAgainBtn.textContent = "Autre partie";
+        newGameAgainBtn.style.display = "block";
         return;
     }
 
@@ -7889,6 +7934,7 @@ function submitThreeYesNoAnswer(index, choice) {
         .set({ choice, answeredAt: Date.now(), pseudo })
         .then(() => counts.total === 5 ? awardAnswerReward("threeYesNo", challengeId) : false)
         .then(() => finalizeNewGameIfReady("threeYesNo"))
+        .then(() => counts.total === 5 ? clearNewGameLockIfMatches("threeYesNo", challengeId) : false)
         .catch((error) => {
             setNewGameChoicesDisabled(false);
             showToast(getFriendlyFirebaseError(error));
@@ -7978,7 +8024,9 @@ function renderLimitReached(challenge) {
             : "Ta limite est atteinte au niveau " + myResult.limitLevel + ".";
 
         if (resultEntries.length < 2) {
-            setNewGameStatus("Ta limite est enregistrée", "Ton/ta partenaire peut faire le même parcours à son rythme. Vos réponses seront révélées seulement quand vous aurez terminé tous les deux.");
+            setNewGameStatus("Ta limite est enregistrée", "Ton/ta partenaire peut faire le même parcours à son rythme. En attendant, tu peux lancer un autre scénario.");
+            newGameAgainBtn.textContent = "Autre scénario";
+            newGameAgainBtn.style.display = "block";
             return;
         }
 
@@ -8081,6 +8129,7 @@ function submitLimitReachedResult(result) {
             clearLimitReachedDraft();
             return finalizeNewGameIfReady("limitReached");
         })
+        .then(() => clearNewGameLockIfMatches("limitReached", challengeId))
         .catch((error) => {
             setNewGameChoicesDisabled(false);
             newGameAbandonBtn.disabled = false;
@@ -8179,7 +8228,9 @@ function renderCoupleDare(challenge) {
     }
 
     if (accepted < 2) {
-        setNewGameStatus("Défi accepté de ton côté", "Ton partenaire doit encore accepter cette mission.");
+        setNewGameStatus("Défi accepté de ton côté", "Ton partenaire doit encore accepter cette mission. Tu peux découvrir un autre défi en attendant.");
+        newGameAgainBtn.textContent = "Autre défi";
+        newGameAgainBtn.style.display = "block";
         return;
     }
 
@@ -8194,6 +8245,7 @@ function submitDareVote(choice) {
     database.ref("spaces/" + currentSpaceCode + "/" + path + "/" + challengeId + "/votes/" + currentUser.uid)
         .set({ choice, answeredAt: Date.now(), pseudo })
         .then(() => choice === "accept" ? awardAnswerReward("coupleDare", challengeId) : false)
+        .then(() => clearNewGameLockIfMatches("coupleDare", challengeId))
         .catch((error) => {
             setNewGameChoicesDisabled(false);
             showToast(getFriendlyFirebaseError(error));
@@ -8291,7 +8343,7 @@ threeYesNoBtn.addEventListener("click", () => startNewGame("threeYesNo"));
 limitReachedBtn.addEventListener("click", () => startNewGame("limitReached"));
 coupleDareBtn.addEventListener("click", () => startNewGame("coupleDare"));
 backFromNewGameBtn.addEventListener("click", () => showScreen("allGames"));
-newGameAgainBtn.addEventListener("click", () => startNewGame(activeNewGameMode, true));
+newGameAgainBtn.addEventListener("click", () => startNewGame(activeNewGameMode));
 newGameDoneBtn.addEventListener("click", completeCoupleDare);
 newGameAbandonBtn.addEventListener("click", abandonCurrentLimitReachedChallenge);
 
@@ -13879,6 +13931,118 @@ function startPendingQuestionsChallenge() {
     showScreen("questions");
 }
 
+const QUESTIONS_REACTION_META = Object.freeze({
+    like: { score: 100, label: "J’aime la réponse" },
+    neutral: { score: 50, label: "Mitigé" },
+    dislike: { score: 0, label: "Je déteste la réponse" }
+});
+
+function calculateQuestionsReactionCompatibility(reactions) {
+    const scores = Object.values(reactions || {})
+        .map((reaction) => {
+            if (typeof reaction?.score === "number") return reaction.score;
+            return QUESTIONS_REACTION_META[reaction?.value]?.score;
+        })
+        .filter((score) => typeof score === "number" && Number.isFinite(score));
+
+    if (!scores.length) return null;
+    return Math.round(scores.reduce((total, score) => total + score, 0) / scores.length);
+}
+
+function renderQuestionsReaction(challenge) {
+    if (!questionsReactionBox) return;
+
+    const answerUids = Object.keys(challenge?.answers || {});
+    const partnerUid = answerUids.find((uid) => uid !== currentUser?.uid);
+    if (!partnerUid) {
+        questionsReactionBox.style.display = "none";
+        return;
+    }
+
+    const myReaction = challenge?.reactions?.[currentUser.uid]?.value || "";
+    questionsReactionBox.style.display = "grid";
+
+    questionsReactionButtons.forEach((button) => {
+        const selected = button.dataset.questionReaction === myReaction;
+        button.classList.toggle("is-selected", selected);
+        button.setAttribute("aria-pressed", selected ? "true" : "false");
+        button.disabled = false;
+    });
+
+    if (!questionsReactionStatus) return;
+    if (!myReaction) {
+        questionsReactionStatus.textContent = "Tu peux aussi passer sans réagir.";
+        return;
+    }
+
+    const meta = QUESTIONS_REACTION_META[myReaction];
+    questionsReactionStatus.textContent = meta
+        ? "✓ Réaction enregistrée : " + meta.label + ". Tu peux la modifier."
+        : "✓ Réaction enregistrée. Tu peux la modifier.";
+}
+
+function saveQuestionsReaction(value) {
+    const meta = QUESTIONS_REACTION_META[value];
+    const challenge = pendingQuestionsResults[currentPendingQuestionsIndex];
+    if (!meta || !challenge || !currentUser || !currentSpaceCode) return;
+
+    const answerUids = Object.keys(challenge.answers || {});
+    const partnerUid = answerUids.find((uid) => uid !== currentUser.uid);
+    if (!partnerUid) return;
+
+    const challengeId = getChallengeInstanceId(challenge, "questionId");
+    if (!challengeId) return;
+
+    questionsReactionButtons.forEach((button) => { button.disabled = true; });
+    const reactedAt = Date.now();
+    const reference = database.ref(
+        "spaces/" + currentSpaceCode + "/questionsChallenges/" + challengeId
+    );
+
+    reference.transaction((currentChallenge) => {
+        if (
+            !currentChallenge ||
+            currentChallenge.status !== "completed" ||
+            !currentChallenge.answers?.[currentUser.uid] ||
+            !currentChallenge.answers?.[partnerUid]
+        ) {
+            return;
+        }
+
+        if (!currentChallenge.reactions) currentChallenge.reactions = {};
+        currentChallenge.reactions[currentUser.uid] = {
+            value,
+            score: meta.score,
+            label: meta.label,
+            toUid: partnerUid,
+            pseudo,
+            reactedAt
+        };
+        currentChallenge.compatibility = calculateQuestionsReactionCompatibility(
+            currentChallenge.reactions
+        );
+        return currentChallenge;
+    }).then((result) => {
+        if (!result.committed) {
+            showToast("Cette réponse n’est plus disponible.");
+            return;
+        }
+
+        const updatedChallenge = result.snapshot.val() || challenge;
+        updatedChallenge._challengeId = challengeId;
+        renderQuestionsReaction(updatedChallenge);
+        showToast(value === "like"
+            ? "💚 Réaction enregistrée"
+            : value === "dislike"
+                ? "💔 Réaction enregistrée"
+                : "😐 Réaction enregistrée");
+    }).catch((error) => {
+        showToast(getFriendlyFirebaseError(error));
+    }).finally(() => {
+        questionsReactionButtons.forEach((button) => { button.disabled = false; });
+    });
+}
+
 function showPendingQuestionsResult() {
     const challenge =
         pendingQuestionsResults[currentPendingQuestionsIndex];
@@ -13906,6 +14070,8 @@ function showPendingQuestionsResult() {
 
     questionsPartnerAnswer.textContent =
         partnerAnswer ? partnerAnswer.answer : "Pas encore répondu";
+
+    renderQuestionsReaction(challenge);
 
     setCurrentDiscussionContext({
         mode: "questions",
@@ -14808,7 +14974,11 @@ function buildRelationStatistics(spaceData) {
 
 function getCompletedItemCompatibility(modeKey, item) {
     if (modeKey === "questions") {
-        return null;
+        const reactionScore = calculateQuestionsReactionCompatibility(item.reactions);
+        if (typeof reactionScore === "number") return reactionScore;
+        return typeof item.compatibility === "number"
+            ? Math.max(0, Math.min(item.compatibility, 100))
+            : null;
     }
 
     if (modeKey === "guess") {

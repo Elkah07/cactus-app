@@ -8423,6 +8423,62 @@ body.edit-notebook-open { overflow: hidden; }
 .discuss-result-button { margin-top: 14px; }
 .discuss-result-button:disabled { opacity: .75; cursor: default; }
 
+.questions-reaction-box {
+    margin-top: 16px;
+    padding: 16px;
+    border: 1px solid color-mix(in srgb, var(--app-accent, #2d6a4f) 28%, transparent);
+    border-radius: 22px;
+    background: color-mix(in srgb, var(--app-input-bg, #ffffff) 90%, var(--app-accent, #2d6a4f) 10%);
+    gap: 5px;
+}
+.questions-reaction-box > small {
+    color: var(--app-accent, #2d6a4f);
+    font-size: .72rem;
+    font-weight: 900;
+    letter-spacing: .08em;
+}
+.questions-reaction-box > strong { font-size: 1rem; }
+.questions-reaction-box > p {
+    margin: 0;
+    color: var(--app-muted, #6f8479);
+    font-size: .82rem;
+    line-height: 1.4;
+}
+.questions-reaction-options {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+    margin-top: 9px;
+}
+.questions-reaction-options button {
+    min-height: 48px;
+    margin: 0;
+    padding: 10px 8px;
+    border: 1px solid color-mix(in srgb, var(--app-accent, #2d6a4f) 24%, transparent);
+    border-radius: 16px;
+    background: color-mix(in srgb, var(--app-input-bg, #ffffff) 94%, transparent);
+    color: var(--app-text, #21372d);
+    font-size: .78rem;
+    line-height: 1.25;
+    box-shadow: none;
+}
+.questions-reaction-options button.is-selected {
+    border-color: var(--app-accent, #2d6a4f);
+    background: color-mix(in srgb, var(--app-accent, #2d6a4f) 18%, var(--app-input-bg, #ffffff));
+    box-shadow: 0 0 0 2px color-mix(in srgb, var(--app-accent, #2d6a4f) 18%, transparent);
+}
+.questions-reaction-status {
+    min-height: 18px;
+    margin-top: 4px;
+    color: var(--app-muted, #6f8479);
+    font-size: .76rem;
+    font-weight: 700;
+}
+
+@media (max-width: 520px) {
+    .questions-reaction-options { grid-template-columns: 1fr; }
+}
+
 @media (max-width: 560px) {
     .dashboard-discussions-card { grid-template-columns: auto minmax(0,1fr) auto; }
     .dashboard-discussions-arrow { display: none; }

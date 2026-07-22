@@ -2435,6 +2435,18 @@
         <p id="questionsPartnerAnswer"></p>
     </div>
 
+    <section id="questionsReactionBox" class="questions-reaction-box" style="display:none;">
+        <small>TA RÉACTION À SA RÉPONSE</small>
+        <strong>Qu’est-ce que sa réponse te fait ?</strong>
+        <p>Ta réaction participe au score de compatibilité de cette question.</p>
+        <div class="questions-reaction-options" role="group" aria-label="Réagir à la réponse de ton ou ta partenaire">
+            <button type="button" data-question-reaction="like">💚 J’aime la réponse</button>
+            <button type="button" data-question-reaction="neutral">😐 Mitigé</button>
+            <button type="button" data-question-reaction="dislike">💔 Je déteste la réponse</button>
+        </div>
+        <span id="questionsReactionStatus" class="questions-reaction-status"></span>
+    </section>
+
     <button type="button" class="discuss-result-button secondary" data-discuss-current-result>💬 On devrait en parler</button>
 
     <button type="button" id="nextQuestionsBtn">
