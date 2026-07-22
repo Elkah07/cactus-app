@@ -8379,7 +8379,30 @@ body.edit-notebook-open { overflow: hidden; }
     font-size: .72rem !important;
     font-weight: 800;
 }
-.discussion-card h2 { margin: 14px 0 8px; font-size: 1rem; line-height: 1.35; }
+.discussion-subject {
+    margin: 14px 0 10px;
+    padding: 12px 14px;
+    border: 1px solid rgba(45,106,79,.14);
+    border-radius: 16px;
+    background: #eef8f1;
+}
+.discussion-subject small {
+    display: block;
+    margin-bottom: 4px;
+    color: #527b69;
+    font-size: .7rem;
+    font-weight: 850;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+}
+.discussion-subject h2,
+.discussion-card h2 {
+    margin: 0;
+    color: #173f2e;
+    font-size: 1rem;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+}
 .discussion-summary { margin: 0 0 12px; color: #647c70; font-size: .86rem; }
 .discussion-answer-list { display: grid; gap: 8px; margin: 12px 0; }
 .discussion-answer-list > div {

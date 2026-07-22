@@ -1566,6 +1566,7 @@ let draggedItem = null;
 
 let currentSpaceData = null;
 let activeNotificationFilter = "all";
+let notificationNavigationContext = null;
 let appStateRetryAction = null;
 let activeGameCategory = "all";
 let selectedGameKey = null;
@@ -3421,6 +3422,7 @@ resetTimelineFiltersBtn.addEventListener("click", () => {
 });
 
 backFromHistoryBtn.addEventListener("click", () => {
+    if (returnToNotificationOrigin()) return;
     showScreen("dashboard");
 });
 
@@ -3430,6 +3432,7 @@ gardenBtn.addEventListener("click", () => {
 
 backFromGardenBtn.addEventListener("click", () => {
     setGardenEditMode(false);
+    if (returnToNotificationOrigin()) return;
     showScreen("dashboard");
 });
 
@@ -3438,6 +3441,7 @@ gardenDailyShortcutBtn.addEventListener("click", () => {
 });
 
 backFromDailyToolsBtn.addEventListener("click", () => {
+    if (returnToNotificationOrigin()) return;
     showScreen("dashboard");
 });
 
@@ -3687,6 +3691,7 @@ function deleteShoppingItem(itemId, itemName) {
 
 backFromShoppingBtn.addEventListener("click", () => {
     resetShoppingForm();
+    if (returnToNotificationOrigin()) return;
     showScreen("dailyTools");
 });
 cancelShoppingEditBtn.addEventListener("click", resetShoppingForm);
@@ -4562,9 +4567,9 @@ saveCalendarSettingsBtn?.addEventListener("click", () => {
         .finally(() => { saveCalendarSettingsBtn.disabled = false; });
 });
 
-backFromTasksBtn.addEventListener("click", () => { resetTaskForm(); showScreen("dailyTools"); });
-backFromRemindersBtn.addEventListener("click", () => { resetReminderForm(); showScreen("dailyTools"); });
-backFromImportantDatesBtn.addEventListener("click", () => { resetImportantDateForm(); showScreen("dailyTools"); });
+backFromTasksBtn.addEventListener("click", () => { resetTaskForm(); if (returnToNotificationOrigin()) return; showScreen("dailyTools"); });
+backFromRemindersBtn.addEventListener("click", () => { resetReminderForm(); if (returnToNotificationOrigin()) return; showScreen("dailyTools"); });
+backFromImportantDatesBtn.addEventListener("click", () => { resetImportantDateForm(); if (returnToNotificationOrigin()) return; showScreen("dailyTools"); });
 
 const COUNTDOWN_CATEGORIES = { trip: "Voyage", celebration: "Fête", concert: "Concert", reunion: "Retrouvailles", other: "Autre" };
 
@@ -4622,7 +4627,7 @@ function renderCountdowns(items = {}) {
 
 showCountdownFormBtn.addEventListener("click", () => { resetCountdownForm(); countdownForm.style.display = "block"; countdownDateInput.min = getLocalDateKey(); window.setTimeout(() => countdownTitleInput.focus(), 80); });
 cancelCountdownEditBtn.addEventListener("click", resetCountdownForm);
-backFromCountdownsBtn.addEventListener("click", () => { resetCountdownForm(); showScreen("dailyTools"); });
+backFromCountdownsBtn.addEventListener("click", () => { resetCountdownForm(); if (returnToNotificationOrigin()) return; showScreen("dailyTools"); });
 countdownForm.addEventListener("submit", (event) => {
     event.preventDefault(); const title = countdownTitleInput.value.trim(); if (!title || !countdownDateInput.value) return;
     const now = Date.now(); const payload = { title, notes: countdownNotesInput.value.trim(), date: countdownDateInput.value, time: countdownTimeInput.value || "", category: countdownCategoryInput.value || "other", updatedAt: now, updatedBy: currentUser.uid, updatedByPseudo: pseudo };
@@ -5327,7 +5332,7 @@ cancelTimeCapsuleBtn.addEventListener("click", () => {
     timeCapsulePreviewCard?.classList.remove("is-sealing", "is-sealed");
     timeCapsuleForm.style.display = "none";
 });
-backFromTimeCapsulesBtn.addEventListener("click", () => { timeCapsuleForm.style.display = "none"; closeTimeCapsuleReveal(); showScreen("dailyTools"); });
+backFromTimeCapsulesBtn.addEventListener("click", () => { timeCapsuleForm.style.display = "none"; closeTimeCapsuleReveal(); if (returnToNotificationOrigin()) return; showScreen("dailyTools"); });
 if (closeTimeCapsuleRevealBtn) closeTimeCapsuleRevealBtn.addEventListener("click", closeTimeCapsuleReveal);
 if (timeCapsuleRevealDoneBtn) timeCapsuleRevealDoneBtn.addEventListener("click", closeTimeCapsuleReveal);
 if (timeCapsuleRevealModal) timeCapsuleRevealModal.querySelector("[data-close-time-capsule]")?.addEventListener("click", closeTimeCapsuleReveal);
@@ -5759,6 +5764,7 @@ backToGardenBtn.addEventListener("click", () => {
     currentNotebookId = null;
     currentNotebookData = null;
 
+    if (returnToNotificationOrigin()) return;
     showScreen("dailyTools");
 });
 
@@ -6384,11 +6390,13 @@ document.querySelectorAll(".history-mode-card").forEach((card) => {
 });
 
 backToHistoryBtn.addEventListener("click", () => {
+    if (returnToNotificationOrigin()) return;
     setMemoriesView("timeline", { instant: true });
     showScreen("history");
 });
 
 backToHistoryDetailBtn.addEventListener("click", () => {
+    if (returnToNotificationOrigin()) return;
     showScreen("historyDetail");
 });
 
@@ -6401,6 +6409,7 @@ dashboardAchievementsBtn.addEventListener("click", () => {
 });
 
 backFromAchievementsBtn.addEventListener("click", () => {
+    if (returnToNotificationOrigin()) return;
     showScreen("dashboard");
 });
 
@@ -6485,11 +6494,13 @@ editStoryBtn.addEventListener("click", () => {
 });
 
 backFromStoryPageBtn.addEventListener("click", () => {
+    if (returnToNotificationOrigin()) return;
     if (storyPageReturnScreen === "history") openMemoriesHub("photos");
     else showScreen("dashboard");
 });
 
 storyPageBackTopBtn.addEventListener("click", () => {
+    if (returnToNotificationOrigin()) return;
     if (storyPageReturnScreen === "history") openMemoriesHub("photos");
     else showScreen("dashboard");
 });
@@ -7399,9 +7410,14 @@ function renderDiscussions(spaceData = currentSpaceData) {
         badge.textContent = record.status === "resolved" ? "On en a parlé" : "À discuter";
         header.append(meta, badge);
 
+        const subject = document.createElement("section");
+        subject.className = "discussion-subject";
+        const subjectLabel = document.createElement("small");
+        subjectLabel.textContent = "Le sujet";
         const title = document.createElement("h2");
         title.textContent = record.title || "Résultat à revoir";
-        article.append(header, title);
+        subject.append(subjectLabel, title);
+        article.append(header, subject);
 
         if (record.summary) {
             const summary = document.createElement("p");
@@ -8334,6 +8350,7 @@ dailyRitualCard.addEventListener("click", () => {
 });
 
 backFromDailyRitualBtn.addEventListener("click", () => {
+    if (returnToNotificationOrigin()) return;
     showScreen("dashboard");
 });
 
@@ -8342,6 +8359,7 @@ submitDailyAnswerBtn.addEventListener("click", () => {
 });
 
 backFromNotificationsBtn.addEventListener("click", () => {
+    clearNotificationNavigationContext();
     showScreen("dashboard");
 });
 
@@ -8441,6 +8459,7 @@ dashboardProfileBtn.addEventListener("click", () => {
 });
 
 backFromCoupleProfileBtn.addEventListener("click", () => {
+    if (returnToNotificationOrigin()) return;
     showScreen("dashboard");
 });
 
@@ -10248,9 +10267,81 @@ function prioritizeNotificationChallenge(list, challengeId) {
     return true;
 }
 
+function syncNotificationReturnButtons(isActive = Boolean(notificationNavigationContext)) {
+    if (backToHistoryDetailBtn) {
+        backToHistoryDetailBtn.textContent = isActive ? "Retour aux notifications" : "Retour";
+    }
+    if (backToHistoryBtn) {
+        backToHistoryBtn.textContent = isActive ? "Retour aux notifications" : "Retour aux souvenirs";
+    }
+}
+
+function clearNotificationNavigationContext() {
+    notificationNavigationContext = null;
+    syncNotificationReturnButtons(false);
+}
+
+function beginNotificationNavigation(notification) {
+    const state = typeof getCactusHistoryState === "function"
+        ? getCactusHistoryState()
+        : null;
+
+    notificationNavigationContext = {
+        notificationId: String(notification?.id || ""),
+        originScreen: "notifications",
+        originDepth: Number.isFinite(state?.depth) ? state.depth : null,
+        rootScreen: state?.rootScreen || null
+    };
+    syncNotificationReturnButtons(true);
+}
+
+function getActiveNotificationNavigationContext() {
+    const context = notificationNavigationContext;
+    if (!context) return null;
+
+    const state = typeof getCactusHistoryState === "function"
+        ? getCactusHistoryState()
+        : null;
+
+    if (
+        state &&
+        Number.isFinite(context.originDepth) &&
+        (
+            (context.rootScreen && state.rootScreen !== context.rootScreen) ||
+            state.depth <= context.originDepth
+        )
+    ) {
+        clearNotificationNavigationContext();
+        return null;
+    }
+
+    return context;
+}
+
+function returnToNotificationOrigin() {
+    const context = getActiveNotificationNavigationContext();
+    if (!context) return false;
+
+    const state = typeof getCactusHistoryState === "function"
+        ? getCactusHistoryState()
+        : null;
+    const steps = Number.isFinite(context.originDepth) && Number.isFinite(state?.depth)
+        ? state.depth - context.originDepth
+        : 0;
+
+    clearNotificationNavigationContext();
+
+    if (steps > 0) {
+        history.go(-steps);
+    } else {
+        showScreen("notifications");
+    }
+    return true;
+}
+
 function openGameNotification(target) {
     if (target.completed) {
-        openHistoryMode(target.mode, target.challengeId);
+        openHistoryMode(target.mode, target.challengeId, { directToItem: true });
         return;
     }
 
@@ -10310,6 +10401,7 @@ function openGameNotification(target) {
 
 function openNotification(notification) {
     const target = notification.target || {};
+    beginNotificationNavigation(notification);
 
     database
         .ref("spaces/" + currentSpaceCode + "/notificationReads/" + currentUser.uid + "/readIds/" + notification.id)
@@ -13956,7 +14048,10 @@ function showAnswerSentScreen(nextFunction) {
     showScreen("answerSent");
 }
 
-function openHistoryMode(mode, focusedChallengeId = null) {
+function openHistoryMode(mode, focusedChallengeId = null, options = {}) {
+    const directToItem = Boolean(options?.directToItem && focusedChallengeId);
+    if (!directToItem) clearNotificationNavigationContext();
+
         if (mode === "stats") {
         openRelationStats();
         return;
@@ -14020,7 +14115,9 @@ function openHistoryMode(mode, focusedChallengeId = null) {
     }
 
     historyDetailTitle.textContent = selectedMode.title;
-    showScreen("historyDetail");
+    if (!directToItem) {
+        showScreen("historyDetail");
+    }
     setInlineScreenState(historyDetailScreen, "loading", {
         title: "Ouverture de vos souvenirs…",
         message: "Cactus rassemble les parties de ce mode."
@@ -14048,6 +14145,7 @@ function openHistoryMode(mode, focusedChallengeId = null) {
                 });
 
             if (currentHistoryItems.length === 0) {
+                if (directToItem) showScreen("historyDetail");
                 setInlineScreenState(historyDetailScreen, "hidden");
                 historyDetailList.innerHTML =
                     '<div class="empty-text"><span>📖</span><strong>Aucun souvenir pour ce jeu</strong><p>Terminez une première partie pour la retrouver ici.</p></div>';
@@ -14076,15 +14174,21 @@ function openHistoryMode(mode, focusedChallengeId = null) {
 
                 if (focusedIndex >= 0) {
                     openHistoryItem(focusedIndex);
+                    return;
                 }
+            }
+
+            if (directToItem) {
+                showScreen("historyDetail");
             }
         })
         .catch((error) => {
             console.error("Impossible de charger cet historique", error);
+            if (directToItem) showScreen("historyDetail");
             setInlineScreenState(historyDetailScreen, "error", {
                 title: "Les souvenirs ne répondent pas",
                 message: getFriendlyFirebaseError(error),
-                retry: () => openHistoryMode(mode, focusedChallengeId)
+                retry: () => openHistoryMode(mode, focusedChallengeId, options)
             });
         });
 }

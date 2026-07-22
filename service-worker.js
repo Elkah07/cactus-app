@@ -88,15 +88,15 @@ try {
     console.warn("Firebase Messaging indisponible dans le service worker", error);
 }
 
-const CACHE_VERSION = "v1149";
+const CACHE_VERSION = "v1150";
 const SHELL_CACHE = `cactus-shell-${CACHE_VERSION}`;
 const RUNTIME_CACHE = `cactus-runtime-${CACHE_VERSION}`;
 
 const APP_SHELL = [
     "./index.html",
-    "./css/style.css?v=1146",
+    "./css/style.css?v=1150",
     "./js/firebase.js?v=86",
-    "./js/script.js?v=1146",
+    "./js/script.js?v=1150",
     "./js/screens.js?v=108",
     "./js/utils.js",
     "./js/storage.js",
