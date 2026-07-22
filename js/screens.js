@@ -180,6 +180,18 @@ function hideScreen(screen) {
 }
 
 function showScreenContent(screenName) {
+    // Nettoyage des états transitoires : un retour navigateur ou un changement
+    // d'écran ne doit jamais laisser une feuille/modale invisible bloquer la page.
+    if (!["shopping", "tasks", "reminders"].includes(screenName)) {
+        document.body.classList.remove("organizer-sheet-open");
+    }
+    if (screenName !== "importantDates") {
+        document.body.classList.remove("calendar-customizer-open");
+    }
+    if (screenName !== "timeCapsules") {
+        document.body.classList.remove("time-capsule-emoji-open", "time-capsule-modal-open");
+    }
+
     document.body.classList.toggle(
         "dashboard-active",
         screenName === "dashboard"
@@ -529,6 +541,12 @@ settingsBtn.style.setProperty("display", "none", "important");
             lastShownScreen = "dashboard";
             break;
     }
+
+    // Chaque écran de l'app s'ouvre depuis son début. Cela évite de tomber au
+    // milieu d'un nouvel écran après avoir beaucoup scrollé sur le précédent.
+    window.requestAnimationFrame(() => {
+        window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+    });
 }
 
 window.addEventListener("popstate", (event) => {

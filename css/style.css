@@ -12369,3 +12369,308 @@ body.has-custom-app-theme .time-capsule-view-switch button.is-active {
         font-size: 1.08rem;
     }
 }
+
+/* =========================================================
+   V108 — AUDIT VISUEL MOBILE & GARDE-FOUS RESPONSIVE
+   Stabilisation transversale sans modifier la logique métier.
+   ========================================================= */
+
+/* Aliases manquants repérés pendant l'audit. Plusieurs composants
+   utilisaient ces variables sans définition, ce qui annulait certains
+   backgrounds/bordures selon le navigateur et le thème actif. */
+body {
+    --app-bg: var(--app-shell-bg, #f7fcf9);
+    --app-border-soft: var(--app-border, rgba(42, 119, 80, .15));
+    --app-text-muted: var(--app-muted, #5e7e71);
+    /* Valeurs de secours avant que le moteur de thème JS ait fini son initialisation. */
+    --app-user-accent: var(--app-accent, #72e6a3);
+    --app-user-accent-contrast: #0d3326;
+    --app-accent-contrast: var(--app-user-accent-contrast);
+    --app-accent-soft: color-mix(in srgb, var(--app-user-accent) 13%, transparent);
+    --app-accent-soft-strong: color-mix(in srgb, var(--app-user-accent) 22%, transparent);
+    --app-accent-surface: var(--app-panel-bg, #ffffff);
+    --app-accent-surface-strong: var(--app-secondary-button, #e2f3e8);
+    --app-accent-deeper: var(--app-shell-bg, #f7fcf9);
+    --app-themed-card: var(--app-panel-bg, #ffffff);
+    --app-themed-nav: var(--app-panel-bg, #ffffff);
+    --app-themed-track: color-mix(in srgb, var(--app-user-accent) 18%, transparent);
+    --app-track: color-mix(in srgb, var(--app-user-accent) 16%, transparent);
+    --couple-profile-accent: var(--app-user-accent);
+}
+
+/* Aucun écran ou contenu dynamique ne doit agrandir la page horizontalement. */
+html,
+body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
+}
+
+.container,
+.card,
+[id$="Screen"],
+.secondary-screen,
+.dashboard-home,
+.settings-screen,
+.relation-stats-screen,
+.achievements-screen,
+.daily-organizer-screen,
+.shopping-list-screen,
+.couple-calendar-screen,
+.time-capsules-screen,
+.notebook-book-shell {
+    min-width: 0;
+}
+
+:is(
+    .dashboard-couple-title,
+    .dashboard-next-moment-copy,
+    .dashboard-last-activity-copy,
+    .dashboard-discussions-copy,
+    .secondary-screen-hero > div,
+    .organizer-showcase-copy,
+    .shopping-item-copy,
+    .organizer-item-copy,
+    .calendar-event-copy,
+    .time-capsule-card-copy,
+    .settings-topbar-copy,
+    .settings-panel-heading > div,
+    .notebook-editor-identity > div
+) {
+    min-width: 0;
+}
+
+:is(
+    .shopping-item-copy > strong,
+    .organizer-item-copy > strong,
+    .calendar-event-copy > strong,
+    .time-capsule-card-copy > strong,
+    .dashboard-next-moment-copy strong,
+    .dashboard-discussions-copy strong,
+    .settings-panel-heading strong,
+    .secondary-screen-hero h1
+) {
+    overflow-wrap: anywhere;
+}
+
+img,
+video,
+canvas {
+    max-width: 100%;
+}
+
+button,
+input,
+select,
+textarea {
+    touch-action: manipulation;
+}
+
+/* Les écrans applicatifs occupent toujours la hauteur utile moderne. */
+body.dashboard-active,
+body.secondary-active,
+body.stats-active,
+body.achievements-active {
+    min-height: 100dvh;
+}
+
+/* Formulaires flottants : restent réellement utilisables avec le clavier. */
+body.organizer-sheet-open .shopping-item-form.organizer-creation-panel,
+body.organizer-sheet-open .organizer-form.organizer-creation-panel {
+    max-height: min(78dvh, 700px) !important;
+    scroll-padding-block: 76px;
+    scrollbar-gutter: stable;
+}
+
+.calendar-studio,
+.calendar-customizer-panel,
+.time-capsule-emoji-sheet,
+.notebook-color-sheet,
+.cactus-wardrobe-sheet {
+    max-height: min(88dvh, 780px);
+    overscroll-behavior: contain;
+}
+
+/* Barre d'édition des carnets : pas de débordement si le clavier réduit la largeur. */
+#notebookScreen .editor-toolbar {
+    max-width: calc(100vw - max(24px, env(safe-area-inset-left) + env(safe-area-inset-right)));
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    scrollbar-width: none;
+}
+#notebookScreen .editor-toolbar::-webkit-scrollbar { display: none; }
+
+/* Les zones horizontalement défilantes indiquent naturellement leur continuité. */
+.daily-notebooks-strip,
+.shopping-history-list,
+.daily-upcoming-moments,
+.unified-timeline-filters {
+    scroll-snap-type: x proximity;
+    overscroll-behavior-inline: contain;
+}
+.daily-notebooks-strip > *,
+.shopping-history-list > *,
+.daily-upcoming-moments > * {
+    scroll-snap-align: start;
+}
+
+/* Focus clavier visible sans modifier les interactions tactiles. */
+:where(button, input, select, textarea, [tabindex]):focus-visible {
+    outline: 3px solid color-mix(in srgb, var(--app-user-accent, var(--app-accent)) 52%, transparent);
+    outline-offset: 2px;
+}
+
+@media (max-width: 520px) {
+    /* Les panneaux racine ne peuvent jamais dépasser la largeur de l'appareil. */
+    body.secondary-active .card,
+    body.stats-active .card,
+    body.achievements-active .card {
+        width: 100%;
+        max-width: none;
+    }
+
+    .secondary-screen,
+    .daily-organizer-screen,
+    .shopping-list-screen,
+    .couple-calendar-screen,
+    .time-capsules-screen,
+    .settings-screen {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: clip;
+    }
+
+    /* Les lignes de formulaires ne forcent jamais une largeur desktop. */
+    .shopping-form-row,
+    .organizer-form-grid,
+    .calendar-event-form-top,
+    .calendar-event-custom-row {
+        min-width: 0;
+    }
+    .shopping-form-row > *,
+    .organizer-form-grid > *,
+    .calendar-event-form-top > *,
+    .calendar-event-custom-row > * {
+        min-width: 0;
+        max-width: 100%;
+    }
+
+    /* Évite le zoom automatique iOS et améliore l'édition avec clavier ouvert. */
+    @supports (-webkit-touch-callout: none) {
+        :is(
+            .shopping-item-form,
+            .organizer-form,
+            .calendar-event-form,
+            .settings-screen,
+            .time-capsule-form,
+            .create-notebook-box
+        ) :is(input, select, textarea) {
+            font-size: 16px;
+        }
+    }
+
+    /* Les feuilles occupent la hauteur visuelle réellement disponible. */
+    body.organizer-sheet-open .shopping-item-form.organizer-creation-panel,
+    body.organizer-sheet-open .organizer-form.organizer-creation-panel {
+        max-height: calc(100dvh - max(18px, env(safe-area-inset-top)) - max(18px, env(safe-area-inset-bottom))) !important;
+        padding-bottom: max(18px, env(safe-area-inset-bottom));
+    }
+
+    .calendar-studio,
+    .calendar-customizer-panel,
+    .time-capsule-emoji-sheet,
+    .notebook-color-sheet,
+    .cactus-wardrobe-sheet {
+        max-height: calc(100dvh - max(12px, env(safe-area-inset-top)) - max(12px, env(safe-area-inset-bottom)));
+    }
+
+    /* Les cartes dynamiques gardent leurs actions accessibles sans écraser le texte. */
+    .shopping-item-copy,
+    .organizer-item-copy {
+        padding-right: 72px;
+    }
+
+    /* Les gros en-têtes respirent sur téléphone mais restent compacts. */
+    .secondary-screen-hero > div {
+        overflow: hidden;
+    }
+
+    /* Navigation des réglages stable avec 3 ou 4 onglets. */
+    .settings-category-nav {
+        width: 100%;
+    }
+    .settings-category-nav > button {
+        min-width: 0;
+    }
+}
+
+@media (max-width: 380px) {
+    /* Dashboard : deux actions en haut sans écraser les noms du couple. */
+    #dashboardScreen .dashboard-topbar {
+        grid-template-columns: 42px minmax(0, 1fr) 86px;
+        gap: 5px;
+    }
+    #dashboardScreen .dashboard-profile-btn,
+    #dashboardScreen .dashboard-top-actions button,
+    #dashboardScreen .dashboard-settings-btn,
+    #dashboardScreen .dashboard-notifications-btn {
+        width: 40px;
+        height: 40px;
+    }
+    #dashboardScreen .dashboard-top-actions { gap: 4px; }
+    #dashboardScreen .dashboard-couple-title h1 {
+        gap: 3px 5px;
+        font-size: clamp(.96rem, 5vw, 1.12rem);
+    }
+    #relationshipDaysText {
+        min-height: 27px;
+        padding: 4px 8px;
+        font-size: .57rem;
+    }
+
+    /* En-têtes secondaires moins serrés sur les appareils étroits. */
+    .secondary-screen-hero {
+        grid-template-columns: 86px minmax(0, 1fr);
+        gap: 8px;
+        padding: 12px 12px 12px 7px;
+    }
+    .secondary-screen-hero img {
+        width: 86px;
+        height: 86px;
+    }
+    .secondary-screen-hero h1 {
+        font-size: 1.22rem;
+        line-height: 1.12;
+    }
+    .secondary-screen-hero p {
+        font-size: .7rem;
+    }
+
+    /* Les trois jeux vedettes restent lisibles sans dépasser. */
+    #dashboardScreen .dashboard-featured-games {
+        gap: 6px;
+    }
+    #dashboardScreen .dashboard-game-card {
+        min-width: 0;
+        padding-inline: 4px;
+    }
+
+    /* Le studio d'apparence ne tasse plus 4 cartes trop petites. */
+    .app-universe-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 330px) {
+    /* Ultime garde-fou pour anciens petits téléphones. */
+    #allGamesScreen .all-games-grid,
+    .new-game-choices {
+        grid-template-columns: 1fr;
+    }
+    .settings-category-nav > button strong {
+        display: none;
+    }
+    .settings-category-nav > button span {
+        font-size: 1.05rem;
+    }
+}
