@@ -10138,3 +10138,84 @@ body.dark-theme .calendar-studio-tabs { background:linear-gradient(var(--calenda
     .calendar-studio-pair { grid-template-columns:1fr 1fr; }
     .calendar-visual-choices button { min-height:96px; padding:9px 5px; }
 }
+
+
+/* ===== V99 · Palettes sombres complètes + bouton de personnalisation ===== */
+/* En mode sombre, chaque ambiance possède désormais son propre univers complet. */
+body.dark-theme .couple-calendar-screen[data-calendar-theme="cactus"] {
+    --calendar-surface:#083f31;
+    --calendar-surface-soft:#0b4938;
+    --calendar-panel:#07382b;
+    --calendar-ink:#f4fff8;
+    --calendar-muted:#afd1c3;
+}
+body.dark-theme .couple-calendar-screen[data-calendar-theme="cream"] {
+    --calendar-surface:#453426;
+    --calendar-surface-soft:#523f2e;
+    --calendar-panel:#392b20;
+    --calendar-ink:#fff8ee;
+    --calendar-muted:#d9c4ad;
+}
+body.dark-theme .couple-calendar-screen[data-calendar-theme="lavender"] {
+    --calendar-surface:#302944;
+    --calendar-surface-soft:#3a3151;
+    --calendar-panel:#282238;
+    --calendar-ink:#faf7ff;
+    --calendar-muted:#c9bfda;
+}
+body.dark-theme .couple-calendar-screen[data-calendar-theme="sunset"] {
+    --calendar-surface:#472d31;
+    --calendar-surface-soft:#56363b;
+    --calendar-panel:#3b2529;
+    --calendar-ink:#fff7f6;
+    --calendar-muted:#dfbdbd;
+}
+body.dark-theme .couple-calendar-screen[data-calendar-theme="ocean"] {
+    --calendar-surface:#173b49;
+    --calendar-surface-soft:#1d4858;
+    --calendar-panel:#12313d;
+    --calendar-ink:#f3fbff;
+    --calendar-muted:#b5d2dd;
+}
+body.dark-theme .couple-calendar-screen[data-calendar-theme="night"] {
+    --calendar-surface:#182039;
+    --calendar-surface-soft:#202946;
+    --calendar-panel:#151d34;
+    --calendar-ink:#f5f7ff;
+    --calendar-muted:#b7bdd6;
+}
+
+/* Le bouton abstrait du header disparaît au profit d'une action claire dans le hero. */
+.couple-calendar-hero-copy { min-width:0; }
+.calendar-personalize-inline {
+    display:inline-flex;
+    width:auto;
+    min-width:0;
+    height:34px;
+    margin:12px 0 0;
+    padding:0 13px;
+    align-items:center;
+    justify-content:center;
+    gap:7px;
+    border:1px solid color-mix(in srgb,var(--calendar-accent) 30%,transparent);
+    border-radius:999px;
+    background:color-mix(in srgb,var(--calendar-accent) 13%,var(--calendar-panel));
+    color:var(--calendar-ink);
+    box-shadow:none;
+    font-size:.69rem;
+    font-weight:850;
+}
+.calendar-personalize-inline:hover,
+.calendar-personalize-inline:active {
+    background:color-mix(in srgb,var(--calendar-accent) 21%,var(--calendar-panel));
+    transform:translateY(-1px);
+}
+.calendar-personalize-inline span { white-space:nowrap; }
+
+/* Chaque ambiance colore aussi légèrement les grands panneaux pour qu'elle soit immédiatement perceptible. */
+.couple-calendar-screen .couple-calendar-view,
+.couple-calendar-screen .couple-calendar-upcoming-view,
+.couple-calendar-screen .couple-calendar-timeline-view,
+.couple-calendar-screen .couple-calendar-hero {
+    transition:background .22s ease,border-color .22s ease,color .22s ease;
+}
