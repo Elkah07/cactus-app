@@ -14951,13 +14951,21 @@ function getLikelyChosenTarget(answerData) {
     return null;
 }
 
+const CACTUS_ALL_ACCESSORY_STAGES = [1, 2, 3, 4, 5, 6];
+
 const CACTUS_ACCESSORY_CATALOG = [
-    { id: "flowerHat", name: "Chapeau fleuri", slot: "head", cost: 120, image: "assets/cactus-accessories/flower-hat.webp", calibrationImage: "assets/cactus-accessories-trimmed/flowerHat.webp" },
-    { id: "partyHat", name: "Chapeau de fête", slot: "head", cost: 90, image: "assets/cactus-accessories/party-hat.webp", calibrationImage: "assets/cactus-accessories-trimmed/partyHat.webp" },
-    { id: "goldCrown", name: "Couronne cœur", slot: "head", cost: 300, image: "assets/cactus-accessories/gold-crown.webp", calibrationImage: "assets/cactus-accessories-trimmed/goldCrown.webp" },
-    { id: "roundGlasses", name: "Lunettes dorées", slot: "face", cost: 150, image: "assets/cactus-accessories/round-glasses.webp", calibrationImage: "assets/cactus-accessories-trimmed/roundGlasses.webp" },
-    { id: "heartNecklace", name: "Collier cœur", slot: "neck", cost: 180, image: "assets/cactus-accessories/heart-necklace.webp", calibrationImage: "assets/cactus-accessories-trimmed/heartNecklace.webp" },
-    { id: "pinkBow", name: "Nœud corail", slot: "neck", cost: 110, image: "assets/cactus-accessories/pink-bow.webp", calibrationImage: "assets/cactus-accessories-trimmed/pinkBow.webp" }
+    { id: "flowerHat", name: "Chapeau fleuri", slot: "head", cost: 120, allowedStages: CACTUS_ALL_ACCESSORY_STAGES, image: "assets/cactus-accessories/flower-hat.webp", calibrationImage: "assets/cactus-accessories-trimmed/flowerHat.webp" },
+    { id: "partyHat", name: "Chapeau de fête", slot: "head", cost: 90, allowedStages: CACTUS_ALL_ACCESSORY_STAGES, image: "assets/cactus-accessories/party-hat.webp", calibrationImage: "assets/cactus-accessories-trimmed/partyHat.webp" },
+    { id: "goldCrown", name: "Couronne cœur", slot: "head", cost: 300, allowedStages: CACTUS_ALL_ACCESSORY_STAGES, image: "assets/cactus-accessories/gold-crown.webp", calibrationImage: "assets/cactus-accessories-trimmed/goldCrown.webp" },
+    { id: "greenCap", name: "Casquette verte", slot: "head", cost: 180, allowedStages: CACTUS_ALL_ACCESSORY_STAGES, image: "assets/cactus-accessories/green-cap.webp", calibrationImage: "assets/cactus-accessories-trimmed/greenCap.webp" },
+    { id: "cozyBeanie", name: "Bonnet douillet", slot: "head", cost: 170, allowedStages: CACTUS_ALL_ACCESSORY_STAGES, image: "assets/cactus-accessories/cozy-beanie.webp", calibrationImage: "assets/cactus-accessories-trimmed/cozyBeanie.webp" },
+    { id: "cactusHeadphones", name: "Casque audio", slot: "head", cost: 220, allowedStages: CACTUS_ALL_ACCESSORY_STAGES, image: "assets/cactus-accessories/cactus-headphones.webp", calibrationImage: "assets/cactus-accessories-trimmed/cactusHeadphones.webp" },
+    { id: "goldHalo", name: "Halo doré", slot: "head", cost: 240, allowedStages: CACTUS_ALL_ACCESSORY_STAGES, requiresBareHead: false, image: "assets/cactus-accessories/gold-halo.webp", calibrationImage: "assets/cactus-accessories-trimmed/goldHalo.webp" },
+    { id: "headBow", name: "Petit nœud corail", slot: "head", cost: 130, allowedStages: CACTUS_ALL_ACCESSORY_STAGES, requiresBareHead: false, image: "assets/cactus-accessories/head-bow.webp", calibrationImage: "assets/cactus-accessories-trimmed/headBow.webp" },
+    { id: "roundGlasses", name: "Lunettes dorées", slot: "face", cost: 150, allowedStages: CACTUS_ALL_ACCESSORY_STAGES, image: "assets/cactus-accessories/round-glasses.webp", calibrationImage: "assets/cactus-accessories-trimmed/roundGlasses.webp" },
+    { id: "blackSunglasses", name: "Lunettes de soleil", slot: "face", cost: 190, allowedStages: CACTUS_ALL_ACCESSORY_STAGES, image: "assets/cactus-accessories/black-sunglasses.webp", calibrationImage: "assets/cactus-accessories-trimmed/blackSunglasses.webp" },
+    { id: "heartNecklace", name: "Collier cœur", slot: "neck", cost: 180, allowedStages: [1, 2, 3], image: "assets/cactus-accessories/heart-necklace.webp", calibrationImage: "assets/cactus-accessories-trimmed/heartNecklace.webp" },
+    { id: "pinkBow", name: "Nœud corail", slot: "neck", cost: 110, allowedStages: CACTUS_ALL_ACCESSORY_STAGES, image: "assets/cactus-accessories/pink-bow.webp", calibrationImage: "assets/cactus-accessories-trimmed/pinkBow.webp" }
 ];
 
 const CACTUS_ACCESSORY_SLOTS = {
@@ -14965,6 +14973,33 @@ const CACTUS_ACCESSORY_SLOTS = {
     face: cactusFaceAccessory,
     neck: cactusNeckAccessory
 };
+
+function getCurrentCactusStage() {
+    return Math.min(Math.max(Number(dashboardCactusCharacter?.dataset?.cactusStage) || 1, 1), 6);
+}
+
+function getCactusAccessoryById(itemId) {
+    return CACTUS_ACCESSORY_CATALOG.find((item) => item.id === itemId) || null;
+}
+
+function isCactusAccessoryCompatible(item, stage = getCurrentCactusStage()) {
+    if (!item) return false;
+    const allowedStages = Array.isArray(item.allowedStages) && item.allowedStages.length
+        ? item.allowedStages
+        : CACTUS_ALL_ACCESSORY_STAGES;
+    return allowedStages.includes(Math.min(Math.max(Number(stage) || 1, 1), 6));
+}
+
+function formatCactusAccessoryCompatibility(item) {
+    const stages = [...new Set((item.allowedStages || CACTUS_ALL_ACCESSORY_STAGES).map(Number))]
+        .filter((stage) => stage >= 1 && stage <= 6)
+        .sort((a, b) => a - b);
+    if (stages.length === 6) return "Tous les niveaux";
+    if (!stages.length) return "Indisponible";
+    const consecutive = stages.every((stage, index) => index === 0 || stage === stages[index - 1] + 1);
+    if (consecutive && stages.length > 1) return `Niveaux ${stages[0]} à ${stages[stages.length - 1]}`;
+    return "Niveaux " + stages.join(", ");
+}
 
 
 const CACTUS_ACCESSORY_DEFAULT_CALIBRATION = {
@@ -14974,7 +15009,13 @@ const CACTUS_ACCESSORY_DEFAULT_CALIBRATION = {
         goldCrown: { x: 52, y: 20, width: 23, rotation: 0 },
         roundGlasses: { x: 52, y: 44.4, width: 24, rotation: 0 },
         heartNecklace: { x: 52, y: 67.9, width: 20, rotation: 0 },
-        pinkBow: { x: 52, y: 69.7, width: 13, rotation: 0 }
+        pinkBow: { x: 52, y: 69.7, width: 13, rotation: 0 },
+        blackSunglasses: { x: 52, y: 44.7, width: 26, rotation: 0 },
+        goldHalo: { x: 52, y: 10.5, width: 32, rotation: 0 },
+        greenCap: { x: 54, y: 20.5, width: 31, rotation: -4 },
+        cozyBeanie: { x: 52, y: 20.5, width: 29, rotation: 0 },
+        cactusHeadphones: { x: 52, y: 38, width: 34, rotation: 0 },
+        headBow: { x: 65, y: 22.5, width: 14, rotation: 8 }
     },
     2: {
         flowerHat: { x: 52, y: 21.1, width: 27, rotation: 0 },
@@ -14982,7 +15023,13 @@ const CACTUS_ACCESSORY_DEFAULT_CALIBRATION = {
         goldCrown: { x: 52, y: 20.7, width: 22, rotation: 0 },
         roundGlasses: { x: 52, y: 43.5, width: 22, rotation: 0 },
         heartNecklace: { x: 52, y: 59.8, width: 18, rotation: 0 },
-        pinkBow: { x: 52, y: 60.4, width: 12, rotation: 0 }
+        pinkBow: { x: 52, y: 60.4, width: 12, rotation: 0 },
+        blackSunglasses: { x: 52, y: 43.8, width: 24, rotation: 0 },
+        goldHalo: { x: 52, y: 11.5, width: 31, rotation: 0 },
+        greenCap: { x: 54, y: 21.2, width: 30, rotation: -4 },
+        cozyBeanie: { x: 52, y: 21.2, width: 28, rotation: 0 },
+        cactusHeadphones: { x: 52, y: 37, width: 32, rotation: 0 },
+        headBow: { x: 65, y: 23, width: 13.5, rotation: 8 }
     },
     3: {
         flowerHat: { x: 53, y: 13.7, width: 29, rotation: 0 },
@@ -14990,7 +15037,13 @@ const CACTUS_ACCESSORY_DEFAULT_CALIBRATION = {
         goldCrown: { x: 53, y: 14.3, width: 24, rotation: 0 },
         roundGlasses: { x: 52.5, y: 38.7, width: 23, rotation: 0 },
         heartNecklace: { x: 51, y: 53.4, width: 20, rotation: 0 },
-        pinkBow: { x: 51, y: 53.7, width: 13, rotation: 0 }
+        pinkBow: { x: 51, y: 53.7, width: 13, rotation: 0 },
+        blackSunglasses: { x: 52.5, y: 39, width: 25, rotation: 0 },
+        goldHalo: { x: 53, y: 4.8, width: 33, rotation: 0 },
+        greenCap: { x: 55, y: 13.8, width: 32, rotation: -4 },
+        cozyBeanie: { x: 53, y: 13.8, width: 30, rotation: 0 },
+        cactusHeadphones: { x: 52.5, y: 33, width: 34, rotation: 0 },
+        headBow: { x: 67, y: 16, width: 14.5, rotation: 8 }
     },
     4: {
         flowerHat: { x: 51, y: 15, width: 30, rotation: 0 },
@@ -14998,7 +15051,13 @@ const CACTUS_ACCESSORY_DEFAULT_CALIBRATION = {
         goldCrown: { x: 51, y: 15.3, width: 24, rotation: 0 },
         roundGlasses: { x: 49, y: 38.7, width: 23, rotation: 0 },
         heartNecklace: { x: 48, y: 52.1, width: 19, rotation: 0 },
-        pinkBow: { x: 46, y: 52.4, width: 12, rotation: 0 }
+        pinkBow: { x: 46, y: 52.4, width: 12, rotation: 0 },
+        blackSunglasses: { x: 49, y: 39, width: 25, rotation: 0 },
+        goldHalo: { x: 51, y: 6, width: 34, rotation: 0 },
+        greenCap: { x: 53, y: 15, width: 33, rotation: -4 },
+        cozyBeanie: { x: 51, y: 15, width: 31, rotation: 0 },
+        cactusHeadphones: { x: 49, y: 33, width: 35, rotation: 0 },
+        headBow: { x: 65, y: 17.5, width: 15, rotation: 8 }
     },
     5: {
         flowerHat: { x: 55, y: 16.3, width: 31, rotation: 0 },
@@ -15006,7 +15065,13 @@ const CACTUS_ACCESSORY_DEFAULT_CALIBRATION = {
         goldCrown: { x: 55, y: 16.6, width: 25, rotation: 0 },
         roundGlasses: { x: 51, y: 39.9, width: 24, rotation: 0 },
         heartNecklace: { x: 50, y: 55.7, width: 21, rotation: 0 },
-        pinkBow: { x: 50, y: 56.7, width: 13, rotation: 0 }
+        pinkBow: { x: 50, y: 56.7, width: 13, rotation: 0 },
+        blackSunglasses: { x: 51, y: 40.2, width: 26, rotation: 0 },
+        goldHalo: { x: 55, y: 7, width: 35, rotation: 0 },
+        greenCap: { x: 57, y: 16, width: 34, rotation: -4 },
+        cozyBeanie: { x: 55, y: 16, width: 32, rotation: 0 },
+        cactusHeadphones: { x: 51, y: 34, width: 36, rotation: 0 },
+        headBow: { x: 70, y: 18.5, width: 15.5, rotation: 8 }
     },
     6: {
         flowerHat: { x: 52, y: 15.3, width: 31, rotation: 0 },
@@ -15014,7 +15079,13 @@ const CACTUS_ACCESSORY_DEFAULT_CALIBRATION = {
         goldCrown: { x: 52, y: 15.6, width: 25, rotation: 0 },
         roundGlasses: { x: 50, y: 39.9, width: 24, rotation: 0 },
         heartNecklace: { x: 49, y: 55.7, width: 21, rotation: 0 },
-        pinkBow: { x: 49, y: 56.7, width: 13, rotation: 0 }
+        pinkBow: { x: 49, y: 56.7, width: 13, rotation: 0 },
+        blackSunglasses: { x: 50, y: 40.2, width: 26, rotation: 0 },
+        goldHalo: { x: 52, y: 6, width: 35, rotation: 0 },
+        greenCap: { x: 54, y: 15, width: 34, rotation: -4 },
+        cozyBeanie: { x: 52, y: 15, width: 32, rotation: 0 },
+        cactusHeadphones: { x: 50, y: 34, width: 36, rotation: 0 },
+        headBow: { x: 67, y: 17.5, width: 15.5, rotation: 8 }
     }
 };
 
@@ -15051,21 +15122,22 @@ function applyCactusAccessoryCalibration(image, calibration) {
 
 function renderEquippedCactusAccessories(wardrobe = {}) {
     const equipped = wardrobe.equipped || {};
+    const stage = getCurrentCactusStage();
 
     Object.entries(CACTUS_ACCESSORY_SLOTS).forEach(([slot, container]) => {
         if (!container) return;
 
-        const item = CACTUS_ACCESSORY_CATALOG.find((entry) => {
+        const selectedItem = CACTUS_ACCESSORY_CATALOG.find((entry) => {
             return entry.id === equipped[slot] && entry.slot === slot;
         });
+        const item = isCactusAccessoryCompatible(selectedItem, stage) ? selectedItem : null;
         container.replaceChildren();
         container.classList.toggle("is-equipped", Boolean(item));
         delete container.dataset.accessoryId;
 
         if (item) {
             const image = document.createElement("img");
-            const stage = Math.min(Math.max(Number(dashboardCactusCharacter?.dataset?.cactusStage) || 1, 1), 6);
-            image.src = item.calibrationImage + "?v=1146";
+            image.src = item.calibrationImage + "?v=1148";
             image.alt = "";
             applyCactusAccessoryCalibration(image, getCactusAccessoryCalibration(stage, item.id));
             container.dataset.accessoryId = item.id;
@@ -15073,11 +15145,9 @@ function renderEquippedCactusAccessories(wardrobe = {}) {
         }
     });
 
-    const currentStage = Number(dashboardCactusCharacter?.dataset?.cactusStage) || 1;
     if (cactusAccessoryForeground) {
-        const showForeground = false;
-        cactusAccessoryForeground.src = `assets/cactus-rig/stage-${Math.min(Math.max(currentStage, 1), 6)}-accessory-foreground.webp`;
-        cactusAccessoryForeground.hidden = !showForeground;
+        cactusAccessoryForeground.src = `assets/cactus-rig/stage-${stage}-accessory-foreground.webp`;
+        cactusAccessoryForeground.hidden = true;
     }
 
     syncCactusBodyForHeadAccessory(equipped);
@@ -15086,10 +15156,11 @@ function renderEquippedCactusAccessories(wardrobe = {}) {
 function syncCactusBodyForHeadAccessory(equipped = {}) {
     if (!mainCactusImage || !dashboardCactusCharacter) return;
 
-    const stage = dashboardCactusCharacter.dataset.cactusStage;
-    if (!/^[1-6]$/.test(stage)) return;
+    const stage = getCurrentCactusStage();
+    const headItem = getCactusAccessoryById(equipped.head);
+    const shouldUseBareHead = isCactusAccessoryCompatible(headItem, stage) && headItem?.requiresBareHead !== false;
 
-    mainCactusImage.src = equipped.head
+    mainCactusImage.src = shouldUseBareHead
         ? `assets/cactus-rig/stage-${stage}-body-bare.webp`
         : `assets/cactus-rig/stage-${stage}-body.webp`;
 }
@@ -15099,6 +15170,7 @@ function renderCactusWardrobe(spaceData = {}) {
     const wardrobe = spaceData.cactusWardrobe || {};
     const owned = wardrobe.owned || {};
     const equipped = wardrobe.equipped || {};
+    const stage = getCurrentCactusStage();
 
     renderEquippedCactusAccessories(wardrobe);
     cactusWardrobeSeeds.textContent = seeds;
@@ -15106,11 +15178,13 @@ function renderCactusWardrobe(spaceData = {}) {
 
     CACTUS_ACCESSORY_CATALOG.forEach((item) => {
         const isOwned = Boolean(owned[item.id]);
-        const isEquipped = equipped[item.slot] === item.id;
+        const isSelected = equipped[item.slot] === item.id;
+        const isCompatible = isCactusAccessoryCompatible(item, stage);
         const card = document.createElement("article");
         card.className = "cactus-wardrobe-card" +
             (isOwned ? " is-owned" : "") +
-            (isEquipped ? " is-equipped" : "");
+            (isSelected && isCompatible ? " is-equipped" : "") +
+            (!isCompatible ? " is-incompatible" : "");
 
         const preview = document.createElement("div");
         preview.className = "cactus-wardrobe-preview";
@@ -15123,8 +15197,8 @@ function renderCactusWardrobe(spaceData = {}) {
         const name = document.createElement("strong");
         name.textContent = item.name;
         const slot = document.createElement("small");
-        slot.textContent = item.slot === "head" ? "Tête" :
-            item.slot === "face" ? "Visage" : "Cou";
+        const slotLabel = item.slot === "head" ? "Tête" : item.slot === "face" ? "Visage" : "Cou";
+        slot.textContent = `${slotLabel} · ${formatCactusAccessoryCompatibility(item)}`;
 
         const action = document.createElement("button");
         action.type = "button";
@@ -15132,10 +15206,16 @@ function renderCactusWardrobe(spaceData = {}) {
             action.textContent = "Acheter · " + item.cost + " graines";
             action.disabled = seeds < item.cost;
             action.addEventListener("click", () => buyCactusAccessory(item));
+        } else if (isSelected && !isCompatible) {
+            action.textContent = "Retirer · invisible ici";
+            action.addEventListener("click", () => equipCactusAccessory(item, false));
+        } else if (!isCompatible) {
+            action.textContent = `Indisponible au niveau ${stage}`;
+            action.disabled = true;
         } else {
-            action.textContent = isEquipped ? "Équipé ✓" : "Équiper";
-            action.className = isEquipped ? "is-equipped" : "";
-            action.addEventListener("click", () => equipCactusAccessory(item, !isEquipped));
+            action.textContent = isSelected ? "Équipé ✓" : "Équiper";
+            action.className = isSelected ? "is-equipped" : "";
+            action.addEventListener("click", () => equipCactusAccessory(item, !isSelected));
         }
 
         card.append(preview, name, slot, action);
@@ -15145,6 +15225,7 @@ function renderCactusWardrobe(spaceData = {}) {
 
 function buyCactusAccessory(item) {
     if (!currentSpaceCode || !currentUser) return;
+    const shouldEquipNow = isCactusAccessoryCompatible(item, getCurrentCactusStage());
 
     database.ref("spaces/" + currentSpaceCode).transaction((spaceData) => {
         if (!spaceData) return;
@@ -15163,14 +15244,16 @@ function buyCactusAccessory(item) {
             purchasedAt: Date.now(),
             purchasedBy: currentUser.uid
         };
-        spaceData.cactusWardrobe.equipped[item.slot] = item.id;
+        if (shouldEquipNow) spaceData.cactusWardrobe.equipped[item.slot] = item.id;
         return spaceData;
     }).then((result) => {
         if (!result.committed) {
             showToast("Pas assez de graines ou accessoire déjà acheté");
             return;
         }
-        showToast(item.name + " acheté et équipé ✨");
+        showToast(shouldEquipNow
+            ? item.name + " acheté et équipé ✨"
+            : item.name + " acheté · disponible sur ses niveaux compatibles ✨");
         renderCactusWardrobe(result.snapshot.val() || {});
     }).catch((error) => {
         console.error("Achat de l’accessoire impossible", error);
@@ -15179,6 +15262,10 @@ function buyCactusAccessory(item) {
 }
 
 function equipCactusAccessory(item, shouldEquip) {
+    if (shouldEquip && !isCactusAccessoryCompatible(item, getCurrentCactusStage())) {
+        showToast(`${item.name} n’est pas compatible avec ce niveau`);
+        return;
+    }
     const value = shouldEquip ? item.id : null;
     database.ref(
         "spaces/" + currentSpaceCode + "/cactusWardrobe/equipped/" + item.slot
@@ -15225,7 +15312,27 @@ function getCactusCalibrationSelectedStage() {
 }
 
 function getCactusCalibrationSelectedItem() {
-    return CACTUS_ACCESSORY_CATALOG.find((item) => item.id === cactusCalibrationAccessory?.value) || CACTUS_ACCESSORY_CATALOG[0];
+    const stage = getCactusCalibrationSelectedStage();
+    const selected = getCactusAccessoryById(cactusCalibrationAccessory?.value);
+    if (isCactusAccessoryCompatible(selected, stage)) return selected;
+    return CACTUS_ACCESSORY_CATALOG.find((item) => isCactusAccessoryCompatible(item, stage)) || CACTUS_ACCESSORY_CATALOG[0];
+}
+
+function syncCactusCalibrationAccessoryOptions() {
+    if (!cactusCalibrationAccessory) return;
+    const stage = getCactusCalibrationSelectedStage();
+    let firstCompatibleValue = "";
+    Array.from(cactusCalibrationAccessory.options).forEach((option) => {
+        const item = getCactusAccessoryById(option.value);
+        const compatible = isCactusAccessoryCompatible(item, stage);
+        option.disabled = !compatible;
+        option.hidden = false;
+        if (compatible && !firstCompatibleValue) firstCompatibleValue = option.value;
+    });
+    const selectedItem = getCactusAccessoryById(cactusCalibrationAccessory.value);
+    if (!isCactusAccessoryCompatible(selectedItem, stage) && firstCompatibleValue) {
+        cactusCalibrationAccessory.value = firstCompatibleValue;
+    }
 }
 
 function formatCactusCalibrationValue(value, suffix) {
@@ -15262,10 +15369,10 @@ function loadCactusCalibrationSelection() {
     const stage = getCactusCalibrationSelectedStage();
     const item = getCactusCalibrationSelectedItem();
     cactusCalibrationPreview.dataset.stage = String(stage);
-    cactusCalibrationBody.src = item.slot === "head"
+    cactusCalibrationBody.src = item.slot === "head" && item.requiresBareHead !== false
         ? `assets/cactus-rig/stage-${stage}-body-bare.webp`
         : `assets/cactus-rig/stage-${stage}-body.webp`;
-    cactusCalibrationAccessoryImage.src = item.calibrationImage + "?v=1146";
+    cactusCalibrationAccessoryImage.src = item.calibrationImage + "?v=1148";
     cactusCalibrationAccessoryImage.alt = item.name;
     cactusCalibrationDraft = { ...getCactusAccessoryCalibration(stage, item.id) };
     syncCactusCalibrationControls();
@@ -15297,6 +15404,7 @@ function openCactusAccessoryCalibrationStudio() {
     }
     cactusAccessoryCalibrationModal.style.display = "flex";
     document.body.classList.add("cactus-calibration-open");
+    syncCactusCalibrationAccessoryOptions();
     loadCactusCalibrationSelection();
 }
 
@@ -15310,6 +15418,10 @@ function saveCactusAccessoryCalibration() {
     if (!isCreatorModeEnabled() || !currentSpaceCode || !cactusCalibrationDraft) return;
     const stage = getCactusCalibrationSelectedStage();
     const item = getCactusCalibrationSelectedItem();
+    if (!isCactusAccessoryCompatible(item, stage)) {
+        setCactusCalibrationStatus("Cet accessoire n’est pas compatible avec ce niveau.", "error");
+        return;
+    }
     const payload = normalizeCactusAccessoryCalibration(cactusCalibrationDraft, CACTUS_ACCESSORY_DEFAULT_CALIBRATION[stage]?.[item.id]);
     saveCactusCalibrationBtn.disabled = true;
     setCactusCalibrationStatus("Enregistrement…", "saving");
@@ -15342,7 +15454,10 @@ if (closeCactusCalibrationBtn) closeCactusCalibrationBtn.addEventListener("click
 if (cactusAccessoryCalibrationModal) {
     cactusAccessoryCalibrationModal.querySelector("[data-close-cactus-calibration]")?.addEventListener("click", closeCactusAccessoryCalibrationStudio);
 }
-if (cactusCalibrationStage) cactusCalibrationStage.addEventListener("change", loadCactusCalibrationSelection);
+if (cactusCalibrationStage) cactusCalibrationStage.addEventListener("change", () => {
+    syncCactusCalibrationAccessoryOptions();
+    loadCactusCalibrationSelection();
+});
 if (cactusCalibrationAccessory) cactusCalibrationAccessory.addEventListener("change", loadCactusCalibrationSelection);
 
 [

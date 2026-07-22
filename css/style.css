@@ -173,6 +173,13 @@
     background: var(--app-panel-bg);
 }
 .cactus-wardrobe-card.is-equipped { border-color: #f5b94c; box-shadow: 0 0 0 2px rgba(245, 185, 76, 0.13); }
+.cactus-wardrobe-card.is-incompatible:not(.is-equipped) {
+    border-style: dashed;
+}
+.cactus-wardrobe-card.is-incompatible .cactus-wardrobe-preview {
+    filter: saturate(.65);
+    opacity: .72;
+}
 .cactus-wardrobe-preview {
     display: grid;
     height: 86px;
