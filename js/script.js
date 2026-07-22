@@ -184,8 +184,14 @@ const memoryFormIcon = document.getElementById("memoryFormIcon");
 const memoryFormHeading = document.getElementById("memoryFormHeading");
 const memoryEmoji = document.getElementById("memoryEmoji");
 const memoryDate = document.getElementById("memoryDate");
+const memoryCategory = document.getElementById("memoryCategory");
 const memoryTitle = document.getElementById("memoryTitle");
 const memoryText = document.getElementById("memoryText");
+const memoryPhotoInput = document.getElementById("memoryPhotoInput");
+const chooseMemoryPhotoBtn = document.getElementById("chooseMemoryPhotoBtn");
+const memoryPhotoPreview = document.getElementById("memoryPhotoPreview");
+const memoryPhotoPreviewImage = document.getElementById("memoryPhotoPreviewImage");
+const removeMemoryPhotoBtn = document.getElementById("removeMemoryPhotoBtn");
 const saveMemoryBtn = document.getElementById("saveMemoryBtn");
 const cancelMemoryBtn = document.getElementById("cancelMemoryBtn");
 const memoriesTimeline = document.getElementById("memoriesTimeline");
@@ -195,6 +201,21 @@ const unifiedTimelineCount = document.getElementById("unifiedTimelineCount");
 const historyPersonalCount = document.getElementById("historyPersonalCount");
 const historyFavoritesCount = document.getElementById("historyFavoritesCount");
 const historyTotalCount = document.getElementById("historyTotalCount");
+const historyPhotosCount = document.getElementById("historyPhotosCount");
+const memoriesAlbumGrid = document.getElementById("memoriesAlbumGrid");
+const memoriesAlbumEmpty = document.getElementById("memoriesAlbumEmpty");
+const addPhotoMemoryBtn = document.getElementById("addPhotoMemoryBtn");
+const memoryViewerModal = document.getElementById("memoryViewerModal");
+const memoryViewerBackdrop = document.getElementById("memoryViewerBackdrop");
+const closeMemoryViewerBtn = document.getElementById("closeMemoryViewerBtn");
+const memoryViewerVisual = document.getElementById("memoryViewerVisual");
+const memoryViewerImage = document.getElementById("memoryViewerImage");
+const memoryViewerFallback = document.getElementById("memoryViewerFallback");
+const memoryViewerCategory = document.getElementById("memoryViewerCategory");
+const memoryViewerDate = document.getElementById("memoryViewerDate");
+const memoryViewerTitle = document.getElementById("memoryViewerTitle");
+const memoryViewerText = document.getElementById("memoryViewerText");
+const memoryViewerAuthor = document.getElementById("memoryViewerAuthor");
 const unifiedTimelineEmpty = document.getElementById("unifiedTimelineEmpty");
 const timelineSearchInput = document.getElementById("timelineSearchInput");
 const timelineYearFilter = document.getElementById("timelineYearFilter");
@@ -1135,6 +1156,8 @@ let nextAfterAnswerFunction = null;
 let currentHistoryMode = null;
 let currentHistoryItems = []; 
 let currentEditingMemoryId = null;
+let currentMemoryPhotoData = "";
+let currentMemoryPhotoProcessing = false;
 let unifiedTimelineItems = [];
 let activeTimelineType = "all";
 let currentOnboardingStep = 0;
@@ -2812,6 +2835,11 @@ showMemoryFormBtn.addEventListener("click", () => {
     openMemoryForm();
 });
 
+addPhotoMemoryBtn?.addEventListener("click", () => {
+    openMemoryForm();
+    window.setTimeout(() => memoryPhotoInput?.click(), 250);
+});
+
 cancelMemoryBtn.addEventListener("click", () => {
     closeMemoryForm();
 });
@@ -2819,6 +2847,40 @@ cancelMemoryBtn.addEventListener("click", () => {
 memoryEmoji.addEventListener("input", () => {
     memoryFormIcon.textContent = memoryEmoji.value.trim() || "💚";
 });
+
+chooseMemoryPhotoBtn?.addEventListener("click", () => memoryPhotoInput?.click());
+memoryPhotoInput?.addEventListener("change", async () => {
+    const file = memoryPhotoInput.files?.[0];
+    if (!file) return;
+    if (!file.type.startsWith("image/")) {
+        showToast("Choisis une image pour ce souvenir");
+        memoryPhotoInput.value = "";
+        return;
+    }
+
+    currentMemoryPhotoProcessing = true;
+    chooseMemoryPhotoBtn?.classList.add("is-processing");
+    try {
+        currentMemoryPhotoData = await compressMemoryPhoto(file);
+        updateMemoryPhotoPreview();
+        showToast("Photo prête 📸");
+    } catch (error) {
+        console.error("Préparation de la photo impossible", error);
+        showToast("Impossible de préparer cette photo");
+        memoryPhotoInput.value = "";
+    } finally {
+        currentMemoryPhotoProcessing = false;
+        chooseMemoryPhotoBtn?.classList.remove("is-processing");
+    }
+});
+removeMemoryPhotoBtn?.addEventListener("click", () => {
+    currentMemoryPhotoData = "";
+    if (memoryPhotoInput) memoryPhotoInput.value = "";
+    updateMemoryPhotoPreview();
+});
+
+memoryViewerBackdrop?.addEventListener("click", closeMemoryViewer);
+closeMemoryViewerBtn?.addEventListener("click", closeMemoryViewer);
 
 memoryForm.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -9718,6 +9780,164 @@ function clearReadNotifications() {
         .then(() => showToast("Notifications lues effacées"));
 }
 
+const MEMORY_CATEGORY_META = {
+    moment: { emoji: "✨", label: "Petit moment" },
+    reunion: { emoji: "🚆", label: "Retrouvailles" },
+    trip: { emoji: "✈️", label: "Voyage" },
+    date: { emoji: "🥂", label: "Rendez-vous" },
+    daily: { emoji: "🏡", label: "Quotidien" },
+    celebration: { emoji: "🎉", label: "Célébration" },
+    proud: { emoji: "🌟", label: "Fierté" }
+};
+
+function getMemoryCategoryMeta(category) {
+    return MEMORY_CATEGORY_META[category] || MEMORY_CATEGORY_META.moment;
+}
+
+function readMemoryPhotoFile(file) {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = () => reject(reader.error || new Error("Lecture de la photo impossible"));
+        reader.readAsDataURL(file);
+    });
+}
+
+function loadMemoryPhotoImage(source) {
+    return new Promise((resolve, reject) => {
+        const image = new Image();
+        image.onload = () => resolve(image);
+        image.onerror = () => reject(new Error("Image illisible"));
+        image.src = source;
+    });
+}
+
+async function compressMemoryPhoto(file) {
+    const source = await readMemoryPhotoFile(file);
+    const image = await loadMemoryPhotoImage(source);
+    const maxDimension = 900;
+    const initialScale = Math.min(1, maxDimension / Math.max(image.naturalWidth || image.width, image.naturalHeight || image.height));
+    let width = Math.max(1, Math.round((image.naturalWidth || image.width) * initialScale));
+    let height = Math.max(1, Math.round((image.naturalHeight || image.height) * initialScale));
+    let quality = 0.84;
+    let dataUrl = "";
+
+    for (let pass = 0; pass < 7; pass += 1) {
+        const canvas = document.createElement("canvas");
+        canvas.width = width;
+        canvas.height = height;
+        const context = canvas.getContext("2d", { alpha: false });
+        if (!context) throw new Error("Compression indisponible");
+        context.fillStyle = "#ffffff";
+        context.fillRect(0, 0, width, height);
+        context.drawImage(image, 0, 0, width, height);
+
+        dataUrl = canvas.toDataURL("image/webp", quality);
+        if (!dataUrl.startsWith("data:image/webp")) {
+            dataUrl = canvas.toDataURL("image/jpeg", quality);
+        }
+
+        // Environ 190 Ko visés après encodage pour garder l’album fluide dans Realtime Database.
+        if (dataUrl.length <= 260000) break;
+        if (quality > 0.56) {
+            quality -= 0.08;
+        } else {
+            width = Math.max(360, Math.round(width * 0.82));
+            height = Math.max(360, Math.round(height * 0.82));
+        }
+    }
+
+    if (!dataUrl || dataUrl.length > 360000) {
+        throw new Error("Photo encore trop lourde après compression");
+    }
+    return dataUrl;
+}
+
+function updateMemoryPhotoPreview() {
+    const hasPhoto = Boolean(currentMemoryPhotoData);
+    if (memoryPhotoPreview) memoryPhotoPreview.hidden = !hasPhoto;
+    if (memoryPhotoPreviewImage) {
+        if (hasPhoto) memoryPhotoPreviewImage.src = currentMemoryPhotoData;
+        else memoryPhotoPreviewImage.removeAttribute("src");
+    }
+    chooseMemoryPhotoBtn?.classList.toggle("has-photo", hasPhoto);
+    const strong = chooseMemoryPhotoBtn?.querySelector("strong");
+    if (strong) strong.textContent = hasPhoto ? "Changer la photo" : "Ajouter une photo";
+}
+
+function openMemoryViewer(memory) {
+    if (!memoryViewerModal || !memory) return;
+    const category = getMemoryCategoryMeta(memory.category);
+    const hasPhoto = Boolean(memory.photoData);
+    memoryViewerVisual?.classList.toggle("has-photo", hasPhoto);
+    if (memoryViewerImage) {
+        memoryViewerImage.style.display = hasPhoto ? "block" : "none";
+        if (hasPhoto) memoryViewerImage.src = memory.photoData;
+        else memoryViewerImage.removeAttribute("src");
+    }
+    if (memoryViewerFallback) {
+        memoryViewerFallback.style.display = hasPhoto ? "none" : "grid";
+        memoryViewerFallback.textContent = memory.emoji || category.emoji;
+    }
+    if (memoryViewerCategory) memoryViewerCategory.textContent = category.emoji + " " + category.label;
+    if (memoryViewerDate) memoryViewerDate.textContent = formatMemoryDate(memory.memoryDate);
+    if (memoryViewerTitle) memoryViewerTitle.textContent = memory.title || "Un souvenir à deux";
+    if (memoryViewerText) memoryViewerText.textContent = memory.text || "";
+    if (memoryViewerAuthor) memoryViewerAuthor.textContent = "Ajouté par " + (memory.createdByPseudo || "Cactus");
+    memoryViewerModal.style.display = "flex";
+    memoryViewerModal.setAttribute("aria-hidden", "false");
+    document.body.classList.add("memory-viewer-open");
+}
+
+function closeMemoryViewer() {
+    if (!memoryViewerModal) return;
+    memoryViewerModal.style.display = "none";
+    memoryViewerModal.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("memory-viewer-open");
+}
+
+function renderMemoriesAlbum(entries) {
+    if (!memoriesAlbumGrid || !memoriesAlbumEmpty) return;
+    const photoEntries = entries.filter(([, memory]) => Boolean(memory.photoData));
+    if (historyPhotosCount) historyPhotosCount.textContent = photoEntries.length;
+    memoriesAlbumGrid.replaceChildren();
+    memoriesAlbumEmpty.style.display = photoEntries.length ? "none" : "flex";
+
+    photoEntries.slice(0, 24).forEach(([memoryId, memory], index) => {
+        const card = document.createElement("button");
+        card.type = "button";
+        card.className = "memory-album-card" + (memory.favorite ? " is-favorite" : "");
+        card.dataset.memoryId = memoryId;
+        if (index === 0) card.classList.add("is-featured");
+
+        const image = document.createElement("img");
+        image.src = memory.photoData;
+        image.alt = memory.title ? "Photo : " + memory.title : "Photo d’un souvenir à deux";
+        image.loading = "lazy";
+        image.decoding = "async";
+
+        const shade = document.createElement("span");
+        shade.className = "memory-album-shade";
+        const category = document.createElement("small");
+        const categoryMeta = getMemoryCategoryMeta(memory.category);
+        category.textContent = categoryMeta.emoji + " " + categoryMeta.label;
+        const title = document.createElement("strong");
+        title.textContent = memory.title || "Souvenir à deux";
+        const date = document.createElement("time");
+        date.textContent = formatMemoryDate(memory.memoryDate);
+        shade.append(category, title, date);
+        if (memory.favorite) {
+            const favorite = document.createElement("b");
+            favorite.className = "memory-album-favorite";
+            favorite.textContent = "★";
+            card.appendChild(favorite);
+        }
+        card.append(image, shade);
+        card.addEventListener("click", () => openMemoryViewer(memory));
+        memoriesAlbumGrid.appendChild(card);
+    });
+}
+
 function getLocalDateInputValue() {
     const today = new Date();
     const year = today.getFullYear();
@@ -9728,13 +9948,18 @@ function getLocalDateInputValue() {
 
 function openMemoryForm(memoryId = null, memory = null) {
     currentEditingMemoryId = memoryId;
+    currentMemoryPhotoData = memory?.photoData || "";
+    currentMemoryPhotoProcessing = false;
     memoryFormHeading.textContent = memory ? "Modifier ce souvenir" : "Ajouter un souvenir";
     saveMemoryBtn.textContent = memory ? "Enregistrer les modifications" : "Enregistrer";
     memoryEmoji.value = memory?.emoji || "💚";
     memoryFormIcon.textContent = memoryEmoji.value;
     memoryDate.value = memory?.memoryDate || getLocalDateInputValue();
+    if (memoryCategory) memoryCategory.value = memory?.category || "moment";
     memoryTitle.value = memory?.title || "";
     memoryText.value = memory?.text || "";
+    if (memoryPhotoInput) memoryPhotoInput.value = "";
+    updateMemoryPhotoPreview();
     memoryForm.style.display = "block";
     memoryTitle.focus();
     memoryForm.scrollIntoView({ behavior: "smooth", block: "center" });
@@ -9742,9 +9967,14 @@ function openMemoryForm(memoryId = null, memory = null) {
 
 function closeMemoryForm() {
     currentEditingMemoryId = null;
+    currentMemoryPhotoData = "";
+    currentMemoryPhotoProcessing = false;
     memoryForm.reset();
     memoryEmoji.value = "💚";
     memoryFormIcon.textContent = "💚";
+    if (memoryCategory) memoryCategory.value = "moment";
+    if (memoryPhotoInput) memoryPhotoInput.value = "";
+    updateMemoryPhotoPreview();
     memoryForm.style.display = "none";
     saveMemoryBtn.disabled = false;
 }
@@ -9758,15 +9988,21 @@ function saveMemory() {
         showToast("Complète le titre, la date et le souvenir");
         return;
     }
+    if (currentMemoryPhotoProcessing) {
+        showToast("Ta photo est encore en préparation 📸");
+        return;
+    }
 
     saveMemoryBtn.disabled = true;
     saveMemoryBtn.textContent = "Enregistrement…";
     const timestamp = Date.now();
     const memoryData = {
         emoji: memoryEmoji.value.trim() || "💚",
+        category: memoryCategory?.value || "moment",
         title,
         text,
         memoryDate: date,
+        photoData: currentMemoryPhotoData || null,
         updatedAt: timestamp,
         updatedBy: currentUser.uid,
         updatedByPseudo: pseudo
@@ -9853,13 +10089,11 @@ function buildUnifiedTimeline(spaceData) {
             icon: memory.emoji || "💚",
             title: memory.title || "Souvenir à deux",
             text: memory.text || "",
+            category: memory.category || "moment",
+            photoData: memory.photoData || "",
             timestamp: getTimelineTimestamp(memory.memoryDate, memory.createdAt),
             favorite: Boolean(memory.favorite),
-            action: () => {
-                const card = memoriesTimeline.querySelector('[data-memory-id="' + memoryId + '"]');
-                card?.scrollIntoView({ behavior: "smooth", block: "center" });
-                card?.classList.add("is-focused");
-            }
+            action: () => openMemoryViewer(memory)
         });
     });
 
@@ -9940,14 +10174,22 @@ function renderUnifiedTimeline() {
         }
         const card = document.createElement("button");
         card.type = "button";
-        card.className = "unified-timeline-card type-" + item.type + (item.favorite ? " is-favorite" : "");
+        card.className = "unified-timeline-card type-" + item.type + (item.favorite ? " is-favorite" : "") + (item.photoData ? " has-photo" : "");
         const marker = document.createElement("span");
         marker.className = "unified-timeline-marker";
         const timelineIconMap = { game: "cactusIconGame", achievement: "cactusIconTrophy", milestone: "cactusIconStory" };
-        if (timelineIconMap[item.type]) marker.appendChild(createCactusUiIcon(timelineIconMap[item.type], "timeline-cactus-icon"));
+        if (item.photoData) {
+            const image = document.createElement("img");
+            image.src = item.photoData;
+            image.alt = "";
+            image.loading = "lazy";
+            marker.appendChild(image);
+        } else if (timelineIconMap[item.type]) marker.appendChild(createCactusUiIcon(timelineIconMap[item.type], "timeline-cactus-icon"));
         else marker.textContent = item.icon;
         const copy = document.createElement("span");
-        const date = document.createElement("small"); date.textContent = new Date(item.timestamp).toLocaleDateString("fr-FR", { day: "numeric", month: "long" });
+        const date = document.createElement("small");
+        const categoryPrefix = item.type === "memory" ? getMemoryCategoryMeta(item.category).emoji + " · " : "";
+        date.textContent = categoryPrefix + new Date(item.timestamp).toLocaleDateString("fr-FR", { day: "numeric", month: "long" });
         const title = document.createElement("strong"); title.textContent = item.title;
         const text = document.createElement("p"); text.textContent = item.text;
         copy.append(date, title, text);
@@ -9985,6 +10227,7 @@ function renderMemories(memories, focusedMemoryId = null) {
     historyPersonalCount.textContent = entries.length;
     historyFavoritesCount.textContent = entries.filter(([, memory]) => memory.favorite).length;
     memoriesEmptyState.style.display = entries.length === 0 ? "flex" : "none";
+    renderMemoriesAlbum(entries);
 
     entries.forEach(([memoryId, memory]) => {
         const article = document.createElement("article");
@@ -9995,10 +10238,32 @@ function renderMemories(memories, focusedMemoryId = null) {
         marker.className = "memory-timeline-marker";
         marker.textContent = memory.emoji || "💚";
 
+        if (memory.photoData) {
+            article.classList.add("has-photo");
+            const photoButton = document.createElement("button");
+            photoButton.type = "button";
+            photoButton.className = "memory-timeline-photo";
+            photoButton.setAttribute("aria-label", "Voir la photo de " + (memory.title || "ce souvenir"));
+            const photo = document.createElement("img");
+            photo.src = memory.photoData;
+            photo.alt = memory.title ? "Photo : " + memory.title : "Photo du souvenir";
+            photo.loading = "lazy";
+            photo.decoding = "async";
+            photoButton.appendChild(photo);
+            photoButton.addEventListener("click", () => openMemoryViewer(memory));
+            article.appendChild(photoButton);
+        }
+
         const body = document.createElement("div");
         body.className = "memory-timeline-body";
+        const meta = document.createElement("div");
+        meta.className = "memory-timeline-meta";
         const date = document.createElement("small");
         date.textContent = formatMemoryDate(memory.memoryDate);
+        const category = document.createElement("span");
+        const categoryMeta = getMemoryCategoryMeta(memory.category);
+        category.textContent = categoryMeta.emoji + " " + categoryMeta.label;
+        meta.append(date, category);
         const title = document.createElement("h3");
         title.textContent = memory.title || "Souvenir";
         const text = document.createElement("p");
@@ -10006,7 +10271,7 @@ function renderMemories(memories, focusedMemoryId = null) {
         const author = document.createElement("span");
         author.className = "memory-author";
         author.textContent = "Ajouté par " + (memory.createdByPseudo || "Cactus");
-        body.append(date, title, text, author);
+        body.append(meta, title, text, author);
 
         const actions = document.createElement("div");
         actions.className = "memory-card-actions";
@@ -10016,6 +10281,12 @@ function renderMemories(memories, focusedMemoryId = null) {
         favoriteBtn.setAttribute("aria-label", favoriteBtn.title);
         favoriteBtn.textContent = memory.favorite ? "★" : "☆";
         favoriteBtn.addEventListener("click", () => toggleMemoryFavorite(memoryId, memory));
+        const viewBtn = document.createElement("button");
+        viewBtn.type = "button";
+        viewBtn.title = "Ouvrir";
+        viewBtn.setAttribute("aria-label", "Ouvrir ce souvenir");
+        viewBtn.textContent = "Voir";
+        viewBtn.addEventListener("click", () => openMemoryViewer(memory));
         const editBtn = document.createElement("button");
         editBtn.type = "button";
         editBtn.title = "Modifier";
@@ -10028,7 +10299,7 @@ function renderMemories(memories, focusedMemoryId = null) {
         deleteBtn.setAttribute("aria-label", "Supprimer ce souvenir");
         deleteBtn.textContent = "×";
         deleteBtn.addEventListener("click", () => deleteMemory(memoryId));
-        actions.append(favoriteBtn, editBtn, deleteBtn);
+        actions.append(favoriteBtn, viewBtn, editBtn, deleteBtn);
 
         article.append(marker, body, actions);
         memoriesTimeline.appendChild(article);

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cactus 🌵</title>
-    <link rel="stylesheet" href="css/style.css?v=1103">
+    <link rel="stylesheet" href="css/style.css?v=111">
     <link rel="manifest" href="manifest.json?v=2">
     <meta name="theme-color" content="#003E2D">
 </head>
@@ -747,9 +747,9 @@
     <header class="secondary-screen-hero">
         <img src="assets/cactus-history.png" alt="Livre de nos souvenirs" loading="lazy" decoding="async">
         <div>
-            <small>Notre histoire en jeu</small>
+            <small>Votre histoire à deux</small>
             <h1>Nos souvenirs</h1>
-            <p>Retrouvez vos réponses et vos meilleurs moments par mode.</p>
+            <p>Photos, anecdotes, jeux et petits moments réunis dans votre album à deux.</p>
         </div>
     </header>
 
@@ -757,6 +757,19 @@
         <article><svg class="cactus-ui-icon" aria-hidden="true"><use href="#cactusIconMemories"></use></svg><div><strong id="historyPersonalCount">0</strong><small>Souvenirs écrits</small></div></article>
         <article><svg class="cactus-ui-icon" aria-hidden="true"><use href="#cactusIconStar"></use></svg><div><strong id="historyFavoritesCount">0</strong><small>Favoris</small></div></article>
         <article><svg class="cactus-ui-icon" aria-hidden="true"><use href="#cactusIconStory"></use></svg><div><strong id="historyTotalCount">0</strong><small>Moments au total</small></div></article>
+        <article><span class="history-overview-photo-icon" aria-hidden="true">📸</span><div><strong id="historyPhotosCount">0</strong><small>Photos partagées</small></div></article>
+    </section>
+
+    <section class="memories-album-section" aria-labelledby="memoriesAlbumTitle">
+        <div class="memories-album-heading">
+            <div><small>Votre pellicule à deux</small><h2 id="memoriesAlbumTitle">Notre album</h2><p>Les moments auxquels vous avez donné une image.</p></div>
+            <button type="button" id="addPhotoMemoryBtn">＋ Ajouter</button>
+        </div>
+        <div id="memoriesAlbumGrid" class="memories-album-grid"></div>
+        <div id="memoriesAlbumEmpty" class="memories-album-empty">
+            <span aria-hidden="true">📷</span>
+            <div><strong>Votre première photo vous attend</strong><p>Ajoutez une image à un souvenir pour la faire apparaître ici.</p></div>
+        </div>
     </section>
 
     <section class="unified-timeline-section">
@@ -787,8 +800,29 @@
                 <input id="memoryEmoji" type="text" maxlength="4" value="💚" aria-label="Emoji du souvenir">
                 <input id="memoryDate" type="date" required aria-label="Date du souvenir">
             </div>
+            <select id="memoryCategory" class="memory-category-select" aria-label="Type de souvenir">
+                <option value="moment">✨ Petit moment</option>
+                <option value="reunion">🚆 Retrouvailles</option>
+                <option value="trip">✈️ Voyage</option>
+                <option value="date">🥂 Rendez-vous</option>
+                <option value="daily">🏡 Quotidien</option>
+                <option value="celebration">🎉 Célébration</option>
+                <option value="proud">🌟 Fierté</option>
+            </select>
             <input id="memoryTitle" type="text" maxlength="80" required placeholder="Titre du souvenir">
             <textarea id="memoryText" rows="4" maxlength="1000" required placeholder="Racontez ce joli moment…"></textarea>
+            <div class="memory-photo-field">
+                <input id="memoryPhotoInput" type="file" accept="image/*" hidden>
+                <button type="button" id="chooseMemoryPhotoBtn" class="memory-photo-picker">
+                    <span class="memory-photo-picker-icon" aria-hidden="true">📸</span>
+                    <span><strong>Ajouter une photo</strong><small>Facultatif · l’image sera allégée automatiquement</small></span>
+                    <b aria-hidden="true">＋</b>
+                </button>
+                <div id="memoryPhotoPreview" class="memory-photo-preview" hidden>
+                    <img id="memoryPhotoPreviewImage" alt="Aperçu de la photo du souvenir">
+                    <div><span><strong>Photo prête</strong><small>Elle sera visible par vous deux.</small></span><button type="button" id="removeMemoryPhotoBtn">Retirer</button></div>
+                </div>
+            </div>
             <div class="memory-form-actions">
                 <button type="submit" id="saveMemoryBtn">Enregistrer</button>
                 <button type="button" id="cancelMemoryBtn" class="secondary">Annuler</button>
@@ -880,6 +914,24 @@
     <button type="button" id="backToHistoryDetailBtn" class="secondary">
         Retour
     </button>
+</div>
+
+
+<div id="memoryViewerModal" class="memory-viewer-modal" style="display:none;" aria-hidden="true">
+    <button type="button" id="memoryViewerBackdrop" class="memory-viewer-backdrop" aria-label="Fermer le souvenir"></button>
+    <article class="memory-viewer-sheet" role="dialog" aria-modal="true" aria-labelledby="memoryViewerTitle">
+        <button type="button" id="closeMemoryViewerBtn" class="memory-viewer-close" aria-label="Fermer">×</button>
+        <div id="memoryViewerVisual" class="memory-viewer-visual">
+            <img id="memoryViewerImage" alt="Photo du souvenir">
+            <span id="memoryViewerFallback" aria-hidden="true">💚</span>
+        </div>
+        <div class="memory-viewer-copy">
+            <div class="memory-viewer-meta"><span id="memoryViewerCategory">✨ Petit moment</span><time id="memoryViewerDate"></time></div>
+            <h2 id="memoryViewerTitle">Un souvenir à deux</h2>
+            <p id="memoryViewerText"></p>
+            <small id="memoryViewerAuthor"></small>
+        </div>
+    </article>
 </div>
 
 <!-- ÉCRAN STATISTIQUES -->
@@ -2762,7 +2814,7 @@
     <script src="js/storage.js"></script>
     <script src="js/rankings.js"></script>
     <script src="js/questions.js"></script>
-    <script src="js/script.js?v=110"></script>
+    <script src="js/script.js?v=111"></script>
 
 </body>
 </html>
