@@ -11423,3 +11423,347 @@ body.has-custom-app-theme .settings-screen .settings-panel button.app-custom-the
     color: var(--app-text);
     background: color-mix(in srgb, var(--app-panel-bg) 90%, transparent);
 }
+
+/* ====================
+   V104 — THÈME GLOBAL + RÉGLAGES RÉORGANISÉS
+==================== */
+
+/* Le thème choisi pilote désormais le chrome général de l'application. */
+body.has-custom-app-theme #dashboardScreen.dashboard-home {
+    color: var(--app-text);
+}
+
+body.has-custom-app-theme #dashboardScreen .dashboard-top-actions button,
+body.has-custom-app-theme #dashboardScreen .dashboard-profile-btn,
+body.has-custom-app-theme #dashboardScreen .dashboard-settings-btn {
+    border-color: color-mix(in srgb, var(--app-user-accent) 32%, transparent);
+    background: color-mix(in srgb, var(--app-accent-surface) 92%, transparent);
+    color: var(--app-heading);
+    box-shadow: 0 10px 25px var(--app-shadow-soft);
+}
+
+body.has-custom-app-theme #dashboardScreen .dashboard-cactus-message {
+    border-color: color-mix(in srgb, var(--app-user-accent) 28%, transparent);
+    background: color-mix(in srgb, var(--app-accent-surface) 94%, transparent);
+    color: var(--app-heading);
+    box-shadow: 0 12px 28px var(--app-shadow-soft);
+}
+body.has-custom-app-theme #dashboardScreen .dashboard-cactus-message::after {
+    border-color: var(--app-accent-surface) transparent transparent transparent;
+}
+body.has-custom-app-theme #dashboardScreen .dashboard-cactus-glow {
+    background: radial-gradient(circle,
+        color-mix(in srgb, var(--app-user-accent) 25%, transparent),
+        color-mix(in srgb, var(--app-user-accent) 8%, transparent) 52%,
+        transparent 72%);
+}
+
+body.has-custom-app-theme #dashboardScreen .dashboard-xp-track,
+body.has-custom-app-theme #dashboardScreen .dashboard-mini-track {
+    border-color: color-mix(in srgb, var(--app-user-accent) 20%, transparent);
+    background: var(--app-themed-track);
+}
+body.has-custom-app-theme #dashboardScreen .dashboard-xp-fill {
+    background: linear-gradient(90deg,
+        color-mix(in srgb, var(--app-user-accent) 78%, #ffffff),
+        var(--app-user-accent));
+    box-shadow: 0 0 14px color-mix(in srgb, var(--app-user-accent) 38%, transparent);
+}
+
+body.has-custom-app-theme #dashboardScreen .dashboard-stat-card {
+    border-color: color-mix(in srgb, var(--app-user-accent) 24%, transparent);
+    background: var(--app-themed-card);
+    box-shadow: 0 10px 26px var(--app-shadow-soft), inset 0 1px rgba(255,255,255,.04);
+}
+body.has-custom-app-theme #dashboardScreen .dashboard-stat-card strong { color: var(--app-heading); }
+body.has-custom-app-theme #dashboardScreen .dashboard-stat-card small { color: var(--app-muted); }
+
+body.has-custom-app-theme #dashboardScreen .dashboard-all-games-btn,
+body.has-custom-app-theme #dashboardScreen .dashboard-last-activity,
+body.has-custom-app-theme #dashboardScreen .dashboard-bottom-nav {
+    border-color: color-mix(in srgb, var(--app-user-accent) 24%, transparent);
+    background: var(--app-themed-nav);
+    color: var(--app-heading);
+    box-shadow: 0 12px 28px var(--app-shadow-soft);
+}
+body.has-custom-app-theme #dashboardScreen .dashboard-all-games-btn {
+    color: color-mix(in srgb, var(--app-user-accent) 76%, var(--app-heading));
+}
+body.has-custom-app-theme #dashboardScreen .dashboard-all-games-btn:hover,
+body.has-custom-app-theme #dashboardScreen .dashboard-last-activity:hover,
+body.has-custom-app-theme #dashboardScreen .dashboard-bottom-nav button:hover {
+    background: color-mix(in srgb, var(--app-user-accent) 10%, var(--app-themed-nav));
+}
+body.has-custom-app-theme #dashboardScreen .dashboard-bottom-nav button {
+    color: var(--app-heading);
+}
+body.has-custom-app-theme #dashboardScreen .dashboard-space-code:hover,
+body.has-custom-app-theme #dashboardScreen .dashboard-space-code:focus-visible,
+body.has-custom-app-theme #dashboardScreen .dashboard-space-code.is-waiting {
+    background: var(--app-accent-soft);
+    color: var(--app-text);
+}
+
+body.has-custom-app-theme #dashboardScreen .dashboard-today-widget {
+    border-color: color-mix(in srgb, var(--app-user-accent) 24%, transparent);
+    background: linear-gradient(145deg, var(--app-panel-bg), var(--app-accent-soft));
+}
+body.has-custom-app-theme #dashboardScreen .dashboard-daily-card {
+    border-color: color-mix(in srgb, #f6b84d 30%, var(--app-user-accent));
+    background:
+        linear-gradient(145deg,
+            color-mix(in srgb, #d99735 16%, var(--app-accent-surface)),
+            color-mix(in srgb, var(--app-user-accent) 10%, var(--app-accent-surface-strong)));
+}
+body.has-custom-app-theme #dashboardScreen .dashboard-daily-card.is-completed {
+    border-color: color-mix(in srgb, var(--app-user-accent) 42%, transparent);
+    background: linear-gradient(145deg, var(--app-accent-surface), var(--app-accent-surface-strong));
+}
+body.has-custom-app-theme .dashboard-daily-copy strong { color: var(--app-heading); }
+body.has-custom-app-theme .dashboard-daily-copy > span { color: var(--app-muted); }
+body.has-custom-app-theme .dashboard-daily-streak {
+    background: color-mix(in srgb, #f5b849 14%, var(--app-accent-deeper));
+}
+
+body.has-custom-app-theme #dashboardScreen .dashboard-discussions-card {
+    border-color: color-mix(in srgb, var(--app-user-accent) 24%, transparent);
+    background: var(--app-themed-card);
+    color: var(--app-heading);
+    box-shadow: 0 10px 28px var(--app-shadow-soft);
+}
+body.has-custom-app-theme #dashboardScreen .dashboard-discussions-icon {
+    background: var(--app-icon-bg);
+}
+body.has-custom-app-theme #dashboardScreen .dashboard-discussions-copy small,
+body.has-custom-app-theme #dashboardScreen .dashboard-discussions-copy span,
+body.has-custom-app-theme #dashboardScreen .dashboard-discussions-arrow {
+    color: var(--app-muted);
+}
+body.has-custom-app-theme #dashboardScreen .dashboard-discussions-count {
+    background: var(--app-user-accent);
+    color: var(--app-user-accent-contrast);
+}
+body.has-custom-app-theme #dashboardScreen .dashboard-discussions-count.is-empty {
+    background: var(--app-accent-soft);
+    color: var(--app-muted);
+}
+
+/* Les boutons généraux des écrans secondaires suivent l'univers choisi.
+   Les couleurs sémantiques rouge/vert des jeux restent volontairement intactes. */
+body.has-custom-app-theme .secondary-screen:not(.game-screen) > button:not(.danger-btn):not(.danger-outline-btn):not(.secondary),
+body.has-custom-app-theme .secondary-screen .top-left-btn,
+body.has-custom-app-theme .secondary-screen .top-center-btn,
+body.has-custom-app-theme .secondary-screen .top-right-btn {
+    border-color: color-mix(in srgb, var(--app-user-accent) 28%, transparent);
+}
+
+/* ---------- Réglages : nouvelle architecture ---------- */
+.settings-screen {
+    padding-top: 14px;
+}
+
+.settings-topbar {
+    display: grid;
+    grid-template-columns: 46px minmax(0, 1fr) 58px;
+    align-items: center;
+    gap: 11px;
+    margin-bottom: 12px;
+    padding: 11px 12px;
+    border: 1px solid var(--app-border);
+    border-radius: 22px;
+    background: var(--app-panel-bg);
+    box-shadow: 0 12px 28px var(--app-shadow-soft);
+}
+.settings-topbar-back {
+    display: grid;
+    width: 46px;
+    height: 46px;
+    margin: 0;
+    padding: 0;
+    place-items: center;
+    border: 1px solid color-mix(in srgb, var(--app-user-accent, var(--app-accent)) 28%, transparent);
+    border-radius: 15px;
+    background: var(--app-accent-soft, var(--app-icon-bg));
+    color: var(--app-heading);
+    box-shadow: none;
+    font-size: 1.5rem;
+}
+.settings-topbar-copy { min-width: 0; }
+.settings-topbar-copy small {
+    display: block;
+    color: var(--app-accent);
+    font-size: .55rem;
+    font-weight: 900;
+    letter-spacing: .07em;
+    text-transform: uppercase;
+}
+.settings-topbar-copy h1 {
+    margin: 2px 0 2px;
+    color: var(--app-heading);
+    font-size: 1.2rem;
+}
+.settings-topbar-copy p {
+    margin: 0;
+    overflow: hidden;
+    color: var(--app-muted);
+    font-size: .6rem;
+    line-height: 1.35;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.settings-topbar-visual {
+    display: grid;
+    width: 58px;
+    height: 58px;
+    place-items: center;
+    overflow: hidden;
+    border: 1px solid var(--app-border);
+    border-radius: 18px;
+    background: var(--app-icon-bg);
+}
+.settings-topbar-visual img {
+    width: 66px;
+    height: 66px;
+    object-fit: contain;
+}
+
+.settings-category-nav {
+    position: sticky;
+    z-index: 8;
+    top: 8px;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 6px;
+    margin: 0 0 13px;
+    padding: 6px;
+    border: 1px solid var(--app-border);
+    border-radius: 19px;
+    background: color-mix(in srgb, var(--app-accent-surface-strong, var(--app-panel-bg)) 92%, transparent);
+    box-shadow: 0 10px 26px var(--app-shadow-soft);
+    backdrop-filter: blur(18px);
+}
+.settings-category-nav button {
+    display: grid;
+    min-width: 0;
+    min-height: 54px;
+    margin: 0;
+    padding: 7px 4px;
+    place-items: center;
+    align-content: center;
+    gap: 3px;
+    border: 1px solid transparent;
+    border-radius: 14px;
+    background: transparent;
+    color: var(--app-muted);
+    box-shadow: none;
+}
+.settings-category-nav button span { font-size: 1rem; line-height: 1; }
+.settings-category-nav button strong {
+    overflow: hidden;
+    max-width: 100%;
+    font-size: .53rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.settings-category-nav button.is-active {
+    border-color: color-mix(in srgb, var(--app-user-accent, var(--app-accent)) 38%, transparent);
+    background: var(--app-accent-soft-strong, var(--app-icon-bg));
+    color: var(--app-heading);
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--app-user-accent, var(--app-accent)) 12%, transparent);
+}
+.settings-category-nav button[hidden] { display: none !important; }
+
+.settings-screen [data-settings-group].is-settings-hidden {
+    display: none !important;
+}
+.settings-screen [data-settings-group].is-settings-active {
+    animation: settingsSectionIn .22s ease both;
+}
+@keyframes settingsSectionIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: none; }
+}
+
+.settings-screen .settings-panel {
+    margin-bottom: 11px;
+    padding: 14px;
+    border-color: var(--app-border);
+    border-radius: 21px;
+    background: var(--app-panel-bg);
+    box-shadow: 0 10px 24px var(--app-shadow-soft);
+}
+.settings-screen .settings-panel-heading {
+    margin-bottom: 11px;
+}
+.settings-screen .settings-panel-heading > span {
+    background: var(--app-accent-soft, var(--app-icon-bg));
+}
+.settings-screen .settings-panel-heading small,
+.settings-screen .account-export-box small,
+.settings-screen .phone-notifications-copy small,
+.settings-screen .creator-mode-panel .settings-panel-heading small,
+.settings-screen .creator-tools-panel .settings-panel-heading small {
+    color: color-mix(in srgb, var(--app-user-accent, var(--app-accent)) 78%, var(--app-heading));
+}
+
+/* Les contrôles ne retombent plus sur le vert Cactus quand un autre univers est actif. */
+body.has-custom-app-theme .settings-screen input,
+body.has-custom-app-theme .settings-screen select,
+body.has-custom-app-theme .settings-screen textarea {
+    border-color: color-mix(in srgb, var(--app-user-accent) 36%, transparent);
+    background: var(--app-input-bg);
+    color: var(--app-text);
+}
+body.has-custom-app-theme .settings-screen input[type="checkbox"] {
+    accent-color: var(--app-user-accent);
+}
+body.has-custom-app-theme .settings-screen .secondary,
+body.has-custom-app-theme .settings-screen .phone-notifications-actions .secondary,
+body.has-custom-app-theme .settings-screen .account-export-box .secondary,
+body.has-custom-app-theme .settings-screen .app-theme-share-actions .secondary {
+    border: 1px solid color-mix(in srgb, var(--app-user-accent) 24%, transparent) !important;
+    background: var(--app-secondary-button) !important;
+    color: var(--app-heading) !important;
+    box-shadow: none !important;
+}
+body.has-custom-app-theme .settings-screen .settings-panel > button:not(.secondary):not(.danger-btn):not(.danger-outline-btn):not(.theme-text-button):not(.app-custom-theme-button):not([data-app-display-mode]):not([data-app-universe]),
+body.has-custom-app-theme .settings-screen .phone-notifications-actions button:not(.secondary),
+body.has-custom-app-theme .settings-screen .app-theme-share-actions button:not(.secondary):not(.theme-text-button),
+body.has-custom-app-theme .settings-screen .creator-tools-grid button,
+body.has-custom-app-theme .settings-screen .creator-tool-row button {
+    border-color: color-mix(in srgb, var(--app-user-accent) 36%, transparent);
+    background: var(--app-user-accent);
+    color: var(--app-user-accent-contrast);
+    box-shadow: 0 9px 20px color-mix(in srgb, var(--app-user-accent) 18%, transparent);
+}
+body.has-custom-app-theme .settings-screen .app-display-mode-switch button:not(.is-active),
+body.has-custom-app-theme .settings-screen .app-universe-grid button {
+    background: color-mix(in srgb, var(--app-panel-bg) 90%, transparent);
+    color: var(--app-text);
+}
+body.has-custom-app-theme .settings-screen .app-universe-grid button.is-active {
+    background: color-mix(in srgb, var(--universe-color) 14%, var(--app-panel-bg));
+}
+body.has-custom-app-theme .settings-screen .phone-notifications-box,
+body.has-custom-app-theme .settings-screen .account-email-row {
+    background: var(--app-accent-soft);
+}
+body.has-custom-app-theme .settings-screen .settings-account-actions {
+    border-color: var(--app-border);
+}
+body.has-custom-app-theme .settings-screen .settings-account-actions > .secondary {
+    background: var(--app-secondary-button) !important;
+}
+.settings-legacy-back { display: none !important; }
+
+@media (max-width: 420px) {
+    .settings-screen { padding: 12px 12px calc(24px + env(safe-area-inset-bottom)); }
+    .settings-topbar { grid-template-columns: 44px minmax(0, 1fr) 52px; padding: 10px; }
+    .settings-topbar-back { width: 44px; height: 44px; }
+    .settings-topbar-visual { width: 52px; height: 52px; }
+    .settings-topbar-visual img { width: 59px; height: 59px; }
+    .settings-topbar-copy p { display: none; }
+    .settings-category-nav { top: 6px; }
+    .settings-category-nav button { min-height: 50px; }
+    .settings-category-nav button strong { font-size: .49rem; }
+}

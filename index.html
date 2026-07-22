@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cactus 🌵</title>
-    <link rel="stylesheet" href="css/style.css?v=103">
+    <link rel="stylesheet" href="css/style.css?v=104">
     <link rel="manifest" href="manifest.json?v=2">
     <meta name="theme-color" content="#003E2D">
 </head>
@@ -2388,16 +2388,26 @@
 
             <!-- ÉCRAN RÉGLAGES -->
 <div id="settingsScreen" class="secondary-screen settings-screen" style="display:none;">
-    <header class="secondary-screen-hero">
-        <img src="assets/cactus-profile.png" alt="Profil Cactus" loading="lazy" decoding="async">
-        <div>
-            <small>Votre espace</small>
+    <header class="settings-topbar">
+        <button type="button" id="backFromSettingsTopBtn" class="settings-topbar-back" aria-label="Retour">‹</button>
+        <div class="settings-topbar-copy">
+            <small>Votre espace personnel</small>
             <h1>Réglages</h1>
-            <p>Personnalisez votre coin Cactus.</p>
+            <p>Tout ce qui concerne votre compte, votre apparence et vos notifications.</p>
+        </div>
+        <div class="settings-topbar-visual" aria-hidden="true">
+            <img src="assets/cactus-profile.png" alt="" loading="lazy" decoding="async">
         </div>
     </header>
 
-    <section class="settings-panel">
+    <nav id="settingsCategoryNav" class="settings-category-nav" aria-label="Catégories des réglages">
+        <button type="button" class="is-active" data-settings-tab="appearance"><span>🎨</span><strong>Apparence</strong></button>
+        <button type="button" data-settings-tab="notifications"><span>🔔</span><strong>Notifications</strong></button>
+        <button type="button" data-settings-tab="account"><span>👤</span><strong>Compte</strong></button>
+        <button type="button" id="settingsCreatorTabBtn" data-settings-tab="creator" hidden><span>🧪</span><strong>Créateur</strong></button>
+    </nav>
+
+    <section class="settings-panel" data-settings-group="account">
         <div class="settings-panel-heading">
             <span>👤</span>
             <div><small>Profil</small><strong>Mon pseudo</strong></div>
@@ -2414,7 +2424,7 @@
         </button>
     </section>
 
-    <section class="settings-panel settings-theme-panel app-appearance-studio">
+    <section class="settings-panel settings-theme-panel app-appearance-studio is-settings-active" data-settings-group="appearance">
         <div class="settings-panel-heading">
             <span id="themeSettingIcon">🌙</span>
             <div>
@@ -2498,7 +2508,7 @@
         </div>
     </section>
 
-    <section class="settings-panel notifications-preferences">
+    <section class="settings-panel notifications-preferences" data-settings-group="notifications">
         <div class="settings-panel-heading">
             <span>🔔</span>
             <div><small>Notifications</small><strong>Ce que je souhaite voir</strong></div>
@@ -2522,7 +2532,7 @@
         </div>
     </section>
 
-    <section id="creatorModePanel" class="settings-panel creator-mode-panel" style="display:none;">
+    <section id="creatorModePanel" class="settings-panel creator-mode-panel" data-settings-group="creator" style="display:none;">
         <div class="settings-panel-heading">
             <span>🧪</span>
             <div><small>Compte créateur détecté</small><strong>Mode créateur</strong></div>
@@ -2534,7 +2544,7 @@
         <p id="creatorModeStatus">Mode créateur désactivé · tu joues exactement comme ta partenaire.</p>
     </section>
 
-    <section class="settings-panel account-security-panel">
+    <section class="settings-panel account-security-panel" data-settings-group="account">
         <div class="settings-panel-heading">
             <span>🔐</span>
             <div><small>Compte</small><strong>Sécurité et données</strong></div>
@@ -2562,7 +2572,7 @@
         </div>
     </section>
 
-    <section id="creatorToolsPanel" class="settings-panel creator-tools-panel" style="display:none;">
+    <section id="creatorToolsPanel" class="settings-panel creator-tools-panel" data-settings-group="creator" style="display:none;">
         <div class="settings-panel-heading">
             <span>🛠️</span>
             <div><small>Créatrice uniquement</small><strong>Outils de test</strong></div>
@@ -2635,7 +2645,7 @@
         </section>
     </div>
 
-    <section class="settings-panel account-danger-panel">
+    <section class="settings-panel account-danger-panel" data-settings-group="account">
         <div class="settings-panel-heading">
             <span>⚠️</span>
             <div><small>Zone sensible</small><strong>Supprimer mon compte</strong></div>
@@ -2654,7 +2664,7 @@
         </div>
     </section>
 
-    <div class="settings-account-actions">
+    <div class="settings-account-actions" data-settings-group="account">
         <button id="leaveSpaceBtn" type="button" class="secondary">
             Quitter cet espace
         </button>
@@ -2664,7 +2674,7 @@
         </button>
     </div>
 
-    <button type="button" id="backFromSettingsBtn" class="secondary">
+    <button type="button" id="backFromSettingsBtn" class="secondary settings-legacy-back">
         Retour
     </button>
 </div>
@@ -2715,7 +2725,7 @@
     <script src="js/storage.js"></script>
     <script src="js/rankings.js"></script>
     <script src="js/questions.js"></script>
-    <script src="js/script.js?v=103"></script>
+    <script src="js/script.js?v=104"></script>
 
 </body>
 </html>

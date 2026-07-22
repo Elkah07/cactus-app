@@ -145,6 +145,10 @@ const themeSettingIcon = document.getElementById("themeSettingIcon");
 const themeSettingLabel = document.getElementById("themeSettingLabel");
 const themeColorMeta = document.querySelector('meta[name="theme-color"]');
 const backFromSettingsBtn = document.getElementById("backFromSettingsBtn");
+const backFromSettingsTopBtn = document.getElementById("backFromSettingsTopBtn");
+const settingsCategoryNav = document.getElementById("settingsCategoryNav");
+const settingsCreatorTabBtn = document.getElementById("settingsCreatorTabBtn");
+let activeSettingsTab = "appearance";
 const currentAccountEmail = document.getElementById("currentAccountEmail");
 const newAccountPassword = document.getElementById("newAccountPassword");
 const changePasswordBtn = document.getElementById("changePasswordBtn");
@@ -2270,11 +2274,47 @@ backToLoginBtn.addEventListener("click", () => {
     showScreen("login");
 });
 
+function setSettingsTab(tab = "appearance") {
+    const allowed = new Set(["appearance", "notifications", "account", "creator"]);
+    const nextTab = allowed.has(tab) ? tab : "appearance";
+    if (nextTab === "creator" && settingsCreatorTabBtn?.hidden) {
+        activeSettingsTab = "appearance";
+    } else {
+        activeSettingsTab = nextTab;
+    }
+
+    settingsCategoryNav?.querySelectorAll("[data-settings-tab]").forEach((button) => {
+        const active = button.dataset.settingsTab === activeSettingsTab;
+        button.classList.toggle("is-active", active);
+        button.setAttribute("aria-selected", active ? "true" : "false");
+    });
+
+    settingsScreen?.querySelectorAll("[data-settings-group]").forEach((section) => {
+        const visible = section.dataset.settingsGroup === activeSettingsTab;
+        section.classList.toggle("is-settings-active", visible);
+        section.classList.toggle("is-settings-hidden", !visible);
+    });
+
+    try { sessionStorage.setItem("cactusSettingsTab", activeSettingsTab); } catch {}
+    settingsScreen?.scrollTo({ top: 0, behavior: "auto" });
+}
+
+settingsCategoryNav?.querySelectorAll("[data-settings-tab]").forEach((button) => {
+    button.addEventListener("click", () => setSettingsTab(button.dataset.settingsTab));
+});
+
+backFromSettingsTopBtn?.addEventListener("click", () => backFromSettingsBtn?.click());
+
 settingsBtn.addEventListener("click", () => {
     previousScreen = (typeof lastShownScreen === "string" && lastShownScreen !== "settings")
         ? lastShownScreen
         : "dashboard";
     prepareAccountSettings();
+    const rememberedTab = (() => {
+        try { return sessionStorage.getItem("cactusSettingsTab") || "appearance"; }
+        catch { return "appearance"; }
+    })();
+    setSettingsTab(rememberedTab);
     showScreen("settings");
 });
 
@@ -2474,6 +2514,20 @@ function applyAppAppearance(appearance) {
 
     body.style.setProperty("--dashboard-accent", accent);
     body.style.setProperty("--dashboard-line", rgbaFromAppHex(accent, 0.2));
+
+    const accentDeep = isDark ? mixAppColor(accent, "#08131F", 0.74) : mixAppColor(accent, "#FFFFFF", 0.82);
+    const accentDeeper = isDark ? mixAppColor(accent, "#050A12", 0.86) : mixAppColor(accent, "#FFFFFF", 0.92);
+    const accentSurface = isDark ? mixAppColor(accent, "#111927", 0.72) : mixAppColor(accent, "#FFFFFF", 0.88);
+    const accentSurfaceStrong = isDark ? mixAppColor(accent, "#0B1420", 0.82) : mixAppColor(accent, "#FFFFFF", 0.95);
+    body.style.setProperty("--app-accent-deep", accentDeep);
+    body.style.setProperty("--app-accent-deeper", accentDeeper);
+    body.style.setProperty("--app-accent-surface", accentSurface);
+    body.style.setProperty("--app-accent-surface-strong", accentSurfaceStrong);
+    body.style.setProperty("--app-accent-soft", rgbaFromAppHex(accent, isDark ? 0.16 : 0.13));
+    body.style.setProperty("--app-accent-soft-strong", rgbaFromAppHex(accent, isDark ? 0.28 : 0.22));
+    body.style.setProperty("--app-themed-nav", isDark ? rgbaFromAppHex(accentDeep, 0.94) : rgbaFromAppHex("#FFFFFF", 0.9));
+    body.style.setProperty("--app-themed-card", isDark ? `linear-gradient(145deg, ${rgbaFromAppHex(accentSurface, 0.96)}, ${rgbaFromAppHex(accentDeeper, 0.97)})` : `linear-gradient(145deg, ${rgbaFromAppHex("#FFFFFF", 0.96)}, ${rgbaFromAppHex(mixAppColor(accent, "#FFFFFF", 0.9), 0.96)})`);
+    body.style.setProperty("--app-themed-track", isDark ? rgbaFromAppHex(accentDeeper, 0.72) : rgbaFromAppHex(mixAppColor(accent, "#FFFFFF", 0.76), 0.9));
     body.style.background = "var(--app-page-bg)";
     renderAppearanceStudio();
 }
@@ -8080,6 +8134,10 @@ function updateCreatorToolsVisibility() {
     if (creatorModePanel) {
         creatorModePanel.style.display = creatorAccount ? "block" : "none";
         creatorModePanel.classList.toggle("is-active", active);
+    }
+    if (settingsCreatorTabBtn) {
+        settingsCreatorTabBtn.hidden = !creatorAccount;
+        if (!creatorAccount && activeSettingsTab === "creator") setSettingsTab("appearance");
     }
 
     if (creatorModeToggle) creatorModeToggle.checked = active;
