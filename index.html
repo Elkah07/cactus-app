@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cactus 🌵</title>
-    <link rel="stylesheet" href="css/style.css?v=112">
+    <link rel="stylesheet" href="css/style.css?v=113">
     <link rel="manifest" href="manifest.json?v=2">
     <meta name="theme-color" content="#003E2D">
 </head>
@@ -747,51 +747,65 @@
 </div>
 
 <!-- ÉCRAN HISTORIQUE -->
-<div id="historyScreen" class="secondary-screen memories-screen" style="display:none;">
-    <header class="secondary-screen-hero">
-        <img src="assets/cactus-history.png" alt="Livre de nos souvenirs" loading="lazy" decoding="async">
-        <div>
+<div id="historyScreen" class="secondary-screen memories-screen memories-hub-screen" style="display:none;">
+    <header class="memories-hub-header">
+        <button type="button" id="backFromHistoryBtn" class="memories-hub-back" aria-label="Retour">‹</button>
+        <div class="memories-hub-title">
             <small>Votre histoire à deux</small>
             <h1>Nos souvenirs</h1>
-            <p>Photos, anecdotes, jeux et petits moments réunis dans votre album à deux.</p>
+            <p class="memories-hub-summary">
+                <span><strong id="historyTotalCount">0</strong> moments</span>
+                <i aria-hidden="true">·</i>
+                <span><strong id="historyPhotosCount">0</strong> photos</span>
+                <i aria-hidden="true">·</i>
+                <span><strong id="historyFavoritesCount">0</strong> favoris</span>
+                <span class="memories-hidden-count" hidden><strong id="historyPersonalCount">0</strong></span>
+            </p>
         </div>
+        <button type="button" id="historyQuickAddBtn" class="memories-hub-add" aria-label="Ajouter un souvenir">＋</button>
     </header>
 
-    <section class="history-overview" aria-label="Résumé de vos souvenirs">
-        <article><svg class="cactus-ui-icon" aria-hidden="true"><use href="#cactusIconMemories"></use></svg><div><strong id="historyPersonalCount">0</strong><small>Souvenirs écrits</small></div></article>
-        <article><svg class="cactus-ui-icon" aria-hidden="true"><use href="#cactusIconStar"></use></svg><div><strong id="historyFavoritesCount">0</strong><small>Favoris</small></div></article>
-        <article><svg class="cactus-ui-icon" aria-hidden="true"><use href="#cactusIconStory"></use></svg><div><strong id="historyTotalCount">0</strong><small>Moments au total</small></div></article>
-        <article><span class="history-overview-photo-icon" aria-hidden="true">📸</span><div><strong id="historyPhotosCount">0</strong><small>Photos partagées</small></div></article>
-    </section>
+    <nav class="memories-main-tabs" aria-label="Sections de vos souvenirs" role="tablist">
+        <button type="button" class="is-active" data-memories-view="photos" role="tab" aria-selected="true">📸 <span>Photos</span></button>
+        <button type="button" data-memories-view="timeline" role="tab" aria-selected="false">🕰️ <span>Chronologie</span></button>
+        <button type="button" data-memories-view="memories" role="tab" aria-selected="false">💌 <span>Souvenirs</span></button>
+    </nav>
 
-    <section class="memories-album-section" aria-labelledby="memoriesAlbumTitle">
-        <div class="memories-album-heading">
-            <div><small>Votre pellicule à deux</small><h2 id="memoriesAlbumTitle">Notre album</h2><p>Les moments auxquels vous avez donné une image.</p></div>
-            <button type="button" id="addPhotoMemoryBtn">＋ Ajouter</button>
+    <section id="memoriesPhotosView" class="memories-view-panel memories-photos-view" data-memories-panel="photos">
+        <div class="memories-view-heading">
+            <div><small>Votre pellicule à deux</small><h2>Photos</h2><p>Tous vos moments illustrés, au même endroit.</p></div>
+            <button type="button" id="addPhotoMemoryBtn">＋ Photo</button>
         </div>
         <div id="memoriesAlbumGrid" class="memories-album-grid"></div>
         <div id="memoriesAlbumEmpty" class="memories-album-empty">
             <span aria-hidden="true">📷</span>
-            <div><strong>Votre première photo vous attend</strong><p>Ajoutez une image à un souvenir pour la faire apparaître ici.</p></div>
+            <div><strong>Votre première photo vous attend</strong><p>Ajoutez une photo à un souvenir pour commencer votre album.</p></div>
         </div>
     </section>
 
-    <section class="unified-timeline-section">
-        <div class="unified-timeline-heading"><div><small>Toute votre aventure</small><h2>Notre chronologie</h2></div><span id="unifiedTimelineCount">0 moment</span></div>
+    <section id="memoriesTimelineView" class="memories-view-panel memories-timeline-view" data-memories-panel="timeline" style="display:none;">
+        <div class="unified-timeline-heading memories-view-heading">
+            <div><small>Toute votre aventure</small><h2>Chronologie</h2><p>Retrouvez votre histoire sans mélanger tous les événements.</p></div>
+            <span id="unifiedTimelineCount">0 moment</span>
+        </div>
+        <nav class="unified-timeline-filters memories-story-filters" aria-label="Types de moments">
+            <button type="button" class="is-active" data-timeline-type="us">💚 Nous</button>
+            <button type="button" data-timeline-type="photo">📸 Photos</button>
+            <button type="button" data-timeline-type="game">🎮 Jeux</button>
+            <button type="button" data-timeline-type="achievement">🏆 Succès</button>
+            <button type="button" data-timeline-type="all">Tout</button>
+        </nav>
         <div class="unified-timeline-tools">
-            <label><span aria-hidden="true">⌕</span><input id="timelineSearchInput" type="search" placeholder="Rechercher un souvenir…" autocomplete="off"></label>
+            <label><span aria-hidden="true">⌕</span><input id="timelineSearchInput" type="search" placeholder="Rechercher…" autocomplete="off"></label>
             <select id="timelineYearFilter" aria-label="Filtrer par année"><option value="all">Toutes les années</option></select>
         </div>
-        <nav class="unified-timeline-filters" aria-label="Types de souvenirs">
-            <button type="button" class="is-active" data-timeline-type="all">Tout</button><button type="button" data-timeline-type="memory"><svg class="cactus-secondary-icon" aria-hidden="true"><use href="#cactusIconMemories"></use></svg> Souvenirs</button><button type="button" data-timeline-type="game"><svg class="cactus-secondary-icon" aria-hidden="true"><use href="#cactusIconGame"></use></svg> Jeux</button><button type="button" data-timeline-type="achievement"><svg class="cactus-secondary-icon" aria-hidden="true"><use href="#cactusIconTrophy"></use></svg> Succès</button><button type="button" data-timeline-type="milestone"><svg class="cactus-secondary-icon" aria-hidden="true"><use href="#cactusIconStory"></use></svg> Étapes</button>
-        </nav>
         <div id="unifiedTimeline" class="unified-timeline"></div>
-        <div id="unifiedTimelineEmpty" class="unified-timeline-empty" style="display:none;"><span><svg class="cactus-secondary-icon" aria-hidden="true"><use href="#cactusIconStory"></use></svg></span><strong>Aucun moment trouvé</strong><p>Modifiez la recherche ou les filtres pour retrouver votre histoire.</p><button type="button" id="resetTimelineFiltersBtn">Tout afficher</button></div>
+        <div id="unifiedTimelineEmpty" class="unified-timeline-empty" style="display:none;"><span><svg class="cactus-secondary-icon" aria-hidden="true"><use href="#cactusIconStory"></use></svg></span><strong>Aucun moment trouvé</strong><p>Modifiez la recherche ou revenez à votre histoire à deux.</p><button type="button" id="resetTimelineFiltersBtn">Voir notre histoire</button></div>
     </section>
 
-    <section class="memories-timeline-section">
-        <div class="memories-timeline-heading">
-            <div><small>Écrits par vous</small><h2>Nos souvenirs personnels</h2></div>
+    <section id="memoriesPersonalView" class="memories-view-panel memories-personal-view" data-memories-panel="memories" style="display:none;">
+        <div class="memories-timeline-heading memories-view-heading">
+            <div><small>Écrits par vous</small><h2>Vos souvenirs</h2><p>Les moments que vous avez choisi de raconter vous-mêmes.</p></div>
             <button type="button" id="showMemoryFormBtn">＋ Ajouter</button>
         </div>
 
@@ -836,68 +850,12 @@
         <div id="memoriesTimeline" class="memories-timeline"></div>
         <div id="memoriesEmptyState" class="memories-empty-state">
             <span><svg class="cactus-secondary-icon" aria-hidden="true"><use href="#cactusIconMemories"></use></svg></span>
-            <strong>Votre chronologie commence ici</strong>
-            <p>Ajoutez votre premier moment à deux.</p>
+            <strong>Votre premier souvenir vous attend</strong>
+            <p>Une phrase, une photo, une anecdote. Gardez ici ce que vous ne voulez pas oublier.</p>
         </div>
     </section>
 
-    <div class="history-automatic-heading">
-        <small>Souvenirs automatiques</small>
-        <h2>Vos jeux et votre relation</h2>
-    </div>
-
-    <div class="history-modes-grid">
-        <button type="button" class="history-mode-card" data-history-mode="stats">
-    📊 Notre relation
-</button>
-        <button type="button" class="history-mode-card" data-history-mode="ranking">
-            🌵 Classements
-        </button>
-
-        <button type="button" class="history-mode-card" data-history-mode="guess">
-            💭 Devine ma réponse
-        </button>
-
-        <button type="button" class="history-mode-card" data-history-mode="questions">
-            💬 Questions
-        </button>
-
-        <button type="button" class="history-mode-card" data-history-mode="likely">
-            😂 Qui est le plus susceptible
-        </button>
-
-        <button type="button" class="history-mode-card" data-history-mode="ok">
-            ✅ OK ou Pas OK
-        </button>
-
-        <button type="button" class="history-mode-card" data-history-mode="greenFlag">
-            🚩 Green Flag / Red Flag
-        </button>
-
-        <button type="button" class="history-mode-card" data-history-mode="princess">
-            👑 Princess Treatment
-        </button>
-
-        <button type="button" class="history-mode-card" data-history-mode="wouldRather">
-            ↔ Tu préfères ?
-        </button>
-
-        <button type="button" class="history-mode-card" data-history-mode="threeYesNo">
-            3/3 · 3 oui / 3 non
-        </button>
-
-        <button type="button" class="history-mode-card" data-history-mode="limitReached">
-            ⛔ Limite atteinte
-        </button>
-
-        <button type="button" class="history-mode-card" data-history-mode="coupleDare">
-            ★ Défis à deux
-        </button>
-    </div>
-
-    <button type="button" id="backFromHistoryBtn" class="secondary">
-        Retour
-    </button>
+    <button type="button" id="memoriesFabBtn" class="memories-fab" aria-label="Ajouter un souvenir"><span aria-hidden="true">＋</span><strong>Ajouter</strong></button>
 </div>
 
 <div id="historyDetailScreen" style="display:none;">
@@ -2818,7 +2776,7 @@
     <script src="js/storage.js"></script>
     <script src="js/rankings.js"></script>
     <script src="js/questions.js"></script>
-    <script src="js/script.js?v=112"></script>
+    <script src="js/script.js?v=113"></script>
 
 </body>
 </html>

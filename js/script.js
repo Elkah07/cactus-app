@@ -221,6 +221,13 @@ const timelineSearchInput = document.getElementById("timelineSearchInput");
 const timelineYearFilter = document.getElementById("timelineYearFilter");
 const timelineTypeButtons = document.querySelectorAll("[data-timeline-type]");
 const resetTimelineFiltersBtn = document.getElementById("resetTimelineFiltersBtn");
+const memoriesViewButtons = document.querySelectorAll("[data-memories-view]");
+const memoriesViewPanels = document.querySelectorAll("[data-memories-panel]");
+const memoriesPhotosView = document.getElementById("memoriesPhotosView");
+const memoriesTimelineView = document.getElementById("memoriesTimelineView");
+const memoriesPersonalView = document.getElementById("memoriesPersonalView");
+const historyQuickAddBtn = document.getElementById("historyQuickAddBtn");
+const memoriesFabBtn = document.getElementById("memoriesFabBtn");
 
 const gardenScreen = document.getElementById("gardenScreen");
 const gardenBtn = document.getElementById("gardenBtn");
@@ -1160,7 +1167,8 @@ let currentEditingMemoryId = null;
 let currentMemoryPhotoData = "";
 let currentMemoryPhotoProcessing = false;
 let unifiedTimelineItems = [];
-let activeTimelineType = "all";
+let activeTimelineType = "us";
+let activeMemoriesView = "photos";
 let currentOnboardingStep = 0;
 
 const ONBOARDING_STEPS = [
@@ -2827,18 +2835,47 @@ appSystemThemeMedia?.addEventListener?.("change", () => {
     if (effective.mode === "auto") applyAppAppearance(effective);
 });
 
+function setMemoriesView(view, options = {}) {
+    const nextView = ["photos", "timeline", "memories"].includes(view) ? view : "photos";
+    activeMemoriesView = nextView;
+    memoriesViewButtons.forEach((button) => {
+        const active = button.dataset.memoriesView === nextView;
+        button.classList.toggle("is-active", active);
+        button.setAttribute("aria-selected", active ? "true" : "false");
+    });
+    memoriesViewPanels.forEach((panel) => {
+        panel.style.display = panel.dataset.memoriesPanel === nextView ? "block" : "none";
+    });
+    if (memoriesFabBtn) memoriesFabBtn.classList.toggle("is-hidden", Boolean(options.hideFab));
+    if (nextView === "timeline") renderUnifiedTimeline();
+    if (options.scrollTop !== false) historyScreen?.scrollTo?.({ top: 0, behavior: options.instant ? "auto" : "smooth" });
+}
+
+function openNewMemoryFromHub(withPhoto = false) {
+    setMemoriesView("memories", { scrollTop: false });
+    openMemoryForm();
+    if (withPhoto) window.setTimeout(() => memoryPhotoInput?.click(), 220);
+}
+
 historyBtn.addEventListener("click", () => {
+    setMemoriesView("photos", { instant: true });
     loadMemories();
     showScreen("history");
 });
 
+memoriesViewButtons.forEach((button) => {
+    button.addEventListener("click", () => setMemoriesView(button.dataset.memoriesView));
+});
+
+historyQuickAddBtn?.addEventListener("click", () => openNewMemoryFromHub(false));
+memoriesFabBtn?.addEventListener("click", () => openNewMemoryFromHub(false));
+
 showMemoryFormBtn.addEventListener("click", () => {
-    openMemoryForm();
+    openNewMemoryFromHub(false);
 });
 
 addPhotoMemoryBtn?.addEventListener("click", () => {
-    openMemoryForm();
-    window.setTimeout(() => memoryPhotoInput?.click(), 250);
+    openNewMemoryFromHub(true);
 });
 
 cancelMemoryBtn.addEventListener("click", () => {
@@ -2900,8 +2937,8 @@ timelineTypeButtons.forEach((button) => {
 resetTimelineFiltersBtn.addEventListener("click", () => {
     timelineSearchInput.value = "";
     timelineYearFilter.value = "all";
-    activeTimelineType = "all";
-    timelineTypeButtons.forEach((button) => button.classList.toggle("is-active", button.dataset.timelineType === "all"));
+    activeTimelineType = "us";
+    timelineTypeButtons.forEach((button) => button.classList.toggle("is-active", button.dataset.timelineType === "us"));
     renderUnifiedTimeline();
 });
 
@@ -5797,6 +5834,7 @@ document.querySelectorAll(".history-mode-card").forEach((card) => {
 });
 
 backToHistoryBtn.addEventListener("click", () => {
+    setMemoriesView("timeline", { instant: true });
     showScreen("history");
 });
 
@@ -5905,7 +5943,9 @@ storyPageBackTopBtn.addEventListener("click", () => {
 });
 
 storyMemoriesBtn.addEventListener("click", () => {
+    setMemoriesView("photos", { instant: true });
     showScreen("history");
+    loadMemories();
 });
 
 openAllGamesBtn.addEventListener("click", () => {
@@ -9740,6 +9780,7 @@ function openNotification(notification) {
     } else if (target.kind === "story") {
         openStoryPage();
     } else if (target.kind === "memory") {
+        setMemoriesView("memories", { instant: true, scrollTop: false });
         showScreen("history");
         loadMemories(target.memoryId);
     } else if (target.kind === "profile") {
@@ -9933,12 +9974,11 @@ function renderMemoriesAlbum(entries) {
     memoriesAlbumGrid.replaceChildren();
     memoriesAlbumEmpty.style.display = photoEntries.length ? "none" : "flex";
 
-    photoEntries.slice(0, 24).forEach(([memoryId, memory], index) => {
+    photoEntries.slice(0, 48).forEach(([memoryId, memory]) => {
         const card = document.createElement("button");
         card.type = "button";
         card.className = "memory-album-card" + (memory.favorite ? " is-favorite" : "");
         card.dataset.memoryId = memoryId;
-        if (index === 0) card.classList.add("is-featured");
 
         const image = document.createElement("img");
         image.src = memory.photoData;
@@ -9977,6 +10017,8 @@ function getLocalDateInputValue() {
 }
 
 function openMemoryForm(memoryId = null, memory = null) {
+    setMemoriesView("memories", { scrollTop: false });
+    memoriesFabBtn?.classList.add("is-hidden");
     currentEditingMemoryId = memoryId;
     currentMemoryPhotoData = memory?.photoData || "";
     currentMemoryPhotoProcessing = false;
@@ -9997,6 +10039,7 @@ function openMemoryForm(memoryId = null, memory = null) {
 
 function closeMemoryForm() {
     currentEditingMemoryId = null;
+    memoriesFabBtn?.classList.remove("is-hidden");
     currentMemoryPhotoData = "";
     currentMemoryPhotoProcessing = false;
     memoryForm.reset();
@@ -10184,7 +10227,11 @@ function renderUnifiedTimeline() {
     const search = normalizeGameSearch(timelineSearchInput.value);
     const year = timelineYearFilter.value;
     const filtered = unifiedTimelineItems.filter((item) => {
-        return (activeTimelineType === "all" || item.type === activeTimelineType) &&
+        const matchesType = activeTimelineType === "all" ||
+            (activeTimelineType === "us" && (item.type === "memory" || item.type === "milestone")) ||
+            (activeTimelineType === "photo" && item.type === "memory" && Boolean(item.photoData)) ||
+            item.type === activeTimelineType;
+        return matchesType &&
             (year === "all" || String(new Date(item.timestamp).getFullYear()) === year) &&
             (!search || normalizeGameSearch(item.title + " " + item.text).includes(search));
     });
@@ -10244,13 +10291,9 @@ function formatMemoryDate(dateValue) {
 
 function renderMemories(memories, focusedMemoryId = null) {
     const entries = Object.entries(memories || {}).sort((a, b) => {
-        if (Boolean(a[1].favorite) !== Boolean(b[1].favorite)) {
-            return a[1].favorite ? -1 : 1;
-        }
-
-        return String(b[1].memoryDate || "").localeCompare(
-            String(a[1].memoryDate || "")
-        ) || (b[1].createdAt || 0) - (a[1].createdAt || 0);
+        if (Boolean(a[1].favorite) !== Boolean(b[1].favorite)) return a[1].favorite ? -1 : 1;
+        return String(b[1].memoryDate || "").localeCompare(String(a[1].memoryDate || "")) ||
+            (b[1].createdAt || 0) - (a[1].createdAt || 0);
     });
 
     memoriesTimeline.replaceChildren();
@@ -10261,32 +10304,30 @@ function renderMemories(memories, focusedMemoryId = null) {
 
     entries.forEach(([memoryId, memory]) => {
         const article = document.createElement("article");
-        article.className = "memory-timeline-card" + (memory.favorite ? " is-favorite" : "");
+        article.className = "memory-timeline-card memory-compact-card" + (memory.favorite ? " is-favorite" : "") + (memory.photoData ? " has-photo" : "");
         article.dataset.memoryId = memoryId;
 
-        const marker = document.createElement("span");
-        marker.className = "memory-timeline-marker";
-        marker.textContent = memory.emoji || "💚";
+        const openButton = document.createElement("button");
+        openButton.type = "button";
+        openButton.className = "memory-card-open";
+        openButton.setAttribute("aria-label", "Ouvrir " + (memory.title || "ce souvenir"));
 
+        const visual = document.createElement("span");
+        visual.className = "memory-card-visual";
         if (memory.photoData) {
-            article.classList.add("has-photo");
-            const photoButton = document.createElement("button");
-            photoButton.type = "button";
-            photoButton.className = "memory-timeline-photo";
-            photoButton.setAttribute("aria-label", "Voir la photo de " + (memory.title || "ce souvenir"));
             const photo = document.createElement("img");
             photo.src = memory.photoData;
-            photo.alt = memory.title ? "Photo : " + memory.title : "Photo du souvenir";
+            photo.alt = "";
             photo.loading = "lazy";
             photo.decoding = "async";
-            photoButton.appendChild(photo);
-            photoButton.addEventListener("click", () => openMemoryViewer(memory));
-            article.appendChild(photoButton);
+            visual.appendChild(photo);
+        } else {
+            visual.textContent = memory.emoji || "💚";
         }
 
-        const body = document.createElement("div");
+        const body = document.createElement("span");
         body.className = "memory-timeline-body";
-        const meta = document.createElement("div");
+        const meta = document.createElement("span");
         meta.className = "memory-timeline-meta";
         const date = document.createElement("small");
         date.textContent = formatMemoryDate(memory.memoryDate);
@@ -10294,57 +10335,62 @@ function renderMemories(memories, focusedMemoryId = null) {
         const categoryMeta = getMemoryCategoryMeta(memory.category);
         category.textContent = categoryMeta.emoji + " " + categoryMeta.label;
         meta.append(date, category);
-        const title = document.createElement("h3");
+        const title = document.createElement("strong");
+        title.className = "memory-compact-title";
         title.textContent = memory.title || "Souvenir";
-        const text = document.createElement("p");
-        text.textContent = memory.text || "";
-        const author = document.createElement("span");
+        const excerpt = document.createElement("p");
+        excerpt.textContent = memory.text || "";
+        const author = document.createElement("small");
         author.className = "memory-author";
         author.textContent = "Ajouté par " + (memory.createdByPseudo || "Cactus");
-        body.append(meta, title, text, author);
+        body.append(meta, title, excerpt, author);
+        openButton.append(visual, body);
+        openButton.addEventListener("click", () => openMemoryViewer(memory));
 
-        const actions = document.createElement("div");
-        actions.className = "memory-card-actions";
-        const favoriteBtn = document.createElement("button");
-        favoriteBtn.type = "button";
-        favoriteBtn.title = memory.favorite ? "Retirer des favoris" : "Ajouter aux favoris";
-        favoriteBtn.setAttribute("aria-label", favoriteBtn.title);
-        favoriteBtn.textContent = memory.favorite ? "★" : "☆";
-        favoriteBtn.addEventListener("click", () => toggleMemoryFavorite(memoryId, memory));
+        const actions = document.createElement("details");
+        actions.className = "memory-card-menu";
+        const summary = document.createElement("summary");
+        summary.setAttribute("aria-label", "Actions pour ce souvenir");
+        summary.textContent = "•••";
+        const menu = document.createElement("div");
+        menu.className = "memory-card-menu-popover";
+
         const viewBtn = document.createElement("button");
         viewBtn.type = "button";
-        viewBtn.title = "Ouvrir";
-        viewBtn.setAttribute("aria-label", "Ouvrir ce souvenir");
-        viewBtn.textContent = "Voir";
-        viewBtn.addEventListener("click", () => openMemoryViewer(memory));
+        viewBtn.textContent = "Voir le souvenir";
+        viewBtn.addEventListener("click", () => { actions.removeAttribute("open"); openMemoryViewer(memory); });
+
+        const favoriteBtn = document.createElement("button");
+        favoriteBtn.type = "button";
+        favoriteBtn.textContent = memory.favorite ? "★ Retirer des favoris" : "☆ Ajouter aux favoris";
+        favoriteBtn.addEventListener("click", () => { actions.removeAttribute("open"); toggleMemoryFavorite(memoryId, memory); });
+
         const editBtn = document.createElement("button");
         editBtn.type = "button";
-        editBtn.title = "Modifier";
-        editBtn.setAttribute("aria-label", "Modifier ce souvenir");
         editBtn.textContent = "Modifier";
-        editBtn.addEventListener("click", () => openMemoryForm(memoryId, memory));
+        editBtn.addEventListener("click", () => { actions.removeAttribute("open"); openMemoryForm(memoryId, memory); });
+
         const deleteBtn = document.createElement("button");
         deleteBtn.type = "button";
-        deleteBtn.title = "Supprimer";
-        deleteBtn.setAttribute("aria-label", "Supprimer ce souvenir");
-        deleteBtn.textContent = "×";
-        deleteBtn.addEventListener("click", () => deleteMemory(memoryId));
-        actions.append(favoriteBtn, viewBtn, editBtn, deleteBtn);
+        deleteBtn.className = "is-danger";
+        deleteBtn.textContent = "Supprimer";
+        deleteBtn.addEventListener("click", () => { actions.removeAttribute("open"); deleteMemory(memoryId); });
 
-        article.append(marker, body, actions);
+        menu.append(viewBtn, favoriteBtn, editBtn, deleteBtn);
+        actions.append(summary, menu);
+        article.append(openButton, actions);
         memoriesTimeline.appendChild(article);
     });
 
     if (focusedMemoryId) {
+        setMemoriesView("memories", { scrollTop: false });
         window.setTimeout(() => {
-            const focusedCard = Array.from(memoriesTimeline.children).find((card) => {
-                return card.dataset.memoryId === focusedMemoryId;
-            });
+            const focusedCard = Array.from(memoriesTimeline.children).find((card) => card.dataset.memoryId === focusedMemoryId);
             if (focusedCard) {
                 focusedCard.classList.add("is-focused");
                 focusedCard.scrollIntoView({ behavior: "smooth", block: "center" });
             }
-        }, 50);
+        }, 60);
     }
 }
 

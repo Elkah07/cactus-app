@@ -13920,3 +13920,425 @@ body.memory-viewer-open {
         margin-top: -2px;
     }
 }
+
+/* =========================================================
+   V113 — NOS SOUVENIRS REPENSÉ : 3 VUES, ZÉRO TUNNEL
+   ========================================================= */
+
+#historyScreen.memories-hub-screen {
+    position: relative;
+    padding-bottom: calc(92px + env(safe-area-inset-bottom));
+}
+
+.memories-hub-header {
+    display: grid;
+    grid-template-columns: 44px minmax(0, 1fr) 44px;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+    padding: 4px 1px 2px;
+}
+
+#historyScreen .memories-hub-back,
+#historyScreen .memories-hub-add {
+    display: grid;
+    width: 42px;
+    height: 42px;
+    margin: 0;
+    padding: 0;
+    place-items: center;
+    border: 1px solid var(--app-border-strong);
+    border-radius: 15px;
+    background: var(--app-icon-bg) !important;
+    color: var(--app-heading) !important;
+    box-shadow: 0 7px 18px var(--app-shadow-soft);
+}
+
+#historyScreen .memories-hub-back { font-size: 1.65rem; line-height: 1; }
+#historyScreen .memories-hub-add { font-size: 1.2rem; }
+
+.memories-hub-title { min-width: 0; }
+.memories-hub-title > small,
+.memories-hub-title > h1,
+.memories-hub-summary { display: block; margin: 0; }
+.memories-hub-title > small {
+    color: var(--app-accent);
+    font-size: .56rem;
+    font-weight: 900;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+}
+.memories-hub-title > h1 {
+    margin-top: 1px;
+    color: var(--app-heading);
+    font-size: 1.35rem;
+    line-height: 1.1;
+}
+.memories-hub-summary {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3px 5px;
+    margin-top: 5px;
+    color: var(--app-muted);
+    font-size: .57rem;
+    line-height: 1.3;
+}
+.memories-hub-summary strong { color: var(--app-text); }
+.memories-hub-summary i { opacity: .55; font-style: normal; }
+
+.memories-main-tabs {
+    position: sticky;
+    z-index: 25;
+    top: 0;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 5px;
+    margin: 0 0 13px;
+    padding: 6px;
+    border: 1px solid var(--app-border);
+    border-radius: 18px;
+    background: color-mix(in srgb, var(--app-panel-bg) 92%, transparent);
+    box-shadow: 0 9px 24px var(--app-shadow-soft);
+    backdrop-filter: blur(15px);
+}
+
+#historyScreen .memories-main-tabs button {
+    display: flex;
+    min-width: 0;
+    min-height: 40px;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    margin: 0;
+    padding: 7px 5px;
+    border: 0;
+    border-radius: 13px;
+    background: transparent !important;
+    color: var(--app-muted) !important;
+    box-shadow: none;
+    font-size: .61rem;
+    font-weight: 850;
+}
+
+#historyScreen .memories-main-tabs button.is-active {
+    background: var(--app-accent) !important;
+    color: var(--app-accent-contrast) !important;
+    box-shadow: 0 7px 17px color-mix(in srgb, var(--app-accent) 24%, transparent);
+}
+
+.memories-view-panel {
+    min-height: 380px;
+    padding: 14px;
+    border: 1px solid var(--app-border);
+    border-radius: 23px;
+    background: var(--app-panel-bg);
+    box-shadow: 0 12px 30px var(--app-shadow-soft);
+}
+
+.memories-view-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 11px;
+    margin-bottom: 13px;
+}
+.memories-view-heading > div { min-width: 0; }
+.memories-view-heading small,
+.memories-view-heading h2,
+.memories-view-heading p { display: block; margin: 0; }
+.memories-view-heading small {
+    color: var(--app-accent);
+    font-size: .55rem;
+    font-weight: 900;
+    letter-spacing: .07em;
+    text-transform: uppercase;
+}
+.memories-view-heading h2 {
+    margin-top: 2px;
+    color: var(--app-heading);
+    font-size: 1.05rem;
+}
+.memories-view-heading p {
+    margin-top: 3px;
+    color: var(--app-muted);
+    font-size: .59rem;
+    line-height: 1.35;
+}
+#historyScreen .memories-view-heading > button,
+#historyScreen .memories-view-heading > span {
+    width: auto;
+    flex: 0 0 auto;
+    margin: 0;
+    padding: 8px 10px;
+    border-radius: 12px;
+    font-size: .58rem;
+    white-space: nowrap;
+}
+#historyScreen .memories-view-heading > span {
+    background: var(--app-icon-bg);
+    color: var(--app-accent);
+    font-weight: 900;
+}
+
+/* Album : grille régulière, plus de première photo géante. */
+#historyScreen .memories-album-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+}
+#historyScreen .memory-album-card,
+#historyScreen .memory-album-card.is-featured {
+    grid-column: auto;
+    min-height: 0;
+    aspect-ratio: 1 / 1.12;
+    border-radius: 17px;
+}
+#historyScreen .memory-album-card.is-featured .memory-album-shade strong,
+#historyScreen .memory-album-shade strong { font-size: .7rem; }
+#historyScreen .memory-album-shade { min-height: 58%; padding: 25px 9px 9px; }
+#historyScreen .memory-album-shade small { font-size: .47rem; }
+#historyScreen .memory-album-shade time { font-size: .46rem; }
+
+/* Chronologie : une ligne du temps légère au lieu d'une pile de gros pavés. */
+#historyScreen .memories-story-filters {
+    margin: -2px 0 10px;
+    padding-bottom: 2px;
+}
+#historyScreen .memories-story-filters button {
+    padding: 7px 10px;
+    background: var(--app-input-bg) !important;
+    color: var(--app-muted) !important;
+}
+#historyScreen .memories-story-filters button.is-active {
+    border-color: color-mix(in srgb, var(--app-accent) 55%, transparent);
+    background: color-mix(in srgb, var(--app-accent) 18%, var(--app-input-bg)) !important;
+    color: var(--app-accent) !important;
+}
+#historyScreen .unified-timeline-tools {
+    grid-template-columns: minmax(0, 1fr) 125px;
+    margin-bottom: 12px;
+}
+#historyScreen .unified-timeline {
+    gap: 5px;
+    padding-left: 2px;
+}
+#historyScreen .unified-timeline::before {
+    top: 27px;
+    bottom: 7px;
+    left: 20px;
+    width: 1px;
+    opacity: .38;
+}
+#historyScreen .unified-timeline-year {
+    margin: 8px 0 3px 7px;
+    padding: 4px 8px;
+    font-size: .55rem;
+}
+#historyScreen .unified-timeline-card {
+    min-height: 52px;
+    grid-template-columns: 34px minmax(0, 1fr) 9px;
+    gap: 8px;
+    padding: 7px 8px 7px 4px;
+    border-color: transparent;
+    border-radius: 14px;
+    background: color-mix(in srgb, var(--app-input-bg) 76%, transparent) !important;
+    box-shadow: none;
+}
+#historyScreen .unified-timeline-card:hover { transform: none; }
+#historyScreen .unified-timeline-marker {
+    width: 34px;
+    height: 34px;
+    border-radius: 11px;
+    font-size: .95rem;
+}
+#historyScreen .unified-timeline-card small { font-size: .47rem; }
+#historyScreen .unified-timeline-card strong { margin-top: 1px; font-size: .66rem; }
+#historyScreen .unified-timeline-card p {
+    margin-top: 2px;
+    font-size: .53rem;
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+}
+#historyScreen .unified-timeline-card > b { font-size: .9rem; }
+
+/* Souvenirs personnels : cartes compactes et un seul menu d'actions. */
+#historyScreen .memories-timeline {
+    display: grid;
+    gap: 8px;
+}
+#historyScreen .memories-timeline::before { display: none; }
+#historyScreen .memory-timeline-card.memory-compact-card,
+#historyScreen .memory-timeline-card.memory-compact-card.has-photo {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 36px;
+    align-items: center;
+    gap: 7px;
+    min-height: 86px;
+    padding: 7px;
+    overflow: visible;
+    border: 1px solid var(--app-border);
+    border-radius: 17px;
+    background: var(--app-input-bg);
+    box-shadow: 0 7px 18px var(--app-shadow-soft);
+}
+#historyScreen .memory-card-open {
+    display: grid;
+    width: 100%;
+    min-width: 0;
+    grid-template-columns: 70px minmax(0, 1fr);
+    align-items: center;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: transparent !important;
+    color: inherit;
+    text-align: left;
+    box-shadow: none;
+}
+#historyScreen .memory-card-visual {
+    display: grid;
+    width: 70px;
+    height: 70px;
+    place-items: center;
+    overflow: hidden;
+    border-radius: 14px;
+    background: var(--app-icon-bg);
+    font-size: 1.7rem;
+}
+#historyScreen .memory-card-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+#historyScreen .memory-timeline-body { min-width: 0; }
+#historyScreen .memory-timeline-meta { gap: 4px 6px; }
+#historyScreen .memory-timeline-meta small { font-size: .48rem; }
+#historyScreen .memory-timeline-meta > span { padding: 2px 5px; font-size: .44rem; }
+#historyScreen .memory-compact-title {
+    display: block;
+    margin-top: 4px;
+    overflow: hidden;
+    color: var(--app-heading);
+    font-size: .75rem;
+    line-height: 1.25;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+#historyScreen .memory-timeline-body > p {
+    display: -webkit-box;
+    margin: 3px 0 0;
+    overflow: hidden;
+    color: var(--app-text);
+    font-size: .57rem;
+    line-height: 1.35;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+}
+#historyScreen .memory-author {
+    display: block;
+    margin-top: 4px;
+    color: var(--app-muted);
+    font-size: .46rem;
+}
+
+#historyScreen .memory-card-menu {
+    position: relative;
+    align-self: start;
+    justify-self: end;
+}
+#historyScreen .memory-card-menu > summary {
+    display: grid;
+    width: 34px;
+    height: 34px;
+    cursor: pointer;
+    list-style: none;
+    place-items: center;
+    border: 1px solid var(--app-border);
+    border-radius: 11px;
+    background: var(--app-icon-bg);
+    color: var(--app-heading);
+    font-size: .78rem;
+    font-weight: 900;
+}
+#historyScreen .memory-card-menu > summary::-webkit-details-marker { display: none; }
+#historyScreen .memory-card-menu-popover {
+    position: absolute;
+    z-index: 50;
+    top: 40px;
+    right: 0;
+    display: grid;
+    width: 175px;
+    gap: 3px;
+    padding: 6px;
+    border: 1px solid var(--app-border-strong);
+    border-radius: 14px;
+    background: var(--app-panel-bg);
+    box-shadow: 0 18px 42px rgba(0,0,0,.22);
+}
+#historyScreen .memory-card-menu-popover button {
+    width: 100%;
+    min-height: 34px;
+    margin: 0;
+    padding: 7px 9px;
+    border: 0;
+    border-radius: 9px;
+    background: transparent !important;
+    color: var(--app-text) !important;
+    box-shadow: none;
+    text-align: left;
+    font-size: .56rem;
+}
+#historyScreen .memory-card-menu-popover button:hover { background: var(--app-icon-bg) !important; }
+#historyScreen .memory-card-menu-popover button.is-danger { color: #e36e78 !important; }
+
+#historyScreen .memory-form {
+    margin-bottom: 13px;
+    border-radius: 19px;
+    box-shadow: none;
+}
+
+#historyScreen .memories-fab {
+    position: fixed;
+    z-index: 80;
+    right: max(18px, calc((100vw - 460px) / 2 + 18px));
+    bottom: calc(18px + env(safe-area-inset-bottom));
+    display: inline-flex;
+    width: auto;
+    min-height: 44px;
+    align-items: center;
+    gap: 6px;
+    margin: 0;
+    padding: 10px 14px;
+    border-radius: 999px;
+    background: var(--app-accent) !important;
+    color: var(--app-accent-contrast) !important;
+    box-shadow: 0 13px 30px color-mix(in srgb, var(--app-accent) 28%, rgba(0,0,0,.22));
+    transition: opacity .2s ease, transform .2s ease;
+}
+#historyScreen .memories-fab span { font-size: 1rem; }
+#historyScreen .memories-fab strong { font-size: .62rem; }
+#historyScreen .memories-fab.is-hidden {
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(12px);
+}
+
+@media (max-width: 390px) {
+    .memories-hub-header { grid-template-columns: 40px minmax(0, 1fr) 40px; gap: 8px; }
+    #historyScreen .memories-hub-back,
+    #historyScreen .memories-hub-add { width: 38px; height: 38px; border-radius: 13px; }
+    .memories-hub-title > h1 { font-size: 1.2rem; }
+    .memories-main-tabs { gap: 3px; padding: 5px; }
+    #historyScreen .memories-main-tabs button { min-height: 38px; gap: 3px; padding-inline: 3px; font-size: .56rem; }
+    .memories-view-panel { padding: 11px; border-radius: 20px; }
+    .memories-view-heading p { display: none; }
+    #historyScreen .unified-timeline-tools { grid-template-columns: 1fr; }
+    #historyScreen .memory-card-open { grid-template-columns: 62px minmax(0, 1fr); gap: 8px; }
+    #historyScreen .memory-card-visual { width: 62px; height: 62px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #historyScreen .memories-fab { transition: none !important; }
+}
