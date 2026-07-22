@@ -1318,5 +1318,245 @@
   {
     "id": "parentalite_green_red_030_ton_ta_partenaire_veut_que_votre_e",
     "question": "Ton/ta partenaire veut que votre enfant sache qu’il/elle pourra toujours revenir à la maison en cas de difficulté, même à l’âge adulte."
+  },
+  {
+    "id": "vraie_vie_green_argent_01_ton_ta_partenaire_so",
+    "question": "Ton/ta partenaire souhaite parler ouvertement de vos finances, y compris de ses peurs et de ses erreurs."
+  },
+  {
+    "id": "vraie_vie_green_argent_02_ton_ta_partenaire_co",
+    "question": "Ton/ta partenaire considère que celui ou celle qui gagne le plus devrait contribuer davantage aux dépenses communes."
+  },
+  {
+    "id": "vraie_vie_green_argent_03_ton_ta_partenaire_re",
+    "question": "Ton/ta partenaire refuse de te dire combien il/elle a réellement d’épargne après plusieurs années de vie commune."
+  },
+  {
+    "id": "vraie_vie_green_argent_04_ton_ta_partenaire_ve",
+    "question": "Ton/ta partenaire veut toujours constituer une épargne de sécurité avant de financer des dépenses plaisir importantes."
+  },
+  {
+    "id": "vraie_vie_green_argent_05_ton_ta_partenaire_ai",
+    "question": "Ton/ta partenaire aide régulièrement ses proches financièrement sans jamais se mettre personnellement en difficulté."
+  },
+  {
+    "id": "vraie_vie_green_argent_06_ton_ta_partenaire_pe",
+    "question": "Ton/ta partenaire pense qu’une grosse dette personnelle peut être cachée tant qu’elle est remboursée sans toucher au budget du couple."
+  },
+  {
+    "id": "vraie_vie_green_famille_01_ton_ta_partenaire_sa",
+    "question": "Ton/ta partenaire sait dire non à sa famille lorsqu’une demande empiète sur votre couple."
+  },
+  {
+    "id": "vraie_vie_green_famille_02_ton_ta_partenaire_de",
+    "question": "Ton/ta partenaire défend votre relation face à ses proches même lorsque cela crée un conflit."
+  },
+  {
+    "id": "vraie_vie_green_famille_03_ton_ta_partenaire_ra",
+    "question": "Ton/ta partenaire raconte tous les détails de vos disputes à sa famille pour obtenir leur avis."
+  },
+  {
+    "id": "vraie_vie_green_famille_04_ton_ta_partenaire_co",
+    "question": "Ton/ta partenaire considère que ses parents doivent toujours pouvoir venir chez vous sans prévenir."
+  },
+  {
+    "id": "vraie_vie_green_famille_05_ton_ta_partenaire_pe",
+    "question": "Ton/ta partenaire peut aimer profondément sa famille tout en reconnaissant ses comportements toxiques."
+  },
+  {
+    "id": "vraie_vie_green_famille_06_ton_ta_partenaire_es",
+    "question": "Ton/ta partenaire estime qu’il/elle doit toujours choisir sa famille d’origine avant son couple."
+  },
+  {
+    "id": "vraie_vie_green_sante_mentale_01_ton_ta_partenaire_pe",
+    "question": "Ton/ta partenaire peut dire qu’il/elle ne va pas bien sans attendre d’être au bord de l’effondrement."
+  },
+  {
+    "id": "vraie_vie_green_sante_mentale_02_ton_ta_partenaire_co",
+    "question": "Ton/ta partenaire considère qu’aimer quelqu’un ne signifie pas devoir devenir son unique soutien psychologique."
+  },
+  {
+    "id": "vraie_vie_green_sante_mentale_03_ton_ta_partenaire_re",
+    "question": "Ton/ta partenaire refuse toute thérapie parce qu’il/elle pense que parler à son couple devrait suffire."
+  },
+  {
+    "id": "vraie_vie_green_sante_mentale_04_ton_ta_partenaire_sa",
+    "question": "Ton/ta partenaire sait demander de l’espace sans utiliser le silence comme punition."
+  },
+  {
+    "id": "vraie_vie_green_sante_mentale_05_ton_ta_partenaire_re",
+    "question": "Ton/ta partenaire respecte tes limites même lorsqu’il/elle traverse une période très difficile."
+  },
+  {
+    "id": "vraie_vie_green_sante_mentale_06_ton_ta_partenaire_co",
+    "question": "Ton/ta partenaire considère que sa souffrance excuse automatiquement les paroles blessantes qu’il/elle peut avoir pendant une crise."
+  },
+  {
+    "id": "vraie_vie_green_maladie_01_ton_ta_partenaire_so",
+    "question": "Ton/ta partenaire souhaite parler à l’avance des décisions médicales difficiles et de ses volontés futures."
+  },
+  {
+    "id": "vraie_vie_green_maladie_02_ton_ta_partenaire_co",
+    "question": "Ton/ta partenaire considère qu’un aidant a aussi le droit d’avoir ses propres limites et besoins."
+  },
+  {
+    "id": "vraie_vie_green_maladie_03_ton_ta_partenaire_re",
+    "question": "Ton/ta partenaire refuse toute aide professionnelle parce qu’il/elle estime que le couple doit tout assumer seul."
+  },
+  {
+    "id": "vraie_vie_green_maladie_04_ton_ta_partenaire_pe",
+    "question": "Ton/ta partenaire pense qu’une maladie ne doit pas empêcher de chercher de nouvelles façons de préserver la complicité."
+  },
+  {
+    "id": "vraie_vie_green_maladie_05_ton_ta_partenaire_ac",
+    "question": "Ton/ta partenaire accepte l’idée que la meilleure solution médicale ne soit pas toujours celle qui prolonge le plus longtemps la vie."
+  },
+  {
+    "id": "vraie_vie_green_maladie_06_ton_ta_partenaire_ex",
+    "question": "Ton/ta partenaire exige que tu promettes dès aujourd’hui de ne jamais refaire ta vie après son décès."
+  },
+  {
+    "id": "vraie_vie_green_carriere_01_ton_ta_partenaire_co",
+    "question": "Ton/ta partenaire considère qu’une grande décision professionnelle doit être discutée comme une décision de couple."
+  },
+  {
+    "id": "vraie_vie_green_carriere_02_ton_ta_partenaire_so",
+    "question": "Ton/ta partenaire soutient ton ambition même lorsqu’elle ne correspond pas à son propre projet de vie."
+  },
+  {
+    "id": "vraie_vie_green_carriere_03_ton_ta_partenaire_es",
+    "question": "Ton/ta partenaire estime que sa carrière doit toujours passer avant la relation tant qu’il/elle est jeune."
+  },
+  {
+    "id": "vraie_vie_green_carriere_04_ton_ta_partenaire_es",
+    "question": "Ton/ta partenaire est capable de définir une durée limite à une période de travail très intense."
+  },
+  {
+    "id": "vraie_vie_green_carriere_05_ton_ta_partenaire_po",
+    "question": "Ton/ta partenaire pourrait être heureux/se de te voir réussir davantage que lui/elle professionnellement."
+  },
+  {
+    "id": "vraie_vie_green_carriere_06_ton_ta_partenaire_at",
+    "question": "Ton/ta partenaire attend que tu sois prêt(e) à déménager pour son travail mais ne ferait pas la même chose pour toi."
+  },
+  {
+    "id": "vraie_vie_green_vie_commune_01_ton_ta_partenaire_co",
+    "question": "Ton/ta partenaire comprend qu’avoir besoin de temps seul(e) à la maison ne signifie pas rejeter le couple."
+  },
+  {
+    "id": "vraie_vie_green_vie_commune_02_ton_ta_partenaire_de",
+    "question": "Ton/ta partenaire demande ton avis avant d’inviter quelqu’un à dormir chez vous."
+  },
+  {
+    "id": "vraie_vie_green_vie_commune_03_ton_ta_partenaire_co",
+    "question": "Ton/ta partenaire considère que sa manière de ranger est la seule façon correcte de tenir une maison."
+  },
+  {
+    "id": "vraie_vie_green_vie_commune_04_ton_ta_partenaire_es",
+    "question": "Ton/ta partenaire est prêt(e) à payer une aide ménagère plutôt que laisser les tâches devenir une source constante de conflit."
+  },
+  {
+    "id": "vraie_vie_green_vie_commune_05_ton_ta_partenaire_re",
+    "question": "Ton/ta partenaire respecte ton espace personnel même lorsque vous vivez dans un petit logement."
+  },
+  {
+    "id": "vraie_vie_green_vie_commune_06_ton_ta_partenaire_pe",
+    "question": "Ton/ta partenaire pense qu’un couple heureux doit forcément dormir ensemble toutes les nuits."
+  },
+  {
+    "id": "vraie_vie_green_numerique_01_ton_ta_partenaire_re",
+    "question": "Ton/ta partenaire respecte ton téléphone comme un espace privé même s’il/elle connaît ton code."
+  },
+  {
+    "id": "vraie_vie_green_numerique_02_ton_ta_partenaire_te",
+    "question": "Ton/ta partenaire te demande avant de montrer une capture de votre conversation à quelqu’un."
+  },
+  {
+    "id": "vraie_vie_green_numerique_03_ton_ta_partenaire_es",
+    "question": "Ton/ta partenaire estime que supprimer ses messages empêche toute discussion inutile et ne devrait jamais poser question."
+  },
+  {
+    "id": "vraie_vie_green_numerique_04_ton_ta_partenaire_es",
+    "question": "Ton/ta partenaire est prêt(e) à discuter régulièrement de vos limites numériques parce que les technologies évoluent."
+  },
+  {
+    "id": "vraie_vie_green_numerique_05_ton_ta_partenaire_re",
+    "question": "Ton/ta partenaire refuse d’utiliser la géolocalisation comme moyen de vérifier où tu es sans raison réelle."
+  },
+  {
+    "id": "vraie_vie_green_numerique_06_ton_ta_partenaire_co",
+    "question": "Ton/ta partenaire considère que tout ce qui est publié en ligne devient automatiquement partageable sans ton accord."
+  },
+  {
+    "id": "vraie_vie_green_mort_01_ton_ta_partenaire_es",
+    "question": "Ton/ta partenaire est capable de parler de la mort et des dernières volontés sans considérer que cela porte malheur."
+  },
+  {
+    "id": "vraie_vie_green_mort_02_ton_ta_partenaire_so",
+    "question": "Ton/ta partenaire souhaite que tu reconstruises ta vie si tu lui survis."
+  },
+  {
+    "id": "vraie_vie_green_mort_03_ton_ta_partenaire_ve",
+    "question": "Ton/ta partenaire veut contrôler précisément ta vie sentimentale même après son propre décès."
+  },
+  {
+    "id": "vraie_vie_green_mort_04_ton_ta_partenaire_re",
+    "question": "Ton/ta partenaire respecte l’idée que certains souvenirs et écrits puissent rester privés après la mort."
+  },
+  {
+    "id": "vraie_vie_green_mort_05_ton_ta_partenaire_es",
+    "question": "Ton/ta partenaire est prêt(e) à clarifier juridiquement les questions d’héritage pour éviter des conflits futurs."
+  },
+  {
+    "id": "vraie_vie_green_mort_06_ton_ta_partenaire_re",
+    "question": "Ton/ta partenaire refuse toute discussion sur le testament ou les décisions médicales parce que le sujet le/la met mal à l’aise."
+  },
+  {
+    "id": "vraie_vie_green_bouleversements_01_ton_ta_partenaire_sa",
+    "question": "Ton/ta partenaire sait revoir complètement un plan de vie sans considérer cela comme un échec personnel."
+  },
+  {
+    "id": "vraie_vie_green_bouleversements_02_ton_ta_partenaire_re",
+    "question": "Ton/ta partenaire reste capable de prendre des décisions en équipe même lorsqu’il/elle traverse une crise identitaire."
+  },
+  {
+    "id": "vraie_vie_green_bouleversements_03_ton_ta_partenaire_co",
+    "question": "Ton/ta partenaire considère qu’après une catastrophe chacun devrait surtout se sauver soi-même avant de penser au couple."
+  },
+  {
+    "id": "vraie_vie_green_bouleversements_04_ton_ta_partenaire_pe",
+    "question": "Ton/ta partenaire peut accepter qu’un grand rêve commun doive être remplacé par un autre."
+  },
+  {
+    "id": "vraie_vie_green_bouleversements_05_ton_ta_partenaire_ne",
+    "question": "Ton/ta partenaire ne prend pas de décision irréversible dans les premières heures d’une crise majeure."
+  },
+  {
+    "id": "vraie_vie_green_bouleversements_06_ton_ta_partenaire_pe",
+    "question": "Ton/ta partenaire pense qu’un changement profond de ses convictions devrait automatiquement devenir un changement pour tout le foyer."
+  },
+  {
+    "id": "vraie_vie_green_couple_pression_01_ton_ta_partenaire_pe",
+    "question": "Ton/ta partenaire peut reconnaître qu’une relation a besoin d’aide sans considérer que cela signifie qu’elle est condamnée."
+  },
+  {
+    "id": "vraie_vie_green_couple_pression_02_ton_ta_partenaire_sa",
+    "question": "Ton/ta partenaire sait parler d’une baisse de désir sans transformer le sujet en accusation."
+  },
+  {
+    "id": "vraie_vie_green_couple_pression_03_ton_ta_partenaire_pe",
+    "question": "Ton/ta partenaire pense qu’il vaut mieux cacher ses doutes amoureux tant qu’il/elle n’est pas certain(e) de vouloir partir."
+  },
+  {
+    "id": "vraie_vie_green_couple_pression_04_ton_ta_partenaire_es",
+    "question": "Ton/ta partenaire est capable de changer ses propres habitudes plutôt que demander uniquement à l’autre de faire des efforts."
+  },
+  {
+    "id": "vraie_vie_green_couple_pression_05_ton_ta_partenaire_co",
+    "question": "Ton/ta partenaire considère qu’une pause peut parfois servir à réfléchir mais ne doit pas devenir une attente indéfinie."
+  },
+  {
+    "id": "vraie_vie_green_couple_pression_06_ton_ta_partenaire_pe",
+    "question": "Ton/ta partenaire pense qu’avoir des enfants oblige toujours à rester ensemble, quelle que soit la qualité de la relation."
   }
 ]

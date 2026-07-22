@@ -2308,5 +2308,425 @@
     "question": "Comme parents, tu préfères que votre enfant vous décrive plus tard comme…",
     "optionA": "Très rassurants mais parfois trop protecteurs",
     "optionB": "Très libres et confiants mais parfois pas assez présents"
+  },
+  {
+    "id": "vraie_vie_wyr_argent_01_si_lun_de_vous_recev",
+    "category": "argent",
+    "question": "Si l’un de vous recevait un gros héritage, tu préfères…",
+    "optionA": "Le garder majoritairement séparé mais financer certains projets communs",
+    "optionB": "Le considérer presque entièrement comme une nouvelle ressource du couple"
+  },
+  {
+    "id": "vraie_vie_wyr_argent_02_pour_vos_finances_a_",
+    "category": "argent",
+    "question": "Pour vos finances à long terme, tu préfères…",
+    "optionA": "Tout mettre en commun avec une transparence totale",
+    "optionB": "Garder une vraie indépendance financière même après des années ensemble"
+  },
+  {
+    "id": "vraie_vie_wyr_argent_03_en_cas_de_gros_probl",
+    "category": "argent",
+    "question": "En cas de gros problème d’argent, tu préfères…",
+    "optionA": "Réduire radicalement votre niveau de vie ensemble",
+    "optionB": "Que celui ou celle qui gagne le plus prenne temporairement une plus grande part des dépenses"
+  },
+  {
+    "id": "vraie_vie_wyr_argent_04_si_ton_ta_partenaire",
+    "category": "argent",
+    "question": "Si ton/ta partenaire voulait lancer son entreprise, tu préfères…",
+    "optionA": "Investir une partie de vos économies dans le projet",
+    "optionB": "Conserver toutes vos économies et le/la laisser trouver un autre financement"
+  },
+  {
+    "id": "vraie_vie_wyr_argent_05_face_a_une_dette_cac",
+    "category": "argent",
+    "question": "Face à une dette cachée découverte après plusieurs années, tu préfères…",
+    "optionA": "Aider ton/ta partenaire à la rembourser ensemble",
+    "optionB": "Séparer strictement cette dette du budget commun"
+  },
+  {
+    "id": "vraie_vie_wyr_argent_06_avec_une_grande_diff",
+    "category": "argent",
+    "question": "Avec une grande différence de revenus, tu préfères…",
+    "optionA": "Partager les dépenses proportionnellement aux revenus",
+    "optionB": "Partager les mêmes montants pour préserver une stricte égalité"
+  },
+  {
+    "id": "vraie_vie_wyr_famille_01_pour_les_fetes_de_fa",
+    "category": "famille",
+    "question": "Pour les fêtes de famille, tu préfères…",
+    "optionA": "Alterner strictement d’une année sur l’autre",
+    "optionB": "Choisir chaque année selon les besoins et les circonstances"
+  },
+  {
+    "id": "vraie_vie_wyr_famille_02_si_un_parent_devient",
+    "category": "famille",
+    "question": "Si un parent devient dépendant, tu préfères…",
+    "optionA": "L’accueillir chez vous si possible",
+    "optionB": "Organiser une prise en charge extérieure pour préserver votre foyer"
+  },
+  {
+    "id": "vraie_vie_wyr_famille_03_face_a_une_belle_fam",
+    "category": "famille",
+    "question": "Face à une belle-famille intrusive, tu préfères…",
+    "optionA": "Poser toi-même tes limites directement",
+    "optionB": "Que ton/ta partenaire gère exclusivement sa propre famille"
+  },
+  {
+    "id": "vraie_vie_wyr_famille_04_si_ta_famille_critiq",
+    "category": "famille",
+    "question": "Si ta famille critique ton couple, tu préfères…",
+    "optionA": "Réduire fortement les contacts",
+    "optionB": "Continuer à les voir mais interdire tout commentaire sur votre relation"
+  },
+  {
+    "id": "vraie_vie_wyr_famille_05_pour_aider_un_proche",
+    "category": "famille",
+    "question": "Pour aider un proche en difficulté, tu préfères…",
+    "optionA": "L’héberger plusieurs mois",
+    "optionB": "L’aider financièrement à trouver une autre solution"
+  },
+  {
+    "id": "vraie_vie_wyr_famille_06_si_vos_familles_orga",
+    "category": "famille",
+    "question": "Si vos familles organisent deux événements importants le même jour, tu préfères…",
+    "optionA": "Vous séparer exceptionnellement pour aller chacun(e) de votre côté",
+    "optionB": "Choisir ensemble un seul événement et y aller en couple"
+  },
+  {
+    "id": "vraie_vie_wyr_sante_mentale_01_quand_ton_ta_partena",
+    "category": "sante_mentale",
+    "question": "Quand ton/ta partenaire traverse une période très difficile, tu préfères…",
+    "optionA": "Qu’il/elle te dise tout même si tu ne peux rien résoudre",
+    "optionB": "Qu’il/elle garde certaines choses pour son thérapeute afin de préserver votre relation"
+  },
+  {
+    "id": "vraie_vie_wyr_sante_mentale_02_si_votre_couple_souf",
+    "category": "sante_mentale",
+    "question": "Si votre couple souffre à cause d’un problème psychologique, tu préfères…",
+    "optionA": "Commencer rapidement une thérapie de couple",
+    "optionB": "Essayer longtemps de régler les choses uniquement entre vous"
+  },
+  {
+    "id": "vraie_vie_wyr_sante_mentale_03_pendant_une_depressi",
+    "category": "sante_mentale",
+    "question": "Pendant une dépression longue, tu préfères…",
+    "optionA": "Mettre beaucoup de projets communs en pause",
+    "optionB": "Maintenir certaines habitudes même si cela demande davantage d’efforts"
+  },
+  {
+    "id": "vraie_vie_wyr_sante_mentale_04_si_ton_ta_partenaire",
+    "category": "sante_mentale",
+    "question": "Si ton/ta partenaire a besoin d’espace, tu préfères…",
+    "optionA": "Réduire fortement les contacts pendant quelques jours",
+    "optionB": "Rester présent(e) quotidiennement mais de façon très légère"
+  },
+  {
+    "id": "vraie_vie_wyr_sante_mentale_05_si_tu_te_sens_epuise",
+    "category": "sante_mentale",
+    "question": "Si tu te sens épuisé(e) par le rôle de soutien, tu préfères…",
+    "optionA": "Le dire immédiatement même au mauvais moment",
+    "optionB": "Attendre une période plus stable quitte à dépasser tes propres limites"
+  },
+  {
+    "id": "vraie_vie_wyr_sante_mentale_06_si_ton_ta_partenaire",
+    "category": "sante_mentale",
+    "question": "Si ton/ta partenaire refuse de consulter, tu préfères…",
+    "optionA": "Respecter son choix tant qu’il n’y a pas de danger immédiat",
+    "optionB": "Poser une limite claire si la situation continue à abîmer votre relation"
+  },
+  {
+    "id": "vraie_vie_wyr_maladie_01_si_lun_de_vous_deven",
+    "category": "maladie",
+    "question": "Si l’un de vous devenait très dépendant, tu préfères…",
+    "optionA": "Organiser autant que possible les soins à domicile",
+    "optionB": "Accepter une structure spécialisée pour préserver aussi la relation de couple"
+  },
+  {
+    "id": "vraie_vie_wyr_maladie_02_face_a_un_traitement",
+    "category": "maladie",
+    "question": "Face à un traitement très lourd et incertain, tu préfères…",
+    "optionA": "Tout tenter même avec de nombreux effets secondaires",
+    "optionB": "Privilégier davantage la qualité de vie restante"
+  },
+  {
+    "id": "vraie_vie_wyr_maladie_03_pour_votre_vieilless",
+    "category": "maladie",
+    "question": "Pour votre vieillesse, tu préfères…",
+    "optionA": "Rester près de vos proches même dans un lieu qui vous plaît moins",
+    "optionB": "Vivre dans l’endroit de vos rêves même loin de votre famille"
+  },
+  {
+    "id": "vraie_vie_wyr_maladie_04_si_une_maladie_suppr",
+    "category": "maladie",
+    "question": "Si une maladie supprimait la sexualité du couple, tu préfères…",
+    "optionA": "Réinventer activement d’autres formes d’intimité",
+    "optionB": "Accepter une période indéfinie sans chercher immédiatement de solution"
+  },
+  {
+    "id": "vraie_vie_wyr_maladie_05_si_ton_ta_partenaire",
+    "category": "maladie",
+    "question": "Si ton/ta partenaire ne pouvait plus te reconnaître, tu préfères…",
+    "optionA": "Continuer à être présent(e) quotidiennement autant que possible",
+    "optionB": "Préserver aussi une partie importante de ta propre vie en dehors des soins"
+  },
+  {
+    "id": "vraie_vie_wyr_maladie_06_pour_preparer_la_vie",
+    "category": "maladie",
+    "question": "Pour préparer la vieillesse, tu préfères…",
+    "optionA": "Tout discuter très tôt même si c’est inconfortable",
+    "optionB": "Attendre que les situations deviennent concrètes pour décider"
+  },
+  {
+    "id": "vraie_vie_wyr_carriere_01_pour_une_opportunite",
+    "category": "carriere",
+    "question": "Pour une opportunité professionnelle unique, tu préfères…",
+    "optionA": "Vivre à distance deux ans",
+    "optionB": "Que l’un de vous refuse l’opportunité pour rester ensemble"
+  },
+  {
+    "id": "vraie_vie_wyr_carriere_02_pour_une_reconversio",
+    "category": "carriere",
+    "question": "Pour une reconversion passion, tu préfères…",
+    "optionA": "Accepter plusieurs années avec beaucoup moins de revenus",
+    "optionB": "Conserver la stabilité financière et garder la passion comme activité secondaire"
+  },
+  {
+    "id": "vraie_vie_wyr_carriere_03_si_vos_carrieres_dev",
+    "category": "carriere",
+    "question": "Si vos carrières deviennent incompatibles géographiquement, tu préfères…",
+    "optionA": "Choisir la meilleure opportunité pour le couple globalement",
+    "optionB": "Essayer de préserver les deux carrières même au prix de la distance"
+  },
+  {
+    "id": "vraie_vie_wyr_carriere_04_si_ton_ta_partenaire",
+    "category": "carriere",
+    "question": "Si ton/ta partenaire lance une entreprise, tu préfères…",
+    "optionA": "Qu’il/elle travaille énormément pendant une période définie",
+    "optionB": "Qu’il/elle avance plus lentement pour préserver votre temps de couple"
+  },
+  {
+    "id": "vraie_vie_wyr_carriere_05_si_lun_devient_tres_",
+    "category": "carriere",
+    "question": "Si l’un devient très célèbre, tu préfères…",
+    "optionA": "Partager davantage publiquement votre vie de couple",
+    "optionB": "Protéger strictement votre relation même si cela crée de la distance avec son public"
+  },
+  {
+    "id": "vraie_vie_wyr_carriere_06_pour_votre_avenir_tu",
+    "category": "carriere",
+    "question": "Pour votre avenir, tu préfères…",
+    "optionA": "Deux carrières ambitieuses avec peu de temps ensemble",
+    "optionB": "Une vie plus simple avec davantage de temps partagé"
+  },
+  {
+    "id": "vraie_vie_wyr_vie_commune_01_pour_mieux_dormir_tu",
+    "category": "vie_commune",
+    "question": "Pour mieux dormir, tu préfères…",
+    "optionA": "Dormir parfois dans des chambres séparées",
+    "optionB": "Rester dans le même lit même si la qualité du sommeil est moins bonne"
+  },
+  {
+    "id": "vraie_vie_wyr_vie_commune_02_pour_votre_maison_tu",
+    "category": "vie_commune",
+    "question": "Pour votre maison, tu préfères…",
+    "optionA": "Un intérieur toujours très rangé avec davantage de règles",
+    "optionB": "Un lieu plus vivant et désordonné mais sans pression quotidienne"
+  },
+  {
+    "id": "vraie_vie_wyr_vie_commune_03_pour_les_invites_tu_",
+    "category": "vie_commune",
+    "question": "Pour les invités, tu préfères…",
+    "optionA": "Pouvoir recevoir spontanément",
+    "optionB": "Toujours demander l’accord de l’autre avant d’inviter quelqu’un"
+  },
+  {
+    "id": "vraie_vie_wyr_vie_commune_04_pour_votre_lieu_de_v",
+    "category": "vie_commune",
+    "question": "Pour votre lieu de vie, tu préfères…",
+    "optionA": "Un logement plus petit en plein centre-ville",
+    "optionB": "Une grande maison plus isolée loin de l’animation"
+  },
+  {
+    "id": "vraie_vie_wyr_vie_commune_05_pour_les_taches_mena",
+    "category": "vie_commune",
+    "question": "Pour les tâches ménagères, tu préfères…",
+    "optionA": "Une répartition précisément définie",
+    "optionB": "Une organisation souple selon l’énergie et le temps de chacun"
+  },
+  {
+    "id": "vraie_vie_wyr_vie_commune_06_pour_preserver_votre",
+    "category": "vie_commune",
+    "question": "Pour préserver votre espace personnel, tu préfères…",
+    "optionA": "Une pièce réservée à chacun si possible",
+    "optionB": "Partager toutes les pièces mais respecter des moments de solitude"
+  },
+  {
+    "id": "vraie_vie_wyr_numerique_01_pour_la_confiance_nu",
+    "category": "numerique",
+    "question": "Pour la confiance numérique, tu préfères…",
+    "optionA": "Connaître les codes de l’autre mais ne jamais les utiliser sans permission",
+    "optionB": "Ne connaître aucun mot de passe mais pouvoir demander à voir quelque chose en cas de doute sérieux"
+  },
+  {
+    "id": "vraie_vie_wyr_numerique_02_pour_votre_localisat",
+    "category": "numerique",
+    "question": "Pour votre localisation, tu préfères…",
+    "optionA": "La partager en permanence par simplicité",
+    "optionB": "Ne la partager que ponctuellement quand cela a une utilité réelle"
+  },
+  {
+    "id": "vraie_vie_wyr_numerique_03_pour_demander_consei",
+    "category": "numerique",
+    "question": "Pour demander conseil après une dispute, tu préfères…",
+    "optionA": "Parler à un ami proche qui vous connaît",
+    "optionB": "Utiliser une IA qui ne connaît personne mais lit la conversation"
+  },
+  {
+    "id": "vraie_vie_wyr_numerique_04_pour_les_souvenirs_n",
+    "category": "numerique",
+    "question": "Pour les souvenirs numériques d’un ex, tu préfères…",
+    "optionA": "Garder les anciennes photos mais supprimer les messages intimes",
+    "optionB": "Garder les conversations mais supprimer les photos personnelles"
+  },
+  {
+    "id": "vraie_vie_wyr_numerique_05_pour_votre_presence_",
+    "category": "numerique",
+    "question": "Pour votre présence en ligne, tu préfères…",
+    "optionA": "Partager naturellement quelques moments de couple",
+    "optionB": "Garder votre relation presque entièrement hors des réseaux"
+  },
+  {
+    "id": "vraie_vie_wyr_numerique_06_apres_ta_mort_tu_pre",
+    "category": "numerique",
+    "question": "Après ta mort, tu préfères…",
+    "optionA": "Que ton/ta partenaire puisse accéder à tous tes comptes",
+    "optionB": "Que certaines parties de ta vie numérique restent définitivement privées"
+  },
+  {
+    "id": "vraie_vie_wyr_mort_01_apres_le_deces_de_to",
+    "category": "mort",
+    "question": "Après le décès de ton/ta partenaire, tu préfères…",
+    "optionA": "Conserver beaucoup de ses affaires et souvenirs autour de toi",
+    "optionB": "Garder seulement quelques objets très importants et transformer progressivement l’espace"
+  },
+  {
+    "id": "vraie_vie_wyr_mort_02_pour_vos_dernieres_v",
+    "category": "mort",
+    "question": "Pour vos dernières volontés, tu préfères…",
+    "optionA": "Tout prévoir précisément longtemps à l’avance",
+    "optionB": "Laisser beaucoup de liberté à la personne qui restera"
+  },
+  {
+    "id": "vraie_vie_wyr_mort_03_si_tu_meurs_avant_to",
+    "category": "mort",
+    "question": "Si tu meurs avant ton/ta partenaire, tu préfères…",
+    "optionA": "Qu’il/elle reconstruise sa vie dès qu’il/elle s’en sent capable",
+    "optionB": "Qu’il/elle garde votre relation comme la dernière grande histoire amoureuse de sa vie"
+  },
+  {
+    "id": "vraie_vie_wyr_mort_04_pour_votre_lieu_de_r",
+    "category": "mort",
+    "question": "Pour votre lieu de repos, tu préfères…",
+    "optionA": "Être près l’un de l’autre si possible",
+    "optionB": "Chacun près de sa famille ou du lieu qui lui ressemble le plus"
+  },
+  {
+    "id": "vraie_vie_wyr_mort_05_pour_tes_comptes_num",
+    "category": "mort",
+    "question": "Pour tes comptes numériques après ta mort, tu préfères…",
+    "optionA": "Qu’ils deviennent une archive de souvenirs",
+    "optionB": "Qu’ils soient supprimés entièrement"
+  },
+  {
+    "id": "vraie_vie_wyr_mort_06_face_a_une_derniere_",
+    "category": "mort",
+    "question": "Face à une dernière volonté difficile, tu préfères…",
+    "optionA": "La respecter même si elle te fait souffrir",
+    "optionB": "Adapter la décision si tu penses sincèrement qu’elle n’est plus juste au moment venu"
+  },
+  {
+    "id": "vraie_vie_wyr_bouleversements_01_apres_une_catastroph",
+    "category": "bouleversements",
+    "question": "Après une catastrophe qui bouleverse votre vie, tu préfères…",
+    "optionA": "Reconstruire au même endroit pour retrouver vos repères",
+    "optionB": "Profiter de l’occasion pour recommencer ailleurs"
+  },
+  {
+    "id": "vraie_vie_wyr_bouleversements_02_en_cas_de_gros_herit",
+    "category": "bouleversements",
+    "question": "En cas de gros héritage soudain, tu préfères…",
+    "optionA": "Changer immédiatement votre quotidien pour en profiter",
+    "optionB": "Conserver longtemps presque le même mode de vie"
+  },
+  {
+    "id": "vraie_vie_wyr_bouleversements_03_si_votre_projet_pare",
+    "category": "bouleversements",
+    "question": "Si votre projet parental devient impossible comme prévu, tu préfères…",
+    "optionA": "Explorer rapidement d’autres chemins",
+    "optionB": "Prendre beaucoup de temps avant d’envisager une autre option"
+  },
+  {
+    "id": "vraie_vie_wyr_bouleversements_04_face_a_un_probleme_j",
+    "category": "bouleversements",
+    "question": "Face à un problème judiciaire du/de la partenaire, tu préfères…",
+    "optionA": "Le/la soutenir publiquement tant que tu crois en sa version",
+    "optionB": "Rester très discret/discrète jusqu’à connaître tous les faits"
+  },
+  {
+    "id": "vraie_vie_wyr_bouleversements_05_si_vous_perdez_tout_",
+    "category": "bouleversements",
+    "question": "Si vous perdez tout financièrement, tu préfères…",
+    "optionA": "Revenir temporairement vivre chez la famille pour économiser",
+    "optionB": "Garder votre indépendance même dans un logement beaucoup plus modeste"
+  },
+  {
+    "id": "vraie_vie_wyr_bouleversements_06_si_ton_ta_partenaire",
+    "category": "bouleversements",
+    "question": "Si ton/ta partenaire change radicalement après une crise, tu préfères…",
+    "optionA": "Essayer de découvrir cette nouvelle version de lui/elle",
+    "optionB": "Protéger fortement le projet de vie que vous aviez construit avant"
+  },
+  {
+    "id": "vraie_vie_wyr_couple_pression_01_quand_la_relation_tr",
+    "category": "couple_pression",
+    "question": "Quand la relation traverse une grosse crise, tu préfères…",
+    "optionA": "Tout mettre sur la table immédiatement même si les discussions sont explosives",
+    "optionB": "Prendre du recul avant de parler pour éviter de dire des choses irréparables"
+  },
+  {
+    "id": "vraie_vie_wyr_couple_pression_02_si_la_passion_diminu",
+    "category": "couple_pression",
+    "question": "Si la passion diminue fortement, tu préfères…",
+    "optionA": "Travailler activement pour la recréer",
+    "optionB": "Accepter qu’un amour durable puisse devenir beaucoup plus calme"
+  },
+  {
+    "id": "vraie_vie_wyr_couple_pression_03_pour_sauver_une_rela",
+    "category": "couple_pression",
+    "question": "Pour sauver une relation qui s’épuise, tu préfères…",
+    "optionA": "Commencer une thérapie de couple",
+    "optionB": "Changer radicalement votre quotidien pendant quelques mois avant de consulter"
+  },
+  {
+    "id": "vraie_vie_wyr_couple_pression_04_si_vous_avez_besoin_",
+    "category": "couple_pression",
+    "question": "Si vous avez besoin d’espace, tu préfères…",
+    "optionA": "Continuer à vivre ensemble avec plus d’indépendance",
+    "optionB": "Vivre séparément quelque temps tout en restant officiellement en couple"
+  },
+  {
+    "id": "vraie_vie_wyr_couple_pression_05_face_a_un_fort_decal",
+    "category": "couple_pression",
+    "question": "Face à un fort décalage de désir, tu préfères…",
+    "optionA": "Parler régulièrement du sujet même si c’est inconfortable",
+    "optionB": "Réduire la pression et laisser le sujet reposer pendant un temps"
+  },
+  {
+    "id": "vraie_vie_wyr_couple_pression_06_si_ton_ta_partenaire",
+    "category": "couple_pression",
+    "question": "Si ton/ta partenaire doute de ses sentiments, tu préfères…",
+    "optionA": "Le savoir dès les premiers doutes",
+    "optionB": "Qu’il/elle prenne le temps de comprendre avant de t’en parler"
   }
 ]

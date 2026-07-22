@@ -1338,5 +1338,245 @@
   {
     "id": "parentalite_guess_035_quelle_serait_selon_toi_ta_plus_gran",
     "question": "Quelle serait, selon toi, ta plus grande force comme parent ?"
+  },
+  {
+    "id": "vraie_vie_guess_argent_01_quel_montant_maximum",
+    "question": "Quel montant maximum pourrais-tu prêter à un proche sans en discuter d’abord avec ton/ta partenaire ?"
+  },
+  {
+    "id": "vraie_vie_guess_argent_02_quel_serait_ton_prem",
+    "question": "Quel serait ton premier projet si vous receviez soudainement 500 000 € ?"
+  },
+  {
+    "id": "vraie_vie_guess_argent_03_quelle_depense_impor",
+    "question": "Quelle dépense importante te semblerait la plus difficile à partager à 50/50 ?"
+  },
+  {
+    "id": "vraie_vie_guess_argent_04_a_partir_de_combien_",
+    "question": "À partir de combien de mois sans revenu commencerais-tu à vraiment t’inquiéter pour votre couple ?"
+  },
+  {
+    "id": "vraie_vie_guess_argent_05_quelle_serait_ta_reg",
+    "question": "Quelle serait ta règle idéale concernant les comptes personnels et le compte commun ?"
+  },
+  {
+    "id": "vraie_vie_guess_argent_06_quel_sacrifice_finan",
+    "question": "Quel sacrifice financier serais-tu le plus prêt(e) à faire pour soutenir un rêve de ton/ta partenaire ?"
+  },
+  {
+    "id": "vraie_vie_guess_famille_01_quel_membre_de_ta_fa",
+    "question": "Quel membre de ta famille aurais-tu le plus de mal à contredire pour défendre ton/ta partenaire ?"
+  },
+  {
+    "id": "vraie_vie_guess_famille_02_combien_de_temps_max",
+    "question": "Combien de temps maximum accepterais-tu d’héberger un proche chez vous ?"
+  },
+  {
+    "id": "vraie_vie_guess_famille_03_quelle_fete_familial",
+    "question": "Quelle fête familiale te semblerait la plus difficile à ne pas passer avec ta famille ?"
+  },
+  {
+    "id": "vraie_vie_guess_famille_04_quel_comportement_du",
+    "question": "Quel comportement d’une belle-famille te ferait poser une limite immédiate ?"
+  },
+  {
+    "id": "vraie_vie_guess_famille_05_dans_quelle_situatio",
+    "question": "Dans quelle situation accepterais-tu que ton/ta partenaire refuse totalement la présence d’un de tes proches chez vous ?"
+  },
+  {
+    "id": "vraie_vie_guess_famille_06_quelle_serait_ta_pri",
+    "question": "Quelle serait ta priorité si vos deux familles avaient besoin de vous au même moment ?"
+  },
+  {
+    "id": "vraie_vie_guess_sante_mentale_01_quel_serait_ton_prem",
+    "question": "Quel serait ton premier besoin si tu traversais une période de grande détresse psychologique ?"
+  },
+  {
+    "id": "vraie_vie_guess_sante_mentale_02_quelle_phrase_de_ton",
+    "question": "Quelle phrase de ton/ta partenaire te ferait le plus de bien pendant une crise d’angoisse ?"
+  },
+  {
+    "id": "vraie_vie_guess_sante_mentale_03_combien_de_temps_pou",
+    "question": "Combien de temps pourrais-tu accepter que votre relation passe au second plan à cause d’une période difficile ?"
+  },
+  {
+    "id": "vraie_vie_guess_sante_mentale_04_quelle_limite_serait",
+    "question": "Quelle limite serait la plus importante pour préserver ta propre santé mentale en soutenant ton/ta partenaire ?"
+  },
+  {
+    "id": "vraie_vie_guess_sante_mentale_05_a_quel_signe_compren",
+    "question": "À quel signe comprendrais-tu qu’une aide professionnelle devient indispensable ?"
+  },
+  {
+    "id": "vraie_vie_guess_sante_mentale_06_quel_type_de_soutien",
+    "question": "Quel type de soutien te semblerait le plus utile : présence, solutions concrètes, espace, écoute ou aide extérieure ?"
+  },
+  {
+    "id": "vraie_vie_guess_maladie_01_quel_aspect_de_la_vi",
+    "question": "Quel aspect de la vieillesse à deux t’inquiète le plus ?"
+  },
+  {
+    "id": "vraie_vie_guess_maladie_02_jusquou_serais_tu_pr",
+    "question": "Jusqu’où serais-tu prêt(e) à déménager pour un traitement ou un suivi médical important ?"
+  },
+  {
+    "id": "vraie_vie_guess_maladie_03_quelle_aide_exterieu",
+    "question": "Quelle aide extérieure accepterais-tu le plus facilement si ton/ta partenaire devenait dépendant(e) ?"
+  },
+  {
+    "id": "vraie_vie_guess_maladie_04_quel_projet_voudrais",
+    "question": "Quel projet voudrais-tu absolument réaliser avant de devenir trop âgé(e) ou malade pour le faire ?"
+  },
+  {
+    "id": "vraie_vie_guess_maladie_05_quelle_decision_medi",
+    "question": "Quelle décision médicale voudrais-tu absolument avoir discutée avec ton/ta partenaire à l’avance ?"
+  },
+  {
+    "id": "vraie_vie_guess_maladie_06_quel_serait_ton_plus",
+    "question": "Quel serait ton plus grand besoin si tu dépendais physiquement de ton/ta partenaire pendant une longue période ?"
+  },
+  {
+    "id": "vraie_vie_guess_carriere_01_combien_de_temps_max",
+    "question": "Combien de temps maximum accepterais-tu de vivre à distance pour une raison professionnelle ?"
+  },
+  {
+    "id": "vraie_vie_guess_carriere_02_quel_pays_ou_type_de",
+    "question": "Quel pays ou type de destination pourrais-tu accepter pour suivre une opportunité de ton/ta partenaire ?"
+  },
+  {
+    "id": "vraie_vie_guess_carriere_03_quelle_baisse_de_rev",
+    "question": "Quelle baisse de revenus accepterais-tu pour que ton/ta partenaire fasse enfin un métier qu’il/elle aime ?"
+  },
+  {
+    "id": "vraie_vie_guess_carriere_04_quel_nombre_dheures_",
+    "question": "Quel nombre d’heures de travail hebdomadaires te semblerait devenir incompatible avec une vraie vie de couple ?"
+  },
+  {
+    "id": "vraie_vie_guess_carriere_05_quelle_ambition_prof",
+    "question": "Quelle ambition professionnelle serais-tu le/la plus prêt(e) à soutenir même si elle bouleversait votre quotidien ?"
+  },
+  {
+    "id": "vraie_vie_guess_carriere_06_quel_sacrifice_de_ca",
+    "question": "Quel sacrifice de carrière refuserais-tu presque certainement de faire pour ton couple ?"
+  },
+  {
+    "id": "vraie_vie_guess_vie_commune_01_combien_de_soirees_p",
+    "question": "Combien de soirées par semaine voudrais-tu idéalement passer tranquillement à la maison sans invités ?"
+  },
+  {
+    "id": "vraie_vie_guess_vie_commune_02_quelle_tache_menager",
+    "question": "Quelle tâche ménagère serais-tu le/la plus prêt(e) à payer pour ne jamais avoir à la faire ?"
+  },
+  {
+    "id": "vraie_vie_guess_vie_commune_03_quelle_temperature_i",
+    "question": "Quelle température idéale voudrais-tu dans votre logement en hiver ?"
+  },
+  {
+    "id": "vraie_vie_guess_vie_commune_04_quel_type_de_piece_p",
+    "question": "Quel type de pièce personnelle rêverais-tu d’avoir dans votre maison ?"
+  },
+  {
+    "id": "vraie_vie_guess_vie_commune_05_quel_compromis_de_li",
+    "question": "Quel compromis de lieu de vie serais-tu le plus prêt(e) à faire pour ton/ta partenaire ?"
+  },
+  {
+    "id": "vraie_vie_guess_vie_commune_06_combien_de_nuits_sep",
+    "question": "Combien de nuits séparées par semaine pourraient te sembler normales dans un couple qui dort mieux ainsi ?"
+  },
+  {
+    "id": "vraie_vie_guess_numerique_01_quelle_information_n",
+    "question": "Quelle information numérique te semblerait la plus privée, même dans un couple ?"
+  },
+  {
+    "id": "vraie_vie_guess_numerique_02_quel_ancien_contenu_",
+    "question": "Quel ancien contenu lié à un ex pourrais-tu comprendre que ton/ta partenaire garde ?"
+  },
+  {
+    "id": "vraie_vie_guess_numerique_03_dans_quelle_situatio",
+    "question": "Dans quelle situation accepterais-tu que votre localisation soit partagée en permanence ?"
+  },
+  {
+    "id": "vraie_vie_guess_numerique_04_quel_type_de_convers",
+    "question": "Quel type de conversation de couple refuserais-tu catégoriquement de voir partagé avec des amis ?"
+  },
+  {
+    "id": "vraie_vie_guess_numerique_05_quel_compte_numeriqu",
+    "question": "Quel compte numérique voudrais-tu absolument transmettre à ton/ta partenaire après ta mort ?"
+  },
+  {
+    "id": "vraie_vie_guess_numerique_06_quelle_technologie_d",
+    "question": "Quelle technologie dans votre maison te ferait le plus craindre une perte d’intimité ?"
+  },
+  {
+    "id": "vraie_vie_guess_mort_01_quel_objet_voudrais_",
+    "question": "Quel objet voudrais-tu que ton/ta partenaire garde absolument si tu mourais avant lui/elle ?"
+  },
+  {
+    "id": "vraie_vie_guess_mort_02_quel_type_de_ceremon",
+    "question": "Quel type de cérémonie te correspondrait le plus pour tes propres funérailles ?"
+  },
+  {
+    "id": "vraie_vie_guess_mort_03_combien_de_temps_ima",
+    "question": "Combien de temps imagines-tu qu’il te faudrait avant de pouvoir envisager une nouvelle relation après un deuil amoureux ?"
+  },
+  {
+    "id": "vraie_vie_guess_mort_04_quelle_derniere_volo",
+    "question": "Quelle dernière volonté serait la plus importante pour toi ?"
+  },
+  {
+    "id": "vraie_vie_guess_mort_05_quel_contenu_numeriq",
+    "question": "Quel contenu numérique voudrais-tu absolument voir supprimé après ta mort ?"
+  },
+  {
+    "id": "vraie_vie_guess_mort_06_a_qui_voudrais_tu_tr",
+    "question": "À qui voudrais-tu transmettre ton bien le plus sentimental ?"
+  },
+  {
+    "id": "vraie_vie_guess_bouleversements_01_quel_bouleversement_",
+    "question": "Quel bouleversement de vie te ferait le plus peur pour votre couple ?"
+  },
+  {
+    "id": "vraie_vie_guess_bouleversements_02_quelle_premiere_chos",
+    "question": "Quelle première chose essaierais-tu de protéger si vous perdiez soudainement votre stabilité financière ?"
+  },
+  {
+    "id": "vraie_vie_guess_bouleversements_03_quel_changement_radi",
+    "question": "Quel changement radical de ton/ta partenaire aurais-tu le plus de mal à suivre ?"
+  },
+  {
+    "id": "vraie_vie_guess_bouleversements_04_dans_quelle_situatio",
+    "question": "Dans quelle situation serais-tu le/la plus prêt(e) à repartir vivre temporairement chez la famille ?"
+  },
+  {
+    "id": "vraie_vie_guess_bouleversements_05_quel_plan_b_parental",
+    "question": "Quel plan B parental te semblerait le plus naturel si votre projet initial devenait impossible ?"
+  },
+  {
+    "id": "vraie_vie_guess_bouleversements_06_quelle_qualite_de_to",
+    "question": "Quelle qualité de ton/ta partenaire te rassurerait le plus dans une crise majeure ?"
+  },
+  {
+    "id": "vraie_vie_guess_couple_pression_01_quelle_serait_ta_pre",
+    "question": "Quelle serait ta première proposition si vous sentiez que la routine abîme votre relation ?"
+  },
+  {
+    "id": "vraie_vie_guess_couple_pression_02_combien_de_temps_de_",
+    "question": "Combien de temps de séparation temporaire pourrais-tu envisager sans perdre confiance dans le couple ?"
+  },
+  {
+    "id": "vraie_vie_guess_couple_pression_03_quel_signe_te_ferait",
+    "question": "Quel signe te ferait penser qu’une thérapie de couple devient nécessaire ?"
+  },
+  {
+    "id": "vraie_vie_guess_couple_pression_04_quelle_forme_dintimi",
+    "question": "Quelle forme d’intimité te manquerait le plus si votre vie sexuelle disparaissait pendant longtemps ?"
+  },
+  {
+    "id": "vraie_vie_guess_couple_pression_05_quelle_habitude_de_v",
+    "question": "Quelle habitude de votre couple voudrais-tu protéger en priorité pendant une crise ?"
+  },
+  {
+    "id": "vraie_vie_guess_couple_pression_06_quelle_phrase_te_fer",
+    "question": "Quelle phrase te ferait le plus peur à entendre de la part de ton/ta partenaire sur votre relation ?"
   }
 ]

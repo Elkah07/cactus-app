@@ -1,43 +1,137 @@
 {
-  "name": "CACTUS — Pack transversal Enfants & éducation",
-  "total_new_objects": 300,
-  "counts": {
-    "ok-ou-pas-ok": 70,
-    "questions": 60,
-    "likely": 35,
-    "guess-my-answer": 35,
-    "would-you-rather": 30,
-    "green-flag-red-flag": 30,
-    "rankings": 20,
-    "limit-reached": 20
+  "name": "CACTUS — Pack La vraie vie à deux",
+  "total_new_top_level_contents": 600,
+  "limit_reached_extra_levels": 300,
+  "distribution": {
+    "ok-ou-pas-ok": 130,
+    "questions": 120,
+    "likely": 60,
+    "guess-my-answer": 60,
+    "would-you-rather": 60,
+    "green-flag-red-flag": 60,
+    "rankings": 60,
+    "limit-reached-scenarios": 50,
+    "limit-reached-levels": 300
   },
-  "limit_reached_levels": 120,
-  "duplicate_exact_text_hits_against_current_project": 0,
-  "files": [
-    "ok-ou-pas-ok-parentalite-70.json",
-    "questions-parentalite-60.json",
-    "likely-parentalite-35.json",
-    "guess-my-answer-parentalite-35.json",
-    "would-you-rather-parentalite-30.json",
-    "green-flag-red-flag-parentalite-30.json",
-    "rankings-parentalite-20.json",
-    "limit-reached-parentalite-20.json"
-  ],
   "themes": [
-    "éducation",
-    "adolescence",
-    "discipline",
-    "vie privée",
-    "alcool",
-    "tabac",
-    "cannabis",
-    "sexualité et relations",
-    "argent",
-    "études",
-    "réseaux sociaux",
-    "santé mentale",
-    "autonomie",
-    "famille",
-    "désaccords entre parents"
-  ]
+    {
+      "id": "argent",
+      "label": "Argent & patrimoine",
+      "top_level_contents": 60,
+      "limit_levels": 30
+    },
+    {
+      "id": "famille",
+      "label": "Famille & belle-famille",
+      "top_level_contents": 60,
+      "limit_levels": 30
+    },
+    {
+      "id": "sante_mentale",
+      "label": "Santé mentale & périodes difficiles",
+      "top_level_contents": 60,
+      "limit_levels": 30
+    },
+    {
+      "id": "maladie",
+      "label": "Maladie, handicap & vieillesse",
+      "top_level_contents": 60,
+      "limit_levels": 30
+    },
+    {
+      "id": "carriere",
+      "label": "Carrière & sacrifices",
+      "top_level_contents": 60,
+      "limit_levels": 30
+    },
+    {
+      "id": "vie_commune",
+      "label": "Vie commune réelle",
+      "top_level_contents": 60,
+      "limit_levels": 30
+    },
+    {
+      "id": "numerique",
+      "label": "Vie privée, téléphone & technologie",
+      "top_level_contents": 60,
+      "limit_levels": 30
+    },
+    {
+      "id": "mort",
+      "label": "Mort, héritage & après",
+      "top_level_contents": 60,
+      "limit_levels": 30
+    },
+    {
+      "id": "bouleversements",
+      "label": "Quand la vie change brutalement",
+      "top_level_contents": 60,
+      "limit_levels": 30
+    },
+    {
+      "id": "couple_pression",
+      "label": "Couple sous pression",
+      "top_level_contents": 60,
+      "limit_levels": 30
+    }
+  ],
+  "duplicate_check": {
+    "ok-ou-pas-ok.json": {
+      "existing_before": 999,
+      "new": 130,
+      "after": 1129,
+      "id_collisions": 0,
+      "exact_text_collisions": 0
+    },
+    "questions.json": {
+      "existing_before": 660,
+      "new": 120,
+      "after": 780,
+      "id_collisions": 0,
+      "exact_text_collisions": 0
+    },
+    "likely.json": {
+      "existing_before": 335,
+      "new": 60,
+      "after": 395,
+      "id_collisions": 0,
+      "exact_text_collisions": 0
+    },
+    "guess-my-answer.json": {
+      "existing_before": 335,
+      "new": 60,
+      "after": 395,
+      "id_collisions": 0,
+      "exact_text_collisions": 0
+    },
+    "would-you-rather.json": {
+      "existing_before": 330,
+      "new": 60,
+      "after": 390,
+      "id_collisions": 0,
+      "exact_text_collisions": 0
+    },
+    "green-flag-red-flag.json": {
+      "existing_before": 330,
+      "new": 60,
+      "after": 390,
+      "id_collisions": 0,
+      "exact_text_collisions": 0
+    },
+    "rankings.json": {
+      "existing_before": 320,
+      "new": 60,
+      "after": 380,
+      "id_collisions": 0,
+      "exact_text_collisions": 0
+    },
+    "limit-reached.json": {
+      "existing_before": 87,
+      "new": 50,
+      "after": 137,
+      "id_collisions": 0,
+      "exact_text_collisions": 0
+    }
+  },
+  "base_includes_parentalite_pack": true
 }

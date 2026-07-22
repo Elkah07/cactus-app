@@ -5278,5 +5278,965 @@
     "spicy": 0,
     "mood": "deep",
     "premium": true
+  },
+  {
+    "id": "vraie_vie_question_argent_01_comment_aimerais_tu_",
+    "question": "Comment aimerais-tu répartir les dépenses si l’un de vous gagnait cinq fois plus que l’autre ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_argent_02_a_partir_de_quel_mon",
+    "question": "À partir de quel montant une dépense personnelle devrait-elle, selon toi, être discutée avec ton/ta partenaire ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_argent_03_comment_reagirais_tu",
+    "question": "Comment réagirais-tu en découvrant une dette importante que ton/ta partenaire n’avait jamais osé mentionner ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_argent_04_un_heritage_recu_par",
+    "question": "Un héritage reçu par l’un de vous devrait-il rester personnel ou profiter au projet de vie commun ? Pourquoi ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_argent_05_jusquou_serais_tu_pr",
+    "question": "Jusqu’où serais-tu prêt(e) à aider financièrement la famille de ton/ta partenaire si cela ralentissait vos propres projets ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_argent_06_pourrais_tu_etre_tot",
+    "question": "Pourrais-tu être totalement à l’aise si ton/ta partenaire devenait financièrement dépendant(e) de toi pendant plusieurs années ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_argent_07_comment_definirais_t",
+    "question": "Comment définirais-tu ce qui appartient au couple et ce qui doit rester personnel dans l’argent ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_argent_08_quelle_erreur_financ",
+    "question": "Quelle erreur financière de ton/ta partenaire aurais-tu le plus de mal à pardonner ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_argent_09_comment_reagirais_tu",
+    "question": "Comment réagirais-tu si ton/ta partenaire voulait prendre un gros risque financier pour poursuivre un rêve ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_argent_10_que_faudrait_il_mett",
+    "question": "Que faudrait-il mettre en place pour que de très grandes différences de revenus ne créent pas de rapport de pouvoir entre vous ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_argent_11_serais_tu_capable_de",
+    "question": "Serais-tu capable de réduire fortement ton niveau de vie pour permettre à ton/ta partenaire de changer de carrière ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_argent_12_quelle_serait_ta_pri",
+    "question": "Quelle serait ta priorité si vous receviez soudainement une somme qui change complètement votre situation financière ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_famille_01_comment_reagirais_tu",
+    "question": "Comment réagirais-tu si un membre de ta famille manquait régulièrement de respect à ton/ta partenaire ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_famille_02_jusquou_devrais_tu_s",
+    "question": "Jusqu’où devrais-tu, selon toi, défendre ton/ta partenaire face à ta propre famille ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_famille_03_pourrais_tu_accepter",
+    "question": "Pourrais-tu accepter d’héberger un membre de la famille de ton/ta partenaire pendant plusieurs mois ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_famille_04_comment_decideriez_v",
+    "question": "Comment décideriez-vous avec quelle famille passer les fêtes si les deux côtés refusaient de faire des compromis ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_famille_05_que_ferais_tu_si_ta_",
+    "question": "Que ferais-tu si ta famille n’acceptait jamais complètement ton couple ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_famille_06_ton_ta_partenaire_de",
+    "question": "Ton/ta partenaire devrait-il/elle avoir un droit de veto sur la présence de certains membres de ta famille chez vous ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_famille_07_quel_type_de_secret_",
+    "question": "Quel type de secret familial te semblerait impossible à cacher à ton/ta partenaire ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_famille_08_jusquou_serais_tu_pr",
+    "question": "Jusqu’où serais-tu prêt(e) à aider financièrement un proche de ton/ta partenaire que tu apprécies peu ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_famille_09_comment_reagirais_tu",
+    "question": "Comment réagirais-tu si ton/ta partenaire voulait couper totalement les ponts avec sa famille ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_famille_10_pourrais_tu_vivre_pl",
+    "question": "Pourrais-tu vivre plusieurs années avec un parent dépendant dans votre maison ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_famille_11_que_ferais_tu_si_ta_",
+    "question": "Que ferais-tu si ta famille essayait de te faire choisir entre elle et ton/ta partenaire ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_famille_12_quelle_frontiere_ent",
+    "question": "Quelle frontière entre votre couple et vos familles te semble absolument nécessaire pour préserver votre relation ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_sante_mentale_01_jusquou_pourrais_tu_",
+    "question": "Jusqu’où pourrais-tu soutenir ton/ta partenaire pendant une longue période de dépression sans t’oublier toi-même ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_sante_mentale_02_que_ferais_tu_si_ton",
+    "question": "Que ferais-tu si ton/ta partenaire refusait toute aide alors que sa souffrance détruit progressivement votre quotidien ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_sante_mentale_03_comment_distinguerai",
+    "question": "Comment distinguerais-tu le soutien amoureux du rôle de thérapeute que tu ne devrais pas avoir à porter ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_sante_mentale_04_pourrais_tu_accepter",
+    "question": "Pourrais-tu accepter qu’une période difficile rende votre relation très peu réciproque pendant plusieurs mois ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_sante_mentale_05_comment_voudrais_tu_",
+    "question": "Comment voudrais-tu que ton/ta partenaire te dise qu’il/elle est épuisé(e) par ta souffrance sans que tu le vives comme un abandon ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_sante_mentale_06_que_ferais_tu_si_une",
+    "question": "Que ferais-tu si une thérapie amenait ton/ta partenaire à remettre profondément votre relation en question ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_sante_mentale_07_pourrais_tu_respecte",
+    "question": "Pourrais-tu respecter le besoin d’isolement de ton/ta partenaire même si cela te faisait beaucoup souffrir ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_sante_mentale_08_quelle_limite_person",
+    "question": "Quelle limite personnelle refuserais-tu de dépasser au nom du soutien à la santé mentale de ton/ta partenaire ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_sante_mentale_09_comment_reagirais_tu",
+    "question": "Comment réagirais-tu si ton/ta partenaire développait une forte dépendance émotionnelle envers toi ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_sante_mentale_10_serais_tu_pret_e_a_m",
+    "question": "Serais-tu prêt(e) à mettre certains projets de vie en pause pendant un an pour accompagner ton/ta partenaire ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_sante_mentale_11_que_voudrais_tu_abso",
+    "question": "Que voudrais-tu absolument que ton/ta partenaire fasse si ta santé mentale devenait inquiétante mais que tu refusais de l’admettre ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_sante_mentale_12_dans_quelles_circons",
+    "question": "Dans quelles circonstances une pause de couple pourrait-elle te sembler être une forme de soin plutôt qu’un abandon ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_maladie_01_jusquou_pourrais_tu_",
+    "question": "Jusqu’où pourrais-tu devenir l’aidant principal de ton/ta partenaire si une maladie changeait totalement votre quotidien ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_maladie_02_comment_voudrais_tu_",
+    "question": "Comment voudrais-tu préserver le couple si l’un de vous devenait aussi le soignant quotidien de l’autre ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_maladie_03_que_ferais_tu_si_ton",
+    "question": "Que ferais-tu si ton/ta partenaire refusait toute aide extérieure alors que tu étais en train de t’épuiser ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_maladie_04_pourrais_tu_renoncer",
+    "question": "Pourrais-tu renoncer durablement à certains projets de vie pour rester auprès d’un/une partenaire gravement malade ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_maladie_05_comment_reagirais_tu",
+    "question": "Comment réagirais-tu si une maladie supprimait presque totalement votre vie sexuelle pendant des années ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_maladie_06_qui_devrait_prendre_",
+    "question": "Qui devrait prendre les décisions médicales si l’un de vous ne pouvait plus s’exprimer ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_maladie_07_quelle_promesse_conc",
+    "question": "Quelle promesse concernant la maladie ou la vieillesse refuserais-tu de faire parce qu’elle serait impossible à garantir ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_maladie_08_comment_choisirais_t",
+    "question": "Comment choisirais-tu entre rester près de vos enfants et partir vivre ailleurs pour mieux vieillir ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_maladie_09_pourrais_tu_accepter",
+    "question": "Pourrais-tu accepter une maison médicalisée pour ton/ta partenaire si tu n’étais plus capable de répondre à ses besoins ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_maladie_10_jusquou_utiliserais_",
+    "question": "Jusqu’où utiliserais-tu vos économies pour tenter un traitement très incertain ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_maladie_11_comment_voudrais_tu_",
+    "question": "Comment voudrais-tu que votre relation évolue si l’un de vous perdait progressivement une partie de ses capacités cognitives ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_maladie_12_quest_ce_qui_te_fera",
+    "question": "Qu’est-ce qui te ferait le plus peur dans l’idée de vieillir avec quelqu’un que tu aimes ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_carriere_01_jusquou_serais_tu_pr",
+    "question": "Jusqu’où serais-tu prêt(e) à sacrifier ta propre carrière pour une opportunité exceptionnelle de ton/ta partenaire ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_carriere_02_combien_de_temps_pou",
+    "question": "Combien de temps pourrais-tu accepter une relation à distance pour protéger les projets professionnels de chacun ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_carriere_03_que_ferais_tu_si_le_",
+    "question": "Que ferais-tu si le travail de ton/ta partenaire devenait clairement sa priorité pendant plusieurs années ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_carriere_04_pourrais_tu_soutenir",
+    "question": "Pourrais-tu soutenir une reconversion qui réduirait fortement vos revenus et votre confort pendant longtemps ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_carriere_05_comment_decideriez_v",
+    "question": "Comment décideriez-vous qui déménage si vos deux carrières exigeaient de vivre dans des villes différentes ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_carriere_06_a_quel_moment_le_sou",
+    "question": "À quel moment le soutien à l’ambition de l’autre devient-il, selon toi, un sacrifice trop déséquilibré ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_carriere_07_comment_reagirais_tu",
+    "question": "Comment réagirais-tu si ton/ta partenaire devenait célèbre et que votre intimité de couple disparaissait partiellement ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_carriere_08_pourrais_tu_accepter",
+    "question": "Pourrais-tu accepter de porter seul(e) une grande partie du quotidien pendant que ton/ta partenaire construit son entreprise ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_carriere_09_quel_projet_professi",
+    "question": "Quel projet professionnel de ton/ta partenaire aurais-tu le plus de mal à soutenir ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_carriere_10_que_ferais_tu_si_ton",
+    "question": "Que ferais-tu si ton/ta partenaire regrettait d’avoir refusé une opportunité à cause de votre relation ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_carriere_11_comment_preserverais",
+    "question": "Comment préserverais-tu le couple si le travail vous laissait très peu de temps ensemble pendant plusieurs années ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_carriere_12_quelle_decision_de_c",
+    "question": "Quelle décision de carrière devrait toujours, selon toi, être prise comme une décision de couple ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_vie_commune_01_quelle_habitude_de_v",
+    "question": "Quelle habitude de vie quotidienne pourrait réellement devenir insupportable pour toi avec les années ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_vie_commune_02_pourrais_tu_etre_heu",
+    "question": "Pourrais-tu être heureux/se dans un couple qui dort régulièrement dans des chambres séparées ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_vie_commune_03_de_combien_de_temps_",
+    "question": "De combien de temps réellement seul(e) aurais-tu besoin chaque semaine en vivant avec ton/ta partenaire ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_vie_commune_04_comment_decideriez_v",
+    "question": "Comment décideriez-vous de la propreté acceptable si vos standards étaient complètement différents ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_vie_commune_05_qui_devrait_avoir_le",
+    "question": "Qui devrait avoir le dernier mot sur la décoration d’un espace partagé lorsque vous détestez les choix de l’autre ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_vie_commune_06_pourrais_tu_renoncer",
+    "question": "Pourrais-tu renoncer à ton type de lieu de vie idéal pour construire une vie commune ailleurs ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_vie_commune_07_quelle_regle_concern",
+    "question": "Quelle règle concernant les invités serait indispensable pour que tu te sentes vraiment chez toi ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_vie_commune_08_comment_voudrais_tu_",
+    "question": "Comment voudrais-tu répartir les tâches si l’un de vous travaillait beaucoup plus d’heures que l’autre ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_vie_commune_09_pourrais_tu_accepter",
+    "question": "Pourrais-tu accepter qu’une pièce de votre logement appartienne presque exclusivement à ton/ta partenaire ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_vie_commune_10_que_ferais_tu_si_vos",
+    "question": "Que ferais-tu si vos rythmes de sommeil rendaient la vie commune très difficile ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_vie_commune_11_quel_compromis_quoti",
+    "question": "Quel compromis quotidien te semblerait petit au début mais pourrait créer beaucoup de ressentiment à long terme ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_vie_commune_12_quest_ce_qui_te_fera",
+    "question": "Qu’est-ce qui te ferait sentir que votre logement est réellement votre foyer à tous les deux ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_numerique_01_le_partage_de_locali",
+    "question": "Le partage de localisation devrait-il être une liberté, une habitude ou une règle dans un couple ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_numerique_02_dans_quelle_situatio",
+    "question": "Dans quelle situation pourrais-tu accepter que ton/ta partenaire lise ton téléphone sans permission ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_numerique_03_garder_des_photos_du",
+    "question": "Garder des photos d’un ex te semble-t-il différent de garder des messages ou des vidéos ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_numerique_04_comment_reagirais_tu",
+    "question": "Comment réagirais-tu si ton/ta partenaire utilisait une IA pour analyser vos conversations privées ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_numerique_05_jusquou_peut_on_dema",
+    "question": "Jusqu’où peut-on demander conseil à ses amis sans trahir l’intimité de son couple ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_numerique_06_que_penserais_tu_dun",
+    "question": "Que penserais-tu d’un/une partenaire qui refuse complètement d’exister en couple sur les réseaux sociaux ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_numerique_07_quel_type_de_compte_",
+    "question": "Quel type de compte secret ou anonyme te semblerait acceptable dans une relation ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_numerique_08_pourrais_tu_accepter",
+    "question": "Pourrais-tu accepter des caméras à l’intérieur de votre maison pour des raisons de sécurité ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_numerique_09_quelles_donnees_nume",
+    "question": "Quelles données numériques voudrais-tu que ton/ta partenaire puisse récupérer après ta mort ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_numerique_10_est_ce_que_supprimer",
+    "question": "Est-ce que supprimer une conversation est suspect si son contenu n’avait rien d’inapproprié ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_numerique_11_quelle_limite_numeri",
+    "question": "Quelle limite numérique actuelle pourrait, selon toi, devenir complètement normale dans dix ans ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_numerique_12_comment_protegerais_",
+    "question": "Comment protégerais-tu votre vie privée si ton/ta partenaire devenait très connu(e) en ligne ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_mort_01_que_voudrais_tu_abso",
+    "question": "Que voudrais-tu absolument que ton/ta partenaire sache ou fasse si tu mourais avant lui/elle ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_mort_02_pourrais_tu_aimer_qu",
+    "question": "Pourrais-tu aimer quelqu’un d’autre après le décès de ton/ta partenaire sans avoir l’impression de trahir votre histoire ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_mort_03_que_voudrais_tu_que_",
+    "question": "Que voudrais-tu que ton/ta partenaire fasse de tes affaires personnelles après ta mort ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_mort_04_quelle_part_de_ta_vi",
+    "question": "Quelle part de ta vie numérique devrait rester privée même après ton décès ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_mort_05_comment_reagirais_tu",
+    "question": "Comment réagirais-tu si ton/ta partenaire voulait être enterré(e) loin de toi pour rester près de sa famille d’origine ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_mort_06_quel_souvenir_de_vot",
+    "question": "Quel souvenir de votre relation voudrais-tu absolument que l’autre conserve toute sa vie ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_mort_07_serais_tu_capable_de",
+    "question": "Serais-tu capable de respecter une dernière volonté de ton/ta partenaire avec laquelle tu es profondément en désaccord ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_mort_08_comment_imagines_tu_",
+    "question": "Comment imagines-tu la place d’un amour décédé si la personne survivante reconstruit un couple ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_mort_09_quelles_decisions_de",
+    "question": "Quelles décisions de fin de vie devraient être discutées bien avant d’en avoir besoin ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_mort_10_pourrais_tu_vendre_l",
+    "question": "Pourrais-tu vendre la maison où vous avez vécu ensemble après le décès de ton/ta partenaire ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_mort_11_que_voudrais_tu_tran",
+    "question": "Que voudrais-tu transmettre à ton/ta partenaire plutôt qu’à ta famille en cas de décès ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_mort_12_quelle_idee_liee_a_l",
+    "question": "Quelle idée liée à la mort ou au deuil te semble la plus difficile à aborder en couple ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_bouleversements_01_comment_reagirais_tu",
+    "question": "Comment réagirais-tu si toute votre stabilité financière disparaissait en quelques semaines ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_bouleversements_02_que_ferais_tu_si_ton",
+    "question": "Que ferais-tu si ton/ta partenaire changeait complètement de projet de vie après une crise personnelle ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_bouleversements_03_pourrais_tu_reconstr",
+    "question": "Pourrais-tu reconstruire un projet parental totalement différent si avoir des enfants biologiquement devenait impossible ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_bouleversements_04_comment_reagirais_tu",
+    "question": "Comment réagirais-tu face à une grossesse ou une parentalité imprévue au pire moment possible de votre vie ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_bouleversements_05_jusquou_pourrais_tu_",
+    "question": "Jusqu’où pourrais-tu adapter ton propre mode de vie à un changement profond de religion ou de convictions de ton/ta partenaire ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_bouleversements_06_que_faudrait_il_pour",
+    "question": "Que faudrait-il pour que tu continues à soutenir ton/ta partenaire pendant une affaire judiciaire grave ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_bouleversements_07_comment_eviterais_tu",
+    "question": "Comment éviterais-tu qu’un enrichissement soudain transforme complètement l’équilibre de votre couple ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_bouleversements_08_que_ferais_tu_si_vou",
+    "question": "Que ferais-tu si vous deviez perdre votre logement et repartir presque de zéro ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_bouleversements_09_pourrais_tu_reorgani",
+    "question": "Pourrais-tu réorganiser durablement toute ta vie autour des besoins particuliers d’un enfant ou d’un proche ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_bouleversements_10_quelle_partie_de_toi",
+    "question": "Quelle partie de toi espères-tu ne jamais perdre, même si votre vie changeait radicalement ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_bouleversements_11_quel_bouleversement_",
+    "question": "Quel bouleversement extérieur te ferait le plus craindre de ne plus reconnaître ton/ta partenaire ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_bouleversements_12_quest_ce_qui_te_donn",
+    "question": "Qu’est-ce qui te donnerait confiance dans votre capacité à rester une équipe quand plus rien ne se passe comme prévu ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_couple_pression_01_combien_de_temps_pou",
+    "question": "Combien de temps pourrais-tu rester dans une relation très difficile si tu pensais sincèrement qu’elle pouvait redevenir heureuse ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_couple_pression_02_que_signifierait_pou",
+    "question": "Que signifierait pour toi aimer encore quelqu’un mais ne plus ressentir la même passion ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_couple_pression_03_pourrais_tu_accepter",
+    "question": "Pourrais-tu accepter une séparation temporaire sans considérer que le couple est déjà terminé ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_couple_pression_04_a_quel_moment_une_th",
+    "question": "À quel moment une thérapie de couple te semblerait utile plutôt que le signe d’un échec ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_couple_pression_05_comment_reagirais_tu",
+    "question": "Comment réagirais-tu si ton/ta partenaire avait accumulé des années de ressentiment sans jamais t’en parler ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_couple_pression_06_que_ferais_tu_si_vos",
+    "question": "Que ferais-tu si vos besoins d’intimité devenaient durablement très différents ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_couple_pression_07_pourrais_tu_vivre_se",
+    "question": "Pourrais-tu vivre séparément tout en restant engagé(e) dans une relation à long terme ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_couple_pression_08_quelle_habitude_de_c",
+    "question": "Quelle habitude de couple voudrais-tu absolument préserver même pendant une grosse crise ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_couple_pression_09_comment_saurais_tu_q",
+    "question": "Comment saurais-tu qu’il est temps d’arrêter d’essayer de sauver une relation ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_couple_pression_10_que_voudrais_tu_que_",
+    "question": "Que voudrais-tu que ton/ta partenaire fasse s’il/elle commençait à douter de ses sentiments ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_couple_pression_11_quelle_verite_diffic",
+    "question": "Quelle vérité difficile sur votre relation préférerais-tu entendre immédiatement plutôt que des années plus tard ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
+  },
+  {
+    "id": "vraie_vie_question_couple_pression_12_a_quoi_ressemblerait",
+    "question": "À quoi ressemblerait, pour toi, une reconstruction réussie après une très grosse crise de couple ?",
+    "category": "deep",
+    "spicy": 0,
+    "mood": "deep",
+    "premium": true
   }
 ]

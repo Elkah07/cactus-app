@@ -1673,5 +1673,305 @@
     "id": "parentalite_likely_035_qui_est_le_plus_susceptible_de_dev",
     "question": "Qui est le plus susceptible de devenir le parent le plus strict alors qu’aujourd’hui il/elle pense être le plus cool ?",
     "category": "futurs_parents"
+  },
+  {
+    "id": "vraie_vie_likely_argent_01_qui_est_le_plus_susc",
+    "question": "Qui est le plus susceptible de surveiller le budget du foyer jusque dans les petites dépenses ?",
+    "category": "argent"
+  },
+  {
+    "id": "vraie_vie_likely_argent_02_qui_est_le_plus_susc",
+    "question": "Qui est le plus susceptible de prêter de l’argent à un proche sans réussir à dire non ?",
+    "category": "argent"
+  },
+  {
+    "id": "vraie_vie_likely_argent_03_qui_est_le_plus_susc",
+    "question": "Qui est le plus susceptible de vouloir profiter immédiatement d’un gros gain plutôt que l’épargner ?",
+    "category": "argent"
+  },
+  {
+    "id": "vraie_vie_likely_argent_04_qui_est_le_plus_susc",
+    "question": "Qui est le plus susceptible de prendre un risque financier pour un projet qui lui tient à cœur ?",
+    "category": "argent"
+  },
+  {
+    "id": "vraie_vie_likely_argent_05_qui_est_le_plus_susc",
+    "question": "Qui est le plus susceptible de cacher une inquiétude financière pour ne pas stresser l’autre ?",
+    "category": "argent"
+  },
+  {
+    "id": "vraie_vie_likely_argent_06_qui_est_le_plus_susc",
+    "question": "Qui est le plus susceptible de négocier chaque détail avant un gros achat commun ?",
+    "category": "argent"
+  },
+  {
+    "id": "vraie_vie_likely_famille_01_qui_est_le_plus_susc",
+    "question": "Qui est le plus susceptible de défendre immédiatement l’autre face à sa propre famille ?",
+    "category": "famille"
+  },
+  {
+    "id": "vraie_vie_likely_famille_02_qui_est_le_plus_susc",
+    "question": "Qui est le plus susceptible d’accepter d’héberger un proche en difficulté pendant longtemps ?",
+    "category": "famille"
+  },
+  {
+    "id": "vraie_vie_likely_famille_03_qui_est_le_plus_susc",
+    "question": "Qui est le plus susceptible de raconter une dispute de couple à un membre de sa famille ?",
+    "category": "famille"
+  },
+  {
+    "id": "vraie_vie_likely_famille_04_qui_est_le_plus_susc",
+    "question": "Qui est le plus susceptible de faire un compromis pour éviter un conflit pendant les fêtes ?",
+    "category": "famille"
+  },
+  {
+    "id": "vraie_vie_likely_famille_05_qui_est_le_plus_susc",
+    "question": "Qui est le plus susceptible de couper les ponts avec un proche qui manque de respect au couple ?",
+    "category": "famille"
+  },
+  {
+    "id": "vraie_vie_likely_famille_06_qui_est_le_plus_susc",
+    "question": "Qui est le plus susceptible de vouloir vivre près de sa famille en vieillissant ?",
+    "category": "famille"
+  },
+  {
+    "id": "vraie_vie_likely_sante_mentale_01_qui_est_le_plus_susc",
+    "question": "Qui est le plus susceptible de cacher longtemps qu’il/elle ne va pas bien pour ne pas inquiéter l’autre ?",
+    "category": "sante_mentale"
+  },
+  {
+    "id": "vraie_vie_likely_sante_mentale_02_qui_est_le_plus_susc",
+    "question": "Qui est le plus susceptible d’encourager rapidement l’autre à consulter un professionnel ?",
+    "category": "sante_mentale"
+  },
+  {
+    "id": "vraie_vie_likely_sante_mentale_03_qui_est_le_plus_susc",
+    "question": "Qui est le plus susceptible de s’oublier complètement pour soutenir l’autre pendant une crise ?",
+    "category": "sante_mentale"
+  },
+  {
+    "id": "vraie_vie_likely_sante_mentale_04_qui_est_le_plus_susc",
+    "question": "Qui est le plus susceptible d’avoir besoin de beaucoup d’espace lorsqu’il/elle va mal ?",
+    "category": "sante_mentale"
+  },
+  {
+    "id": "vraie_vie_likely_sante_mentale_05_qui_est_le_plus_susc",
+    "question": "Qui est le plus susceptible de culpabiliser de ne pas réussir à réparer la souffrance de l’autre ?",
+    "category": "sante_mentale"
+  },
+  {
+    "id": "vraie_vie_likely_sante_mentale_06_qui_est_le_plus_susc",
+    "question": "Qui est le plus susceptible de proposer une thérapie de couple avant que la situation devienne critique ?",
+    "category": "sante_mentale"
+  },
+  {
+    "id": "vraie_vie_likely_maladie_01_qui_est_le_plus_susc",
+    "question": "Qui est le plus susceptible de refuser de demander de l’aide même lorsqu’il/elle est épuisé(e) comme aidant ?",
+    "category": "maladie"
+  },
+  {
+    "id": "vraie_vie_likely_maladie_02_qui_est_le_plus_susc",
+    "question": "Qui est le plus susceptible de vouloir préparer très tôt les décisions liées à la vieillesse ?",
+    "category": "maladie"
+  },
+  {
+    "id": "vraie_vie_likely_maladie_03_qui_est_le_plus_susc",
+    "question": "Qui est le plus susceptible de déplacer toute sa vie pour accompagner l’autre dans un parcours médical ?",
+    "category": "maladie"
+  },
+  {
+    "id": "vraie_vie_likely_maladie_04_qui_est_le_plus_susc",
+    "question": "Qui est le plus susceptible de garder son humour même pendant une longue convalescence ?",
+    "category": "maladie"
+  },
+  {
+    "id": "vraie_vie_likely_maladie_05_qui_est_le_plus_susc",
+    "question": "Qui est le plus susceptible d’avoir le plus de mal à accepter une perte d’autonomie ?",
+    "category": "maladie"
+  },
+  {
+    "id": "vraie_vie_likely_maladie_06_qui_est_le_plus_susc",
+    "question": "Qui est le plus susceptible de vouloir rester chez soi le plus longtemps possible en vieillissant ?",
+    "category": "maladie"
+  },
+  {
+    "id": "vraie_vie_likely_carriere_01_qui_est_le_plus_susc",
+    "question": "Qui est le plus susceptible d’accepter une opportunité professionnelle très loin sans hésiter longtemps ?",
+    "category": "carriere"
+  },
+  {
+    "id": "vraie_vie_likely_carriere_02_qui_est_le_plus_susc",
+    "question": "Qui est le plus susceptible de mettre sa carrière en pause pour soutenir le projet de l’autre ?",
+    "category": "carriere"
+  },
+  {
+    "id": "vraie_vie_likely_carriere_03_qui_est_le_plus_susc",
+    "question": "Qui est le plus susceptible de travailler beaucoup trop sans se rendre compte de l’impact sur le couple ?",
+    "category": "carriere"
+  },
+  {
+    "id": "vraie_vie_likely_carriere_04_qui_est_le_plus_susc",
+    "question": "Qui est le plus susceptible de tout quitter pour une reconversion passion ?",
+    "category": "carriere"
+  },
+  {
+    "id": "vraie_vie_likely_carriere_05_qui_est_le_plus_susc",
+    "question": "Qui est le plus susceptible de regretter une opportunité refusée par amour ?",
+    "category": "carriere"
+  },
+  {
+    "id": "vraie_vie_likely_carriere_06_qui_est_le_plus_susc",
+    "question": "Qui est le plus susceptible de réussir à maintenir la relation malgré une longue période à distance ?",
+    "category": "carriere"
+  },
+  {
+    "id": "vraie_vie_likely_vie_commune_01_qui_est_le_plus_susc",
+    "question": "Qui est le plus susceptible de vouloir recevoir des amis à l’improviste ?",
+    "category": "vie_commune"
+  },
+  {
+    "id": "vraie_vie_likely_vie_commune_02_qui_est_le_plus_susc",
+    "question": "Qui est le plus susceptible de devenir maniaque du rangement en vivant à deux ?",
+    "category": "vie_commune"
+  },
+  {
+    "id": "vraie_vie_likely_vie_commune_03_qui_est_le_plus_susc",
+    "question": "Qui est le plus susceptible de réclamer une pièce rien qu’à lui/elle ?",
+    "category": "vie_commune"
+  },
+  {
+    "id": "vraie_vie_likely_vie_commune_04_qui_est_le_plus_susc",
+    "question": "Qui est le plus susceptible de vouloir déménager sur un coup de tête pour changer de vie ?",
+    "category": "vie_commune"
+  },
+  {
+    "id": "vraie_vie_likely_vie_commune_05_qui_est_le_plus_susc",
+    "question": "Qui est le plus susceptible de dormir dans une autre chambre après trois nuits de mauvais sommeil ?",
+    "category": "vie_commune"
+  },
+  {
+    "id": "vraie_vie_likely_vie_commune_06_qui_est_le_plus_susc",
+    "question": "Qui est le plus susceptible de lancer un gros projet de décoration sans mesurer le budget ?",
+    "category": "vie_commune"
+  },
+  {
+    "id": "vraie_vie_likely_numerique_01_qui_est_le_plus_susc",
+    "question": "Qui est le plus susceptible de partager sa localisation sans même y penser ?",
+    "category": "numerique"
+  },
+  {
+    "id": "vraie_vie_likely_numerique_02_qui_est_le_plus_susc",
+    "question": "Qui est le plus susceptible de garder des milliers de vieilles photos et conversations ?",
+    "category": "numerique"
+  },
+  {
+    "id": "vraie_vie_likely_numerique_03_qui_est_le_plus_susc",
+    "question": "Qui est le plus susceptible de demander conseil à une IA après une dispute ?",
+    "category": "numerique"
+  },
+  {
+    "id": "vraie_vie_likely_numerique_04_qui_est_le_plus_susc",
+    "question": "Qui est le plus susceptible d’avoir un compte anonyme que presque personne ne connaît ?",
+    "category": "numerique"
+  },
+  {
+    "id": "vraie_vie_likely_numerique_05_qui_est_le_plus_susc",
+    "question": "Qui est le plus susceptible de lire les conditions de confidentialité avant d’installer une application de couple ?",
+    "category": "numerique"
+  },
+  {
+    "id": "vraie_vie_likely_numerique_06_qui_est_le_plus_susc",
+    "question": "Qui est le plus susceptible de vouloir disparaître totalement des réseaux sociaux du jour au lendemain ?",
+    "category": "numerique"
+  },
+  {
+    "id": "vraie_vie_likely_mort_01_qui_est_le_plus_susc",
+    "question": "Qui est le plus susceptible de vouloir organiser tous les détails de ses dernières volontés très tôt ?",
+    "category": "mort"
+  },
+  {
+    "id": "vraie_vie_likely_mort_02_qui_est_le_plus_susc",
+    "question": "Qui est le plus susceptible de conserver chaque objet sentimental après la mort de l’autre ?",
+    "category": "mort"
+  },
+  {
+    "id": "vraie_vie_likely_mort_03_qui_est_le_plus_susc",
+    "question": "Qui est le plus susceptible de souhaiter que l’autre reconstruise sa vie rapidement s’il/elle décède ?",
+    "category": "mort"
+  },
+  {
+    "id": "vraie_vie_likely_mort_04_qui_est_le_plus_susc",
+    "question": "Qui est le plus susceptible d’éviter complètement les discussions sur la mort ?",
+    "category": "mort"
+  },
+  {
+    "id": "vraie_vie_likely_mort_05_qui_est_le_plus_susc",
+    "question": "Qui est le plus susceptible de vouloir une cérémonie très personnelle plutôt que traditionnelle ?",
+    "category": "mort"
+  },
+  {
+    "id": "vraie_vie_likely_mort_06_qui_est_le_plus_susc",
+    "question": "Qui est le plus susceptible de laisser des lettres ou messages à ouvrir après sa mort ?",
+    "category": "mort"
+  },
+  {
+    "id": "vraie_vie_likely_bouleversements_01_qui_est_le_plus_susc",
+    "question": "Qui est le plus susceptible de garder la tête froide lorsqu’un énorme imprévu bouleverse tous vos plans ?",
+    "category": "bouleversements"
+  },
+  {
+    "id": "vraie_vie_likely_bouleversements_02_qui_est_le_plus_susc",
+    "question": "Qui est le plus susceptible de vouloir repartir complètement de zéro après une crise ?",
+    "category": "bouleversements"
+  },
+  {
+    "id": "vraie_vie_likely_bouleversements_03_qui_est_le_plus_susc",
+    "question": "Qui est le plus susceptible de s’adapter le plus vite à une perte brutale de confort ?",
+    "category": "bouleversements"
+  },
+  {
+    "id": "vraie_vie_likely_bouleversements_04_qui_est_le_plus_susc",
+    "question": "Qui est le plus susceptible de paniquer face à une décision qui doit être prise immédiatement ?",
+    "category": "bouleversements"
+  },
+  {
+    "id": "vraie_vie_likely_bouleversements_05_qui_est_le_plus_susc",
+    "question": "Qui est le plus susceptible de voir une catastrophe comme l’occasion de changer de vie ?",
+    "category": "bouleversements"
+  },
+  {
+    "id": "vraie_vie_likely_bouleversements_06_qui_est_le_plus_susc",
+    "question": "Qui est le plus susceptible de reconstruire un nouveau plan dès le lendemain d’une mauvaise nouvelle ?",
+    "category": "bouleversements"
+  },
+  {
+    "id": "vraie_vie_likely_couple_pression_01_qui_est_le_plus_susc",
+    "question": "Qui est le plus susceptible de proposer une thérapie de couple en premier ?",
+    "category": "couple_pression"
+  },
+  {
+    "id": "vraie_vie_likely_couple_pression_02_qui_est_le_plus_susc",
+    "question": "Qui est le plus susceptible de faire comme si tout allait bien pour éviter une conversation difficile ?",
+    "category": "couple_pression"
+  },
+  {
+    "id": "vraie_vie_likely_couple_pression_03_qui_est_le_plus_susc",
+    "question": "Qui est le plus susceptible d’avoir besoin d’espace après une grosse dispute ?",
+    "category": "couple_pression"
+  },
+  {
+    "id": "vraie_vie_likely_couple_pression_04_qui_est_le_plus_susc",
+    "question": "Qui est le plus susceptible de se battre le plus longtemps pour sauver la relation ?",
+    "category": "couple_pression"
+  },
+  {
+    "id": "vraie_vie_likely_couple_pression_05_qui_est_le_plus_susc",
+    "question": "Qui est le plus susceptible de ressentir la routine avant l’autre ?",
+    "category": "couple_pression"
+  },
+  {
+    "id": "vraie_vie_likely_couple_pression_06_qui_est_le_plus_susc",
+    "question": "Qui est le plus susceptible de réussir à recréer de la complicité après une longue période difficile ?",
+    "category": "couple_pression"
   }
 ]

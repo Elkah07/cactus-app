@@ -2695,5 +2695,1555 @@
         "question": "Il/elle coupe presque tous ses proches et refuse toute aide alors que vous craignez réellement pour son bien-être."
       }
     ]
+  },
+  {
+    "id": "vraie_vie_limite_argent_01_laide_financiere_a_la_",
+    "title": "L’aide financière à la famille",
+    "category": "argent",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Ton/ta partenaire aide ponctuellement un proche avec une petite somme."
+      },
+      {
+        "level": 2,
+        "question": "Ton/ta partenaire verse une somme tous les mois à un membre de sa famille."
+      },
+      {
+        "level": 3,
+        "question": "Cette aide commence à ralentir certains de vos projets communs."
+      },
+      {
+        "level": 4,
+        "question": "Ton/ta partenaire augmente cette aide sans vraiment t’en parler."
+      },
+      {
+        "level": 5,
+        "question": "Vous devez renoncer à une dépense importante pour continuer à aider sa famille."
+      },
+      {
+        "level": 6,
+        "question": "Ton/ta partenaire veut s’endetter pour sortir un proche d’une situation financière difficile."
+      }
+    ]
+  },
+  {
+    "id": "vraie_vie_limite_argent_02_le_projet_financier_ri",
+    "title": "Le projet financier risqué",
+    "category": "argent",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Ton/ta partenaire veut investir une petite somme dans un projet incertain."
+      },
+      {
+        "level": 2,
+        "question": "Il/elle veut y placer plusieurs mois d’épargne personnelle."
+      },
+      {
+        "level": 3,
+        "question": "Il/elle souhaite utiliser une partie de votre épargne commune."
+      },
+      {
+        "level": 4,
+        "question": "Il/elle veut repousser un projet de couple important pour investir davantage."
+      },
+      {
+        "level": 5,
+        "question": "Il/elle envisage un crédit pour continuer malgré les pertes."
+      },
+      {
+        "level": 6,
+        "question": "Il/elle veut engager votre logement ou votre sécurité financière dans ce projet."
+      }
+    ]
+  },
+  {
+    "id": "vraie_vie_limite_argent_03_la_difference_de_reven",
+    "title": "La différence de revenus",
+    "category": "argent",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Ton/ta partenaire gagne un peu plus que toi."
+      },
+      {
+        "level": 2,
+        "question": "Ton/ta partenaire gagne désormais deux fois plus que toi."
+      },
+      {
+        "level": 3,
+        "question": "Il/elle souhaite pourtant conserver un partage strictement égal de toutes les dépenses."
+      },
+      {
+        "level": 4,
+        "question": "Votre niveau de vie augmente surtout grâce à son revenu mais ta part reste identique."
+      },
+      {
+        "level": 5,
+        "question": "Tu dois parfois puiser dans ton épargne pour suivre le niveau de dépenses choisi ensemble."
+      },
+      {
+        "level": 6,
+        "question": "Ton/ta partenaire refuse toute autre répartition malgré la difficulté que cela crée pour toi."
+      }
+    ]
+  },
+  {
+    "id": "vraie_vie_limite_argent_04_la_dette_cachee",
+    "title": "La dette cachée",
+    "category": "argent",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Ton/ta partenaire t’avoue une petite dette ancienne."
+      },
+      {
+        "level": 2,
+        "question": "La dette représente plusieurs mois de revenus."
+      },
+      {
+        "level": 3,
+        "question": "Il/elle l’a volontairement cachée depuis le début de votre relation."
+      },
+      {
+        "level": 4,
+        "question": "Les remboursements commencent à affecter vos projets communs."
+      },
+      {
+        "level": 5,
+        "question": "Tu découvres qu’il/elle a contracté une nouvelle dette sans t’en parler."
+      },
+      {
+        "level": 6,
+        "question": "Une partie de votre argent commun a servi à masquer la situation."
+      }
+    ]
+  },
+  {
+    "id": "vraie_vie_limite_argent_05_le_grand_changement_de",
+    "title": "Le grand changement de niveau de vie",
+    "category": "argent",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Ton/ta partenaire souhaite réduire légèrement vos dépenses pour épargner davantage."
+      },
+      {
+        "level": 2,
+        "question": "Il/elle veut déménager dans un logement beaucoup moins cher."
+      },
+      {
+        "level": 3,
+        "question": "Il/elle souhaite renoncer aux vacances pendant plusieurs années pour atteindre un objectif financier."
+      },
+      {
+        "level": 4,
+        "question": "Il/elle veut supprimer presque toutes les dépenses plaisir du couple."
+      },
+      {
+        "level": 5,
+        "question": "Il/elle contrôle et critique régulièrement tes achats personnels."
+      },
+      {
+        "level": 6,
+        "question": "Il/elle refuse toute dépense non essentielle même lorsque vos finances sont redevenues confortables."
+      }
+    ]
+  },
+  {
+    "id": "vraie_vie_limite_famille_01_la_belle_famille_intru",
+    "title": "La belle-famille intrusive",
+    "category": "famille",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Les parents de ton/ta partenaire appellent presque tous les jours."
+      },
+      {
+        "level": 2,
+        "question": "Ils passent parfois sans prévenir."
+      },
+      {
+        "level": 3,
+        "question": "Ton/ta partenaire leur donne une clé de secours."
+      },
+      {
+        "level": 4,
+        "question": "Ils utilisent cette clé pour entrer quand vous n’êtes pas là."
+      },
+      {
+        "level": 5,
+        "question": "Ton/ta partenaire refuse de leur demander de rendre la clé malgré ton malaise."
+      },
+      {
+        "level": 6,
+        "question": "Ils continuent à entrer chez vous sans prévenir et ton/ta partenaire considère que c’est normal."
+      }
+    ]
+  },
+  {
+    "id": "vraie_vie_limite_famille_02_le_proche_a_heberger",
+    "title": "Le proche à héberger",
+    "category": "famille",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Un proche de ton/ta partenaire dort chez vous quelques nuits."
+      },
+      {
+        "level": 2,
+        "question": "Le séjour se prolonge pendant plusieurs semaines."
+      },
+      {
+        "level": 3,
+        "question": "Il/elle n’a aucune date précise de départ."
+      },
+      {
+        "level": 4,
+        "question": "La personne participe peu aux dépenses et aux tâches."
+      },
+      {
+        "level": 5,
+        "question": "Votre intimité et vos habitudes de couple disparaissent presque complètement."
+      },
+      {
+        "level": 6,
+        "question": "Ton/ta partenaire refuse désormais d’envisager son départ tant qu’il/elle n’a pas trouvé une situation parfaite."
+      }
+    ]
+  },
+  {
+    "id": "vraie_vie_limite_famille_03_la_famille_qui_rejette",
+    "title": "La famille qui rejette le couple",
+    "category": "famille",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Un proche de ton/ta partenaire est froid avec toi."
+      },
+      {
+        "level": 2,
+        "question": "Il/elle fait parfois des remarques déplacées sur votre relation."
+      },
+      {
+        "level": 3,
+        "question": "Ton/ta partenaire préfère éviter de répondre pour garder la paix."
+      },
+      {
+        "level": 4,
+        "question": "Le proche refuse de t’inviter à certains événements familiaux."
+      },
+      {
+        "level": 5,
+        "question": "Ton/ta partenaire continue à y aller seul(e) régulièrement."
+      },
+      {
+        "level": 6,
+        "question": "Ton/ta partenaire te demande de supporter cette situation indéfiniment pour ne pas perdre sa famille."
+      }
+    ]
+  },
+  {
+    "id": "vraie_vie_limite_famille_04_les_fetes_de_famille",
+    "title": "Les fêtes de famille",
+    "category": "famille",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Vos familles souhaitent vous voir le même jour."
+      },
+      {
+        "level": 2,
+        "question": "Les deux côtés refusent de changer leurs habitudes."
+      },
+      {
+        "level": 3,
+        "question": "Ton/ta partenaire veut privilégier sa famille cette année encore."
+      },
+      {
+        "level": 4,
+        "question": "Cela devient la règle presque tous les ans."
+      },
+      {
+        "level": 5,
+        "question": "Tu passes plusieurs grandes fêtes sans ton/ta partenaire."
+      },
+      {
+        "level": 6,
+        "question": "Ton/ta partenaire refuse tout compromis futur au nom de la tradition familiale."
+      }
+    ]
+  },
+  {
+    "id": "vraie_vie_limite_famille_05_le_parent_dependant",
+    "title": "Le parent dépendant",
+    "category": "famille",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Un parent de ton/ta partenaire a besoin d’aide ponctuelle."
+      },
+      {
+        "level": 2,
+        "question": "Ton/ta partenaire y consacre plusieurs soirées par semaine."
+      },
+      {
+        "level": 3,
+        "question": "Vous annulez régulièrement des projets de couple pour l’aider."
+      },
+      {
+        "level": 4,
+        "question": "Ton/ta partenaire propose de l’accueillir temporairement chez vous."
+      },
+      {
+        "level": 5,
+        "question": "La cohabitation devient permanente et pèse fortement sur votre quotidien."
+      },
+      {
+        "level": 6,
+        "question": "Ton/ta partenaire refuse toute solution extérieure même lorsque votre couple est en train de s’épuiser."
+      }
+    ]
+  },
+  {
+    "id": "vraie_vie_limite_sante_mentale_01_le_refus_daide",
+    "title": "Le refus d’aide",
+    "category": "sante_mentale",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Ton/ta partenaire traverse une mauvaise période mais ne veut pas consulter."
+      },
+      {
+        "level": 2,
+        "question": "La situation dure plusieurs mois et affecte votre quotidien."
+      },
+      {
+        "level": 3,
+        "question": "Il/elle refuse aussi d’en parler à ses proches."
+      },
+      {
+        "level": 4,
+        "question": "Tu deviens progressivement son seul soutien."
+      },
+      {
+        "level": 5,
+        "question": "Ton propre équilibre commence à se dégrader fortement."
+      },
+      {
+        "level": 6,
+        "question": "Ton/ta partenaire refuse toujours toute aide et te reproche de vouloir poser des limites."
+      }
+    ]
+  },
+  {
+    "id": "vraie_vie_limite_sante_mentale_02_la_dependance_emotionn",
+    "title": "La dépendance émotionnelle",
+    "category": "sante_mentale",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Ton/ta partenaire a souvent besoin d’être rassuré(e)."
+      },
+      {
+        "level": 2,
+        "question": "Il/elle vit mal lorsque tu mets plusieurs heures à répondre."
+      },
+      {
+        "level": 3,
+        "question": "Il/elle te demande régulièrement d’annuler des projets pour rester disponible."
+      },
+      {
+        "level": 4,
+        "question": "Il/elle supporte difficilement que tu passes du temps sans lui/elle."
+      },
+      {
+        "level": 5,
+        "question": "Tes sorties et relations personnelles deviennent une source constante de crise."
+      },
+      {
+        "level": 6,
+        "question": "Ton/ta partenaire exige désormais d’être ta priorité absolue à tout moment pour se sentir en sécurité."
+      }
+    ]
+  },
+  {
+    "id": "vraie_vie_limite_sante_mentale_03_la_relation_mise_en_pa",
+    "title": "La relation mise en pause",
+    "category": "sante_mentale",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Ton/ta partenaire demande quelques jours pour souffler."
+      },
+      {
+        "level": 2,
+        "question": "Il/elle souhaite plusieurs semaines avec beaucoup moins de contact."
+      },
+      {
+        "level": 3,
+        "question": "Il/elle veut une pause sans date de fin précise."
+      },
+      {
+        "level": 4,
+        "question": "Pendant cette pause, il/elle refuse toute discussion sur l’avenir du couple."
+      },
+      {
+        "level": 5,
+        "question": "Plusieurs mois passent sans véritable engagement à reprendre la relation."
+      },
+      {
+        "level": 6,
+        "question": "Ton/ta partenaire veut que tu continues à l’attendre tout en refusant de définir si vous êtes encore ensemble."
+      }
+    ]
+  },
+  {
+    "id": "vraie_vie_limite_sante_mentale_04_le_couple_sous_le_poid",
+    "title": "Le couple sous le poids de la dépression",
+    "category": "sante_mentale",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Ton/ta partenaire a moins d’énergie pour vos activités habituelles."
+      },
+      {
+        "level": 2,
+        "question": "Vous sortez très peu pendant plusieurs mois."
+      },
+      {
+        "level": 3,
+        "question": "La majorité des tâches et décisions reposent sur toi."
+      },
+      {
+        "level": 4,
+        "question": "Votre intimité et votre communication diminuent fortement."
+      },
+      {
+        "level": 5,
+        "question": "Tu commences à ressentir un profond épuisement et du ressentiment."
+      },
+      {
+        "level": 6,
+        "question": "Ton/ta partenaire refuse que tu exprimes cet épuisement parce qu’il/elle considère que partir ou poser des limites serait l’abandonner."
+      }
+    ]
+  },
+  {
+    "id": "vraie_vie_limite_sante_mentale_05_la_therapie_qui_change",
+    "title": "La thérapie qui change le couple",
+    "category": "sante_mentale",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Ton/ta partenaire commence une thérapie et change certaines habitudes."
+      },
+      {
+        "level": 2,
+        "question": "Il/elle pose de nouvelles limites qui modifient votre quotidien."
+      },
+      {
+        "level": 3,
+        "question": "Il/elle remet en question plusieurs dynamiques de votre relation."
+      },
+      {
+        "level": 4,
+        "question": "Il/elle demande une période de distance pour réfléchir."
+      },
+      {
+        "level": 5,
+        "question": "Il/elle considère que votre couple participe à son mal-être."
+      },
+      {
+        "level": 6,
+        "question": "Il/elle souhaite reconstruire complètement votre relation selon de nouvelles règles auxquelles tu adhères peu."
+      }
+    ]
+  },
+  {
+    "id": "vraie_vie_limite_maladie_01_devenir_laidant_princi",
+    "title": "Devenir l’aidant principal",
+    "category": "maladie",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Ton/ta partenaire a besoin d’aide pendant quelques semaines."
+      },
+      {
+        "level": 2,
+        "question": "La dépendance dure plusieurs mois."
+      },
+      {
+        "level": 3,
+        "question": "Tu prends en charge la majorité des rendez-vous et tâches quotidiennes."
+      },
+      {
+        "level": 4,
+        "question": "Ton travail et ta vie sociale commencent à être fortement affectés."
+      },
+      {
+        "level": 5,
+        "question": "Ton/ta partenaire refuse toute aide extérieure malgré ton épuisement."
+      },
+      {
+        "level": 6,
+        "question": "Il/elle considère désormais que demander du relais serait une preuve que tu ne l’aimes pas assez."
+      }
+    ]
+  },
+  {
+    "id": "vraie_vie_limite_maladie_02_le_traitement_a_tout_p",
+    "title": "Le traitement à tout prix",
+    "category": "maladie",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Ton/ta partenaire choisit un traitement difficile mais recommandé."
+      },
+      {
+        "level": 2,
+        "question": "Le traitement a peu de chances de réussite et beaucoup d’effets secondaires."
+      },
+      {
+        "level": 3,
+        "question": "Il/elle veut utiliser une grande partie de son épargne personnelle."
+      },
+      {
+        "level": 4,
+        "question": "Il/elle souhaite aussi utiliser une partie importante de votre épargne commune."
+      },
+      {
+        "level": 5,
+        "question": "Vous devez vendre un bien ou renoncer à vos projets essentiels pour continuer."
+      },
+      {
+        "level": 6,
+        "question": "Ton/ta partenaire veut s’endetter lourdement pour une option expérimentale aux chances extrêmement faibles."
+      }
+    ]
+  },
+  {
+    "id": "vraie_vie_limite_maladie_03_la_perte_dintimite_lie",
+    "title": "La perte d’intimité liée à la maladie",
+    "category": "maladie",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Une maladie réduit temporairement votre vie sexuelle."
+      },
+      {
+        "level": 2,
+        "question": "La situation se prolonge pendant plusieurs mois."
+      },
+      {
+        "level": 3,
+        "question": "Ton/ta partenaire ne souhaite aucune intimité sexuelle mais reste affectueux/se."
+      },
+      {
+        "level": 4,
+        "question": "Il/elle évite progressivement aussi les gestes tendres et la proximité physique."
+      },
+      {
+        "level": 5,
+        "question": "Toute discussion sur le sujet devient source de conflit ou de culpabilité."
+      },
+      {
+        "level": 6,
+        "question": "Ton/ta partenaire refuse durablement toute forme de proximité et refuse également d’en parler ou de chercher un nouvel équilibre."
+      }
+    ]
+  },
+  {
+    "id": "vraie_vie_limite_maladie_04_le_parent_malade_qui_p",
+    "title": "Le parent malade qui prend toute la place",
+    "category": "maladie",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Ton/ta partenaire aide régulièrement un parent malade."
+      },
+      {
+        "level": 2,
+        "question": "Les rendez-vous et visites occupent plusieurs jours par semaine."
+      },
+      {
+        "level": 3,
+        "question": "Vos projets sont souvent annulés au dernier moment."
+      },
+      {
+        "level": 4,
+        "question": "Ton/ta partenaire souhaite arrêter de travailler pour s’en occuper."
+      },
+      {
+        "level": 5,
+        "question": "Votre foyer dépend financièrement de toi pendant que toute son énergie va à son parent."
+      },
+      {
+        "level": 6,
+        "question": "Ton/ta partenaire refuse toute autre organisation même lorsque votre couple et ta propre santé commencent à s’effondrer."
+      }
+    ]
+  },
+  {
+    "id": "vraie_vie_limite_maladie_05_vieillir_dans_des_dire",
+    "title": "Vieillir dans des directions opposées",
+    "category": "maladie",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Ton/ta partenaire évoque une retraite dans une autre région."
+      },
+      {
+        "level": 2,
+        "question": "Il/elle souhaite vivre loin de votre famille et de vos habitudes actuelles."
+      },
+      {
+        "level": 3,
+        "question": "Vous ne trouvez aucun lieu qui convienne réellement aux deux."
+      },
+      {
+        "level": 4,
+        "question": "Ton/ta partenaire considère ce déménagement comme un rêve non négociable."
+      },
+      {
+        "level": 5,
+        "question": "Tu devrais renoncer à voir régulièrement vos proches pour le/la suivre."
+      },
+      {
+        "level": 6,
+        "question": "Ton/ta partenaire préfère envisager de vivre séparément à la retraite plutôt que renoncer à ce projet."
+      }
+    ]
+  },
+  {
+    "id": "vraie_vie_limite_carriere_01_la_carriere_qui_prend_",
+    "title": "La carrière qui prend toute la place",
+    "category": "carriere",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Ton/ta partenaire traverse une période chargée au travail."
+      },
+      {
+        "level": 2,
+        "question": "Il/elle travaille tard presque tous les soirs."
+      },
+      {
+        "level": 3,
+        "question": "Vos week-ends sont régulièrement interrompus par le travail."
+      },
+      {
+        "level": 4,
+        "question": "Vos projets de couple sont repoussés pendant plusieurs mois."
+      },
+      {
+        "level": 5,
+        "question": "Ton/ta partenaire refuse de fixer une limite parce que sa carrière avance enfin."
+      },
+      {
+        "level": 6,
+        "question": "Plusieurs années passent et il/elle considère toujours que votre relation doit s’adapter entièrement à son travail."
+      }
+    ]
+  },
+  {
+    "id": "vraie_vie_limite_carriere_02_lopportunite_a_letrang",
+    "title": "L’opportunité à l’étranger",
+    "category": "carriere",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Ton/ta partenaire reçoit une proposition dans une autre ville."
+      },
+      {
+        "level": 2,
+        "question": "L’opportunité se trouve dans un autre pays."
+      },
+      {
+        "level": 3,
+        "question": "Il/elle souhaite l’accepter même si tu ne peux pas suivre immédiatement."
+      },
+      {
+        "level": 4,
+        "question": "Vous devriez vivre à distance pendant au moins un an."
+      },
+      {
+        "level": 5,
+        "question": "La durée devient incertaine et pourrait dépasser trois ans."
+      },
+      {
+        "level": 6,
+        "question": "Ton/ta partenaire refuse désormais d’envisager un retour même si tu ne peux jamais construire ta vie là-bas."
+      }
+    ]
+  },
+  {
+    "id": "vraie_vie_limite_carriere_03_la_reconversion_risque",
+    "title": "La reconversion risquée",
+    "category": "carriere",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Ton/ta partenaire veut changer de métier."
+      },
+      {
+        "level": 2,
+        "question": "La reconversion implique quelques mois avec moins de revenus."
+      },
+      {
+        "level": 3,
+        "question": "Il/elle veut quitter son emploi avant d’avoir une solution stable."
+      },
+      {
+        "level": 4,
+        "question": "Votre niveau de vie devrait fortement diminuer pendant plusieurs années."
+      },
+      {
+        "level": 5,
+        "question": "Tu devrais prendre presque toutes les dépenses du foyer."
+      },
+      {
+        "level": 6,
+        "question": "Ton/ta partenaire refuse tout plan de secours même après plusieurs années sans amélioration financière."
+      }
+    ]
+  },
+  {
+    "id": "vraie_vie_limite_carriere_04_creer_son_entreprise",
+    "title": "Créer son entreprise",
+    "category": "carriere",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Ton/ta partenaire travaille sur un projet le soir."
+      },
+      {
+        "level": 2,
+        "question": "Le projet occupe aussi une grande partie des week-ends."
+      },
+      {
+        "level": 3,
+        "question": "Il/elle quitte son emploi pour s’y consacrer entièrement."
+      },
+      {
+        "level": 4,
+        "question": "Vous vivez surtout grâce à ton revenu pendant plus d’un an."
+      },
+      {
+        "level": 5,
+        "question": "Ton/ta partenaire investit davantage de votre argent malgré des résultats faibles."
+      },
+      {
+        "level": 6,
+        "question": "Il/elle refuse toute limite de temps ou d’argent même lorsque votre couple et vos finances sont en danger."
+      }
+    ]
+  },
+  {
+    "id": "vraie_vie_limite_carriere_05_le_sacrifice_toujours_",
+    "title": "Le sacrifice toujours du même côté",
+    "category": "carriere",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Tu fais un premier compromis pour la carrière de ton/ta partenaire."
+      },
+      {
+        "level": 2,
+        "question": "Un second déménagement favorise encore son travail."
+      },
+      {
+        "level": 3,
+        "question": "Tu refuses une opportunité pour préserver votre organisation."
+      },
+      {
+        "level": 4,
+        "question": "Ton/ta partenaire reçoit une nouvelle proposition qui demande encore un sacrifice de ta part."
+      },
+      {
+        "level": 5,
+        "question": "Il/elle estime que sa carrière a objectivement plus de potentiel que la tienne."
+      },
+      {
+        "level": 6,
+        "question": "Ton/ta partenaire considère désormais normal que tes projets passent systématiquement après les siens."
+      }
+    ]
+  },
+  {
+    "id": "vraie_vie_limite_vie_commune_01_dormir_separement",
+    "title": "Dormir séparément",
+    "category": "vie_commune",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Ton/ta partenaire propose de dormir seul(e) une nuit après une mauvaise nuit."
+      },
+      {
+        "level": 2,
+        "question": "Cela devient une habitude une ou deux fois par semaine."
+      },
+      {
+        "level": 3,
+        "question": "Vous dormez séparément la majorité des nuits de travail."
+      },
+      {
+        "level": 4,
+        "question": "Vous ne partagez plus le même lit que les week-ends."
+      },
+      {
+        "level": 5,
+        "question": "Ton/ta partenaire préfère désormais dormir seul(e) même pendant les vacances."
+      },
+      {
+        "level": 6,
+        "question": "Il/elle ne souhaite plus jamais partager une chambre et refuse de chercher d’autres façons de préserver votre intimité."
+      }
+    ]
+  },
+  {
+    "id": "vraie_vie_limite_vie_commune_02_les_invites_permanents",
+    "title": "Les invités permanents",
+    "category": "vie_commune",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Ton/ta partenaire invite parfois des proches à la maison."
+      },
+      {
+        "level": 2,
+        "question": "Il/elle reçoit quelqu’un presque chaque semaine."
+      },
+      {
+        "level": 3,
+        "question": "Certaines invitations sont décidées sans te consulter."
+      },
+      {
+        "level": 4,
+        "question": "Des proches dorment régulièrement chez vous."
+      },
+      {
+        "level": 5,
+        "question": "Tu as rarement un week-end tranquille dans ton propre logement."
+      },
+      {
+        "level": 6,
+        "question": "Ton/ta partenaire refuse toute règle sur les invités parce qu’il/elle considère que la maison doit toujours être ouverte à ses proches."
+      }
+    ]
+  },
+  {
+    "id": "vraie_vie_limite_vie_commune_03_la_proprete_qui_devien",
+    "title": "La propreté qui devient un contrôle",
+    "category": "vie_commune",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Ton/ta partenaire est plus ordonné(e) que toi."
+      },
+      {
+        "level": 2,
+        "question": "Il/elle te rappelle souvent de ranger certaines choses."
+      },
+      {
+        "level": 3,
+        "question": "Il/elle refait régulièrement les tâches après toi."
+      },
+      {
+        "level": 4,
+        "question": "Il/elle critique ta manière de tenir la maison presque chaque jour."
+      },
+      {
+        "level": 5,
+        "question": "Tu commences à te sentir surveillé(e) dans ton propre foyer."
+      },
+      {
+        "level": 6,
+        "question": "Ton/ta partenaire impose désormais des règles précises pour presque chaque détail du logement et se met en colère lorsqu’elles ne sont pas respectées."
+      }
+    ]
+  },
+  {
+    "id": "vraie_vie_limite_vie_commune_04_le_desaccord_sur_le_li",
+    "title": "Le désaccord sur le lieu de vie",
+    "category": "vie_commune",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Ton/ta partenaire rêve de changer de région un jour."
+      },
+      {
+        "level": 2,
+        "question": "Il/elle souhaite réellement déménager dans les prochaines années."
+      },
+      {
+        "level": 3,
+        "question": "Le lieu qu’il/elle veut choisir ne correspond pas du tout à ton mode de vie."
+      },
+      {
+        "level": 4,
+        "question": "Aucun compromis géographique ne vous satisfait vraiment."
+      },
+      {
+        "level": 5,
+        "question": "Ton/ta partenaire considère ce projet comme indispensable à son bonheur."
+      },
+      {
+        "level": 6,
+        "question": "Il/elle préfère envisager de vivre séparément plutôt que renoncer au lieu de vie qu’il/elle a choisi."
+      }
+    ]
+  },
+  {
+    "id": "vraie_vie_limite_vie_commune_05_le_besoin_despace_pers",
+    "title": "Le besoin d’espace personnel",
+    "category": "vie_commune",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Ton/ta partenaire aime parfois être seul(e) à la maison."
+      },
+      {
+        "level": 2,
+        "question": "Il/elle souhaite une pièce personnelle si votre logement le permet."
+      },
+      {
+        "level": 3,
+        "question": "Il/elle te demande de ne jamais entrer dans cette pièce sans permission."
+      },
+      {
+        "level": 4,
+        "question": "Il/elle y passe une grande partie de ses soirées et week-ends."
+      },
+      {
+        "level": 5,
+        "question": "Vos moments spontanés ensemble deviennent très rares."
+      },
+      {
+        "level": 6,
+        "question": "Ton/ta partenaire souhaite organiser vos vies à domicile presque séparément tout en restant en couple."
+      }
+    ]
+  },
+  {
+    "id": "vraie_vie_limite_numerique_01_le_partage_de_localisa",
+    "title": "Le partage de localisation",
+    "category": "numerique",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Ton/ta partenaire te propose de partager votre localisation pour les trajets."
+      },
+      {
+        "level": 2,
+        "question": "Le partage reste activé en permanence par habitude."
+      },
+      {
+        "level": 3,
+        "question": "Ton/ta partenaire regarde régulièrement où tu es sans raison particulière."
+      },
+      {
+        "level": 4,
+        "question": "Il/elle te demande pourquoi tu es resté(e) à certains endroits."
+      },
+      {
+        "level": 5,
+        "question": "Une désactivation temporaire déclenche immédiatement une dispute."
+      },
+      {
+        "level": 6,
+        "question": "Ton/ta partenaire exige désormais une localisation permanente et considère tout refus comme une preuve que tu caches quelque chose."
+      }
+    ]
+  },
+  {
+    "id": "vraie_vie_limite_numerique_02_le_telephone_de_lautre",
+    "title": "Le téléphone de l’autre",
+    "category": "numerique",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Ton/ta partenaire connaît ton code de téléphone."
+      },
+      {
+        "level": 2,
+        "question": "Il/elle l’utilise parfois pour une tâche pratique avec ton accord."
+      },
+      {
+        "level": 3,
+        "question": "Il/elle regarde occasionnellement tes notifications lorsqu’elles apparaissent."
+      },
+      {
+        "level": 4,
+        "question": "Il/elle ouvre certaines conversations par curiosité."
+      },
+      {
+        "level": 5,
+        "question": "Il/elle fouille ton téléphone dès qu’il/elle se sent inquiet/inquiète."
+      },
+      {
+        "level": 6,
+        "question": "Ton/ta partenaire considère désormais avoir le droit de lire n’importe quoi sur ton téléphone sans demander."
+      }
+    ]
+  },
+  {
+    "id": "vraie_vie_limite_numerique_03_partager_vos_disputes",
+    "title": "Partager vos disputes",
+    "category": "numerique",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Ton/ta partenaire raconte parfois vos désaccords à un ami proche."
+      },
+      {
+        "level": 2,
+        "question": "Il/elle montre certaines captures pour demander un avis."
+      },
+      {
+        "level": 3,
+        "question": "Plusieurs proches connaissent désormais beaucoup de détails intimes sur votre couple."
+      },
+      {
+        "level": 4,
+        "question": "Ton/ta partenaire partage presque chaque grosse dispute avec son groupe d’amis."
+      },
+      {
+        "level": 5,
+        "question": "Leurs opinions influencent directement vos réconciliations et décisions."
+      },
+      {
+        "level": 6,
+        "question": "Ton/ta partenaire publie anonymement des extraits de vos conversations en ligne pour obtenir l’avis d’inconnus."
+      }
+    ]
+  },
+  {
+    "id": "vraie_vie_limite_numerique_04_le_compte_secret",
+    "title": "Le compte secret",
+    "category": "numerique",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Ton/ta partenaire utilise un pseudonyme en ligne pour un loisir."
+      },
+      {
+        "level": 2,
+        "question": "Il/elle possède un compte que tu ne connaissais pas mais sans contenu problématique."
+      },
+      {
+        "level": 3,
+        "question": "Ce compte lui sert à parler de sujets très personnels."
+      },
+      {
+        "level": 4,
+        "question": "Il/elle y échange régulièrement avec des personnes qui ignorent qu’il/elle est en couple."
+      },
+      {
+        "level": 5,
+        "question": "Certaines conversations deviennent ambiguës ou flirtantes."
+      },
+      {
+        "level": 6,
+        "question": "Ton/ta partenaire refuse de fermer ce compte ou de reconnaître que cette double identité affecte votre confiance."
+      }
+    ]
+  },
+  {
+    "id": "vraie_vie_limite_numerique_05_lia_dans_votre_relatio",
+    "title": "L’IA dans votre relation",
+    "category": "numerique",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Ton/ta partenaire demande parfois des conseils relationnels à une IA."
+      },
+      {
+        "level": 2,
+        "question": "Il/elle copie certaines de vos disputes pour obtenir une analyse."
+      },
+      {
+        "level": 3,
+        "question": "Il/elle utilise régulièrement l’IA pour décider qui a raison."
+      },
+      {
+        "level": 4,
+        "question": "Il/elle te répond parfois avec des messages largement rédigés par l’IA."
+      },
+      {
+        "level": 5,
+        "question": "Il/elle préfère demander à l’IA comment te comprendre plutôt que te poser directement des questions."
+      },
+      {
+        "level": 6,
+        "question": "Ton/ta partenaire considère désormais les conclusions de l’IA comme plus fiables que ta propre parole sur tes émotions et intentions."
+      }
+    ]
+  },
+  {
+    "id": "vraie_vie_limite_mort_01_les_affaires_apres_le_",
+    "title": "Les affaires après le décès",
+    "category": "mort",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Ton/ta partenaire souhaite que tu gardes quelques objets importants."
+      },
+      {
+        "level": 2,
+        "question": "Il/elle aimerait que tu conserves une grande partie de ses affaires."
+      },
+      {
+        "level": 3,
+        "question": "Il/elle te demande de ne jamais modifier certaines pièces de votre maison."
+      },
+      {
+        "level": 4,
+        "question": "Il/elle souhaite que tu ne vendes jamais votre logement."
+      },
+      {
+        "level": 5,
+        "question": "Il/elle veut que ces engagements restent valables même si tu reconstruis ta vie."
+      },
+      {
+        "level": 6,
+        "question": "Ton/ta partenaire te demande de promettre que ton éventuel futur couple devra vivre autour de ses affaires et de sa mémoire sans jamais les déplacer."
+      }
+    ]
+  },
+  {
+    "id": "vraie_vie_limite_mort_02_reconstruire_sa_vie",
+    "title": "Reconstruire sa vie",
+    "category": "mort",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Ton/ta partenaire te dit qu’il/elle voudrait que tu sois heureux/se après sa mort."
+      },
+      {
+        "level": 2,
+        "question": "Il/elle espère tout de même que tu attendrais un certain temps avant une nouvelle relation."
+      },
+      {
+        "level": 3,
+        "question": "Il/elle te demande de promettre d’attendre plusieurs années."
+      },
+      {
+        "level": 4,
+        "question": "Il/elle ne veut pas qu’un futur partenaire vive dans votre maison commune."
+      },
+      {
+        "level": 5,
+        "question": "Il/elle souhaite que tu ne te remarient jamais."
+      },
+      {
+        "level": 6,
+        "question": "Ton/ta partenaire te demande de promettre de ne jamais aimer quelqu’un d’autre après lui/elle."
+      }
+    ]
+  },
+  {
+    "id": "vraie_vie_limite_mort_03_la_place_dun_amour_dec",
+    "title": "La place d’un amour décédé",
+    "category": "mort",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Ton/ta partenaire garde quelques souvenirs d’un amour décédé avant votre relation."
+      },
+      {
+        "level": 2,
+        "question": "Il/elle commémore chaque année une date importante avec cette personne."
+      },
+      {
+        "level": 3,
+        "question": "Une grande partie de ses photos et objets reste visible dans votre maison."
+      },
+      {
+        "level": 4,
+        "question": "Il/elle compare parfois votre relation à celle qu’il/elle avait avec cette personne."
+      },
+      {
+        "level": 5,
+        "question": "Il/elle considère cet amour comme la relation la plus importante de sa vie."
+      },
+      {
+        "level": 6,
+        "question": "Ton/ta partenaire te dit clairement que personne, y compris toi, ne pourra jamais occuper la même place et refuse toute discussion sur l’impact que cela a sur votre couple."
+      }
+    ]
+  },
+  {
+    "id": "vraie_vie_limite_mort_04_le_testament_inattendu",
+    "title": "Le testament inattendu",
+    "category": "mort",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Ton/ta partenaire souhaite léguer une petite partie de ses biens à une cause importante pour lui/elle."
+      },
+      {
+        "level": 2,
+        "question": "Une part importante de son patrimoine irait ailleurs qu’à toi ou à la famille."
+      },
+      {
+        "level": 3,
+        "question": "Il/elle souhaite léguer un bien sentimental majeur à quelqu’un de son passé."
+      },
+      {
+        "level": 4,
+        "question": "Tu découvres que cette décision a été prise sans jamais t’en parler."
+      },
+      {
+        "level": 5,
+        "question": "Le testament te laisserait dans une situation financière difficile malgré des années de vie commune."
+      },
+      {
+        "level": 6,
+        "question": "Ton/ta partenaire refuse toute discussion sur les conséquences concrètes de ses choix pour ta sécurité future."
+      }
+    ]
+  },
+  {
+    "id": "vraie_vie_limite_mort_05_les_dernieres_volontes",
+    "title": "Les dernières volontés secrètes",
+    "category": "mort",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Ton/ta partenaire te confie une volonté qu’il/elle n’a pas encore partagée à sa famille."
+      },
+      {
+        "level": 2,
+        "question": "Il/elle te demande de garder le secret jusqu’à son décès."
+      },
+      {
+        "level": 3,
+        "question": "Cette volonté risque de provoquer un conflit familial important."
+      },
+      {
+        "level": 4,
+        "question": "Tu devrais être seul(e) à la faire respecter face à tous ses proches."
+      },
+      {
+        "level": 5,
+        "question": "La demande va à l’encontre de ce que sa famille pense être ses souhaits."
+      },
+      {
+        "level": 6,
+        "question": "Ton/ta partenaire refuse de laisser toute trace écrite et te demande de porter seul(e) la responsabilité de cette décision après sa mort."
+      }
+    ]
+  },
+  {
+    "id": "vraie_vie_limite_bouleversements_01_la_perte_totale_de_sta",
+    "title": "La perte totale de stabilité",
+    "category": "bouleversements",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Ton/ta partenaire perd son emploi."
+      },
+      {
+        "level": 2,
+        "question": "Les recherches durent plusieurs mois sans résultat."
+      },
+      {
+        "level": 3,
+        "question": "Vous devez fortement réduire votre niveau de vie."
+      },
+      {
+        "level": 4,
+        "question": "Vous ne pouvez plus assumer votre logement actuel."
+      },
+      {
+        "level": 5,
+        "question": "Ton/ta partenaire refuse de revenir temporairement chez la famille ou d’accepter un emploi moins idéal."
+      },
+      {
+        "level": 6,
+        "question": "Il/elle préfère continuer à puiser dans vos dernières réserves plutôt que faire un compromis important sur son projet professionnel."
+      }
+    ]
+  },
+  {
+    "id": "vraie_vie_limite_bouleversements_02_le_changement_radical_",
+    "title": "Le changement radical de vie",
+    "category": "bouleversements",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Ton/ta partenaire ressent le besoin de changer certaines habitudes."
+      },
+      {
+        "level": 2,
+        "question": "Il/elle veut changer de métier."
+      },
+      {
+        "level": 3,
+        "question": "Il/elle souhaite aussi déménager dans une autre région."
+      },
+      {
+        "level": 4,
+        "question": "Ses convictions et son mode de vie changent profondément en quelques mois."
+      },
+      {
+        "level": 5,
+        "question": "Une grande partie du projet de couple que vous aviez construit ne lui correspond plus."
+      },
+      {
+        "level": 6,
+        "question": "Ton/ta partenaire te demande de changer presque toute ta propre vie pour rester avec cette nouvelle version de lui/elle."
+      }
+    ]
+  },
+  {
+    "id": "vraie_vie_limite_bouleversements_03_le_probleme_judiciaire",
+    "title": "Le problème judiciaire",
+    "category": "bouleversements",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Ton/ta partenaire est convoqué(e) dans une affaire compliquée."
+      },
+      {
+        "level": 2,
+        "question": "Il/elle devient officiellement mis(e) en cause."
+      },
+      {
+        "level": 3,
+        "question": "Certaines informations publiques sont très difficiles à entendre."
+      },
+      {
+        "level": 4,
+        "question": "Ton/ta partenaire reconnaît t’avoir caché une partie importante de la situation."
+      },
+      {
+        "level": 5,
+        "question": "La procédure affecte votre réputation et vos finances pendant des années."
+      },
+      {
+        "level": 6,
+        "question": "Tu découvres des faits graves que ton/ta partenaire minimise encore et il/elle exige pourtant ton soutien inconditionnel."
+      }
+    ]
+  },
+  {
+    "id": "vraie_vie_limite_bouleversements_04_le_projet_parental_bou",
+    "title": "Le projet parental bouleversé",
+    "category": "bouleversements",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Votre projet d’enfant prend plus de temps que prévu."
+      },
+      {
+        "level": 2,
+        "question": "Vous apprenez qu’une grossesse biologique sera très difficile."
+      },
+      {
+        "level": 3,
+        "question": "Les solutions médicales possibles sont longues et éprouvantes."
+      },
+      {
+        "level": 4,
+        "question": "Ton/ta partenaire refuse pour l’instant toute autre forme de parentalité."
+      },
+      {
+        "level": 5,
+        "question": "Après plusieurs années, vos désirs sur la suite deviennent très différents."
+      },
+      {
+        "level": 6,
+        "question": "Ton/ta partenaire considère désormais qu’il/elle ne pourra être heureux/se qu’avec une option que toi tu ne souhaites pas poursuivre."
+      }
+    ]
+  },
+  {
+    "id": "vraie_vie_limite_bouleversements_05_la_richesse_soudaine",
+    "title": "La richesse soudaine",
+    "category": "bouleversements",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Ton/ta partenaire reçoit beaucoup d’argent de façon inattendue."
+      },
+      {
+        "level": 2,
+        "question": "Votre niveau de vie augmente rapidement."
+      },
+      {
+        "level": 3,
+        "question": "Il/elle quitte son travail et change beaucoup ses habitudes."
+      },
+      {
+        "level": 4,
+        "question": "Il/elle fréquente de nouvelles personnes et délaisse certains anciens proches."
+      },
+      {
+        "level": 5,
+        "question": "Vos valeurs et priorités financières deviennent très différentes."
+      },
+      {
+        "level": 6,
+        "question": "Ton/ta partenaire considère que cette nouvelle vie est incompatible avec la simplicité que tu souhaites conserver."
+      }
+    ]
+  },
+  {
+    "id": "vraie_vie_limite_couple_pression_01_la_baisse_de_desir",
+    "title": "La baisse de désir",
+    "category": "couple_pression",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Ton/ta partenaire traverse une période avec moins de désir."
+      },
+      {
+        "level": 2,
+        "question": "La situation dure plusieurs mois."
+      },
+      {
+        "level": 3,
+        "question": "Votre sexualité devient très rare mais la tendresse reste présente."
+      },
+      {
+        "level": 4,
+        "question": "Ton/ta partenaire évite désormais aussi toute discussion sur le sujet."
+      },
+      {
+        "level": 5,
+        "question": "Toute tentative d’en parler déclenche de la culpabilité ou du conflit."
+      },
+      {
+        "level": 6,
+        "question": "Ton/ta partenaire refuse durablement toute intimité et toute recherche d’un équilibre qui puisse prendre en compte vos deux besoins."
+      }
+    ]
+  },
+  {
+    "id": "vraie_vie_limite_couple_pression_02_la_separation_temporai",
+    "title": "La séparation temporaire",
+    "category": "couple_pression",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Ton/ta partenaire demande quelques jours pour réfléchir."
+      },
+      {
+        "level": 2,
+        "question": "Il/elle souhaite vivre séparément pendant plusieurs semaines."
+      },
+      {
+        "level": 3,
+        "question": "La pause dure plusieurs mois avec peu de contact."
+      },
+      {
+        "level": 4,
+        "question": "Aucune date claire de décision n’est fixée."
+      },
+      {
+        "level": 5,
+        "question": "Ton/ta partenaire veut rester officiellement en couple tout en vivant comme une personne célibataire sur plusieurs aspects."
+      },
+      {
+        "level": 6,
+        "question": "Il/elle te demande de l’attendre indéfiniment sans engagement ni projet concret de reconstruction."
+      }
+    ]
+  },
+  {
+    "id": "vraie_vie_limite_couple_pression_03_le_ressentiment_accumu",
+    "title": "Le ressentiment accumulé",
+    "category": "couple_pression",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Ton/ta partenaire te parle enfin d’un ancien sujet qui l’a blessé(e)."
+      },
+      {
+        "level": 2,
+        "question": "Il/elle révèle plusieurs frustrations jamais exprimées."
+      },
+      {
+        "level": 3,
+        "question": "Tu découvres que le ressentiment dure depuis des années."
+      },
+      {
+        "level": 4,
+        "question": "Ton/ta partenaire interprète désormais beaucoup de tes actions à travers ces anciennes blessures."
+      },
+      {
+        "level": 5,
+        "question": "Il/elle ne croit presque plus à tes changements même lorsqu’ils sont réels."
+      },
+      {
+        "level": 6,
+        "question": "Ton/ta partenaire refuse toute possibilité de pardon mais souhaite quand même que vous restiez ensemble dans cette dynamique."
+      }
+    ]
+  },
+  {
+    "id": "vraie_vie_limite_couple_pression_04_la_routine_devenue_ind",
+    "title": "La routine devenue indifférence",
+    "category": "couple_pression",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Vous avez moins de rendez-vous qu’avant."
+      },
+      {
+        "level": 2,
+        "question": "Vous passez beaucoup de soirées chacun(e) de votre côté."
+      },
+      {
+        "level": 3,
+        "question": "Vous échangez surtout sur l’organisation du quotidien."
+      },
+      {
+        "level": 4,
+        "question": "Les gestes tendres et les conversations profondes deviennent rares."
+      },
+      {
+        "level": 5,
+        "question": "Ton/ta partenaire ne ressent pas particulièrement le besoin de changer cette situation."
+      },
+      {
+        "level": 6,
+        "question": "Il/elle te dit qu’une relation longue est forcément ainsi et refuse tout effort pour recréer une connexion plus forte."
+      }
+    ]
+  },
+  {
+    "id": "vraie_vie_limite_couple_pression_05_les_doutes_sur_les_sen",
+    "title": "Les doutes sur les sentiments",
+    "category": "couple_pression",
+    "levels": [
+      {
+        "level": 1,
+        "question": "Ton/ta partenaire te dit traverser une période de doute."
+      },
+      {
+        "level": 2,
+        "question": "Il/elle n’est plus sûr(e) de ressentir la même passion."
+      },
+      {
+        "level": 3,
+        "question": "Il/elle ne sait pas s’il/elle se projette encore dans certains projets communs."
+      },
+      {
+        "level": 4,
+        "question": "Ces doutes durent plusieurs mois sans évolution."
+      },
+      {
+        "level": 5,
+        "question": "Ton/ta partenaire veut que tu continues à investir normalement dans la relation pendant qu’il/elle réfléchit."
+      },
+      {
+        "level": 6,
+        "question": "Il/elle refuse de choisir ou d’agir mais te demande d’accepter cette incertitude sans limite de temps."
+      }
+    ]
   }
 ]

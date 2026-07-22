@@ -3994,5 +3994,525 @@
   {
     "id": "parentalite_ok_070_votre_enfant_adulte_coupe_tout_conta",
     "question": "Votre enfant adulte coupe tout contact avec un membre proche de la famille et vous demande de respecter sa décision."
+  },
+  {
+    "id": "vraie_vie_ok_argent_01_ton_ta_partenaire_gagne_",
+    "question": "Ton/ta partenaire gagne soudainement beaucoup plus que toi et souhaite continuer à partager toutes les dépenses exactement à 50/50."
+  },
+  {
+    "id": "vraie_vie_ok_argent_02_ton_ta_partenaire_recoit",
+    "question": "Ton/ta partenaire reçoit un gros héritage et considère que cet argent doit rester entièrement personnel."
+  },
+  {
+    "id": "vraie_vie_ok_argent_03_ton_ta_partenaire_prete_",
+    "question": "Ton/ta partenaire prête une somme importante à un membre de sa famille sans t’en parler avant."
+  },
+  {
+    "id": "vraie_vie_ok_argent_04_ton_ta_partenaire_aide_f",
+    "question": "Ton/ta partenaire aide financièrement ses parents tous les mois, même lorsque votre budget devient serré."
+  },
+  {
+    "id": "vraie_vie_ok_argent_05_ton_ta_partenaire_conser",
+    "question": "Ton/ta partenaire conserve un compte bancaire dont tu ignores complètement le montant après plusieurs années de vie commune."
+  },
+  {
+    "id": "vraie_vie_ok_argent_06_ton_ta_partenaire_veut_i",
+    "question": "Ton/ta partenaire veut investir une grosse partie de vos économies dans un projet risqué auquel tu ne crois pas."
+  },
+  {
+    "id": "vraie_vie_ok_argent_07_ton_ta_partenaire_decouv",
+    "question": "Ton/ta partenaire découvre une ancienne dette importante et préfère continuer à la rembourser seul(e) sans mélanger vos finances."
+  },
+  {
+    "id": "vraie_vie_ok_argent_08_ton_ta_partenaire_perd_s",
+    "question": "Ton/ta partenaire perd son emploi mais continue pendant plusieurs mois le même niveau de dépenses personnelles."
+  },
+  {
+    "id": "vraie_vie_ok_argent_09_ton_ta_partenaire_veut_a",
+    "question": "Ton/ta partenaire veut arrêter de travailler pendant un an alors que vous venez de contracter un crédit important."
+  },
+  {
+    "id": "vraie_vie_ok_argent_10_ton_ta_partenaire_souhai",
+    "question": "Ton/ta partenaire souhaite offrir une très grosse somme à votre enfant adulte alors que vous n’êtes pas d’accord sur le montant."
+  },
+  {
+    "id": "vraie_vie_ok_argent_11_ton_ta_partenaire_refuse",
+    "question": "Ton/ta partenaire refuse de signer un contrat de mariage ou une convention patrimoniale par principe."
+  },
+  {
+    "id": "vraie_vie_ok_argent_12_ton_ta_partenaire_gagne_",
+    "question": "Ton/ta partenaire gagne moins que toi mais souhaite avoir exactement le même pouvoir de décision sur toutes les grosses dépenses."
+  },
+  {
+    "id": "vraie_vie_ok_argent_13_ton_ta_partenaire_utilis",
+    "question": "Ton/ta partenaire utilise une partie de son argent personnel pour aider régulièrement un ex ou une ancienne belle-famille en difficulté."
+  },
+  {
+    "id": "vraie_vie_ok_famille_01_ton_ta_partenaire_donne_",
+    "question": "Ton/ta partenaire donne un double de vos clés à ses parents sans t’en parler."
+  },
+  {
+    "id": "vraie_vie_ok_famille_02_les_parents_de_ton_ta_pa",
+    "question": "Les parents de ton/ta partenaire viennent chez vous presque tous les week-ends sans invitation formelle."
+  },
+  {
+    "id": "vraie_vie_ok_famille_03_ton_ta_partenaire_racont",
+    "question": "Ton/ta partenaire raconte régulièrement vos disputes à sa famille."
+  },
+  {
+    "id": "vraie_vie_ok_famille_04_un_membre_de_sa_famille_",
+    "question": "Un membre de sa famille te manque de respect et ton/ta partenaire préfère ne pas intervenir pour éviter un conflit."
+  },
+  {
+    "id": "vraie_vie_ok_famille_05_ton_ta_partenaire_refuse",
+    "question": "Ton/ta partenaire refuse désormais que l’un de tes proches entre chez vous après un conflit important."
+  },
+  {
+    "id": "vraie_vie_ok_famille_06_ton_ta_partenaire_souhai",
+    "question": "Ton/ta partenaire souhaite accueillir son frère ou sa sœur chez vous pendant plusieurs mois."
+  },
+  {
+    "id": "vraie_vie_ok_famille_07_votre_couple_finance_cha",
+    "question": "Votre couple finance chaque année les vacances d’un parent qui a peu de moyens."
+  },
+  {
+    "id": "vraie_vie_ok_famille_08_ton_ta_partenaire_veut_p",
+    "question": "Ton/ta partenaire veut passer toutes les fêtes importantes avec sa famille par tradition."
+  },
+  {
+    "id": "vraie_vie_ok_famille_09_un_parent_de_ton_ta_part",
+    "question": "Un parent de ton/ta partenaire critique régulièrement votre relation et continue d’être très présent dans votre vie."
+  },
+  {
+    "id": "vraie_vie_ok_famille_10_ton_ta_partenaire_garde_",
+    "question": "Ton/ta partenaire garde un secret familial important qui pourrait directement avoir des conséquences sur votre foyer."
+  },
+  {
+    "id": "vraie_vie_ok_famille_11_ton_ta_partenaire_prend_",
+    "question": "Ton/ta partenaire prend toujours le parti de sa famille en public puis te donne raison en privé."
+  },
+  {
+    "id": "vraie_vie_ok_famille_12_un_proche_de_ton_ta_part",
+    "question": "Un proche de ton/ta partenaire refuse de reconnaître pleinement votre couple mais reste invité aux événements familiaux."
+  },
+  {
+    "id": "vraie_vie_ok_famille_13_ton_ta_partenaire_veut_p",
+    "question": "Ton/ta partenaire veut prendre en charge un parent âgé à domicile sans fixer de durée précise."
+  },
+  {
+    "id": "vraie_vie_ok_sante_mentale_01_ton_ta_partenaire_traver",
+    "question": "Ton/ta partenaire traverse une dépression et annule presque toutes vos sorties pendant plusieurs mois."
+  },
+  {
+    "id": "vraie_vie_ok_sante_mentale_02_ton_ta_partenaire_refuse",
+    "question": "Ton/ta partenaire refuse toute aide professionnelle malgré une souffrance qui affecte fortement votre quotidien."
+  },
+  {
+    "id": "vraie_vie_ok_sante_mentale_03_ton_ta_partenaire_te_dem",
+    "question": "Ton/ta partenaire te demande d’être la seule personne au courant de ses difficultés psychologiques."
+  },
+  {
+    "id": "vraie_vie_ok_sante_mentale_04_ton_ta_partenaire_prend_",
+    "question": "Ton/ta partenaire prend plusieurs mois d’arrêt sans vouloir expliquer sa situation à vos proches."
+  },
+  {
+    "id": "vraie_vie_ok_sante_mentale_05_ton_ta_partenaire_a_beso",
+    "question": "Ton/ta partenaire a besoin de dormir séparément pendant une période parce qu’il/elle supporte difficilement la proximité."
+  },
+  {
+    "id": "vraie_vie_ok_sante_mentale_06_ton_ta_partenaire_commen",
+    "question": "Ton/ta partenaire commence une thérapie et remet en question certaines habitudes de votre couple."
+  },
+  {
+    "id": "vraie_vie_ok_sante_mentale_07_ton_ta_partenaire_te_dem",
+    "question": "Ton/ta partenaire te demande régulièrement d’annuler tes propres projets pour rester avec lui/elle lors de périodes d’angoisse."
+  },
+  {
+    "id": "vraie_vie_ok_sante_mentale_08_ton_ta_partenaire_souhai",
+    "question": "Ton/ta partenaire souhaite faire une pause dans votre relation pour se concentrer sur sa santé mentale."
+  },
+  {
+    "id": "vraie_vie_ok_sante_mentale_09_ton_ta_partenaire_refuse",
+    "question": "Ton/ta partenaire refuse temporairement toute intimité physique à cause de son état psychologique."
+  },
+  {
+    "id": "vraie_vie_ok_sante_mentale_10_ton_ta_partenaire_devien",
+    "question": "Ton/ta partenaire devient très dépendant(e) de tes réponses et vit difficilement chaque moment où tu n’es pas disponible."
+  },
+  {
+    "id": "vraie_vie_ok_sante_mentale_11_ton_ta_partenaire_ne_veu",
+    "question": "Ton/ta partenaire ne veut pas que tu parles de ton propre épuisement parce qu’il/elle estime que sa souffrance est plus importante."
+  },
+  {
+    "id": "vraie_vie_ok_sante_mentale_12_ton_ta_partenaire_te_dem",
+    "question": "Ton/ta partenaire te demande d’assister à certaines séances de thérapie de couple mais refuse de parler du reste de son suivi."
+  },
+  {
+    "id": "vraie_vie_ok_sante_mentale_13_ton_ta_partenaire_arrete",
+    "question": "Ton/ta partenaire arrête un traitement qui l’aidait sans en parler à son professionnel de santé parce qu’il/elle n’aime plus les effets secondaires."
+  },
+  {
+    "id": "vraie_vie_ok_maladie_01_ton_ta_partenaire_devien",
+    "question": "Ton/ta partenaire devient durablement dépendant(e) pour certaines tâches et préfère que tu sois son aidant principal."
+  },
+  {
+    "id": "vraie_vie_ok_maladie_02_ton_ta_partenaire_refuse",
+    "question": "Ton/ta partenaire refuse qu’une aide extérieure intervienne à domicile alors que tu es épuisé(e)."
+  },
+  {
+    "id": "vraie_vie_ok_maladie_03_ton_ta_partenaire_develo",
+    "question": "Ton/ta partenaire développe une maladie qui réduit fortement votre vie sociale et vos possibilités de voyage."
+  },
+  {
+    "id": "vraie_vie_ok_maladie_04_ton_ta_partenaire_souhai",
+    "question": "Ton/ta partenaire souhaite arrêter de travailler pour s’occuper à temps plein d’un parent malade."
+  },
+  {
+    "id": "vraie_vie_ok_maladie_05_ton_ta_partenaire_refuse",
+    "question": "Ton/ta partenaire refuse de parler de ses volontés médicales en cas d’incapacité future."
+  },
+  {
+    "id": "vraie_vie_ok_maladie_06_ton_ta_partenaire_souhai",
+    "question": "Ton/ta partenaire souhaite que vous déménagiez près d’un centre médical spécialisé pour plusieurs années."
+  },
+  {
+    "id": "vraie_vie_ok_maladie_07_une_maladie_rend_toute_i",
+    "question": "Une maladie rend toute intimité sexuelle très difficile et ton/ta partenaire ne veut pas chercher d’autres formes d’intimité pour le moment."
+  },
+  {
+    "id": "vraie_vie_ok_maladie_08_ton_ta_partenaire_veut_p",
+    "question": "Ton/ta partenaire veut prendre une décision médicale importante que tu trouves beaucoup trop risquée."
+  },
+  {
+    "id": "vraie_vie_ok_maladie_09_ton_ta_partenaire_te_dem",
+    "question": "Ton/ta partenaire te demande de ne pas annoncer sa maladie à certains proches malgré leur inquiétude."
+  },
+  {
+    "id": "vraie_vie_ok_maladie_10_a_la_retraite_ton_ta_par",
+    "question": "À la retraite, ton/ta partenaire souhaite vivre loin de votre famille alors que tu veux rester proche des enfants et petits-enfants."
+  },
+  {
+    "id": "vraie_vie_ok_maladie_11_ton_ta_partenaire_refuse",
+    "question": "Ton/ta partenaire refuse catégoriquement l’idée d’une maison médicalisée même si ses besoins deviennent très lourds."
+  },
+  {
+    "id": "vraie_vie_ok_maladie_12_ton_ta_partenaire_veut_c",
+    "question": "Ton/ta partenaire veut consacrer une grande partie de vos économies à un traitement expérimental aux chances de réussite très faibles."
+  },
+  {
+    "id": "vraie_vie_ok_maladie_13_ton_ta_partenaire_te_dem",
+    "question": "Ton/ta partenaire te demande de promettre que tu ne reconstruiras jamais ta vie s’il/elle décède avant toi."
+  },
+  {
+    "id": "vraie_vie_ok_carriere_01_ton_ta_partenaire_accept",
+    "question": "Ton/ta partenaire accepte un poste exceptionnel à l’étranger sans savoir quand vous pourrez à nouveau vivre dans la même ville."
+  },
+  {
+    "id": "vraie_vie_ok_carriere_02_ton_ta_partenaire_veut_r",
+    "question": "Ton/ta partenaire veut reprendre cinq années d’études alors que votre foyer dépend en grande partie de ses revenus."
+  },
+  {
+    "id": "vraie_vie_ok_carriere_03_ton_ta_partenaire_travai",
+    "question": "Ton/ta partenaire travaille régulièrement plus de 70 heures par semaine pour développer son entreprise."
+  },
+  {
+    "id": "vraie_vie_ok_carriere_04_ton_ta_partenaire_refuse",
+    "question": "Ton/ta partenaire refuse plusieurs opportunités professionnelles pour ne pas s’éloigner de toi."
+  },
+  {
+    "id": "vraie_vie_ok_carriere_05_ton_ta_partenaire_souhai",
+    "question": "Ton/ta partenaire souhaite que tu déménages pour sa carrière alors que ton propre travail se trouve dans votre ville actuelle."
+  },
+  {
+    "id": "vraie_vie_ok_carriere_06_ton_ta_partenaire_envisa",
+    "question": "Ton/ta partenaire envisage de quitter un emploi stable sans économies pour se reconvertir complètement."
+  },
+  {
+    "id": "vraie_vie_ok_carriere_07_ton_ta_partenaire_devien",
+    "question": "Ton/ta partenaire devient très exposé(e) publiquement à cause de son travail et votre vie privée en est affectée."
+  },
+  {
+    "id": "vraie_vie_ok_carriere_08_ton_ta_partenaire_veut_a",
+    "question": "Ton/ta partenaire veut accepter un métier impliquant de longues absences plusieurs mois par an."
+  },
+  {
+    "id": "vraie_vie_ok_carriere_09_ton_ta_partenaire_gagne_",
+    "question": "Ton/ta partenaire gagne très bien sa vie mais devient constamment indisponible pour le couple."
+  },
+  {
+    "id": "vraie_vie_ok_carriere_10_ton_ta_partenaire_refuse",
+    "question": "Ton/ta partenaire refuse une promotion importante parce qu’il/elle pense que votre relation en souffrirait."
+  },
+  {
+    "id": "vraie_vie_ok_carriere_11_ton_ta_partenaire_veut_c",
+    "question": "Ton/ta partenaire veut consacrer plusieurs années à un projet professionnel qui ne rapporte presque rien au début."
+  },
+  {
+    "id": "vraie_vie_ok_carriere_12_ton_ta_partenaire_te_dem",
+    "question": "Ton/ta partenaire te demande de mettre ta propre carrière en pause pour faciliter un déménagement familial."
+  },
+  {
+    "id": "vraie_vie_ok_carriere_13_ton_ta_partenaire_souhai",
+    "question": "Ton/ta partenaire souhaite vivre à distance pendant deux ans plutôt que l’un de vous abandonne son projet professionnel."
+  },
+  {
+    "id": "vraie_vie_ok_vie_commune_01_ton_ta_partenaire_souhai",
+    "question": "Ton/ta partenaire souhaite dormir dans une chambre séparée plusieurs nuits par semaine parce qu’il/elle dort mieux ainsi."
+  },
+  {
+    "id": "vraie_vie_ok_vie_commune_02_ton_ta_partenaire_invite",
+    "question": "Ton/ta partenaire invite régulièrement des proches chez vous sans te demander avant."
+  },
+  {
+    "id": "vraie_vie_ok_vie_commune_03_ton_ta_partenaire_veut_q",
+    "question": "Ton/ta partenaire veut que votre maison soit toujours parfaitement rangée et vit mal le moindre désordre."
+  },
+  {
+    "id": "vraie_vie_ok_vie_commune_04_ton_ta_partenaire_refuse",
+    "question": "Ton/ta partenaire refuse de partager certaines tâches ménagères qu’il/elle déteste et préfère payer quelqu’un pour les faire."
+  },
+  {
+    "id": "vraie_vie_ok_vie_commune_05_ton_ta_partenaire_veut_u",
+    "question": "Ton/ta partenaire veut une pièce de la maison entièrement à lui/elle où tu n’entres jamais sans permission."
+  },
+  {
+    "id": "vraie_vie_ok_vie_commune_06_ton_ta_partenaire_souhai",
+    "question": "Ton/ta partenaire souhaite adopter plusieurs animaux alors que tu voulais une maison sans animaux."
+  },
+  {
+    "id": "vraie_vie_ok_vie_commune_07_ton_ta_partenaire_regle_",
+    "question": "Ton/ta partenaire règle la température du logement selon ses préférences même si tu es régulièrement inconfortable."
+  },
+  {
+    "id": "vraie_vie_ok_vie_commune_08_ton_ta_partenaire_depens",
+    "question": "Ton/ta partenaire dépense une grosse somme dans la décoration commune sans te consulter."
+  },
+  {
+    "id": "vraie_vie_ok_vie_commune_09_ton_ta_partenaire_veut_v",
+    "question": "Ton/ta partenaire veut vivre à la campagne alors que tu as toujours imaginé rester en ville."
+  },
+  {
+    "id": "vraie_vie_ok_vie_commune_10_ton_ta_partenaire_souhai",
+    "question": "Ton/ta partenaire souhaite recevoir du monde presque tous les week-ends."
+  },
+  {
+    "id": "vraie_vie_ok_vie_commune_11_ton_ta_partenaire_refuse",
+    "question": "Ton/ta partenaire refuse de déménager d’un logement devenu trop petit parce qu’il/elle y est très attaché(e)."
+  },
+  {
+    "id": "vraie_vie_ok_vie_commune_12_ton_ta_partenaire_travai",
+    "question": "Ton/ta partenaire travaille à domicile et occupe en permanence la pièce principale pour ses appels."
+  },
+  {
+    "id": "vraie_vie_ok_vie_commune_13_ton_ta_partenaire_veut_q",
+    "question": "Ton/ta partenaire veut que vous partagiez absolument tous vos repas du soir lorsque vous êtes tous les deux à la maison."
+  },
+  {
+    "id": "vraie_vie_ok_numerique_01_ton_ta_partenaire_souhai",
+    "question": "Ton/ta partenaire souhaite partager votre localisation en permanence mais refuse que cela devienne une obligation réciproque."
+  },
+  {
+    "id": "vraie_vie_ok_numerique_02_ton_ta_partenaire_conser",
+    "question": "Ton/ta partenaire conserve des photos intimes d’une ancienne relation dans un dossier privé."
+  },
+  {
+    "id": "vraie_vie_ok_numerique_03_ton_ta_partenaire_possed",
+    "question": "Ton/ta partenaire possède un compte sur un réseau social que tu ne connaissais pas."
+  },
+  {
+    "id": "vraie_vie_ok_numerique_04_ton_ta_partenaire_suppri",
+    "question": "Ton/ta partenaire supprime régulièrement certaines conversations pour garder son téléphone propre."
+  },
+  {
+    "id": "vraie_vie_ok_numerique_05_ton_ta_partenaire_utilis",
+    "question": "Ton/ta partenaire utilise une intelligence artificielle pour analyser vos disputes et lui demander qui a raison."
+  },
+  {
+    "id": "vraie_vie_ok_numerique_06_ton_ta_partenaire_partag",
+    "question": "Ton/ta partenaire partage des captures de vos conversations privées avec ses amis proches pour demander conseil."
+  },
+  {
+    "id": "vraie_vie_ok_numerique_07_ton_ta_partenaire_refuse",
+    "question": "Ton/ta partenaire refuse totalement que votre couple apparaisse sur les réseaux sociaux."
+  },
+  {
+    "id": "vraie_vie_ok_numerique_08_ton_ta_partenaire_contin",
+    "question": "Ton/ta partenaire continue de suivre et d’échanger occasionnellement avec plusieurs anciens flirts en ligne."
+  },
+  {
+    "id": "vraie_vie_ok_numerique_09_ton_ta_partenaire_connai",
+    "question": "Ton/ta partenaire connaît ton code de téléphone mais considère que tu ne dois jamais utiliser le sien sans demander."
+  },
+  {
+    "id": "vraie_vie_ok_numerique_10_ton_ta_partenaire_souhai",
+    "question": "Ton/ta partenaire souhaite installer des caméras à l’intérieur de votre logement pour la sécurité."
+  },
+  {
+    "id": "vraie_vie_ok_numerique_11_ton_ta_partenaire_utilis",
+    "question": "Ton/ta partenaire utilise un compte anonyme pour publier des choses très personnelles sur sa vie sans te mentionner."
+  },
+  {
+    "id": "vraie_vie_ok_numerique_12_ton_ta_partenaire_cree_d",
+    "question": "Ton/ta partenaire crée des images générées par IA de vous deux sans te demander avant de les publier."
+  },
+  {
+    "id": "vraie_vie_ok_numerique_13_ton_ta_partenaire_demand",
+    "question": "Ton/ta partenaire demande à pouvoir accéder à tes comptes numériques si tu décèdes."
+  },
+  {
+    "id": "vraie_vie_ok_mort_01_ton_ta_partenaire_souhai",
+    "question": "Ton/ta partenaire souhaite conserver toute sa vie les affaires les plus personnelles d’un ancien amour décédé."
+  },
+  {
+    "id": "vraie_vie_ok_mort_02_ton_ta_partenaire_veut_e",
+    "question": "Ton/ta partenaire veut être enterré(e) dans sa région d’origine plutôt que près de toi."
+  },
+  {
+    "id": "vraie_vie_ok_mort_03_ton_ta_partenaire_refuse",
+    "question": "Ton/ta partenaire refuse de rédiger un testament alors que votre situation familiale est complexe."
+  },
+  {
+    "id": "vraie_vie_ok_mort_04_ton_ta_partenaire_souhai",
+    "question": "Ton/ta partenaire souhaite qu’une partie importante de son héritage revienne à une association plutôt qu’à sa famille."
+  },
+  {
+    "id": "vraie_vie_ok_mort_05_ton_ta_partenaire_te_dem",
+    "question": "Ton/ta partenaire te demande de promettre de ne jamais vendre votre maison après son décès."
+  },
+  {
+    "id": "vraie_vie_ok_mort_06_ton_ta_partenaire_souhai",
+    "question": "Ton/ta partenaire souhaite que certaines lettres personnelles ne soient jamais lues après sa mort."
+  },
+  {
+    "id": "vraie_vie_ok_mort_07_ton_ta_partenaire_veut_q",
+    "question": "Ton/ta partenaire veut que son ex ou une personne importante de son passé soit présent(e) à ses funérailles."
+  },
+  {
+    "id": "vraie_vie_ok_mort_08_ton_ta_partenaire_souhai",
+    "question": "Ton/ta partenaire souhaite que tu continues ta vie amoureuse après son décès mais seulement après plusieurs années."
+  },
+  {
+    "id": "vraie_vie_ok_mort_09_ton_ta_partenaire_veut_o",
+    "question": "Ton/ta partenaire veut organiser très précisément ses propres funérailles longtemps à l’avance."
+  },
+  {
+    "id": "vraie_vie_ok_mort_10_ton_ta_partenaire_refuse",
+    "question": "Ton/ta partenaire refuse que ses proches sachent certaines décisions de fin de vie qu’il/elle t’a confiées."
+  },
+  {
+    "id": "vraie_vie_ok_mort_11_ton_ta_partenaire_souhai",
+    "question": "Ton/ta partenaire souhaite léguer un bien sentimental important à quelqu’un d’autre que toi."
+  },
+  {
+    "id": "vraie_vie_ok_mort_12_ton_ta_partenaire_te_dem",
+    "question": "Ton/ta partenaire te demande de supprimer l’intégralité de ses comptes et contenus numériques après son décès."
+  },
+  {
+    "id": "vraie_vie_ok_mort_13_ton_ta_partenaire_veut_c",
+    "question": "Ton/ta partenaire veut conserver dans votre maison les urnes ou souvenirs funéraires de plusieurs proches."
+  },
+  {
+    "id": "vraie_vie_ok_bouleversements_01_ton_ta_partenaire_perd_s",
+    "question": "Ton/ta partenaire perd soudainement son emploi et veut profiter de cette période pour ne pas chercher de travail pendant plusieurs mois."
+  },
+  {
+    "id": "vraie_vie_ok_bouleversements_02_ton_ta_partenaire_recoit",
+    "question": "Ton/ta partenaire reçoit une somme qui change votre vie et veut immédiatement quitter son travail."
+  },
+  {
+    "id": "vraie_vie_ok_bouleversements_03_ton_ta_partenaire_doit_d",
+    "question": "Ton/ta partenaire doit déménager rapidement pour une raison administrative ou familiale et s’attend à ce que tu le/la suives."
+  },
+  {
+    "id": "vraie_vie_ok_bouleversements_04_ton_ta_partenaire_appren",
+    "question": "Ton/ta partenaire apprend qu’il/elle ne pourra probablement pas avoir d’enfant biologiquement et refuse pour l’instant toute autre option."
+  },
+  {
+    "id": "vraie_vie_ok_bouleversements_05_une_grossesse_imprevue_s",
+    "question": "Une grossesse imprévue survient alors que vous aviez décidé d’attendre plusieurs années avant d’avoir un enfant."
+  },
+  {
+    "id": "vraie_vie_ok_bouleversements_06_ton_ta_partenaire_change",
+    "question": "Ton/ta partenaire change profondément de religion ou de convictions et souhaite que votre mode de vie commun évolue aussi."
+  },
+  {
+    "id": "vraie_vie_ok_bouleversements_07_ton_ta_partenaire_est_im",
+    "question": "Ton/ta partenaire est impliqué(e) dans un problème judiciaire sérieux mais affirme ne rien avoir fait de moralement grave."
+  },
+  {
+    "id": "vraie_vie_ok_bouleversements_08_ton_ta_partenaire_devien",
+    "question": "Ton/ta partenaire devient soudainement très riche et veut complètement changer de cercle social et de mode de vie."
+  },
+  {
+    "id": "vraie_vie_ok_bouleversements_09_votre_foyer_subit_une_fa",
+    "question": "Votre foyer subit une faillite ou une perte financière majeure et ton/ta partenaire veut repartir vivre chez ses parents temporairement."
+  },
+  {
+    "id": "vraie_vie_ok_bouleversements_10_ton_ta_partenaire_appren",
+    "question": "Ton/ta partenaire apprend qu’un enfant ou un proche aura besoin d’un accompagnement permanent et veut réorganiser toute votre vie autour de cela."
+  },
+  {
+    "id": "vraie_vie_ok_bouleversements_11_ton_ta_partenaire_decide",
+    "question": "Ton/ta partenaire décide après une crise personnelle de changer radicalement de métier, de ville et de rythme de vie en même temps."
+  },
+  {
+    "id": "vraie_vie_ok_bouleversements_12_ton_ta_partenaire_decouv",
+    "question": "Ton/ta partenaire découvre une information familiale majeure qui remet en question son identité et souhaite s’isoler pendant quelque temps."
+  },
+  {
+    "id": "vraie_vie_ok_bouleversements_13_une_catastrophe_detruit_",
+    "question": "Une catastrophe détruit une partie importante de vos biens et ton/ta partenaire veut repartir de zéro dans une autre région."
+  },
+  {
+    "id": "vraie_vie_ok_couple_pression_01_ton_ta_partenaire_souhai",
+    "question": "Ton/ta partenaire souhaite commencer une thérapie de couple alors que tu ne considères pas votre relation en crise."
+  },
+  {
+    "id": "vraie_vie_ok_couple_pression_02_ton_ta_partenaire_demand",
+    "question": "Ton/ta partenaire demande plusieurs semaines sans rapports sexuels ni gestes sensuels pour retrouver son désir."
+  },
+  {
+    "id": "vraie_vie_ok_couple_pression_03_ton_ta_partenaire_propos",
+    "question": "Ton/ta partenaire propose une séparation temporaire pour vérifier si vous vous manquez encore."
+  },
+  {
+    "id": "vraie_vie_ok_couple_pression_04_ton_ta_partenaire_veut_c",
+    "question": "Ton/ta partenaire veut continuer votre relation mais souhaite vivre séparément pendant un an."
+  },
+  {
+    "id": "vraie_vie_ok_couple_pression_05_ton_ta_partenaire_avoue_",
+    "question": "Ton/ta partenaire avoue ressentir beaucoup moins de passion qu’au début mais affirme toujours vouloir construire sa vie avec toi."
+  },
+  {
+    "id": "vraie_vie_ok_couple_pression_06_ton_ta_partenaire_veut_i",
+    "question": "Ton/ta partenaire veut instaurer une soirée fixe par semaine sans téléphone pour sauver votre complicité."
+  },
+  {
+    "id": "vraie_vie_ok_couple_pression_07_ton_ta_partenaire_te_dem",
+    "question": "Ton/ta partenaire te demande de changer une habitude importante parce qu’il/elle ne supporte plus votre quotidien actuel."
+  },
+  {
+    "id": "vraie_vie_ok_couple_pression_08_ton_ta_partenaire_souhai",
+    "question": "Ton/ta partenaire souhaite prendre toutes ses vacances de l’année séparément pour retrouver davantage d’indépendance."
+  },
+  {
+    "id": "vraie_vie_ok_couple_pression_09_ton_ta_partenaire_consid",
+    "question": "Ton/ta partenaire considère que vous devriez rester ensemble même pendant plusieurs années très malheureuses si vous avez des enfants."
+  },
+  {
+    "id": "vraie_vie_ok_couple_pression_10_ton_ta_partenaire_veut_p",
+    "question": "Ton/ta partenaire veut parler de votre relation à un thérapeute individuellement avant de t’expliquer ce qui ne va pas."
+  },
+  {
+    "id": "vraie_vie_ok_couple_pression_11_ton_ta_partenaire_reconn",
+    "question": "Ton/ta partenaire reconnaît avoir accumulé du ressentiment pendant plusieurs années sans t’en parler."
+  },
+  {
+    "id": "vraie_vie_ok_couple_pression_12_ton_ta_partenaire_te_dit",
+    "question": "Ton/ta partenaire te dit qu’il/elle t’aime mais n’est plus certain(e) d’être amoureux/se."
+  },
+  {
+    "id": "vraie_vie_ok_couple_pression_13_ton_ta_partenaire_souhai",
+    "question": "Ton/ta partenaire souhaite redéfinir complètement les règles de votre couple après une longue période de crise."
   }
 ]

@@ -2,7 +2,7 @@
   "version": 1,
   "app": "Cactus",
   "type": "ranking_library",
-  "total": 320,
+  "total": 380,
   "duplicate_ids": [],
   "rankings": [
     {
@@ -4228,6 +4228,786 @@
         "Faire quelque chose qui a du sens"
       ],
       "category": "futur_projets_vie"
+    },
+    {
+      "id": "vraie_vie_ranking_argent_01_classe_ces_sujets_",
+      "title": "Classe ces sujets financiers selon ceux qu’un couple devrait discuter le plus tôt.",
+      "items": [
+        "Dettes",
+        "Épargne",
+        "Partage des dépenses",
+        "Aide à la famille",
+        "Projets immobiliers",
+        "Rapport au risque"
+      ],
+      "category": "vraie_vie_a_deux"
+    },
+    {
+      "id": "vraie_vie_ranking_argent_02_classe_ces_depense",
+      "title": "Classe ces dépenses selon celles pour lesquelles tu accepterais le plus facilement de réduire votre niveau de vie.",
+      "items": [
+        "Santé",
+        "Projet professionnel",
+        "Aider un parent",
+        "Voyage important",
+        "Maison",
+        "Études ou formation"
+      ],
+      "category": "vraie_vie_a_deux"
+    },
+    {
+      "id": "vraie_vie_ranking_argent_03_classe_ces_situati",
+      "title": "Classe ces situations de celle qui fragiliserait le plus ta confiance financière à celle qui la fragiliserait le moins.",
+      "items": [
+        "Dette cachée",
+        "Jeu d’argent",
+        "Prêt secret à un proche",
+        "Achat impulsif très coûteux",
+        "Épargne secrète",
+        "Mauvaise décision d’investissement"
+      ],
+      "category": "vraie_vie_a_deux"
+    },
+    {
+      "id": "vraie_vie_ranking_argent_04_classe_ces_priorit",
+      "title": "Classe ces priorités si votre couple recevait une grosse somme inattendue.",
+      "items": [
+        "Acheter un logement",
+        "Investir",
+        "Voyager",
+        "Aider la famille",
+        "Réduire le temps de travail",
+        "Garder une grosse réserve"
+      ],
+      "category": "vraie_vie_a_deux"
+    },
+    {
+      "id": "vraie_vie_ranking_argent_05_classe_ces_princip",
+      "title": "Classe ces principes financiers du plus important au moins important dans un couple.",
+      "items": [
+        "Transparence",
+        "Équité",
+        "Indépendance",
+        "Sécurité",
+        "Générosité",
+        "Liberté de dépenser"
+      ],
+      "category": "vraie_vie_a_deux"
+    },
+    {
+      "id": "vraie_vie_ranking_argent_06_classe_ces_sacrifi",
+      "title": "Classe ces sacrifices financiers selon ceux que tu serais le plus prêt(e) à faire pour ton/ta partenaire.",
+      "items": [
+        "Déménager moins cher",
+        "Reporter un voyage",
+        "Financer une formation",
+        "Prendre plus de dépenses temporairement",
+        "Vendre un bien",
+        "Renoncer à un gros achat personnel"
+      ],
+      "category": "vraie_vie_a_deux"
+    },
+    {
+      "id": "vraie_vie_ranking_famille_01_classe_ces_limites",
+      "title": "Classe ces limites avec la belle-famille de la plus importante à la moins importante.",
+      "items": [
+        "Prévenir avant de venir",
+        "Ne pas commenter vos disputes",
+        "Respecter vos décisions de couple",
+        "Ne pas avoir de clé sans accord",
+        "Respecter votre intimité",
+        "Ne pas imposer les fêtes"
+      ],
+      "category": "vraie_vie_a_deux"
+    },
+    {
+      "id": "vraie_vie_ranking_famille_02_classe_ces_situati",
+      "title": "Classe ces situations familiales selon celles qui pourraient le plus fragiliser un couple.",
+      "items": [
+        "Manque de respect",
+        "Intrusion quotidienne",
+        "Demande d’argent",
+        "Secret familial",
+        "Conflit sur les fêtes",
+        "Hébergement prolongé"
+      ],
+      "category": "vraie_vie_a_deux"
+    },
+    {
+      "id": "vraie_vie_ranking_famille_03_classe_ces_formes_",
+      "title": "Classe ces formes de soutien familial selon celles que tu serais le plus prêt(e) à offrir.",
+      "items": [
+        "Aide financière",
+        "Hébergement",
+        "Soins quotidiens",
+        "Déménagement à proximité",
+        "Garde régulière",
+        "Gestion administrative"
+      ],
+      "category": "vraie_vie_a_deux"
+    },
+    {
+      "id": "vraie_vie_ranking_famille_04_classe_ces_sujets_",
+      "title": "Classe ces sujets selon ceux qui nécessitent le plus une décision de couple avant de répondre à la famille.",
+      "items": [
+        "Prêter de l’argent",
+        "Donner une clé",
+        "Héberger quelqu’un",
+        "Changer les plans de vacances",
+        "Prendre en charge un parent",
+        "Partager un secret du couple"
+      ],
+      "category": "vraie_vie_a_deux"
+    },
+    {
+      "id": "vraie_vie_ranking_famille_05_classe_ces_comport",
+      "title": "Classe ces comportements d’un partenaire envers sa famille du plus rassurant au moins rassurant.",
+      "items": [
+        "Savoir poser des limites",
+        "Défendre le couple",
+        "Rester disponible pour ses proches",
+        "Dire la vérité",
+        "Faire des compromis",
+        "Garder une vie indépendante"
+      ],
+      "category": "vraie_vie_a_deux"
+    },
+    {
+      "id": "vraie_vie_ranking_famille_06_classe_ces_conflit",
+      "title": "Classe ces conflits familiaux selon ceux sur lesquels tu aurais le plus de mal à céder.",
+      "items": [
+        "Homophobie ou rejet du couple",
+        "Critiques de votre éducation",
+        "Intrusion dans votre maison",
+        "Argent",
+        "Fêtes",
+        "Temps passé ensemble"
+      ],
+      "category": "vraie_vie_a_deux"
+    },
+    {
+      "id": "vraie_vie_ranking_sante_mentale_01_classe_ces_formes_",
+      "title": "Classe ces formes de soutien selon celles dont tu aurais le plus besoin pendant une période difficile.",
+      "items": [
+        "Écoute sans conseil",
+        "Présence physique",
+        "Aide pratique",
+        "Espace",
+        "Encouragement à consulter",
+        "Maintien d’une routine"
+      ],
+      "category": "vraie_vie_a_deux"
+    },
+    {
+      "id": "vraie_vie_ranking_sante_mentale_02_classe_ces_signes_",
+      "title": "Classe ces signes selon ceux qui t’inquiéteraient le plus chez ton/ta partenaire.",
+      "items": [
+        "Isolement total",
+        "Refus d’aide",
+        "Perte d’intérêt pour tout",
+        "Colère inhabituelle",
+        "Sommeil très perturbé",
+        "Dépendance excessive à toi"
+      ],
+      "category": "vraie_vie_a_deux"
+    },
+    {
+      "id": "vraie_vie_ranking_sante_mentale_03_classe_ces_limites",
+      "title": "Classe ces limites selon celles qui te sembleraient les plus importantes pour ne pas t’épuiser comme soutien.",
+      "items": [
+        "Garder du temps seul(e)",
+        "Pouvoir voir ses proches",
+        "Ne pas être disponible 24h/24",
+        "Maintenir son travail",
+        "Pouvoir parler à quelqu’un",
+        "Conserver certaines activités"
+      ],
+      "category": "vraie_vie_a_deux"
+    },
+    {
+      "id": "vraie_vie_ranking_sante_mentale_04_classe_ces_reactio",
+      "title": "Classe ces réactions de la plus aidante à la moins aidante quand ton/ta partenaire te dit qu’il/elle va mal.",
+      "items": [
+        "Écouter",
+        "Demander ce dont il/elle a besoin",
+        "Proposer une aide concrète",
+        "Encourager à consulter",
+        "Faire diversion",
+        "Donner des conseils immédiatement"
+      ],
+      "category": "vraie_vie_a_deux"
+    },
+    {
+      "id": "vraie_vie_ranking_sante_mentale_05_classe_ces_situati",
+      "title": "Classe ces situations selon celles qui justifieraient le plus vite une aide extérieure pour le couple.",
+      "items": [
+        "Conflits constants",
+        "Isolement",
+        "Dépendance émotionnelle",
+        "Perte totale d’intimité",
+        "Épuisement du partenaire aidant",
+        "Absence de communication"
+      ],
+      "category": "vraie_vie_a_deux"
+    },
+    {
+      "id": "vraie_vie_ranking_sante_mentale_06_classe_ces_princip",
+      "title": "Classe ces principes du plus important au moins important pour traverser une crise psychologique en couple.",
+      "items": [
+        "Honnêteté",
+        "Patience",
+        "Limites",
+        "Aide professionnelle",
+        "Tendresse",
+        "Autonomie"
+      ],
+      "category": "vraie_vie_a_deux"
+    },
+    {
+      "id": "vraie_vie_ranking_maladie_01_classe_ces_aspects",
+      "title": "Classe ces aspects de la vieillesse selon ceux que tu voudrais le plus anticiper en couple.",
+      "items": [
+        "Lieu de vie",
+        "Finances",
+        "Santé",
+        "Directives médicales",
+        "Aide aux parents",
+        "Proximité des enfants"
+      ],
+      "category": "vraie_vie_a_deux"
+    },
+    {
+      "id": "vraie_vie_ranking_maladie_02_classe_ces_pertes_",
+      "title": "Classe ces pertes selon celles qui te sembleraient les plus difficiles à vivre en couple.",
+      "items": [
+        "Autonomie physique",
+        "Mémoire",
+        "Vie sexuelle",
+        "Mobilité",
+        "Vie sociale",
+        "Indépendance financière"
+      ],
+      "category": "vraie_vie_a_deux"
+    },
+    {
+      "id": "vraie_vie_ranking_maladie_03_classe_ces_formes_",
+      "title": "Classe ces formes d’aide selon celles que tu accepterais le plus facilement si ton/ta partenaire devenait dépendant(e).",
+      "items": [
+        "Aide à domicile",
+        "Famille",
+        "Infirmier quotidien",
+        "Accueil de jour",
+        "Établissement spécialisé",
+        "Adaptation importante du logement"
+      ],
+      "category": "vraie_vie_a_deux"
+    },
+    {
+      "id": "vraie_vie_ranking_maladie_04_classe_ces_priorit",
+      "title": "Classe ces priorités selon leur importance pendant une maladie longue.",
+      "items": [
+        "Qualité de vie",
+        "Temps ensemble",
+        "Traitement",
+        "Autonomie",
+        "Stabilité financière",
+        "Lien avec les proches"
+      ],
+      "category": "vraie_vie_a_deux"
+    },
+    {
+      "id": "vraie_vie_ranking_maladie_05_classe_ces_decisio",
+      "title": "Classe ces décisions selon celles que tu voudrais absolument prendre à deux avant de vieillir.",
+      "items": [
+        "Lieu de retraite",
+        "Volontés médicales",
+        "Épargne",
+        "Aide aux parents",
+        "Organisation des soins",
+        "Funérailles"
+      ],
+      "category": "vraie_vie_a_deux"
+    },
+    {
+      "id": "vraie_vie_ranking_maladie_06_classe_ces_qualite",
+      "title": "Classe ces qualités selon celles qui seraient les plus importantes pour traverser une maladie en couple.",
+      "items": [
+        "Patience",
+        "Humour",
+        "Communication",
+        "Résilience",
+        "Tendresse",
+        "Capacité à demander de l’aide"
+      ],
+      "category": "vraie_vie_a_deux"
+    },
+    {
+      "id": "vraie_vie_ranking_carriere_01_classe_ces_sacrifi",
+      "title": "Classe ces sacrifices professionnels selon ceux que tu serais le plus prêt(e) à faire pour le couple.",
+      "items": [
+        "Refuser une promotion",
+        "Déménager",
+        "Changer d’entreprise",
+        "Passer à temps partiel",
+        "Vivre à distance temporairement",
+        "Reporter une reconversion"
+      ],
+      "category": "vraie_vie_a_deux"
+    },
+    {
+      "id": "vraie_vie_ranking_carriere_02_classe_ces_situati",
+      "title": "Classe ces situations de carrière selon celles qui menaceraient le plus votre équilibre de couple.",
+      "items": [
+        "Longues absences",
+        "Travail 70 h par semaine",
+        "Déménagement fréquent",
+        "Forte exposition publique",
+        "Revenus instables",
+        "Compétition entre vous"
+      ],
+      "category": "vraie_vie_a_deux"
+    },
+    {
+      "id": "vraie_vie_ranking_carriere_03_classe_ces_priorit",
+      "title": "Classe ces priorités professionnelles selon leur importance pour toi.",
+      "items": [
+        "Passion",
+        "Salaire",
+        "Temps libre",
+        "Stabilité",
+        "Reconnaissance",
+        "Liberté géographique"
+      ],
+      "category": "vraie_vie_a_deux"
+    },
+    {
+      "id": "vraie_vie_ranking_carriere_04_classe_ces_comprom",
+      "title": "Classe ces compromis selon ceux qui te sembleraient les plus justes quand deux carrières entrent en conflit.",
+      "items": [
+        "Alterner les sacrifices",
+        "Choisir le meilleur revenu",
+        "Privilégier la passion",
+        "Vivre à distance",
+        "Changer de ville",
+        "Réduire les ambitions des deux"
+      ],
+      "category": "vraie_vie_a_deux"
+    },
+    {
+      "id": "vraie_vie_ranking_carriere_05_classe_ces_conditi",
+      "title": "Classe ces conditions selon celles qui seraient indispensables pour accepter une longue période de travail intense de ton/ta partenaire.",
+      "items": [
+        "Date de fin",
+        "Temps de qualité régulier",
+        "Transparence",
+        "Partage des tâches adapté",
+        "Projet commun clair",
+        "Droit de dire stop"
+      ],
+      "category": "vraie_vie_a_deux"
+    },
+    {
+      "id": "vraie_vie_ranking_carriere_06_classe_ces_reussit",
+      "title": "Classe ces réussites selon celles qui pourraient le plus changer la dynamique d’un couple.",
+      "items": [
+        "Gagner beaucoup plus",
+        "Devenir célèbre",
+        "Créer une entreprise",
+        "Obtenir un poste à l’étranger",
+        "Travailler avec son/sa partenaire",
+        "Prendre une année sabbatique"
+      ],
+      "category": "vraie_vie_a_deux"
+    },
+    {
+      "id": "vraie_vie_ranking_vie_commune_01_classe_ces_sujets_",
+      "title": "Classe ces sujets de vie commune selon ceux qui demandent le plus de compatibilité.",
+      "items": [
+        "Propreté",
+        "Sommeil",
+        "Invités",
+        "Dépenses du foyer",
+        "Temps seul",
+        "Lieu de vie"
+      ],
+      "category": "vraie_vie_a_deux"
+    },
+    {
+      "id": "vraie_vie_ranking_vie_commune_02_classe_ces_espaces",
+      "title": "Classe ces espaces selon ceux pour lesquels tu aurais le plus envie d’avoir ton mot à dire dans votre logement.",
+      "items": [
+        "Salon",
+        "Chambre",
+        "Cuisine",
+        "Jardin ou terrasse",
+        "Salle de bain",
+        "Pièce personnelle"
+      ],
+      "category": "vraie_vie_a_deux"
+    },
+    {
+      "id": "vraie_vie_ranking_vie_commune_03_classe_ces_comprom",
+      "title": "Classe ces compromis selon ceux que tu serais le plus prêt(e) à faire en vivant à deux.",
+      "items": [
+        "Changer de ville",
+        "Avoir moins d’espace",
+        "Recevoir moins souvent",
+        "Adopter un animal",
+        "Dormir séparément parfois",
+        "Payer une aide ménagère"
+      ],
+      "category": "vraie_vie_a_deux"
+    },
+    {
+      "id": "vraie_vie_ranking_vie_commune_04_classe_ces_habitud",
+      "title": "Classe ces habitudes selon celles qui pourraient le plus t’agacer au quotidien.",
+      "items": [
+        "Laisser traîner ses affaires",
+        "Inviter sans prévenir",
+        "Faire du bruit tard",
+        "Contrôler la température",
+        "Accumuler des objets",
+        "Ne jamais anticiper les courses"
+      ],
+      "category": "vraie_vie_a_deux"
+    },
+    {
+      "id": "vraie_vie_ranking_vie_commune_05_classe_ces_element",
+      "title": "Classe ces éléments selon leur importance pour que tu te sentes bien chez toi.",
+      "items": [
+        "Calme",
+        "Propreté",
+        "Décoration",
+        "Espace personnel",
+        "Lumière",
+        "Possibilité de recevoir"
+      ],
+      "category": "vraie_vie_a_deux"
+    },
+    {
+      "id": "vraie_vie_ranking_vie_commune_06_classe_ces_decisio",
+      "title": "Classe ces décisions de logement selon celles que tu voudrais absolument prendre à deux.",
+      "items": [
+        "Ville",
+        "Budget",
+        "Décoration importante",
+        "Animaux",
+        "Clés données aux proches",
+        "Travaux"
+      ],
+      "category": "vraie_vie_a_deux"
+    },
+    {
+      "id": "vraie_vie_ranking_numerique_01_classe_ces_element",
+      "title": "Classe ces éléments numériques du plus privé au moins privé selon toi.",
+      "items": [
+        "Messages",
+        "Historique de recherche",
+        "Galerie photo",
+        "Localisation",
+        "Comptes bancaires",
+        "Notes personnelles"
+      ],
+      "category": "vraie_vie_a_deux"
+    },
+    {
+      "id": "vraie_vie_ranking_numerique_02_classe_ces_comport",
+      "title": "Classe ces comportements selon ceux qui te sembleraient les plus inquiétants dans un couple.",
+      "items": [
+        "Compte secret",
+        "Conversations supprimées",
+        "Localisation surveillée",
+        "Captures partagées",
+        "Photos d’ex conservées",
+        "Mot de passe changé sans raison"
+      ],
+      "category": "vraie_vie_a_deux"
+    },
+    {
+      "id": "vraie_vie_ranking_numerique_03_classe_ces_informa",
+      "title": "Classe ces informations selon celles que tu voudrais le plus transmettre à ton/ta partenaire en cas de décès.",
+      "items": [
+        "Photos",
+        "Mots de passe importants",
+        "Messages privés",
+        "Documents administratifs",
+        "Comptes sociaux",
+        "Notes personnelles"
+      ],
+      "category": "vraie_vie_a_deux"
+    },
+    {
+      "id": "vraie_vie_ranking_numerique_04_classe_ces_technol",
+      "title": "Classe ces technologies selon celles qui pourraient le plus changer les limites d’un couple.",
+      "items": [
+        "IA conversationnelle",
+        "Géolocalisation",
+        "Réalité virtuelle",
+        "Caméras domestiques",
+        "Objets connectés",
+        "Clonage de voix"
+      ],
+      "category": "vraie_vie_a_deux"
+    },
+    {
+      "id": "vraie_vie_ranking_numerique_05_classe_ces_usages_",
+      "title": "Classe ces usages des réseaux selon ceux qui te sembleraient les plus acceptables.",
+      "items": [
+        "Ne rien publier du couple",
+        "Publier sans montrer le visage",
+        "Partager les voyages",
+        "Raconter les disputes anonymement",
+        "Suivre des ex",
+        "Avoir un compte secret"
+      ],
+      "category": "vraie_vie_a_deux"
+    },
+    {
+      "id": "vraie_vie_ranking_numerique_06_classe_ces_regles_",
+      "title": "Classe ces règles numériques selon celles qui seraient les plus importantes pour toi.",
+      "items": [
+        "Demander avant de publier l’autre",
+        "Ne pas fouiller le téléphone",
+        "Ne pas partager les messages privés",
+        "Respecter les comptes personnels",
+        "Parler des ex en ligne",
+        "Définir la géolocalisation"
+      ],
+      "category": "vraie_vie_a_deux"
+    },
+    {
+      "id": "vraie_vie_ranking_mort_01_classe_ces_choses_",
+      "title": "Classe ces choses selon celles que tu voudrais le plus conserver de ton/ta partenaire après sa mort.",
+      "items": [
+        "Photos",
+        "Lettres",
+        "Vêtements",
+        "Objets du quotidien",
+        "Messages vocaux",
+        "Bijoux ou objets symboliques"
+      ],
+      "category": "vraie_vie_a_deux"
+    },
+    {
+      "id": "vraie_vie_ranking_mort_02_classe_ces_decisio",
+      "title": "Classe ces décisions de fin de vie selon celles qu’un couple devrait le plus discuter à l’avance.",
+      "items": [
+        "Directives médicales",
+        "Funérailles",
+        "Héritage",
+        "Comptes numériques",
+        "Lieu de repos",
+        "Don d’organes"
+      ],
+      "category": "vraie_vie_a_deux"
+    },
+    {
+      "id": "vraie_vie_ranking_mort_03_classe_ces_dernier",
+      "title": "Classe ces dernières volontés selon celles que tu aurais le plus de mal à respecter.",
+      "items": [
+        "Vendre la maison",
+        "Ne pas garder les cendres",
+        "Inviter un ex aux funérailles",
+        "Détruire des lettres",
+        "Donner un bien à quelqu’un d’autre",
+        "Ne pas publier d’hommage"
+      ],
+      "category": "vraie_vie_a_deux"
+    },
+    {
+      "id": "vraie_vie_ranking_mort_04_classe_ces_formes_",
+      "title": "Classe ces formes de mémoire selon celles qui te toucheraient le plus.",
+      "items": [
+        "Album photo",
+        "Lieu symbolique",
+        "Lettre annuelle",
+        "Objet transmis",
+        "Tatouage",
+        "Projet caritatif"
+      ],
+      "category": "vraie_vie_a_deux"
+    },
+    {
+      "id": "vraie_vie_ranking_mort_05_classe_ces_aspects",
+      "title": "Classe ces aspects du deuil selon ceux qui te semblent les plus difficiles à imaginer.",
+      "items": [
+        "Rentrer dans une maison vide",
+        "Prendre des décisions seul(e)",
+        "Trier les affaires",
+        "Recommencer à aimer",
+        "Voir les proches continuer leur vie",
+        "Perdre les habitudes quotidiennes"
+      ],
+      "category": "vraie_vie_a_deux"
+    },
+    {
+      "id": "vraie_vie_ranking_mort_06_classe_ces_valeurs",
+      "title": "Classe ces valeurs selon celles que tu voudrais le plus protéger dans tes dernières volontés.",
+      "items": [
+        "Liberté du partenaire survivant",
+        "Mémoire du couple",
+        "Famille",
+        "Simplicité",
+        "Intimité",
+        "Transmission"
+      ],
+      "category": "vraie_vie_a_deux"
+    },
+    {
+      "id": "vraie_vie_ranking_bouleversements_01_classe_ces_bouleve",
+      "title": "Classe ces bouleversements selon ceux qui mettraient le plus votre couple à l’épreuve.",
+      "items": [
+        "Faillite",
+        "Infertilité",
+        "Problème judiciaire",
+        "Maladie grave",
+        "Déménagement forcé",
+        "Changement radical de convictions"
+      ],
+      "category": "vraie_vie_a_deux"
+    },
+    {
+      "id": "vraie_vie_ranking_bouleversements_02_classe_ces_priorit",
+      "title": "Classe ces priorités selon leur importance dans les premières semaines après une grosse crise.",
+      "items": [
+        "Sécurité",
+        "Communication",
+        "Finances",
+        "Famille",
+        "Routine",
+        "Décisions à long terme"
+      ],
+      "category": "vraie_vie_a_deux"
+    },
+    {
+      "id": "vraie_vie_ranking_bouleversements_03_classe_ces_qualite",
+      "title": "Classe ces qualités selon celles qui aideraient le plus un couple à repartir de zéro.",
+      "items": [
+        "Adaptabilité",
+        "Humour",
+        "Courage",
+        "Pragmatisme",
+        "Solidarité",
+        "Patience"
+      ],
+      "category": "vraie_vie_a_deux"
+    },
+    {
+      "id": "vraie_vie_ranking_bouleversements_04_classe_ces_changem",
+      "title": "Classe ces changements selon ceux auxquels tu pourrais t’adapter le plus facilement.",
+      "items": [
+        "Revenus divisés par deux",
+        "Changer de ville",
+        "Changer de projet parental",
+        "Vivre plus simplement",
+        "Changer de métier",
+        "Aider un proche au quotidien"
+      ],
+      "category": "vraie_vie_a_deux"
+    },
+    {
+      "id": "vraie_vie_ranking_bouleversements_05_classe_ces_decisio",
+      "title": "Classe ces décisions selon celles qu’il faudrait le moins prendre dans l’urgence après une crise.",
+      "items": [
+        "Se séparer",
+        "Vendre la maison",
+        "Quitter son travail",
+        "Déménager loin",
+        "S’endetter",
+        "Couper les ponts avec la famille"
+      ],
+      "category": "vraie_vie_a_deux"
+    },
+    {
+      "id": "vraie_vie_ranking_bouleversements_06_classe_ces_choses_",
+      "title": "Classe ces choses selon celles que tu voudrais absolument préserver même si votre vie devait être reconstruite de zéro.",
+      "items": [
+        "Votre couple",
+        "Vos souvenirs",
+        "Votre indépendance",
+        "Votre proximité avec les proches",
+        "Votre projet familial",
+        "Votre liberté"
+      ],
+      "category": "vraie_vie_a_deux"
+    },
+    {
+      "id": "vraie_vie_ranking_couple_pression_01_classe_ces_signes_",
+      "title": "Classe ces signes selon ceux qui t’indiqueraient le plus qu’un couple a besoin d’aide.",
+      "items": [
+        "Plus de communication",
+        "Ressentiment",
+        "Absence d’intimité",
+        "Conflits répétés",
+        "Indifférence",
+        "Projets de vie divergents"
+      ],
+      "category": "vraie_vie_a_deux"
+    },
+    {
+      "id": "vraie_vie_ranking_couple_pression_02_classe_ces_facons_",
+      "title": "Classe ces façons de reconnecter selon celles qui te sembleraient les plus efficaces.",
+      "items": [
+        "Voyager ensemble",
+        "Thérapie de couple",
+        "Nouveaux rendez-vous",
+        "Plus de temps séparé",
+        "Discussions profondes",
+        "Changer la routine"
+      ],
+      "category": "vraie_vie_a_deux"
+    },
+    {
+      "id": "vraie_vie_ranking_couple_pression_03_classe_ces_formes_",
+      "title": "Classe ces formes d’intimité selon celles qui te manqueraient le plus pendant une crise.",
+      "items": [
+        "Tendresse",
+        "Sexualité",
+        "Conversations",
+        "Humour",
+        "Temps partagé",
+        "Projets communs"
+      ],
+      "category": "vraie_vie_a_deux"
+    },
+    {
+      "id": "vraie_vie_ranking_couple_pression_04_classe_ces_problem",
+      "title": "Classe ces problèmes selon ceux sur lesquels tu aurais le plus de patience pour travailler longtemps.",
+      "items": [
+        "Routine",
+        "Différence de libido",
+        "Communication",
+        "Jalousie",
+        "Ressentiment",
+        "Désaccord sur l’avenir"
+      ],
+      "category": "vraie_vie_a_deux"
+    },
+    {
+      "id": "vraie_vie_ranking_couple_pression_05_classe_ces_conditi",
+      "title": "Classe ces conditions selon celles qui seraient les plus importantes pour accepter une pause de couple.",
+      "items": [
+        "Durée définie",
+        "Exclusivité",
+        "Contacts réguliers",
+        "Objectif clair",
+        "Thérapie",
+        "Date de bilan"
+      ],
+      "category": "vraie_vie_a_deux"
+    },
+    {
+      "id": "vraie_vie_ranking_couple_pression_06_classe_ces_qualite",
+      "title": "Classe ces qualités selon celles qui seraient les plus importantes pour reconstruire après une crise.",
+      "items": [
+        "Honnêteté",
+        "Pardon",
+        "Patience",
+        "Efforts concrets",
+        "Tendresse",
+        "Capacité à changer"
+      ],
+      "category": "vraie_vie_a_deux"
     }
   ],
   "packs": {
@@ -8146,6 +8926,728 @@
           "Avoir une situation stable",
           "Être en bonne santé",
           "Faire quelque chose qui a du sens"
+        ]
+      }
+    ],
+    "vraie_vie_a_deux": [
+      {
+        "id": "vraie_vie_ranking_argent_01_classe_ces_sujets_",
+        "title": "Classe ces sujets financiers selon ceux qu’un couple devrait discuter le plus tôt.",
+        "items": [
+          "Dettes",
+          "Épargne",
+          "Partage des dépenses",
+          "Aide à la famille",
+          "Projets immobiliers",
+          "Rapport au risque"
+        ]
+      },
+      {
+        "id": "vraie_vie_ranking_argent_02_classe_ces_depense",
+        "title": "Classe ces dépenses selon celles pour lesquelles tu accepterais le plus facilement de réduire votre niveau de vie.",
+        "items": [
+          "Santé",
+          "Projet professionnel",
+          "Aider un parent",
+          "Voyage important",
+          "Maison",
+          "Études ou formation"
+        ]
+      },
+      {
+        "id": "vraie_vie_ranking_argent_03_classe_ces_situati",
+        "title": "Classe ces situations de celle qui fragiliserait le plus ta confiance financière à celle qui la fragiliserait le moins.",
+        "items": [
+          "Dette cachée",
+          "Jeu d’argent",
+          "Prêt secret à un proche",
+          "Achat impulsif très coûteux",
+          "Épargne secrète",
+          "Mauvaise décision d’investissement"
+        ]
+      },
+      {
+        "id": "vraie_vie_ranking_argent_04_classe_ces_priorit",
+        "title": "Classe ces priorités si votre couple recevait une grosse somme inattendue.",
+        "items": [
+          "Acheter un logement",
+          "Investir",
+          "Voyager",
+          "Aider la famille",
+          "Réduire le temps de travail",
+          "Garder une grosse réserve"
+        ]
+      },
+      {
+        "id": "vraie_vie_ranking_argent_05_classe_ces_princip",
+        "title": "Classe ces principes financiers du plus important au moins important dans un couple.",
+        "items": [
+          "Transparence",
+          "Équité",
+          "Indépendance",
+          "Sécurité",
+          "Générosité",
+          "Liberté de dépenser"
+        ]
+      },
+      {
+        "id": "vraie_vie_ranking_argent_06_classe_ces_sacrifi",
+        "title": "Classe ces sacrifices financiers selon ceux que tu serais le plus prêt(e) à faire pour ton/ta partenaire.",
+        "items": [
+          "Déménager moins cher",
+          "Reporter un voyage",
+          "Financer une formation",
+          "Prendre plus de dépenses temporairement",
+          "Vendre un bien",
+          "Renoncer à un gros achat personnel"
+        ]
+      },
+      {
+        "id": "vraie_vie_ranking_famille_01_classe_ces_limites",
+        "title": "Classe ces limites avec la belle-famille de la plus importante à la moins importante.",
+        "items": [
+          "Prévenir avant de venir",
+          "Ne pas commenter vos disputes",
+          "Respecter vos décisions de couple",
+          "Ne pas avoir de clé sans accord",
+          "Respecter votre intimité",
+          "Ne pas imposer les fêtes"
+        ]
+      },
+      {
+        "id": "vraie_vie_ranking_famille_02_classe_ces_situati",
+        "title": "Classe ces situations familiales selon celles qui pourraient le plus fragiliser un couple.",
+        "items": [
+          "Manque de respect",
+          "Intrusion quotidienne",
+          "Demande d’argent",
+          "Secret familial",
+          "Conflit sur les fêtes",
+          "Hébergement prolongé"
+        ]
+      },
+      {
+        "id": "vraie_vie_ranking_famille_03_classe_ces_formes_",
+        "title": "Classe ces formes de soutien familial selon celles que tu serais le plus prêt(e) à offrir.",
+        "items": [
+          "Aide financière",
+          "Hébergement",
+          "Soins quotidiens",
+          "Déménagement à proximité",
+          "Garde régulière",
+          "Gestion administrative"
+        ]
+      },
+      {
+        "id": "vraie_vie_ranking_famille_04_classe_ces_sujets_",
+        "title": "Classe ces sujets selon ceux qui nécessitent le plus une décision de couple avant de répondre à la famille.",
+        "items": [
+          "Prêter de l’argent",
+          "Donner une clé",
+          "Héberger quelqu’un",
+          "Changer les plans de vacances",
+          "Prendre en charge un parent",
+          "Partager un secret du couple"
+        ]
+      },
+      {
+        "id": "vraie_vie_ranking_famille_05_classe_ces_comport",
+        "title": "Classe ces comportements d’un partenaire envers sa famille du plus rassurant au moins rassurant.",
+        "items": [
+          "Savoir poser des limites",
+          "Défendre le couple",
+          "Rester disponible pour ses proches",
+          "Dire la vérité",
+          "Faire des compromis",
+          "Garder une vie indépendante"
+        ]
+      },
+      {
+        "id": "vraie_vie_ranking_famille_06_classe_ces_conflit",
+        "title": "Classe ces conflits familiaux selon ceux sur lesquels tu aurais le plus de mal à céder.",
+        "items": [
+          "Homophobie ou rejet du couple",
+          "Critiques de votre éducation",
+          "Intrusion dans votre maison",
+          "Argent",
+          "Fêtes",
+          "Temps passé ensemble"
+        ]
+      },
+      {
+        "id": "vraie_vie_ranking_sante_mentale_01_classe_ces_formes_",
+        "title": "Classe ces formes de soutien selon celles dont tu aurais le plus besoin pendant une période difficile.",
+        "items": [
+          "Écoute sans conseil",
+          "Présence physique",
+          "Aide pratique",
+          "Espace",
+          "Encouragement à consulter",
+          "Maintien d’une routine"
+        ]
+      },
+      {
+        "id": "vraie_vie_ranking_sante_mentale_02_classe_ces_signes_",
+        "title": "Classe ces signes selon ceux qui t’inquiéteraient le plus chez ton/ta partenaire.",
+        "items": [
+          "Isolement total",
+          "Refus d’aide",
+          "Perte d’intérêt pour tout",
+          "Colère inhabituelle",
+          "Sommeil très perturbé",
+          "Dépendance excessive à toi"
+        ]
+      },
+      {
+        "id": "vraie_vie_ranking_sante_mentale_03_classe_ces_limites",
+        "title": "Classe ces limites selon celles qui te sembleraient les plus importantes pour ne pas t’épuiser comme soutien.",
+        "items": [
+          "Garder du temps seul(e)",
+          "Pouvoir voir ses proches",
+          "Ne pas être disponible 24h/24",
+          "Maintenir son travail",
+          "Pouvoir parler à quelqu’un",
+          "Conserver certaines activités"
+        ]
+      },
+      {
+        "id": "vraie_vie_ranking_sante_mentale_04_classe_ces_reactio",
+        "title": "Classe ces réactions de la plus aidante à la moins aidante quand ton/ta partenaire te dit qu’il/elle va mal.",
+        "items": [
+          "Écouter",
+          "Demander ce dont il/elle a besoin",
+          "Proposer une aide concrète",
+          "Encourager à consulter",
+          "Faire diversion",
+          "Donner des conseils immédiatement"
+        ]
+      },
+      {
+        "id": "vraie_vie_ranking_sante_mentale_05_classe_ces_situati",
+        "title": "Classe ces situations selon celles qui justifieraient le plus vite une aide extérieure pour le couple.",
+        "items": [
+          "Conflits constants",
+          "Isolement",
+          "Dépendance émotionnelle",
+          "Perte totale d’intimité",
+          "Épuisement du partenaire aidant",
+          "Absence de communication"
+        ]
+      },
+      {
+        "id": "vraie_vie_ranking_sante_mentale_06_classe_ces_princip",
+        "title": "Classe ces principes du plus important au moins important pour traverser une crise psychologique en couple.",
+        "items": [
+          "Honnêteté",
+          "Patience",
+          "Limites",
+          "Aide professionnelle",
+          "Tendresse",
+          "Autonomie"
+        ]
+      },
+      {
+        "id": "vraie_vie_ranking_maladie_01_classe_ces_aspects",
+        "title": "Classe ces aspects de la vieillesse selon ceux que tu voudrais le plus anticiper en couple.",
+        "items": [
+          "Lieu de vie",
+          "Finances",
+          "Santé",
+          "Directives médicales",
+          "Aide aux parents",
+          "Proximité des enfants"
+        ]
+      },
+      {
+        "id": "vraie_vie_ranking_maladie_02_classe_ces_pertes_",
+        "title": "Classe ces pertes selon celles qui te sembleraient les plus difficiles à vivre en couple.",
+        "items": [
+          "Autonomie physique",
+          "Mémoire",
+          "Vie sexuelle",
+          "Mobilité",
+          "Vie sociale",
+          "Indépendance financière"
+        ]
+      },
+      {
+        "id": "vraie_vie_ranking_maladie_03_classe_ces_formes_",
+        "title": "Classe ces formes d’aide selon celles que tu accepterais le plus facilement si ton/ta partenaire devenait dépendant(e).",
+        "items": [
+          "Aide à domicile",
+          "Famille",
+          "Infirmier quotidien",
+          "Accueil de jour",
+          "Établissement spécialisé",
+          "Adaptation importante du logement"
+        ]
+      },
+      {
+        "id": "vraie_vie_ranking_maladie_04_classe_ces_priorit",
+        "title": "Classe ces priorités selon leur importance pendant une maladie longue.",
+        "items": [
+          "Qualité de vie",
+          "Temps ensemble",
+          "Traitement",
+          "Autonomie",
+          "Stabilité financière",
+          "Lien avec les proches"
+        ]
+      },
+      {
+        "id": "vraie_vie_ranking_maladie_05_classe_ces_decisio",
+        "title": "Classe ces décisions selon celles que tu voudrais absolument prendre à deux avant de vieillir.",
+        "items": [
+          "Lieu de retraite",
+          "Volontés médicales",
+          "Épargne",
+          "Aide aux parents",
+          "Organisation des soins",
+          "Funérailles"
+        ]
+      },
+      {
+        "id": "vraie_vie_ranking_maladie_06_classe_ces_qualite",
+        "title": "Classe ces qualités selon celles qui seraient les plus importantes pour traverser une maladie en couple.",
+        "items": [
+          "Patience",
+          "Humour",
+          "Communication",
+          "Résilience",
+          "Tendresse",
+          "Capacité à demander de l’aide"
+        ]
+      },
+      {
+        "id": "vraie_vie_ranking_carriere_01_classe_ces_sacrifi",
+        "title": "Classe ces sacrifices professionnels selon ceux que tu serais le plus prêt(e) à faire pour le couple.",
+        "items": [
+          "Refuser une promotion",
+          "Déménager",
+          "Changer d’entreprise",
+          "Passer à temps partiel",
+          "Vivre à distance temporairement",
+          "Reporter une reconversion"
+        ]
+      },
+      {
+        "id": "vraie_vie_ranking_carriere_02_classe_ces_situati",
+        "title": "Classe ces situations de carrière selon celles qui menaceraient le plus votre équilibre de couple.",
+        "items": [
+          "Longues absences",
+          "Travail 70 h par semaine",
+          "Déménagement fréquent",
+          "Forte exposition publique",
+          "Revenus instables",
+          "Compétition entre vous"
+        ]
+      },
+      {
+        "id": "vraie_vie_ranking_carriere_03_classe_ces_priorit",
+        "title": "Classe ces priorités professionnelles selon leur importance pour toi.",
+        "items": [
+          "Passion",
+          "Salaire",
+          "Temps libre",
+          "Stabilité",
+          "Reconnaissance",
+          "Liberté géographique"
+        ]
+      },
+      {
+        "id": "vraie_vie_ranking_carriere_04_classe_ces_comprom",
+        "title": "Classe ces compromis selon ceux qui te sembleraient les plus justes quand deux carrières entrent en conflit.",
+        "items": [
+          "Alterner les sacrifices",
+          "Choisir le meilleur revenu",
+          "Privilégier la passion",
+          "Vivre à distance",
+          "Changer de ville",
+          "Réduire les ambitions des deux"
+        ]
+      },
+      {
+        "id": "vraie_vie_ranking_carriere_05_classe_ces_conditi",
+        "title": "Classe ces conditions selon celles qui seraient indispensables pour accepter une longue période de travail intense de ton/ta partenaire.",
+        "items": [
+          "Date de fin",
+          "Temps de qualité régulier",
+          "Transparence",
+          "Partage des tâches adapté",
+          "Projet commun clair",
+          "Droit de dire stop"
+        ]
+      },
+      {
+        "id": "vraie_vie_ranking_carriere_06_classe_ces_reussit",
+        "title": "Classe ces réussites selon celles qui pourraient le plus changer la dynamique d’un couple.",
+        "items": [
+          "Gagner beaucoup plus",
+          "Devenir célèbre",
+          "Créer une entreprise",
+          "Obtenir un poste à l’étranger",
+          "Travailler avec son/sa partenaire",
+          "Prendre une année sabbatique"
+        ]
+      },
+      {
+        "id": "vraie_vie_ranking_vie_commune_01_classe_ces_sujets_",
+        "title": "Classe ces sujets de vie commune selon ceux qui demandent le plus de compatibilité.",
+        "items": [
+          "Propreté",
+          "Sommeil",
+          "Invités",
+          "Dépenses du foyer",
+          "Temps seul",
+          "Lieu de vie"
+        ]
+      },
+      {
+        "id": "vraie_vie_ranking_vie_commune_02_classe_ces_espaces",
+        "title": "Classe ces espaces selon ceux pour lesquels tu aurais le plus envie d’avoir ton mot à dire dans votre logement.",
+        "items": [
+          "Salon",
+          "Chambre",
+          "Cuisine",
+          "Jardin ou terrasse",
+          "Salle de bain",
+          "Pièce personnelle"
+        ]
+      },
+      {
+        "id": "vraie_vie_ranking_vie_commune_03_classe_ces_comprom",
+        "title": "Classe ces compromis selon ceux que tu serais le plus prêt(e) à faire en vivant à deux.",
+        "items": [
+          "Changer de ville",
+          "Avoir moins d’espace",
+          "Recevoir moins souvent",
+          "Adopter un animal",
+          "Dormir séparément parfois",
+          "Payer une aide ménagère"
+        ]
+      },
+      {
+        "id": "vraie_vie_ranking_vie_commune_04_classe_ces_habitud",
+        "title": "Classe ces habitudes selon celles qui pourraient le plus t’agacer au quotidien.",
+        "items": [
+          "Laisser traîner ses affaires",
+          "Inviter sans prévenir",
+          "Faire du bruit tard",
+          "Contrôler la température",
+          "Accumuler des objets",
+          "Ne jamais anticiper les courses"
+        ]
+      },
+      {
+        "id": "vraie_vie_ranking_vie_commune_05_classe_ces_element",
+        "title": "Classe ces éléments selon leur importance pour que tu te sentes bien chez toi.",
+        "items": [
+          "Calme",
+          "Propreté",
+          "Décoration",
+          "Espace personnel",
+          "Lumière",
+          "Possibilité de recevoir"
+        ]
+      },
+      {
+        "id": "vraie_vie_ranking_vie_commune_06_classe_ces_decisio",
+        "title": "Classe ces décisions de logement selon celles que tu voudrais absolument prendre à deux.",
+        "items": [
+          "Ville",
+          "Budget",
+          "Décoration importante",
+          "Animaux",
+          "Clés données aux proches",
+          "Travaux"
+        ]
+      },
+      {
+        "id": "vraie_vie_ranking_numerique_01_classe_ces_element",
+        "title": "Classe ces éléments numériques du plus privé au moins privé selon toi.",
+        "items": [
+          "Messages",
+          "Historique de recherche",
+          "Galerie photo",
+          "Localisation",
+          "Comptes bancaires",
+          "Notes personnelles"
+        ]
+      },
+      {
+        "id": "vraie_vie_ranking_numerique_02_classe_ces_comport",
+        "title": "Classe ces comportements selon ceux qui te sembleraient les plus inquiétants dans un couple.",
+        "items": [
+          "Compte secret",
+          "Conversations supprimées",
+          "Localisation surveillée",
+          "Captures partagées",
+          "Photos d’ex conservées",
+          "Mot de passe changé sans raison"
+        ]
+      },
+      {
+        "id": "vraie_vie_ranking_numerique_03_classe_ces_informa",
+        "title": "Classe ces informations selon celles que tu voudrais le plus transmettre à ton/ta partenaire en cas de décès.",
+        "items": [
+          "Photos",
+          "Mots de passe importants",
+          "Messages privés",
+          "Documents administratifs",
+          "Comptes sociaux",
+          "Notes personnelles"
+        ]
+      },
+      {
+        "id": "vraie_vie_ranking_numerique_04_classe_ces_technol",
+        "title": "Classe ces technologies selon celles qui pourraient le plus changer les limites d’un couple.",
+        "items": [
+          "IA conversationnelle",
+          "Géolocalisation",
+          "Réalité virtuelle",
+          "Caméras domestiques",
+          "Objets connectés",
+          "Clonage de voix"
+        ]
+      },
+      {
+        "id": "vraie_vie_ranking_numerique_05_classe_ces_usages_",
+        "title": "Classe ces usages des réseaux selon ceux qui te sembleraient les plus acceptables.",
+        "items": [
+          "Ne rien publier du couple",
+          "Publier sans montrer le visage",
+          "Partager les voyages",
+          "Raconter les disputes anonymement",
+          "Suivre des ex",
+          "Avoir un compte secret"
+        ]
+      },
+      {
+        "id": "vraie_vie_ranking_numerique_06_classe_ces_regles_",
+        "title": "Classe ces règles numériques selon celles qui seraient les plus importantes pour toi.",
+        "items": [
+          "Demander avant de publier l’autre",
+          "Ne pas fouiller le téléphone",
+          "Ne pas partager les messages privés",
+          "Respecter les comptes personnels",
+          "Parler des ex en ligne",
+          "Définir la géolocalisation"
+        ]
+      },
+      {
+        "id": "vraie_vie_ranking_mort_01_classe_ces_choses_",
+        "title": "Classe ces choses selon celles que tu voudrais le plus conserver de ton/ta partenaire après sa mort.",
+        "items": [
+          "Photos",
+          "Lettres",
+          "Vêtements",
+          "Objets du quotidien",
+          "Messages vocaux",
+          "Bijoux ou objets symboliques"
+        ]
+      },
+      {
+        "id": "vraie_vie_ranking_mort_02_classe_ces_decisio",
+        "title": "Classe ces décisions de fin de vie selon celles qu’un couple devrait le plus discuter à l’avance.",
+        "items": [
+          "Directives médicales",
+          "Funérailles",
+          "Héritage",
+          "Comptes numériques",
+          "Lieu de repos",
+          "Don d’organes"
+        ]
+      },
+      {
+        "id": "vraie_vie_ranking_mort_03_classe_ces_dernier",
+        "title": "Classe ces dernières volontés selon celles que tu aurais le plus de mal à respecter.",
+        "items": [
+          "Vendre la maison",
+          "Ne pas garder les cendres",
+          "Inviter un ex aux funérailles",
+          "Détruire des lettres",
+          "Donner un bien à quelqu’un d’autre",
+          "Ne pas publier d’hommage"
+        ]
+      },
+      {
+        "id": "vraie_vie_ranking_mort_04_classe_ces_formes_",
+        "title": "Classe ces formes de mémoire selon celles qui te toucheraient le plus.",
+        "items": [
+          "Album photo",
+          "Lieu symbolique",
+          "Lettre annuelle",
+          "Objet transmis",
+          "Tatouage",
+          "Projet caritatif"
+        ]
+      },
+      {
+        "id": "vraie_vie_ranking_mort_05_classe_ces_aspects",
+        "title": "Classe ces aspects du deuil selon ceux qui te semblent les plus difficiles à imaginer.",
+        "items": [
+          "Rentrer dans une maison vide",
+          "Prendre des décisions seul(e)",
+          "Trier les affaires",
+          "Recommencer à aimer",
+          "Voir les proches continuer leur vie",
+          "Perdre les habitudes quotidiennes"
+        ]
+      },
+      {
+        "id": "vraie_vie_ranking_mort_06_classe_ces_valeurs",
+        "title": "Classe ces valeurs selon celles que tu voudrais le plus protéger dans tes dernières volontés.",
+        "items": [
+          "Liberté du partenaire survivant",
+          "Mémoire du couple",
+          "Famille",
+          "Simplicité",
+          "Intimité",
+          "Transmission"
+        ]
+      },
+      {
+        "id": "vraie_vie_ranking_bouleversements_01_classe_ces_bouleve",
+        "title": "Classe ces bouleversements selon ceux qui mettraient le plus votre couple à l’épreuve.",
+        "items": [
+          "Faillite",
+          "Infertilité",
+          "Problème judiciaire",
+          "Maladie grave",
+          "Déménagement forcé",
+          "Changement radical de convictions"
+        ]
+      },
+      {
+        "id": "vraie_vie_ranking_bouleversements_02_classe_ces_priorit",
+        "title": "Classe ces priorités selon leur importance dans les premières semaines après une grosse crise.",
+        "items": [
+          "Sécurité",
+          "Communication",
+          "Finances",
+          "Famille",
+          "Routine",
+          "Décisions à long terme"
+        ]
+      },
+      {
+        "id": "vraie_vie_ranking_bouleversements_03_classe_ces_qualite",
+        "title": "Classe ces qualités selon celles qui aideraient le plus un couple à repartir de zéro.",
+        "items": [
+          "Adaptabilité",
+          "Humour",
+          "Courage",
+          "Pragmatisme",
+          "Solidarité",
+          "Patience"
+        ]
+      },
+      {
+        "id": "vraie_vie_ranking_bouleversements_04_classe_ces_changem",
+        "title": "Classe ces changements selon ceux auxquels tu pourrais t’adapter le plus facilement.",
+        "items": [
+          "Revenus divisés par deux",
+          "Changer de ville",
+          "Changer de projet parental",
+          "Vivre plus simplement",
+          "Changer de métier",
+          "Aider un proche au quotidien"
+        ]
+      },
+      {
+        "id": "vraie_vie_ranking_bouleversements_05_classe_ces_decisio",
+        "title": "Classe ces décisions selon celles qu’il faudrait le moins prendre dans l’urgence après une crise.",
+        "items": [
+          "Se séparer",
+          "Vendre la maison",
+          "Quitter son travail",
+          "Déménager loin",
+          "S’endetter",
+          "Couper les ponts avec la famille"
+        ]
+      },
+      {
+        "id": "vraie_vie_ranking_bouleversements_06_classe_ces_choses_",
+        "title": "Classe ces choses selon celles que tu voudrais absolument préserver même si votre vie devait être reconstruite de zéro.",
+        "items": [
+          "Votre couple",
+          "Vos souvenirs",
+          "Votre indépendance",
+          "Votre proximité avec les proches",
+          "Votre projet familial",
+          "Votre liberté"
+        ]
+      },
+      {
+        "id": "vraie_vie_ranking_couple_pression_01_classe_ces_signes_",
+        "title": "Classe ces signes selon ceux qui t’indiqueraient le plus qu’un couple a besoin d’aide.",
+        "items": [
+          "Plus de communication",
+          "Ressentiment",
+          "Absence d’intimité",
+          "Conflits répétés",
+          "Indifférence",
+          "Projets de vie divergents"
+        ]
+      },
+      {
+        "id": "vraie_vie_ranking_couple_pression_02_classe_ces_facons_",
+        "title": "Classe ces façons de reconnecter selon celles qui te sembleraient les plus efficaces.",
+        "items": [
+          "Voyager ensemble",
+          "Thérapie de couple",
+          "Nouveaux rendez-vous",
+          "Plus de temps séparé",
+          "Discussions profondes",
+          "Changer la routine"
+        ]
+      },
+      {
+        "id": "vraie_vie_ranking_couple_pression_03_classe_ces_formes_",
+        "title": "Classe ces formes d’intimité selon celles qui te manqueraient le plus pendant une crise.",
+        "items": [
+          "Tendresse",
+          "Sexualité",
+          "Conversations",
+          "Humour",
+          "Temps partagé",
+          "Projets communs"
+        ]
+      },
+      {
+        "id": "vraie_vie_ranking_couple_pression_04_classe_ces_problem",
+        "title": "Classe ces problèmes selon ceux sur lesquels tu aurais le plus de patience pour travailler longtemps.",
+        "items": [
+          "Routine",
+          "Différence de libido",
+          "Communication",
+          "Jalousie",
+          "Ressentiment",
+          "Désaccord sur l’avenir"
+        ]
+      },
+      {
+        "id": "vraie_vie_ranking_couple_pression_05_classe_ces_conditi",
+        "title": "Classe ces conditions selon celles qui seraient les plus importantes pour accepter une pause de couple.",
+        "items": [
+          "Durée définie",
+          "Exclusivité",
+          "Contacts réguliers",
+          "Objectif clair",
+          "Thérapie",
+          "Date de bilan"
+        ]
+      },
+      {
+        "id": "vraie_vie_ranking_couple_pression_06_classe_ces_qualite",
+        "title": "Classe ces qualités selon celles qui seraient les plus importantes pour reconstruire après une crise.",
+        "items": [
+          "Honnêteté",
+          "Pardon",
+          "Patience",
+          "Efforts concrets",
+          "Tendresse",
+          "Capacité à changer"
         ]
       }
     ]

@@ -1,24 +1,23 @@
-# CACTUS — Pack transversal « Enfants & éducation »
+# CACTUS — Pack « La vraie vie à deux »
 
-Ce pack contient **300 nouveaux objets de contenu** répartis dans 8 modes de jeu.
+Ce pack ajoute exactement **600 nouveaux contenus jouables de premier niveau** à la base CACTUS, en partant de la base qui inclut déjà le pack « Enfants & éducation ».
 
-- C’est OK ou Pas OK ? : 70
-- Questions : 60
-- Qui est le plus susceptible de… : 35
-- Devine ma réponse : 35
-- Tu préfères ? : 30
-- Green Flag / Red Flag : 30
-- Classements : 20
-- Limite atteinte : 20 scénarios, soit **120 niveaux progressifs**
+## Répartition
+
+- 130 C’est OK ou Pas OK ?
+- 120 Questions
+- 60 Qui est le plus susceptible de…
+- 60 Devine ma réponse
+- 60 Tu préfères ?
+- 60 Green Flag / Red Flag
+- 60 Classements
+- 50 scénarios Limite atteinte × 6 niveaux = 300 nouvelles situations progressives
+
+## Thèmes
+
+Argent & patrimoine, famille & belle-famille, santé mentale, maladie/handicap/vieillesse, carrière & sacrifices, vie commune réelle, vie privée/technologie, mort/héritage, grands bouleversements de vie et couple sous pression.
 
 Le dossier `nouveaux-contenus` contient uniquement les ajouts.
-Le dossier `fichiers-complets-prets-a-remplacer/data` contient les fichiers actuels du projet avec les nouveaux contenus déjà fusionnés.
+Le dossier `fichiers-complets-prets-a-remplacer/data` contient les fichiers déjà fusionnés avec la base actuelle et le pack parentalité.
 
-Contrôles effectués :
-- 300 IDs nouveaux et uniques
-- aucune collision d’ID avec le projet fourni
-- 0 doublon textuel exact détecté avec les catalogues actuels
-- tous les scénarios Limite atteinte contiennent exactement 6 niveaux
-- tous les JSON sont valides
-
-Les situations couvrent notamment : tabac, vapotage, cannabis, alcool, soirées, relations amoureuses, sexualité et contraception sans contenu explicite, téléphone et vie privée, réseaux sociaux, études, argent, santé mentale, autonomie, famille élargie, discipline et désaccords entre parents.
+Contrôles effectués : JSON valides, aucun ID du nouveau pack en collision avec la base, aucun doublon textuel exact avec la base et aucun doublon interne exact.
