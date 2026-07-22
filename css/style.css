@@ -1878,6 +1878,7 @@ body.dashboard-active {
 
 body.dashboard-active .card {
     background: #002e24;
+    padding-top: 34px;
     box-shadow: none;
 }
 
