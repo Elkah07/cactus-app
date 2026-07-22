@@ -99,6 +99,7 @@ const creatorSeedsAmount = document.getElementById("creatorSeedsAmount");
 const creatorSetSeedsBtn = document.getElementById("creatorSetSeedsBtn");
 const creatorXpAmount = document.getElementById("creatorXpAmount");
 const creatorSetXpBtn = document.getElementById("creatorSetXpBtn");
+const creatorResetCactusBtn = document.getElementById("creatorResetCactusBtn");
 const creatorLegendaryBtn = document.getElementById("creatorLegendaryBtn");
 const creatorUnlockGardenBtn = document.getElementById("creatorUnlockGardenBtn");
 const creatorUnlockAchievementsBtn = document.getElementById("creatorUnlockAchievementsBtn");
@@ -8456,15 +8457,26 @@ if (creatorModeToggle) {
 
 creatorCactusEvolutionButtons.forEach((button) => {
     button.addEventListener("click", () => {
-        if (!isCreatorModeEnabled()) return;
+        if (!isCreatorModeEnabled() || !currentUser) return;
+        const previousStage = creatorCactusStagePreview;
         const requestedStage = button.dataset.creatorCactusStage;
         creatorCactusStagePreview = requestedStage === "real"
             ? null
             : Math.min(6, Math.max(1, Number(requestedStage) || 1));
         updateCactusEvolution(getCactusLevelFromStats(currentSpaceData?.stats));
-        showToast(creatorCactusStagePreview
-            ? `Aperçu évolution ${creatorCactusStagePreview} activé 🧪`
-            : "Retour à l’évolution réelle 🌵");
+
+        database.ref("users/" + currentUser.uid + "/creatorCactusStagePreview")
+            .set(creatorCactusStagePreview)
+            .then(() => {
+                showToast(creatorCactusStagePreview
+                    ? `Évolution ${creatorCactusStagePreview} enregistrée pour le mode créateur 🧪`
+                    : "Retour durable à l’évolution réelle 🌵");
+            })
+            .catch((error) => {
+                creatorCactusStagePreview = previousStage;
+                updateCactusEvolution(getCactusLevelFromStats(currentSpaceData?.stats));
+                showToast(getFriendlyFirebaseError(error));
+            });
     });
 });
 
@@ -8476,9 +8488,18 @@ creatorSetXpBtn.addEventListener("click", () => {
     setCreatorXp(Number(creatorXpAmount.value));
 });
 
+if (creatorResetCactusBtn) {
+    creatorResetCactusBtn.addEventListener("click", () => {
+        if (confirm("Réinitialiser l’XP et remettre Cactou au niveau 1 ? Les parties et les graines seront conservées.")) {
+            creatorResetCactusProgression();
+        }
+    });
+}
+
 creatorLegendaryBtn.addEventListener("click", () => {
-    if (confirm("Passer l’espace au niveau 21 avec 2 000 XP ?")) {
-        setCreatorXp(2000);
+    const legendaryXp = getXpRequiredForLevel(21);
+    if (confirm(`Passer l’espace au niveau 21 avec ${legendaryXp.toLocaleString("fr-FR")} XP ?`)) {
+        setCreatorXp(legendaryXp);
     }
 });
 
@@ -8807,15 +8828,44 @@ document.querySelectorAll(".editor-toolbar button").forEach((button) => {
 // ====================
 
 const CACTUS_ECONOMY = Object.freeze({
-    xpPerLevel: 200,
+    xpPerLevel: 500,
     answerXp: 1,
     answerSeeds: 0,
     completionXp: 4,
     completionSeeds: 3
 });
 
+const CACTUS_PROGRESSION_VERSION = 1153;
+
 function getCactusLevelFromXp(xp) {
     return Math.floor(Math.max(Number(xp) || 0, 0) / CACTUS_ECONOMY.xpPerLevel) + 1;
+}
+
+function getXpRequiredForLevel(level) {
+    return Math.max((Math.max(Number(level) || 1, 1) - 1) * CACTUS_ECONOMY.xpPerLevel, 0);
+}
+
+function ensureCactusProgressionV1153Reset(spaceCodeValue) {
+    if (!spaceCodeValue || !isCreatorAccount()) return Promise.resolve(false);
+
+    return database.ref("spaces/" + spaceCodeValue + "/stats").transaction((stats) => {
+        stats = stats || {};
+        if (Number(stats.cactusProgressionVersion || 0) >= CACTUS_PROGRESSION_VERSION) {
+            return;
+        }
+
+        stats.xp = 0;
+        stats.level = 1;
+        stats.cactusProgressionVersion = CACTUS_PROGRESSION_VERSION;
+
+        if (stats.achievements) {
+            delete stats.achievements.level3;
+            delete stats.achievements.level10;
+            delete stats.achievements.level21;
+        }
+
+        return stats;
+    }).then((result) => result.committed);
 }
 
 function getCactusLevelFromStats(stats) {
@@ -9091,6 +9141,10 @@ function isCreatorModeEnabled() {
 
 function applyCreatorModeFromUserData(userData = {}) {
     creatorModeEnabled = isCreatorAccount() && userData.creatorModeEnabled === true;
+    const savedStage = Number(userData.creatorCactusStagePreview);
+    creatorCactusStagePreview = Number.isInteger(savedStage) && savedStage >= 1 && savedStage <= 6
+        ? savedStage
+        : null;
     updateCreatorToolsVisibility();
 }
 
@@ -9127,7 +9181,6 @@ function updateCreatorToolsVisibility() {
 function setCreatorModeEnabled(enabled) {
     if (!isCreatorAccount() || !currentUser) return Promise.resolve();
     creatorModeEnabled = Boolean(enabled);
-    if (!creatorModeEnabled) creatorCactusStagePreview = null;
     updateCreatorToolsVisibility();
     if (currentSpaceData) updateCactusEvolution(getCactusLevelFromStats(currentSpaceData.stats));
 
@@ -9175,6 +9228,27 @@ function setCreatorXp(value) {
         .ref("spaces/" + currentSpaceCode + "/stats")
         .update({ xp, level: getCactusLevelFromXp(xp) })
         .then(() => showToast("⭐ XP et niveau mis à jour"));
+}
+
+function creatorResetCactusProgression() {
+    if (!canUseCreatorTools()) return;
+
+    database.ref("spaces/" + currentSpaceCode + "/stats").transaction((stats) => {
+        stats = stats || {};
+        stats.xp = 0;
+        stats.level = 1;
+        stats.cactusProgressionVersion = CACTUS_PROGRESSION_VERSION;
+
+        if (stats.achievements) {
+            delete stats.achievements.level3;
+            delete stats.achievements.level10;
+            delete stats.achievements.level21;
+        }
+
+        return stats;
+    }).then((result) => {
+        if (result.committed) showToast("🌱 Cactou est revenu au niveau 1");
+    });
 }
 
 function creatorUnlockEntireGarden() {
@@ -16504,10 +16578,29 @@ function restoreUserSpace(userData) {
                 return clearUnavailableSpace();
             }
 
-            currentSpaceData = spaceData;
-            listenToCurrentSpace(currentSpaceCode);
-            showScreen("dashboard");
-            window.setTimeout(openPendingNotificationScreen, 0);
+            return ensureCactusProgressionV1153Reset(currentSpaceCode)
+                .catch((error) => {
+                    console.warn("Réinitialisation de la progression Cactou différée", error);
+                    return false;
+                })
+                .then((didReset) => {
+                    return database.ref("spaces/" + currentSpaceCode).once("value")
+                        .then((freshSnapshot) => ({
+                            didReset,
+                            refreshedSpaceData: freshSnapshot.val() || spaceData
+                        }));
+                })
+                .then(({ didReset, refreshedSpaceData }) => {
+                    currentSpaceData = refreshedSpaceData;
+                    listenToCurrentSpace(currentSpaceCode);
+                    showScreen("dashboard");
+                    if (didReset) {
+                        window.setTimeout(() => {
+                            showToast("🌱 Nouvelle progression : Cactou repart du niveau 1");
+                        }, 250);
+                    }
+                    window.setTimeout(openPendingNotificationScreen, 0);
+                });
         })
         .catch((error) => {
             const code = String(error?.code || "").toLowerCase();

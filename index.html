@@ -1223,7 +1223,7 @@
                 <button type="button" data-creator-cactus-stage="5" title="Cactus épanoui" aria-label="Afficher le cactus épanoui">5</button>
                 <button type="button" data-creator-cactus-stage="6" title="Cactus légendaire" aria-label="Afficher le cactus légendaire">6</button>
             </div>
-            <small class="creator-cactus-evolution-preview-note">Aperçu local uniquement · le niveau et l’XP ne changent pas.</small>
+            <small class="creator-cactus-evolution-preview-note">Choix enregistré pour ton compte créateur · le niveau et l’XP réels ne changent pas.</small>
         </div>
 
         <div class="dashboard-cactus-character">
@@ -2673,12 +2673,13 @@
 
         <div class="creator-tool-row">
             <label for="creatorXpAmount">XP commun</label>
-            <div><input type="number" id="creatorXpAmount" min="0" step="100" value="2000"><button type="button" id="creatorSetXpBtn">Appliquer</button></div>
+            <div><input type="number" id="creatorXpAmount" min="0" step="500" value="10000"><button type="button" id="creatorSetXpBtn">Appliquer</button></div>
         </div>
 
         <div class="creator-tools-grid">
             <button type="button" id="creatorOpenReportsBtn">🚩 Signalements <span id="creatorReportsCount">0</span></button>
             <button type="button" id="creatorOpenContentBtn">✏️ Gérer les questions</button>
+            <button type="button" id="creatorResetCactusBtn">🌱 Réinitialiser Cactou</button>
             <button type="button" id="creatorLegendaryBtn">👑 Niveau légendaire</button>
             <button type="button" id="creatorUnlockGardenBtn">🌿 Débloquer le Jardin</button>
             <button type="button" id="creatorUnlockAchievementsBtn">🏆 Débloquer les succès</button>
