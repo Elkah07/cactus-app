@@ -12960,3 +12960,150 @@ body.has-custom-app-theme #dashboardScreen .dashboard-game-card img {
         animation: none !important;
     }
 }
+
+/* ====================
+   V110.1 — CORRECTIF THÈME À L'INTÉRIEUR DES JEUX
+   Les anciens écrans de partie utilisaient encore les verts historiques.
+==================== */
+
+/* Le grand conteneur historique de l'app suit enfin l'univers actif. */
+body.has-custom-app-theme .card {
+    color: var(--app-text);
+    border: 1px solid var(--app-border);
+    background: var(--app-screen-bg);
+    box-shadow: 0 20px 50px var(--app-shadow);
+}
+
+/* Titres et textes des jeux historiques. */
+body.has-custom-app-theme .card :is(h1, h2, h3),
+body.has-custom-app-theme .card :is(.waiting-box p, .partner-box strong, .space-code-box strong,
+.comparison-box h3, .ranking-compare-columns h3, .compatibility-score-box strong,
+.compatibility-insight, .person-box strong) {
+    color: var(--app-heading);
+}
+
+body.has-custom-app-theme .card :is(.subtitle, .partner-box p, .person-label, .tiny-space-code,
+.empty-text, .comparison-box li, #rankingCompatibilityDescription, .compatibility-score-box p) {
+    color: var(--app-muted);
+}
+
+/* Champs de réponse et formulaires des jeux. */
+body.has-custom-app-theme .card :is(input, textarea, select) {
+    border-color: color-mix(in srgb, var(--app-user-accent) 46%, var(--app-border));
+    background: var(--app-input-bg);
+    color: var(--app-heading);
+    caret-color: var(--app-user-accent);
+}
+body.has-custom-app-theme .card :is(input, textarea)::placeholder {
+    color: color-mix(in srgb, var(--app-muted) 72%, transparent);
+}
+body.has-custom-app-theme .card :is(input, textarea, select):focus {
+    border-color: var(--app-user-accent);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--app-user-accent) 18%, transparent);
+}
+
+/* Boutons génériques des anciens jeux. Les actions sémantiques rouge/vert sont restaurées plus bas. */
+body.has-custom-app-theme .card button:not(.danger-btn):not(.danger-outline-btn):not(.move-btn):not(.top-left-btn):not(.top-center-btn):not(.top-right-btn):not(.settings-btn):not(.dashboard-game-card):not(.dashboard-all-games-btn):not(.dashboard-bottom-nav button):not(.game-question-tools button):not(.new-game-choice) {
+    border-color: color-mix(in srgb, var(--app-user-accent) 30%, transparent);
+    background: var(--app-user-accent);
+    color: var(--app-user-accent-contrast);
+}
+
+body.has-custom-app-theme .card .secondary:not(.danger-btn):not(.danger-outline-btn) {
+    border: 1px solid color-mix(in srgb, var(--app-user-accent) 28%, var(--app-border));
+    background: var(--app-secondary-button);
+    color: var(--app-heading);
+}
+
+/* Les petits outils Signaler / Passer deviennent neutres et accordés au thème. */
+body.has-custom-app-theme .game-question-tools button {
+    border: 1px solid color-mix(in srgb, var(--app-user-accent) 22%, transparent);
+    background: var(--app-accent-soft-strong);
+    color: var(--app-heading);
+}
+body.has-custom-app-theme .game-question-tools small {
+    color: var(--app-muted);
+}
+
+/* Classements : les six niveaux dérivent maintenant réellement de la couleur choisie. */
+body.has-custom-app-theme .ranking-list li {
+    color: var(--app-heading);
+    border-color: color-mix(in srgb, var(--app-user-accent) 42%, var(--app-border));
+    box-shadow: 0 8px 18px var(--app-shadow-soft);
+}
+body.has-custom-app-theme .ranking-list li::before {
+    background: color-mix(in srgb, var(--app-input-bg) 78%, var(--app-user-accent) 8%);
+    color: var(--app-heading);
+}
+body.has-custom-app-theme .ranking-list li.rank-1 {
+    background: linear-gradient(135deg,
+        color-mix(in srgb, var(--app-user-accent) 48%, var(--app-accent-surface)),
+        color-mix(in srgb, var(--app-user-accent) 28%, var(--app-accent-surface-strong)));
+}
+body.has-custom-app-theme .ranking-list li.rank-2 {
+    background: linear-gradient(135deg,
+        color-mix(in srgb, var(--app-user-accent) 36%, var(--app-accent-surface)),
+        color-mix(in srgb, var(--app-user-accent) 20%, var(--app-accent-surface-strong)));
+}
+body.has-custom-app-theme .ranking-list li.rank-3 {
+    background: linear-gradient(135deg,
+        color-mix(in srgb, var(--app-user-accent) 25%, var(--app-accent-surface)),
+        color-mix(in srgb, var(--app-user-accent) 14%, var(--app-accent-surface-strong)));
+}
+body.has-custom-app-theme .ranking-list li.rank-4 {
+    background: linear-gradient(135deg,
+        color-mix(in srgb, var(--app-user-accent) 17%, var(--app-accent-surface)),
+        color-mix(in srgb, var(--app-user-accent) 9%, var(--app-accent-surface-strong)));
+}
+body.has-custom-app-theme .ranking-list li.rank-5 {
+    background: linear-gradient(135deg,
+        color-mix(in srgb, var(--app-user-accent) 10%, var(--app-accent-surface)),
+        var(--app-accent-surface-strong));
+}
+body.has-custom-app-theme .ranking-list li:is(.rank-6, .rank-7, .rank-8, .rank-9, .rank-10) {
+    background: var(--app-panel-bg);
+}
+body.has-custom-app-theme .ranking-list li:hover,
+body.has-custom-app-theme .ranking-list li.drag-over {
+    border-color: var(--app-user-accent);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--app-user-accent) 14%, transparent), 0 10px 22px var(--app-shadow-soft);
+}
+body.has-custom-app-theme .move-btn {
+    border: 1px solid color-mix(in srgb, var(--app-user-accent) 24%, transparent);
+    background: var(--app-accent-soft-strong);
+    color: var(--app-heading);
+}
+body.has-custom-app-theme .move-btn:hover {
+    background: color-mix(in srgb, var(--app-user-accent) 32%, var(--app-accent-surface));
+}
+
+/* Cartes d'attente et de résultats des jeux historiques. */
+body.has-custom-app-theme .card :is(.space-code-box, .waiting-box, .partner-box, .couple-card,
+.compatibility-score-box, .comparison-box, .ranking-compare-columns > div, .compatibility-insight) {
+    border-color: color-mix(in srgb, var(--app-user-accent) 30%, var(--app-border));
+    background: var(--app-panel-bg);
+    box-shadow: 0 9px 22px var(--app-shadow-soft);
+}
+body.has-custom-app-theme .card .person-box {
+    background: var(--app-accent-soft);
+}
+
+/* Boutons sémantiques : ils gardent leur sens visuel, indépendamment du thème. */
+body.has-custom-app-theme #okYesBtn,
+body.has-custom-app-theme #greenFlagYesBtn {
+    background: linear-gradient(145deg, #62c98d, #3da76c);
+    color: #071b12;
+}
+body.has-custom-app-theme .card .danger-btn,
+body.has-custom-app-theme #okNoBtn,
+body.has-custom-app-theme #greenFlagNoBtn {
+    background: linear-gradient(145deg, #ef6d76, #cf3f4c);
+    color: #ffffff;
+}
+
+/* Les boutons flottants historiques suivent eux aussi le thème malgré leurs anciens !important. */
+body.has-custom-app-theme .card :is(.top-left-btn, .top-center-btn, .top-right-btn, .settings-btn) {
+    border: 1px solid color-mix(in srgb, var(--app-user-accent) 30%, transparent) !important;
+    background: color-mix(in srgb, var(--app-accent-surface) 94%, transparent) !important;
+    color: var(--app-heading) !important;
+}
