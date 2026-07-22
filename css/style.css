@@ -14383,3 +14383,274 @@ body.memory-viewer-open {
         font-size: .54rem;
     }
 }
+
+
+/* =========================================================
+   V114 - FINITION GLOBALE & EXPERIENCE
+   ========================================================= */
+
+/* Cactou parle avec un peu plus de présence, sans faire bouger tout le dashboard. */
+#dashboardCactusMessage {
+    min-height: 45px;
+    transition: border-color .22s ease, background .22s ease, transform .22s ease, box-shadow .22s ease;
+}
+#dashboardCactusMessage.is-cactus-speaking {
+    transform: translateY(-2px) scale(1.015);
+    border-color: color-mix(in srgb, var(--living-color, var(--app-accent)) 55%, transparent);
+    background: color-mix(in srgb, var(--living-color, var(--app-accent)) 13%, var(--dashboard-panel, var(--app-panel-bg)));
+    box-shadow: 0 14px 34px color-mix(in srgb, var(--living-color, var(--app-accent)) 18%, transparent);
+}
+#dashboardScreen[data-cactus-mood="play"] .dashboard-cactus-glow,
+#dashboardScreen[data-cactus-mood="comeback"] .dashboard-cactus-glow,
+#dashboardScreen[data-cactus-mood="distance"] .dashboard-cactus-glow {
+    opacity: .82;
+}
+
+/* Le bloc Aujourd'hui ne prend plus une grosse place quand il n'y a rien à signaler. */
+#dashboardTodayWidget.is-empty {
+    min-height: 0;
+    padding: 10px 12px;
+    border-style: dashed;
+    box-shadow: none;
+}
+#dashboardTodayWidget.is-empty header { margin-bottom: 0; }
+#dashboardTodayWidget.is-empty header > div small { display: none; }
+#dashboardTodayWidget.is-empty header > div strong { font-size: .67rem; }
+#dashboardTodayWidget.is-empty #dashboardTodayEmpty {
+    margin: 3px 0 0;
+    font-size: .54rem;
+    line-height: 1.35;
+}
+#dashboardTodayWidget.is-empty #dashboardTodayList { display: none; }
+
+/* Ecrans de jeu historiques : même langage visuel, même qualité, même thème. */
+.cactus-game-screen {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    color: var(--app-text);
+    text-align: left;
+}
+.cactus-game-screen > h1 {
+    margin: 0 0 8px;
+    color: var(--app-heading);
+    font-size: clamp(1.35rem, 6vw, 1.85rem);
+    line-height: 1.08;
+    letter-spacing: -.035em;
+}
+.cactus-game-screen > .subtitle {
+    margin: 0 0 14px;
+    padding: 14px 15px;
+    border: 1px solid var(--app-border);
+    border-radius: 18px;
+    background: color-mix(in srgb, var(--app-panel-bg) 88%, var(--app-accent) 12%);
+    color: var(--app-text);
+    box-shadow: 0 10px 25px var(--app-shadow-soft);
+    font-size: .88rem;
+    font-weight: 700;
+    line-height: 1.48;
+}
+.cactus-game-play > .subtitle {
+    border-color: color-mix(in srgb, var(--app-accent) 28%, var(--app-border));
+}
+.cactus-game-screen :is(input[type="text"], textarea) {
+    min-height: 50px;
+    border: 1px solid var(--app-border-strong) !important;
+    border-radius: 16px !important;
+    background: var(--app-input-bg) !important;
+    color: var(--app-text) !important;
+    box-shadow: inset 0 1px 0 color-mix(in srgb, white 7%, transparent);
+}
+.cactus-game-screen textarea { min-height: 128px; resize: vertical; }
+.cactus-game-screen :is(input[type="text"], textarea):focus {
+    outline: 0;
+    border-color: color-mix(in srgb, var(--app-accent) 72%, white 8%) !important;
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--app-accent) 14%, transparent) !important;
+}
+
+.game-question-tools {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 8px;
+    margin: 0 0 15px;
+    padding: 9px 10px 13px;
+    overflow: hidden;
+    border: 1px solid var(--app-border);
+    border-radius: 15px;
+    background: var(--app-panel-bg);
+    box-shadow: 0 7px 18px var(--app-shadow-soft);
+}
+.game-question-tools > small {
+    color: var(--app-accent);
+    font-size: .58rem;
+    font-weight: 900;
+    letter-spacing: .025em;
+}
+.game-question-tools > div { display: flex; gap: 5px; }
+.game-question-tools > div button {
+    width: auto !important;
+    min-height: 30px !important;
+    margin: 0 !important;
+    padding: 5px 8px !important;
+    border: 1px solid var(--app-border) !important;
+    border-radius: 10px !important;
+    background: var(--app-icon-bg) !important;
+    color: var(--app-muted) !important;
+    box-shadow: none !important;
+    font-size: .5rem !important;
+    font-weight: 850 !important;
+}
+.game-progress-visual {
+    position: absolute;
+    right: 10px;
+    bottom: 6px;
+    left: 10px;
+    height: 3px;
+    overflow: hidden;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--app-accent) 12%, var(--app-border));
+}
+.game-progress-visual i {
+    display: block;
+    width: var(--game-progress-value, 0%);
+    height: 100%;
+    border-radius: inherit;
+    background: var(--app-accent);
+    transition: width .3s ease;
+}
+
+/* Choix : toucher facilement, hiérarchie nette, sans forcer une couleur verte. */
+.cactus-game-play > button:not(.secondary):not(.danger-btn):not([data-report-game]):not([data-skip-game]),
+.cactus-game-result > button:not(.secondary):not(.danger-btn) {
+    min-height: 50px;
+    border-radius: 16px;
+    font-weight: 900;
+    box-shadow: 0 10px 24px color-mix(in srgb, var(--app-accent) 17%, transparent);
+}
+.cactus-game-screen > button.secondary,
+.cactus-game-screen > .secondary {
+    min-height: 46px;
+    border-radius: 15px;
+}
+.cactus-game-screen > button + button { margin-top: 8px; }
+
+.cactus-game-screen .waiting-box,
+.cactus-game-screen .comparison-box,
+.cactus-game-screen .compatibility-score-box,
+.cactus-game-screen .ranking-compare-columns > div {
+    border: 1px solid var(--app-border) !important;
+    background: var(--app-panel-bg) !important;
+    color: var(--app-text) !important;
+    box-shadow: 0 9px 24px var(--app-shadow-soft) !important;
+}
+.cactus-game-screen .comparison-box {
+    position: relative;
+    overflow: hidden;
+    border-radius: 18px !important;
+}
+.cactus-game-screen .comparison-box::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 3px;
+    background: var(--app-accent);
+    opacity: .72;
+}
+.cactus-game-screen .comparison-box h3 { color: var(--app-accent) !important; }
+.cactus-game-screen .comparison-box p,
+.cactus-game-screen .comparison-box li { color: var(--app-text) !important; }
+
+.cactus-game-waiting {
+    padding-top: 4px;
+    text-align: center;
+}
+.cactus-game-waiting > h1,
+.cactus-game-waiting > .subtitle { text-align: center; }
+.cactus-game-waiting .waiting-box {
+    position: relative;
+    min-height: 112px;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    border-radius: 21px !important;
+}
+.cactus-game-waiting .waiting-box::after {
+    content: "";
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: color-mix(in srgb, var(--app-accent) 12%, transparent);
+    animation: cactusV114Waiting 2.2s ease-in-out infinite;
+}
+.cactus-game-waiting .waiting-box p { position: relative; z-index: 1; margin: 0; color: var(--app-heading); font-weight: 900; }
+
+.cactus-game-result .compatibility-score-box {
+    overflow: hidden;
+    border-radius: 22px !important;
+    background: linear-gradient(145deg, color-mix(in srgb, var(--app-accent) 13%, var(--app-panel-bg)), var(--app-panel-bg)) !important;
+}
+.cactus-game-result .compatibility-score-box > strong { color: var(--app-accent) !important; }
+.cactus-game-result .discuss-result-button {
+    border-color: color-mix(in srgb, var(--app-accent) 32%, var(--app-border)) !important;
+    background: color-mix(in srgb, var(--app-accent) 10%, var(--app-panel-bg)) !important;
+    color: var(--app-heading) !important;
+}
+
+/* Finitions transversales : press feedback, focus, cartes et etats vides. */
+body :is(button, [role="button"]) { -webkit-tap-highlight-color: transparent; }
+body button:active:not(:disabled),
+body [role="button"]:active { transform: translateY(1px) scale(.992); }
+body :is(button, input, textarea, select):focus-visible {
+    outline: 3px solid color-mix(in srgb, var(--app-accent) 28%, transparent);
+    outline-offset: 2px;
+}
+
+:is(.notifications-empty-state, .discussions-empty, .stats-empty-state, .achievements-empty-state,
+    .shopping-empty-state, .organizer-empty, .organizer-empty-beautified, .memories-empty-state,
+    .inline-screen-state, .games-search-empty) {
+    border-color: var(--app-border) !important;
+    background: color-mix(in srgb, var(--app-panel-bg) 90%, var(--app-accent) 10%) !important;
+    color: var(--app-text) !important;
+    box-shadow: 0 10px 25px var(--app-shadow-soft);
+}
+:is(.notifications-empty-state, .discussions-empty, .stats-empty-state, .achievements-empty-state,
+    .shopping-empty-state, .organizer-empty, .organizer-empty-beautified, .memories-empty-state,
+    .inline-screen-state, .games-search-empty) :is(strong, h2, h3) { color: var(--app-heading) !important; }
+:is(.notifications-empty-state, .discussions-empty, .stats-empty-state, .achievements-empty-state,
+    .shopping-empty-state, .organizer-empty, .organizer-empty-beautified, .memories-empty-state,
+    .inline-screen-state, .games-search-empty) p { color: var(--app-muted) !important; }
+
+/* Les anciens panneaux neutres doivent suivre l'univers choisi, jamais revenir au vert historique. */
+body.has-custom-app-theme :is(.waiting-box, .comparison-box, .compatibility-score-box,
+    .ranking-compare-columns > div, .challenges-box, .person-box, .couple-card) {
+    border-color: var(--app-border) !important;
+    background: var(--app-panel-bg) !important;
+    color: var(--app-text) !important;
+}
+
+@keyframes cactusV114Waiting {
+    0%, 100% { opacity: .35; transform: scale(.72); }
+    50% { opacity: .72; transform: scale(1.18); }
+}
+
+@media (max-width: 390px) {
+    .cactus-game-screen > h1 { font-size: 1.32rem; }
+    .cactus-game-screen > .subtitle { padding: 12px 13px; font-size: .8rem; }
+    .game-question-tools { grid-template-columns: 1fr; gap: 6px; }
+    .game-question-tools > div { justify-content: flex-start; }
+    .cactus-game-screen .ranking-compare-columns { grid-template-columns: 1fr !important; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #dashboardCactusMessage,
+    .game-progress-visual i,
+    .cactus-game-waiting .waiting-box::after {
+        transition: none !important;
+        animation: none !important;
+    }
+}

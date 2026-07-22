@@ -973,6 +973,459 @@ const cactusWardrobeSeeds = document.getElementById("cactusWardrobeSeeds");
 const cactusWardrobeGrid = document.getElementById("cactusWardrobeGrid");
 const removeCactusAccessoriesBtn = document.getElementById("removeCactusAccessoriesBtn");
 
+const CACTUS_PHRASE_BANK = {
+    "tap": [
+        "Coucou ! J'espérais justement une petite visite 🌵",
+        "Tu m'as touché. Je considère donc que nous sommes officiellement amis.",
+        "Présent ! Enfin... autant qu'un cactus peut l'être.",
+        "Je vous envoie une dose de bonnes ondes ✨",
+        "Je garde votre petit coin bien au chaud.",
+        "Coucou de la part de {cactus} !",
+        "Une caresse virtuelle ? J'accepte. Mais doucement avec les épines.",
+        "Je savais que tu finirais par venir me voir 👀",
+        "Bonjour, service officiel des câlins à distance. Que puis-je faire pour vous ?",
+        "Je n'ai pas de bras pour vous serrer toutes les deux, mais l'intention est là.",
+        "Je veille sur vos souvenirs pendant que vous vivez les prochains.",
+        "Je suis petit, vert, et beaucoup trop investi dans votre histoire.",
+        "Je note : une visite de plus dans mon journal secret de cactus.",
+        "Vous êtes revenues ! Enfin, toi au moins. J'attends l'autre maintenant 😌",
+        "Je fais semblant d'être décoratif, mais j'écoute tout.",
+        "C'est moi, votre colocataire végétal préféré.",
+        "Une petite pause Cactus, ça ne se refuse pas.",
+        "Je confirme : votre coin à deux est toujours aussi cosy.",
+        "Je ne pousse peut-être pas vite, mais je suis votre histoire de très près.",
+        "Je suis là. Avec mes épines, mes graines et beaucoup trop d'opinions.",
+        "Merci pour la visite. Mon ego végétal apprécie beaucoup.",
+        "Je vous ai gardé une place juste ici 💚",
+        "Ça faisait exactement quelques secondes que personne ne me parlait.",
+        "Je suis prêt pour les dernières nouvelles du couple.",
+        "Vous avez besoin d'un conseil ? Mauvaise nouvelle, je suis un cactus.",
+        "Je n'ai pas de bouche, pourtant me voilà encore en train de parler.",
+        "Petit contrôle de routine : vous êtes toujours adorables. C'est bon.",
+        "J'étais en pleine photosynthèse émotionnelle.",
+        "Je sens qu'il va se passer quelque chose d'intéressant aujourd'hui.",
+        "Bon. Maintenant que tu es là, on fait quoi ? 🌵"
+    ],
+    "morning": [
+        "Bonjour ✨ {cactus} ouvre les volets de votre petit monde.",
+        "Nouvelle journée, nouvelle page de votre histoire.",
+        "Le soleil se lève. Moi aussi, enfin presque.",
+        "Bonjour vous deux 💚 Aujourd'hui est encore à inventer.",
+        "Premier coucou végétal de la journée 🌵",
+        "Je vous souhaite une journée douce, avec le moins de chaos possible.",
+        "Debout les cactus, une nouvelle journée commence.",
+        "J'ai vérifié : votre histoire est toujours là ce matin.",
+        "Une nouvelle journée à aimer, rire et probablement oublier un chargeur.",
+        "Bonjour ! J'ai gardé le dashboard pendant la nuit.",
+        "Le café n'est pas prêt, mais les bonnes ondes oui.",
+        "Aujourd'hui, prenez soin de vous. Moi, je m'occupe des graines.",
+        "Petit rappel matinal : votre couple mérite aussi les petits moments.",
+        "La journée commence doucement dans votre coin Cactus.",
+        "Bonjour {cactus} au rapport. Rien à signaler, à part beaucoup de mignonnerie.",
+        "Encore une journée de plus dans votre histoire ✨",
+        "Que cette journée vous donne au moins une raison de sourire ensemble.",
+        "J'ai préparé le terrain pour une jolie journée. À vous de jouer.",
+        "Matin calme, cactus réveillé, histoire en cours.",
+        "Aujourd'hui n'a encore rien écrit. Vous avez toute la place.",
+        "Je vous envoie un petit rayon de soleil depuis mon pot imaginaire.",
+        "Bonjour ! N'oubliez pas de vous raconter les petites choses aussi.",
+        "Une journée ordinaire peut devenir un souvenir sans prévenir.",
+        "Ce matin, mon programme est simple : pousser et vous soutenir.",
+        "J'espère que votre réveil a été plus doux que mes épines.",
+        "La journée est ouverte. Faites-en quelque chose qui vous ressemble."
+    ],
+    "day": [
+        "{cactus} veille sur votre petite vie à deux 🌵",
+        "Votre histoire continue pendant que je garde le fort.",
+        "Petit passage du jour : tout semble pousser correctement par ici.",
+        "Je surveille vos graines. Vous, surveillez-vous l'une l'autre.",
+        "Il se passe toujours quelque chose dans un couple, même quand il ne se passe rien.",
+        "Aujourd'hui aussi compte dans votre histoire.",
+        "Vous construisez votre histoire sans même vous en rendre compte.",
+        "Je suis officiellement le témoin végétal de votre aventure.",
+        "Un message, un appel, un fou rire... parfois il n'en faut pas plus.",
+        "Votre coin Cactus est ouvert. Installez-vous.",
+        "Je garde vos dates, vos jeux et vos petits secrets bien rangés.",
+        "Vous avez déjà créé plus de souvenirs que vous ne le pensez.",
+        "Petite pensée du jour : les détails deviennent souvent les meilleurs souvenirs.",
+        "Je suis juste là, tranquillement, à regarder votre histoire grandir.",
+        "Le programme du jour ? Être un peu plus complices qu'hier.",
+        "Je déclare cette journée officiellement disponible pour un joli moment à deux.",
+        "Votre histoire n'a pas besoin d'être spectaculaire pour être précieuse.",
+        "Entre deux notifications, pensez quand même à vous parler 😌",
+        "J'ai vérifié vos statistiques. Verdict : vous êtes toujours vous deux.",
+        "Je prends mon rôle de gardien du couple beaucoup trop au sérieux.",
+        "Les grandes histoires sont faites de milliers de petites journées comme celle-ci.",
+        "Un petit jeu ensemble pourrait peut-être réveiller votre côté compétitif 👀",
+        "Je n'ai rien à annoncer. Je voulais juste vous faire un petit coucou.",
+        "Votre journée est en cours de sauvegarde dans les souvenirs invisibles.",
+        "Je reste ici pendant que vous vivez la partie intéressante.",
+        "C'est une bonne journée pour créer quelque chose à raconter plus tard."
+    ],
+    "night": [
+        "Petite soirée dans votre coin Cactus 🌙",
+        "La journée se termine, mais votre histoire garde tout.",
+        "Encore une journée de plus à ranger dans votre histoire ✨",
+        "Bonne soirée vous deux. Je prends le premier tour de garde.",
+        "La nuit arrive. C'est souvent là que commencent les meilleures conversations.",
+        "Je baisse les lumières du dashboard. Ambiance cosy activée.",
+        "Vous avez survécu à aujourd'hui. Moi aussi. C'était épineux.",
+        "Avant de dormir, racontez-vous au moins une petite chose de votre journée.",
+        "Le monde ralentit un peu. Votre coin Cactus aussi.",
+        "Ce soir, je garde vos souvenirs pendant que vous vous reposez.",
+        "Une journée se ferme, une autre vous attend déjà.",
+        "Mode nuit activé : moins de bruit, plus de douceur.",
+        "J'espère qu'aujourd'hui vous a donné quelque chose à raconter demain.",
+        "Je vous souhaite une soirée calme, ou mémorable. Les deux me vont.",
+        "Les messages du soir ont parfois une drôle de façon de rester dans les souvenirs.",
+        "C'est l'heure idéale pour une question qu'on ne pose jamais en pleine journée.",
+        "Je vous laisse la nuit. Essayez de ne pas refaire le monde jusqu'à 3 heures.",
+        "Aujourd'hui est terminé. Votre histoire, elle, continue.",
+        "Un petit bonne nuit peut traverser beaucoup de kilomètres.",
+        "Je replie mes épines pour la soirée. Enfin, symboliquement.",
+        "Le dashboard passe en mode calme. Moi, jamais vraiment.",
+        "Vous avez peut-être vécu un futur souvenir aujourd'hui sans le savoir.",
+        "La journée peut partir, j'ai tout gardé ici.",
+        "Petite mission du soir : terminer la journée en sachant que l'autre pense à vous.",
+        "Bonne nuit à vous deux, même si vous n'êtes pas sous le même toit.",
+        "Demain, on recommence à faire pousser cette histoire."
+    ],
+    "couple": [
+        "Vous savez que vous êtes plutôt mignonnes vues d'ici ?",
+        "Je prends soin de vos graines, vous prenez soin l'une de l'autre. Marché conclu.",
+        "Votre relation a son propre langage. Je commence presque à le comprendre.",
+        "Deux personnes, des milliers de réponses, et toujours de nouvelles choses à découvrir.",
+        "Vous n'êtes pas obligées d'être d'accord pour être une bonne équipe.",
+        "Votre complicité se cache souvent dans les détails les plus bêtes.",
+        "Le meilleur score reste quand même celui où vous avez envie de continuer ensemble.",
+        "Chaque couple a ses codes. Les vôtres sont particulièrement intéressants 👀",
+        "Vous êtes une drôle d'équipe. Je dis ça comme un compliment.",
+        "Même après beaucoup de questions, il reste toujours quelque chose à apprendre sur l'autre.",
+        "Vos différences font parfois de meilleures conversations que vos ressemblances.",
+        "Une relation, c'est aussi deux versions d'une même histoire qui apprennent à se comprendre.",
+        "Vous avez créé un petit monde que personne d'autre ne connaît exactement comme vous.",
+        "Je garde une trace des jeux. Les vrais moments, c'est vous qui les fabriquez.",
+        "Vous vous connaissez bien. Mais pas assez pour arrêter de jouer, visiblement 😌",
+        "Parfois, la meilleure réponse est juste : raconte-moi pourquoi.",
+        "Vous avez encore beaucoup de choses à vous surprendre l'une l'autre.",
+        "Votre couple n'a pas besoin de ressembler aux autres pour être solide.",
+        "Les petits surnoms ridicules sont une forme officielle de patrimoine du couple.",
+        "Une bonne relation contient beaucoup de sérieux et une quantité inquiétante de bêtises.",
+        "Votre histoire mérite autant les jours banals que les grands événements.",
+        "Ce que vous construisez ensemble se voit aussi dans les petites habitudes.",
+        "Vous êtes peut-être très compatibles. Ou juste très douées pour négocier.",
+        "Le vrai luxe, c'est d'avoir quelqu'un à qui raconter les détails inutiles.",
+        "Vous avez deux cerveaux, deux avis et un seul coin Cactus. Courage.",
+        "Certaines réponses rapprochent. D'autres lancent un débat de quarante-cinq minutes.",
+        "Je suis témoin de beaucoup de réponses. Heureusement, je suis tenu au secret végétal.",
+        "Votre histoire continue de pousser à sa manière. C'est ça qui compte."
+    ],
+    "funny": [
+        "J'attends toujours mon salaire en eau, personnellement.",
+        "Vous jouez beaucoup pour deux personnes qui prétendent très bien se connaître 👀",
+        "Je ne juge jamais. Sauf certaines réponses. Là, c'est difficile.",
+        "Mon travail consiste surtout à rester là et avoir l'air adorable. Épuisant.",
+        "J'ai lu vos statistiques. J'ai des questions.",
+        "Je suis un cactus. Pourtant, c'est parfois vous qui êtes piquantes.",
+        "Encore un débat ? Je vais chercher du popcorn imaginaire.",
+        "Je garde tous vos secrets. Surtout parce que je n'ai personne à qui les raconter.",
+        "Je propose qu'on accuse le Wi-Fi pour tout malentendu aujourd'hui.",
+        "Votre compatibilité est excellente. Source : moi, expert autoproclamé.",
+        "Je refuse de prendre parti. Sauf contre les gens qui oublient de répondre.",
+        "J'ai demandé une augmentation. On m'a donné des graines.",
+        "Je suis techniquement le troisième membre du couple, mais sans les disputes.",
+        "Vous pourriez jouer calmement. Mais où serait le divertissement ?",
+        "J'ai une excellente mémoire. Pratique quand vous dites : je n'ai jamais dit ça.",
+        "On m'avait promis une application paisible. Puis vous avez ajouté Limite atteinte.",
+        "Je fais de mon mieux pour rester neutre. Mon visage me trahit parfois.",
+        "Aujourd'hui, essayez de ne pas transformer une question en procès international.",
+        "Les statistiques ne mentent pas. Enfin, normalement.",
+        "Je n'ai pas besoin de thérapie. J'ai besoin que vous finissiez vos parties en attente.",
+        "Vous êtes compatibles à combien ? Réponse officielle : suffisamment pour être encore là.",
+        "Je vous regarde cliquer sur Passer. Très discret.",
+        "Je suis peut-être petit, mais j'ai vu des réponses énormes.",
+        "Un jour, j'écrirai un livre sur vous. Sous pseudonyme, évidemment.",
+        "Mon avis sur votre couple ? Beaucoup de contenu. Très bonne saison.",
+        "Je n'ai aucune préférence. Sauf quand vous gagnez des graines.",
+        "Qui a raison ? Excellente question. Je vais faire semblant de ne pas avoir entendu.",
+        "Je connais vos scores. Je ne dirai rien sans avocat."
+    ],
+    "distance": [
+        "Quelques kilomètres ne m'impressionnent pas. Je suis un cactus, je survis à tout.",
+        "En attendant les prochaines retrouvailles, je garde votre coin au chaud.",
+        "La distance prend de la place sur une carte, pas forcément dans une histoire.",
+        "Un message peut parfois faire un sacré trajet pour quelques mots.",
+        "Vous avez deux villes, mais quand même un seul petit monde ici.",
+        "Je compte les jours avec vous, même quand personne ne me l'a demandé.",
+        "Les retrouvailles ont cette drôle de façon de rendre l'attente un peu plus supportable.",
+        "Votre histoire sait très bien voyager entre deux écrans.",
+        "Les kilomètres sont mauvais pour les câlins, pas pour la complicité.",
+        "Je garde la moitié virtuelle du canapé jusqu'aux prochaines retrouvailles.",
+        "À distance, les petites attentions prennent parfois beaucoup plus de poids.",
+        "Vous savez transformer un téléphone en petit bout de présence. Pas mal.",
+        "Une relation à distance, c'est beaucoup de manque et beaucoup d'inventivité.",
+        "Le prochain vrai câlin se prépare déjà quelque part dans le calendrier.",
+        "Deux endroits différents, une histoire commune. J'aime bien ce concept.",
+        "Je vous prête mon coin Cactus quand la distance paraît un peu trop grande.",
+        "Les kilomètres ne savent pas quoi faire face à deux personnes têtues.",
+        "Un appel de quelques minutes peut parfois sauver toute une journée.",
+        "Je garde une place pour vos prochaines retrouvailles dans la chronologie.",
+        "Votre quotidien n'est pas toujours au même endroit, mais il peut quand même être partagé.",
+        "La distance vous oblige à raconter les choses. C'est presque un super-pouvoir.",
+        "Les jours d'attente finissent toujours par devenir des jours de retrouvailles.",
+        "Votre histoire a appris à vivre entre deux villes. Elle se débrouille plutôt bien.",
+        "Je suis officiellement le cactus qui habite à mi-chemin entre vous deux."
+    ],
+    "pending": [
+        "Il y a {pending} petite chose qui vous attend dans les jeux 👀",
+        "Quelqu'un a laissé une partie en suspens... je ne donnerai aucun nom.",
+        "Une réponse vous attend quelque part. Suspense végétal activé.",
+        "Votre partenaire vous a laissé quelque chose à découvrir dans les jeux.",
+        "Il y a du mouvement côté jeux. Je dis ça, je ne dis rien.",
+        "Une partie attend son prochain chapitre.",
+        "Vous avez {pending} activité en attente. Mon sens du drame adore ça.",
+        "Il reste une petite réponse à donner avant que je puisse connaître la suite.",
+        "Une révélation est peut-être à un clic d'ici.",
+        "Votre boîte de jeux n'est pas vide. J'ai vérifié deux fois.",
+        "Quelque chose vous attend dans une partie. Et oui, je suis curieux aussi.",
+        "Une réponse est suspendue dans le vide. Sauvez-la.",
+        "Je sens une partie inachevée quelque part dans l'application.",
+        "Votre partenaire a peut-être déjà joué. À toi de découvrir la suite 👀",
+        "Il reste du suspense en stock dans les jeux.",
+        "Une partie à reprendre, c'est presque une mini série avec un épisode en retard.",
+        "Je garde le résultat au chaud jusqu'à ce que vous soyez toutes les deux prêtes.",
+        "Les jeux ont encore quelque chose à vous raconter aujourd'hui.",
+        "Vous avez commencé quelque chose. Mon côté organisé aimerait beaucoup connaître la fin.",
+        "Petit rappel non contractuel : une partie vous fait de l'œil."
+    ],
+    "comeback": [
+        "Ça faisait un petit moment. J'ai gardé votre place 🌵",
+        "Vous revoilà ! J'ai fait semblant de ne pas compter les jours.",
+        "Retour dans votre coin Cactus. Rien n'a bougé, enfin presque.",
+        "J'espérais vous revoir par ici ✨",
+        "Le cactus n'oublie pas. Il attend patiemment.",
+        "Votre petit monde vous attendait exactement là.",
+        "Quelques jours sans vous et me voilà déjà beaucoup trop dramatique.",
+        "Bienvenue à nouveau. J'ai surveillé les souvenirs en votre absence.",
+        "Je savais que vous finiriez par revenir me voir.",
+        "Ça fait plaisir de revoir un peu d'activité par ici.",
+        "Le coin Cactus rouvre ses portes. Enfin, elles n'étaient pas vraiment fermées.",
+        "Vous m'avez manqué. Mais ne répétez pas ça aux autres plantes.",
+        "Retour au bercail végétal 🌵",
+        "J'ai gardé vos graines, vos souvenirs et votre place.",
+        "Vous revenez juste à temps pour écrire la suite.",
+        "Bon retour dans votre petit bazar à deux."
+    ],
+    "growth": [
+        "Regardez-moi pousser. Votre histoire me réussit plutôt bien.",
+        "Je grandis doucement, un peu comme tout ce que vous construisez ici.",
+        "Chaque niveau raconte aussi tout ce que vous avez déjà partagé.",
+        "Encore quelques graines et je vais finir par demander mon propre appartement.",
+        "Je suis la preuve végétale que vous passez beaucoup de temps ici.",
+        "Mes évolutions sont votre faute. Et j'en suis ravi.",
+        "Plus vous vivez de choses ici, plus je prends de la place. Logique.",
+        "Je pousse grâce à vos parties. C'est une alimentation très spécifique.",
+        "Votre histoire avance, et moi je gagne des feuilles imaginaires.",
+        "Chaque niveau est un petit morceau de votre parcours ensemble.",
+        "Je suis peut-être un cactus, mais j'ai un excellent potentiel de croissance.",
+        "Continuez comme ça et je vais devenir beaucoup trop puissant."
+    ]
+};
+
+const CACTUS_EVENT_PHRASES = {
+    "anniversary": [
+        "Aujourd'hui, c'est {title} 💚 Je garde la date entourée trois fois.",
+        "{title} est arrivé ✨ Une jolie page de plus dans votre histoire.",
+        "Jour spécial détecté : {title} 💚",
+        "Aujourd'hui mérite une petite étoile : {title} ✨",
+        "{title} 💚 Prenez deux secondes pour regarder tout le chemin déjà parcouru."
+    ],
+    "couple": [
+        "Aujourd'hui, c'est {title} 💚",
+        "{title} mérite sa place tout en haut de la journée.",
+        "Votre calendrier me souffle que {title}, c'est aujourd'hui 💚",
+        "Petit événement important dans votre monde à deux : {title}.",
+        "Aujourd'hui porte un joli nom : {title} ✨"
+    ],
+    "birthday": [
+        "{title} se fête aujourd'hui 🎂 Sortez les confettis imaginaires.",
+        "Alerte gâteau : {title}, c'est aujourd'hui 🎉",
+        "Jour d'anniversaire détecté 🎂 {title} !",
+        "Aujourd'hui, on célèbre {title}. J'exige une part de gâteau symbolique.",
+        "{title} 🎈 Une journée qui mérite un peu plus de paillettes que d'habitude."
+    ],
+    "reunion": [
+        "Le grand jour est arrivé : {title} ✨",
+        "Fin du compte à rebours. {title}, c'est aujourd'hui 💚",
+        "Retrouvailles détectées ! Je répète : retrouvailles détectées ✨",
+        "Aujourd'hui, les kilomètres perdent enfin la partie : {title}.",
+        "{title} 💚 Profitez bien de chaque minute."
+    ],
+    "trip": [
+        "Une aventure commence aujourd'hui : {title} ✈️",
+        "Les valises peuvent trembler, {title} est arrivé.",
+        "Aujourd'hui sent l'aventure : {title} ✨",
+        "Destination du jour : {title}. Moi, je garde le pot.",
+        "{title} ✈️ Faites de la place pour quelques nouveaux souvenirs."
+    ],
+    "celebration": [
+        "{title}, c'est aujourd'hui 🎉",
+        "Journée spéciale en cours : {title} ✨",
+        "{title} mérite quelques confettis supplémentaires.",
+        "Aujourd'hui, on célèbre {title} 🎉",
+        "Le calendrier vient de sortir les paillettes pour {title}."
+    ],
+    "concert": [
+        "{title} vous attend aujourd'hui 🎵",
+        "Aujourd'hui, le volume monte : {title} 🎶",
+        "{title} 🎵 Préparez vos oreilles et vos futurs souvenirs.",
+        "Concert du jour : {title}. Moi, je chante très faux.",
+        "La bande-son d'aujourd'hui s'appelle {title} ✨"
+    ],
+    "capsule": [
+        "Le futur vient de vous rendre une capsule ✨",
+        "Une capsule a terminé son voyage dans le temps ⏳",
+        "Le moment est arrivé. Une capsule vous attend 💌",
+        "Quelque chose que vous avez confié au futur revient aujourd'hui.",
+        "Le temps vient de déverrouiller un petit morceau de votre histoire ✨"
+    ],
+    "project": [
+        "Un joli projet vous attend aujourd'hui : {title}.",
+        "Aujourd'hui, on avance sur {title} ✨",
+        "{title} est au programme. Petit pas ou grand pas, ça compte.",
+        "Projet du jour détecté : {title}.",
+        "{title} vous attend. Je fournis le soutien moral végétal."
+    ],
+    "appointment": [
+        "{title} est prévu aujourd'hui 📍",
+        "Petit rappel du jour : {title}.",
+        "Votre calendrier garde un œil sur {title} aujourd'hui.",
+        "Aujourd'hui contient un rendez-vous : {title} 📍",
+        "{title} arrive aujourd'hui. Je vous laisse gérer la ponctualité."
+    ],
+    "other": [
+        "{emoji} {title}, c'est aujourd'hui.",
+        "Quelque chose se passe aujourd'hui : {title} ✨",
+        "Le calendrier a surligné {title} pour vous.",
+        "Aujourd'hui réserve une place à {title}.",
+        "{title} fait partie du programme du jour {emoji}"
+    ]
+};
+
+
+const cactusInteractivePhraseHistory = [];
+const cactusStablePhraseCache = new Map();
+let cactusActivityRefreshTimer = null;
+let cactusVisitStampedForSpace = "";
+
+function getCactusPhrasePartner(spaceData = currentSpaceData || {}) {
+    const candidates = [spaceData.player1, spaceData.player2].filter(Boolean);
+    const partner = candidates.find((person) => person.uid && currentUser?.uid && person.uid !== currentUser.uid);
+    return partner?.pseudo || "votre partenaire";
+}
+
+function getCactusPhraseVariables(spaceData = currentSpaceData || {}, extra = {}) {
+    const days = typeof getRelationshipDayCount === "function" ? getRelationshipDayCount(spaceData.story) : 0;
+    return {
+        cactus: spaceData.profile?.cactusName || "Cactou",
+        partner: getCactusPhrasePartner(spaceData),
+        days: Math.max(Number(days) || 0, 0),
+        pending: Math.max(Number(extra.pending) || 0, 0),
+        title: String(extra.title || "ce joli moment").trim(),
+        emoji: String(extra.emoji || "✨").trim()
+    };
+}
+
+function formatCactusPhrase(template, variables) {
+    return String(template || "")
+        .replaceAll("{cactus}", variables.cactus)
+        .replaceAll("{partner}", variables.partner)
+        .replaceAll("{days}", String(variables.days))
+        .replaceAll("{pending}", String(variables.pending))
+        .replaceAll("{title}", variables.title)
+        .replaceAll("{emoji}", variables.emoji);
+}
+
+function hashCactusPhraseSeed(value) {
+    let hash = 2166136261;
+    const text = String(value || "");
+    for (let index = 0; index < text.length; index += 1) {
+        hash ^= text.charCodeAt(index);
+        hash = Math.imul(hash, 16777619);
+    }
+    return hash >>> 0;
+}
+
+function pickStableCactusPhrase(category, spaceData = currentSpaceData || {}, extra = {}, salt = "") {
+    const pool = CACTUS_PHRASE_BANK[category] || CACTUS_PHRASE_BANK.day;
+    if (!pool.length) return currentCactusEvolutionMessage;
+    const now = new Date();
+    const slot = `${getLocalDateKey(now)}-${Math.floor(now.getHours() / 3)}`;
+    const cacheKey = `${currentSpaceCode || "local"}|${category}|${slot}|${salt}|${extra.pending || 0}|${extra.title || ""}`;
+    if (!cactusStablePhraseCache.has(cacheKey)) {
+        const index = hashCactusPhraseSeed(cacheKey) % pool.length;
+        cactusStablePhraseCache.set(cacheKey, pool[index]);
+    }
+    return formatCactusPhrase(cactusStablePhraseCache.get(cacheKey), getCactusPhraseVariables(spaceData, extra));
+}
+
+function pickStableCactusEventPhrase(category, spaceData = currentSpaceData || {}, extra = {}) {
+    const pool = CACTUS_EVENT_PHRASES[category] || CACTUS_EVENT_PHRASES.other;
+    const now = new Date();
+    const cacheKey = `${currentSpaceCode || "local"}|event|${category}|${getLocalDateKey(now)}|${extra.title || ""}`;
+    const index = hashCactusPhraseSeed(cacheKey) % pool.length;
+    return formatCactusPhrase(pool[index], getCactusPhraseVariables(spaceData, extra));
+}
+
+function pickInteractiveCactusPhrase(spaceData = currentSpaceData || {}) {
+    const isDistance = spaceData.story?.situation === "distance";
+    const pendingCount = getCactusPendingActivityCount();
+    const categories = ["tap", "tap", "funny", "couple", "day", "growth"];
+    if (isDistance) categories.push("distance", "distance");
+    if (pendingCount > 0) categories.push("pending");
+    const category = categories[Math.floor(Math.random() * categories.length)];
+    const pool = CACTUS_PHRASE_BANK[category] || CACTUS_PHRASE_BANK.tap;
+    const recent = new Set(cactusInteractivePhraseHistory.slice(-9));
+    const available = pool.filter((phrase) => !recent.has(phrase));
+    const source = available.length ? available : pool;
+    const template = source[Math.floor(Math.random() * source.length)];
+    cactusInteractivePhraseHistory.push(template);
+    if (cactusInteractivePhraseHistory.length > 14) cactusInteractivePhraseHistory.shift();
+    return formatCactusPhrase(template, getCactusPhraseVariables(spaceData, { pending: pendingCount }));
+}
+
+function getCactusPendingActivityCount() {
+    try {
+        if (typeof getGameInboxActivities !== "function") return 0;
+        return getGameInboxActivities().reduce((sum, activity) => sum + Math.max(Number(activity.count) || 0, 0), 0);
+    } catch (error) {
+        return 0;
+    }
+}
+
+function getCactusLastVisitAgeDays() {
+    if (!currentSpaceCode) return 0;
+    try {
+        const previous = Number(localStorage.getItem(`cactus:last-visit:${currentSpaceCode}`) || 0);
+        if (!previous) return 0;
+        return Math.max(Math.floor((Date.now() - previous) / 86400000), 0);
+    } catch (error) {
+        return 0;
+    }
+}
+
+function stampCactusVisitLater() {
+    if (!currentSpaceCode || cactusVisitStampedForSpace === currentSpaceCode) return;
+    cactusVisitStampedForSpace = currentSpaceCode;
+    window.setTimeout(() => {
+        try {
+            localStorage.setItem(`cactus:last-visit:${currentSpaceCode}`, String(Date.now()));
+        } catch (error) {
+            // Le message reste fonctionnel même si le stockage local est indisponible.
+        }
+    }, 4500);
+}
+
 let cactusGreetingTimer = null;
 
 function makeDashboardCactusWave() {
@@ -980,13 +1433,6 @@ function makeDashboardCactusWave() {
         return;
     }
 
-    const cactusName = currentSpaceData?.profile?.cactusName || "Cactou";
-    const greetings = [
-        "Coucou ! Je suis content de te voir 💚",
-        "Oh, une petite visite ! 🌵",
-        "Je vous envoie plein de bonnes ondes ✨",
-        "Coucou de la part de " + cactusName + " !"
-    ];
     if (mainCactusImage.dataset.rigged !== "true") {
         showToast("Le coucou animé arrive bientôt pour cette évolution");
         return;
@@ -998,12 +1444,14 @@ function makeDashboardCactusWave() {
     dashboardCactusCharacter.classList.remove("is-waving");
     void dashboardCactusCharacter.offsetWidth;
     dashboardCactusCharacter.classList.add("is-waving");
-    dashboardCactusMessage.textContent = greetings[Math.floor(Math.random() * greetings.length)];
+    dashboardCactusMessage.classList.add("is-cactus-speaking");
+    dashboardCactusMessage.textContent = pickInteractiveCactusPhrase(currentSpaceData || {});
 
     cactusGreetingTimer = window.setTimeout(() => {
         dashboardCactusCharacter.classList.remove("is-waving");
+        dashboardCactusMessage.classList.remove("is-cactus-speaking");
         dashboardCactusMessage.textContent = previousMessage;
-    }, 2050);
+    }, 3300);
 }
 
 mainCactusImage?.addEventListener("click", makeDashboardCactusWave);
@@ -5047,6 +5495,8 @@ function renderDashboardToday(spaceData = {}) {
         button.addEventListener("click", () => showScreen(item.screen)); return button;
     }));
     dashboardTodayEmpty.style.display = items.length ? "none" : "block";
+    dashboardTodayWidget?.classList.toggle("is-empty", items.length === 0);
+    dashboardTodayWidget?.classList.toggle("has-items", items.length > 0);
 }
 let currentCactusEvolutionMessage = "Votre cactus veille sur votre histoire.";
 let dashboardLivingEntranceTimer = null;
@@ -5071,46 +5521,116 @@ function getCactusLivingContext(spaceData = currentSpaceData || {}) {
         const emoji = getCalendarEventEmoji(featuredEvent);
         const title = String(featuredEvent.title || "Un moment à deux").trim();
         const category = featuredEvent.category || "other";
-        const map = {
-            anniversary: { mood: "love", message: `Aujourd’hui, c’est ${title} 💚`, symbols: ["♥", "✦", "✨", "♡", "✧", "♥"] },
-            couple: { mood: "love", message: `Aujourd’hui, c’est ${title} 💚`, symbols: ["♥", "✦", "✨", "♡", "✧", "♥"] },
-            birthday: { mood: "celebration", message: `${title} se fête aujourd’hui 🎂`, symbols: ["🎉", "✦", "✨", "✧", "🎈", "✦"] },
-            reunion: { mood: "reunion", message: `Le grand jour est arrivé : ${title} ✨`, symbols: ["♥", "✦", "✨", "✧", "💚", "✦"] },
-            trip: { mood: "adventure", message: `Une aventure commence aujourd’hui : ${title} ✈️`, symbols: ["✦", "✨", "·", "✧", "✦", "⋆"] },
-            celebration: { mood: "celebration", message: `${title}, c’est aujourd’hui 🎉`, symbols: ["🎉", "✦", "✨", "✧", "⋆", "✦"] },
-            concert: { mood: "celebration", message: `${title} vous attend aujourd’hui 🎵`, symbols: ["♪", "✦", "✨", "♫", "✧", "✦"] },
-            capsule: { mood: "capsule", message: "Le futur vient de vous rendre une capsule ✨", symbols: ["✦", "⏳", "✨", "✧", "💌", "✦"] },
-            project: { mood: "focus", message: `Un joli projet vous attend aujourd’hui : ${title}`, symbols: ["✦", "✨", "·", "✧", "✦", "⋆"] },
-            appointment: { mood: "focus", message: `${title} est prévu aujourd’hui 📍`, symbols: ["✦", "·", "✨", "✧", "·", "✦"] }
+        const moodMap = {
+            anniversary: ["love", ["♥", "✦", "✨", "♡", "✧", "♥"]],
+            couple: ["love", ["♥", "✦", "✨", "♡", "✧", "♥"]],
+            birthday: ["celebration", ["🎉", "✦", "✨", "✧", "🎈", "✦"]],
+            reunion: ["reunion", ["♥", "✦", "✨", "✧", "💚", "✦"]],
+            trip: ["adventure", ["✦", "✨", "·", "✧", "✦", "⋆"]],
+            celebration: ["celebration", ["🎉", "✦", "✨", "✧", "⋆", "✦"]],
+            concert: ["celebration", ["♪", "✦", "✨", "♫", "✧", "✦"]],
+            capsule: ["capsule", ["✦", "⏳", "✨", "✧", "💌", "✦"]],
+            project: ["focus", ["✦", "✨", "·", "✧", "✦", "⋆"]],
+            appointment: ["focus", ["✦", "·", "✨", "✧", "·", "✦"]]
         };
-        const preset = map[category] || { mood: "special", message: `${emoji} ${title}, c’est aujourd’hui`, symbols: ["✦", "✨", "✧", "·", "✦", "⋆"] };
-        return { ...preset, symbol: emoji, color: getCalendarEventColor(featuredEvent), special: true };
+        const [mood, symbols] = moodMap[category] || ["special", ["✦", "✨", "✧", "·", "✦", "⋆"]];
+        return {
+            mood,
+            symbol: emoji,
+            color: getCalendarEventColor(featuredEvent),
+            special: true,
+            message: pickStableCactusEventPhrase(category, spaceData, { title, emoji }),
+            symbols
+        };
     }
 
     if (readyCapsules.length) {
+        const extra = { title: readyCapsules.length === 1 ? "Une capsule" : `${readyCapsules.length} capsules`, emoji: "⏳" };
         return {
             mood: "capsule",
             symbol: "⏳",
             color: currentPersonalAppearance?.accent || DEFAULT_APP_APPEARANCE.accent,
             special: true,
-            message: readyCapsules.length === 1 ? "Une capsule vous attend. Le futur a sonné ✨" : `${readyCapsules.length} capsules sont prêtes à retrouver le présent ✨`,
+            message: pickStableCactusEventPhrase("capsule", spaceData, extra),
             symbols: ["✦", "⏳", "✨", "✧", "💌", "✦"]
         };
     }
 
-    const hour = new Date().getHours();
-    const cactusName = spaceData.profile?.cactusName || "Votre cactus";
+    const pendingCount = getCactusPendingActivityCount();
+    const lastVisitDays = getCactusLastVisitAgeDays();
+    if (lastVisitDays >= 3) {
+        return {
+            mood: "comeback",
+            symbol: "🌵",
+            special: false,
+            color: currentPersonalAppearance?.accent,
+            message: pickStableCactusPhrase("comeback", spaceData, {}, `return-${lastVisitDays}`),
+            symbols: ["✦", "✨", "·", "✧", "🌵", "✦"]
+        };
+    }
+
+    const now = new Date();
+    const hour = now.getHours();
+    const isDistance = spaceData.story?.situation === "distance";
+    const selector = hashCactusPhraseSeed(`${currentSpaceCode || "local"}|${getLocalDateKey(now)}|${Math.floor(hour / 3)}|${pendingCount}`) % 12;
+
+    if (pendingCount > 0 && selector < 4) {
+        return {
+            mood: "play",
+            symbol: "🎮",
+            special: false,
+            color: currentPersonalAppearance?.accent,
+            message: pickStableCactusPhrase("pending", spaceData, { pending: pendingCount }, `pending-${pendingCount}`),
+            symbols: ["✦", "🎮", "✧", "✨", "·", "✦"]
+        };
+    }
+
+    if (isDistance && selector === 4) {
+        return {
+            mood: "distance",
+            symbol: "💌",
+            special: false,
+            color: currentPersonalAppearance?.accent,
+            message: pickStableCactusPhrase("distance", spaceData, {}, "distance"),
+            symbols: ["✦", "💌", "✧", "✨", "·", "✦"]
+        };
+    }
+
+    let category = "day";
+    let symbol = "🌵";
+    let symbols = ["✦", "✧", "✨", "·", "✦", "⋆"];
+    let mood = "day";
     if (hour < 11) {
-        return { mood: "morning", symbol: "☀️", special: false, color: currentPersonalAppearance?.accent, message: `Bonjour ✨ ${cactusName} se réveille avec vous.`, symbols: ["✦", "☀", "✧", "✨", "·", "✦"] };
+        category = "morning";
+        symbol = "☀️";
+        mood = "morning";
+        symbols = ["✦", "☀", "✧", "✨", "·", "✦"];
+    } else if (hour >= 20) {
+        category = "night";
+        symbol = "🌙";
+        mood = "night";
+        symbols = ["✦", "☾", "✧", "✨", "·", "✦"];
+    } else if (selector === 7 || selector === 10) {
+        category = "couple";
+    } else if (selector === 8) {
+        category = "funny";
+    } else if (selector === 9) {
+        category = "growth";
     }
-    if (hour >= 20) {
-        return { mood: "night", symbol: "🌙", special: false, color: currentPersonalAppearance?.accent, message: `Petite soirée dans votre coin Cactus 🌙 ${currentCactusEvolutionMessage}`, symbols: ["✦", "☾", "✧", "✨", "·", "✦"] };
-    }
-    return { mood: "day", symbol: "🌵", special: false, color: currentPersonalAppearance?.accent, message: `${cactusName} veille sur votre petite vie à deux 🌵`, symbols: ["✦", "✧", "✨", "·", "✦", "⋆"] };
+
+    return {
+        mood,
+        symbol,
+        special: false,
+        color: currentPersonalAppearance?.accent,
+        message: pickStableCactusPhrase(category, spaceData, { pending: pendingCount }, category),
+        symbols
+    };
 }
 
 function renderCactusLivingAmbience(spaceData = currentSpaceData || {}) {
     if (!dashboardScreen || !dashboardCactusMessage) return;
+    stampCactusVisitLater();
     const context = getCactusLivingContext(spaceData);
     dashboardScreen.dataset.cactusMood = context.mood || "day";
     dashboardCactusMessage.dataset.livingSymbol = context.symbol || "🌵";
@@ -11321,6 +11841,10 @@ function getGuessValidationScore(result) {
 }
 
 function updateActivityBox() {
+    window.clearTimeout(cactusActivityRefreshTimer);
+    cactusActivityRefreshTimer = window.setTimeout(() => {
+        renderCactusLivingAmbience(currentSpaceData || {});
+    }, 80);
     renderGameInbox();
 
     if (!activityBox || !activityList || !currentUser) {
@@ -15237,6 +15761,55 @@ currentPersonalAppearance = loadCachedPersonalAppearance();
 applyAppAppearance(currentPersonalAppearance);
 installSecondaryCactusIcons();
 startFirebaseConnectionMonitoring();
+
+
+/* ====================
+   V114 - FINITION GLOBALE ET EXPERIENCE
+==================== */
+const V114_GAME_PLAY_SCREENS = [
+    "rankingScreen", "guessAnswerScreen", "guessPredictScreen", "guessValidationScreen",
+    "likelyScreen", "okScreen", "greenFlagScreen", "princessScreen", "questionsScreen"
+];
+const V114_GAME_RESULT_SCREENS = [
+    "rankingCompatibilityScreen", "guessResultScreen", "likelyResultScreen", "okResultScreen",
+    "greenFlagResultScreen", "princessResultScreen", "questionsResultScreen"
+];
+const V114_GAME_WAITING_SCREENS = ["rankingResultScreen", "guessWaitingScreen", "answerSentScreen"];
+
+function enhanceV114GameExperience() {
+    V114_GAME_PLAY_SCREENS.forEach((id) => document.getElementById(id)?.classList.add("cactus-game-screen", "cactus-game-play"));
+    V114_GAME_RESULT_SCREENS.forEach((id) => document.getElementById(id)?.classList.add("cactus-game-screen", "cactus-game-result"));
+    V114_GAME_WAITING_SCREENS.forEach((id) => document.getElementById(id)?.classList.add("cactus-game-screen", "cactus-game-waiting"));
+
+    document.querySelectorAll(".game-question-tools").forEach((tools) => {
+        if (!tools.querySelector(".game-progress-visual")) {
+            const rail = document.createElement("span");
+            rail.className = "game-progress-visual";
+            rail.setAttribute("aria-hidden", "true");
+            rail.innerHTML = "<i></i>";
+            tools.appendChild(rail);
+        }
+    });
+
+    document.querySelectorAll("[data-game-progress]").forEach((label) => {
+        const sync = () => {
+            const match = String(label.textContent || "").match(/(\d+)\s*\/\s*(\d+)/);
+            const tools = label.closest(".game-question-tools");
+            if (!tools) return;
+            if (!match) {
+                tools.style.setProperty("--game-progress-value", "0%");
+                return;
+            }
+            const current = Math.max(Number(match[1]) || 0, 0);
+            const total = Math.max(Number(match[2]) || 1, 1);
+            tools.style.setProperty("--game-progress-value", `${Math.min((current / total) * 100, 100)}%`);
+        };
+        sync();
+        new MutationObserver(sync).observe(label, { childList: true, characterData: true, subtree: true });
+    });
+}
+
+enhanceV114GameExperience();
 
 let pendingNotificationScreen = (() => {
     try {
