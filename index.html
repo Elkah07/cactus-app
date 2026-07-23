@@ -520,8 +520,19 @@
 
         <div class="time-capsule-builder">
             <section class="time-capsule-builder-main">
-                <label class="time-capsule-field"><span>Le titre visible</span><input id="timeCapsuleTitleInput" type="text" maxlength="100" required placeholder="Ex. À nous dans un an…"></label>
-                <label class="time-capsule-field"><span>Le message secret</span><textarea id="timeCapsuleMessageInput" maxlength="2000" rows="6" required placeholder="Écris ce que le futur ne doit pas oublier…"></textarea></label>
+                <label class="time-capsule-field"><span>Le titre visible</span><input id="timeCapsuleTitleInput" type="text" required placeholder="Ex. À nous dans un an…"></label>
+                <label class="time-capsule-field"><span>Le message secret</span><textarea id="timeCapsuleMessageInput" rows="6" required placeholder="Écris ce que le futur ne doit pas oublier…"></textarea></label>
+                <section class="time-capsule-media-builder" aria-label="Souvenirs à joindre">
+                    <div class="time-capsule-media-heading"><span>📸 Photos et liens</span><small>Facultatif · jusqu’à 5 photos, compressées automatiquement pour rester compatibles avec votre forfait Firebase gratuit.</small></div>
+                    <label class="time-capsule-photo-picker"><input id="timeCapsulePhotoInput" type="file" accept="image/*" multiple><span>＋ Ajouter des photos</span></label>
+                    <div id="timeCapsulePhotoPreview" class="time-capsule-photo-preview" aria-live="polite"></div>
+                    <div class="time-capsule-link-adder">
+                        <input id="timeCapsuleLinkInput" type="url" inputmode="url" placeholder="https://…">
+                        <button type="button" id="addTimeCapsuleLinkBtn">Ajouter le lien</button>
+                    </div>
+                    <div id="timeCapsuleLinksPreview" class="time-capsule-links-preview" aria-live="polite"></div>
+                </section>
+
                 <div class="organizer-form-grid time-capsule-opening-grid">
                     <label><span>Date d’ouverture</span><input id="timeCapsuleOpenDateInput" type="date" required></label>
                     <label class="time-capsule-open-time-label"><span>Heure d’ouverture</span><input id="timeCapsuleOpenTimeInput" type="time" aria-describedby="timeCapsuleOpenTimeHint"><small id="timeCapsuleOpenTimeHint">Facultatif · sans heure précise, ouverture dès minuit.</small></label>
@@ -606,6 +617,8 @@
         <h2 id="timeCapsuleRevealTitle">Votre capsule s’ouvre…</h2>
         <p id="timeCapsuleRevealMeta"></p>
         <blockquote id="timeCapsuleRevealMessage"></blockquote>
+        <div id="timeCapsuleRevealPhotos" class="time-capsule-reveal-photos"></div>
+        <div id="timeCapsuleRevealLinks" class="time-capsule-reveal-links"></div>
         <div id="timeCapsuleCreatorPreviewBadge" class="time-capsule-creator-preview-badge" style="display:none;">🛠️ Aperçu créateur · la capsule reste réellement verrouillée</div>
         <button type="button" id="timeCapsuleRevealDoneBtn">Refermer ce souvenir</button>
     </section>

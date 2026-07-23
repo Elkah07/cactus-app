@@ -429,6 +429,11 @@ const timeCapsuleMessageInput = document.getElementById("timeCapsuleMessageInput
 const timeCapsuleOpenDateInput = document.getElementById("timeCapsuleOpenDateInput");
 const timeCapsuleOpenTimeInput = document.getElementById("timeCapsuleOpenTimeInput");
 const timeCapsuleAuthorInput = document.getElementById("timeCapsuleAuthorInput");
+const timeCapsulePhotoInput = document.getElementById("timeCapsulePhotoInput");
+const timeCapsulePhotoPreview = document.getElementById("timeCapsulePhotoPreview");
+const timeCapsuleLinkInput = document.getElementById("timeCapsuleLinkInput");
+const addTimeCapsuleLinkBtn = document.getElementById("addTimeCapsuleLinkBtn");
+const timeCapsuleLinksPreview = document.getElementById("timeCapsuleLinksPreview");
 const saveTimeCapsuleBtn = document.getElementById("saveTimeCapsuleBtn");
 const cancelTimeCapsuleBtn = document.getElementById("cancelTimeCapsuleBtn");
 const timeCapsulesList = document.getElementById("timeCapsulesList");
@@ -447,6 +452,8 @@ const timeCapsuleRevealEyebrow = document.getElementById("timeCapsuleRevealEyebr
 const timeCapsuleRevealTitle = document.getElementById("timeCapsuleRevealTitle");
 const timeCapsuleRevealMeta = document.getElementById("timeCapsuleRevealMeta");
 const timeCapsuleRevealMessage = document.getElementById("timeCapsuleRevealMessage");
+const timeCapsuleRevealPhotos = document.getElementById("timeCapsuleRevealPhotos");
+const timeCapsuleRevealLinks = document.getElementById("timeCapsuleRevealLinks");
 const timeCapsuleCreatorPreviewBadge = document.getElementById("timeCapsuleCreatorPreviewBadge");
 const timeCapsuleThemeChoices = document.getElementById("timeCapsuleThemeChoices");
 const timeCapsuleStyleChoices = document.getElementById("timeCapsuleStyleChoices");
@@ -1547,6 +1554,8 @@ let editingCountdownId = null;
 let creatorModeEnabled = false;
 let currentRevealedTimeCapsuleId = null;
 const creatorPreviewTimeCapsules = new Set();
+let timeCapsuleDraftPhotos = [];
+let timeCapsuleDraftLinks = [];
 let pushMessagingInitialized = false;
 let lastPushObservedSpaceData = null;
 
@@ -5145,6 +5154,83 @@ function getTimeCapsuleProgress(item) {
     return Math.max(4, Math.min(100, Math.round(((Date.now() - createdAt) / (openAt - createdAt)) * 100)));
 }
 
+function normalizeTimeCapsuleUrl(value) {
+    const raw = String(value || "").trim();
+    if (!raw) return "";
+    try {
+        const url = new URL(/^https?:\/\//i.test(raw) ? raw : "https://" + raw);
+        return ["http:", "https:"].includes(url.protocol) ? url.href : "";
+    } catch (_) { return ""; }
+}
+
+function renderTimeCapsuleDraftMedia() {
+    if (timeCapsulePhotoPreview) {
+        timeCapsulePhotoPreview.replaceChildren(...timeCapsuleDraftPhotos.map((photo, index) => {
+            const item = document.createElement("figure");
+            const img = document.createElement("img"); img.src = photo.data; img.alt = "Photo " + (index + 1);
+            const remove = document.createElement("button"); remove.type = "button"; remove.textContent = "×"; remove.setAttribute("aria-label", "Retirer cette photo");
+            remove.addEventListener("click", () => { timeCapsuleDraftPhotos.splice(index, 1); renderTimeCapsuleDraftMedia(); });
+            item.append(img, remove); return item;
+        }));
+    }
+    if (timeCapsuleLinksPreview) {
+        timeCapsuleLinksPreview.replaceChildren(...timeCapsuleDraftLinks.map((url, index) => {
+            const item = document.createElement("div"); const text = document.createElement("span"); text.textContent = url;
+            const remove = document.createElement("button"); remove.type = "button"; remove.textContent = "×"; remove.setAttribute("aria-label", "Retirer ce lien");
+            remove.addEventListener("click", () => { timeCapsuleDraftLinks.splice(index, 1); renderTimeCapsuleDraftMedia(); });
+            item.append(text, remove); return item;
+        }));
+    }
+}
+
+function resetTimeCapsuleDraftMedia() {
+    timeCapsuleDraftPhotos = []; timeCapsuleDraftLinks = [];
+    if (timeCapsulePhotoInput) timeCapsulePhotoInput.value = "";
+    if (timeCapsuleLinkInput) timeCapsuleLinkInput.value = "";
+    renderTimeCapsuleDraftMedia();
+}
+
+function compressTimeCapsulePhoto(file) {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onerror = reject;
+        reader.onload = () => {
+            const img = new Image();
+            img.onerror = reject;
+            img.onload = () => {
+                const maxSide = 1280; const scale = Math.min(1, maxSide / Math.max(img.width, img.height));
+                const canvas = document.createElement("canvas"); canvas.width = Math.max(1, Math.round(img.width * scale)); canvas.height = Math.max(1, Math.round(img.height * scale));
+                canvas.getContext("2d", { alpha:false }).drawImage(img, 0, 0, canvas.width, canvas.height);
+                let quality = .76; let data = canvas.toDataURL("image/jpeg", quality);
+                while (data.length > 300000 && quality > .38) { quality -= .08; data = canvas.toDataURL("image/jpeg", quality); }
+                resolve({ data, name: String(file.name || "photo").slice(0, 120), width:canvas.width, height:canvas.height });
+            };
+            img.src = reader.result;
+        };
+        reader.readAsDataURL(file);
+    });
+}
+
+async function addTimeCapsulePhotos(files) {
+    const available = Math.max(0, 5 - timeCapsuleDraftPhotos.length);
+    const selected = Array.from(files || []).filter((file) => file.type.startsWith("image/")).slice(0, available);
+    if (!selected.length) { if (available <= 0) showToast("Maximum 5 photos par capsule"); return; }
+    try {
+        for (const file of selected) timeCapsuleDraftPhotos.push(await compressTimeCapsulePhoto(file));
+        renderTimeCapsuleDraftMedia();
+        if ((files?.length || 0) > selected.length) showToast("Maximum 5 photos par capsule");
+    } catch (error) { console.warn("Compression photo impossible", error); showToast("Une photo n’a pas pu être préparée"); }
+    if (timeCapsulePhotoInput) timeCapsulePhotoInput.value = "";
+}
+
+function addTimeCapsuleLink() {
+    const url = normalizeTimeCapsuleUrl(timeCapsuleLinkInput?.value);
+    if (!url) { showToast("Entre un lien valide"); return; }
+    if (!timeCapsuleDraftLinks.includes(url)) timeCapsuleDraftLinks.push(url);
+    if (timeCapsuleLinkInput) timeCapsuleLinkInput.value = "";
+    renderTimeCapsuleDraftMedia();
+}
+
 function closeTimeCapsuleReveal() {
     if (!timeCapsuleRevealModal) return;
     timeCapsuleRevealModal.style.display = "none";
@@ -5168,6 +5254,20 @@ function openTimeCapsuleReveal(id, creatorPreview = false) {
     timeCapsuleRevealTitle.textContent = item.title || "Capsule sans titre";
     timeCapsuleRevealMeta.textContent = (author ? "Signée par " + author + " · " : "") + "scellée le " + new Date(item.createdAt || Date.now()).toLocaleDateString("fr-FR", { day:"numeric", month:"long", year:"numeric" });
     timeCapsuleRevealMessage.textContent = item.message || "Cette capsule est vide.";
+    const photos = Array.isArray(item.photos) ? item.photos : Object.values(item.photos || {});
+    if (timeCapsuleRevealPhotos) {
+        timeCapsuleRevealPhotos.replaceChildren(...photos.filter((photo) => photo?.data).map((photo, index) => {
+            const img = document.createElement("img"); img.src = photo.data; img.alt = "Souvenir photo " + (index + 1); img.loading = "lazy"; return img;
+        }));
+        timeCapsuleRevealPhotos.style.display = photos.length ? "grid" : "none";
+    }
+    const links = Array.isArray(item.links) ? item.links : Object.values(item.links || {});
+    if (timeCapsuleRevealLinks) {
+        timeCapsuleRevealLinks.replaceChildren(...links.map((value) => normalizeTimeCapsuleUrl(value)).filter(Boolean).map((url) => {
+            const link = document.createElement("a"); link.href = url; link.target = "_blank"; link.rel = "noopener noreferrer"; link.textContent = "🔗 " + url; return link;
+        }));
+        timeCapsuleRevealLinks.style.display = links.length ? "grid" : "none";
+    }
     timeCapsuleCreatorPreviewBadge.style.display = creatorPreview && !trulyUnlocked ? "block" : "none";
 
     applyTimeCapsuleDesign(timeCapsuleRevealSheet, design);
@@ -5382,6 +5482,7 @@ resetTimeCapsuleCustomizer();
 
 showTimeCapsuleFormBtn.addEventListener("click", () => {
     timeCapsuleForm.reset();
+    resetTimeCapsuleDraftMedia();
     prepareOrganizerAssignees(timeCapsuleAuthorInput);
     timeCapsuleOpenDateInput.min = getLocalDateKey(new Date(Date.now() + 86400000));
     resetTimeCapsuleCustomizer();
@@ -5425,6 +5526,10 @@ timeCapsuleCustomEmojiInput?.addEventListener("keydown", (event) => {
     }
 });
 
+timeCapsulePhotoInput?.addEventListener("change", () => addTimeCapsulePhotos(timeCapsulePhotoInput.files));
+addTimeCapsuleLinkBtn?.addEventListener("click", addTimeCapsuleLink);
+timeCapsuleLinkInput?.addEventListener("keydown", (event) => { if (event.key === "Enter") { event.preventDefault(); addTimeCapsuleLink(); } });
+
 timeCapsuleForm.addEventListener("submit", (event) => {
     event.preventDefault();
     const title = timeCapsuleTitleInput.value.trim();
@@ -5452,6 +5557,8 @@ timeCapsuleForm.addEventListener("submit", (event) => {
         openTime,
         openAt,
         author: timeCapsuleAuthorInput.value || currentUser.uid,
+        photos: timeCapsuleDraftPhotos,
+        links: timeCapsuleDraftLinks,
         design,
         createdAt: now,
         createdByUid: currentUser.uid,
@@ -5461,6 +5568,7 @@ timeCapsuleForm.addEventListener("submit", (event) => {
         showToast("Capsule personnalisée scellée jusqu’au " + formatOrganizerDate(openDate, openTime) + " ✨");
         window.setTimeout(() => {
             timeCapsuleForm.reset();
+            resetTimeCapsuleDraftMedia();
             resetTimeCapsuleCustomizer();
             timeCapsulePreviewCard?.classList.remove("is-sealing", "is-sealed");
             timeCapsuleForm.style.display = "none";
