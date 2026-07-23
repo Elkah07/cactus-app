@@ -9,7 +9,8 @@ const MODE_CONFIGS = {
   wouldRather: { path: "wouldRatherChallenges", label: "Tu préfères ?" },
   threeYesNo: { path: "threeYesNoChallenges", label: "3 oui / 3 non" },
   limitReached: { path: "limitReachedChallenges", label: "Limite atteinte" },
-  coupleDare: { path: "coupleDareChallenges", label: "Défis à deux" }
+  coupleDare: { path: "coupleDareChallenges", label: "Défis à deux" },
+  bestLie: { path: "bestLieChallenges", label: "Qui ment le mieux ?" }
 };
 
 const OAUTH_SCOPES = [
@@ -160,6 +161,13 @@ function getPlayers(space = {}) {
 }
 
 function completedResponderUids(mode, challenge = {}) {
+  if (mode === "bestLie") {
+    return new Set(
+      Object.entries(challenge.answers || {})
+        .filter(([, answers]) => Object.keys(answers || {}).length >= 3)
+        .map(([uid]) => uid)
+    );
+  }
   if (mode === "limitReached") return new Set(Object.keys(challenge.results || {}));
   if (mode === "coupleDare") return new Set(Object.keys(challenge.votes || {}));
   if (mode === "threeYesNo") {

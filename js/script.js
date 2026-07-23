@@ -875,6 +875,7 @@ const wouldRatherBtn = document.getElementById("wouldRatherBtn");
 const threeYesNoBtn = document.getElementById("threeYesNoBtn");
 const limitReachedBtn = document.getElementById("limitReachedBtn");
 const coupleDareBtn = document.getElementById("coupleDareBtn");
+const bestLieBtn = document.getElementById("bestLieBtn");
 const newGameScreen = document.getElementById("newGameScreen");
 const backFromNewGameBtn = document.getElementById("backFromNewGameBtn");
 const newGameCategory = document.getElementById("newGameCategory");
@@ -1758,6 +1759,14 @@ const relationStatsModes = [
         icon: "★",
         path: "coupleDareChallenges",
         color: "#a7dd6f"
+    },
+    {
+        key: "bestLie",
+        label: "Qui ment le mieux ?",
+        icon: "🎭",
+        path: "bestLieChallenges",
+        color: "#8f7de8",
+        compatibilityWeight: 0.5
     }
 ];
 
@@ -1768,6 +1777,7 @@ let wouldRatherQuestions = [];
 let threeYesNoSituations = [];
 let limitReachedScenarios = [];
 let coupleDares = [];
+let bestLiePrompts = [];
 let activeNewGameMode = null;
 let activeNewGameId = null;
 let isStartingNewGame = false;
@@ -1986,18 +1996,20 @@ async function loadRankingsData() {
 }
 
 async function loadNewGamesData() {
-    const [wouldRatherResponse, threeYesNoResponse, limitReachedResponse, daresResponse] = await Promise.all([
+    const [wouldRatherResponse, threeYesNoResponse, limitReachedResponse, daresResponse, bestLieResponse] = await Promise.all([
         fetch("data/would-you-rather.json"),
         fetch("data/three-yes-three-no.json"),
         fetch("data/limit-reached.json"),
-        fetch("data/couple-dares.json")
+        fetch("data/couple-dares.json"),
+        fetch("data/best-lie.json")
     ]);
 
-    [wouldRatherQuestions, threeYesNoSituations, limitReachedScenarios, coupleDares] = await Promise.all([
+    [wouldRatherQuestions, threeYesNoSituations, limitReachedScenarios, coupleDares, bestLiePrompts] = await Promise.all([
         wouldRatherResponse.json(),
         threeYesNoResponse.json(),
         limitReachedResponse.json(),
-        daresResponse.json()
+        daresResponse.json(),
+        bestLieResponse.json()
     ]);
 }
 
@@ -6665,6 +6677,13 @@ const GAMES_LIBRARY = {
         category: "Fun & complicité",
         image: "assets/cactus-couple-dare.webp",
         description: "Tirez un défi, acceptez-le ensemble puis marquez votre petite mission comme réalisée."
+    },
+    bestLie: {
+        title: "Qui ment le mieux ?",
+        category: "Fun & complicité",
+        duration: "6 min",
+        image: "assets/cactus-best-lie.webp",
+        description: "Inventez chacun trois excuses impossibles à vérifier, puis notez les mensonges de l’autre. Le meilleur mytho gagne la manche."
     }
 };
 
@@ -6698,7 +6717,8 @@ const CHALLENGE_CONTENT_ID_FIELDS = {
     wouldRatherChallenges: "prompt.id",
     threeYesNoChallenges: "pack.id",
     limitReachedChallenges: "scenario.id",
-    coupleDareChallenges: "dare.id"
+    coupleDareChallenges: "dare.id",
+    bestLieChallenges: "prompts.0.id"
 };
 
 function getNestedValue(object, path) {
@@ -7225,7 +7245,7 @@ function closeGameDetails() {
 }
 
 function updateRecommendedGame() {
-    const rotation = ["questions", "guess", "ranking", "wouldRather", "likely", "threeYesNo", "limitReached", "ok", "coupleDare", "greenFlag", "princess"];
+    const rotation = ["questions", "guess", "ranking", "bestLie", "wouldRather", "likely", "threeYesNo", "limitReached", "ok", "coupleDare", "greenFlag", "princess"];
     const totalGames = currentSpaceData
         ? buildRelationStatistics(currentSpaceData).totalGames
         : 0;
@@ -7287,7 +7307,8 @@ const DISCUSSION_GAME_LABELS = {
     wouldRather: "Tu préfères ?",
     threeYesNo: "3 oui / 3 non",
     limitReached: "Limite atteinte",
-    coupleDare: "Défis à deux"
+    coupleDare: "Défis à deux",
+    bestLie: "Qui ment le mieux ?"
 };
 
 function sanitizeDiscussionKey(value) {
@@ -7532,7 +7553,8 @@ const NEW_GAME_MODES = {
     wouldRather: { path: "wouldRatherChallenges", title: "Tu préfères ?", category: "Choix secret" },
     threeYesNo: { path: "threeYesNoChallenges", title: "3 oui / 3 non", category: "Tes limites" },
     limitReached: { path: "limitReachedChallenges", title: "Limite atteinte", category: "Jusqu'où ça passe ?" },
-    coupleDare: { path: "coupleDareChallenges", title: "Défis à deux", category: "Mission commune" }
+    coupleDare: { path: "coupleDareChallenges", title: "Défis à deux", category: "Mission commune" },
+    bestLie: { path: "bestLieChallenges", title: "Qui ment le mieux ?", category: "Duel de mythos" }
 };
 
 function shuffleNewGameItems(items) {
@@ -7579,6 +7601,16 @@ function isNewGameChallengeAvailableToCurrentUser(mode, challenge) {
         return !votes[uid] || accepted >= 2;
     }
 
+    if (mode === "bestLie") {
+        const myAnswers = challenge.answers?.[uid] || {};
+        if (countBestLieEntries(myAnswers) < 3) return true;
+        const completedAnswerUids = Object.entries(challenge.answers || {})
+            .filter(([, answers]) => countBestLieEntries(answers) >= 3)
+            .map(([answerUid]) => answerUid);
+        if (completedAnswerUids.length < 2) return false;
+        return countBestLieEntries(challenge.ratings?.[uid]) < 3;
+    }
+
     return true;
 }
 
@@ -7593,6 +7625,7 @@ function getNewGameSource(mode) {
     if (mode === "threeYesNo") return threeYesNoSituations;
     if (mode === "limitReached") return limitReachedScenarios;
     if (mode === "coupleDare") return coupleDares;
+    if (mode === "bestLie") return bestLiePrompts;
     return [];
 }
 
@@ -7614,6 +7647,19 @@ function buildNewGameChallenge(mode) {
             NEW_GAME_MODES[mode].path
         );
         return { ...common, scenario, results: {} };
+    }
+
+    if (mode === "bestLie") {
+        const remaining = [...source];
+        const prompts = [];
+        while (prompts.length < 3 && remaining.length) {
+            const selectedPrompt = selectFreshGameItem(remaining, mode, null, NEW_GAME_MODES[mode].path);
+            if (!selectedPrompt) break;
+            prompts.push(selectedPrompt);
+            const selectedIndex = remaining.findIndex((item) => String(item.id) === String(selectedPrompt.id));
+            if (selectedIndex >= 0) remaining.splice(selectedIndex, 1);
+        }
+        return { ...common, prompts, answers: {}, ratings: {} };
     }
 
     if (mode === "threeYesNo") {
@@ -7827,7 +7873,11 @@ function formatGameCategoryLabel(category, fallback = "Situation") {
         priorites: "Priorités", spontaneite: "Spontanéité", celebrite: "Célébrité",
         visibilite: "Visibilité", parentalite: "Parentalité", communaute: "Communauté",
         fierte: "Fierté", securite: "Sécurité", famille_choisie: "Famille choisie",
-        etiquettes: "Étiquettes", emotion: "Émotions"
+        etiquettes: "Étiquettes", emotion: "Émotions",
+        quotidien: "Quotidien", retards: "Retards & imprévus", couple: "Vie de couple",
+        famille: "Famille", amis_soirees: "Amis & soirées", travail_etudes: "Travail & études",
+        voyages: "Voyages", argent_achats: "Argent & achats", maison_catastrophes: "Catastrophes à la maison",
+        reseaux_telephone: "Réseaux & téléphone", absurde: "Complètement absurde", mission_impossible: "Mission impossible"
     };
     if (labels[category]) return labels[category];
     return String(category)
@@ -8263,6 +8313,324 @@ function abandonCurrentLimitReachedChallenge() {
     });
 }
 
+
+function countBestLieEntries(entries) {
+    return Object.keys(entries || {}).filter((key) => {
+        const index = Number(key);
+        return Number.isInteger(index) && index >= 0 && index < 3;
+    }).length;
+}
+
+function getBestLieRatingMeta(value) {
+    const ratings = {
+        incredible: { label: "🤯 Mensonge incroyable", shortLabel: "Incroyable", points: 3, compatibility: 100 },
+        good: { label: "😏 Pas mal du tout", shortLabel: "Pas mal", points: 2, compatibility: 75 },
+        meh: { label: "😐 Mouais…", shortLabel: "Mouais", points: 1, compatibility: 40 },
+        bad: { label: "💀 Grave nul", shortLabel: "Grave nul", points: 0, compatibility: 0 }
+    };
+    return ratings[value] || ratings.meh;
+}
+
+function getBestLiePartnerUid(challenge, uid = currentUser?.uid) {
+    return Object.keys(challenge?.answers || {}).find((answerUid) => answerUid !== uid) || null;
+}
+
+function calculateBestLieSummary(challenge) {
+    const scores = {};
+    const compatibilityScores = [];
+    Object.values(challenge?.ratings || {}).forEach((ratingSet) => {
+        Object.values(ratingSet || {}).forEach((rating) => {
+            if (!rating?.targetUid) return;
+            if (!scores[rating.targetUid]) scores[rating.targetUid] = { points: 0, believed: 0, ratings: 0 };
+            scores[rating.targetUid].points += Number(rating.points || 0);
+            scores[rating.targetUid].believed += rating.believed ? 1 : 0;
+            scores[rating.targetUid].ratings += 1;
+            if (Number.isFinite(Number(rating.compatibilityScore))) {
+                compatibilityScores.push(Math.max(0, Math.min(100, Number(rating.compatibilityScore))));
+            }
+        });
+    });
+    const compatibility = compatibilityScores.length
+        ? Math.round(compatibilityScores.reduce((sum, score) => sum + score, 0) / compatibilityScores.length)
+        : null;
+    return { scores, compatibility };
+}
+
+function renderBestLie(challenge) {
+    const prompts = Array.isArray(challenge.prompts) ? challenge.prompts.slice(0, 3) : [];
+    const answers = challenge.answers || {};
+    const ratings = challenge.ratings || {};
+    const myAnswers = answers[currentUser.uid] || {};
+    const myRatings = ratings[currentUser.uid] || {};
+    const myAnswerCount = countBestLieEntries(myAnswers);
+    const myRatingCount = countBestLieEntries(myRatings);
+    const completedAnswerUids = Object.entries(answers)
+        .filter(([, answerSet]) => countBestLieEntries(answerSet) >= 3)
+        .map(([uid]) => uid);
+    const partnerUid = getBestLiePartnerUid(challenge);
+    const players = getCouplePlayers(currentSpaceData || {});
+    const partnerName = players.partner?.pseudo || "Ton/ta partenaire";
+
+    if (prompts.length < 3) {
+        newGameStepBadge.textContent = "—";
+        newGameProgressBar.style.width = "0%";
+        newGamePromptKicker.textContent = "Qui ment le mieux ?";
+        newGamePrompt.textContent = "Cette partie est incomplète.";
+        setNewGameStatus("Impossible de continuer", "Relance une nouvelle partie pour obtenir trois situations valides.");
+        newGameAgainBtn.style.display = "block";
+        return;
+    }
+
+    if (challenge.status === "completed") {
+        const summary = calculateBestLieSummary(challenge);
+        const scoreEntries = Object.entries(summary.scores);
+        const sortedScores = [...scoreEntries].sort((a, b) => b[1].points - a[1].points);
+        const bestPoints = sortedScores[0]?.[1]?.points ?? 0;
+        const winners = sortedScores.filter(([, score]) => score.points === bestPoints).map(([uid]) => uid);
+        const winnerName = winners.length === 1
+            ? (winners[0] === currentUser.uid ? (players.me?.pseudo || "Toi") : (players.partner?.pseudo || "Partenaire"))
+            : null;
+
+        newGameStepBadge.textContent = "Terminé";
+        newGameProgressBar.style.width = "100%";
+        newGameInstruction.textContent = "Vos trois mensonges ont été jugés. Le palmarès est officiel.";
+        newGamePromptKicker.textContent = "Verdict final";
+        newGamePrompt.textContent = winnerName ? "🏆 Victoire de " + winnerName : "🤝 Égalité parfaite";
+        newGamePromptDetails.textContent = typeof summary.compatibility === "number"
+            ? "Complicité créative : " + summary.compatibility + "%"
+            : "Vous avez terminé votre duel de mythos.";
+
+        const scoreTitle = document.createElement("h3");
+        scoreTitle.textContent = "🎭 Palmarès du mytho";
+        const scoreList = document.createElement("div");
+        scoreList.className = "best-lie-score-list";
+        scoreEntries.forEach(([uid, score]) => {
+            const row = document.createElement("div");
+            const name = document.createElement("strong");
+            name.textContent = uid === currentUser.uid ? (players.me?.pseudo || "Toi") : (players.partner?.pseudo || "Partenaire");
+            const details = document.createElement("span");
+            details.textContent = score.points + " / 9 points · " + score.believed + " mensonge" + (score.believed > 1 ? "s" : "") + " crédible" + (score.believed > 1 ? "s" : "");
+            row.append(name, details);
+            scoreList.appendChild(row);
+        });
+
+        const rounds = document.createElement("div");
+        rounds.className = "best-lie-history-rounds";
+        prompts.forEach((prompt, index) => {
+            const round = document.createElement("article");
+            const heading = document.createElement("strong");
+            heading.textContent = "Manche " + (index + 1) + " · " + formatGameCategoryLabel(prompt.category, "Situation");
+            const situation = document.createElement("p");
+            situation.textContent = prompt.situation;
+            round.append(heading, situation);
+            Object.entries(answers).forEach(([uid, answerSet]) => {
+                const answer = answerSet?.[index];
+                if (!answer) return;
+                const line = document.createElement("span");
+                const receivedRating = Object.values(ratings).map((set) => set?.[index]).find((rating) => rating?.targetUid === uid);
+                const ratingLabel = receivedRating ? getBestLieRatingMeta(receivedRating.rating).shortLabel : "Non noté";
+                const believedLabel = receivedRating?.believed ? " · 🎯 J’y aurais cru" : "";
+                const name = uid === currentUser.uid ? (players.me?.pseudo || "Toi") : (players.partner?.pseudo || "Partenaire");
+                line.textContent = name + " : « " + answer.text + " » · " + ratingLabel + believedLabel;
+                round.appendChild(line);
+            });
+            rounds.appendChild(round);
+        });
+
+        newGameResult.append(scoreTitle, scoreList, rounds);
+        newGameResult.style.display = "block";
+        newGameAgainBtn.style.display = "block";
+        return;
+    }
+
+    if (myAnswerCount < 3) {
+        const nextIndex = [0, 1, 2].find((index) => !myAnswers[index]);
+        const prompt = prompts[nextIndex];
+        newGameStepBadge.textContent = "Mensonge " + (nextIndex + 1) + " / 3";
+        newGameProgressBar.style.width = Math.round((myAnswerCount / 6) * 100) + "%";
+        newGameInstruction.textContent = "Invente l’excuse la plus convaincante ou la plus brillante possible. Ta réponse reste secrète jusqu’au vote.";
+        newGamePromptKicker.textContent = formatGameCategoryLabel(prompt.category, "Situation") + " · Manche " + (nextIndex + 1);
+        newGamePrompt.textContent = prompt.situation;
+        newGamePromptDetails.textContent = "Tu peux être crédible, culotté(e), absurde… tant que ton mensonge a du style.";
+
+        const form = document.createElement("div");
+        form.className = "best-lie-answer-form";
+        const label = document.createElement("label");
+        label.setAttribute("for", "bestLieAnswerInput");
+        label.textContent = "Ton mensonge";
+        const textarea = document.createElement("textarea");
+        textarea.id = "bestLieAnswerInput";
+        textarea.maxLength = 500;
+        textarea.rows = 4;
+        textarea.placeholder = "Ex. On a dû aider une vieille dame à retrouver son perroquet…";
+        const counter = document.createElement("small");
+        counter.textContent = "0 / 500";
+        textarea.addEventListener("input", () => {
+            counter.textContent = textarea.value.length + " / 500";
+        });
+        const submit = document.createElement("button");
+        submit.type = "button";
+        submit.className = "best-lie-submit";
+        submit.textContent = "Enregistrer mon mensonge";
+        submit.addEventListener("click", () => {
+            const text = textarea.value.trim();
+            if (text.length < 3) {
+                showToast("Écris un vrai petit mensonge avant de valider 😏");
+                textarea.focus();
+                return;
+            }
+            submitBestLieAnswer(nextIndex, text, submit);
+        });
+        form.append(label, textarea, counter, submit);
+        newGameChoices.appendChild(form);
+        window.setTimeout(() => textarea.focus(), 50);
+        return;
+    }
+
+    if (completedAnswerUids.length < 2) {
+        newGameStepBadge.textContent = "3 / 3";
+        newGameProgressBar.style.width = "50%";
+        newGameInstruction.textContent = "Tes mensonges sont verrouillés. Ils seront révélés quand ton/ta partenaire aura terminé les siens.";
+        newGamePromptKicker.textContent = "Tes trois mensonges sont prêts";
+        newGamePrompt.textContent = "À " + partnerName + " de jouer 🎭";
+        newGamePromptDetails.textContent = "Tu peux lancer un autre duel en attendant, cette partie restera disponible pour l’autre personne.";
+        setNewGameStatus("En attente du deuxième mytho", "Dès que vous aurez tous les deux inventé vos trois excuses, la phase de vote s’ouvrira.");
+        newGameAgainBtn.textContent = "Nouveau duel";
+        newGameAgainBtn.style.display = "block";
+        return;
+    }
+
+    if (myRatingCount < 3 && partnerUid) {
+        const ratingIndex = [0, 1, 2].find((index) => !myRatings[index]);
+        const prompt = prompts[ratingIndex];
+        const partnerLie = answers[partnerUid]?.[ratingIndex]?.text || "Réponse introuvable";
+        newGameStepBadge.textContent = "Vote " + (ratingIndex + 1) + " / 3";
+        newGameProgressBar.style.width = Math.round(50 + (myRatingCount / 3) * 50) + "%";
+        newGameInstruction.textContent = "À toi de juger le mensonge de " + partnerName + ". Le vote compte aussi légèrement dans votre compatibilité de complicité.";
+        newGamePromptKicker.textContent = formatGameCategoryLabel(prompt.category, "Situation") + " · Mensonge de " + partnerName;
+        newGamePrompt.textContent = prompt.situation;
+        newGamePromptDetails.textContent = "« " + partnerLie + " »";
+
+        let selectedRating = null;
+        let believed = false;
+        const voteBox = document.createElement("div");
+        voteBox.className = "best-lie-vote-box";
+        ["incredible", "good", "meh", "bad"].forEach((ratingValue) => {
+            const meta = getBestLieRatingMeta(ratingValue);
+            const button = createNewGameChoice(meta.label, ratingValue, "best-lie-rating-choice");
+            button.addEventListener("click", () => {
+                selectedRating = ratingValue;
+                voteBox.querySelectorAll("[data-choice]").forEach((item) => item.classList.toggle("is-selected", item === button));
+                confirm.disabled = false;
+            });
+            voteBox.appendChild(button);
+        });
+
+        const believedButton = document.createElement("button");
+        believedButton.type = "button";
+        believedButton.className = "best-lie-believed-toggle";
+        believedButton.textContent = "🎯 J’y aurais cru";
+        believedButton.setAttribute("aria-pressed", "false");
+        believedButton.addEventListener("click", () => {
+            believed = !believed;
+            believedButton.classList.toggle("is-selected", believed);
+            believedButton.setAttribute("aria-pressed", believed ? "true" : "false");
+        });
+
+        const confirm = document.createElement("button");
+        confirm.type = "button";
+        confirm.className = "best-lie-submit";
+        confirm.textContent = "Valider mon vote";
+        confirm.disabled = true;
+        confirm.addEventListener("click", () => {
+            if (!selectedRating) return;
+            submitBestLieRating(ratingIndex, partnerUid, selectedRating, believed, confirm);
+        });
+        voteBox.append(believedButton, confirm);
+        newGameChoices.appendChild(voteBox);
+        return;
+    }
+
+    newGameStepBadge.textContent = "Votes envoyés";
+    newGameProgressBar.style.width = "94%";
+    newGameInstruction.textContent = "Tu as jugé les trois mensonges de l’autre. Le verdict final apparaîtra dès que tes propres mensonges auront été notés.";
+    newGamePromptKicker.textContent = "Votes enregistrés";
+    newGamePrompt.textContent = "Le jury adverse délibère encore… 👀";
+    newGamePromptDetails.textContent = "Tu peux lancer une autre partie pendant ce temps.";
+    setNewGameStatus("Presque terminé", partnerName + " doit encore finir ses votes.");
+    newGameAgainBtn.textContent = "Nouveau duel";
+    newGameAgainBtn.style.display = "block";
+}
+
+function submitBestLieAnswer(index, text, button) {
+    const challenge = getActiveNewGameChallenge();
+    if (!challenge || challenge.answers?.[currentUser.uid]?.[index]) return;
+    const challengeId = activeNewGameId;
+    const path = NEW_GAME_MODES.bestLie.path;
+    const existingCount = countBestLieEntries(challenge.answers?.[currentUser.uid]);
+    if (button) button.disabled = true;
+
+    database.ref("spaces/" + currentSpaceCode + "/" + path + "/" + challengeId + "/answers/" + currentUser.uid + "/" + index)
+        .set({ text: text.slice(0, 500), answeredAt: Date.now(), pseudo })
+        .then(() => existingCount >= 2 ? awardAnswerReward("bestLie", challengeId) : false)
+        .then(() => existingCount >= 2 ? clearNewGameLockIfMatches("bestLie", challengeId) : false)
+        .catch((error) => {
+            if (button) button.disabled = false;
+            showToast(getFriendlyFirebaseError(error));
+        });
+}
+
+function submitBestLieRating(index, targetUid, ratingValue, believed, button) {
+    const challenge = getActiveNewGameChallenge();
+    if (!challenge || challenge.ratings?.[currentUser.uid]?.[index]) return;
+    const meta = getBestLieRatingMeta(ratingValue);
+    const compatibilityScore = Math.min(100, meta.compatibility + (believed ? 10 : 0));
+    const challengeId = activeNewGameId;
+    const path = NEW_GAME_MODES.bestLie.path;
+    if (button) button.disabled = true;
+
+    database.ref("spaces/" + currentSpaceCode + "/" + path + "/" + challengeId + "/ratings/" + currentUser.uid + "/" + index)
+        .set({
+            targetUid,
+            rating: ratingValue,
+            points: meta.points,
+            believed: Boolean(believed),
+            compatibilityScore,
+            ratedAt: Date.now(),
+            pseudo
+        })
+        .then(() => finalizeBestLieIfReady(challengeId))
+        .catch((error) => {
+            if (button) button.disabled = false;
+            showToast(getFriendlyFirebaseError(error));
+        });
+}
+
+function finalizeBestLieIfReady(challengeId = activeNewGameId) {
+    if (!challengeId) return Promise.resolve(false);
+    const path = NEW_GAME_MODES.bestLie.path;
+    const reference = database.ref("spaces/" + currentSpaceCode + "/" + path + "/" + challengeId);
+    return reference.transaction((challenge) => {
+        if (!challenge || challenge.status === "completed") return;
+        const completeAnswers = Object.values(challenge.answers || {}).filter((answerSet) => countBestLieEntries(answerSet) >= 3);
+        const completeRatings = Object.values(challenge.ratings || {}).filter((ratingSet) => countBestLieEntries(ratingSet) >= 3);
+        if (completeAnswers.length < 2 || completeRatings.length < 2) return;
+
+        const summary = calculateBestLieSummary(challenge);
+        challenge.status = "completed";
+        challenge.completedAt = Date.now();
+        challenge.compatibility = summary.compatibility;
+        challenge.bestLieScores = summary.scores;
+        return challenge;
+    }).then((result) => {
+        if (!result.committed) return false;
+        return Promise.all([
+            awardCompletedGameBonus("bestLie", challengeId),
+            clearNewGameLockIfMatches("bestLie", challengeId)
+        ]).then(() => true);
+    });
+}
+
 function renderCoupleDare(challenge) {
     const dare = challenge.dare;
     const votes = challenge.votes || {};
@@ -8410,12 +8778,14 @@ function renderNewGame(spaceData = currentSpaceData) {
     if (activeNewGameMode === "threeYesNo") renderThreeYesNo(challenge);
     if (activeNewGameMode === "limitReached") renderLimitReached(challenge);
     if (activeNewGameMode === "coupleDare") renderCoupleDare(challenge);
+    if (activeNewGameMode === "bestLie") renderBestLie(challenge);
 }
 
 wouldRatherBtn.addEventListener("click", () => startNewGame("wouldRather"));
 threeYesNoBtn.addEventListener("click", () => startNewGame("threeYesNo"));
 limitReachedBtn.addEventListener("click", () => startNewGame("limitReached"));
 coupleDareBtn.addEventListener("click", () => startNewGame("coupleDare"));
+bestLieBtn.addEventListener("click", () => startNewGame("bestLie"));
 backFromNewGameBtn.addEventListener("click", () => showScreen("allGames"));
 newGameAgainBtn.addEventListener("click", () => startNewGame(activeNewGameMode));
 newGameDoneBtn.addEventListener("click", completeCoupleDare);
@@ -9676,6 +10046,14 @@ async function callPushWorker(endpoint, payload = {}) {
 }
 
 function getCompletedPushResponderUids(modeKey, challenge = {}) {
+    if (modeKey === "bestLie") {
+        return new Set(
+            Object.entries(challenge.answers || {})
+                .filter(([, answers]) => countBestLieEntries(answers) >= 3)
+                .map(([uid]) => uid)
+        );
+    }
+
     if (modeKey === "limitReached") {
         return new Set(Object.keys(challenge.results || {}));
     }
@@ -11068,7 +11446,7 @@ function buildUnifiedTimeline(spaceData) {
                 type: "game",
                 icon: mode.icon,
                 title: mode.label + " terminé",
-                text: challenge.question || challenge.title || challenge.prompt?.question || challenge.scenario?.title || challenge.dare?.title || "Une partie ajoutée à votre histoire.",
+                text: challenge.question || challenge.title || challenge.prompt?.question || challenge.scenario?.title || challenge.dare?.title || challenge.prompts?.[0]?.situation || "Une partie ajoutée à votre histoire.",
                 timestamp: challenge.completedAt || challenge.createdAt || 0,
                 mode: mode.key,
                 challengeId,
@@ -12582,7 +12960,8 @@ function getGameInboxActivities() {
             wouldRather: ["↔", "Tu préfères ?", open[1].answers?.[currentUser.uid] ? "En attente de l’autre" : "Ton choix est attendu"],
             threeYesNo: ["3/3", "3 oui / 3 non", countThreeYesNoAnswers(open[1].answers?.[currentUser.uid]).total >= 6 ? "En attente de l’autre" : "Continue tes six choix"],
             limitReached: ["⛔", "Limite atteinte", open[1].results?.[currentUser.uid] ? "En attente de l’autre" : "Trouve jusqu’où ça passe"],
-            coupleDare: ["★", "Défis à deux", open[1].votes?.[currentUser.uid] ? "Mission en cours" : "Un défi vous attend"]
+            coupleDare: ["★", "Défis à deux", open[1].votes?.[currentUser.uid] ? "Mission en cours" : "Un défi vous attend"],
+            bestLie: ["🎭", "Qui ment le mieux ?", countBestLieEntries(open[1].answers?.[currentUser.uid]) < 3 ? "Invente tes trois mensonges" : (countBestLieEntries(open[1].ratings?.[currentUser.uid]) < 3 && Object.values(open[1].answers || {}).filter((set) => countBestLieEntries(set) >= 3).length >= 2 ? "À toi de noter les mensonges" : "En attente de l’autre")]
         };
         const [icon, label, state] = labels[mode];
         add([open], icon, label, state, () => {
@@ -12759,7 +13138,8 @@ function installSecondaryCactusIcons() {
         ['[data-history-mode="wouldRather"]', "cactusIconGame"],
         ['[data-history-mode="threeYesNo"]', "cactusIconGame"],
         ['[data-history-mode="limitReached"]', "cactusIconShield"],
-        ['[data-history-mode="coupleDare"]', "cactusIconStar"]
+        ['[data-history-mode="coupleDare"]', "cactusIconStar"],
+        ['[data-history-mode="bestLie"]', "cactusIconGame"]
     ];
 
     decorateTargets.forEach(([selector, symbolId]) => {
@@ -12801,7 +13181,8 @@ function getLatestCompletedActivity() {
         { key: "wouldRatherChallenges", mode: "wouldRather", icon: "↔", label: "Tu préfères ?" },
         { key: "threeYesNoChallenges", mode: "threeYesNo", icon: "3/3", label: "3 oui / 3 non" },
         { key: "limitReachedChallenges", mode: "limitReached", icon: "⛔", label: "Limite atteinte" },
-        { key: "coupleDareChallenges", mode: "coupleDare", icon: "★", label: "un défi à deux" }
+        { key: "coupleDareChallenges", mode: "coupleDare", icon: "★", label: "un défi à deux" },
+        { key: "bestLieChallenges", mode: "bestLie", icon: "🎭", label: "Qui ment le mieux ?" }
     ];
 
     let latest = null;
@@ -14463,6 +14844,10 @@ function openHistoryMode(mode, focusedChallengeId = null, options = {}) {
         coupleDare: {
             title: "★ Défis à deux",
             path: "coupleDareChallenges"
+        },
+        bestLie: {
+            title: "🎭 Qui ment le mieux ?",
+            path: "bestLieChallenges"
         }
     };
 
@@ -14556,6 +14941,7 @@ function getHistoryItemTitle(mode, item) {
     if (mode === "threeYesNo") return "Votre partie 3 oui / 3 non";
     if (mode === "limitReached") return item.scenario?.title || "Limite atteinte";
     if (mode === "coupleDare") return item.dare?.title || "Défi à deux";
+    if (mode === "bestLie") return "Votre duel de mythos";
     return item.title || item.question || "Souvenir";
 }
 
@@ -14623,6 +15009,14 @@ function createHistoryCard(mode, item) {
         return card;
     }
 
+    if (mode === "bestLie") {
+        const score = document.createElement("span");
+        score.className = "history-score";
+        score.textContent = (item.compatibility ?? 0) + "% de complicité créative";
+        card.appendChild(score);
+        return card;
+    }
+
     if (item.answers) {
         Object.entries(item.answers).forEach(([uid, answer]) => {
             const p = document.createElement("p");
@@ -14650,7 +15044,7 @@ function openHistoryItem(index) {
 
     if (currentHistoryMode === "ranking") {
         renderRankingHistoryItem(item);
-    } else if (["wouldRather", "threeYesNo", "limitReached", "coupleDare"].includes(currentHistoryMode)) {
+    } else if (["wouldRather", "threeYesNo", "limitReached", "coupleDare", "bestLie"].includes(currentHistoryMode)) {
         renderNewGameHistoryItem(currentHistoryMode, item);
     } else {
         renderSimpleHistoryItem(item);
@@ -14827,6 +15221,35 @@ function renderNewGameHistoryItem(mode, item) {
 
     if (mode === "coupleDare") {
         appendHistoryComparison(item.dare?.category || "Défi", item.dare?.description || "Défi réalisé ensemble.");
+        return;
+    }
+
+    if (mode === "bestLie") {
+        const prompts = Array.isArray(item.prompts) ? item.prompts : [];
+        const answers = item.answers || {};
+        const ratings = item.ratings || {};
+        const summary = calculateBestLieSummary(item);
+        const summaryBox = document.createElement("div");
+        summaryBox.className = "compatibility-score-box";
+        const summaryStrong = document.createElement("strong");
+        summaryStrong.textContent = (summary.compatibility ?? item.compatibility ?? 0) + "%";
+        const summaryCopy = document.createElement("p");
+        summaryCopy.textContent = "Complicité créative";
+        summaryBox.append(summaryStrong, summaryCopy);
+        historyItemContent.appendChild(summaryBox);
+
+        prompts.forEach((prompt, index) => {
+            const lines = [];
+            Object.entries(answers).forEach(([uid, answerSet]) => {
+                const answer = answerSet?.[index];
+                if (!answer) return;
+                const receivedRating = Object.values(ratings).map((set) => set?.[index]).find((rating) => rating?.targetUid === uid);
+                const label = receivedRating ? getBestLieRatingMeta(receivedRating.rating).shortLabel : "Non noté";
+                const believed = receivedRating?.believed ? " · 🎯 J’y aurais cru" : "";
+                lines.push(getName(uid) + " : « " + answer.text + " » · " + label + believed);
+            });
+            appendHistoryComparison("Manche " + (index + 1) + " · " + (prompt.situation || "Situation"), lines.join("\n"));
+        });
     }
 }
 
@@ -15024,6 +15447,16 @@ function openRelationStats() {
 }
 
 function getChallengeResponseRecords(modeKey, item) {
+    if (modeKey === "bestLie") {
+        return Object.entries(item.answers || {}).flatMap(([uid, answers]) => {
+            return Object.values(answers || {}).map((answer) => ({
+                uid,
+                pseudo: answer.pseudo,
+                createdAt: answer.answeredAt || answer.createdAt || 0
+            }));
+        });
+    }
+
     if (modeKey === "limitReached") {
         return Object.entries(item.results || {}).map(([uid, result]) => ({
             uid,
@@ -15090,10 +15523,15 @@ function buildRelationStatistics(spaceData) {
     }, 0);
 
     const allScores = modeResults.flatMap((mode) => mode.scores);
-    const averageCompatibility = allScores.length > 0
+    const weightedScores = modeResults.flatMap((mode) => {
+        const weight = Number(mode.compatibilityWeight || 1);
+        return mode.scores.map((score) => ({ score, weight }));
+    });
+    const totalCompatibilityWeight = weightedScores.reduce((total, item) => total + item.weight, 0);
+    const averageCompatibility = totalCompatibilityWeight > 0
         ? Math.round(
-            allScores.reduce((total, score) => total + score, 0) /
-            allScores.length
+            weightedScores.reduce((total, item) => total + item.score * item.weight, 0) /
+            totalCompatibilityWeight
         )
         : null;
 

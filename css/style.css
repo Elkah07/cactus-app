@@ -8174,6 +8174,29 @@ body.edit-notebook-open { overflow: hidden; }
 .new-game-status p, .new-game-result > p { margin: 6px 0 0; color: var(--app-muted); font-size: 0.72rem; line-height: 1.45; }
 .new-game-answer-pair { display: grid; gap: 8px; margin-top: 13px; }
 .new-game-answer-pair span { padding: 10px; border-radius: 13px; background: var(--app-input-bg, #ffffff); color: var(--app-heading); font-size: 0.68rem; font-weight: 800; }
+
+
+.best-lie-answer-form,
+.best-lie-vote-box { grid-column: 1 / -1; display: grid; gap: 10px; }
+.best-lie-answer-form label { color: var(--app-heading); font-size: 0.72rem; font-weight: 900; }
+.best-lie-answer-form textarea { width: 100%; min-height: 128px; resize: vertical; box-sizing: border-box; padding: 14px 15px; border: 1px solid var(--app-border); border-radius: 18px; background: var(--app-input-bg, #fff); color: var(--app-heading); font: inherit; font-size: 0.82rem; line-height: 1.45; outline: none; }
+.best-lie-answer-form textarea:focus { border-color: var(--app-accent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--app-accent) 18%, transparent); }
+.best-lie-answer-form small { justify-self: end; color: var(--app-muted); font-size: 0.62rem; font-weight: 800; }
+.best-lie-submit { min-height: 52px; margin: 0; padding: 13px 16px; border-radius: 16px; background: linear-gradient(135deg, var(--app-accent), #8f7de8); color: #fff; font-weight: 900; }
+.best-lie-submit:disabled { opacity: .45; filter: grayscale(.35); }
+.best-lie-vote-box .new-game-choice { min-height: 62px; }
+.best-lie-rating-choice.is-selected { outline: 3px solid color-mix(in srgb, var(--app-accent) 58%, white); box-shadow: 0 0 0 5px color-mix(in srgb, var(--app-accent) 16%, transparent); }
+.best-lie-believed-toggle { min-height: 50px; margin: 2px 0 0; border: 1px dashed var(--app-border); border-radius: 16px; background: var(--app-input-bg, rgba(255,255,255,.82)); color: var(--app-heading); font-weight: 900; }
+.best-lie-believed-toggle.is-selected { border-style: solid; background: color-mix(in srgb, var(--app-accent) 18%, var(--app-input-bg, #fff)); color: var(--app-heading); }
+.best-lie-score-list { display: grid; gap: 8px; margin-top: 12px; }
+.best-lie-score-list > div { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 11px 12px; border-radius: 14px; background: var(--app-input-bg, #fff); }
+.best-lie-score-list strong { color: var(--app-heading); font-size: .74rem; }
+.best-lie-score-list span { color: var(--app-muted); font-size: .65rem; font-weight: 800; text-align: right; }
+.best-lie-history-rounds { display: grid; gap: 10px; margin-top: 14px; }
+.best-lie-history-rounds article { display: grid; gap: 7px; padding: 12px; border: 1px solid var(--app-border); border-radius: 15px; background: var(--app-input-bg, #fff); }
+.best-lie-history-rounds article > strong { color: var(--app-heading); font-size: .7rem; }
+.best-lie-history-rounds article > p { margin: 0; color: var(--app-muted); font-size: .66rem; line-height: 1.4; }
+.best-lie-history-rounds article > span { color: var(--app-heading); font-size: .65rem; font-weight: 750; line-height: 1.45; }
 .three-yes-no-results { display: grid; max-height: 330px; gap: 8px; margin-top: 13px; overflow-y: auto; }
 .three-yes-no-results article { padding: 11px; border-radius: 13px; background: var(--app-input-bg, #ffffff); }
 .three-yes-no-results strong, .three-yes-no-results small { display: block; }

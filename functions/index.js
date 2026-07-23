@@ -23,10 +23,16 @@ const MODE_CONFIGS = [
   ["wouldRather", "wouldRatherChallenges", "Tu préfères ?"],
   ["threeYesNo", "threeYesNoChallenges", "3 oui / 3 non"],
   ["limitReached", "limitReachedChallenges", "Limite atteinte"],
-  ["coupleDare", "coupleDareChallenges", "Défis à deux"]
+  ["coupleDare", "coupleDareChallenges", "Défis à deux"],
+  ["bestLie", "bestLieChallenges", "Qui ment le mieux ?"]
 ];
 
 function completedResponderUids(mode, challenge = {}) {
+  if (mode === "bestLie") {
+    return new Set(Object.entries(challenge.answers || {})
+      .filter(([, answers]) => Object.keys(answers || {}).length >= 3)
+      .map(([uid]) => uid));
+  }
   if (mode === "limitReached") return new Set(Object.keys(challenge.results || {}));
   if (mode === "coupleDare") return new Set(Object.keys(challenge.votes || {}));
   if (mode === "threeYesNo") {

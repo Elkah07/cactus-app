@@ -1,0 +1,1202 @@
+[
+  {
+    "id": "mensonge_quotidien_01",
+    "category": "quotidien",
+    "situation": "Vous avez cassé quelque chose chez vous et personne ne doit savoir que c’est vous. Quelle histoire inventez-vous ?"
+  },
+  {
+    "id": "mensonge_quotidien_02",
+    "category": "quotidien",
+    "situation": "Vous avez complètement oublié de faire une tâche que vous aviez juré de faire. Quelle excuse sortez-vous ?"
+  },
+  {
+    "id": "mensonge_quotidien_03",
+    "category": "quotidien",
+    "situation": "Vous avez mangé le dernier truc que l’autre gardait précieusement au frigo. Comment niez-vous l’évidence ?"
+  },
+  {
+    "id": "mensonge_quotidien_04",
+    "category": "quotidien",
+    "situation": "Vous avez renversé quelque chose d’impossible à nettoyer sur le canapé. Quelle version des faits racontez-vous ?"
+  },
+  {
+    "id": "mensonge_quotidien_05",
+    "category": "quotidien",
+    "situation": "Vous avez oublié d’acheter l’unique chose pour laquelle on vous avait envoyé faire les courses. Quelle excuse donnez-vous ?"
+  },
+  {
+    "id": "mensonge_quotidien_06",
+    "category": "quotidien",
+    "situation": "Vous avez passé la journée à ne rien faire alors que vous aviez annoncé un programme ultra productif. Comment sauvez-vous votre réputation ?"
+  },
+  {
+    "id": "mensonge_quotidien_07",
+    "category": "quotidien",
+    "situation": "Vous avez perdu un objet que l’autre vous avait confié. Quelle histoire inventez-vous pour gagner du temps ?"
+  },
+  {
+    "id": "mensonge_quotidien_08",
+    "category": "quotidien",
+    "situation": "Vous avez utilisé tout le papier toilette sans remettre de rouleau. Comment prouvez-vous que vous n’y êtes pour rien ?"
+  },
+  {
+    "id": "mensonge_quotidien_09",
+    "category": "quotidien",
+    "situation": "Vous avez oublié d’arroser une plante importante et elle fait franchement la tête. Quelle explication donnez-vous ?"
+  },
+  {
+    "id": "mensonge_quotidien_10",
+    "category": "quotidien",
+    "situation": "Vous avez fait tomber le téléphone de l’autre sans le casser, mais elle vous a vue paniquer. Quelle excuse improvisez-vous ?"
+  },
+  {
+    "id": "mensonge_quotidien_11",
+    "category": "quotidien",
+    "situation": "Vous avez laissé une montagne de vaisselle alors que vous aviez promis de tout ranger. Quel mensonge tentez-vous ?"
+  },
+  {
+    "id": "mensonge_quotidien_12",
+    "category": "quotidien",
+    "situation": "Vous avez commandé à manger alors qu’un repas vous attendait déjà. Comment justifiez-vous ce choix ?"
+  },
+  {
+    "id": "mensonge_quotidien_13",
+    "category": "quotidien",
+    "situation": "Vous avez accidentellement jeté quelque chose que l’autre voulait garder. Quelle version des faits présentez-vous ?"
+  },
+  {
+    "id": "mensonge_quotidien_14",
+    "category": "quotidien",
+    "situation": "Vous avez pris la meilleure place du canapé et refusez de bouger. Quelle règle imaginaire inventez-vous pour la garder ?"
+  },
+  {
+    "id": "mensonge_quotidien_15",
+    "category": "quotidien",
+    "situation": "Vous avez oublié où vous avez garé la voiture. Quelle explication donnez-vous pour éviter d’avouer que vous n’en avez aucune idée ?"
+  },
+  {
+    "id": "mensonge_quotidien_16",
+    "category": "quotidien",
+    "situation": "Vous avez mis le linge de couleur avec le blanc et le résultat est douteux. Comment expliquez-vous ce mystère textile ?"
+  },
+  {
+    "id": "mensonge_quotidien_17",
+    "category": "quotidien",
+    "situation": "Vous avez fini une série sans attendre l’autre. Quelle excuse inventez-vous pour expliquer l’épisode en trop ?"
+  },
+  {
+    "id": "mensonge_quotidien_18",
+    "category": "quotidien",
+    "situation": "Vous avez désactivé une alarme et tout le monde s’est réveillé en retard. Comment tentez-vous de vous innocenter ?"
+  },
+  {
+    "id": "mensonge_quotidien_19",
+    "category": "quotidien",
+    "situation": "Vous avez oublié de sortir quelque chose du congélateur pour le dîner. Quelle histoire racontez-vous pour faire croire que c’était volontaire ?"
+  },
+  {
+    "id": "mensonge_quotidien_20",
+    "category": "quotidien",
+    "situation": "Vous avez abîmé un vêtement emprunté. Quelle explication donnez-vous avant qu’on remarque les dégâts ?"
+  },
+  {
+    "id": "mensonge_retards_01",
+    "category": "retards",
+    "situation": "Vous arrivez deux heures en retard à un dîner important. Quelle excuse inventez-vous ?"
+  },
+  {
+    "id": "mensonge_retards_02",
+    "category": "retards",
+    "situation": "Vous avez raté votre train alors que vous étiez à la gare depuis longtemps. Quelle histoire racontez-vous ?"
+  },
+  {
+    "id": "mensonge_retards_03",
+    "category": "retards",
+    "situation": "Vous êtes en retard à un mariage et tout le monde vous attend. Quelle excuse peut encore vous sauver ?"
+  },
+  {
+    "id": "mensonge_retards_04",
+    "category": "retards",
+    "situation": "Vous avez complètement oublié un rendez-vous et on vous appelle en demandant où vous êtes. Que répondez-vous ?"
+  },
+  {
+    "id": "mensonge_retards_05",
+    "category": "retards",
+    "situation": "Vous arrivez au travail avec une heure de retard mais parfaitement coiffée et avec un café à la main. Quelle excuse osez-vous donner ?"
+  },
+  {
+    "id": "mensonge_retards_06",
+    "category": "retards",
+    "situation": "Vous avez promis d’être là dans dix minutes alors que vous n’êtes même pas encore habillées. Quel mensonge envoyez-vous par message ?"
+  },
+  {
+    "id": "mensonge_retards_07",
+    "category": "retards",
+    "situation": "Vous avez loupé le début d’un événement que vous aviez organisé vous-mêmes. Quelle explication donnez-vous aux invités ?"
+  },
+  {
+    "id": "mensonge_retards_08",
+    "category": "retards",
+    "situation": "Vous êtes parties beaucoup trop tard pour l’aéroport. Quelle raison inventez-vous pour expliquer votre arrivée en catastrophe ?"
+  },
+  {
+    "id": "mensonge_retards_09",
+    "category": "retards",
+    "situation": "Vous rentrez à la maison bien plus tard que prévu sans avoir prévenu. Quelle excuse sortez-vous ?"
+  },
+  {
+    "id": "mensonge_retards_10",
+    "category": "retards",
+    "situation": "Vous avez oublié l’heure d’un rendez-vous chez quelqu’un qui déteste les retardataires. Quelle histoire improvisez-vous ?"
+  },
+  {
+    "id": "mensonge_retards_11",
+    "category": "retards",
+    "situation": "Vous avez mis trois heures pour faire un trajet de vingt minutes. Quelle aventure fictive racontez-vous ?"
+  },
+  {
+    "id": "mensonge_retards_12",
+    "category": "retards",
+    "situation": "Vous avez dit « j’arrive » il y a quarante-cinq minutes. Quelle nouvelle excuse inventez-vous maintenant ?"
+  },
+  {
+    "id": "mensonge_retards_13",
+    "category": "retards",
+    "situation": "Vous manquez le dernier bus parce que vous étiez occupées à faire autre chose. Comment transformez-vous ça en événement imprévisible ?"
+  },
+  {
+    "id": "mensonge_retards_14",
+    "category": "retards",
+    "situation": "Vous arrivez après tout le monde à une fête surprise que vous étiez censées aider à préparer. Quelle excuse donnez-vous ?"
+  },
+  {
+    "id": "mensonge_retards_15",
+    "category": "retards",
+    "situation": "Vous avez oublié de mettre un réveil avant un départ très matinal. Quelle explication inventez-vous pour ce réveil catastrophique ?"
+  },
+  {
+    "id": "mensonge_retards_16",
+    "category": "retards",
+    "situation": "Vous êtes les dernières à rejoindre un appel vidéo prévu depuis une semaine. Quelle excuse collective improvisez-vous ?"
+  },
+  {
+    "id": "mensonge_retards_17",
+    "category": "retards",
+    "situation": "Vous avez fait attendre quelqu’un dehors sous la pluie pendant vingt minutes. Quelle histoire racontez-vous pour obtenir son pardon ?"
+  },
+  {
+    "id": "mensonge_retards_18",
+    "category": "retards",
+    "situation": "Vous arrivez en retard à votre propre réservation au restaurant. Quelle raison donnez-vous au personnel ?"
+  },
+  {
+    "id": "mensonge_retards_19",
+    "category": "retards",
+    "situation": "Vous avez confondu le jour d’un événement pourtant inscrit dans votre calendrier. Comment essayez-vous de faire croire que ce n’est pas votre faute ?"
+  },
+  {
+    "id": "mensonge_retards_20",
+    "category": "retards",
+    "situation": "Vous revenez d’une simple course de dix minutes après plus de deux heures. Quelle aventure inventez-vous ?"
+  },
+  {
+    "id": "mensonge_couple_01",
+    "category": "couple",
+    "situation": "Vous avez oublié votre anniversaire de rencontre. Quelle excuse tentez-vous pour faire croire que c’était un test ?"
+  },
+  {
+    "id": "mensonge_couple_02",
+    "category": "couple",
+    "situation": "Vous avez appelé votre partenaire par un mauvais prénom en racontant une histoire. Comment vous sortez-vous de là ?"
+  },
+  {
+    "id": "mensonge_couple_03",
+    "category": "couple",
+    "situation": "Vous avez regardé le cadeau que l’autre vous préparait avant le jour prévu. Quelle excuse inventez-vous si elle vous surprend ?"
+  },
+  {
+    "id": "mensonge_couple_04",
+    "category": "couple",
+    "situation": "Vous avez promis une surprise romantique mais vous n’avez absolument rien préparé. Quelle histoire racontez-vous ?"
+  },
+  {
+    "id": "mensonge_couple_05",
+    "category": "couple",
+    "situation": "Vous avez oublié une date importante que votre partenaire, elle, connaît par cœur. Comment tentez-vous de sauver la situation ?"
+  },
+  {
+    "id": "mensonge_couple_06",
+    "category": "couple",
+    "situation": "Vous avez accidentellement supprimé une photo de couple que l’autre adorait. Quelle explication donnez-vous ?"
+  },
+  {
+    "id": "mensonge_couple_07",
+    "category": "couple",
+    "situation": "Vous avez acheté exactement le cadeau que votre partenaire venait de dire qu’elle ne voulait surtout pas. Comment prétendez-vous que c’est génial ?"
+  },
+  {
+    "id": "mensonge_couple_08",
+    "category": "couple",
+    "situation": "Vous avez raconté à un proche une anecdote de couple censée rester privée. Quelle excuse donnez-vous quand votre partenaire l’apprend ?"
+  },
+  {
+    "id": "mensonge_couple_09",
+    "category": "couple",
+    "situation": "Vous avez dit que vous adoriez un film uniquement parce que votre partenaire l’aime, puis elle découvre la vérité. Quelle défense inventez-vous ?"
+  },
+  {
+    "id": "mensonge_couple_10",
+    "category": "couple",
+    "situation": "Vous avez oublié un surnom affectueux important en plein message romantique. Comment expliquez-vous cette panne de mémoire ?"
+  },
+  {
+    "id": "mensonge_couple_11",
+    "category": "couple",
+    "situation": "Vous avez organisé un rendez-vous surprise le seul jour où votre partenaire avait déjà quelque chose de prévu. Comment transformez-vous l’erreur en intention romantique ?"
+  },
+  {
+    "id": "mensonge_couple_12",
+    "category": "couple",
+    "situation": "Vous avez fini les chocolats que votre partenaire gardait pour une occasion spéciale. Quelle histoire inventez-vous ?"
+  },
+  {
+    "id": "mensonge_couple_13",
+    "category": "couple",
+    "situation": "Vous avez oublié de répondre à un très long message d’amour pendant toute une journée. Quelle excuse donnez-vous ?"
+  },
+  {
+    "id": "mensonge_couple_14",
+    "category": "couple",
+    "situation": "Vous avez offert quelque chose que votre partenaire vous avait elle-même offert l’année précédente. Comment faites-vous passer ça pour un symbole ?"
+  },
+  {
+    "id": "mensonge_couple_15",
+    "category": "couple",
+    "situation": "Vous avez accidentellement envoyé à votre partenaire un message qui parlait d’elle. Quelle explication inventez-vous avant qu’elle lise tout ?"
+  },
+  {
+    "id": "mensonge_couple_16",
+    "category": "couple",
+    "situation": "Vous avez réservé une activité que votre partenaire déteste alors que vous étiez persuadée qu’elle adorait ça. Comment assumez-vous sans avouer votre erreur ?"
+  },
+  {
+    "id": "mensonge_couple_17",
+    "category": "couple",
+    "situation": "Vous avez perdu un petit objet sentimental lié à votre couple. Quelle histoire racontez-vous pour gagner le temps de le retrouver ?"
+  },
+  {
+    "id": "mensonge_couple_18",
+    "category": "couple",
+    "situation": "Vous avez pris une décision de couple sans demander l’avis de l’autre. Quelle excuse donnez-vous pour expliquer cette soudaine prise d’initiative ?"
+  },
+  {
+    "id": "mensonge_couple_19",
+    "category": "couple",
+    "situation": "Vous avez oublié une promesse faite lors d’une conversation très sérieuse. Comment tentez-vous de prouver que vous aviez une bonne raison ?"
+  },
+  {
+    "id": "mensonge_couple_20",
+    "category": "couple",
+    "situation": "Vous avez utilisé une anecdote de votre couple pour gagner un débat avec vos amis. Quelle excuse inventez-vous quand votre partenaire le découvre ?"
+  },
+  {
+    "id": "mensonge_famille_01",
+    "category": "famille",
+    "situation": "Vous avez oublié le prénom d’un membre de la famille de votre partenaire au pire moment possible. Quelle excuse inventez-vous ?"
+  },
+  {
+    "id": "mensonge_famille_02",
+    "category": "famille",
+    "situation": "Vous cassez un objet chez vos beaux-parents juste avant qu’ils rentrent dans la pièce. Quelle histoire racontez-vous ?"
+  },
+  {
+    "id": "mensonge_famille_03",
+    "category": "famille",
+    "situation": "Vous avez mangé le dessert que quelqu’un de la famille avait préparé pour le lendemain. Comment vous innocentez-vous ?"
+  },
+  {
+    "id": "mensonge_famille_04",
+    "category": "famille",
+    "situation": "Vous avez oublié un anniversaire familial malgré trois rappels. Quelle excuse donnez-vous ?"
+  },
+  {
+    "id": "mensonge_famille_05",
+    "category": "famille",
+    "situation": "Vous devez expliquer pourquoi vous n’avez pas répondu au groupe familial pendant deux semaines. Quel mensonge inventez-vous ?"
+  },
+  {
+    "id": "mensonge_famille_06",
+    "category": "famille",
+    "situation": "Vous avez confondu deux histoires de famille et tout le monde vient de s’en rendre compte. Comment vous en sortez-vous ?"
+  },
+  {
+    "id": "mensonge_famille_07",
+    "category": "famille",
+    "situation": "Vous avez accidentellement révélé une surprise familiale censée rester secrète. Quelle version des faits présentez-vous ?"
+  },
+  {
+    "id": "mensonge_famille_08",
+    "category": "famille",
+    "situation": "Vous avez évité un repas de famille et quelqu’un vous demande franchement pourquoi. Quelle excuse sortez-vous ?"
+  },
+  {
+    "id": "mensonge_famille_09",
+    "category": "famille",
+    "situation": "Vous arrivez chez la famille de votre partenaire avec le mauvais cadeau. Comment prétendez-vous que c’était totalement volontaire ?"
+  },
+  {
+    "id": "mensonge_famille_10",
+    "category": "famille",
+    "situation": "Vous avez critiqué un plat familial avant de comprendre qui l’avait cuisiné. Quelle défense improvisez-vous ?"
+  },
+  {
+    "id": "mensonge_famille_11",
+    "category": "famille",
+    "situation": "Vous avez oublié de ramener quelque chose qu’on vous avait confié depuis des mois. Quelle excuse inventez-vous ?"
+  },
+  {
+    "id": "mensonge_famille_12",
+    "category": "famille",
+    "situation": "Vous devez expliquer pourquoi vous avez quitté discrètement un repas de famille sans dire au revoir. Quelle histoire racontez-vous ?"
+  },
+  {
+    "id": "mensonge_famille_13",
+    "category": "famille",
+    "situation": "Vous avez envoyé un message moqueur sur une réunion de famille… dans le mauvais groupe. Quelle explication donnez-vous ?"
+  },
+  {
+    "id": "mensonge_famille_14",
+    "category": "famille",
+    "situation": "Vous avez cassé une tradition familiale sans même savoir qu’elle existait. Comment faites-vous croire que c’était un hommage moderne ?"
+  },
+  {
+    "id": "mensonge_famille_15",
+    "category": "famille",
+    "situation": "Vous avez oublié d’inviter une personne importante à un événement familial. Quelle excuse tentez-vous ?"
+  },
+  {
+    "id": "mensonge_famille_16",
+    "category": "famille",
+    "situation": "Vous avez utilisé le mauvais surnom devant toute la famille et créé un silence gênant. Comment vous justifiez-vous ?"
+  },
+  {
+    "id": "mensonge_famille_17",
+    "category": "famille",
+    "situation": "Vous devez expliquer pourquoi une vieille photo familiale embarrassante est maintenant visible de tout le monde. Quelle histoire inventez-vous ?"
+  },
+  {
+    "id": "mensonge_famille_18",
+    "category": "famille",
+    "situation": "Vous avez pris la dernière part d’un plat réservé à quelqu’un. Comment défendez-vous votre innocence ?"
+  },
+  {
+    "id": "mensonge_famille_19",
+    "category": "famille",
+    "situation": "Vous avez perdu une clé qu’un membre de la famille vous avait confiée. Quelle explication donnez-vous ?"
+  },
+  {
+    "id": "mensonge_famille_20",
+    "category": "famille",
+    "situation": "Vous avez dit oui à deux repas de famille prévus exactement au même moment. Quelle excuse inventez-vous pour l’un des deux ?"
+  },
+  {
+    "id": "mensonge_amis_soirees_01",
+    "category": "amis_soirees",
+    "situation": "Vous avez quitté une soirée sans dire au revoir et vos amis vous demandent pourquoi. Quelle excuse inventez-vous ?"
+  },
+  {
+    "id": "mensonge_amis_soirees_02",
+    "category": "amis_soirees",
+    "situation": "Vous avez oublié d’inviter quelqu’un à une soirée et cette personne vient de le découvrir. Quelle histoire racontez-vous ?"
+  },
+  {
+    "id": "mensonge_amis_soirees_03",
+    "category": "amis_soirees",
+    "situation": "Vous avez cassé quelque chose pendant une fête et personne ne sait encore qui l’a fait. Comment détournez-vous les soupçons ?"
+  },
+  {
+    "id": "mensonge_amis_soirees_04",
+    "category": "amis_soirees",
+    "situation": "Vous avez promis de rester sobre et une photo du lendemain raconte une autre histoire. Quelle excuse donnez-vous ?"
+  },
+  {
+    "id": "mensonge_amis_soirees_05",
+    "category": "amis_soirees",
+    "situation": "Vous avez perdu un objet appartenant à un ami pendant une soirée. Quelle explication inventez-vous ?"
+  },
+  {
+    "id": "mensonge_amis_soirees_06",
+    "category": "amis_soirees",
+    "situation": "Vous avez annulé au dernier moment pour rester regarder une série. Quelle fausse urgence inventez-vous ?"
+  },
+  {
+    "id": "mensonge_amis_soirees_07",
+    "category": "amis_soirees",
+    "situation": "Vous arrivez à une soirée déguisée avec un thème complètement faux. Comment prétendez-vous que c’était intentionnel ?"
+  },
+  {
+    "id": "mensonge_amis_soirees_08",
+    "category": "amis_soirees",
+    "situation": "Vous avez oublié le prénom de quelqu’un que vous êtes censées connaître depuis des années. Quelle excuse trouvez-vous ?"
+  },
+  {
+    "id": "mensonge_amis_soirees_09",
+    "category": "amis_soirees",
+    "situation": "Vous avez raconté deux versions différentes de la même histoire à deux amis qui viennent de comparer. Comment vous en sortez-vous ?"
+  },
+  {
+    "id": "mensonge_amis_soirees_10",
+    "category": "amis_soirees",
+    "situation": "Vous avez mangé toute la nourriture prévue pour une soirée avant l’arrivée des invités. Quelle histoire racontez-vous ?"
+  },
+  {
+    "id": "mensonge_amis_soirees_11",
+    "category": "amis_soirees",
+    "situation": "Vous êtes reparties avec un objet qui ne vous appartient pas après une soirée. Quelle explication donnez-vous ?"
+  },
+  {
+    "id": "mensonge_amis_soirees_12",
+    "category": "amis_soirees",
+    "situation": "Vous avez ignoré un groupe de discussion pendant un mois et réapparaissez comme si de rien n’était. Quelle excuse inventez-vous ?"
+  },
+  {
+    "id": "mensonge_amis_soirees_13",
+    "category": "amis_soirees",
+    "situation": "Vous avez oublié que vous deviez héberger des amis ce soir. Quelle histoire improvisez-vous quand ils sonnent à la porte ?"
+  },
+  {
+    "id": "mensonge_amis_soirees_14",
+    "category": "amis_soirees",
+    "situation": "Vous devez expliquer pourquoi vous étiez dans un endroit où vous aviez juré ne jamais aller. Quel mensonge inventez-vous ?"
+  },
+  {
+    "id": "mensonge_amis_soirees_15",
+    "category": "amis_soirees",
+    "situation": "Vous avez mis une photo catastrophique d’un ami en story publique. Quelle excuse donnez-vous ?"
+  },
+  {
+    "id": "mensonge_amis_soirees_16",
+    "category": "amis_soirees",
+    "situation": "Vous avez promis de garder un secret et vous l’avez révélé sans faire exprès. Comment essayez-vous de prouver que ce n’était pas vraiment vous ?"
+  },
+  {
+    "id": "mensonge_amis_soirees_17",
+    "category": "amis_soirees",
+    "situation": "Vous avez oublié un cadeau commun auquel vous deviez participer. Quelle excuse sortez-vous quand tout le monde vous regarde ?"
+  },
+  {
+    "id": "mensonge_amis_soirees_18",
+    "category": "amis_soirees",
+    "situation": "Vous avez fait croire que vous connaissiez une personne célèbre et vos amis veulent maintenant des détails. Quelle histoire inventez-vous ?"
+  },
+  {
+    "id": "mensonge_amis_soirees_19",
+    "category": "amis_soirees",
+    "situation": "Vous avez organisé une sortie puis oublié de réserver quoi que ce soit. Comment faites-vous croire que le chaos faisait partie du plan ?"
+  },
+  {
+    "id": "mensonge_amis_soirees_20",
+    "category": "amis_soirees",
+    "situation": "Vous êtes parties d’un karaoké juste avant votre tour après avoir passé la soirée à dire que vous chantiez très bien. Quelle excuse inventez-vous ?"
+  },
+  {
+    "id": "mensonge_travail_etudes_01",
+    "category": "travail_etudes",
+    "situation": "Vous avez oublié une réunion importante et votre responsable vous appelle en direct. Quelle excuse inventez-vous ?"
+  },
+  {
+    "id": "mensonge_travail_etudes_02",
+    "category": "travail_etudes",
+    "situation": "Vous n’avez pas rendu un travail que vous aviez annoncé comme terminé depuis trois jours. Quelle histoire racontez-vous ?"
+  },
+  {
+    "id": "mensonge_travail_etudes_03",
+    "category": "travail_etudes",
+    "situation": "Vous avez envoyé le mauvais fichier et il contient quelque chose de totalement hors sujet. Comment expliquez-vous ça ?"
+  },
+  {
+    "id": "mensonge_travail_etudes_04",
+    "category": "travail_etudes",
+    "situation": "Vous êtes surprise à faire autre chose pendant une visioconférence. Quelle excuse improvisez-vous ?"
+  },
+  {
+    "id": "mensonge_travail_etudes_05",
+    "category": "travail_etudes",
+    "situation": "Vous avez oublié le prénom d’une personne avec qui vous travaillez depuis longtemps. Comment vous en sortez-vous ?"
+  },
+  {
+    "id": "mensonge_travail_etudes_06",
+    "category": "travail_etudes",
+    "situation": "Vous avez pris une pause beaucoup plus longue que prévu et on vous demande où vous étiez. Quelle histoire inventez-vous ?"
+  },
+  {
+    "id": "mensonge_travail_etudes_07",
+    "category": "travail_etudes",
+    "situation": "Vous avez accidentellement répondu « à tous » à un message qui ne devait surtout pas être public. Quelle défense tentez-vous ?"
+  },
+  {
+    "id": "mensonge_travail_etudes_08",
+    "category": "travail_etudes",
+    "situation": "Vous avez affirmé maîtriser un logiciel que vous découvrez en réalité aujourd’hui. Quelle explication donnez-vous quand on vous demande une démonstration ?"
+  },
+  {
+    "id": "mensonge_travail_etudes_09",
+    "category": "travail_etudes",
+    "situation": "Vous avez oublié une échéance inscrite partout. Quelle excuse suffisamment originale inventez-vous ?"
+  },
+  {
+    "id": "mensonge_travail_etudes_10",
+    "category": "travail_etudes",
+    "situation": "Vous avez été vue en ligne toute la nuit après avoir dit que vous étiez trop malade pour travailler. Quelle histoire racontez-vous ?"
+  },
+  {
+    "id": "mensonge_travail_etudes_11",
+    "category": "travail_etudes",
+    "situation": "Vous arrivez à une présentation sans le document principal. Comment faites-vous croire que c’est une méthode innovante ?"
+  },
+  {
+    "id": "mensonge_travail_etudes_12",
+    "category": "travail_etudes",
+    "situation": "Vous avez perdu vos notes juste avant un oral ou une réunion importante. Quelle explication donnez-vous ?"
+  },
+  {
+    "id": "mensonge_travail_etudes_13",
+    "category": "travail_etudes",
+    "situation": "Vous avez utilisé une excuse que votre collègue ou camarade a utilisée exactement la veille. Comment prouvez-vous que c’est une coïncidence ?"
+  },
+  {
+    "id": "mensonge_travail_etudes_14",
+    "category": "travail_etudes",
+    "situation": "Vous avez oublié de couper votre micro pendant une visioconférence. Quelle excuse inventez-vous pour ce que tout le monde vient d’entendre ?"
+  },
+  {
+    "id": "mensonge_travail_etudes_15",
+    "category": "travail_etudes",
+    "situation": "Vous avez confirmé avoir lu un document que vous n’avez jamais ouvert. On vous pose une question précise dessus. Comment gagnez-vous du temps ?"
+  },
+  {
+    "id": "mensonge_travail_etudes_16",
+    "category": "travail_etudes",
+    "situation": "Vous avez raté un examen blanc, une formation ou une réunion parce que vous aviez la mauvaise date. Quelle histoire racontez-vous ?"
+  },
+  {
+    "id": "mensonge_travail_etudes_17",
+    "category": "travail_etudes",
+    "situation": "Vous avez laissé quelqu’un faire presque tout le travail de groupe. Quelle justification héroïque inventez-vous ?"
+  },
+  {
+    "id": "mensonge_travail_etudes_18",
+    "category": "travail_etudes",
+    "situation": "Vous avez oublié votre badge, vos clés ou votre matériel pour la troisième fois de la semaine. Quelle excuse donnez-vous ?"
+  },
+  {
+    "id": "mensonge_travail_etudes_19",
+    "category": "travail_etudes",
+    "situation": "Vous avez été surprise à réserver des vacances pendant vos heures de travail. Comment présentez-vous ça comme une mission professionnelle ?"
+  },
+  {
+    "id": "mensonge_travail_etudes_20",
+    "category": "travail_etudes",
+    "situation": "Vous avez écrit une énormité dans un document officiel qui a déjà été envoyé. Quelle explication tentez-vous ?"
+  },
+  {
+    "id": "mensonge_voyages_01",
+    "category": "voyages",
+    "situation": "Vous avez raté un avion alors que vous étiez arrivées à l’aéroport plusieurs heures avant. Quelle histoire racontez-vous ?"
+  },
+  {
+    "id": "mensonge_voyages_02",
+    "category": "voyages",
+    "situation": "Vous revenez d’un week-end avec une valise qui n’est clairement pas la vôtre. Quelle explication inventez-vous ?"
+  },
+  {
+    "id": "mensonge_voyages_03",
+    "category": "voyages",
+    "situation": "Vous avez réservé un hôtel dans la mauvaise ville. Comment faites-vous croire que c’était un choix stratégique ?"
+  },
+  {
+    "id": "mensonge_voyages_04",
+    "category": "voyages",
+    "situation": "Vous vous êtes perdues à cinq minutes de votre logement pendant trois heures. Quelle aventure racontez-vous au retour ?"
+  },
+  {
+    "id": "mensonge_voyages_05",
+    "category": "voyages",
+    "situation": "Vous avez oublié les passeports juste avant de partir. Quelle excuse donnez-vous à la personne qui vous avait rappelé dix fois de les prendre ?"
+  },
+  {
+    "id": "mensonge_voyages_06",
+    "category": "voyages",
+    "situation": "Vous avez dépensé presque tout le budget voyage le premier jour. Comment justifiez-vous ce chef-d’œuvre financier ?"
+  },
+  {
+    "id": "mensonge_voyages_07",
+    "category": "voyages",
+    "situation": "Vous avez pris le mauvais train et vous vous en rendez compte très loin de votre destination. Quelle histoire racontez-vous aux autres ?"
+  },
+  {
+    "id": "mensonge_voyages_08",
+    "category": "voyages",
+    "situation": "Vous revenez avec un énorme souvenir inutile que vous aviez juré de ne pas acheter. Quelle excuse inventez-vous ?"
+  },
+  {
+    "id": "mensonge_voyages_09",
+    "category": "voyages",
+    "situation": "Vous avez oublié de réserver le retour. Comment présentez-vous ça comme une aventure spontanée ?"
+  },
+  {
+    "id": "mensonge_voyages_10",
+    "category": "voyages",
+    "situation": "Vous avez perdu la clé de la chambre d’hôtel pour la deuxième fois. Quelle nouvelle excuse trouvez-vous à la réception ?"
+  },
+  {
+    "id": "mensonge_voyages_11",
+    "category": "voyages",
+    "situation": "Vous avez suivi un inconnu en pensant qu’il était votre guide. Comment racontez-vous ça sans avouer votre erreur ?"
+  },
+  {
+    "id": "mensonge_voyages_12",
+    "category": "voyages",
+    "situation": "Vous avez pris cinquante photos du mauvais monument en pensant que c’était le célèbre. Quelle histoire inventez-vous ?"
+  },
+  {
+    "id": "mensonge_voyages_13",
+    "category": "voyages",
+    "situation": "Vous avez oublié votre valise dans un moyen de transport. Quelle explication héroïque donnez-vous ?"
+  },
+  {
+    "id": "mensonge_voyages_14",
+    "category": "voyages",
+    "situation": "Vous avez commandé quelque chose au restaurant sans savoir ce que c’était et refusez maintenant de le manger. Quelle excuse inventez-vous ?"
+  },
+  {
+    "id": "mensonge_voyages_15",
+    "category": "voyages",
+    "situation": "Vous avez promis de voyager léger et arrivez avec trois fois plus de bagages que prévu. Comment vous justifiez-vous ?"
+  },
+  {
+    "id": "mensonge_voyages_16",
+    "category": "voyages",
+    "situation": "Vous avez oublié de prévenir quelqu’un que vous changiez complètement d’itinéraire. Quelle histoire racontez-vous ?"
+  },
+  {
+    "id": "mensonge_voyages_17",
+    "category": "voyages",
+    "situation": "Vous avez passé une journée entière à chercher une attraction qui était fermée depuis des années. Quelle explication donnez-vous ?"
+  },
+  {
+    "id": "mensonge_voyages_18",
+    "category": "voyages",
+    "situation": "Vous avez oublié de mettre de l’essence avant un long trajet et la voiture s’arrête. Quelle excuse inventez-vous ?"
+  },
+  {
+    "id": "mensonge_voyages_19",
+    "category": "voyages",
+    "situation": "Vous avez réservé une activité extrême sans dire à l’autre ce que c’était vraiment. Comment présentez-vous la surprise ?"
+  },
+  {
+    "id": "mensonge_voyages_20",
+    "category": "voyages",
+    "situation": "Vous rentrez de voyage avec un objet interdit dans le bagage cabine uniquement parce que vous n’aviez pas lu les règles. Quelle explication naïve inventez-vous ?"
+  },
+  {
+    "id": "mensonge_argent_achats_01",
+    "category": "argent_achats",
+    "situation": "Vous avez fait un achat très cher après avoir juré de ne rien dépenser ce mois-ci. Quelle excuse inventez-vous ?"
+  },
+  {
+    "id": "mensonge_argent_achats_02",
+    "category": "argent_achats",
+    "situation": "Un colis énorme arrive et vous aviez assuré n’avoir rien commandé. Comment expliquez-vous ça ?"
+  },
+  {
+    "id": "mensonge_argent_achats_03",
+    "category": "argent_achats",
+    "situation": "Vous avez acheté deux fois exactement le même objet sans vous en rendre compte. Comment présentez-vous ça comme une excellente décision ?"
+  },
+  {
+    "id": "mensonge_argent_achats_04",
+    "category": "argent_achats",
+    "situation": "Vous avez dépassé le budget d’une sortie avant même qu’elle commence. Quelle histoire racontez-vous ?"
+  },
+  {
+    "id": "mensonge_argent_achats_05",
+    "category": "argent_achats",
+    "situation": "Vous avez oublié de résilier un abonnement inutile depuis un an. Quelle justification donnez-vous ?"
+  },
+  {
+    "id": "mensonge_argent_achats_06",
+    "category": "argent_achats",
+    "situation": "Vous avez gagné un peu d’argent puis tout dépensé dans quelque chose d’absurde. Comment défendez-vous cet investissement ?"
+  },
+  {
+    "id": "mensonge_argent_achats_07",
+    "category": "argent_achats",
+    "situation": "Vous avez utilisé la mauvaise carte bancaire pour un achat embarrassant. Quelle excuse inventez-vous ?"
+  },
+  {
+    "id": "mensonge_argent_achats_08",
+    "category": "argent_achats",
+    "situation": "Vous avez cassé quelque chose de cher juste après avoir refusé de prendre une assurance. Quelle explication donnez-vous ?"
+  },
+  {
+    "id": "mensonge_argent_achats_09",
+    "category": "argent_achats",
+    "situation": "Vous avez acheté un objet uniquement parce qu’il était en promotion alors que vous n’en aviez absolument pas besoin. Comment le rendez-vous indispensable ?"
+  },
+  {
+    "id": "mensonge_argent_achats_10",
+    "category": "argent_achats",
+    "situation": "Vous avez promis de partager une dépense puis vous réalisez que vous n’avez plus assez d’argent. Quelle excuse inventez-vous ?"
+  },
+  {
+    "id": "mensonge_argent_achats_11",
+    "category": "argent_achats",
+    "situation": "Vous avez commandé un cadeau en double et les deux arrivent le même jour. Comment faites-vous croire que c’était volontaire ?"
+  },
+  {
+    "id": "mensonge_argent_achats_12",
+    "category": "argent_achats",
+    "situation": "Vous avez choisi l’option la plus chère sans lire le prix. Quelle histoire racontez-vous ?"
+  },
+  {
+    "id": "mensonge_argent_achats_13",
+    "category": "argent_achats",
+    "situation": "Vous avez oublié un paiement important mais dépensé la même somme dans autre chose. Comment vous défendez-vous ?"
+  },
+  {
+    "id": "mensonge_argent_achats_14",
+    "category": "argent_achats",
+    "situation": "Vous avez acheté quelque chose qui ne rentre absolument pas chez vous. Quelle excuse donnez-vous ?"
+  },
+  {
+    "id": "mensonge_argent_achats_15",
+    "category": "argent_achats",
+    "situation": "Vous avez vendu un objet puis regretté immédiatement. Quelle histoire inventez-vous pour essayer de le récupérer ?"
+  },
+  {
+    "id": "mensonge_argent_achats_16",
+    "category": "argent_achats",
+    "situation": "Vous avez prêté de l’argent et complètement oublié à qui. Quelle explication donnez-vous ?"
+  },
+  {
+    "id": "mensonge_argent_achats_17",
+    "category": "argent_achats",
+    "situation": "Vous avez acheté une contrefaçon évidente en pensant faire l’affaire du siècle. Comment défendez-vous votre flair commercial ?"
+  },
+  {
+    "id": "mensonge_argent_achats_18",
+    "category": "argent_achats",
+    "situation": "Vous avez juré que votre panier en ligne coûtait « presque rien » et le montant apparaît maintenant à l’écran. Quelle excuse inventez-vous ?"
+  },
+  {
+    "id": "mensonge_argent_achats_19",
+    "category": "argent_achats",
+    "situation": "Vous avez payé beaucoup trop cher quelque chose que l’autre trouve gratuitement cinq minutes plus tard. Comment prétendez-vous que votre version est différente ?"
+  },
+  {
+    "id": "mensonge_argent_achats_20",
+    "category": "argent_achats",
+    "situation": "Vous avez utilisé les économies prévues pour un projet commun afin de remplacer quelque chose que vous aviez vous-même cassé. Quelle histoire inventez-vous ?"
+  },
+  {
+    "id": "mensonge_maison_catastrophes_01",
+    "category": "maison_catastrophes",
+    "situation": "Vous avez déclenché l’alarme incendie en cuisinant quelque chose de très simple. Quelle explication donnez-vous aux voisins ?"
+  },
+  {
+    "id": "mensonge_maison_catastrophes_02",
+    "category": "maison_catastrophes",
+    "situation": "Il y a un trou dans le mur et vous êtes clairement les seules présentes. Quelle histoire inventez-vous ?"
+  },
+  {
+    "id": "mensonge_maison_catastrophes_03",
+    "category": "maison_catastrophes",
+    "situation": "Vous avez inondé la salle de bain sans comprendre comment. Quelle version des faits racontez-vous ?"
+  },
+  {
+    "id": "mensonge_maison_catastrophes_04",
+    "category": "maison_catastrophes",
+    "situation": "Vous avez monté un meuble à l’envers et il est désormais impossible à démonter. Comment présentez-vous ça comme un choix design ?"
+  },
+  {
+    "id": "mensonge_maison_catastrophes_05",
+    "category": "maison_catastrophes",
+    "situation": "Vous avez cassé une porte en essayant de l’ouvrir normalement. Quelle explication inventez-vous ?"
+  },
+  {
+    "id": "mensonge_maison_catastrophes_06",
+    "category": "maison_catastrophes",
+    "situation": "Vous avez repeint accidentellement une partie du sol en même temps que le mur. Comment justifiez-vous ce nouveau concept ?"
+  },
+  {
+    "id": "mensonge_maison_catastrophes_07",
+    "category": "maison_catastrophes",
+    "situation": "Vous avez laissé une fenêtre ouverte pendant un orage et la pièce est trempée. Quelle excuse donnez-vous ?"
+  },
+  {
+    "id": "mensonge_maison_catastrophes_08",
+    "category": "maison_catastrophes",
+    "situation": "Vous avez branché trop de choses et tout l’appartement est plongé dans le noir. Quelle histoire racontez-vous ?"
+  },
+  {
+    "id": "mensonge_maison_catastrophes_09",
+    "category": "maison_catastrophes",
+    "situation": "Vous avez voulu réparer quelque chose et maintenant trois autres choses ne fonctionnent plus. Comment présentez-vous votre intervention ?"
+  },
+  {
+    "id": "mensonge_maison_catastrophes_10",
+    "category": "maison_catastrophes",
+    "situation": "Vous avez mis un objet totalement inadapté au lave-vaisselle et le résultat est spectaculaire. Quelle excuse inventez-vous ?"
+  },
+  {
+    "id": "mensonge_maison_catastrophes_11",
+    "category": "maison_catastrophes",
+    "situation": "Vous avez commandé un meuble sans vérifier les dimensions et il bloque maintenant l’entrée. Comment défendez-vous cet achat ?"
+  },
+  {
+    "id": "mensonge_maison_catastrophes_12",
+    "category": "maison_catastrophes",
+    "situation": "Vous avez utilisé un produit de nettoyage qui a changé la couleur d’un meuble. Quelle explication donnez-vous ?"
+  },
+  {
+    "id": "mensonge_maison_catastrophes_13",
+    "category": "maison_catastrophes",
+    "situation": "Vous avez perdu les clés à l’intérieur de la maison et devez maintenant expliquer pourquoi vous êtes dehors. Quelle histoire inventez-vous ?"
+  },
+  {
+    "id": "mensonge_maison_catastrophes_14",
+    "category": "maison_catastrophes",
+    "situation": "Vous avez déplacé quelque chose de très lourd puis oublié où vous l’avez mis. Comment expliquez-vous sa disparition ?"
+  },
+  {
+    "id": "mensonge_maison_catastrophes_15",
+    "category": "maison_catastrophes",
+    "situation": "Vous avez voulu accrocher un cadre et déclenché une petite catastrophe dans le mur. Quelle excuse donnez-vous ?"
+  },
+  {
+    "id": "mensonge_maison_catastrophes_16",
+    "category": "maison_catastrophes",
+    "situation": "Vous avez laissé brûler une casserole au point qu’elle semble appartenir à une autre époque. Quelle histoire racontez-vous ?"
+  },
+  {
+    "id": "mensonge_maison_catastrophes_17",
+    "category": "maison_catastrophes",
+    "situation": "Vous avez cassé la télécommande et tenté de la recoller discrètement. Comment niez-vous votre implication ?"
+  },
+  {
+    "id": "mensonge_maison_catastrophes_18",
+    "category": "maison_catastrophes",
+    "situation": "Vous avez adopté ou recueilli temporairement un animal sans prévenir personne. Quelle explication inventez-vous quand il apparaît dans le salon ?"
+  },
+  {
+    "id": "mensonge_maison_catastrophes_19",
+    "category": "maison_catastrophes",
+    "situation": "Vous avez inversé deux produits ménagers et le résultat sent très bizarre. Quelle excuse donnez-vous ?"
+  },
+  {
+    "id": "mensonge_maison_catastrophes_20",
+    "category": "maison_catastrophes",
+    "situation": "Vous avez déplacé tous les meubles sur un coup de tête et l’autre rentre au milieu du chantier. Comment présentez-vous ça comme une surprise géniale ?"
+  },
+  {
+    "id": "mensonge_reseaux_telephone_01",
+    "category": "reseaux_telephone",
+    "situation": "Vous avez liké par accident une photo vieille de huit ans en espionnant un profil. Quelle excuse inventez-vous ?"
+  },
+  {
+    "id": "mensonge_reseaux_telephone_02",
+    "category": "reseaux_telephone",
+    "situation": "Vous avez envoyé une capture d’écran à la personne dont vous étiez en train de parler. Comment vous en sortez-vous ?"
+  },
+  {
+    "id": "mensonge_reseaux_telephone_03",
+    "category": "reseaux_telephone",
+    "situation": "Vous avez publié une story censée rester dans vos brouillons. Quelle explication donnez-vous ?"
+  },
+  {
+    "id": "mensonge_reseaux_telephone_04",
+    "category": "reseaux_telephone",
+    "situation": "Vous avez ignoré des messages pendant des jours tout en publiant partout ailleurs. Quelle excuse inventez-vous ?"
+  },
+  {
+    "id": "mensonge_reseaux_telephone_05",
+    "category": "reseaux_telephone",
+    "situation": "Vous avez changé une photo de profil de quelqu’un pour plaisanter et oublié de la remettre. Quelle histoire racontez-vous ?"
+  },
+  {
+    "id": "mensonge_reseaux_telephone_06",
+    "category": "reseaux_telephone",
+    "situation": "Vous avez envoyé un message vocal de cinq minutes à la mauvaise personne. Quelle explication tentez-vous ?"
+  },
+  {
+    "id": "mensonge_reseaux_telephone_07",
+    "category": "reseaux_telephone",
+    "situation": "Vous avez oublié que votre écran était partagé pendant que vous cherchiez quelque chose d’embarrassant. Quelle excuse inventez-vous ?"
+  },
+  {
+    "id": "mensonge_reseaux_telephone_08",
+    "category": "reseaux_telephone",
+    "situation": "Vous avez supprimé une conversation entière au lieu d’un seul message. Comment expliquez-vous cette disparition ?"
+  },
+  {
+    "id": "mensonge_reseaux_telephone_09",
+    "category": "reseaux_telephone",
+    "situation": "Vous avez accidentellement appelé quelqu’un en vidéo au beau milieu de la nuit. Quelle histoire racontez-vous ?"
+  },
+  {
+    "id": "mensonge_reseaux_telephone_10",
+    "category": "reseaux_telephone",
+    "situation": "Vous avez promis de poser votre téléphone puis votre temps d’écran révèle une réalité totalement différente. Quelle excuse donnez-vous ?"
+  },
+  {
+    "id": "mensonge_reseaux_telephone_11",
+    "category": "reseaux_telephone",
+    "situation": "Vous avez utilisé le téléphone de l’autre et changé quelque chose sans faire exprès. Comment vous innocentez-vous ?"
+  },
+  {
+    "id": "mensonge_reseaux_telephone_12",
+    "category": "reseaux_telephone",
+    "situation": "Vous avez oublié de couper une publication programmée qui tombe au pire moment possible. Quelle explication inventez-vous ?"
+  },
+  {
+    "id": "mensonge_reseaux_telephone_13",
+    "category": "reseaux_telephone",
+    "situation": "Vous avez créé un compte secret uniquement pour observer un sujet ridicule et on vient de le découvrir. Quelle excuse donnez-vous ?"
+  },
+  {
+    "id": "mensonge_reseaux_telephone_14",
+    "category": "reseaux_telephone",
+    "situation": "Vous avez répondu à un message avec le mauvais emoji et déclenché un énorme malentendu. Comment expliquez-vous votre intention ?"
+  },
+  {
+    "id": "mensonge_reseaux_telephone_15",
+    "category": "reseaux_telephone",
+    "situation": "Vous avez accidentellement envoyé une photo embarrassante dans un groupe très sérieux. Quelle histoire racontez-vous ?"
+  },
+  {
+    "id": "mensonge_reseaux_telephone_16",
+    "category": "reseaux_telephone",
+    "situation": "Vous avez dit ne pas avoir vu un message alors que l’application affiche clairement « lu ». Quelle excuse inventez-vous ?"
+  },
+  {
+    "id": "mensonge_reseaux_telephone_17",
+    "category": "reseaux_telephone",
+    "situation": "Vous avez passé une heure à chercher votre téléphone alors qu’il était dans votre main sur plusieurs vidéos. Comment expliquez-vous ça ?"
+  },
+  {
+    "id": "mensonge_reseaux_telephone_18",
+    "category": "reseaux_telephone",
+    "situation": "Vous avez changé le mot de passe d’un compte commun puis oublié le nouveau. Quelle justification donnez-vous ?"
+  },
+  {
+    "id": "mensonge_reseaux_telephone_19",
+    "category": "reseaux_telephone",
+    "situation": "Vous avez fait une recherche très étrange et quelqu’un tombe dessus dans votre historique. Quelle excuse inventez-vous ?"
+  },
+  {
+    "id": "mensonge_reseaux_telephone_20",
+    "category": "reseaux_telephone",
+    "situation": "Vous avez bloqué quelqu’un par erreur puis prétendu pendant des jours que l’application bugguait. Comment défendez-vous cette théorie ?"
+  },
+  {
+    "id": "mensonge_absurde_01",
+    "category": "absurde",
+    "situation": "Vous devez expliquer pourquoi il y a un cône de chantier au milieu de votre salon. Quelle histoire inventez-vous ?"
+  },
+  {
+    "id": "mensonge_absurde_02",
+    "category": "absurde",
+    "situation": "Un lama se trouve devant votre porte et tout le monde pense que c’est votre faute. Quelle explication donnez-vous ?"
+  },
+  {
+    "id": "mensonge_absurde_03",
+    "category": "absurde",
+    "situation": "Vous rentrez avec douze baguettes de pain et aucun autre achat. Quelle histoire racontez-vous ?"
+  },
+  {
+    "id": "mensonge_absurde_04",
+    "category": "absurde",
+    "situation": "Vous êtes retrouvées en tenue de soirée dans une laverie automatique à trois heures du matin. Quelle excuse inventez-vous ?"
+  },
+  {
+    "id": "mensonge_absurde_05",
+    "category": "absurde",
+    "situation": "Vous devez expliquer pourquoi votre baignoire est remplie de ballons gonflables. Quelle histoire racontez-vous ?"
+  },
+  {
+    "id": "mensonge_absurde_06",
+    "category": "absurde",
+    "situation": "Vous avez cinquante canards en plastique dans votre voiture et quelqu’un veut savoir pourquoi. Quelle explication inventez-vous ?"
+  },
+  {
+    "id": "mensonge_absurde_07",
+    "category": "absurde",
+    "situation": "Vous êtes surprises en train d’enterrer une boîte vide dans un jardin. Quelle histoire donnez-vous ?"
+  },
+  {
+    "id": "mensonge_absurde_08",
+    "category": "absurde",
+    "situation": "Vous devez justifier la présence d’un énorme costume de dinosaure dans votre cuisine. Quelle excuse inventez-vous ?"
+  },
+  {
+    "id": "mensonge_absurde_09",
+    "category": "absurde",
+    "situation": "Vous arrivez à un rendez-vous avec une valise remplie uniquement de chaussettes. Quelle histoire racontez-vous ?"
+  },
+  {
+    "id": "mensonge_absurde_10",
+    "category": "absurde",
+    "situation": "Vous avez construit une cabane dans le salon sans raison apparente. Comment expliquez-vous ce projet ?"
+  },
+  {
+    "id": "mensonge_absurde_11",
+    "category": "absurde",
+    "situation": "Vous êtes vues en train de courir dans la rue avec une plante géante. Quelle excuse inventez-vous ?"
+  },
+  {
+    "id": "mensonge_absurde_12",
+    "category": "absurde",
+    "situation": "Vous avez une centaine de cuillères mais plus une seule fourchette. Quelle histoire racontez-vous ?"
+  },
+  {
+    "id": "mensonge_absurde_13",
+    "category": "absurde",
+    "situation": "Vous devez expliquer pourquoi un mannequin de vitrine est attaché sur votre siège passager. Quelle excuse inventez-vous ?"
+  },
+  {
+    "id": "mensonge_absurde_14",
+    "category": "absurde",
+    "situation": "Vous êtes surprises à parler très sérieusement à une statue dans un parc. Quelle explication donnez-vous ?"
+  },
+  {
+    "id": "mensonge_absurde_15",
+    "category": "absurde",
+    "situation": "Vous rentrez avec un panneau « sortie » alors que vous n’êtes allées nulle part. Quelle histoire inventez-vous ?"
+  },
+  {
+    "id": "mensonge_absurde_16",
+    "category": "absurde",
+    "situation": "Vous avez transformé votre salon en mini camping pendant la nuit. Quelle explication donnez-vous ?"
+  },
+  {
+    "id": "mensonge_absurde_17",
+    "category": "absurde",
+    "situation": "Vous devez expliquer pourquoi vous portez toutes les deux exactement la même tenue sans l’avoir prévu. Quelle histoire inventez-vous ?"
+  },
+  {
+    "id": "mensonge_absurde_18",
+    "category": "absurde",
+    "situation": "Vous êtes prises en photo avec un gâteau géant dont vous niez connaître l’origine. Quelle excuse donnez-vous ?"
+  },
+  {
+    "id": "mensonge_absurde_19",
+    "category": "absurde",
+    "situation": "Vous avez soudainement trois parapluies ouverts à l’intérieur de la maison. Quelle histoire racontez-vous ?"
+  },
+  {
+    "id": "mensonge_absurde_20",
+    "category": "absurde",
+    "situation": "Vous devez expliquer pourquoi une cloche sonne chaque fois que quelqu’un ouvre votre frigo. Quelle excuse inventez-vous ?"
+  },
+  {
+    "id": "mensonge_mission_impossible_01",
+    "category": "mission_impossible",
+    "situation": "Vous êtes entrées dans une salle réservée au personnel en pensant que c’était la sortie. Quelle excuse inventez-vous ?"
+  },
+  {
+    "id": "mensonge_mission_impossible_02",
+    "category": "mission_impossible",
+    "situation": "Vous devez convaincre quelqu’un que vous avez une excellente raison d’avoir deux réservations au même nom le même soir. Quelle histoire racontez-vous ?"
+  },
+  {
+    "id": "mensonge_mission_impossible_03",
+    "category": "mission_impossible",
+    "situation": "Vous avez pris par erreur la place de quelqu’un lors d’un événement très officiel. Comment expliquez-vous votre présence ?"
+  },
+  {
+    "id": "mensonge_mission_impossible_04",
+    "category": "mission_impossible",
+    "situation": "Vous êtes montées dans la mauvaise voiture en pensant que c’était votre VTC. Quelle excuse donnez-vous au conducteur ?"
+  },
+  {
+    "id": "mensonge_mission_impossible_05",
+    "category": "mission_impossible",
+    "situation": "Vous avez ouvert une porte marquée « ne pas ouvrir » uniquement par curiosité. Quelle histoire inventez-vous ?"
+  },
+  {
+    "id": "mensonge_mission_impossible_06",
+    "category": "mission_impossible",
+    "situation": "Vous devez expliquer pourquoi vous êtes les seules personnes encore présentes après la fermeture d’un lieu. Quelle excuse donnez-vous ?"
+  },
+  {
+    "id": "mensonge_mission_impossible_07",
+    "category": "mission_impossible",
+    "situation": "Vous vous êtes retrouvées sur une photo officielle où vous n’étiez absolument pas invitées. Comment justifiez-vous votre présence ?"
+  },
+  {
+    "id": "mensonge_mission_impossible_08",
+    "category": "mission_impossible",
+    "situation": "Vous avez récupéré le mauvais sac au vestiaire et ne vous en rendez compte qu’une fois chez vous. Quelle histoire racontez-vous ?"
+  },
+  {
+    "id": "mensonge_mission_impossible_09",
+    "category": "mission_impossible",
+    "situation": "Vous êtes entrées dans une fête privée en pensant que c’était l’événement auquel vous étiez invitées. Quelle excuse inventez-vous ?"
+  },
+  {
+    "id": "mensonge_mission_impossible_10",
+    "category": "mission_impossible",
+    "situation": "Vous devez expliquer pourquoi vous avez déplacé un objet très important sans autorisation. Quelle histoire racontez-vous ?"
+  },
+  {
+    "id": "mensonge_mission_impossible_11",
+    "category": "mission_impossible",
+    "situation": "Vous avez suivi un groupe pendant une heure avant de comprendre que vous ne participiez pas du tout au même événement. Comment expliquez-vous ça ?"
+  },
+  {
+    "id": "mensonge_mission_impossible_12",
+    "category": "mission_impossible",
+    "situation": "Vous êtes assises à une table réservée à des inconnus et le vrai groupe arrive. Quelle excuse inventez-vous ?"
+  },
+  {
+    "id": "mensonge_mission_impossible_13",
+    "category": "mission_impossible",
+    "situation": "Vous avez utilisé une entrée interdite parce que vous pensiez gagner du temps. Quelle histoire racontez-vous ?"
+  },
+  {
+    "id": "mensonge_mission_impossible_14",
+    "category": "mission_impossible",
+    "situation": "Vous avez accidentellement déclenché une annonce au micro dans un lieu public. Quelle excuse donnez-vous ?"
+  },
+  {
+    "id": "mensonge_mission_impossible_15",
+    "category": "mission_impossible",
+    "situation": "Vous devez expliquer pourquoi vous avez un badge qui ne porte pas votre nom. Quelle histoire inventez-vous ?"
+  },
+  {
+    "id": "mensonge_mission_impossible_16",
+    "category": "mission_impossible",
+    "situation": "Vous êtes arrivées dans une cérémonie en pensant qu’il s’agissait d’un autre événement. Comment vous en sortez-vous ?"
+  },
+  {
+    "id": "mensonge_mission_impossible_17",
+    "category": "mission_impossible",
+    "situation": "Vous avez pris un ascenseur réservé et vous retrouvez face à quelqu’un qui veut savoir pourquoi. Quelle excuse inventez-vous ?"
+  },
+  {
+    "id": "mensonge_mission_impossible_18",
+    "category": "mission_impossible",
+    "situation": "Vous êtes installées dans une loge ou une zone VIP sans savoir comment vous y êtes arrivées. Quelle histoire racontez-vous ?"
+  },
+  {
+    "id": "mensonge_mission_impossible_19",
+    "category": "mission_impossible",
+    "situation": "Vous avez récupéré un colis qui ne vous était pas destiné et l’avez déjà ouvert. Quelle explication donnez-vous ?"
+  },
+  {
+    "id": "mensonge_mission_impossible_20",
+    "category": "mission_impossible",
+    "situation": "Vous devez justifier pourquoi vous avez passé une heure dans un lieu alors que vous n’aviez aucune raison officielle d’y être. Quelle histoire inventez-vous ?"
+  }
+]
