@@ -6518,6 +6518,7 @@ storyPageBackTopBtn.addEventListener("click", () => {
 storyMemoriesBtn.addEventListener("click", () => openMemoriesHub("photos"));
 
 openAllGamesBtn.addEventListener("click", () => {
+    resetGamesLibraryFilters();
     renderGameInbox();
     showScreen("allGames");
 });
@@ -7670,7 +7671,7 @@ function startNewGame(mode, forceNew = false) {
     const existing = forceNew ? null : findOpenNewGameChallenge(mode);
     activeNewGameMode = mode;
 
-    if (existing) {
+    if (existing && isNewGameChallengeAvailableToCurrentUser(mode, existing[1])) {
         activeNewGameId = existing[0];
         showScreen("newGame");
         renderNewGame(currentSpaceData);
@@ -8835,7 +8836,7 @@ const CACTUS_ECONOMY = Object.freeze({
     completionSeeds: 3
 });
 
-const CACTUS_PROGRESSION_VERSION = 1153;
+const CACTUS_PROGRESSION_VERSION = 1154;
 
 function getCactusLevelFromXp(xp) {
     return Math.floor(Math.max(Number(xp) || 0, 0) / CACTUS_ECONOMY.xpPerLevel) + 1;
