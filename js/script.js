@@ -3105,17 +3105,9 @@ function applyAppAppearance(appearance) {
     renderAppearanceStudio();
 }
 
-function hasPersonalAppearanceOverride() {
-    return localStorage.getItem("cactusPersonalAppearanceOverride") === "true";
-}
-function setPersonalAppearanceOverride(enabled) {
-    if (enabled) localStorage.setItem("cactusPersonalAppearanceOverride", "true");
-    else localStorage.removeItem("cactusPersonalAppearanceOverride");
-}
 function getSharedAppearance(spaceData = currentSpaceData) {
-    if (hasPersonalAppearanceOverride()) return null;
     const shared = spaceData?.sharedAppearance;
-    if (!shared?.enabled || !currentUser?.uid || shared.acceptedMembers?.[currentUser.uid] !== true || !shared.appearance) return null;
+    if (!shared?.enabled || !currentUser?.uid || shared.acceptedMembers?.[currentUser.uid] !== true) return null;
     return normalizeAppAppearance(shared.appearance);
 }
 
@@ -3140,22 +3132,13 @@ function loadCachedPersonalAppearance() {
 }
 
 function savePersonalAppearance(nextAppearance) {
-    setPersonalAppearanceOverride(true);
     currentPersonalAppearance = normalizeAppAppearance(nextAppearance);
     cachePersonalAppearance(currentPersonalAppearance);
-
-    // Appliquer immédiatement le choix local. Auparavant applyEffectiveAppearance() pouvait
-    // réappliquer un ancien univers commun et donner l'impression que les couleurs ne répondaient plus.
-    applyAppAppearance(currentPersonalAppearance);
+    applyEffectiveAppearance();
     renderAppearanceStudio();
-
     if (currentUser?.uid) {
         database.ref("users/" + currentUser.uid + "/appearance").set(currentPersonalAppearance)
             .catch((error) => console.warn("Sauvegarde du thème impossible", error));
-        if (currentSpaceCode && currentSpaceData?.sharedAppearance?.acceptedMembers?.[currentUser.uid] === true) {
-            database.ref(`spaces/${currentSpaceCode}/sharedAppearance/acceptedMembers/${currentUser.uid]`).set(false)
-                .catch((error) => console.warn("Sortie de l’univers commun impossible", error));
-        }
     }
 }
 
@@ -3267,7 +3250,6 @@ async function acceptIncomingThemeOffer() {
     }
 
     if (offer.type === "shared-update") {
-        setPersonalAppearanceOverride(false);
         await database.ref(`spaces/${currentSpaceCode}/sharedAppearance`).update({
             appearance: offeredAppearance,
             updatedAt: Date.now(),
@@ -3278,7 +3260,6 @@ async function acceptIncomingThemeOffer() {
         return;
     }
 
-    setPersonalAppearanceOverride(false);
     const members = {};
     members[currentUser.uid] = true;
     if (offer.fromUid) members[offer.fromUid] = true;
@@ -8458,14 +8439,25 @@ function calculateBestLieSummary(challenge) {
     Object.values(challenge?.ratings || {}).forEach((ratingSet) => {
         Object.values(ratingSet || {}).forEach((rating) => {
             if (!rating?.targetUid) return;
-            if (!scores[rating.targetUid]) scores[rating.targetUid] = { points: 0, believed: 0, ratings: 0 };
+            if (!scores[rating.targetUid]) scores[rating.targetUid] = { points: 0, believed: 0, funny: 0, ratings: 0 };
             scores[rating.targetUid].points += Number(rating.points || 0);
             scores[rating.targetUid].believed += rating.believed ? 1 : 0;
+            scores[rating.targetUid].funny += rating.funny ? 1 : 0;
             scores[rating.targetUid].ratings += 1;
             if (Number.isFinite(Number(rating.compatibilityScore))) {
                 compatibilityScores.push(Math.max(0, Math.min(100, Number(rating.compatibilityScore))));
             }
         });
+    });
+    Object.values(challenge?.awards || {}).forEach((awardSet) => {
+        const credibleIndex = Number(awardSet?.credible);
+        const funnyIndex = Number(awardSet?.funny);
+        const voterUid = awardSet?.voterUid;
+        const targetUid = getBestLiePartnerUid(challenge, voterUid);
+        if (!targetUid) return;
+        if (!scores[targetUid]) scores[targetUid] = { points: 0, believed: 0, funny: 0, ratings: 0 };
+        if (Number.isInteger(credibleIndex) && credibleIndex >= 0 && credibleIndex < 3) scores[targetUid].believed += 1;
+        if (Number.isInteger(funnyIndex) && funnyIndex >= 0 && funnyIndex < 3) scores[targetUid].funny += 1;
     });
     const compatibility = compatibilityScores.length
         ? Math.round(compatibilityScores.reduce((sum, score) => sum + score, 0) / compatibilityScores.length)
@@ -8526,7 +8518,7 @@ function renderBestLie(challenge) {
             const name = document.createElement("strong");
             name.textContent = uid === currentUser.uid ? (players.me?.pseudo || "Toi") : (players.partner?.pseudo || "Partenaire");
             const details = document.createElement("span");
-            details.textContent = score.points + " / 9 points · " + score.believed + " mensonge" + (score.believed > 1 ? "s" : "") + " crédible" + (score.believed > 1 ? "s" : "");
+            details.textContent = score.points + " / 9 points · 🎯 " + score.believed + " crédible" + (score.believed > 1 ? "s" : "") + " · 😂 " + (score.funny || 0) + " pépite" + ((score.funny || 0) > 1 ? "s" : "");
             row.append(name, details);
             scoreList.appendChild(row);
         });
@@ -8546,9 +8538,11 @@ function renderBestLie(challenge) {
                 const line = document.createElement("span");
                 const receivedRating = Object.values(ratings).map((set) => set?.[index]).find((rating) => rating?.targetUid === uid);
                 const ratingLabel = receivedRating ? getBestLieRatingMeta(receivedRating.rating).shortLabel : "Non noté";
-                const believedLabel = receivedRating?.believed ? " · 🎯 J’y aurais cru" : "";
+                const awardEntries = Object.values(challenge.awards || {});
+                const credibleLabel = awardEntries.some((award) => getBestLiePartnerUid(challenge, award?.voterUid) === uid && Number(award?.credible) === index) ? " · 🏆 Élu mensonge le plus crédible" : "";
+                const funnyLabel = awardEntries.some((award) => getBestLiePartnerUid(challenge, award?.voterUid) === uid && Number(award?.funny) === index) ? " · 😂 Élu le plus drôle" : "";
                 const name = uid === currentUser.uid ? (players.me?.pseudo || "Toi") : (players.partner?.pseudo || "Partenaire");
-                line.textContent = name + " : « " + answer.text + " » · " + ratingLabel + believedLabel;
+                line.textContent = name + " : « " + answer.text + " » · " + ratingLabel + credibleLabel + funnyLabel;
                 round.appendChild(line);
             });
             rounds.appendChild(round);
@@ -8629,7 +8623,6 @@ function renderBestLie(challenge) {
         newGamePromptDetails.textContent = "« " + partnerLie + " »";
 
         let selectedRating = null;
-        let believed = false;
         const voteBox = document.createElement("div");
         voteBox.className = "best-lie-vote-box";
         ["incredible", "good", "meh", "bad"].forEach((ratingValue) => {
@@ -8643,28 +8636,47 @@ function renderBestLie(challenge) {
             voteBox.appendChild(button);
         });
 
-        const believedButton = document.createElement("button");
-        believedButton.type = "button";
-        believedButton.className = "best-lie-believed-toggle";
-        believedButton.textContent = "🎯 J’y aurais cru";
-        believedButton.setAttribute("aria-pressed", "false");
-        believedButton.addEventListener("click", () => {
-            believed = !believed;
-            believedButton.classList.toggle("is-selected", believed);
-            believedButton.setAttribute("aria-pressed", believed ? "true" : "false");
-        });
-
         const confirm = document.createElement("button");
         confirm.type = "button";
         confirm.className = "best-lie-submit";
-        confirm.textContent = "Valider mon vote";
+        confirm.textContent = "Valider cette note";
         confirm.disabled = true;
         confirm.addEventListener("click", () => {
             if (!selectedRating) return;
-            submitBestLieRating(ratingIndex, partnerUid, selectedRating, believed, confirm);
+            submitBestLieRating(ratingIndex, partnerUid, selectedRating, confirm);
         });
-        voteBox.append(believedButton, confirm);
+        voteBox.append(confirm);
         newGameChoices.appendChild(voteBox);
+        return;
+    }
+
+    const myAwards = challenge.awards?.[currentUser.uid] || {};
+    if (partnerUid && (!Number.isInteger(Number(myAwards.credible)) || !Number.isInteger(Number(myAwards.funny)))) {
+        const awardType = !Number.isInteger(Number(myAwards.credible)) ? "credible" : "funny";
+        const isCredible = awardType === "credible";
+        newGameStepBadge.textContent = isCredible ? "Vote final · 1 / 2" : "Vote final · 2 / 2";
+        newGameProgressBar.style.width = isCredible ? "84%" : "92%";
+        newGameInstruction.textContent = isCredible
+            ? "Choisis maintenant LE mensonge de " + partnerName + " qui aurait vraiment pu te piéger. Ce vote est distinct des notes précédentes."
+            : "Dernier choix : quel mensonge de " + partnerName + " t’a fait le plus rire ? Il peut être complètement impossible, ici on récompense la pépite 😂";
+        newGamePromptKicker.textContent = isCredible ? "🎯 Lequel t’aurait piégée ?" : "😂 Lequel était grave drôle ?";
+        newGamePrompt.textContent = isCredible ? "Élis le mensonge le plus crédible" : "Élis le mensonge le plus drôle";
+        newGamePromptDetails.textContent = isCredible
+            ? "Ton choix apparaîtra dans le Palmarès du mytho avec le badge 🏆."
+            : "Tu peux choisir le même mensonge que pour le vote crédible, ou un autre.";
+
+        const awardBox = document.createElement("div");
+        awardBox.className = "best-lie-award-box";
+        [0, 1, 2].forEach((index) => {
+            const card = document.createElement("button");
+            card.type = "button";
+            card.className = "best-lie-award-choice";
+            const category = formatGameCategoryLabel(prompts[index]?.category, "Manche " + (index + 1));
+            card.innerHTML = "<small>Manche " + (index + 1) + " · " + escapeHtml(category) + "</small><strong>« " + escapeHtml(answers[partnerUid]?.[index]?.text || "Réponse introuvable") + " »</strong><span>" + (isCredible ? "🎯 Voter pour ce mensonge" : "😂 Grave drôle") + "</span>";
+            card.addEventListener("click", () => submitBestLieAward(awardType, index, card));
+            awardBox.appendChild(card);
+        });
+        newGameChoices.appendChild(awardBox);
         return;
     }
 
@@ -8697,11 +8709,11 @@ function submitBestLieAnswer(index, text, button) {
         });
 }
 
-function submitBestLieRating(index, targetUid, ratingValue, believed, button) {
+function submitBestLieRating(index, targetUid, ratingValue, button) {
     const challenge = getActiveNewGameChallenge();
     if (!challenge || challenge.ratings?.[currentUser.uid]?.[index]) return;
     const meta = getBestLieRatingMeta(ratingValue);
-    const compatibilityScore = Math.min(100, meta.compatibility + (believed ? 10 : 0));
+    const compatibilityScore = meta.compatibility;
     const challengeId = activeNewGameId;
     const path = NEW_GAME_MODES.bestLie.path;
     if (button) button.disabled = true;
@@ -8711,11 +8723,29 @@ function submitBestLieRating(index, targetUid, ratingValue, believed, button) {
             targetUid,
             rating: ratingValue,
             points: meta.points,
-            believed: Boolean(believed),
             compatibilityScore,
             ratedAt: Date.now(),
             pseudo
         })
+        .then(() => finalizeBestLieIfReady(challengeId))
+        .catch((error) => {
+            if (button) button.disabled = false;
+            showToast(getFriendlyFirebaseError(error));
+        });
+}
+
+function submitBestLieAward(type, index, button) {
+    if (!["credible", "funny"].includes(type) || !Number.isInteger(Number(index))) return;
+    const challenge = getActiveNewGameChallenge();
+    if (!challenge || challenge.awards?.[currentUser.uid]?.[type] !== undefined) return;
+    const challengeId = activeNewGameId;
+    const path = NEW_GAME_MODES.bestLie.path;
+    if (button) button.disabled = true;
+    const updates = {};
+    updates["spaces/" + currentSpaceCode + "/" + path + "/" + challengeId + "/awards/" + currentUser.uid + "/" + type] = Number(index);
+    updates["spaces/" + currentSpaceCode + "/" + path + "/" + challengeId + "/awards/" + currentUser.uid + "/voterUid"] = currentUser.uid;
+    updates["spaces/" + currentSpaceCode + "/" + path + "/" + challengeId + "/awards/" + currentUser.uid + "/updatedAt"] = Date.now();
+    return database.ref().update(updates)
         .then(() => finalizeBestLieIfReady(challengeId))
         .catch((error) => {
             if (button) button.disabled = false;
@@ -8731,7 +8761,10 @@ function finalizeBestLieIfReady(challengeId = activeNewGameId) {
         if (!challenge || challenge.status === "completed") return;
         const completeAnswers = Object.values(challenge.answers || {}).filter((answerSet) => countBestLieEntries(answerSet) >= 3);
         const completeRatings = Object.values(challenge.ratings || {}).filter((ratingSet) => countBestLieEntries(ratingSet) >= 3);
-        if (completeAnswers.length < 2 || completeRatings.length < 2) return;
+        const completeAwards = Object.values(challenge.awards || {}).filter((awardSet) =>
+            Number.isInteger(Number(awardSet?.credible)) && Number.isInteger(Number(awardSet?.funny))
+        );
+        if (completeAnswers.length < 2 || completeRatings.length < 2 || completeAwards.length < 2) return;
 
         const summary = calculateBestLieSummary(challenge);
         challenge.status = "completed";
@@ -15399,8 +15432,10 @@ function renderNewGameHistoryItem(mode, item) {
                 if (!answer) return;
                 const receivedRating = Object.values(ratings).map((set) => set?.[index]).find((rating) => rating?.targetUid === uid);
                 const label = receivedRating ? getBestLieRatingMeta(receivedRating.rating).shortLabel : "Non noté";
-                const believed = receivedRating?.believed ? " · 🎯 J’y aurais cru" : "";
-                lines.push(getName(uid) + " : « " + answer.text + " » · " + label + believed);
+                const awardEntries = Object.values(item.awards || {});
+                const credible = awardEntries.some((award) => getBestLiePartnerUid(item, award?.voterUid) === uid && Number(award?.credible) === index) ? " · 🏆 Élu mensonge le plus crédible" : "";
+                const funny = awardEntries.some((award) => getBestLiePartnerUid(item, award?.voterUid) === uid && Number(award?.funny) === index) ? " · 😂 Élu le plus drôle" : "";
+                lines.push(getName(uid) + " : « " + answer.text + " » · " + label + credible + funny);
             });
             appendHistoryComparison("Manche " + (index + 1) + " · " + (prompt.situation || "Situation"), lines.join("\n"));
         });
