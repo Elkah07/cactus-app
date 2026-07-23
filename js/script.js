@@ -7815,6 +7815,26 @@ function setNewGameStatus(title, copy) {
     newGameStatus.style.display = "block";
 }
 
+function formatGameCategoryLabel(category, fallback = "Situation") {
+    if (!category) return fallback;
+    const labels = {
+        identite: "Identité", amities: "Amitiés", intimite: "Intimité", usure: "Usure du quotidien",
+        morale: "Valeurs", corps: "Corps & santé", lgbt: "LGBTQ+", passe: "Passé",
+        sante_mentale: "Santé mentale", maladie: "Maladie & santé", carriere: "Carrière",
+        vie_commune: "Vie commune", numerique: "Vie numérique", mort: "Deuil & fin de vie",
+        bouleversements: "Grands changements", couple_pression: "Couple sous pression",
+        vie_privée: "Vie privée", vie_privee: "Vie privée", reseaux: "Réseaux sociaux",
+        priorites: "Priorités", spontaneite: "Spontanéité", celebrite: "Célébrité",
+        visibilite: "Visibilité", parentalite: "Parentalité", communaute: "Communauté",
+        fierte: "Fierté", securite: "Sécurité", famille_choisie: "Famille choisie",
+        etiquettes: "Étiquettes", emotion: "Émotions"
+    };
+    if (labels[category]) return labels[category];
+    return String(category)
+        .replace(/_/g, " ")
+        .replace(/^./, (letter) => letter.toLocaleUpperCase("fr-FR"));
+}
+
 function renderWouldRather(challenge) {
     const prompt = challenge.prompt;
     const answers = challenge.answers || {};
@@ -7823,7 +7843,7 @@ function renderWouldRather(challenge) {
     newGameStepBadge.textContent = "1 choix";
     newGameProgressBar.style.width = myAnswer ? "100%" : "12%";
     newGameInstruction.textContent = "Choisissez sans regarder la réponse de l’autre.";
-    newGamePromptKicker.textContent = prompt.category || "Tu préfères";
+    newGamePromptKicker.textContent = formatGameCategoryLabel(prompt.category, "Tu préfères");
     newGamePrompt.textContent = prompt.question;
 
     if (!myAnswer) {
@@ -7913,7 +7933,7 @@ function renderThreeYesNo(challenge) {
             newGameAgainBtn.style.display = "block";
             return;
         }
-        const categoryLabel = situation.category || "Situation";
+        const categoryLabel = formatGameCategoryLabel(situation.category, "Situation");
         newGamePromptKicker.textContent = challenge.pack?.title
             ? challenge.pack.title + " · " + categoryLabel
             : categoryLabel;

@@ -1,1202 +1,1202 @@
 [
   {
     "id": "galanterie_001",
-    "question": "Ton partenaire t'ouvre systématiquement les portes."
+    "question": "Ton/ta partenaire t'ouvre systématiquement les portes."
   },
   {
     "id": "galanterie_002",
-    "question": "Ton partenaire t'ouvre la portière de la voiture."
+    "question": "Ton/ta partenaire t'ouvre la portière de la voiture."
   },
   {
     "id": "galanterie_003",
-    "question": "Ton partenaire te dépose devant l'entrée puis va se garer."
+    "question": "Ton/ta partenaire te dépose devant l'entrée puis va se garer."
   },
   {
     "id": "galanterie_004",
-    "question": "Ton partenaire te tient le parapluie pendant que cette personne prend la pluie."
+    "question": "Ton/ta partenaire tient le parapluie de façon à ce que tu restes au sec, même si lui/elle se mouille davantage."
   },
   {
     "id": "galanterie_005",
-    "question": "Ton partenaire marche côté route quand vous êtes sur le trottoir."
+    "question": "Ton/ta partenaire marche côté route quand vous êtes sur le trottoir."
   },
   {
     "id": "galanterie_006",
-    "question": "Ton partenaire refuse que tu portes quelque chose de lourd."
+    "question": "Ton/ta partenaire refuse que tu portes quelque chose de lourd."
   },
   {
     "id": "galanterie_007",
-    "question": "Ton partenaire porte toutes les courses même quand cette personne galère."
+    "question": "Ton/ta partenaire porte toutes les courses, même lorsque les sacs sont vraiment lourds."
   },
   {
     "id": "galanterie_008",
-    "question": "Ton partenaire porte tes valises sans te laisser négocier."
+    "question": "Ton/ta partenaire porte tes valises sans te laisser négocier."
   },
   {
     "id": "galanterie_009",
-    "question": "Ton partenaire porte ton sac quand tu en as marre."
+    "question": "Ton/ta partenaire porte ton sac quand tu en as marre."
   },
   {
     "id": "galanterie_010",
-    "question": "Ton partenaire te laisse toujours la meilleure place."
+    "question": "Ton/ta partenaire te laisse toujours la meilleure place."
   },
   {
     "id": "galanterie_011",
-    "question": "Ton partenaire te laisse le siège côté fenêtre."
+    "question": "Ton/ta partenaire te laisse le siège côté fenêtre."
   },
   {
     "id": "galanterie_012",
-    "question": "Ton partenaire te laisse la place la plus confortable sur le canapé."
+    "question": "Ton/ta partenaire te laisse la place la plus confortable sur le canapé."
   },
   {
     "id": "galanterie_013",
-    "question": "Ton partenaire te laisse systématiquement le meilleur oreiller."
+    "question": "Ton/ta partenaire te laisse systématiquement le meilleur oreiller."
   },
   {
     "id": "galanterie_014",
-    "question": "Ton partenaire te laisse toute la couverture."
+    "question": "Ton/ta partenaire te laisse toute la couverture."
   },
   {
     "id": "galanterie_015",
-    "question": "Ton partenaire te donne sa veste dès que tu as froid."
+    "question": "Ton/ta partenaire te donne sa veste dès que tu as froid."
   },
   {
     "id": "galanterie_016",
-    "question": "Ton partenaire te couvre quand tu t'endors."
+    "question": "Ton/ta partenaire te couvre quand tu t'endors."
   },
   {
     "id": "galanterie_017",
-    "question": "Ton partenaire te propose son bras quand vous marchez."
+    "question": "Ton/ta partenaire te propose son bras quand vous marchez."
   },
   {
     "id": "galanterie_018",
-    "question": "Ton partenaire te tient la main en public."
+    "question": "Ton/ta partenaire te tient la main en public."
   },
   {
     "id": "galanterie_019",
-    "question": "Ton partenaire te prend spontanément la main dans la rue."
+    "question": "Ton/ta partenaire te prend spontanément la main dans la rue."
   },
   {
     "id": "galanterie_020",
-    "question": "Ton partenaire te raccompagne systématiquement jusque chez toi."
+    "question": "Ton/ta partenaire te raccompagne systématiquement jusque chez toi."
   },
   {
     "id": "galanterie_021",
-    "question": "Ton partenaire t'accompagne jusqu'à ta porte même pour une visite rapide."
+    "question": "Ton/ta partenaire t'accompagne jusqu'à ta porte même pour une visite rapide."
   },
   {
     "id": "galanterie_022",
-    "question": "Ton partenaire te dépose en soirée puis revient te chercher."
+    "question": "Ton/ta partenaire te dépose en soirée puis revient te chercher."
   },
   {
     "id": "galanterie_023",
-    "question": "Ton partenaire vient te chercher à n'importe quelle heure si tu en as besoin."
+    "question": "Ton/ta partenaire vient te chercher à n'importe quelle heure si tu en as besoin."
   },
   {
     "id": "galanterie_024",
-    "question": "Ton partenaire t'attend après le travail pour rentrer avec toi."
+    "question": "Ton/ta partenaire t'attend après le travail pour rentrer avec toi."
   },
   {
     "id": "galanterie_025",
-    "question": "Ton partenaire te porte dans ses bras quand tu ne veux plus marcher."
+    "question": "Ton/ta partenaire te porte dans ses bras quand tu ne veux plus marcher."
   },
   {
     "id": "galanterie_026",
-    "question": "Ton partenaire te porte sur son dos quand tu as trop mal aux pieds."
+    "question": "Ton/ta partenaire te porte sur son dos quand tu as trop mal aux pieds."
   },
   {
     "id": "galanterie_027",
-    "question": "Ton partenaire échange ses chaussures avec toi si tu as mal aux pieds."
+    "question": "Ton/ta partenaire échange ses chaussures avec toi si tu as mal aux pieds."
   },
   {
     "id": "galanterie_028",
-    "question": "Ton partenaire t'aide à mettre tes chaussures."
+    "question": "Ton/ta partenaire t'aide à mettre tes chaussures."
   },
   {
     "id": "galanterie_029",
-    "question": "Ton partenaire t'attache tes lacets."
+    "question": "Ton/ta partenaire t'attache tes lacets."
   },
   {
     "id": "galanterie_030",
-    "question": "Ton partenaire te fait passer en premier quand vous commandez."
+    "question": "Ton/ta partenaire te fait passer en premier quand vous commandez."
   },
   {
     "id": "galanterie_031",
-    "question": "Ton partenaire te sert ton assiette avant la sienne."
+    "question": "Ton/ta partenaire te sert ton assiette avant la sienne."
   },
   {
     "id": "galanterie_032",
-    "question": "Ton partenaire te coupe ta viande ou ton plat si tu galères."
+    "question": "Ton/ta partenaire te coupe ta viande ou ton plat si tu galères."
   },
   {
     "id": "galanterie_033",
-    "question": "Ton partenaire te laisse goûter dans son assiette à chaque repas."
+    "question": "Ton/ta partenaire te laisse goûter dans son assiette à chaque repas."
   },
   {
     "id": "galanterie_034",
-    "question": "Ton partenaire échange son cocktail avec toi si tu préfères le sien."
+    "question": "Ton/ta partenaire échange son cocktail avec toi si tu préfères le sien."
   },
   {
     "id": "galanterie_035",
-    "question": "Ton partenaire te donne la dernière bouchée de son dessert préféré."
+    "question": "Ton/ta partenaire te donne la dernière bouchée de son dessert préféré."
   },
   {
     "id": "galanterie_036",
-    "question": "Ton partenaire te garde la dernière frite."
+    "question": "Ton/ta partenaire te garde la dernière frite."
   },
   {
     "id": "galanterie_037",
-    "question": "Ton partenaire te laisse la dernière part de gâteau."
+    "question": "Ton/ta partenaire te laisse la dernière part de gâteau."
   },
   {
     "id": "galanterie_038",
-    "question": "Ton partenaire se lève pour te chercher quelque chose alors que cette personne était bien installé(e)."
+    "question": "Ton/ta partenaire se relève pour aller te chercher quelque chose alors qu’il/elle venait juste de s’installer confortablement."
   },
   {
     "id": "galanterie_039",
-    "question": "Ton partenaire t'apporte un verre d'eau avant de dormir."
+    "question": "Ton/ta partenaire t'apporte un verre d'eau avant de dormir."
   },
   {
     "id": "galanterie_040",
-    "question": "Ton partenaire te prépare le café avant que tu sois levé(e)."
+    "question": "Ton/ta partenaire te prépare le café avant que tu sois levé(e)."
   },
   {
     "id": "galanterie_041",
-    "question": "Ton partenaire te prépare le petit-déjeuner le week-end."
+    "question": "Ton/ta partenaire te prépare le petit-déjeuner le week-end."
   },
   {
     "id": "galanterie_042",
-    "question": "Ton partenaire t'apporte le repas directement au lit ou sur le canapé."
+    "question": "Ton/ta partenaire t'apporte le repas directement au lit ou sur le canapé."
   },
   {
     "id": "galanterie_043",
-    "question": "Ton partenaire te masse quand tu as mal quelque part."
+    "question": "Ton/ta partenaire te masse quand tu as mal quelque part."
   },
   {
     "id": "galanterie_044",
-    "question": "Ton partenaire te masse les pieds après une grosse journée."
+    "question": "Ton/ta partenaire te masse les pieds après une grosse journée."
   },
   {
     "id": "galanterie_045",
-    "question": "Ton partenaire te masse le dos dès que tu dis que tu as mal."
+    "question": "Ton/ta partenaire te masse le dos dès que tu dis que tu as mal."
   },
   {
     "id": "galanterie_046",
-    "question": "Ton partenaire te laisse choisir la musique pendant tout le trajet."
+    "question": "Ton/ta partenaire te laisse choisir la musique pendant tout le trajet."
   },
   {
     "id": "galanterie_047",
-    "question": "Ton partenaire te laisse choisir le restaurant même si ce n'est pas son envie."
+    "question": "Ton/ta partenaire te laisse choisir le restaurant même si ce n'est pas son envie."
   },
   {
     "id": "galanterie_048",
-    "question": "Ton partenaire te laisse choisir le film sans râler."
+    "question": "Ton/ta partenaire te laisse choisir le film sans râler."
   },
   {
     "id": "galanterie_049",
-    "question": "Ton partenaire te laisse la prise la plus proche."
+    "question": "Ton/ta partenaire te laisse la prise la plus proche."
   },
   {
     "id": "galanterie_050",
-    "question": "Ton partenaire adapte son confort pour améliorer le tien."
+    "question": "Ton/ta partenaire adapte son confort pour améliorer le tien."
   },
   {
     "id": "services_001",
-    "question": "Ton partenaire sort acheter ce dont tu as envie même si cette personne était déjà en pyjama."
+    "question": "Ton/ta partenaire ressort acheter ce dont tu as envie alors qu’il/elle était déjà en pyjama."
   },
   {
     "id": "services_002",
-    "question": "Ton partenaire va acheter des bonbons parce que tu en as envie maintenant."
+    "question": "Ton/ta partenaire va acheter des bonbons parce que tu en as envie maintenant."
   },
   {
     "id": "services_003",
-    "question": "Ton partenaire répond à tes envies de dernière minute."
+    "question": "Ton/ta partenaire répond à tes envies de dernière minute."
   },
   {
     "id": "services_004",
-    "question": "Ton partenaire te ramène ton snack préféré sans que tu le demandes."
+    "question": "Ton/ta partenaire te ramène ton snack préféré sans que tu le demandes."
   },
   {
     "id": "services_005",
-    "question": "Ton partenaire te commande quelque chose même quand tu dis que tu ne veux rien."
+    "question": "Ton/ta partenaire te commande quelque chose même quand tu dis que tu ne veux rien."
   },
   {
     "id": "services_006",
-    "question": "Ton partenaire te fait livrer ton repas préféré après une mauvaise journée."
+    "question": "Ton/ta partenaire te fait livrer ton repas préféré après une mauvaise journée."
   },
   {
     "id": "services_007",
-    "question": "Ton partenaire te prépare à manger quand tu es fatigué(e)."
+    "question": "Ton/ta partenaire te prépare à manger quand tu es fatigué(e)."
   },
   {
     "id": "services_008",
-    "question": "Ton partenaire te prépare un plateau avec boisson, snack et plaid."
+    "question": "Ton/ta partenaire te prépare un plateau avec boisson, snack et plaid."
   },
   {
     "id": "services_009",
-    "question": "Ton partenaire te prépare un bain après une journée compliquée."
+    "question": "Ton/ta partenaire te prépare un bain après une journée compliquée."
   },
   {
     "id": "services_010",
-    "question": "Ton partenaire recharge ton téléphone pendant que tu dors."
+    "question": "Ton/ta partenaire recharge ton téléphone pendant que tu dors."
   },
   {
     "id": "services_011",
-    "question": "Ton partenaire met ton téléphone en charge dès qu'il est à 2%."
+    "question": "Ton/ta partenaire garde un chargeur de secours pour toi dans son sac ou sa voiture."
   },
   {
     "id": "services_012",
-    "question": "Ton partenaire recharge tes écouteurs avant un voyage."
+    "question": "Ton/ta partenaire recharge tes écouteurs avant un voyage."
   },
   {
     "id": "services_013",
-    "question": "Ton partenaire prépare ta valise quand tu es débordé(e)."
+    "question": "Ton/ta partenaire prépare ta valise quand tu es débordé(e)."
   },
   {
     "id": "services_014",
-    "question": "Ton partenaire prépare tous les papiers avant un départ."
+    "question": "Ton/ta partenaire prépare tous les papiers avant un départ."
   },
   {
     "id": "services_015",
-    "question": "Ton partenaire prépare une trousse avec tout ce qui pourrait te manquer."
+    "question": "Ton/ta partenaire prépare une trousse avec tout ce qui pourrait te manquer."
   },
   {
     "id": "services_016",
-    "question": "Ton partenaire prévoit toujours un plan B pour éviter que tu stresses."
+    "question": "Ton/ta partenaire prévoit toujours un plan B pour éviter que tu stresses."
   },
   {
     "id": "services_017",
-    "question": "Ton partenaire organise entièrement vos vacances pour que tu n'aies à penser à rien."
+    "question": "Ton/ta partenaire organise entièrement vos vacances pour que tu n'aies à penser à rien."
   },
   {
     "id": "services_018",
-    "question": "Ton partenaire planifie une sortie surprise sans te laisser gérer l'organisation."
+    "question": "Ton/ta partenaire planifie une sortie surprise sans te laisser gérer l'organisation."
   },
   {
     "id": "services_019",
-    "question": "Ton partenaire prend les rendez-vous que tu repousses depuis des semaines."
+    "question": "Ton/ta partenaire prend les rendez-vous que tu repousses depuis des semaines."
   },
   {
     "id": "services_020",
-    "question": "Ton partenaire appelle à ta place quand tu n'as pas envie de le faire."
+    "question": "Ton/ta partenaire appelle à ta place quand tu n'as pas envie de le faire."
   },
   {
     "id": "services_021",
-    "question": "Ton partenaire gère les démarches administratives que tu détestes."
+    "question": "Ton/ta partenaire gère les démarches administratives que tu détestes."
   },
   {
     "id": "services_022",
-    "question": "Ton partenaire fait les tâches que tu détestes sans te le dire."
+    "question": "Ton/ta partenaire fait les tâches que tu détestes sans te le dire."
   },
   {
     "id": "services_023",
-    "question": "Ton partenaire lave aussi tes vêtements quand cette personne fait une lessive."
+    "question": "Ton/ta partenaire ajoute naturellement tes vêtements à sa lessive quand cela peut te faire gagner du temps."
   },
   {
     "id": "services_024",
-    "question": "Ton partenaire remet de l'essence dans ta voiture sans que tu demandes."
+    "question": "Ton/ta partenaire remet de l'essence dans ta voiture sans que tu demandes."
   },
   {
     "id": "services_025",
-    "question": "Ton partenaire te rend ta voiture propre sans te prévenir."
+    "question": "Ton/ta partenaire te rend ta voiture propre sans te prévenir."
   },
   {
     "id": "services_026",
-    "question": "Ton partenaire arrive immédiatement si tu es en panne."
+    "question": "Ton/ta partenaire arrive immédiatement si tu es en panne."
   },
   {
     "id": "services_027",
-    "question": "Ton partenaire vient t'aider si tu as un problème avec ta voiture ou ta moto."
+    "question": "Ton/ta partenaire vient t'aider si tu as un problème avec ta voiture ou ta moto."
   },
   {
     "id": "services_028",
-    "question": "Ton partenaire t'appelle immédiatement quand tu dis que tu as un problème."
+    "question": "Ton/ta partenaire t'appelle immédiatement quand tu dis que tu as un problème."
   },
   {
     "id": "services_029",
-    "question": "Ton partenaire annule une sortie pour rester avec toi quand ça ne va pas."
+    "question": "Ton/ta partenaire annule une sortie pour rester avec toi quand ça ne va pas."
   },
   {
     "id": "services_030",
-    "question": "Ton partenaire laisse tomber ce que cette personne fait quand tu as vraiment besoin de lui/elle."
+    "question": "Ton/ta partenaire met ce qu’il/elle est en train de faire en pause quand tu as vraiment besoin de soutien."
   },
   {
     "id": "services_031",
-    "question": "Ton partenaire reste réveillé(e) jusqu'à ce que tu sois rentré(e)."
+    "question": "Ton/ta partenaire reste réveillé(e) jusqu'à ce que tu sois rentré(e)."
   },
   {
     "id": "services_032",
-    "question": "Ton partenaire se réveille plus tôt pour te déposer quelque part."
+    "question": "Ton/ta partenaire se réveille plus tôt pour te déposer quelque part."
   },
   {
     "id": "services_033",
-    "question": "Ton partenaire fait un détour juste pour te simplifier la journée."
+    "question": "Ton/ta partenaire fait un détour juste pour te simplifier la journée."
   },
   {
     "id": "services_034",
-    "question": "Ton partenaire traverse la ville pour te voir dix minutes."
+    "question": "Ton/ta partenaire traverse la ville pour te voir dix minutes."
   },
   {
     "id": "services_035",
-    "question": "Ton partenaire te conduit partout dès que c'est possible."
+    "question": "Ton/ta partenaire te conduit partout dès que c'est possible."
   },
   {
     "id": "services_036",
-    "question": "Ton partenaire te laisse dormir pendant que cette personne gère tout le matin."
+    "question": "Ton/ta partenaire te laisse dormir pendant qu’il/elle gère seul(e) tout ce qu’il y a à faire le matin."
   },
   {
     "id": "services_037",
-    "question": "Ton partenaire se lève tôt pour te faciliter la journée."
+    "question": "Ton/ta partenaire se lève tôt pour te faciliter la journée."
   },
   {
     "id": "services_038",
-    "question": "Ton partenaire te prépare tes affaires avant une grosse journée."
+    "question": "Ton/ta partenaire te prépare tes affaires avant une grosse journée."
   },
   {
     "id": "services_039",
-    "question": "Ton partenaire prend les choses en main quand tu es dépassé(e)."
+    "question": "Ton/ta partenaire prend les choses en main quand tu es dépassé(e)."
   },
   {
     "id": "services_040",
-    "question": "Ton partenaire anticipe tes besoins avant que tu les exprimes."
+    "question": "Ton/ta partenaire anticipe tes besoins avant que tu les exprimes."
   },
   {
     "id": "services_041",
-    "question": "Ton partenaire garde toujours des médicaments pour toi."
+    "question": "Ton/ta partenaire garde toujours des médicaments pour toi."
   },
   {
     "id": "services_042",
-    "question": "Ton partenaire va à la pharmacie pour toi."
+    "question": "Ton/ta partenaire va à la pharmacie pour toi."
   },
   {
     "id": "services_043",
-    "question": "Ton partenaire te prépare à manger quand tu es malade."
+    "question": "Ton/ta partenaire te prépare à manger quand tu es malade."
   },
   {
     "id": "services_044",
-    "question": "Ton partenaire t'apporte une bouillotte quand tu as mal."
+    "question": "Ton/ta partenaire t'apporte une bouillotte quand tu as mal."
   },
   {
     "id": "services_045",
-    "question": "Ton partenaire est aux petits soins quand tu as tes règles."
+    "question": "Ton/ta partenaire est aux petits soins quand tu as tes règles."
   },
   {
     "id": "services_046",
-    "question": "Ton partenaire va t'acheter ce que tu aimes quand tu as tes règles."
+    "question": "Ton/ta partenaire va t'acheter ce que tu aimes quand tu as tes règles."
   },
   {
     "id": "services_047",
-    "question": "Ton partenaire te prépare ton coin confortable quand tu ne vas pas bien."
+    "question": "Ton/ta partenaire te prépare ton coin confortable quand tu ne vas pas bien."
   },
   {
     "id": "services_048",
-    "question": "Ton partenaire connaît exactement ce qui te remonte le moral."
+    "question": "Ton/ta partenaire connaît exactement ce qui te remonte le moral."
   },
   {
     "id": "services_049",
-    "question": "Ton partenaire sait quoi faire quand tu es stressé(e)."
+    "question": "Ton/ta partenaire sait quoi faire quand tu es stressé(e)."
   },
   {
     "id": "services_050",
-    "question": "Ton partenaire te facilite la vie sans que tu aies à demander."
+    "question": "Ton/ta partenaire te facilite la vie sans que tu aies à demander."
   },
   {
     "id": "argent_001",
-    "question": "Ton partenaire paie régulièrement le restaurant."
+    "question": "Ton/ta partenaire paie régulièrement le restaurant."
   },
   {
     "id": "argent_002",
-    "question": "Ton partenaire insiste pour payer l'addition."
+    "question": "Ton/ta partenaire insiste pour payer l'addition."
   },
   {
     "id": "argent_003",
-    "question": "Ton partenaire paie le restaurant même quand c'est toi qui proposes la sortie."
+    "question": "Ton/ta partenaire paie le restaurant même quand c'est toi qui proposes la sortie."
   },
   {
     "id": "argent_004",
-    "question": "Ton partenaire paie une journée entière sans te laisser sortir ton portefeuille."
+    "question": "Ton/ta partenaire paie une journée entière sans te laisser sortir ton portefeuille."
   },
   {
     "id": "argent_005",
-    "question": "Ton partenaire te paie ton shopping."
+    "question": "Ton/ta partenaire te paie ton shopping."
   },
   {
     "id": "argent_006",
-    "question": "Ton partenaire te paie régulièrement des vêtements."
+    "question": "Ton/ta partenaire te paie régulièrement des vêtements."
   },
   {
     "id": "argent_007",
-    "question": "Ton partenaire te dit d'acheter ce qui te fait envie sans demander."
+    "question": "Ton/ta partenaire te dit d'acheter ce qui te fait envie sans demander."
   },
   {
     "id": "argent_008",
-    "question": "Ton partenaire te laisse utiliser sa carte bancaire."
+    "question": "Ton/ta partenaire te laisse utiliser sa carte bancaire."
   },
   {
     "id": "argent_009",
-    "question": "Ton partenaire te laisse sa carte bancaire sur ton téléphone."
+    "question": "Ton/ta partenaire te laisse sa carte bancaire sur ton téléphone."
   },
   {
     "id": "argent_010",
-    "question": "Ton partenaire te donne un budget plaisir juste pour te faire plaisir."
+    "question": "Ton/ta partenaire te donne un budget plaisir juste pour te faire plaisir."
   },
   {
     "id": "argent_011",
-    "question": "Ton partenaire te dit d'arrêter de regarder les prix quand vous êtes ensemble."
+    "question": "Ton/ta partenaire te dit d'arrêter de regarder les prix quand vous êtes ensemble."
   },
   {
     "id": "argent_012",
-    "question": "Ton partenaire paie les extras pour que tu profites davantage."
+    "question": "Ton/ta partenaire paie les extras pour que tu profites davantage."
   },
   {
     "id": "argent_013",
-    "question": "Ton partenaire te paie systématiquement ton entrée quand vous faites une activité."
+    "question": "Ton/ta partenaire te paie systématiquement ton entrée quand vous faites une activité."
   },
   {
     "id": "argent_014",
-    "question": "Ton partenaire te paie le transport quand vous sortez ensemble."
+    "question": "Ton/ta partenaire te paie le transport quand vous sortez ensemble."
   },
   {
     "id": "argent_015",
-    "question": "Ton partenaire t'offre des cadeaux sans occasion particulière."
+    "question": "Ton/ta partenaire t'offre des cadeaux sans occasion particulière."
   },
   {
     "id": "argent_016",
-    "question": "Ton partenaire t'offre régulièrement des petites attentions payantes."
+    "question": "Ton/ta partenaire t'offre régulièrement des petites attentions payantes."
   },
   {
     "id": "argent_017",
-    "question": "Ton partenaire t'achète des fleurs souvent."
+    "question": "Ton/ta partenaire t'achète des fleurs souvent."
   },
   {
     "id": "argent_018",
-    "question": "Ton partenaire te fait livrer des fleurs à l'improviste."
+    "question": "Ton/ta partenaire te fait livrer des fleurs à l'improviste."
   },
   {
     "id": "argent_019",
-    "question": "Ton partenaire t'achète quelque chose dès que tu dis que ça te plaît."
+    "question": "Ton/ta partenaire t'achète quelque chose dès que tu dis que ça te plaît."
   },
   {
     "id": "argent_020",
-    "question": "Ton partenaire t'offre quelque chose dont tu avais parlé une seule fois."
+    "question": "Ton/ta partenaire t'offre quelque chose dont tu avais parlé une seule fois."
   },
   {
     "id": "argent_021",
-    "question": "Ton partenaire t'offre quelque chose que tu regardais depuis longtemps."
+    "question": "Ton/ta partenaire t'offre quelque chose que tu regardais depuis longtemps."
   },
   {
     "id": "argent_022",
-    "question": "Ton partenaire économise pour t'offrir quelque chose dont tu rêves."
+    "question": "Ton/ta partenaire économise pour t'offrir quelque chose dont tu rêves."
   },
   {
     "id": "argent_023",
-    "question": "Ton partenaire garde une liste de cadeaux potentiels pour toi."
+    "question": "Ton/ta partenaire garde une liste de cadeaux potentiels pour toi."
   },
   {
     "id": "argent_024",
-    "question": "Ton partenaire prépare tes cadeaux plusieurs mois à l'avance."
+    "question": "Ton/ta partenaire prépare tes cadeaux plusieurs mois à l'avance."
   },
   {
     "id": "argent_025",
-    "question": "Ton partenaire te choisit un cadeau que tu n'aurais jamais pensé demander."
+    "question": "Ton/ta partenaire te choisit un cadeau que tu n'aurais jamais pensé demander."
   },
   {
     "id": "argent_026",
-    "question": "Ton partenaire t'achète quelque chose simplement parce que cette personne a pensé à toi."
+    "question": "Ton/ta partenaire t’achète quelque chose simplement parce qu’il/elle est tombé(e) dessus et a immédiatement pensé à toi."
   },
   {
     "id": "argent_027",
-    "question": "Ton partenaire t'offre quelque chose après une mauvaise journée."
+    "question": "Ton/ta partenaire t'offre quelque chose après une mauvaise journée."
   },
   {
     "id": "argent_028",
-    "question": "Ton partenaire te commande un cadeau dès que cette personne pense à toi."
+    "question": "Ton/ta partenaire commande parfois un petit cadeau sur un coup de cœur en pensant à toi."
   },
   {
     "id": "argent_029",
-    "question": "Ton partenaire te surprend régulièrement avec des petites dépenses pour toi."
+    "question": "Ton/ta partenaire te surprend régulièrement avec des petites dépenses pour toi."
   },
   {
     "id": "argent_030",
-    "question": "Ton partenaire t'offre quelque chose simplement parce que cette personne a eu une bonne journée."
+    "question": "Ton/ta partenaire célèbre aussi ses propres bonnes nouvelles en t’offrant une petite attention."
   },
   {
     "id": "argent_031",
-    "question": "Ton partenaire te réserve spontanément un week-end."
+    "question": "Ton/ta partenaire te réserve spontanément un week-end."
   },
   {
     "id": "argent_032",
-    "question": "Ton partenaire paie une activité parce que cette personne sait que tu vas l'aimer."
+    "question": "Ton/ta partenaire t’offre une activité qu’il/elle sait que tu vas adorer, même si ce n’est pas son choix à lui/elle."
   },
   {
     "id": "argent_033",
-    "question": "Ton partenaire organise une activité surprise et la finance entièrement."
+    "question": "Ton/ta partenaire organise une activité surprise et la finance entièrement."
   },
   {
     "id": "argent_034",
-    "question": "Ton partenaire te fait livrer ton dessert préféré sans raison."
+    "question": "Ton/ta partenaire te fait livrer ton dessert préféré sans raison."
   },
   {
     "id": "argent_035",
-    "question": "Ton partenaire te paie tes snacks préférés."
+    "question": "Ton/ta partenaire te paie tes snacks préférés."
   },
   {
     "id": "argent_036",
-    "question": "Ton partenaire te commande à manger sans te demander de rembourser."
+    "question": "Ton/ta partenaire te commande à manger sans te demander de rembourser."
   },
   {
     "id": "argent_037",
-    "question": "Ton partenaire t'offre ton parfum préféré dès qu'il est presque vide."
+    "question": "Ton/ta partenaire t'offre ton parfum préféré dès qu'il est presque vide."
   },
   {
     "id": "argent_038",
-    "question": "Ton partenaire te rachète ton produit préféré avant qu'il soit terminé."
+    "question": "Ton/ta partenaire te rachète ton produit préféré avant qu'il soit terminé."
   },
   {
     "id": "argent_039",
-    "question": "Ton partenaire remplace tes écouteurs dès qu'ils ne fonctionnent plus."
+    "question": "Ton/ta partenaire remplace tes écouteurs dès qu'ils ne fonctionnent plus."
   },
   {
     "id": "argent_040",
-    "question": "Ton partenaire te rachète immédiatement un objet que tu as cassé."
+    "question": "Ton/ta partenaire te rachète immédiatement un objet que tu as cassé."
   },
   {
     "id": "argent_041",
-    "question": "Ton partenaire te rachète un téléphone si tu casses le tien."
+    "question": "Ton/ta partenaire te rachète un téléphone si tu casses le tien."
   },
   {
     "id": "argent_042",
-    "question": "Ton partenaire te remplace un objet sans attendre ton anniversaire."
+    "question": "Ton/ta partenaire te remplace un objet sans attendre ton anniversaire."
   },
   {
     "id": "argent_043",
-    "question": "Ton partenaire te prend toujours quelque chose quand cette personne va dans ton magasin préféré."
+    "question": "Ton/ta partenaire pense à te rapporter quelque chose lorsqu’il/elle passe dans ton magasin préféré."
   },
   {
     "id": "argent_044",
-    "question": "Ton partenaire te laisse choisir ce qui te ferait plaisir dans un budget que cette personne paie."
+    "question": "Ton/ta partenaire te donne un budget plaisir et te laisse choisir exactement ce qui te ferait envie."
   },
   {
     "id": "argent_045",
-    "question": "Ton partenaire considère normal de te faire plaisir financièrement."
+    "question": "Ton/ta partenaire considère normal de te faire plaisir financièrement."
   },
   {
     "id": "argent_046",
-    "question": "Ton partenaire aime dépenser de l'argent pour te voir sourire."
+    "question": "Ton/ta partenaire aime dépenser de l'argent pour te voir sourire."
   },
   {
     "id": "argent_047",
-    "question": "Ton partenaire considère que te gâter fait partie de sa façon d'aimer."
+    "question": "Ton/ta partenaire considère que te gâter fait partie de sa façon d'aimer."
   },
   {
     "id": "argent_048",
-    "question": "Ton partenaire te paie une surprise sans rien attendre en retour."
+    "question": "Ton/ta partenaire te paie une surprise sans rien attendre en retour."
   },
   {
     "id": "argent_049",
-    "question": "Ton partenaire refuse que tu paies lors d'une occasion spéciale."
+    "question": "Ton/ta partenaire refuse que tu paies lors d'une occasion spéciale."
   },
   {
     "id": "argent_050",
-    "question": "Ton partenaire te donne envie de dire 'ok là je suis trop bien traité(e)'."
+    "question": "Ton/ta partenaire te donne envie de dire « là, je suis vraiment trop bien traité(e) »."
   },
   {
     "id": "attentions_premium_001",
-    "question": "Ton partenaire prépare un bain chaud avec une ambiance relaxante après une journée épuisante."
+    "question": "Ton/ta partenaire prépare un bain chaud avec une ambiance relaxante après une journée épuisante."
   },
   {
     "id": "attentions_premium_002",
-    "question": "Ton partenaire chauffe ton pyjama ou ta serviette pour que tu sois bien en sortant de la douche."
+    "question": "Ton/ta partenaire chauffe ton pyjama ou ta serviette pour que tu sois bien en sortant de la douche."
   },
   {
     "id": "attentions_premium_003",
-    "question": "Ton partenaire prépare une bouillotte et l’installe dans ton lit avant que tu te couches."
+    "question": "Ton/ta partenaire prépare une bouillotte et l’installe dans ton lit avant que tu te couches."
   },
   {
     "id": "attentions_premium_004",
-    "question": "Ton partenaire chauffe ton côté du lit avant que tu viennes te coucher."
+    "question": "Ton/ta partenaire chauffe ton côté du lit avant que tu viennes te coucher."
   },
   {
     "id": "attentions_premium_005",
-    "question": "Ton partenaire te fait un massage des épaules simplement parce que tu as l’air tendu(e)."
+    "question": "Ton/ta partenaire te fait un massage des épaules simplement parce que tu as l’air tendu(e)."
   },
   {
     "id": "attentions_premium_006",
-    "question": "Ton partenaire te masse les pieds après une longue journée sans que tu aies besoin de demander."
+    "question": "Ton/ta partenaire te masse les pieds après une longue journée sans que tu aies besoin de demander."
   },
   {
     "id": "attentions_premium_007",
-    "question": "Ton partenaire se lève pour éteindre la lumière alors que tu es déjà confortablement installé(e)."
+    "question": "Ton/ta partenaire se lève pour éteindre la lumière alors que tu es déjà confortablement installé(e)."
   },
   {
     "id": "attentions_premium_008",
-    "question": "Ton partenaire va chercher ton chargeur dans une autre pièce pour que tu n’aies pas à bouger."
+    "question": "Ton/ta partenaire va chercher ton chargeur dans une autre pièce pour que tu n’aies pas à bouger."
   },
   {
     "id": "attentions_premium_009",
-    "question": "Ton partenaire pense à brancher ton téléphone quand il voit que ta batterie est presque vide."
+    "question": "Ton/ta partenaire pense à brancher ton téléphone quand il voit que ta batterie est presque vide."
   },
   {
     "id": "attentions_premium_010",
-    "question": "Ton partenaire remplit ta gourde ou ton verre avant même que tu réalises qu’il est vide."
+    "question": "Ton/ta partenaire remplit ta gourde ou ton verre avant même que tu réalises qu’il est vide."
   },
   {
     "id": "attentions_premium_011",
-    "question": "Ton partenaire prépare tes affaires pour le lendemain quand tu es trop fatigué(e) pour le faire."
+    "question": "Ton/ta partenaire prépare tes affaires pour le lendemain quand tu es trop fatigué(e) pour le faire."
   },
   {
     "id": "attentions_premium_012",
-    "question": "Ton partenaire vérifie que tu as tes clés, ton chargeur et tout ce qu’il te faut avant un départ."
+    "question": "Ton/ta partenaire vérifie que tu as tes clés, ton chargeur et tout ce qu’il te faut avant un départ."
   },
   {
     "id": "attentions_premium_013",
-    "question": "Ton partenaire commande un taxi ou un VTC pour t’éviter un trajet pénible ou tardif."
+    "question": "Ton/ta partenaire commande un taxi ou un VTC pour t’éviter un trajet pénible ou tardif."
   },
   {
     "id": "attentions_premium_014",
-    "question": "Ton partenaire t’accompagne à un rendez-vous stressant et t’attend jusqu’à la fin."
+    "question": "Ton/ta partenaire t’accompagne à un rendez-vous stressant et t’attend jusqu’à la fin."
   },
   {
     "id": "attentions_premium_015",
-    "question": "Ton partenaire va récupérer une commande ou un colis à ta place pour t’éviter le déplacement."
+    "question": "Ton/ta partenaire va récupérer une commande ou un colis à ta place pour t’éviter le déplacement."
   },
   {
     "id": "attentions_premium_016",
-    "question": "Ton partenaire fait le plein ou recharge la voiture avant que tu aies besoin de la prendre."
+    "question": "Ton/ta partenaire fait le plein ou recharge la voiture avant que tu aies besoin de la prendre."
   },
   {
     "id": "attentions_premium_017",
-    "question": "Ton partenaire dégivre ou prépare la voiture avant ton départ quand il fait mauvais dehors."
+    "question": "Ton/ta partenaire dégivre ou prépare la voiture avant ton départ quand il fait mauvais dehors."
   },
   {
     "id": "attentions_premium_018",
-    "question": "Ton partenaire te laisse la voiture la plus confortable pour ton trajet le plus long."
+    "question": "Ton/ta partenaire te laisse la voiture la plus confortable pour ton trajet le plus long."
   },
   {
     "id": "attentions_premium_019",
-    "question": "Ton partenaire vient avec toi faire une corvée que tu détestes juste pour te tenir compagnie."
+    "question": "Ton/ta partenaire vient avec toi faire une corvée que tu détestes juste pour te tenir compagnie."
   },
   {
     "id": "attentions_premium_020",
-    "question": "Ton partenaire fait la file d’attente à ta place pendant que tu peux t’asseoir ou te reposer."
+    "question": "Ton/ta partenaire fait la file d’attente à ta place pendant que tu peux t’asseoir ou te reposer."
   },
   {
     "id": "attentions_premium_021",
-    "question": "Ton partenaire garde toujours une petite collation dans son sac parce qu’il sait que tu peux avoir faim."
+    "question": "Ton/ta partenaire garde toujours une petite collation dans son sac parce qu’il sait que tu peux avoir faim."
   },
   {
     "id": "attentions_premium_022",
-    "question": "Ton partenaire te prépare des fruits découpés et te les apporte sans que tu demandes."
+    "question": "Ton/ta partenaire te prépare des fruits découpés et te les apporte sans que tu demandes."
   },
   {
     "id": "attentions_premium_023",
-    "question": "Ton partenaire prépare ta lunchbox ou ton repas pour le lendemain."
+    "question": "Ton/ta partenaire prépare ta lunchbox ou ton repas pour le lendemain."
   },
   {
     "id": "attentions_premium_024",
-    "question": "Ton partenaire connaît ta commande préférée par cœur et la passe pour toi."
+    "question": "Ton/ta partenaire connaît ta commande préférée par cœur et la passe pour toi."
   },
   {
     "id": "attentions_premium_025",
-    "question": "Ton partenaire commande ton dessert préféré à emporter pour que tu puisses le manger plus tard."
+    "question": "Ton/ta partenaire commande ton dessert préféré à emporter pour que tu puisses le manger plus tard."
   },
   {
     "id": "attentions_premium_026",
-    "question": "Ton partenaire choisit le restaurant en fonction de ce qui te ferait le plus plaisir ce jour-là."
+    "question": "Ton/ta partenaire choisit le restaurant en fonction de ce qui te ferait le plus plaisir ce jour-là."
   },
   {
     "id": "attentions_premium_027",
-    "question": "Ton partenaire pense à vérifier le menu avant de réserver pour être sûr que tu trouveras quelque chose que tu aimes."
+    "question": "Ton/ta partenaire pense à vérifier le menu avant de réserver pour être sûr que tu trouveras quelque chose que tu aimes."
   },
   {
     "id": "attentions_premium_028",
-    "question": "Ton partenaire demande spontanément une adaptation au restaurant quand il sait qu’un détail te gêne."
+    "question": "Ton/ta partenaire demande spontanément une adaptation au restaurant quand il sait qu’un détail te gêne."
   },
   {
     "id": "attentions_premium_029",
-    "question": "Ton partenaire t’apporte le petit-déjeuner au lit un jour ordinaire, sans occasion particulière."
+    "question": "Ton/ta partenaire t’apporte le petit-déjeuner au lit un jour ordinaire, sans occasion particulière."
   },
   {
     "id": "attentions_premium_030",
-    "question": "Ton partenaire organise entièrement une sortie surprise, réservations et trajet compris, pour que tu n’aies rien à gérer."
+    "question": "Ton/ta partenaire organise entièrement une sortie surprise, réservations et trajet compris, pour que tu n’aies rien à gérer."
   },
   {
     "id": "attentions_premium_031",
-    "question": "Ton partenaire réserve une activité bien-être juste pour que tu puisses souffler et prendre soin de toi."
+    "question": "Ton/ta partenaire réserve une activité bien-être juste pour que tu puisses souffler et prendre soin de toi."
   },
   {
     "id": "attentions_premium_032",
-    "question": "Ton partenaire te prépare une soirée cocooning complète avec ton repas, ton film et tes snacks préférés."
+    "question": "Ton/ta partenaire te prépare une soirée cocooning complète avec ton repas, ton film et tes snacks préférés."
   },
   {
     "id": "attentions_premium_033",
-    "question": "Ton partenaire range et prépare la pièce avant ton arrivée pour que tu puisses directement te poser."
+    "question": "Ton/ta partenaire range et prépare la pièce avant ton arrivée pour que tu puisses directement te poser."
   },
   {
     "id": "attentions_premium_034",
-    "question": "Ton partenaire installe ton plaid, ton coussin et ta boisson avant que votre film commence."
+    "question": "Ton/ta partenaire installe ton plaid, ton coussin et ta boisson avant que votre film commence."
   },
   {
     "id": "attentions_premium_035",
-    "question": "Ton partenaire te donne la place où tu seras le mieux installé(e), même si c’était celle qu’il préférait."
+    "question": "Ton/ta partenaire te donne la place où tu seras le mieux installé(e), même si c’était celle qu’il préférait."
   },
   {
     "id": "attentions_premium_036",
-    "question": "Ton partenaire porte ton manteau, ton sac et tes affaires quand tu veux avoir les mains libres."
+    "question": "Ton/ta partenaire porte ton manteau, ton sac et tes affaires quand tu veux avoir les mains libres."
   },
   {
     "id": "attentions_premium_037",
-    "question": "Ton partenaire garde dans sa voiture ou chez lui/elle quelques affaires dont tu as souvent besoin."
+    "question": "Ton/ta partenaire garde dans sa voiture ou chez lui/elle quelques affaires dont tu as souvent besoin."
   },
   {
     "id": "attentions_premium_038",
-    "question": "Ton partenaire achète en avance ton produit préféré lorsqu’il voit qu’il est bientôt terminé."
+    "question": "Ton/ta partenaire achète en avance ton produit préféré lorsqu’il voit qu’il est bientôt terminé."
   },
   {
     "id": "attentions_premium_039",
-    "question": "Ton partenaire remplace discrètement un produit que tu utilises souvent avant même que tu sois à court."
+    "question": "Ton/ta partenaire remplace discrètement un produit que tu utilises souvent avant même que tu sois à court."
   },
   {
     "id": "attentions_premium_040",
-    "question": "Ton partenaire prépare une petite trousse avec ce dont tu pourrais avoir besoin pendant un voyage."
+    "question": "Ton/ta partenaire prépare une petite trousse avec ce dont tu pourrais avoir besoin pendant un voyage."
   },
   {
     "id": "attentions_premium_041",
-    "question": "Ton partenaire s’occupe de l’enregistrement, des billets et des réservations pour que tu voyages sans stress."
+    "question": "Ton/ta partenaire s’occupe de l’enregistrement, des billets et des réservations pour que tu voyages sans stress."
   },
   {
     "id": "attentions_premium_042",
-    "question": "Ton partenaire prend la place la moins confortable pendant le trajet pour te laisser la meilleure."
+    "question": "Ton/ta partenaire prend la place la moins confortable pendant le trajet pour te laisser la meilleure."
   },
   {
     "id": "attentions_premium_043",
-    "question": "Ton partenaire vient te chercher avec une boisson ou un snack qu’il a choisi spécialement pour toi."
+    "question": "Ton/ta partenaire vient te chercher avec une boisson ou un snack qu’il a choisi spécialement pour toi."
   },
   {
     "id": "attentions_premium_044",
-    "question": "Ton partenaire prévoit une solution de secours au cas où tu aurais froid, faim ou mal aux pieds pendant une sortie."
+    "question": "Ton/ta partenaire prévoit une solution de secours au cas où tu aurais froid, faim ou mal aux pieds pendant une sortie."
   },
   {
     "id": "attentions_premium_045",
-    "question": "Ton partenaire garde toujours un parapluie, un chargeur ou une veste en plus en pensant à toi."
+    "question": "Ton/ta partenaire garde toujours un parapluie, un chargeur ou une veste en plus en pensant à toi."
   },
   {
     "id": "attentions_premium_046",
-    "question": "Ton partenaire te prépare une tenue confortable et tout ce qu’il te faut quand tu restes dormir chez lui/elle."
+    "question": "Ton/ta partenaire te prépare une tenue confortable et tout ce qu’il te faut quand tu restes dormir chez lui/elle."
   },
   {
     "id": "attentions_premium_047",
-    "question": "Ton partenaire s’occupe de défaire tes bagages ou de ranger tes affaires quand tu arrives épuisé(e)."
+    "question": "Ton/ta partenaire s’occupe de défaire tes bagages ou de ranger tes affaires quand tu arrives épuisé(e)."
   },
   {
     "id": "attentions_premium_048",
-    "question": "Ton partenaire te laisse te reposer pendant qu’il s’occupe seul(e) des petites tâches après un voyage."
+    "question": "Ton/ta partenaire te laisse te reposer pendant qu’il s’occupe seul(e) des petites tâches après un voyage."
   },
   {
     "id": "attentions_premium_049",
-    "question": "Ton partenaire transforme une journée banale en petite journée spéciale simplement pour te faire plaisir."
+    "question": "Ton/ta partenaire transforme une journée banale en petite journée spéciale simplement pour te faire plaisir."
   },
   {
     "id": "attentions_premium_050",
-    "question": "Ton partenaire anticipe régulièrement tes petits besoins de confort avant même que tu les exprimes."
+    "question": "Ton/ta partenaire anticipe régulièrement tes petits besoins de confort avant même que tu les exprimes."
   },
   {
     "id": "distance_001",
-    "question": "Ton partenaire t'envoie un colis surprise quand vous êtes à distance."
+    "question": "Ton/ta partenaire t'envoie un colis surprise quand vous êtes à distance."
   },
   {
     "id": "distance_002",
-    "question": "Ton partenaire te fait livrer ton repas préféré quand vous êtes loin."
+    "question": "Ton/ta partenaire te fait livrer ton repas préféré quand vous êtes loin."
   },
   {
     "id": "distance_003",
-    "question": "Ton partenaire t'envoie un vocal quand tu lui manques."
+    "question": "Ton/ta partenaire t'envoie un vocal quand tu lui manques."
   },
   {
     "id": "distance_004",
-    "question": "Ton partenaire t'appelle pendant sa pause juste pour entendre ta voix."
+    "question": "Ton/ta partenaire t'appelle pendant sa pause juste pour entendre ta voix."
   },
   {
     "id": "distance_005",
-    "question": "Ton partenaire reste au téléphone avec toi jusqu'à ce que tu t'endormes."
+    "question": "Ton/ta partenaire reste au téléphone avec toi jusqu'à ce que tu t'endormes."
   },
   {
     "id": "distance_006",
-    "question": "Ton partenaire regarde un film en appel avec toi malgré la distance."
+    "question": "Ton/ta partenaire regarde un film en appel avec toi malgré la distance."
   },
   {
     "id": "distance_007",
-    "question": "Ton partenaire t'envoie des photos de sa journée pour que tu te sentes inclus(e)."
+    "question": "Ton/ta partenaire t'envoie des photos de sa journée pour que tu te sentes inclus(e)."
   },
   {
     "id": "distance_008",
-    "question": "Ton partenaire te garde une place dans ses routines même quand vous êtes loin."
+    "question": "Ton/ta partenaire te garde une place dans ses routines même quand vous êtes loin."
   },
   {
     "id": "distance_009",
-    "question": "Ton partenaire compte les jours avant de te revoir."
+    "question": "Ton/ta partenaire compte les jours avant de te revoir."
   },
   {
     "id": "distance_010",
-    "question": "Ton partenaire prépare une surprise pour ton retour."
+    "question": "Ton/ta partenaire prépare une surprise pour ton retour."
   },
   {
     "id": "vacances_001",
-    "question": "Ton partenaire pense à prendre des photos de toi pendant les vacances."
+    "question": "Ton/ta partenaire pense à prendre des photos de toi pendant les vacances."
   },
   {
     "id": "vacances_002",
-    "question": "Ton partenaire te laisse la meilleure vue dans la chambre d'hôtel."
+    "question": "Ton/ta partenaire te laisse la meilleure vue dans la chambre d'hôtel."
   },
   {
     "id": "vacances_003",
-    "question": "Ton partenaire réserve les activités en pensant d'abord à ce qui te plairait."
+    "question": "Ton/ta partenaire réserve les activités en pensant d'abord à ce qui te plairait."
   },
   {
     "id": "vacances_004",
-    "question": "Ton partenaire vérifie le menu du restaurant à l'avance pour voir si tu vas aimer."
+    "question": "Ton/ta partenaire vérifie le menu du restaurant à l'avance pour voir si tu vas aimer."
   },
   {
     "id": "vacances_005",
-    "question": "Ton partenaire prépare tout l'itinéraire pour que tu profites sans stress."
+    "question": "Ton/ta partenaire prépare tout l'itinéraire pour que tu profites sans stress."
   },
   {
     "id": "vacances_006",
-    "question": "Ton partenaire te garde le plus beau souvenir du voyage."
+    "question": "Ton/ta partenaire te garde le plus beau souvenir du voyage."
   },
   {
     "id": "vacances_007",
-    "question": "Ton partenaire te laisse choisir les activités pendant les vacances."
+    "question": "Ton/ta partenaire te laisse choisir les activités pendant les vacances."
   },
   {
     "id": "vacances_008",
-    "question": "Ton partenaire te réserve la meilleure place dans l'avion ou le train."
+    "question": "Ton/ta partenaire te réserve la meilleure place dans l'avion ou le train."
   },
   {
     "id": "vacances_009",
-    "question": "Ton partenaire te prend une couverture supplémentaire pour le trajet."
+    "question": "Ton/ta partenaire te prend une couverture supplémentaire pour le trajet."
   },
   {
     "id": "vacances_010",
-    "question": "Ton partenaire pense à ton confort avant le sien à l'hôtel."
+    "question": "Ton/ta partenaire pense à ton confort avant le sien à l'hôtel."
   },
   {
     "id": "reseaux_001",
-    "question": "Ton partenaire regarde tes stories dans la minute où elles sont publiées."
+    "question": "Ton/ta partenaire regarde tes stories dans la minute où elles sont publiées."
   },
   {
     "id": "reseaux_002",
-    "question": "Ton partenaire garde une photo de toi en fond d'écran."
+    "question": "Ton/ta partenaire garde une photo de toi en fond d'écran."
   },
   {
     "id": "reseaux_003",
-    "question": "Ton partenaire a un album rempli de photos de toi."
+    "question": "Ton/ta partenaire a un album rempli de photos de toi."
   },
   {
     "id": "reseaux_004",
-    "question": "Ton partenaire prend des photos de toi sans que tu le demandes."
+    "question": "Ton/ta partenaire prend des photos de toi sans que tu le demandes."
   },
   {
     "id": "reseaux_005",
-    "question": "Ton partenaire garde les photos où cette personne te trouve incroyable."
+    "question": "Ton/ta partenaire garde précieusement les photos de toi qu’il/elle trouve particulièrement belles."
   },
   {
     "id": "reseaux_006",
-    "question": "Ton partenaire montre souvent tes photos à ses proches."
+    "question": "Ton/ta partenaire montre souvent tes photos à ses proches."
   },
   {
     "id": "reseaux_007",
-    "question": "Ton partenaire reposte ta story parce que cette personne te trouve trop beau/belle."
+    "question": "Ton/ta partenaire repartage une photo ou une story de toi simplement parce qu’il/elle te trouve magnifique."
   },
   {
     "id": "reseaux_008",
-    "question": "Ton partenaire garde des captures d'écran de choses qui pourraient te faire rire."
+    "question": "Ton/ta partenaire garde des captures d'écran de choses qui pourraient te faire rire."
   },
   {
     "id": "reseaux_009",
-    "question": "Ton partenaire t'envoie un mème dès qu'il lui rappelle toi."
+    "question": "Ton/ta partenaire t'envoie un mème dès qu'il lui rappelle toi."
   },
   {
     "id": "reseaux_010",
-    "question": "Ton partenaire garde une petite liste d’idées de cadeaux ou de surprises dès que quelque chose lui fait penser à toi."
+    "question": "Ton/ta partenaire garde une petite liste d’idées de cadeaux ou de surprises dès que quelque chose lui fait penser à toi."
   },
   {
     "id": "souvenirs_001",
-    "question": "Ton partenaire garde les petits tickets ou souvenirs de vos sorties."
+    "question": "Ton/ta partenaire garde les petits tickets ou souvenirs de vos sorties."
   },
   {
     "id": "souvenirs_002",
-    "question": "Ton partenaire conserve les messages qui lui ont particulièrement plu."
+    "question": "Ton/ta partenaire conserve les messages qui lui ont particulièrement plu."
   },
   {
     "id": "souvenirs_003",
-    "question": "Ton partenaire garde les petites notes ou lettres que tu lui écris."
+    "question": "Ton/ta partenaire garde les petites notes ou lettres que tu lui écris."
   },
   {
     "id": "souvenirs_004",
-    "question": "Ton partenaire se souvient de la date où vous vous êtes rencontrés."
+    "question": "Ton/ta partenaire se souvient de la date où vous vous êtes rencontrés."
   },
   {
     "id": "souvenirs_005",
-    "question": "Ton partenaire se souvient du premier cadeau que vous vous êtes offert."
+    "question": "Ton/ta partenaire se souvient du premier cadeau que vous vous êtes offert."
   },
   {
     "id": "souvenirs_006",
-    "question": "Ton partenaire se souvient d'une conversation vieille de plusieurs années."
+    "question": "Ton/ta partenaire se souvient d'une conversation vieille de plusieurs années."
   },
   {
     "id": "souvenirs_007",
-    "question": "Ton partenaire garde une capture d'écran de votre premier message."
+    "question": "Ton/ta partenaire garde une capture d'écran de votre premier message."
   },
   {
     "id": "souvenirs_008",
-    "question": "Ton partenaire garde une liste de choses à faire avec toi."
+    "question": "Ton/ta partenaire garde une liste de choses à faire avec toi."
   },
   {
     "id": "souvenirs_009",
-    "question": "Ton partenaire connaît les détails de tes rêves ou projets futurs."
+    "question": "Ton/ta partenaire connaît les détails de tes rêves ou projets futurs."
   },
   {
     "id": "souvenirs_010",
-    "question": "Ton partenaire se souvient d'une envie que tu avais exprimée il y a plus d'un an."
+    "question": "Ton/ta partenaire se souvient d'une envie que tu avais exprimée il y a plus d'un an."
   },
   {
     "id": "premium_001",
-    "question": "Ton partenaire te choisit systématiquement en priorité."
+    "question": "Ton/ta partenaire te choisit systématiquement en priorité."
   },
   {
     "id": "premium_002",
-    "question": "Ton partenaire répond immédiatement à tes appels peu importe ce que cette personne fait."
+    "question": "Ton/ta partenaire essaie de répondre rapidement à tes appels lorsqu’il/elle sait que tu traverses une journée difficile."
   },
   {
     "id": "premium_003",
-    "question": "Ton partenaire garde son téléphone allumé la nuit au cas où tu aurais besoin."
+    "question": "Ton/ta partenaire garde son téléphone allumé la nuit au cas où tu aurais besoin."
   },
   {
     "id": "premium_004",
-    "question": "Ton partenaire vient te récupérer même après une dispute."
+    "question": "Ton/ta partenaire vient te récupérer même après une dispute."
   },
   {
     "id": "premium_005",
-    "question": "Ton partenaire te ramène toujours chez toi avant de rentrer."
+    "question": "Ton/ta partenaire te ramène toujours chez toi avant de rentrer."
   },
   {
     "id": "premium_006",
-    "question": "Ton partenaire échange sa place avec toi dès que tu es moins bien installé(e)."
+    "question": "Ton/ta partenaire échange sa place avec toi dès que tu es moins bien installé(e)."
   },
   {
     "id": "premium_007",
-    "question": "Ton partenaire te donne systématiquement ce qu'il y a de mieux."
+    "question": "Ton/ta partenaire te donne systématiquement ce qu'il y a de mieux."
   },
   {
     "id": "premium_008",
-    "question": "Ton partenaire te laisse gagner les disputes sans importance."
+    "question": "Ton/ta partenaire te laisse gagner les disputes sans importance."
   },
   {
     "id": "premium_009",
-    "question": "Ton partenaire regarde une émission que cette personne déteste parce que tu l'aimes."
+    "question": "Ton/ta partenaire regarde avec toi une émission qu’il/elle n’aime pas spécialement parce qu’elle te fait vraiment plaisir."
   },
   {
     "id": "premium_010",
-    "question": "Ton partenaire apprend quelque chose uniquement parce que ça te passionne."
+    "question": "Ton/ta partenaire apprend quelque chose uniquement parce que ça te passionne."
   },
   {
     "id": "premium_plus_001",
-    "question": "Ton partenaire réserve toujours la place la plus confortable pour toi."
+    "question": "Ton/ta partenaire réserve toujours la place la plus confortable pour toi."
   },
   {
     "id": "premium_plus_002",
-    "question": "Ton partenaire vérifie la météo pour penser à prendre un parapluie pour toi."
+    "question": "Ton/ta partenaire vérifie la météo pour penser à prendre un parapluie pour toi."
   },
   {
     "id": "premium_plus_003",
-    "question": "Ton partenaire te prépare un petit-déjeuner avant une journée importante."
+    "question": "Ton/ta partenaire te prépare un petit-déjeuner avant une journée importante."
   },
   {
     "id": "premium_plus_004",
-    "question": "Ton partenaire garde toujours ton snack préféré chez lui ou chez elle."
+    "question": "Ton/ta partenaire garde toujours ton snack préféré chez lui ou chez elle."
   },
   {
     "id": "premium_plus_005",
-    "question": "Ton partenaire pense à charger ton téléphone quand il voit qu'il n'a presque plus de batterie."
+    "question": "Ton/ta partenaire vérifie avant de dormir que tu as près de toi tout ce dont tu pourrais avoir besoin pendant la nuit."
   },
   {
     "id": "premium_plus_006",
-    "question": "Ton partenaire te laisse le côté du lit que tu préfères, même si ce n'est pas le sien."
+    "question": "Ton/ta partenaire te laisse le côté du lit que tu préfères, même si ce n'est pas le sien."
   },
   {
     "id": "premium_plus_007",
-    "question": "Ton partenaire te donne sa veste dès que tu dis que tu as froid."
+    "question": "Ton/ta partenaire garde une paire de chaussettes chaudes ou un petit plaid pour toi quand il/elle sait que tu as facilement froid."
   },
   {
     "id": "premium_plus_008",
-    "question": "Ton partenaire porte ton sac quand tu commences à fatiguer."
+    "question": "Ton/ta partenaire porte ton sac quand tu commences à fatiguer."
   },
   {
     "id": "premium_plus_009",
-    "question": "Ton partenaire te réserve spontanément un taxi ou un VTC pour que tu rentres en sécurité."
+    "question": "Ton/ta partenaire te réserve spontanément un taxi ou un VTC pour que tu rentres en sécurité."
   },
   {
     "id": "premium_plus_010",
-    "question": "Ton partenaire t'envoie de quoi manger quand il ou elle sait que tu n'as pas eu le temps de cuisiner."
+    "question": "Ton/ta partenaire t'envoie de quoi manger quand il ou elle sait que tu n'as pas eu le temps de cuisiner."
   },
   {
     "id": "premium_plus_011",
-    "question": "Ton partenaire retient exactement comment tu prends ton café et te le prépare sans demander."
+    "question": "Ton/ta partenaire retient exactement comment tu prends ton café et te le prépare sans demander."
   },
   {
     "id": "premium_plus_012",
-    "question": "Ton partenaire te masse les épaules quand il ou elle voit que tu es tendu(e)."
+    "question": "Ton/ta partenaire te masse les épaules quand il ou elle voit que tu es tendu(e)."
   },
   {
     "id": "premium_plus_013",
-    "question": "Ton partenaire s'occupe des démarches pénibles quand tu traverses une période compliquée."
+    "question": "Ton/ta partenaire s'occupe des démarches pénibles quand tu traverses une période compliquée."
   },
   {
     "id": "premium_plus_014",
-    "question": "Ton partenaire te fait couler un bain ou prépare une douche chaude après une longue journée."
+    "question": "Ton/ta partenaire te fait couler un bain ou prépare une douche chaude après une longue journée."
   },
   {
     "id": "premium_plus_015",
-    "question": "Ton partenaire te laisse choisir le restaurant quand il ou elle sait que tu as eu une semaine difficile."
+    "question": "Ton/ta partenaire te laisse choisir le restaurant quand il ou elle sait que tu as eu une semaine difficile."
   },
   {
     "id": "premium_plus_016",
-    "question": "Ton partenaire te dépose et revient te chercher pour t'éviter un trajet pénible."
+    "question": "Ton/ta partenaire te dépose et revient te chercher pour t'éviter un trajet pénible."
   },
   {
     "id": "premium_plus_017",
-    "question": "Ton partenaire garde dans son téléphone une liste des choses que tu mentionnes aimer pour de futures surprises."
+    "question": "Ton/ta partenaire garde dans son téléphone une liste des choses que tu mentionnes aimer pour de futures surprises."
   },
   {
     "id": "premium_plus_018",
-    "question": "Ton partenaire pense à renouveler ou remplacer un produit que tu utilises avant qu'il soit complètement terminé."
+    "question": "Ton/ta partenaire pense à renouveler ou remplacer un produit que tu utilises avant qu'il soit complètement terminé."
   },
   {
     "id": "premium_plus_019",
-    "question": "Ton partenaire te prépare tes affaires quand vous devez partir très tôt le lendemain."
+    "question": "Ton/ta partenaire te prépare tes affaires quand vous devez partir très tôt le lendemain."
   },
   {
     "id": "premium_plus_020",
-    "question": "Ton partenaire te sert ton assiette avant de préparer la sienne."
+    "question": "Ton/ta partenaire te prépare ta boisson préférée exactement comme tu l’aimes avant de penser à la sienne."
   },
   {
     "id": "premium_plus_021",
-    "question": "Ton partenaire te coupe un aliment dans ton assiette quand tu galères avec."
+    "question": "Ton/ta partenaire te coupe un aliment dans ton assiette quand tu galères avec."
   },
   {
     "id": "premium_plus_022",
-    "question": "Ton partenaire t'aide à mettre tes chaussures quand tu as les mains prises ou que tu es pressé(e)."
+    "question": "Ton/ta partenaire t'aide à mettre tes chaussures quand tu as les mains prises ou que tu es pressé(e)."
   },
   {
     "id": "premium_plus_023",
-    "question": "Ton partenaire échange ses chaussures avec toi si les tiennes te font vraiment trop mal."
+    "question": "Ton/ta partenaire échange ses chaussures avec toi si les tiennes te font vraiment trop mal."
   },
   {
     "id": "premium_plus_024",
-    "question": "Ton partenaire se lève pour aller te chercher quelque chose alors que tu es déjà confortablement installé(e)."
+    "question": "Ton/ta partenaire se lève pour aller te chercher quelque chose alors que tu es déjà confortablement installé(e)."
   },
   {
     "id": "premium_plus_025",
-    "question": "Ton partenaire te laisse utiliser sa carte bancaire pour une petite dépense sans te demander de justification."
+    "question": "Ton/ta partenaire te laisse utiliser sa carte bancaire pour une petite dépense sans te demander de justification."
   },
   {
     "id": "premium_plus_026",
-    "question": "Ton partenaire t'offre régulièrement de petites choses simplement parce qu'elles lui ont fait penser à toi."
+    "question": "Ton/ta partenaire t'offre régulièrement de petites choses simplement parce qu'elles lui ont fait penser à toi."
   },
   {
     "id": "premium_plus_027",
-    "question": "Ton partenaire t'achète des fleurs sans attendre une date particulière."
+    "question": "Ton/ta partenaire t'achète des fleurs sans attendre une date particulière."
   },
   {
     "id": "premium_plus_028",
-    "question": "Ton partenaire transforme une envie soudaine de bonbons en petite mission pour aller t'en chercher."
+    "question": "Ton/ta partenaire transforme une envie soudaine de bonbons en petite mission pour aller t'en chercher."
   },
   {
     "id": "premium_plus_029",
-    "question": "Ton partenaire prépare ton repas préféré juste parce que tu en as parlé dans la journée."
+    "question": "Ton/ta partenaire prépare ton repas préféré juste parce que tu en as parlé dans la journée."
   },
   {
     "id": "premium_plus_030",
-    "question": "Ton partenaire te laisse la dernière part de quelque chose que vous adorez tous les deux."
+    "question": "Ton/ta partenaire te laisse la dernière part de quelque chose que vous adorez autant."
   },
   {
     "id": "premium_plus_031",
-    "question": "Ton partenaire se souvient des dates qui comptent pour toi même lorsqu'elles ne concernent pas directement votre couple."
+    "question": "Ton/ta partenaire se souvient des dates qui comptent pour toi même lorsqu'elles ne concernent pas directement votre couple."
   },
   {
     "id": "premium_plus_032",
-    "question": "Ton partenaire organise une journée entière autour de tes envies pour te faire plaisir."
+    "question": "Ton/ta partenaire organise une journée entière autour de tes envies pour te faire plaisir."
   },
   {
     "id": "premium_plus_033",
-    "question": "Ton partenaire t'accompagne à un rendez-vous stressant même si tu pourrais y aller seul(e)."
+    "question": "Ton/ta partenaire t'accompagne à un rendez-vous stressant même si tu pourrais y aller seul(e)."
   },
   {
     "id": "premium_plus_034",
-    "question": "Ton partenaire attend que tu sois rentré(e) pour dormir quand tu rentres très tard."
+    "question": "Ton/ta partenaire attend que tu sois rentré(e) pour dormir quand tu rentres très tard."
   },
   {
     "id": "premium_plus_035",
-    "question": "Ton partenaire te couvre avec une couverture quand tu t'endors sur le canapé."
+    "question": "Ton/ta partenaire te couvre avec une couverture quand tu t'endors sur le canapé."
   },
   {
     "id": "premium_plus_036",
-    "question": "Ton partenaire baisse spontanément le son ou la lumière quand il ou elle voit que tu as mal à la tête."
+    "question": "Ton/ta partenaire baisse spontanément le son ou la lumière quand il ou elle voit que tu as mal à la tête."
   },
   {
     "id": "premium_plus_037",
-    "question": "Ton partenaire te prépare une petite trousse avec ce dont tu pourrais avoir besoin avant un voyage."
+    "question": "Ton/ta partenaire prépare à l’avance une petite playlist ou un téléchargement hors ligne pour rendre ton trajet plus agréable."
   },
   {
     "id": "premium_plus_038",
-    "question": "Ton partenaire commande ton plat préféré à l'avance pour qu'il soit prêt quand tu arrives."
+    "question": "Ton/ta partenaire commande ton plat préféré à l'avance pour qu'il soit prêt quand tu arrives."
   },
   {
     "id": "premium_plus_039",
-    "question": "Ton partenaire te prête systématiquement son chargeur même s'il ou elle en a aussi besoin."
+    "question": "Ton/ta partenaire te prête systématiquement son chargeur même s'il ou elle en a aussi besoin."
   },
   {
     "id": "premium_plus_040",
-    "question": "Ton partenaire prend en charge le rangement après que tu as cuisiné."
+    "question": "Ton/ta partenaire prend en charge le rangement après que tu as cuisiné."
   },
   {
     "id": "premium_plus_041",
-    "question": "Ton partenaire t'offre un nouvel appareil ou objet important si le tien casse et que tu ne peux pas le remplacer facilement."
+    "question": "Ton/ta partenaire t'offre un nouvel appareil ou objet important si le tien casse et que tu ne peux pas le remplacer facilement."
   },
   {
     "id": "premium_plus_042",
-    "question": "Ton partenaire te réserve toujours une place à côté de lui ou d'elle quand vous êtes en groupe."
+    "question": "Ton/ta partenaire te réserve toujours une place à côté de lui ou d'elle quand vous êtes en groupe."
   },
   {
     "id": "premium_plus_043",
-    "question": "Ton partenaire vérifie que tu as bien mangé quand tu es absorbé(e) par le travail."
+    "question": "Ton/ta partenaire vérifie que tu as bien mangé quand tu es absorbé(e) par le travail."
   },
   {
     "id": "premium_plus_044",
-    "question": "Ton partenaire apprend à faire quelque chose uniquement parce que ça pourrait te faciliter la vie."
+    "question": "Ton/ta partenaire apprend à faire quelque chose uniquement parce que ça pourrait te faciliter la vie."
   },
   {
     "id": "premium_plus_045",
-    "question": "Ton partenaire garde une petite somme de côté pour pouvoir te faire plaisir de temps en temps."
+    "question": "Ton/ta partenaire garde une petite somme de côté pour pouvoir te faire plaisir de temps en temps."
   },
   {
     "id": "premium_plus_046",
-    "question": "Ton partenaire te prépare une tenue ou repasse un vêtement pour toi avant un événement important."
+    "question": "Ton/ta partenaire te prépare une tenue ou repasse un vêtement pour toi avant un événement important."
   },
   {
     "id": "premium_plus_047",
-    "question": "Ton partenaire commande deux desserts différents pour que tu puisses goûter aux deux."
+    "question": "Ton/ta partenaire commande deux desserts différents pour que tu puisses goûter aux deux."
   },
   {
     "id": "premium_plus_048",
-    "question": "Ton partenaire pense toujours à prendre de l'eau ou un encas pour toi avant une longue sortie."
+    "question": "Ton/ta partenaire pense toujours à prendre de l'eau ou un encas pour toi avant une longue sortie."
   },
   {
     "id": "premium_plus_049",
-    "question": "Ton partenaire prend spontanément ta défense lorsqu'une remarque injuste est faite devant vous."
+    "question": "Ton/ta partenaire prend spontanément ta défense lorsqu'une remarque injuste est faite devant vous."
   },
   {
     "id": "premium_plus_050",
-    "question": "Ton partenaire organise ton anniversaire comme un véritable événement sans te laisser gérer la logistique."
+    "question": "Ton/ta partenaire organise ton anniversaire comme un véritable événement sans te laisser gérer la logistique."
   }
 ]

@@ -47,7 +47,7 @@
     },
     {
       "id": "emoji_amour",
-      "title": "Classe ces emojis selon ceux que tu préfères recevoir de ton partenaire.",
+      "title": "Classe ces emojis selon ceux que tu préfères recevoir de ton/ta partenaire.",
       "items": [
         "❤️",
         "🥰",
@@ -61,7 +61,7 @@
     },
     {
       "id": "appel_spontane",
-      "title": "Classe ces raisons d'appeler ton partenaire sans prévenir.",
+      "title": "Classe ces raisons d'appeler ton/ta partenaire sans prévenir.",
       "items": [
         "Partager une bonne nouvelle",
         "Entendre sa voix",
@@ -1809,7 +1809,7 @@
     },
     {
       "id": "sorties_solo",
-      "title": "Classe ces sorties selon celles qui te semblent les plus normales sans ton partenaire.",
+      "title": "Classe ces sorties selon celles qui te semblent les plus normales sans ton/ta partenaire.",
       "items": [
         "Restaurant",
         "Cinéma",
@@ -5831,7 +5831,7 @@
       },
       {
         "id": "emoji_amour",
-        "title": "Classe ces emojis selon ceux que tu préfères recevoir de ton partenaire.",
+        "title": "Classe ces emojis selon ceux que tu préfères recevoir de ton/ta partenaire.",
         "items": [
           "❤️",
           "🥰",
@@ -5844,7 +5844,7 @@
       },
       {
         "id": "appel_spontane",
-        "title": "Classe ces raisons d'appeler ton partenaire sans prévenir.",
+        "title": "Classe ces raisons d'appeler ton/ta partenaire sans prévenir.",
         "items": [
           "Partager une bonne nouvelle",
           "Entendre sa voix",
@@ -9113,7 +9113,7 @@
       },
       {
         "id": "sorties_solo",
-        "title": "Classe ces sorties selon celles qui te semblent les plus normales sans ton partenaire.",
+        "title": "Classe ces sorties selon celles qui te semblent les plus normales sans ton/ta partenaire.",
         "items": [
           "Restaurant",
           "Cinéma",

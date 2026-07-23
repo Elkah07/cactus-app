@@ -240,7 +240,7 @@
   {
     "id": "wyr_035",
     "category": "couple",
-    "question": "Tu préfères que votre partenaire te dise…",
+    "question": "Tu préfères que ton/ta partenaire te dise…",
     "optionA": "Toujours exactement ce qu’il ou elle pense",
     "optionB": "Parfois une version plus douce pour ménager tes sentiments"
   },
@@ -275,7 +275,7 @@
   {
     "id": "wyr_040",
     "category": "couple",
-    "question": "Tu préfères que votre partenaire soit…",
+    "question": "Tu préfères que ton/ta partenaire soit…",
     "optionA": "Ton premier réflexe pour presque tout",
     "optionB": "Une personne essentielle sans être ton unique pilier"
   },
@@ -296,7 +296,7 @@
   {
     "id": "wyr_043",
     "category": "couple",
-    "question": "Tu préfères apprendre que votre partenaire…",
+    "question": "Tu préfères apprendre que ton/ta partenaire…",
     "optionA": "A changé sur un sujet important sans t’en parler",
     "optionB": "N’a pas changé mais n’ose plus te dire ce qu’il ou elle pense"
   },
@@ -359,7 +359,7 @@
   {
     "id": "wyr_052",
     "category": "quotidien",
-    "question": "Quand vous êtes tous les deux fatigués, tu préfères…",
+    "question": "Après une journée épuisante pour vous deux, tu préfères…",
     "optionA": "Annuler les plans et rester chez vous",
     "optionB": "Sortir quand même pour changer d’air"
   },
@@ -389,12 +389,12 @@
     "category": "quotidien",
     "question": "Pour choisir ce que vous regardez, tu préfères…",
     "optionA": "Alterner chacun votre tour",
-    "optionB": "Ne regarder que ce qui vous plaît à tous les deux"
+    "optionB": "Ne regarder que ce qui vous plaît à vous deux"
   },
   {
     "id": "wyr_057",
     "category": "quotidien",
-    "question": "Tu préfères que votre partenaire…",
+    "question": "Tu préfères que ton/ta partenaire…",
     "optionA": "Goûte toujours dans ton assiette",
     "optionB": "Commande exactement la même chose que toi"
   },
@@ -548,7 +548,7 @@
   {
     "id": "wyr_079",
     "category": "complicité",
-    "question": "Tu préfères que votre partenaire devine facilement…",
+    "question": "Tu préfères que ton/ta partenaire devine facilement…",
     "optionA": "Ce qui te ferait plaisir",
     "optionB": "Ce qui te dérange avant même que tu le dises"
   },
@@ -604,7 +604,7 @@
   {
     "id": "wyr_087",
     "category": "complicité",
-    "question": "Tu préfères que votre partenaire sache par cœur…",
+    "question": "Tu préfères que ton/ta partenaire sache par cœur…",
     "optionA": "Ta commande préférée partout",
     "optionB": "La manière exacte de te réconforter"
   },
@@ -702,7 +702,7 @@
   {
     "id": "wyr_101",
     "category": "romance",
-    "question": "Tu préfères que votre partenaire organise…",
+    "question": "Tu préfères que ton/ta partenaire organise…",
     "optionA": "Une soirée surprise à la maison",
     "optionB": "Une escapade dont tu ignores complètement la destination"
   },
@@ -723,7 +723,7 @@
   {
     "id": "wyr_104",
     "category": "romance",
-    "question": "Tu préfères que votre partenaire te surprenne avec…",
+    "question": "Tu préfères que ton/ta partenaire te surprenne avec…",
     "optionA": "Ton repas préféré après une mauvaise journée",
     "optionB": "Des billets pour quelque chose dont tu rêves depuis longtemps"
   },
@@ -779,7 +779,7 @@
   {
     "id": "wyr_112",
     "category": "romance",
-    "question": "Tu préfères que votre partenaire se souvienne parfaitement…",
+    "question": "Tu préfères que ton/ta partenaire se souvienne parfaitement…",
     "optionA": "De toutes vos dates importantes",
     "optionB": "Des petites phrases que tu as dites sans y penser"
   },
@@ -1164,7 +1164,7 @@
   {
     "id": "wyr_167",
     "category": "fun",
-    "question": "Tu préfères que votre partenaire puisse entendre…",
+    "question": "Tu préfères que ton/ta partenaire puisse entendre…",
     "optionA": "Toutes tes pensées pendant dix minutes",
     "optionB": "Tous les rêves que tu fais pendant un mois"
   },
@@ -1180,7 +1180,7 @@
     "category": "fun",
     "question": "Tu préfères devoir regarder avec l’autre…",
     "optionA": "Le même mauvais film dix fois",
-    "optionB": "Une série de 200 épisodes que vous détestez tous les deux"
+    "optionB": "Une série de 200 épisodes que vous détestez autant"
   },
   {
     "id": "wyr_170",
@@ -1241,7 +1241,7 @@
   {
     "id": "wyr_178",
     "category": "fun",
-    "question": "Tu préfères que votre partenaire gagne toujours à…",
+    "question": "Tu préfères que ton/ta partenaire gagne toujours à…",
     "optionA": "Pierre-feuille-ciseaux",
     "optionB": "Tous les jeux où tu es normalement imbattable"
   },
@@ -1255,7 +1255,7 @@
   {
     "id": "wyr_180",
     "category": "fun",
-    "question": "Tu préfères découvrir que votre partenaire a secrètement…",
+    "question": "Tu préfères découvrir que ton/ta partenaire a secrètement…",
     "optionA": "Un talent incroyable pour le yodel",
     "optionB": "Une passion très sérieuse pour les compétitions de puzzles"
   },
@@ -1439,7 +1439,7 @@
     "category": "souvenirs",
     "question": "Tu préfères découvrir une vieille conversation où…",
     "optionA": "L’autre parlait de toi avant votre relation",
-    "optionB": "Vous aviez tous les deux complètement oublié un projet commun"
+    "optionB": "Vous aviez complètement oublié un projet commun"
   },
   {
     "id": "wyr_207",
@@ -1549,7 +1549,7 @@
   {
     "id": "wyr_222",
     "category": "argent",
-    "question": "Tu préfères que votre partenaire…",
+    "question": "Tu préfères que ton/ta partenaire…",
     "optionA": "Te parle de chaque dépense importante avant de la faire",
     "optionB": "Gère librement son argent tant que les engagements communs sont respectés"
   },
@@ -1577,7 +1577,7 @@
   {
     "id": "wyr_226",
     "category": "argent",
-    "question": "Tu préfères apprendre que votre partenaire…",
+    "question": "Tu préfères apprendre que ton/ta partenaire…",
     "optionA": "A une grosse épargne dont tu ignorais l’existence",
     "optionB": "A une dette ancienne presque entièrement remboursée"
   },
@@ -1599,7 +1599,7 @@
     "id": "wyr_229",
     "category": "argent",
     "question": "Si un achat vous divise, tu préfères…",
-    "optionA": "Attendre jusqu’à être tous les deux convaincus",
+    "optionA": "Attendre jusqu’à ce que vous soyez d’accord",
     "optionB": "Laisser la personne qui le veut vraiment décider si elle le finance"
   },
   {
@@ -1640,7 +1640,7 @@
   {
     "id": "wyr_235",
     "category": "social",
-    "question": "Tu préfères que votre partenaire soit…",
+    "question": "Tu préfères que ton/ta partenaire soit…",
     "optionA": "Très sociable et toujours partant pour sortir",
     "optionB": "Plus réservé et heureux avec peu de personnes"
   },
@@ -1675,14 +1675,14 @@
   {
     "id": "wyr_240",
     "category": "social",
-    "question": "Si votre partenaire devient très proche d’une nouvelle personne, tu préfères…",
+    "question": "Si ton/ta partenaire devient très proche d’une nouvelle personne, tu préfères…",
     "optionA": "La rencontrer rapidement",
     "optionB": "Laisser cette amitié exister sans forcément y participer"
   },
   {
     "id": "wyr_241",
     "category": "social",
-    "question": "Tu préfères que votre partenaire te demande…",
+    "question": "Tu préfères que ton/ta partenaire te demande…",
     "optionA": "De venir à presque toutes ses sorties importantes",
     "optionB": "De venir seulement quand ta présence lui tient particulièrement à cœur"
   },
@@ -1698,7 +1698,7 @@
     "category": "social",
     "question": "Tu préfères que vos amis connaissent…",
     "optionA": "Beaucoup de détails sur votre relation",
-    "optionB": "Seulement ce que vous décidez tous les deux de partager"
+    "optionB": "Seulement ce que vous décidez ensemble de partager"
   },
   {
     "id": "wyr_244",
@@ -1738,7 +1738,7 @@
   {
     "id": "wyr_249",
     "category": "social",
-    "question": "Tu préfères que votre partenaire soit…",
+    "question": "Tu préfères que ton/ta partenaire soit…",
     "optionA": "Toujours à l’aise avec tes proches",
     "optionB": "Très sincère même si certaines affinités ne se créent jamais"
   },
@@ -1843,7 +1843,7 @@
   {
     "id": "wyr_264",
     "category": "intimité",
-    "question": "Tu préfères que votre partenaire sache…",
+    "question": "Tu préfères que ton/ta partenaire sache…",
     "optionA": "Exactement comment te rassurer physiquement",
     "optionB": "Exactement quand tu ne veux pas être touché(e)"
   },
@@ -1878,7 +1878,7 @@
   {
     "id": "wyr_269",
     "category": "intimité",
-    "question": "Tu préfères que votre partenaire soit…",
+    "question": "Tu préfères que ton/ta partenaire soit…",
     "optionA": "Très tactile",
     "optionB": "Très verbal dans sa façon de montrer son désir"
   },
@@ -1927,7 +1927,7 @@
   {
     "id": "wyr_276",
     "category": "intimité",
-    "question": "Tu préfères que votre partenaire connaisse…",
+    "question": "Tu préfères que ton/ta partenaire connaisse…",
     "optionA": "Toutes tes envies secrètes",
     "optionB": "Toutes tes limites les plus importantes"
   },
@@ -2760,7 +2760,7 @@
   {
     "id": "temps_wyr_identite_05_a_long_terme_quel_profil_de_partenaire_te_correspond_le_mi",
     "category": "identite",
-    "question": "À long terme, quel profil de partenaire te correspond le mieux ?",
+    "question": "À long terme, tu préfères construire ta vie avec…",
     "optionA": "Quelqu’un d’assez stable dans sa manière de vivre et ses projets",
     "optionB": "Quelqu’un qui se réinvente souvent même si cela rend l’avenir moins prévisible"
   },

@@ -913,7 +913,7 @@
   },
   {
     "id": "ville_vivre_ensemble",
-    "question": "Dans quelle ville pourrais-tu nous imaginer vivre ensemble ?"
+    "question": "Dans quel type d’endroit pourrais-tu nous imaginer construire notre quotidien : grande ville, petite ville ou campagne ?"
   },
   {
     "id": "objectif_couple_futur",
@@ -949,7 +949,7 @@
   },
   {
     "id": "pouvoir_etrange",
-    "question": "Quel pouvoir étrange accepterais-tu d'avoir ?"
+    "question": "Quel talent complètement improbable aimerais-tu maîtriser instantanément ?"
   },
   {
     "id": "teleportation_journee",
@@ -1237,7 +1237,7 @@
   },
   {
     "id": "parentalite_guess_010_quel_serait_le_pays_ou_le_type_de_vo",
-    "question": "Quel serait le pays ou le type de voyage que tu aurais le plus de mal à le/la laisser faire seul(e) ?"
+    "question": "Quel pays ou quel type de voyage aurais-tu le plus de mal à laisser notre enfant faire seul(e) ?"
   },
   {
     "id": "parentalite_guess_011_quelle_liberte_serais_tu_pret_e_a_ac",

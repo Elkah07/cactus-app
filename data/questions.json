@@ -249,7 +249,7 @@
   },
   {
     "id": "si_tu_pouvais_me_poser_une_seule",
-    "question": "Si tu pouvais me poser une seule question à laquelle je serais obligée de répondre honnêtement, ce serait quoi ?",
+    "question": "Si tu pouvais me poser une seule question à laquelle je serais obligé(e) de répondre honnêtement, laquelle choisirais-tu ?",
     "category": "deep",
     "spicy": 0,
     "mood": "deep",
@@ -425,7 +425,7 @@
   },
   {
     "id": "si_on_se_rencontrait_aujourd_hui_pour",
-    "question": "Si nous nous rencontrions aujourd'hui pour la première fois, qu'est-ce qui pourrait te faire tomber amoureuse de moi ?",
+    "question": "Si nous nous rencontrions aujourd’hui pour la première fois, qu’est-ce qui pourrait te faire tomber amoureux ou amoureuse de moi ?",
     "category": "intimacy",
     "spicy": 1,
     "mood": "romantic",
@@ -441,7 +441,7 @@
   },
   {
     "id": "si_tu_devais_choisir_un_outfit_pour",
-    "question": "Si tu devais choisir un outfit pour moi pour aller en date tu choisirais quoi ?",
+    "question": "Si tu devais choisir une tenue pour notre prochain rendez-vous, qu’aimerais-tu me voir porter ?",
     "category": "intimacy",
     "spicy": 1,
     "mood": "romantic",
@@ -553,7 +553,7 @@
   },
   {
     "id": "quelle_est_la_chose_qui_me_rend",
-    "question": "Quelle est la chose qui me rend plus forte que je ne le pense ?",
+    "question": "Quelle est la chose qui me rend plus fort(e) que je ne le pense ?",
     "category": "relation",
     "spicy": 0,
     "mood": "deep",
@@ -577,7 +577,7 @@
   },
   {
     "id": "comment_gererais_tu_quelqu_un_qui_essaye",
-    "question": "Comment réagirais-tu si quelqu'un essayait de nous éloigner l'une de l'autre ?",
+    "question": "Comment réagirais-tu si quelqu’un essayait de nous éloigner ?",
     "category": "relation",
     "spicy": 0,
     "mood": "deep",
@@ -609,7 +609,7 @@
   },
   {
     "id": "prix_max_raisonnable_pour_toi_pour_un",
-    "question": "Prix max raisonnable pour toi pour un mariage ?",
+    "question": "Quel est, selon toi, le budget maximal raisonnable pour un mariage ?",
     "category": "lifestyle",
     "spicy": 0,
     "mood": "serious",
@@ -633,7 +633,7 @@
   },
   {
     "id": "a_quel_moment_precis_tu_as_su",
-    "question": "À quel moment précis tu as su que tu voulais m'embrasser ?",
+    "question": "À quel moment précis as-tu su que tu voulais m’embrasser ?",
     "category": "intimacy",
     "spicy": 1,
     "mood": "romantic",
@@ -641,7 +641,7 @@
   },
   {
     "id": "si_tu_avais_une_minute_pour_me",
-    "question": "Si tu avais une minute pour me faire rougir qu'est ce que tu me dirais ?",
+    "question": "Si tu avais une minute pour me faire rougir, qu’est-ce que tu me dirais ?",
     "category": "intimacy",
     "spicy": 1,
     "mood": "romantic",
@@ -649,7 +649,7 @@
   },
   {
     "id": "quelle_partie_de_ma_personnalite_t_as",
-    "question": "Quelle facette de ma personnalité t'a fait tomber encore plus amoureuse de moi ?",
+    "question": "Quelle facette de ma personnalité t’a fait tomber encore plus amoureux ou amoureuse de moi ?",
     "category": "intimacy",
     "spicy": 1,
     "mood": "romantic",
@@ -689,7 +689,7 @@
   },
   {
     "id": "quelle_phrase_je_dis_tout_le_temps",
-    "question": "Quelle phrase je dis tout le temps et que toi aussi tu commences à dire ?",
+    "question": "Quelle phrase est-ce que je répète tellement souvent que tu as commencé à la dire aussi ?",
     "category": "relation",
     "spicy": 0,
     "mood": "deep",
@@ -746,14 +746,14 @@
   {
     "id": "y_a_t_il_quelque_chose_qu",
     "question": "Quelle leçon positive d'une ancienne relation aimerais-tu conserver, et qu'est-ce qui te convient mieux avec moi ?",
-    "category": "jealousy",
-    "spicy": 1,
+    "category": "relation",
+    "spicy": 0,
     "mood": "serious",
     "premium": true
   },
   {
     "id": "si_ta_famille_ou_tes_amis_me",
-    "question": "Si ta famille ou tes amis me critiquaient dans mon dos ce serait sur quoi et tu me défendrais ou tu serais d'accord avec eux ?",
+    "question": "Si ta famille ou tes amis me critiquaient dans mon dos, sur quoi porterait leur critique et comment réagirais-tu ?",
     "category": "family",
     "spicy": 0,
     "mood": "serious",
@@ -801,7 +801,7 @@
   },
   {
     "id": "si_tu_devais_parier_sur_comment_ou",
-    "question": "Si tu devais parier sur comment ou sur quoi on va se disputer la prochaine fois tu miserais sur quoi ?",
+    "question": "Si tu devais parier sur le sujet de notre prochaine dispute, sur quoi miserais-tu ?",
     "category": "communication",
     "spicy": 0,
     "mood": "serious",
@@ -809,7 +809,7 @@
   },
   {
     "id": "comment_tu_sais_que_quelqu_un_te",
-    "question": "Comment tu sais que quelqu'un te plaît vraiment ?",
+    "question": "Comment sais-tu que quelqu’un te plaît vraiment ?",
     "category": "relation",
     "spicy": 0,
     "mood": "deep",
@@ -825,7 +825,7 @@
   },
   {
     "id": "tu_penses_que_tes_amis_pensent_quoi",
-    "question": "Tu penses que tes amis pensent quoi de nous ?",
+    "question": "À ton avis, que pensent réellement tes amis de notre relation ?",
     "category": "family",
     "spicy": 0,
     "mood": "serious",
@@ -841,7 +841,7 @@
   },
   {
     "id": "si_je_debarquais_chez_toi_a_2h",
-    "question": "Si je débarquais chez toi à 2h du matin avec la tête de quelqu'un qui a vécu quelque chose tu penses que ce serait quoi exactement ?",
+    "question": "Si je débarquais chez toi à 2 h du matin avec l’air d’avoir vécu quelque chose d’intense, qu’imaginerais-tu qu’il s’est passé ?",
     "category": "relation",
     "spicy": 0,
     "mood": "deep",
@@ -849,7 +849,7 @@
   },
   {
     "id": "si_on_venait_te_dire_que_je",
-    "question": "Si on venait te dire que je me suis embrouillé de malade dans la rue tu penses que ce serait à-propos de quoi ?",
+    "question": "Si on venait te dire que je me suis sérieusement embrouillé(e) dans la rue, à ton avis, à propos de quoi ce serait ?",
     "category": "relation",
     "spicy": 0,
     "mood": "deep",
@@ -905,7 +905,7 @@
   },
   {
     "id": "si_ton_toi_enfant_te_voyait_aujourd",
-    "question": "Si l'enfant que tu étais te voyait aujourd'hui, qu'est-ce qui la surprendrait le plus ?",
+    "question": "Si l’enfant que tu étais te voyait aujourd’hui, qu’est-ce qui le surprendrait le plus dans la personne que tu es devenue ?",
     "category": "relation",
     "spicy": 0,
     "mood": "deep",
@@ -969,7 +969,7 @@
   },
   {
     "id": "dis_moi_quelque_chose_que_personne_pourrait",
-    "question": "Dis-moi quelque chose que personne ne pourrait facilement deviner sur toi.",
+    "question": "Quelle chose à propos de toi personne ne pourrait-elle facilement deviner ?",
     "category": "relation",
     "spicy": 0,
     "mood": "deep",
@@ -1001,7 +1001,7 @@
   },
   {
     "id": "est_ce_que_je_t_ai_deja",
-    "question": "Est-ce que je t'ai déjà blessée sans m'en rendre compte ? Si oui, comment pourrais-je mieux agir ?",
+    "question": "Est-ce que je t’ai déjà blessé(e) sans m’en rendre compte ? Si oui, comment pourrais-je mieux agir ?",
     "category": "deep",
     "spicy": 0,
     "mood": "deep",
@@ -1009,7 +1009,7 @@
   },
   {
     "id": "comment_tu_imagines_qu_on_se_partage",
-    "question": "Comment tu imagines qu'on se partage les tâches ?",
+    "question": "Comment imagines-tu le partage idéal des tâches entre nous ?",
     "category": "relation",
     "spicy": 0,
     "mood": "deep",
@@ -1050,9 +1050,9 @@
   {
     "id": "si_quelqu_un_te_disait_que_j",
     "question": "Si quelqu'un te disait que j'ai été arrêté par la police sans t'expliquer pourquoi, tu penserais que c'est pourquoi ?",
-    "category": "communication",
+    "category": "fun",
     "spicy": 0,
-    "mood": "serious",
+    "mood": "fun",
     "premium": true
   },
   {
@@ -1089,7 +1089,7 @@
   },
   {
     "id": "quelle_est_la_chose_que_je_fait_2",
-    "question": "Qu'est-ce que je fais sans le savoir qui te donne le sentiment que nous sommes faites l'une pour l'autre ?",
+    "question": "Qu’est-ce que je fais sans le savoir qui te donne le sentiment que nous sommes vraiment faits l’un pour l’autre ?",
     "category": "relation",
     "spicy": 0,
     "mood": "deep",
@@ -1105,7 +1105,7 @@
   },
   {
     "id": "si_on_se_separait_demain_qu_est",
-    "question": "Si on se séparait demain, qu'est ce que tu dirais de moi en bien et en mal ?",
+    "question": "Si on se séparait demain, qu’est-ce que tu dirais de moi, en bien comme en mal ?",
     "category": "relation",
     "spicy": 0,
     "mood": "deep",
@@ -1114,7 +1114,7 @@
   {
     "id": "quel_trait_de_ma_personnalite_te_font",
     "question": "Quel trait de ma personnalité peut parfois te faire douter de notre compatibilité ?",
-    "category": "communication",
+    "category": "relation",
     "spicy": 0,
     "mood": "serious",
     "premium": true
@@ -1161,7 +1161,7 @@
   },
   {
     "id": "qu_est_ce_qui_te_rend_la",
-    "question": "Qu'est-ce qui te rend la plus heureuse dans notre relation ?",
+    "question": "Qu’est-ce qui te rend le plus heureux ou la plus heureuse dans notre relation ?",
     "category": "relation",
     "spicy": 0,
     "mood": "deep",
@@ -1241,7 +1241,7 @@
   },
   {
     "id": "si_t_etais_celibataire_demain_est_ce",
-    "question": "Si t'étais célibataire demain, est-ce qu'il y a quelqu'un qui te vient en tête de suite ?",
+    "question": "Si tu étais célibataire demain, est-ce que quelqu’un te viendrait immédiatement à l’esprit ?",
     "category": "relation",
     "spicy": 0,
     "mood": "deep",
@@ -1297,7 +1297,7 @@
   },
   {
     "id": "qu_avons_nous_accomplis_cette_annee_dont",
-    "question": "Qu'avons-nous accompli cette année dont nous sommes les plus fières ?",
+    "question": "Qu’avons-nous accompli cette année qui te rend le plus fier ou la plus fière de nous ?",
     "category": "future",
     "spicy": 0,
     "mood": "serious",
@@ -1345,7 +1345,7 @@
   },
   {
     "id": "quel_est_l_endroit_le_plus_risque",
-    "question": "Quel est l'endroit le plus risqué où tu as eu envie de moi et où nous n’avons finalement rien fait au final ?",
+    "question": "Quel est l’endroit le plus risqué où tu as eu envie de moi sans que nous allions finalement plus loin ?",
     "category": "sex",
     "spicy": 3,
     "mood": "spicy",
@@ -1377,7 +1377,7 @@
   },
   {
     "id": "qu_est_ce_qui_t_attire_le",
-    "question": "Qu'est ce qui t'attire le plus chez moi quand on est ensemble ?",
+    "question": "Qu’est-ce qui t’attire le plus chez moi quand on est ensemble ?",
     "category": "intimacy",
     "spicy": 1,
     "mood": "romantic",
@@ -1577,7 +1577,7 @@
   },
   {
     "id": "dans_quelle_ville_ou_quel_pays_tu",
-    "question": "Dans quelle ville ou quel pays tu nous imagines le plus heureux ?",
+    "question": "Dans quelle ville ou quel pays nous imagines-tu le plus heureux ?",
     "category": "future",
     "spicy": 0,
     "mood": "serious",
@@ -1689,7 +1689,7 @@
   },
   {
     "id": "comment_tu_imagines_notre_routine_ideale_un",
-    "question": "Comment tu imagines notre routine idéale un dimanche matin ?",
+    "question": "Comment imagines-tu notre dimanche matin idéal ?",
     "category": "relation",
     "spicy": 0,
     "mood": "deep",
@@ -1793,7 +1793,7 @@
   },
   {
     "id": "comment_tu_sais_qu_une_discussion_devient",
-    "question": "Comment tu sais qu'une discussion devient dangereuse pour nous ?",
+    "question": "Comment sais-tu qu’une discussion commence à devenir mauvaise pour nous ?",
     "category": "communication",
     "spicy": 0,
     "mood": "serious",
@@ -1858,9 +1858,9 @@
   {
     "id": "a_quel_moment_une_amitie_devient_trop",
     "question": "À quel moment une amitié devient trop intime selon toi ?",
-    "category": "sex",
-    "spicy": 3,
-    "mood": "spicy",
+    "category": "jealousy",
+    "spicy": 0,
+    "mood": "serious",
     "premium": true
   },
   {
@@ -1881,7 +1881,7 @@
   },
   {
     "id": "quelle_peur_de_toi_meme_tu_ne",
-    "question": "Quelle peur de toi-même tu ne montres presque jamais ?",
+    "question": "Quelle peur liée à toi-même montres-tu le moins aux autres ?",
     "category": "deep",
     "spicy": 0,
     "mood": "deep",
@@ -1921,7 +1921,7 @@
   },
   {
     "id": "dans_quel_moment_tu_t_es_sentie",
-    "question": "Dans quel moment tu t'es senti·e le plus aimé·e par moi ?",
+    "question": "À quel moment t’es-tu senti(e) le plus aimé(e) par moi ?",
     "category": "relation",
     "spicy": 0,
     "mood": "deep",
@@ -1929,7 +1929,7 @@
   },
   {
     "id": "dans_quel_moment_tu_t_es_sentie_2",
-    "question": "Dans quel moment tu t'es senti·e le plus seul·e avec moi ?",
+    "question": "À quel moment t’es-tu senti(e) le plus seul(e), même en étant avec moi ?",
     "category": "deep",
     "spicy": 0,
     "mood": "deep",
@@ -2049,7 +2049,7 @@
   },
   {
     "id": "a_quel_moment_tu_me_trouves_le",
-    "question": "À quel moment tu me trouves le plus attirant·e sans que je m'en rende compte ?",
+    "question": "À quel moment me trouves-tu le plus attirant(e) sans que je m’en rende compte ?",
     "category": "intimacy",
     "spicy": 2,
     "mood": "romantic",
@@ -2090,9 +2090,9 @@
   {
     "id": "quel_regard_de_moi_te_fait_comprendre",
     "question": "Quel regard de moi te fait comprendre que je t'aime ?",
-    "category": "jealousy",
-    "spicy": 1,
-    "mood": "serious",
+    "category": "intimacy",
+    "spicy": 0,
+    "mood": "romantic",
     "premium": true
   },
   {
@@ -2130,9 +2130,9 @@
   {
     "id": "y_a_t_il_un_fantasme_ou",
     "question": "Y a-t-il un fantasme ou une envie que tu aimerais vivre avec moi sans avoir encore osé m'en parler ?",
-    "category": "communication",
-    "spicy": 0,
-    "mood": "serious",
+    "category": "intimacy",
+    "spicy": 2,
+    "mood": "spicy",
     "premium": true
   },
   {
@@ -2202,9 +2202,9 @@
   {
     "id": "est_ce_que_parler_de_nos_envies",
     "question": "Est-ce que parler de nos envies te met à l'aise ou te gêne encore un peu ?",
-    "category": "communication",
-    "spicy": 0,
-    "mood": "serious",
+    "category": "intimacy",
+    "spicy": 1,
+    "mood": "romantic",
     "premium": true
   },
   {
@@ -2410,7 +2410,7 @@
   {
     "id": "si_je_partais_en_voyage_sans_toi",
     "question": "Si je partais en voyage sans toi avec des amis, qu'est-ce qui te rassurerait ?",
-    "category": "family",
+    "category": "jealousy",
     "spicy": 0,
     "mood": "serious",
     "premium": true
@@ -2625,7 +2625,7 @@
   },
   {
     "id": "a_quel_moment_tu_as_besoin_que",
-    "question": "À quel moment tu as besoin que je me taise et que je sois juste là ?",
+    "question": "À quel moment as-tu surtout besoin que je me taise et que je sois simplement là ?",
     "category": "relation",
     "spicy": 0,
     "mood": "deep",
@@ -2633,7 +2633,7 @@
   },
   {
     "id": "a_quel_moment_tu_as_besoin_que_2",
-    "question": "À quel moment tu as besoin que je parle au lieu de laisser le silence s'installer ?",
+    "question": "À quel moment as-tu besoin que je parle plutôt que de laisser le silence s’installer ?",
     "category": "communication",
     "spicy": 0,
     "mood": "serious",
@@ -2730,9 +2730,9 @@
   {
     "id": "quelle_chose_chez_moi_ferait_rire_nos",
     "question": "Quelle chose chez moi ferait rire nos futurs voisins ?",
-    "category": "family",
+    "category": "fun",
     "spicy": 0,
-    "mood": "serious",
+    "mood": "fun",
     "premium": true
   },
   {
@@ -2833,7 +2833,7 @@
   },
   {
     "id": "conversation_bien_ecoutee",
-    "question": "Lors de quelle conversation récente t'es-tu sentie particulièrement bien écoutée par moi ?",
+    "question": "Lors de quelle conversation récente t’es-tu senti(e) particulièrement bien écouté(e) par moi ?",
     "category": "communication",
     "spicy": 0,
     "mood": "deep",
@@ -2993,7 +2993,7 @@
   },
   {
     "id": "temps_seule_ideal",
-    "question": "De combien de temps seule as-tu besoin pour te sentir bien dans une semaine normale ?",
+    "question": "De combien de temps seul(e) as-tu besoin pour te sentir bien au cours d’une semaine normale ?",
     "category": "lifestyle",
     "spicy": 0,
     "mood": "deep",
@@ -3009,7 +3009,7 @@
   },
   {
     "id": "moment_fierte_recente",
-    "question": "À quel moment récent as-tu été fière de nous sans forcément me le dire ?",
+    "question": "À quel moment récent as-tu été fier ou fière de nous sans forcément me le dire ?",
     "category": "relation",
     "spicy": 0,
     "mood": "romantic",
@@ -3161,7 +3161,7 @@
   },
   {
     "id": "premium_extension_011",
-    "question": "Quelle personne tu serais devenu(e) si une rencontre importante n’avait jamais eu lieu ?",
+    "question": "Quelle personne serais-tu devenu(e) si une rencontre importante n’avait jamais eu lieu ?",
     "category": "deep",
     "spicy": 0,
     "mood": "deep",
@@ -3169,7 +3169,7 @@
   },
   {
     "id": "premium_extension_012",
-    "question": "Quel souvenir tu aimerais pouvoir regarder avec plus de douceur ?",
+    "question": "Quel souvenir aimerais-tu pouvoir regarder avec plus de douceur ?",
     "category": "deep",
     "spicy": 0,
     "mood": "deep",
@@ -3201,7 +3201,7 @@
   },
   {
     "id": "premium_extension_016",
-    "question": "Quelle croyance sur toi-même que tu essaies encore de déconstruire ?",
+    "question": "Quelle croyance sur toi-même essaies-tu encore de déconstruire ?",
     "category": "deep",
     "spicy": 0,
     "mood": "deep",
@@ -3209,7 +3209,7 @@
   },
   {
     "id": "premium_extension_017",
-    "question": "Quelle période de ta vie qui t’a le plus transformé(e) ?",
+    "question": "Quelle période de ta vie t’a le plus transformé(e) ?",
     "category": "deep",
     "spicy": 0,
     "mood": "deep",
@@ -3249,7 +3249,7 @@
   },
   {
     "id": "premium_extension_022",
-    "question": "Qu’aimerais-tu mieux comprendre sur la personne à qui tu aimerais pouvoir poser une seule question sans filtre ?",
+    "question": "À quelle personne aimerais-tu pouvoir poser une seule question sans filtre, et que lui demanderais-tu ?",
     "category": "deep",
     "spicy": 0,
     "mood": "deep",
@@ -3305,7 +3305,7 @@
   },
   {
     "id": "premium_extension_029",
-    "question": "Qu’aimerais-tu mieux comprendre sur la plus grande différence entre la personne que tu montres et celle que tu ressens être ?",
+    "question": "Quelle est la plus grande différence entre la personne que tu montres aux autres et celle que tu sens être au fond ?",
     "category": "deep",
     "spicy": 0,
     "mood": "deep",
@@ -3321,7 +3321,7 @@
   },
   {
     "id": "premium_extension_031",
-    "question": "Qu’aimerais-tu mieux comprendre sur la promesse que tu aimerais faire à ton futur toi ?",
+    "question": "Quelle promesse aimerais-tu faire à ton futur toi ?",
     "category": "deep",
     "spicy": 0,
     "mood": "deep",
@@ -3329,7 +3329,7 @@
   },
   {
     "id": "premium_extension_032",
-    "question": "Qu’aimerais-tu mieux comprendre sur le regret qui t’a finalement appris quelque chose d’essentiel ?",
+    "question": "Quel regret t’a finalement appris quelque chose d’essentiel ?",
     "category": "deep",
     "spicy": 0,
     "mood": "deep",
@@ -3337,7 +3337,7 @@
   },
   {
     "id": "premium_extension_033",
-    "question": "Qu’aimerais-tu mieux comprendre sur la situation dans laquelle tu as le plus besoin d’être rassuré(e) ?",
+    "question": "Dans quelle situation as-tu le plus besoin d’être rassuré(e) ?",
     "category": "deep",
     "spicy": 0,
     "mood": "deep",
@@ -3345,7 +3345,7 @@
   },
   {
     "id": "premium_extension_034",
-    "question": "Quelle partie de ta personnalité tu as mis des années à apprécier ?",
+    "question": "Quelle facette de ta personnalité as-tu mis des années à apprécier ?",
     "category": "deep",
     "spicy": 0,
     "mood": "deep",
@@ -3417,7 +3417,7 @@
   },
   {
     "id": "premium_extension_043",
-    "question": "Quel choix tu referais malgré tout ce qu’il t’a coûté ?",
+    "question": "Quel choix referais-tu malgré tout ce qu’il t’a coûté ?",
     "category": "deep",
     "spicy": 0,
     "mood": "deep",
@@ -3481,7 +3481,7 @@
   },
   {
     "id": "premium_extension_051",
-    "question": "Quelle importance a pour toi le type d’attention qui compte plus pour toi que les cadeaux ?",
+    "question": "Quel type d’attention compte plus pour toi que les cadeaux ?",
     "category": "relation",
     "spicy": 0,
     "mood": "deep",
@@ -3489,7 +3489,7 @@
   },
   {
     "id": "premium_extension_052",
-    "question": "Quel compromis tu trouves sain et celui qui te ferait perdre une partie de toi ?",
+    "question": "Quel compromis trouves-tu sain, et lequel te ferait perdre une partie de toi ?",
     "category": "relation",
     "spicy": 0,
     "mood": "deep",
@@ -3609,7 +3609,7 @@
   },
   {
     "id": "premium_extension_067",
-    "question": "Quelle place tu donnes aux traditions de couple ?",
+    "question": "Quelle place donnes-tu aux traditions de couple ?",
     "category": "relation",
     "spicy": 0,
     "mood": "deep",
@@ -3769,7 +3769,7 @@
   },
   {
     "id": "premium_extension_087",
-    "question": "Quel mode de vie tu voudrais absolument avoir dans dix ans ?",
+    "question": "Quel mode de vie voudrais-tu absolument avoir dans dix ans ?",
     "category": "future",
     "spicy": 0,
     "mood": "serious",
@@ -3777,7 +3777,7 @@
   },
   {
     "id": "premium_extension_088",
-    "question": "Comment imagines-tu la chose pour laquelle tu serais prêt(e) à déménager loin ?",
+    "question": "Pour quelle raison serais-tu prêt(e) à déménager loin ?",
     "category": "future",
     "spicy": 0,
     "mood": "serious",
@@ -3785,7 +3785,7 @@
   },
   {
     "id": "premium_extension_089",
-    "question": "Quel niveau de confort financier qui te ferait te sentir vraiment tranquille ?",
+    "question": "Quel niveau de confort financier te ferait te sentir vraiment tranquille ?",
     "category": "future",
     "spicy": 0,
     "mood": "serious",
@@ -3793,7 +3793,7 @@
   },
   {
     "id": "premium_extension_090",
-    "question": "Quel projet tu voudrais réaliser avant de te sentir installé(e) ?",
+    "question": "Quel projet voudrais-tu réaliser avant de te sentir vraiment installé(e) ?",
     "category": "future",
     "spicy": 0,
     "mood": "serious",
@@ -3809,7 +3809,7 @@
   },
   {
     "id": "premium_extension_092",
-    "question": "Quel rythme de vie tu aimerais avoir en vieillissant ?",
+    "question": "Quel rythme de vie aimerais-tu avoir en vieillissant ?",
     "category": "future",
     "spicy": 0,
     "mood": "serious",
@@ -3825,7 +3825,7 @@
   },
   {
     "id": "premium_extension_094",
-    "question": "Comment imagines-tu le rêve personnel que tu ne voudrais jamais abandonner pour une relation ?",
+    "question": "Quel rêve personnel ne voudrais-tu jamais abandonner pour une relation ?",
     "category": "future",
     "spicy": 0,
     "mood": "serious",
@@ -3833,7 +3833,7 @@
   },
   {
     "id": "premium_extension_095",
-    "question": "Quelle place tu imagines donner à la famille dans votre futur ?",
+    "question": "Quelle place imagines-tu donner à la famille dans votre futur ?",
     "category": "future",
     "spicy": 0,
     "mood": "serious",
@@ -3841,7 +3841,7 @@
   },
   {
     "id": "premium_extension_096",
-    "question": "Comment imagines-tu le sacrifice que tu serais prêt(e) à faire pour une opportunité exceptionnelle ?",
+    "question": "Quel sacrifice serais-tu prêt(e) à faire pour une opportunité exceptionnelle ?",
     "category": "future",
     "spicy": 0,
     "mood": "serious",
@@ -3873,7 +3873,7 @@
   },
   {
     "id": "premium_extension_100",
-    "question": "Quel risque tu serais prêt(e) à prendre pour changer de vie ?",
+    "question": "Quel risque serais-tu prêt(e) à prendre pour changer de vie ?",
     "category": "future",
     "spicy": 0,
     "mood": "serious",
@@ -3881,7 +3881,7 @@
   },
   {
     "id": "premium_extension_101",
-    "question": "Quelle priorité tu donnerais entre stabilité et aventure ?",
+    "question": "Quelle priorité donnerais-tu entre stabilité et aventure ?",
     "category": "future",
     "spicy": 0,
     "mood": "serious",
@@ -3905,7 +3905,7 @@
   },
   {
     "id": "premium_extension_104",
-    "question": "Quel rôle tu voudrais garder pour tes passions dans une vie très chargée ?",
+    "question": "Quel rôle voudrais-tu garder pour tes passions dans une vie très chargée ?",
     "category": "future",
     "spicy": 0,
     "mood": "serious",
@@ -3913,7 +3913,7 @@
   },
   {
     "id": "premium_extension_105",
-    "question": "Quelle est la chose que tu veux absolument apprendre avant dix ans ?",
+    "question": "Quelle chose veux-tu absolument apprendre au cours des dix prochaines années ?",
     "category": "future",
     "spicy": 0,
     "mood": "serious",
@@ -3945,7 +3945,7 @@
   },
   {
     "id": "premium_extension_109",
-    "question": "Quelle place tu donnerais à un projet professionnel très ambitieux ?",
+    "question": "Quelle place donnerais-tu à un projet professionnel très ambitieux ?",
     "category": "future",
     "spicy": 0,
     "mood": "serious",
@@ -3969,7 +3969,7 @@
   },
   {
     "id": "premium_extension_112",
-    "question": "Comment imagines-tu le compromis géographique que tu pourrais accepter pour être ensemble ?",
+    "question": "Quel compromis géographique pourrais-tu accepter pour que vous puissiez vivre ensemble ?",
     "category": "future",
     "spicy": 0,
     "mood": "serious",
@@ -3993,7 +3993,7 @@
   },
   {
     "id": "premium_extension_115",
-    "question": "Quelle place tu imagines pour les voyages dans votre vie future ?",
+    "question": "Quelle place imagines-tu pour les voyages dans votre vie future ?",
     "category": "future",
     "spicy": 0,
     "mood": "serious",
@@ -4001,7 +4001,7 @@
   },
   {
     "id": "premium_extension_116",
-    "question": "Comment imagines-tu la définition concrète d’une vie réussie pour toi ?",
+    "question": "À quoi ressemblerait concrètement une vie réussie pour toi ?",
     "category": "future",
     "spicy": 0,
     "mood": "serious",
@@ -4009,7 +4009,7 @@
   },
   {
     "id": "premium_extension_117",
-    "question": "Quel risque financier tu accepterais pour un grand rêve commun ?",
+    "question": "Quel risque financier accepterais-tu pour un grand rêve commun ?",
     "category": "future",
     "spicy": 0,
     "mood": "serious",
@@ -4025,7 +4025,7 @@
   },
   {
     "id": "premium_extension_119",
-    "question": "Comment imagines-tu le projet qui te ferait te sentir le plus fier ou la plus fière de vous ?",
+    "question": "Quel projet te rendrait le plus fier ou la plus fière de ce que vous avez construit ensemble ?",
     "category": "future",
     "spicy": 0,
     "mood": "serious",
@@ -4049,7 +4049,7 @@
   },
   {
     "id": "premium_extension_122",
-    "question": "Comment imagines-tu le changement que tu espères le plus voir dans ta vie dans cinq ans ?",
+    "question": "Quel changement espères-tu le plus voir dans ta vie au cours des cinq prochaines années ?",
     "category": "future",
     "spicy": 0,
     "mood": "serious",
@@ -4057,7 +4057,7 @@
   },
   {
     "id": "premium_extension_123",
-    "question": "Comment imagines-tu la peur qui pourrait freiner un projet que tu veux pourtant vraiment ?",
+    "question": "Quelle peur pourrait freiner un projet que tu veux pourtant vraiment réaliser ?",
     "category": "future",
     "spicy": 0,
     "mood": "serious",
@@ -4081,7 +4081,7 @@
   },
   {
     "id": "premium_extension_126",
-    "question": "Comment imagines-tu le niveau d’improvisation que tu veux garder dans une vie construite ?",
+    "question": "Quelle place voudrais-tu laisser à l’improvisation dans une vie déjà bien construite ?",
     "category": "future",
     "spicy": 0,
     "mood": "serious",
@@ -4089,7 +4089,7 @@
   },
   {
     "id": "premium_extension_127",
-    "question": "Comment imagines-tu la décision que tu voudrais prendre uniquement en fonction du bonheur et non du regard des autres ?",
+    "question": "Quelle décision aimerais-tu pouvoir prendre uniquement en fonction de ton bonheur, sans tenir compte du regard des autres ?",
     "category": "future",
     "spicy": 0,
     "mood": "serious",
@@ -4105,7 +4105,7 @@
   },
   {
     "id": "premium_extension_129",
-    "question": "Quel rêve tu préférerais réaliser tard plutôt que jamais ?",
+    "question": "Quel rêve préférerais-tu réaliser tard plutôt que jamais ?",
     "category": "future",
     "spicy": 0,
     "mood": "serious",
@@ -4545,7 +4545,7 @@
   },
   {
     "id": "premium_extension_184",
-    "question": "Quelle différence fais-tu entre se sentir beau ou belle et se sentir désiré(e) pour toi ?",
+    "question": "Quelle différence fais-tu, pour toi, entre te sentir beau ou belle et te sentir désiré(e) ?",
     "category": "intimacy",
     "spicy": 0,
     "mood": "romantic",
@@ -4553,7 +4553,7 @@
   },
   {
     "id": "premium_extension_185",
-    "question": "Qu’aimerais-tu que ton/ta partenaire sache à propos de le type d’affection physique que tu aimerais recevoir plus souvent ?",
+    "question": "Quel type d’affection physique aimerais-tu recevoir plus souvent de ton/ta partenaire ?",
     "category": "intimacy",
     "spicy": 1,
     "mood": "spicy",
@@ -4569,7 +4569,7 @@
   },
   {
     "id": "premium_extension_187",
-    "question": "Quelle place tu donnes aux surprises dans les moments intimes ?",
+    "question": "Quelle place donnes-tu aux surprises dans les moments intimes ?",
     "category": "intimacy",
     "spicy": 0,
     "mood": "romantic",
@@ -4609,7 +4609,7 @@
   },
   {
     "id": "premium_extension_192",
-    "question": "Qu’aimerais-tu que ton/ta partenaire sache à propos de le moment de la journée où tu te sens généralement le plus disponible pour la tendresse ?",
+    "question": "À quel moment de la journée te sens-tu généralement le plus disponible pour la tendresse ?",
     "category": "intimacy",
     "spicy": 0,
     "mood": "romantic",
@@ -4641,7 +4641,7 @@
   },
   {
     "id": "premium_extension_196",
-    "question": "Quel est le type de compliment qui te fait le plus te sentir attirant(e) ?",
+    "question": "Quel type de compliment te fait te sentir le plus attirant(e) ?",
     "category": "intimacy",
     "spicy": 0,
     "mood": "romantic",
@@ -4713,7 +4713,7 @@
   },
   {
     "id": "premium_extension_205",
-    "question": "Quelle place tu donnes aux habitudes rassurantes dans votre intimité ?",
+    "question": "Quelle place donnes-tu aux habitudes rassurantes dans votre intimité ?",
     "category": "intimacy",
     "spicy": 1,
     "mood": "romantic",
@@ -5282,7 +5282,7 @@
   {
     "id": "vraie_vie_question_argent_01_comment_aimerais_tu_",
     "question": "Comment aimerais-tu répartir les dépenses si l’un de vous gagnait cinq fois plus que l’autre ?",
-    "category": "deep",
+    "category": "lifestyle",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -5290,7 +5290,7 @@
   {
     "id": "vraie_vie_question_argent_02_a_partir_de_quel_mon",
     "question": "À partir de quel montant une dépense personnelle devrait-elle, selon toi, être discutée avec ton/ta partenaire ?",
-    "category": "deep",
+    "category": "lifestyle",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -5298,7 +5298,7 @@
   {
     "id": "vraie_vie_question_argent_03_comment_reagirais_tu",
     "question": "Comment réagirais-tu en découvrant une dette importante que ton/ta partenaire n’avait jamais osé mentionner ?",
-    "category": "deep",
+    "category": "lifestyle",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -5306,7 +5306,7 @@
   {
     "id": "vraie_vie_question_argent_04_un_heritage_recu_par",
     "question": "Un héritage reçu par l’un de vous devrait-il rester personnel ou profiter au projet de vie commun ? Pourquoi ?",
-    "category": "deep",
+    "category": "lifestyle",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -5314,7 +5314,7 @@
   {
     "id": "vraie_vie_question_argent_05_jusquou_serais_tu_pr",
     "question": "Jusqu’où serais-tu prêt(e) à aider financièrement la famille de ton/ta partenaire si cela ralentissait vos propres projets ?",
-    "category": "deep",
+    "category": "lifestyle",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -5322,7 +5322,7 @@
   {
     "id": "vraie_vie_question_argent_06_pourrais_tu_etre_tot",
     "question": "Pourrais-tu être totalement à l’aise si ton/ta partenaire devenait financièrement dépendant(e) de toi pendant plusieurs années ?",
-    "category": "deep",
+    "category": "lifestyle",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -5330,7 +5330,7 @@
   {
     "id": "vraie_vie_question_argent_07_comment_definirais_t",
     "question": "Comment définirais-tu ce qui appartient au couple et ce qui doit rester personnel dans l’argent ?",
-    "category": "deep",
+    "category": "lifestyle",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -5338,7 +5338,7 @@
   {
     "id": "vraie_vie_question_argent_08_quelle_erreur_financ",
     "question": "Quelle erreur financière de ton/ta partenaire aurais-tu le plus de mal à pardonner ?",
-    "category": "deep",
+    "category": "lifestyle",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -5346,7 +5346,7 @@
   {
     "id": "vraie_vie_question_argent_09_comment_reagirais_tu",
     "question": "Comment réagirais-tu si ton/ta partenaire voulait prendre un gros risque financier pour poursuivre un rêve ?",
-    "category": "deep",
+    "category": "lifestyle",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -5354,7 +5354,7 @@
   {
     "id": "vraie_vie_question_argent_10_que_faudrait_il_mett",
     "question": "Que faudrait-il mettre en place pour que de très grandes différences de revenus ne créent pas de rapport de pouvoir entre vous ?",
-    "category": "deep",
+    "category": "lifestyle",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -5362,7 +5362,7 @@
   {
     "id": "vraie_vie_question_argent_11_serais_tu_capable_de",
     "question": "Serais-tu capable de réduire fortement ton niveau de vie pour permettre à ton/ta partenaire de changer de carrière ?",
-    "category": "deep",
+    "category": "lifestyle",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -5370,7 +5370,7 @@
   {
     "id": "vraie_vie_question_argent_12_quelle_serait_ta_pri",
     "question": "Quelle serait ta priorité si vous receviez soudainement une somme qui change complètement votre situation financière ?",
-    "category": "deep",
+    "category": "lifestyle",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -5378,7 +5378,7 @@
   {
     "id": "vraie_vie_question_famille_01_comment_reagirais_tu",
     "question": "Comment réagirais-tu si un membre de ta famille manquait régulièrement de respect à ton/ta partenaire ?",
-    "category": "deep",
+    "category": "family",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -5386,7 +5386,7 @@
   {
     "id": "vraie_vie_question_famille_02_jusquou_devrais_tu_s",
     "question": "Jusqu’où devrais-tu, selon toi, défendre ton/ta partenaire face à ta propre famille ?",
-    "category": "deep",
+    "category": "family",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -5394,7 +5394,7 @@
   {
     "id": "vraie_vie_question_famille_03_pourrais_tu_accepter",
     "question": "Pourrais-tu accepter d’héberger un membre de la famille de ton/ta partenaire pendant plusieurs mois ?",
-    "category": "deep",
+    "category": "family",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -5402,7 +5402,7 @@
   {
     "id": "vraie_vie_question_famille_04_comment_decideriez_v",
     "question": "Comment décideriez-vous avec quelle famille passer les fêtes si les deux côtés refusaient de faire des compromis ?",
-    "category": "deep",
+    "category": "family",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -5410,7 +5410,7 @@
   {
     "id": "vraie_vie_question_famille_05_que_ferais_tu_si_ta_",
     "question": "Que ferais-tu si ta famille n’acceptait jamais complètement ton couple ?",
-    "category": "deep",
+    "category": "family",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -5418,7 +5418,7 @@
   {
     "id": "vraie_vie_question_famille_06_ton_ta_partenaire_de",
     "question": "Ton/ta partenaire devrait-il/elle avoir un droit de veto sur la présence de certains membres de ta famille chez vous ?",
-    "category": "deep",
+    "category": "family",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -5426,7 +5426,7 @@
   {
     "id": "vraie_vie_question_famille_07_quel_type_de_secret_",
     "question": "Quel type de secret familial te semblerait impossible à cacher à ton/ta partenaire ?",
-    "category": "deep",
+    "category": "family",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -5434,7 +5434,7 @@
   {
     "id": "vraie_vie_question_famille_08_jusquou_serais_tu_pr",
     "question": "Jusqu’où serais-tu prêt(e) à aider financièrement un proche de ton/ta partenaire que tu apprécies peu ?",
-    "category": "deep",
+    "category": "family",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -5442,7 +5442,7 @@
   {
     "id": "vraie_vie_question_famille_09_comment_reagirais_tu",
     "question": "Comment réagirais-tu si ton/ta partenaire voulait couper totalement les ponts avec sa famille ?",
-    "category": "deep",
+    "category": "family",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -5450,7 +5450,7 @@
   {
     "id": "vraie_vie_question_famille_10_pourrais_tu_vivre_pl",
     "question": "Pourrais-tu vivre plusieurs années avec un parent dépendant dans votre maison ?",
-    "category": "deep",
+    "category": "family",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -5458,7 +5458,7 @@
   {
     "id": "vraie_vie_question_famille_11_que_ferais_tu_si_ta_",
     "question": "Que ferais-tu si ta famille essayait de te faire choisir entre elle et ton/ta partenaire ?",
-    "category": "deep",
+    "category": "family",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -5466,7 +5466,7 @@
   {
     "id": "vraie_vie_question_famille_12_quelle_frontiere_ent",
     "question": "Quelle frontière entre votre couple et vos familles te semble absolument nécessaire pour préserver votre relation ?",
-    "category": "deep",
+    "category": "family",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -5666,7 +5666,7 @@
   {
     "id": "vraie_vie_question_carriere_01_jusquou_serais_tu_pr",
     "question": "Jusqu’où serais-tu prêt(e) à sacrifier ta propre carrière pour une opportunité exceptionnelle de ton/ta partenaire ?",
-    "category": "deep",
+    "category": "future",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -5674,7 +5674,7 @@
   {
     "id": "vraie_vie_question_carriere_02_combien_de_temps_pou",
     "question": "Combien de temps pourrais-tu accepter une relation à distance pour protéger les projets professionnels de chacun ?",
-    "category": "deep",
+    "category": "future",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -5682,7 +5682,7 @@
   {
     "id": "vraie_vie_question_carriere_03_que_ferais_tu_si_le_",
     "question": "Que ferais-tu si le travail de ton/ta partenaire devenait clairement sa priorité pendant plusieurs années ?",
-    "category": "deep",
+    "category": "future",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -5690,7 +5690,7 @@
   {
     "id": "vraie_vie_question_carriere_04_pourrais_tu_soutenir",
     "question": "Pourrais-tu soutenir une reconversion qui réduirait fortement vos revenus et votre confort pendant longtemps ?",
-    "category": "deep",
+    "category": "future",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -5698,7 +5698,7 @@
   {
     "id": "vraie_vie_question_carriere_05_comment_decideriez_v",
     "question": "Comment décideriez-vous qui déménage si vos deux carrières exigeaient de vivre dans des villes différentes ?",
-    "category": "deep",
+    "category": "future",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -5706,7 +5706,7 @@
   {
     "id": "vraie_vie_question_carriere_06_a_quel_moment_le_sou",
     "question": "À quel moment le soutien à l’ambition de l’autre devient-il, selon toi, un sacrifice trop déséquilibré ?",
-    "category": "deep",
+    "category": "future",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -5714,7 +5714,7 @@
   {
     "id": "vraie_vie_question_carriere_07_comment_reagirais_tu",
     "question": "Comment réagirais-tu si ton/ta partenaire devenait célèbre et que votre intimité de couple disparaissait partiellement ?",
-    "category": "deep",
+    "category": "future",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -5722,7 +5722,7 @@
   {
     "id": "vraie_vie_question_carriere_08_pourrais_tu_accepter",
     "question": "Pourrais-tu accepter de porter seul(e) une grande partie du quotidien pendant que ton/ta partenaire construit son entreprise ?",
-    "category": "deep",
+    "category": "future",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -5730,7 +5730,7 @@
   {
     "id": "vraie_vie_question_carriere_09_quel_projet_professi",
     "question": "Quel projet professionnel de ton/ta partenaire aurais-tu le plus de mal à soutenir ?",
-    "category": "deep",
+    "category": "future",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -5738,7 +5738,7 @@
   {
     "id": "vraie_vie_question_carriere_10_que_ferais_tu_si_ton",
     "question": "Que ferais-tu si ton/ta partenaire regrettait d’avoir refusé une opportunité à cause de votre relation ?",
-    "category": "deep",
+    "category": "future",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -5746,7 +5746,7 @@
   {
     "id": "vraie_vie_question_carriere_11_comment_preserverais",
     "question": "Comment préserverais-tu le couple si le travail vous laissait très peu de temps ensemble pendant plusieurs années ?",
-    "category": "deep",
+    "category": "future",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -5754,7 +5754,7 @@
   {
     "id": "vraie_vie_question_carriere_12_quelle_decision_de_c",
     "question": "Quelle décision de carrière devrait toujours, selon toi, être prise comme une décision de couple ?",
-    "category": "deep",
+    "category": "future",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -5762,15 +5762,15 @@
   {
     "id": "vraie_vie_question_vie_commune_01_quelle_habitude_de_v",
     "question": "Quelle habitude de vie quotidienne pourrait réellement devenir insupportable pour toi avec les années ?",
-    "category": "deep",
+    "category": "lifestyle",
     "spicy": 0,
     "mood": "deep",
     "premium": true
   },
   {
     "id": "vraie_vie_question_vie_commune_02_pourrais_tu_etre_heu",
-    "question": "Pourrais-tu être heureux/se dans un couple qui dort régulièrement dans des chambres séparées ?",
-    "category": "deep",
+    "question": "Pourrais-tu être heureux ou heureuse dans un couple qui dort régulièrement dans des chambres séparées ?",
+    "category": "lifestyle",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -5778,7 +5778,7 @@
   {
     "id": "vraie_vie_question_vie_commune_03_de_combien_de_temps_",
     "question": "De combien de temps réellement seul(e) aurais-tu besoin chaque semaine en vivant avec ton/ta partenaire ?",
-    "category": "deep",
+    "category": "lifestyle",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -5786,7 +5786,7 @@
   {
     "id": "vraie_vie_question_vie_commune_04_comment_decideriez_v",
     "question": "Comment décideriez-vous de la propreté acceptable si vos standards étaient complètement différents ?",
-    "category": "deep",
+    "category": "lifestyle",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -5794,7 +5794,7 @@
   {
     "id": "vraie_vie_question_vie_commune_05_qui_devrait_avoir_le",
     "question": "Qui devrait avoir le dernier mot sur la décoration d’un espace partagé lorsque vous détestez les choix de l’autre ?",
-    "category": "deep",
+    "category": "lifestyle",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -5802,7 +5802,7 @@
   {
     "id": "vraie_vie_question_vie_commune_06_pourrais_tu_renoncer",
     "question": "Pourrais-tu renoncer à ton type de lieu de vie idéal pour construire une vie commune ailleurs ?",
-    "category": "deep",
+    "category": "lifestyle",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -5810,7 +5810,7 @@
   {
     "id": "vraie_vie_question_vie_commune_07_quelle_regle_concern",
     "question": "Quelle règle concernant les invités serait indispensable pour que tu te sentes vraiment chez toi ?",
-    "category": "deep",
+    "category": "lifestyle",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -5818,7 +5818,7 @@
   {
     "id": "vraie_vie_question_vie_commune_08_comment_voudrais_tu_",
     "question": "Comment voudrais-tu répartir les tâches si l’un de vous travaillait beaucoup plus d’heures que l’autre ?",
-    "category": "deep",
+    "category": "lifestyle",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -5826,7 +5826,7 @@
   {
     "id": "vraie_vie_question_vie_commune_09_pourrais_tu_accepter",
     "question": "Pourrais-tu accepter qu’une pièce de votre logement appartienne presque exclusivement à ton/ta partenaire ?",
-    "category": "deep",
+    "category": "lifestyle",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -5834,7 +5834,7 @@
   {
     "id": "vraie_vie_question_vie_commune_10_que_ferais_tu_si_vos",
     "question": "Que ferais-tu si vos rythmes de sommeil rendaient la vie commune très difficile ?",
-    "category": "deep",
+    "category": "lifestyle",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -5842,15 +5842,15 @@
   {
     "id": "vraie_vie_question_vie_commune_11_quel_compromis_quoti",
     "question": "Quel compromis quotidien te semblerait petit au début mais pourrait créer beaucoup de ressentiment à long terme ?",
-    "category": "deep",
+    "category": "lifestyle",
     "spicy": 0,
     "mood": "deep",
     "premium": true
   },
   {
     "id": "vraie_vie_question_vie_commune_12_quest_ce_qui_te_fera",
-    "question": "Qu’est-ce qui te ferait sentir que votre logement est réellement votre foyer à tous les deux ?",
-    "category": "deep",
+    "question": "Qu’est-ce qui te ferait sentir que votre logement est réellement votre foyer à vous deux ?",
+    "category": "lifestyle",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -5858,7 +5858,7 @@
   {
     "id": "vraie_vie_question_numerique_01_le_partage_de_locali",
     "question": "Le partage de localisation devrait-il être une liberté, une habitude ou une règle dans un couple ?",
-    "category": "deep",
+    "category": "values",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -5866,7 +5866,7 @@
   {
     "id": "vraie_vie_question_numerique_02_dans_quelle_situatio",
     "question": "Dans quelle situation pourrais-tu accepter que ton/ta partenaire lise ton téléphone sans permission ?",
-    "category": "deep",
+    "category": "values",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -5874,7 +5874,7 @@
   {
     "id": "vraie_vie_question_numerique_03_garder_des_photos_du",
     "question": "Garder des photos d’un ex te semble-t-il différent de garder des messages ou des vidéos ?",
-    "category": "deep",
+    "category": "values",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -5882,7 +5882,7 @@
   {
     "id": "vraie_vie_question_numerique_04_comment_reagirais_tu",
     "question": "Comment réagirais-tu si ton/ta partenaire utilisait une IA pour analyser vos conversations privées ?",
-    "category": "deep",
+    "category": "values",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -5890,7 +5890,7 @@
   {
     "id": "vraie_vie_question_numerique_05_jusquou_peut_on_dema",
     "question": "Jusqu’où peut-on demander conseil à ses amis sans trahir l’intimité de son couple ?",
-    "category": "deep",
+    "category": "values",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -5898,7 +5898,7 @@
   {
     "id": "vraie_vie_question_numerique_06_que_penserais_tu_dun",
     "question": "Que penserais-tu d’un/une partenaire qui refuse complètement d’exister en couple sur les réseaux sociaux ?",
-    "category": "deep",
+    "category": "values",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -5906,7 +5906,7 @@
   {
     "id": "vraie_vie_question_numerique_07_quel_type_de_compte_",
     "question": "Quel type de compte secret ou anonyme te semblerait acceptable dans une relation ?",
-    "category": "deep",
+    "category": "values",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -5914,7 +5914,7 @@
   {
     "id": "vraie_vie_question_numerique_08_pourrais_tu_accepter",
     "question": "Pourrais-tu accepter des caméras à l’intérieur de votre maison pour des raisons de sécurité ?",
-    "category": "deep",
+    "category": "values",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -5922,7 +5922,7 @@
   {
     "id": "vraie_vie_question_numerique_09_quelles_donnees_nume",
     "question": "Quelles données numériques voudrais-tu que ton/ta partenaire puisse récupérer après ta mort ?",
-    "category": "deep",
+    "category": "values",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -5930,7 +5930,7 @@
   {
     "id": "vraie_vie_question_numerique_10_est_ce_que_supprimer",
     "question": "Est-ce que supprimer une conversation est suspect si son contenu n’avait rien d’inapproprié ?",
-    "category": "deep",
+    "category": "values",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -5938,7 +5938,7 @@
   {
     "id": "vraie_vie_question_numerique_11_quelle_limite_numeri",
     "question": "Quelle limite numérique actuelle pourrait, selon toi, devenir complètement normale dans dix ans ?",
-    "category": "deep",
+    "category": "values",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -5946,7 +5946,7 @@
   {
     "id": "vraie_vie_question_numerique_12_comment_protegerais_",
     "question": "Comment protégerais-tu votre vie privée si ton/ta partenaire devenait très connu(e) en ligne ?",
-    "category": "deep",
+    "category": "values",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -6050,7 +6050,7 @@
   {
     "id": "vraie_vie_question_bouleversements_01_comment_reagirais_tu",
     "question": "Comment réagirais-tu si toute votre stabilité financière disparaissait en quelques semaines ?",
-    "category": "deep",
+    "category": "future",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -6058,7 +6058,7 @@
   {
     "id": "vraie_vie_question_bouleversements_02_que_ferais_tu_si_ton",
     "question": "Que ferais-tu si ton/ta partenaire changeait complètement de projet de vie après une crise personnelle ?",
-    "category": "deep",
+    "category": "future",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -6066,7 +6066,7 @@
   {
     "id": "vraie_vie_question_bouleversements_03_pourrais_tu_reconstr",
     "question": "Pourrais-tu reconstruire un projet parental totalement différent si avoir des enfants biologiquement devenait impossible ?",
-    "category": "deep",
+    "category": "future",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -6074,7 +6074,7 @@
   {
     "id": "vraie_vie_question_bouleversements_04_comment_reagirais_tu",
     "question": "Comment réagirais-tu face à une grossesse ou une parentalité imprévue au pire moment possible de votre vie ?",
-    "category": "deep",
+    "category": "future",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -6082,7 +6082,7 @@
   {
     "id": "vraie_vie_question_bouleversements_05_jusquou_pourrais_tu_",
     "question": "Jusqu’où pourrais-tu adapter ton propre mode de vie à un changement profond de religion ou de convictions de ton/ta partenaire ?",
-    "category": "deep",
+    "category": "future",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -6090,7 +6090,7 @@
   {
     "id": "vraie_vie_question_bouleversements_06_que_faudrait_il_pour",
     "question": "Que faudrait-il pour que tu continues à soutenir ton/ta partenaire pendant une affaire judiciaire grave ?",
-    "category": "deep",
+    "category": "future",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -6098,7 +6098,7 @@
   {
     "id": "vraie_vie_question_bouleversements_07_comment_eviterais_tu",
     "question": "Comment éviterais-tu qu’un enrichissement soudain transforme complètement l’équilibre de votre couple ?",
-    "category": "deep",
+    "category": "future",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -6106,7 +6106,7 @@
   {
     "id": "vraie_vie_question_bouleversements_08_que_ferais_tu_si_vou",
     "question": "Que ferais-tu si vous deviez perdre votre logement et repartir presque de zéro ?",
-    "category": "deep",
+    "category": "future",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -6114,7 +6114,7 @@
   {
     "id": "vraie_vie_question_bouleversements_09_pourrais_tu_reorgani",
     "question": "Pourrais-tu réorganiser durablement toute ta vie autour des besoins particuliers d’un enfant ou d’un proche ?",
-    "category": "deep",
+    "category": "future",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -6122,7 +6122,7 @@
   {
     "id": "vraie_vie_question_bouleversements_10_quelle_partie_de_toi",
     "question": "Quelle partie de toi espères-tu ne jamais perdre, même si votre vie changeait radicalement ?",
-    "category": "deep",
+    "category": "future",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -6130,7 +6130,7 @@
   {
     "id": "vraie_vie_question_bouleversements_11_quel_bouleversement_",
     "question": "Quel bouleversement extérieur te ferait le plus craindre de ne plus reconnaître ton/ta partenaire ?",
-    "category": "deep",
+    "category": "future",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -6138,7 +6138,7 @@
   {
     "id": "vraie_vie_question_bouleversements_12_quest_ce_qui_te_donn",
     "question": "Qu’est-ce qui te donnerait confiance dans votre capacité à rester une équipe quand plus rien ne se passe comme prévu ?",
-    "category": "deep",
+    "category": "future",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -6146,7 +6146,7 @@
   {
     "id": "vraie_vie_question_couple_pression_01_combien_de_temps_pou",
     "question": "Combien de temps pourrais-tu rester dans une relation très difficile si tu pensais sincèrement qu’elle pouvait redevenir heureuse ?",
-    "category": "deep",
+    "category": "relation",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -6154,7 +6154,7 @@
   {
     "id": "vraie_vie_question_couple_pression_02_que_signifierait_pou",
     "question": "Que signifierait pour toi aimer encore quelqu’un mais ne plus ressentir la même passion ?",
-    "category": "deep",
+    "category": "relation",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -6162,7 +6162,7 @@
   {
     "id": "vraie_vie_question_couple_pression_03_pourrais_tu_accepter",
     "question": "Pourrais-tu accepter une séparation temporaire sans considérer que le couple est déjà terminé ?",
-    "category": "deep",
+    "category": "relation",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -6170,7 +6170,7 @@
   {
     "id": "vraie_vie_question_couple_pression_04_a_quel_moment_une_th",
     "question": "À quel moment une thérapie de couple te semblerait utile plutôt que le signe d’un échec ?",
-    "category": "deep",
+    "category": "relation",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -6178,7 +6178,7 @@
   {
     "id": "vraie_vie_question_couple_pression_05_comment_reagirais_tu",
     "question": "Comment réagirais-tu si ton/ta partenaire avait accumulé des années de ressentiment sans jamais t’en parler ?",
-    "category": "deep",
+    "category": "relation",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -6186,7 +6186,7 @@
   {
     "id": "vraie_vie_question_couple_pression_06_que_ferais_tu_si_vos",
     "question": "Que ferais-tu si vos besoins d’intimité devenaient durablement très différents ?",
-    "category": "deep",
+    "category": "relation",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -6194,7 +6194,7 @@
   {
     "id": "vraie_vie_question_couple_pression_07_pourrais_tu_vivre_se",
     "question": "Pourrais-tu vivre séparément tout en restant engagé(e) dans une relation à long terme ?",
-    "category": "deep",
+    "category": "relation",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -6202,7 +6202,7 @@
   {
     "id": "vraie_vie_question_couple_pression_08_quelle_habitude_de_c",
     "question": "Quelle habitude de couple voudrais-tu absolument préserver même pendant une grosse crise ?",
-    "category": "deep",
+    "category": "relation",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -6210,7 +6210,7 @@
   {
     "id": "vraie_vie_question_couple_pression_09_comment_saurais_tu_q",
     "question": "Comment saurais-tu qu’il est temps d’arrêter d’essayer de sauver une relation ?",
-    "category": "deep",
+    "category": "relation",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -6218,7 +6218,7 @@
   {
     "id": "vraie_vie_question_couple_pression_10_que_voudrais_tu_que_",
     "question": "Que voudrais-tu que ton/ta partenaire fasse s’il/elle commençait à douter de ses sentiments ?",
-    "category": "deep",
+    "category": "relation",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -6226,7 +6226,7 @@
   {
     "id": "vraie_vie_question_couple_pression_11_quelle_verite_diffic",
     "question": "Quelle vérité difficile sur votre relation préférerais-tu entendre immédiatement plutôt que des années plus tard ?",
-    "category": "deep",
+    "category": "relation",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -6234,7 +6234,7 @@
   {
     "id": "vraie_vie_question_couple_pression_12_a_quoi_ressemblerait",
     "question": "À quoi ressemblerait, pour toi, une reconstruction réussie après une très grosse crise de couple ?",
-    "category": "deep",
+    "category": "relation",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -6345,7 +6345,7 @@
   },
   {
     "id": "temps_question_identite_14_si_ton_toi_de_dans_quinze_ans_ne_voulait_plus_les_memes_ch",
-    "question": "Si ton toi de dans quinze ans ne voulait plus les mêmes choses qu’aujourd’hui, qu’aimerais-tu que ton/ta partenaire comprenne ?",
+    "question": "Si la personne que tu seras dans quinze ans ne voulait plus les mêmes choses qu’aujourd’hui, qu’aimerais-tu que ton/ta partenaire comprenne ?",
     "category": "deep",
     "spicy": 0,
     "mood": "deep",
@@ -6362,7 +6362,7 @@
   {
     "id": "temps_question_amities_01_quelle_place_ideale_les_amis_devraient_ils_garder_dans_une",
     "question": "Quelle place idéale les amis devraient-ils garder dans une relation très longue ?",
-    "category": "deep",
+    "category": "relation",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -6370,7 +6370,7 @@
   {
     "id": "temps_question_amities_02_jusquou_est_il_acceptable_de_raconter_vos_problemes_de_cou",
     "question": "Jusqu’où est-il acceptable de raconter vos problèmes de couple à ses proches ?",
-    "category": "deep",
+    "category": "relation",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -6378,15 +6378,15 @@
   {
     "id": "temps_question_amities_03_comment_reagirais_tu_si_ton_ta_partenaire_restait_ami_e_av",
     "question": "Comment réagirais-tu si ton/ta partenaire restait ami(e) avec quelqu’un qui t’a profondément blessé(e) ?",
-    "category": "deep",
+    "category": "relation",
     "spicy": 0,
     "mood": "deep",
     "premium": true
   },
   {
     "id": "temps_question_amities_04_pourrais_tu_etre_heureux_se_dans_un_couple_ou_vous_avez_pr",
-    "question": "Pourrais-tu être heureux/se dans un couple où vous avez presque aucun ami en commun ?",
-    "category": "deep",
+    "question": "Pourrais-tu être heureux ou heureuse dans un couple où vous n’avez presque aucun ami en commun ?",
+    "category": "relation",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -6394,7 +6394,7 @@
   {
     "id": "temps_question_amities_05_quelle_priorite_devrait_avoir_un_engagement_pris_avec_des_",
     "question": "Quelle priorité devrait avoir un engagement pris avec des amis lorsqu’un projet de couple important apparaît au même moment ?",
-    "category": "deep",
+    "category": "relation",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -6402,7 +6402,7 @@
   {
     "id": "temps_question_amities_06_quest_ce_qui_differencie_pour_toi_une_amitie_tres_proche_d",
     "question": "Qu’est-ce qui différencie pour toi une amitié très proche d’une relation qui prend trop de place dans le couple ?",
-    "category": "deep",
+    "category": "relation",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -6410,7 +6410,7 @@
   {
     "id": "temps_question_amities_07_comment_aimerais_tu_que_ton_ta_partenaire_reagisse_si_son_",
     "question": "Comment aimerais-tu que ton/ta partenaire réagisse si son/sa meilleur(e) ami(e) ne te respectait pas ?",
-    "category": "deep",
+    "category": "relation",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -6418,7 +6418,7 @@
   {
     "id": "temps_question_amities_08_peut_on_garder_certains_aspects_importants_de_sa_vie_uniqu",
     "question": "Peut-on garder certains aspects importants de sa vie uniquement pour ses amis sans les partager avec son/sa partenaire ?",
-    "category": "deep",
+    "category": "relation",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -6426,7 +6426,7 @@
   {
     "id": "temps_question_amities_09_quelle_liberte_sociale_voudrais_tu_absolument_conserver_me",
     "question": "Quelle liberté sociale voudrais-tu absolument conserver même après avoir des enfants ou une vie très chargée ?",
-    "category": "deep",
+    "category": "relation",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -6434,7 +6434,7 @@
   {
     "id": "temps_question_amities_10_comment_reagirais_tu_si_ton_ta_partenaire_preferait_souven",
     "question": "Comment réagirais-tu si ton/ta partenaire préférait souvent sortir avec ses amis plutôt que rester à deux ?",
-    "category": "deep",
+    "category": "relation",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -6442,7 +6442,7 @@
   {
     "id": "temps_question_amities_11_une_relation_amicale_peut_elle_selon_toi_devenir_une_forme",
     "question": "Une relation amicale peut-elle, selon toi, devenir une forme de tromperie émotionnelle même sans attirance ?",
-    "category": "deep",
+    "category": "relation",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -6450,7 +6450,7 @@
   {
     "id": "temps_question_amities_12_jusquou_un_ami_proche_devrait_il_pouvoir_influencer_une_de",
     "question": "Jusqu’où un ami proche devrait-il pouvoir influencer une décision importante concernant votre couple ?",
-    "category": "deep",
+    "category": "relation",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -6458,7 +6458,7 @@
   {
     "id": "temps_question_amities_13_serais_tu_capable_de_demander_a_ton_ta_partenaire_de_seloi",
     "question": "Serais-tu capable de demander à ton/ta partenaire de s’éloigner d’un(e) ami(e) ? Dans quelles circonstances ?",
-    "category": "deep",
+    "category": "relation",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -6466,7 +6466,7 @@
   {
     "id": "temps_question_amities_14_quelle_difference_de_vie_sociale_serait_la_plus_difficile_",
     "question": "Quelle différence de vie sociale serait la plus difficile à gérer entre vous ?",
-    "category": "deep",
+    "category": "relation",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -6474,7 +6474,7 @@
   {
     "id": "temps_question_amities_15_comment_partagerais_tu_les_fetes_et_moments_importants_si_",
     "question": "Comment partagerais-tu les fêtes et moments importants si vos cercles sociaux étaient complètement différents ?",
-    "category": "deep",
+    "category": "relation",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -6482,7 +6482,7 @@
   {
     "id": "temps_question_intimite_01_quelle_place_la_sexualite_devrait_elle_idealement_garder_d",
     "question": "Quelle place la sexualité devrait-elle idéalement garder dans un couple après vingt ans de relation ?",
-    "category": "deep",
+    "category": "intimacy",
     "spicy": 2,
     "mood": "deep",
     "premium": true
@@ -6490,7 +6490,7 @@
   {
     "id": "temps_question_intimite_02_comment_reagirais_tu_si_vos_niveaux_de_desir_devenaient_tr",
     "question": "Comment réagirais-tu si vos niveaux de désir devenaient très différents pendant plusieurs années ?",
-    "category": "deep",
+    "category": "intimacy",
     "spicy": 2,
     "mood": "deep",
     "premium": true
@@ -6498,7 +6498,7 @@
   {
     "id": "temps_question_intimite_03_jusquou_peut_on_faire_un_compromis_intime_sans_commencer_a",
     "question": "Jusqu’où peut-on faire un compromis intime sans commencer à se forcer ?",
-    "category": "deep",
+    "category": "intimacy",
     "spicy": 2,
     "mood": "deep",
     "premium": true
@@ -6506,15 +6506,15 @@
   {
     "id": "temps_question_intimite_04_quest_ce_qui_te_ferait_sentir_desire_e_meme_pendant_une_lo",
     "question": "Qu’est-ce qui te ferait sentir désiré(e) même pendant une longue période avec peu de sexualité ?",
-    "category": "deep",
+    "category": "intimacy",
     "spicy": 1,
     "mood": "deep",
     "premium": true
   },
   {
     "id": "temps_question_intimite_05_pourrais_tu_etre_heureux_se_dans_une_relation_tres_tendre_",
-    "question": "Pourrais-tu être heureux/se dans une relation très tendre mais presque sans rapports sexuels ?",
-    "category": "deep",
+    "question": "Pourrais-tu être heureux ou heureuse dans une relation très tendre mais presque sans rapports sexuels ?",
+    "category": "intimacy",
     "spicy": 1,
     "mood": "deep",
     "premium": true
@@ -6522,7 +6522,7 @@
   {
     "id": "temps_question_intimite_06_comment_aimerais_tu_parler_dune_baisse_dattirance_sans_ble",
     "question": "Comment aimerais-tu parler d’une baisse d’attirance sans blesser ton/ta partenaire ?",
-    "category": "deep",
+    "category": "intimacy",
     "spicy": 2,
     "mood": "deep",
     "premium": true
@@ -6530,7 +6530,7 @@
   {
     "id": "temps_question_intimite_07_quelle_place_les_fantasmes_non_partages_devraient_ils_avoi",
     "question": "Quelle place les fantasmes non partagés devraient-ils avoir dans un couple ?",
-    "category": "deep",
+    "category": "intimacy",
     "spicy": 2,
     "mood": "deep",
     "premium": true
@@ -6538,7 +6538,7 @@
   {
     "id": "temps_question_intimite_08_quest_ce_qui_serait_le_plus_difficile_pour_toi_le_manque_d",
     "question": "Qu’est-ce qui serait le plus difficile pour toi : le manque de désir, le manque de tendresse ou le manque de séduction ?",
-    "category": "deep",
+    "category": "intimacy",
     "spicy": 2,
     "mood": "deep",
     "premium": true
@@ -6546,7 +6546,7 @@
   {
     "id": "temps_question_intimite_09_comment_imagines_tu_lintimite_apres_de_grands_changements_",
     "question": "Comment imagines-tu l’intimité après de grands changements du corps, une grossesse, une maladie ou le vieillissement ?",
-    "category": "deep",
+    "category": "intimacy",
     "spicy": 1,
     "mood": "deep",
     "premium": true
@@ -6554,7 +6554,7 @@
   {
     "id": "temps_question_intimite_10_a_quel_moment_consulter_un_professionnel_pour_un_probleme_",
     "question": "À quel moment consulter un professionnel pour un problème intime te semblerait naturel ?",
-    "category": "deep",
+    "category": "intimacy",
     "spicy": 1,
     "mood": "deep",
     "premium": true
@@ -6562,7 +6562,7 @@
   {
     "id": "temps_question_intimite_11_quelle_limite_personnelle_voudrais_tu_que_ton_ta_partenair",
     "question": "Quelle limite personnelle voudrais-tu que ton/ta partenaire respecte toujours, même s’il/elle se sent frustré(e) ?",
-    "category": "deep",
+    "category": "intimacy",
     "spicy": 1,
     "mood": "deep",
     "premium": true
@@ -6570,7 +6570,7 @@
   {
     "id": "temps_question_intimite_12_peut_on_selon_toi_reconstruire_completement_une_vie_intime",
     "question": "Peut-on, selon toi, reconstruire complètement une vie intime après plusieurs années de déconnexion ?",
-    "category": "deep",
+    "category": "intimacy",
     "spicy": 2,
     "mood": "deep",
     "premium": true
@@ -6578,7 +6578,7 @@
   {
     "id": "temps_question_intimite_13_quelle_difference_entre_vous_sur_la_pornographie_pourrait_",
     "question": "Quelle différence entre vous sur la pornographie pourrait devenir difficile à gérer ?",
-    "category": "deep",
+    "category": "intimacy",
     "spicy": 2,
     "mood": "deep",
     "premium": true
@@ -6586,7 +6586,7 @@
   {
     "id": "temps_question_intimite_14_comment_garderais_tu_une_forme_de_seduction_dans_un_quotid",
     "question": "Comment garderais-tu une forme de séduction dans un quotidien très installé ?",
-    "category": "deep",
+    "category": "intimacy",
     "spicy": 1,
     "mood": "deep",
     "premium": true
@@ -6594,7 +6594,7 @@
   {
     "id": "temps_question_intimite_15_quelle_conversation_intime_te_semblerait_la_plus_difficile",
     "question": "Quelle conversation intime te semblerait la plus difficile à avoir avec la personne que tu aimes ?",
-    "category": "deep",
+    "category": "intimacy",
     "spicy": 2,
     "mood": "deep",
     "premium": true
@@ -6602,7 +6602,7 @@
   {
     "id": "temps_question_usure_01_quelle_petite_habitude_repetee_pourrait_finir_par_tuser_en",
     "question": "Quelle petite habitude répétée pourrait finir par t’user énormément alors qu’elle semble insignifiante au début ?",
-    "category": "deep",
+    "category": "relation",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -6610,7 +6610,7 @@
   {
     "id": "temps_question_usure_02_comment_aimerais_tu_repartir_la_charge_mentale_du_quotidie",
     "question": "Comment aimerais-tu répartir la charge mentale du quotidien pour éviter qu’une seule personne pense à tout ?",
-    "category": "deep",
+    "category": "relation",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -6618,7 +6618,7 @@
   {
     "id": "temps_question_usure_03_que_fais_tu_quand_tu_as_deja_demande_plusieurs_fois_la_mem",
     "question": "Que fais-tu quand tu as déjà demandé plusieurs fois la même chose et que rien ne change ?",
-    "category": "deep",
+    "category": "relation",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -6626,7 +6626,7 @@
   {
     "id": "temps_question_usure_04_quelle_difference_de_rythme_entre_vous_pourrait_devenir_la",
     "question": "Quelle différence de rythme entre vous pourrait devenir la plus pénible à long terme ?",
-    "category": "deep",
+    "category": "relation",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -6634,7 +6634,7 @@
   {
     "id": "temps_question_usure_05_comment_distingues_tu_un_defaut_a_accepter_dun_comportemen",
     "question": "Comment distingues-tu un défaut à accepter d’un comportement sur lequel l’autre devrait réellement faire un effort ?",
-    "category": "deep",
+    "category": "relation",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -6642,7 +6642,7 @@
   {
     "id": "temps_question_usure_06_quel_signe_te_ferait_sentir_que_ton_ta_partenaire_te_tient",
     "question": "Quel signe te ferait sentir que ton/ta partenaire te tient pour acquis(e) ?",
-    "category": "deep",
+    "category": "relation",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -6650,7 +6650,7 @@
   {
     "id": "temps_question_usure_07_comment_voudrais_tu_gerer_les_conflits_si_lun_a_besoin_de_",
     "question": "Comment voudrais-tu gérer les conflits si l’un a besoin de parler immédiatement et l’autre de prendre du recul ?",
-    "category": "deep",
+    "category": "relation",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -6658,7 +6658,7 @@
   {
     "id": "temps_question_usure_08_quelle_forme_de_manque_dattention_quotidien_te_blesserait_",
     "question": "Quelle forme de manque d’attention quotidien te blesserait le plus ?",
-    "category": "deep",
+    "category": "relation",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -6666,7 +6666,7 @@
   {
     "id": "temps_question_usure_09_a_quel_moment_une_accumulation_de_petites_deceptions_devie",
     "question": "À quel moment une accumulation de petites déceptions devient-elle, selon toi, un vrai problème de couple ?",
-    "category": "deep",
+    "category": "relation",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -6674,7 +6674,7 @@
   {
     "id": "temps_question_usure_10_quelle_tache_invisible_du_quotidien_aimerais_tu_absolument",
     "question": "Quelle tâche invisible du quotidien aimerais-tu absolument ne pas porter seul(e) ?",
-    "category": "deep",
+    "category": "relation",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -6682,7 +6682,7 @@
   {
     "id": "temps_question_usure_11_comment_garderais_tu_des_petites_attentions_quand_la_relat",
     "question": "Comment garderais-tu des petites attentions quand la relation devient très installée ?",
-    "category": "deep",
+    "category": "relation",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -6690,7 +6690,7 @@
   {
     "id": "temps_question_usure_12_quel_comportement_repetitif_te_ferait_perdre_le_plus_facil",
     "question": "Quel comportement répétitif te ferait perdre le plus facilement patience ?",
-    "category": "deep",
+    "category": "relation",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -6698,7 +6698,7 @@
   {
     "id": "temps_question_usure_13_est_il_important_pour_toi_que_ton_ta_partenaire_remarque_s",
     "question": "Est-il important pour toi que ton/ta partenaire remarque spontanément ce qu’il y a à faire sans qu’on lui demande ?",
-    "category": "deep",
+    "category": "relation",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -6706,7 +6706,7 @@
   {
     "id": "temps_question_usure_14_comment_reagirais_tu_si_ton_ta_partenaire_faisait_des_effo",
     "question": "Comment réagirais-tu si ton/ta partenaire faisait des efforts pendant quelques semaines puis revenait toujours à ses anciennes habitudes ?",
-    "category": "deep",
+    "category": "relation",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -6714,7 +6714,7 @@
   {
     "id": "temps_question_usure_15_quelle_petite_chose_pourrais_tu_toi_meme_faire_sans_ten_re",
     "question": "Quelle petite chose pourrais-tu toi-même faire sans t’en rendre compte et qui pourrait fatiguer ton/ta partenaire avec le temps ?",
-    "category": "deep",
+    "category": "relation",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -6722,7 +6722,7 @@
   {
     "id": "temps_question_morale_01_la_loyaute_envers_quelquun_que_tu_aimes_peut_elle_parfois_",
     "question": "La loyauté envers quelqu’un que tu aimes peut-elle parfois passer avant la vérité ?",
-    "category": "deep",
+    "category": "values",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -6730,7 +6730,7 @@
   {
     "id": "temps_question_morale_02_dans_quelle_situation_pourrais_tu_garder_un_secret_importa",
     "question": "Dans quelle situation pourrais-tu garder un secret important à ton/ta partenaire pour protéger quelqu’un d’autre ?",
-    "category": "deep",
+    "category": "values",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -6738,7 +6738,7 @@
   {
     "id": "temps_question_morale_03_que_ferais_tu_si_ton_ta_meilleur_e_ami_e_trompait_son_sa_p",
     "question": "Que ferais-tu si ton/ta meilleur(e) ami(e) trompait son/sa partenaire et refusait d’arrêter ?",
-    "category": "deep",
+    "category": "values",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -6746,7 +6746,7 @@
   {
     "id": "temps_question_morale_04_existe_t_il_une_faute_que_tu_pourrais_pardonner_moralement",
     "question": "Existe-t-il une faute que tu pourrais pardonner moralement mais pas émotionnellement ?",
-    "category": "deep",
+    "category": "values",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -6754,7 +6754,7 @@
   {
     "id": "temps_question_morale_05_jusquou_serais_tu_pret_e_a_proteger_un_membre_de_ta_famill",
     "question": "Jusqu’où serais-tu prêt(e) à protéger un membre de ta famille qui a commis quelque chose de grave ?",
-    "category": "deep",
+    "category": "values",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -6762,7 +6762,7 @@
   {
     "id": "temps_question_morale_06_est_il_plus_important_pour_toi_detre_honnete_ou_deviter_un",
     "question": "Est-il plus important pour toi d’être honnête ou d’éviter une souffrance qui ne changerait rien ?",
-    "category": "deep",
+    "category": "values",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -6770,7 +6770,7 @@
   {
     "id": "temps_question_morale_07_pourrais_tu_accepter_un_travail_qui_va_contre_certaines_de",
     "question": "Pourrais-tu accepter un travail qui va contre certaines de tes valeurs si votre famille en avait réellement besoin ?",
-    "category": "deep",
+    "category": "values",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -6778,7 +6778,7 @@
   {
     "id": "temps_question_morale_08_a_partir_de_quand_aider_quelquun_devient_il_selon_toi_lemp",
     "question": "À partir de quand aider quelqu’un devient-il, selon toi, l’empêcher d’assumer les conséquences de ses actes ?",
-    "category": "deep",
+    "category": "values",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -6786,7 +6786,7 @@
   {
     "id": "temps_question_morale_09_quest_ce_qui_pourrait_te_pousser_a_briser_une_promesse_de_",
     "question": "Qu’est-ce qui pourrait te pousser à briser une promesse de confidentialité ?",
-    "category": "deep",
+    "category": "values",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -6794,7 +6794,7 @@
   {
     "id": "temps_question_morale_10_penses_tu_quune_personne_peut_reellement_changer_au_point_",
     "question": "Penses-tu qu’une personne peut réellement changer au point que son passé ne devrait plus définir la façon dont on la juge ?",
-    "category": "deep",
+    "category": "values",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -6802,7 +6802,7 @@
   {
     "id": "temps_question_morale_11_que_ferais_tu_si_dire_la_verite_a_ton_ta_partenaire_impliq",
     "question": "Que ferais-tu si dire la vérité à ton/ta partenaire impliquait de trahir la confiance d’une autre personne ?",
-    "category": "deep",
+    "category": "values",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -6810,7 +6810,7 @@
   {
     "id": "temps_question_morale_12_y_a_t_il_une_situation_ou_tu_prefererais_que_ton_ta_parten",
     "question": "Y a-t-il une situation où tu préférerais que ton/ta partenaire te mente plutôt que de te dire toute la vérité ?",
-    "category": "deep",
+    "category": "values",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -6818,7 +6818,7 @@
   {
     "id": "temps_question_morale_13_comment_reagirais_tu_si_tu_decouvrais_que_ton_ta_partenair",
     "question": "Comment réagirais-tu si tu découvrais que ton/ta partenaire avait fait quelque chose de moralement contraire à tes valeurs avant votre rencontre ?",
-    "category": "deep",
+    "category": "values",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -6826,7 +6826,7 @@
   {
     "id": "temps_question_morale_14_jusquou_peut_on_defendre_publiquement_quelquun_quon_aime_l",
     "question": "Jusqu’où peut-on défendre publiquement quelqu’un qu’on aime lorsqu’on pense qu’il/elle a tort ?",
-    "category": "deep",
+    "category": "values",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -6834,7 +6834,7 @@
   {
     "id": "temps_question_morale_15_quel_dilemme_moral_pourrait_reveler_une_incompatibilite_pr",
     "question": "Quel dilemme moral pourrait révéler une incompatibilité profonde entre deux personnes qui s’aiment ?",
-    "category": "deep",
+    "category": "values",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -6842,7 +6842,7 @@
   {
     "id": "temps_question_corps_01_jusquou_peut_on_parler_du_poids_ou_de_la_sante_de_son_sa_p",
     "question": "Jusqu’où peut-on parler du poids ou de la santé de son/sa partenaire sans dépasser une limite ?",
-    "category": "deep",
+    "category": "lifestyle",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -6850,7 +6850,7 @@
   {
     "id": "temps_question_corps_02_comment_reagirais_tu_si_un_grand_changement_physique_modif",
     "question": "Comment réagirais-tu si un grand changement physique modifiait réellement ton attirance ?",
-    "category": "deep",
+    "category": "lifestyle",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -6858,7 +6858,7 @@
   {
     "id": "temps_question_corps_03_que_ferais_tu_si_ton_ta_partenaire_refusait_durablement_de",
     "question": "Que ferais-tu si ton/ta partenaire refusait durablement de consulter malgré un problème de santé évident ?",
-    "category": "deep",
+    "category": "lifestyle",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -6866,7 +6866,7 @@
   {
     "id": "temps_question_corps_04_quelle_place_lhygiene_de_vie_de_ton_ta_partenaire_devrait_",
     "question": "Quelle place l’hygiène de vie de ton/ta partenaire devrait-elle avoir dans tes décisions de couple ?",
-    "category": "deep",
+    "category": "lifestyle",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -6874,7 +6874,7 @@
   {
     "id": "temps_question_corps_05_pourrais_tu_vivre_facilement_avec_quelquun_dont_le_rapport",
     "question": "Pourrais-tu vivre facilement avec quelqu’un dont le rapport au sport et à l’alimentation est totalement opposé au tien ?",
-    "category": "deep",
+    "category": "lifestyle",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -6882,7 +6882,7 @@
   {
     "id": "temps_question_corps_06_comment_aimerais_tu_que_ton_ta_partenaire_te_parle_sil_ell",
     "question": "Comment aimerais-tu que ton/ta partenaire te parle s’il/elle s’inquiétait sincèrement de ta santé ?",
-    "category": "deep",
+    "category": "lifestyle",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -6890,7 +6890,7 @@
   {
     "id": "temps_question_corps_07_un_choix_esthetique_important_devrait_il_etre_uniquement_p",
     "question": "Un choix esthétique important devrait-il être uniquement personnel ou mérite-t-il une vraie discussion en couple ?",
-    "category": "deep",
+    "category": "lifestyle",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -6898,7 +6898,7 @@
   {
     "id": "temps_question_corps_08_quelle_habitude_de_sante_de_ton_ta_partenaire_pourrait_dev",
     "question": "Quelle habitude de santé de ton/ta partenaire pourrait devenir une limite pour toi à long terme ?",
-    "category": "deep",
+    "category": "lifestyle",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -6906,7 +6906,7 @@
   {
     "id": "temps_question_corps_09_comment_soutiendrais_tu_ton_ta_partenaire_sil_elle_se_sent",
     "question": "Comment soutiendrais-tu ton/ta partenaire s’il/elle se sentait très mal dans son corps sans alimenter ses complexes ?",
-    "category": "deep",
+    "category": "lifestyle",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -6914,7 +6914,7 @@
   {
     "id": "temps_question_corps_10_quelle_difference_dhygiene_quotidienne_serait_la_plus_diff",
     "question": "Quelle différence d’hygiène quotidienne serait la plus difficile à accepter pour toi ?",
-    "category": "deep",
+    "category": "lifestyle",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -6922,7 +6922,7 @@
   {
     "id": "temps_question_corps_11_jusquou_serais_tu_pret_e_a_modifier_ton_propre_mode_de_vie",
     "question": "Jusqu’où serais-tu prêt(e) à modifier ton propre mode de vie pour accompagner un changement de santé de ton/ta partenaire ?",
-    "category": "deep",
+    "category": "lifestyle",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -6930,7 +6930,7 @@
   {
     "id": "temps_question_corps_12_comment_reagirais_tu_si_ton_ta_partenaire_devenait_obsede_",
     "question": "Comment réagirais-tu si ton/ta partenaire devenait obsédé(e) par le vieillissement ou son apparence ?",
-    "category": "deep",
+    "category": "lifestyle",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -6938,7 +6938,7 @@
   {
     "id": "temps_question_corps_13_est_ce_quon_a_le_droit_de_dire_quun_comportement_de_sante_",
     "question": "Est-ce qu’on a le droit de dire qu’un comportement de santé de l’autre influence notre projet de vie commun ?",
-    "category": "deep",
+    "category": "lifestyle",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -6946,7 +6946,7 @@
   {
     "id": "temps_question_corps_14_quelle_decision_concernant_ton_corps_voudrais_tu_toujours_",
     "question": "Quelle décision concernant ton corps voudrais-tu toujours pouvoir prendre sans négociation ?",
-    "category": "deep",
+    "category": "lifestyle",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -6954,7 +6954,7 @@
   {
     "id": "temps_question_corps_15_comment_preserverais_tu_lattirance_et_la_tendresse_lorsque",
     "question": "Comment préserverais-tu l’attirance et la tendresse lorsque les corps changent énormément avec le temps ?",
-    "category": "deep",
+    "category": "lifestyle",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -6962,7 +6962,7 @@
   {
     "id": "temps_question_lgbt_01_quelle_forme_de_manque_de_reconnaissance_de_votre_couple_p",
     "question": "Quelle forme de manque de reconnaissance de votre couple par la famille serait la plus difficile à supporter pour toi ?",
-    "category": "deep",
+    "category": "relation",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -6970,7 +6970,7 @@
   {
     "id": "temps_question_lgbt_02_comment_voudrais_tu_reagir_ensemble_face_a_une_remarque_ho",
     "question": "Comment voudrais-tu réagir ensemble face à une remarque homophobe dans un lieu public ?",
-    "category": "deep",
+    "category": "relation",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -6978,7 +6978,7 @@
   {
     "id": "temps_question_lgbt_03_jusquou_serais_tu_pret_e_a_adapter_votre_visibilite_pour_v",
     "question": "Jusqu’où serais-tu prêt(e) à adapter votre visibilité pour vous sentir en sécurité ?",
-    "category": "deep",
+    "category": "relation",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -6986,7 +6986,7 @@
   {
     "id": "temps_question_lgbt_04_que_ressentirais_tu_si_ton_ta_partenaire_netait_pas_pret_e",
     "question": "Que ressentirais-tu si ton/ta partenaire n’était pas prêt(e) à être reconnu(e) comme en couple dans certains contextes ?",
-    "category": "deep",
+    "category": "relation",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -6994,7 +6994,7 @@
   {
     "id": "temps_question_lgbt_05_comment_partageriez_vous_les_decisions_si_lun_de_vous_port",
     "question": "Comment partageriez-vous les décisions si l’un de vous portait un enfant et l’autre non ?",
-    "category": "deep",
+    "category": "relation",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -7002,7 +7002,7 @@
   {
     "id": "temps_question_lgbt_06_quelle_importance_aurait_pour_toi_la_reconnaissance_juridi",
     "question": "Quelle importance aurait pour toi la reconnaissance juridique des deux parents avant d’avoir un enfant ?",
-    "category": "deep",
+    "category": "relation",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -7010,7 +7010,7 @@
   {
     "id": "temps_question_lgbt_07_pourrais_tu_garder_une_relation_proche_avec_un_membre_de_t",
     "question": "Pourrais-tu garder une relation proche avec un membre de ta famille qui tolère ton couple sans vraiment le respecter ?",
-    "category": "deep",
+    "category": "relation",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -7018,7 +7018,7 @@
   {
     "id": "temps_question_lgbt_08_comment_aimerais_tu_parler_de_votre_famille_a_un_enfant_co",
     "question": "Comment aimerais-tu parler de votre famille à un enfant confronté à des remarques sur le fait d’avoir deux mamans ou deux papas ?",
-    "category": "deep",
+    "category": "relation",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -7026,15 +7026,15 @@
   {
     "id": "temps_question_lgbt_09_quelle_difference_de_rapport_au_militantisme_ou_a_la_visib",
     "question": "Quelle différence de rapport au militantisme ou à la visibilité LGBT+ pourrait créer des tensions entre vous ?",
-    "category": "deep",
+    "category": "relation",
     "spicy": 0,
     "mood": "deep",
     "premium": true
   },
   {
     "id": "temps_question_lgbt_10_comment_reagirais_tu_si_ton_ta_partenaire_se_sentait_plus_",
-    "question": "Comment réagirais-tu si ton/ta partenaire se sentait plus libre d’être affectueux/se en public que toi ?",
-    "category": "deep",
+    "question": "Comment réagirais-tu si ton/ta partenaire se sentait plus libre d’être affectueux ou affectueuse en public que toi ?",
+    "category": "relation",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -7042,7 +7042,7 @@
   {
     "id": "temps_question_lgbt_11_quel_compromis_serais_tu_pret_e_a_faire_pour_continuer_a_v",
     "question": "Quel compromis serais-tu prêt(e) à faire pour continuer à voir une famille qui n’accepte pas pleinement votre couple ?",
-    "category": "deep",
+    "category": "relation",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -7050,7 +7050,7 @@
   {
     "id": "temps_question_lgbt_12_quest_ce_qui_te_ferait_te_sentir_reellement_reconnu_e_comm",
     "question": "Qu’est-ce qui te ferait te sentir réellement reconnu(e) comme membre de la famille de ton/ta partenaire ?",
-    "category": "deep",
+    "category": "relation",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -7058,7 +7058,7 @@
   {
     "id": "temps_question_lgbt_13_comment_choisirais_tu_un_lieu_de_vie_entre_proximite_avec_",
     "question": "Comment choisirais-tu un lieu de vie entre proximité avec vos familles et sentiment de sécurité comme couple ?",
-    "category": "deep",
+    "category": "relation",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -7066,7 +7066,7 @@
   {
     "id": "temps_question_lgbt_14_quelle_situation_te_ferait_decider_quun_proche_a_franchi_u",
     "question": "Quelle situation te ferait décider qu’un proche a franchi une limite irréparable concernant votre couple ?",
-    "category": "deep",
+    "category": "relation",
     "spicy": 0,
     "mood": "deep",
     "premium": true
@@ -7074,7 +7074,7 @@
   {
     "id": "temps_question_lgbt_15_comment_aimerais_tu_que_votre_enfant_comprenne_et_raconte_",
     "question": "Comment aimerais-tu que votre enfant comprenne et raconte l’histoire de sa famille si son parcours de naissance était différent de celui de beaucoup d’autres enfants ?",
-    "category": "deep",
+    "category": "relation",
     "spicy": 0,
     "mood": "deep",
     "premium": true
