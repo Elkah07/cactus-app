@@ -3105,7 +3105,15 @@ function applyAppAppearance(appearance) {
     renderAppearanceStudio();
 }
 
+function hasPersonalAppearanceOverride() {
+    return localStorage.getItem("cactusPersonalAppearanceOverride") === "true";
+}
+function setPersonalAppearanceOverride(enabled) {
+    if (enabled) localStorage.setItem("cactusPersonalAppearanceOverride", "true");
+    else localStorage.removeItem("cactusPersonalAppearanceOverride");
+}
 function getSharedAppearance(spaceData = currentSpaceData) {
+    if (hasPersonalAppearanceOverride()) return null;
     const shared = spaceData?.sharedAppearance;
     if (!shared?.enabled || !currentUser?.uid || shared.acceptedMembers?.[currentUser.uid] !== true || !shared.appearance) return null;
     return normalizeAppAppearance(shared.appearance);
@@ -3132,6 +3140,7 @@ function loadCachedPersonalAppearance() {
 }
 
 function savePersonalAppearance(nextAppearance) {
+    setPersonalAppearanceOverride(true);
     currentPersonalAppearance = normalizeAppAppearance(nextAppearance);
     cachePersonalAppearance(currentPersonalAppearance);
 
@@ -3143,6 +3152,10 @@ function savePersonalAppearance(nextAppearance) {
     if (currentUser?.uid) {
         database.ref("users/" + currentUser.uid + "/appearance").set(currentPersonalAppearance)
             .catch((error) => console.warn("Sauvegarde du thème impossible", error));
+        if (currentSpaceCode && currentSpaceData?.sharedAppearance?.acceptedMembers?.[currentUser.uid] === true) {
+            database.ref(`spaces/${currentSpaceCode}/sharedAppearance/acceptedMembers/${currentUser.uid]`).set(false)
+                .catch((error) => console.warn("Sortie de l’univers commun impossible", error));
+        }
     }
 }
 
@@ -3254,6 +3267,7 @@ async function acceptIncomingThemeOffer() {
     }
 
     if (offer.type === "shared-update") {
+        setPersonalAppearanceOverride(false);
         await database.ref(`spaces/${currentSpaceCode}/sharedAppearance`).update({
             appearance: offeredAppearance,
             updatedAt: Date.now(),
@@ -3264,6 +3278,7 @@ async function acceptIncomingThemeOffer() {
         return;
     }
 
+    setPersonalAppearanceOverride(false);
     const members = {};
     members[currentUser.uid] = true;
     if (offer.fromUid) members[offer.fromUid] = true;
