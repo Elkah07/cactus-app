@@ -15587,7 +15587,7 @@ body.cactus-calibration-open {
 .dashboard-experience-visual { width:44px !important; height:44px !important; border-radius:14px !important; font-size:1.35rem !important; }
 .dashboard-experience-copy small { display:none !important; }
 .dashboard-experience-copy strong { font-size:.82rem !important; }
-.dashboard-experience-copy span {  font-size: .58rem !important;  line-height: 1.2;  display: -webkit-box;  line-clamp: 1;  -webkit-line-clamp: 1;  -webkit-box-orient: vertical;  overflow: hidden;}
+.dashboard-experience-copy span { font-size:.58rem !important; line-height:1.2; display:-webkit-box; -webkit-line-clamp:1; -webkit-box-orient:vertical; overflow:hidden; }
 .dashboard-experience-card>b { min-width:24px !important; width:24px; height:24px !important; font-size:.62rem; }
 .dashboard-experience-card>i { display:none; }
 .time-capsule-creation-panel { max-height:calc(100dvh - 118px); overflow:auto; }
@@ -15617,3 +15617,89 @@ body.cactus-calibration-open {
 .capsule-style-heart .time-capsule-preview-object{clip-path:polygon(50% 92%,7% 49%,7% 25%,20% 10%,38% 10%,50% 24%,62% 10%,80% 10%,93% 25%,93% 49%);border-radius:0!important}
 .capsule-style-lantern .time-capsule-preview-object{border-radius:18px 18px 28px 28px!important;box-shadow:inset 0 0 24px rgba(255,220,110,.4)}
 @media(max-width:620px){.dashboard-shared-experiences-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}.dashboard-experience-card{grid-template-columns:40px minmax(0,1fr)!important}.dashboard-experience-card>b{position:absolute;right:7px;top:7px}.time-capsule-stepper button span{font-size:.58rem}.time-capsule-builder{display:block!important}}
+
+/* === V116.5 · Finition du bas de l'accueil === */
+#dashboardScreen {
+  padding-bottom: calc(112px + env(safe-area-inset-bottom)) !important;
+}
+#dashboardScreen .dashboard-shared-experiences {
+  position: relative;
+  margin: .95rem 0 1rem !important;
+  padding: .85rem !important;
+  border: 1px solid color-mix(in srgb, var(--app-border) 80%, transparent);
+  border-radius: 26px;
+  background: linear-gradient(145deg, color-mix(in srgb, var(--app-panel-bg) 88%, transparent), color-mix(in srgb, var(--app-icon-bg) 48%, transparent));
+}
+#dashboardScreen .dashboard-shared-experiences > header {
+  margin: 0 0 .65rem !important;
+}
+#dashboardScreen .dashboard-shared-experiences > header small {
+  font-size: .56rem;
+  opacity: .8;
+}
+#dashboardScreen .dashboard-shared-experiences > header h2 {
+  margin-top: .08rem !important;
+}
+#dashboardScreen .dashboard-experience-card {
+  border: 1px solid color-mix(in srgb, var(--app-border) 65%, transparent);
+  background: color-mix(in srgb, var(--app-icon-bg) 72%, transparent) !important;
+  box-shadow: none !important;
+}
+#dashboardScreen .dashboard-last-activity {
+  min-height: 72px !important;
+  margin: .75rem 0 .55rem !important;
+  padding: .7rem .9rem !important;
+  border-radius: 22px !important;
+  box-shadow: none !important;
+  background: color-mix(in srgb, var(--app-panel-bg) 78%, transparent) !important;
+}
+#dashboardScreen .dashboard-last-activity-icon {
+  width: 42px !important;
+  height: 42px !important;
+}
+#dashboardScreen .dashboard-last-activity-copy small {
+  font-size: .55rem !important;
+  opacity: .72;
+}
+#dashboardScreen .dashboard-last-activity-copy span {
+  font-size: .68rem !important;
+  line-height: 1.3;
+}
+#dashboardScreen .dashboard-space-code {
+  margin: .35rem auto .15rem !important;
+  padding: .35rem .7rem !important;
+  min-height: 0 !important;
+  width: auto !important;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  opacity: .5;
+  font-size: .5rem !important;
+  letter-spacing: .08em;
+}
+#dashboardScreen .dashboard-space-code:hover,
+#dashboardScreen .dashboard-space-code:focus-visible {
+  opacity: .85;
+}
+#dashboardScreen .dashboard-bottom-nav {
+  bottom: max(10px, env(safe-area-inset-bottom)) !important;
+  width: min(calc(100% - 28px), 660px) !important;
+  border-radius: 24px !important;
+  padding: 5px !important;
+  box-shadow: 0 16px 42px rgba(0,0,0,.28) !important;
+}
+#dashboardScreen .dashboard-bottom-nav button {
+  min-height: 58px !important;
+  border-radius: 18px !important;
+}
+#dashboardScreen .dashboard-bottom-nav button span {
+  line-height: 1;
+}
+#dashboardScreen .dashboard-bottom-nav button small {
+  font-size: .5rem !important;
+}
+@media(max-width:620px) {
+  #dashboardScreen .dashboard-shared-experiences { padding: .72rem !important; border-radius: 23px; }
+  #dashboardScreen .dashboard-shared-experiences-grid { gap: .5rem !important; }
+  #dashboardScreen .dashboard-experience-card { min-height: 72px !important; }
+}
