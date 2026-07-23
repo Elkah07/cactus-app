@@ -1754,13 +1754,6 @@ const relationStatsModes = [
         color: "#b792e8"
     },
     {
-        key: "coupleDare",
-        label: "Défis à deux",
-        icon: "★",
-        path: "coupleDareChallenges",
-        color: "#a7dd6f"
-    },
-    {
         key: "bestLie",
         label: "Qui ment le mieux ?",
         icon: "🎭",
@@ -1849,6 +1842,7 @@ function listenToCurrentSpace(spaceCodeValue) {
         renderCactusLivingAmbience(spaceData);
         renderDiscussionsDashboard(spaceData);
         refreshDiscussionButtons();
+        if (typeof renderSharedExperiencesDashboard === "function") renderSharedExperiencesDashboard(spaceData);
 
         if (lastShownScreen === "discussions") {
             renderDiscussions(spaceData);
@@ -1865,6 +1859,8 @@ function listenToCurrentSpace(spaceCodeValue) {
         if (lastShownScreen === "newGame") {
             renderNewGame(spaceData);
         }
+        if (lastShownScreen === "coupleDaresHub" && typeof renderCoupleDaresHub === "function") renderCoupleDaresHub(spaceData);
+        if (lastShownScreen === "secretGarden" && typeof renderSecretGarden === "function") renderSecretGarden(spaceData);
 
         const liveRelationStats = buildRelationStatistics(spaceData);
         updateDashboardRelationStats(liveRelationStats);
@@ -6672,12 +6668,6 @@ const GAMES_LIBRARY = {
         image: "assets/cactus-limit-reached.webp",
         description: "Avancez chacun à votre rythme dans une situation qui s'intensifie. Arrêtez-vous dès que votre limite est atteinte, puis découvrez jusqu'où l'autre serait allé."
     },
-    coupleDare: {
-        title: "Défis à deux",
-        category: "Fun & complicité",
-        image: "assets/cactus-couple-dare.webp",
-        description: "Tirez un défi, acceptez-le ensemble puis marquez votre petite mission comme réalisée."
-    },
     bestLie: {
         title: "Qui ment le mieux ?",
         category: "Fun & complicité",
@@ -7245,7 +7235,7 @@ function closeGameDetails() {
 }
 
 function updateRecommendedGame() {
-    const rotation = ["questions", "guess", "ranking", "bestLie", "wouldRather", "likely", "threeYesNo", "limitReached", "ok", "coupleDare", "greenFlag", "princess"];
+    const rotation = ["questions", "guess", "ranking", "bestLie", "wouldRather", "likely", "threeYesNo", "limitReached", "ok", "greenFlag", "princess"];
     const totalGames = currentSpaceData
         ? buildRelationStatistics(currentSpaceData).totalGames
         : 0;
@@ -10123,6 +10113,23 @@ async function notifyPushWorkerOfSpaceChanges(previousSpace = {}, nextSpace = {}
         }
     });
 
+    const previousSharedDares = previousSpace.sharedDares || {};
+    Object.entries(nextSpace.sharedDares || {}).forEach(([dareId, dare]) => {
+        const before = previousSharedDares[dareId];
+        if (!before && dare?.createdByUid === currentUser.uid) queuePushWorkerEvent({ kind: "shared-dare-created", spaceId: currentSpaceCode, dareId });
+        if (before?.status !== "completed" && dare?.status === "completed" && dare?.completedByUid === currentUser.uid) queuePushWorkerEvent({ kind: "shared-dare-completed", spaceId: currentSpaceCode, dareId });
+    });
+    const previousSecrets = previousSpace.secretGarden?.entries || {};
+    Object.entries(nextSpace.secretGarden?.entries || {}).forEach(([entryId, entry]) => {
+        const before = previousSecrets[entryId];
+        if (!before && entry?.createdByUid === currentUser.uid) queuePushWorkerEvent({ kind: "secret-created", spaceId: currentSpaceCode, entryId });
+        if (!before?.exchangeResponse && entry?.exchangeResponse?.createdByUid === currentUser.uid) queuePushWorkerEvent({ kind: "secret-exchange-ready", spaceId: currentSpaceCode, entryId });
+        const previousReactions = before?.reactions || {};
+        Object.entries(entry?.reactions || {}).forEach(([reactionUid, reaction]) => {
+            if (!previousReactions[reactionUid] && reactionUid === currentUser.uid && reaction?.createdAt && reaction?.type !== "discuss") queuePushWorkerEvent({ kind: "secret-reaction", spaceId: currentSpaceCode, entryId });
+        });
+    });
+
     const previousAchievements = previousSpace.stats?.achievements || {};
     Object.entries(nextSpace.stats?.achievements || {}).forEach(([achievementId, achievement]) => {
         if (!previousAchievements[achievementId] && achievement?.unlockedBy === currentUser.uid) {
@@ -10669,6 +10676,21 @@ function buildNotifications(spaceData) {
         }
     }
 
+    if (preferences.garden) {
+        Object.entries(spaceData.sharedDares || {}).forEach(([dareId, dare]) => {
+            if (dare.createdByUid && dare.createdByUid !== currentUser.uid && typeof dare.createdAt === "number") notifications.push({ id:"shared_dare_"+dareId+"_"+dare.createdAt, type:"garden", icon:"🏆", title:(dare.createdByPseudo||"Votre partenaire")+" a ajouté un défi", message:dare.title||"Une nouvelle idée à vivre ensemble", timestamp:dare.createdAt, target:{kind:"coupleDares"} });
+            if (dare.status === "completed" && dare.completedByUid && dare.completedByUid !== currentUser.uid && typeof dare.completedAt === "number") notifications.push({ id:"shared_dare_done_"+dareId+"_"+dare.completedAt, type:"garden", icon:"🏆", title:"Un défi a été réalisé", message:dare.title||"Mission accomplie", timestamp:dare.completedAt, target:{kind:"coupleDares"} });
+        });
+        Object.entries(spaceData.secretGarden?.entries || {}).forEach(([entryId, entry]) => {
+            if (entry.createdByUid && entry.createdByUid !== currentUser.uid && typeof entry.createdAt === "number") notifications.push({ id:"secret_"+entryId+"_"+entry.createdAt, type:"garden", icon:"🔐", title:entry.mode==="exchange"?"Un échange secret t'attend":"Quelque chose t'attend au Jardin secret", message:entry.hint||"Une confidence a été déposée rien que pour toi.", timestamp:entry.createdAt, target:{kind:"secretGarden",entryId} });
+            const response=entry.exchangeResponse;if(entry.createdByUid===currentUser.uid&&response?.createdByUid&&response.createdByUid!==currentUser.uid&&typeof response.createdAt==="number") notifications.push({ id:"secret_ready_"+entryId+"_"+response.createdAt, type:"garden", icon:"🤝", title:"Votre échange secret est prêt", message:"Vous avez toutes les deux déposé quelque chose.", timestamp:response.createdAt, target:{kind:"secretGarden",entryId} });
+            Object.entries(entry.reactions || {}).forEach(([reactionUid, reaction]) => {
+                if (reactionUid === currentUser.uid || reaction?.type === "discuss" || typeof reaction?.createdAt !== "number") return;
+                notifications.push({ id:"secret_reaction_"+entryId+"_"+reactionUid+"_"+reaction.createdAt, type:"garden", icon:"💚", title:(reaction.pseudo||"Votre partenaire")+" a réagi à une confidence", message:reaction.label||"Une réaction vous attend dans le Jardin secret.", timestamp:reaction.createdAt, target:{kind:"secretGarden",entryId} });
+            });
+        });
+    }
+
     if (preferences.achievements) {
         Object.entries(spaceData.stats?.achievements || {}).forEach(([achievementId, data]) => {
             const achievement = ACHIEVEMENTS.find((item) => item.id === achievementId);
@@ -11055,6 +11077,12 @@ function openNotification(notification) {
         openCoupleProfile();
     } else if (target.kind === "achievement") {
         openAchievements();
+    } else if (target.kind === "coupleDares") {
+        if (typeof openCoupleDaresHub === "function") openCoupleDaresHub();
+        else showScreen("dashboard");
+    } else if (target.kind === "secretGarden") {
+        if (typeof openSecretGarden === "function") openSecretGarden();
+        else showScreen("dashboard");
     }
 }
 
@@ -12951,7 +12979,7 @@ function getGameInboxActivities() {
         showPendingQuestionsResult();
     });
 
-    Object.keys(NEW_GAME_MODES).forEach((mode) => {
+    Object.keys(NEW_GAME_MODES).filter((mode) => mode !== "coupleDare").forEach((mode) => {
         const open = Object.entries(getNewGameChallenges(mode))
             .filter(([, challenge]) => isNewGameChallengeAvailableToCurrentUser(mode, challenge))
             .sort((a, b) => (b[1].createdAt || 0) - (a[1].createdAt || 0))[0];
@@ -13181,7 +13209,6 @@ function getLatestCompletedActivity() {
         { key: "wouldRatherChallenges", mode: "wouldRather", icon: "↔", label: "Tu préfères ?" },
         { key: "threeYesNoChallenges", mode: "threeYesNo", icon: "3/3", label: "3 oui / 3 non" },
         { key: "limitReachedChallenges", mode: "limitReached", icon: "⛔", label: "Limite atteinte" },
-        { key: "coupleDareChallenges", mode: "coupleDare", icon: "★", label: "un défi à deux" },
         { key: "bestLieChallenges", mode: "bestLie", icon: "🎭", label: "Qui ment le mieux ?" }
     ];
 

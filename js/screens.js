@@ -1,5 +1,7 @@
 let isNavigatingWithBrowserBack = false;
 let lastShownScreen = null;
+const coupleDaresHubScreen = document.getElementById("coupleDaresHubScreen");
+const secretGardenScreen = document.getElementById("secretGardenScreen");
 
 const CACTUS_NAV_STATE_KEY = "cactusNavigation";
 const CACTUS_AUTH_FLOW_SCREENS = new Set([
@@ -206,7 +208,7 @@ function showScreenContent(screenName) {
     );
     document.body.classList.toggle(
         "secondary-active",
-        ["allGames", "newGame", "garden", "dailyTools", "shopping", "tasks", "reminders", "importantDates", "countdowns", "timeCapsules", "history", "storyPage", "settings", "notifications", "dailyRitual", "coupleProfile", "onboarding", "discussions"].includes(screenName)
+        ["allGames", "newGame", "garden", "dailyTools", "shopping", "tasks", "reminders", "importantDates", "countdowns", "timeCapsules", "history", "storyPage", "settings", "notifications", "dailyRitual", "coupleProfile", "onboarding", "discussions", "coupleDaresHub", "secretGarden"].includes(screenName)
     );
 
     hideScreen(loginScreen);
@@ -275,6 +277,8 @@ function showScreenContent(screenName) {
 
     hideScreen(allGamesScreen);
     hideScreen(newGameScreen);
+    hideScreen(coupleDaresHubScreen);
+    hideScreen(secretGardenScreen);
 
     historyBtn.style.setProperty("display", "none", "important");
 gardenBtn.style.setProperty("display", "none", "important");
@@ -295,7 +299,9 @@ settingsBtn.style.setProperty("display", "none", "important");
     screenName === "countdowns" ||
     screenName === "timeCapsules" ||
     screenName === "settings" ||
-    screenName === "discussions"
+    screenName === "discussions" ||
+    screenName === "coupleDaresHub" ||
+    screenName === "secretGarden"
 ) {
     historyBtn.style.display = "flex";
     gardenBtn.style.display = "flex";
@@ -526,6 +532,16 @@ settingsBtn.style.setProperty("display", "none", "important");
         case "newGame":
             newGameScreen.style.display = "block";
             renderNewGame(currentSpaceData);
+            break;
+
+        case "coupleDaresHub":
+            coupleDaresHubScreen.style.display = "block";
+            if (typeof renderCoupleDaresHub === "function") renderCoupleDaresHub(currentSpaceData);
+            break;
+
+        case "secretGarden":
+            secretGardenScreen.style.display = "block";
+            if (typeof renderSecretGarden === "function") renderSecretGarden(currentSpaceData);
             break;
 
         case "storyPage":

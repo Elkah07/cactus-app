@@ -23,7 +23,6 @@ const MODE_CONFIGS = [
   ["wouldRather", "wouldRatherChallenges", "Tu préfères ?"],
   ["threeYesNo", "threeYesNoChallenges", "3 oui / 3 non"],
   ["limitReached", "limitReachedChallenges", "Limite atteinte"],
-  ["coupleDare", "coupleDareChallenges", "Défis à deux"],
   ["bestLie", "bestLieChallenges", "Qui ment le mieux ?"]
 ];
 
@@ -67,7 +66,8 @@ async function sendPushToUid(uid, payload, preferenceKey = null) {
       title: String(payload.title || "Cactus 🌵"),
       body: String(payload.body || "Une nouveauté vous attend."),
       url: String(payload.url || APP_URL),
-      tag: String(payload.tag || "cactus-update")
+      tag: String(payload.tag || "cactus-update"),
+      screen: String(payload.screen || "dashboard")
     },
     webpush: {
       headers: {Urgency: "high"}
@@ -225,4 +225,29 @@ exports.send_due_cactus_notifications = onSchedule({
 
   await Promise.allSettled(jobs);
   if (Object.keys(updates).length) await getDatabase().ref().update(updates);
+});
+
+
+exports.notify_new_shared_dare = onValueCreated({ ref: "/spaces/{spaceId}/sharedDares/{dareId}", region: REGION }, async (event) => {
+  const dare = event.data.val() || {}; const players = await getSpacePlayers(event.params.spaceId); const targets = players.filter((p) => p.uid !== dare.createdByUid);
+  await Promise.all(targets.map((target) => sendPushToUid(target.uid, { title: "Un nouveau défi vous attend ✨", body: `${dare.createdByPseudo || "Ta partenaire"} a ajouté « ${dare.title || "un défi"} » à votre liste.`, tag: "shared-dare-created", screen: "coupleDaresHub" }, "garden")));
+});
+exports.notify_completed_shared_dare = onValueWritten({ ref: "/spaces/{spaceId}/sharedDares/{dareId}", region: REGION }, async (event) => {
+  const before = event.data.before.val() || {}; const after = event.data.after.val() || {}; if (before.status === "completed" || after.status !== "completed" || !after.completedByUid) return;
+  const players = await getSpacePlayers(event.params.spaceId); const targets = players.filter((p) => p.uid !== after.completedByUid);
+  await Promise.all(targets.map((target) => sendPushToUid(target.uid, { title: "Un défi vient d'être réalisé 🏆", body: `${after.completedByPseudo || "Ta partenaire"} a marqué « ${after.title || "un défi"} » comme réalisé.`, tag: "shared-dare-completed", screen: "coupleDaresHub" }, "garden")));
+});
+exports.notify_new_secret_garden_entry = onValueCreated({ ref: "/spaces/{spaceId}/secretGarden/entries/{entryId}", region: REGION }, async (event) => {
+  const entry = event.data.val() || {}; const players = await getSpacePlayers(event.params.spaceId); const targets = players.filter((p) => p.uid !== entry.createdByUid);
+  await Promise.all(targets.map((target) => sendPushToUid(target.uid, { title: entry.mode === "exchange" ? "Un échange secret t'attend 🤝" : "Quelque chose t'attend 🔐", body: entry.hint || `${entry.createdByPseudo || "Ta partenaire"} a déposé quelque chose dans votre Jardin secret.`, tag: "secret-garden", screen: "secretGarden" }, "garden")));
+});
+exports.notify_secret_exchange_ready = onValueCreated({ ref: "/spaces/{spaceId}/secretGarden/entries/{entryId}/exchangeResponse", region: REGION }, async (event) => {
+  const response = event.data.val() || {}; const players = await getSpacePlayers(event.params.spaceId); const targets = players.filter((p) => p.uid !== response.createdByUid);
+  await Promise.all(targets.map((target) => sendPushToUid(target.uid, { title: "Votre échange secret est prêt 🤝", body: "Vous avez toutes les deux déposé quelque chose.", tag: "secret-exchange-ready", screen: "secretGarden" }, "garden")));
+});
+
+
+exports.notify_secret_reaction = onValueCreated({ ref: "/spaces/{spaceId}/secretGarden/entries/{entryId}/reactions/{reactionUid}", region: REGION }, async (event) => {
+  const reaction = event.data.val() || {}; if (reaction.type === "discuss") return; const players = await getSpacePlayers(event.params.spaceId); const targets = players.filter((p) => p.uid !== event.params.reactionUid);
+  await Promise.all(targets.map((target) => sendPushToUid(target.uid, { title: `${reaction.pseudo || "Ta partenaire"} a réagi 💚`, body: reaction.label || "Une réaction t'attend dans votre Jardin secret.", tag: "secret-reaction", screen: "secretGarden" }, "garden")));
 });

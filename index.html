@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cactus 🌵</title>
-    <link rel="stylesheet" href="css/style.css?v=1158">
+    <link rel="stylesheet" href="css/style.css?v=1159">
     <link rel="manifest" href="manifest.json?v=1155">
     <meta name="theme-color" content="#003E2D">
 </head>
@@ -1400,6 +1400,22 @@
         <span class="dashboard-discussions-arrow" aria-hidden="true">›</span>
     </button>
 
+    <section class="dashboard-shared-experiences">
+        <header><small>Au-delà des jeux</small><h2>À vivre & à partager</h2></header>
+        <div class="dashboard-shared-experiences-grid">
+            <button type="button" id="dashboardDaresBtn" class="dashboard-experience-card is-dares">
+                <span class="dashboard-experience-visual"><img src="assets/cactus-couple-dare.webp" alt="" loading="lazy" decoding="async"></span>
+                <span class="dashboard-experience-copy"><small>Des choses à faire ensemble</small><strong>Nos défis</strong><span id="dashboardDaresStatus">300 idées à découvrir</span></span>
+                <b id="dashboardDaresCount">0</b><i aria-hidden="true">›</i>
+            </button>
+            <button type="button" id="dashboardSecretGardenBtn" class="dashboard-experience-card is-secret">
+                <span class="dashboard-experience-visual" aria-hidden="true">🔐</span>
+                <span class="dashboard-experience-copy"><small>Ce qu'on n'ose pas toujours dire</small><strong>Jardin secret</strong><span id="dashboardSecretGardenStatus">Un espace rien qu'à vous deux</span></span>
+                <b id="dashboardSecretGardenCount">0</b><i aria-hidden="true">›</i>
+            </button>
+        </div>
+    </section>
+
 
     <!-- JEUX -->
     <section class="dashboard-games-section">
@@ -1636,7 +1652,7 @@
         </nav>
     </div>
 
-    <div class="games-library-heading"><div><small>La collection Cactus</small><h2><span id="visibleGamesCount">12</span> jeux à deux</h2></div></div>
+    <div class="games-library-heading"><div><small>La collection Cactus</small><h2><span id="visibleGamesCount">11</span> jeux à deux</h2></div></div>
 
     <div id="allGamesGrid" class="home-games-grid all-games-grid">
 
@@ -1695,10 +1711,7 @@
             <span>Qui ment le mieux ?</span><em>Nouveau</em>
         </button>
 
-        <button type="button" id="coupleDareBtn" class="home-game-card card-lime" data-game-card data-game-key="coupleDare" data-game-category="fun complicity">
-            <img src="assets/cactus-couple-dare.webp" alt="" loading="lazy" decoding="async">
-            <span>Défis à deux</span><em>Nouveau</em>
-        </button>
+        <button type="button" id="coupleDareBtn" hidden aria-hidden="true" tabindex="-1"></button>
 
     </div>
 
@@ -1722,6 +1735,41 @@
         <div class="game-details-meta"><span id="gameDetailsPlayers">À deux</span></div>
         <button type="button" id="startGameFromDetailsBtn">Commencer ce jeu</button>
     </section>
+</div>
+
+
+<!-- ÉCRAN NOS DÉFIS -->
+<div id="coupleDaresHubScreen" class="secondary-screen couple-dares-hub-screen" style="display:none;">
+    <header class="shared-feature-header">
+        <button type="button" id="backFromCoupleDaresHubBtn" aria-label="Retour">‹</button>
+        <div><small>À vivre ensemble</small><h1>Nos défis</h1><p>Choisissez les petites aventures que vous avez réellement envie de vivre à deux.</p></div>
+        <button type="button" id="openCustomDareBtn" class="shared-feature-add" aria-label="Créer un défi">＋</button>
+    </header>
+    <section class="couple-dares-hero">
+        <div><small>Besoin d'un peu de hasard ?</small><h2>Laissez Cactus choisir pour vous</h2><p>Un défi au hasard, sans obligation. Gardez-le seulement s'il vous donne envie.</p></div>
+        <img src="assets/cactus-couple-dare.webp" alt="Cactou prêt pour un défi" loading="lazy" decoding="async">
+        <button type="button" id="randomDareBtn">🎲 Choisis-nous un défi</button>
+    </section>
+    <section id="randomDareSpotlight" class="random-dare-spotlight" style="display:none;"></section>
+    <div class="shared-feature-metrics"><article><strong id="dareSavedCount">0</strong><span>À faire</span></article><article><strong id="dareInProgressCount">0</strong><span>En cours</span></article><article><strong id="dareCompletedCount">0</strong><span>Réalisés</span></article></div>
+    <nav class="shared-feature-tabs" aria-label="Afficher les défis"><button type="button" class="is-active" data-dare-view="discover">✨ À découvrir</button><button type="button" data-dare-view="saved">📌 À faire</button><button type="button" data-dare-view="inprogress">⏳ En cours</button><button type="button" data-dare-view="completed">✅ Réalisés</button></nav>
+    <div class="shared-feature-tools"><label><span aria-hidden="true">⌕</span><input id="dareSearchInput" type="search" placeholder="Rechercher un défi…" autocomplete="off"></label><select id="dareCategoryFilter" aria-label="Filtrer les défis"><option value="all">Toutes les catégories</option></select></div>
+    <div id="coupleDaresHubList" class="couple-dares-hub-list"></div>
+    <div id="coupleDaresHubEmpty" class="shared-feature-empty" style="display:none;"><span>🌵</span><strong>Rien ici pour le moment</strong><p>Changez de filtre ou choisissez un nouveau défi.</p></div>
+    <section id="customDareComposer" class="shared-feature-sheet" style="display:none;"><header><div><small>Votre idée à vous</small><h2>Créer un défi</h2></div><button type="button" id="closeCustomDareBtn" aria-label="Fermer">×</button></header><form id="customDareForm"><label>Titre<input id="customDareTitle" type="text" maxlength="90" required placeholder="Ex. Une journée sans téléphone"></label><label>Description<textarea id="customDareDescription" rows="4" maxlength="700" required placeholder="Qu'est-ce que vous voulez faire ensemble ?"></textarea></label><div class="shared-feature-form-row"><label>Catégorie<select id="customDareCategory"><option value="personnel">💚 Personnel</option><option value="tendre">🥹 Tendre</option><option value="fun">😂 Fun</option><option value="créatif">🎨 Créatif</option><option value="complicité">🤝 Complicité</option><option value="quotidien">🏡 Quotidien</option><option value="aventure">🧭 Aventure</option><option value="communication">💬 Communication</option><option value="distance">🚆 À distance</option><option value="souvenirs">📸 Souvenirs</option><option value="surprise">🎁 Surprise</option><option value="futur">✨ Futur</option><option value="confiance">🫶 Confiance</option></select></label><label>Quand ?<input id="customDareDate" type="date"></label></div><button type="submit">Ajouter à nos défis</button></form></section>
+    <section id="completeDareSheet" class="shared-feature-sheet" style="display:none;"><header><div><small>Mission accomplie</small><h2>Garder un souvenir</h2></div><button type="button" id="closeCompleteDareBtn" aria-label="Fermer">×</button></header><form id="completeDareForm"><p id="completeDareName" class="complete-dare-name"></p><label>Un petit mot sur ce moment <small>Facultatif</small><textarea id="completeDareNote" rows="4" maxlength="1000" placeholder="Ce que vous voulez retenir…"></textarea></label><label class="dare-photo-picker">📸 Ajouter une photo <input id="completeDarePhoto" type="file" accept="image/*"></label><label class="shared-feature-check"><input id="completeDareCreateMemory" type="checkbox" checked><span>Ajouter aussi ce moment à Nos souvenirs</span></label><button type="submit" id="confirmCompleteDareBtn">✅ Marquer comme réalisé</button></form></section>
+</div>
+
+<!-- ÉCRAN JARDIN SECRET -->
+<div id="secretGardenScreen" class="secondary-screen secret-garden-screen" style="display:none;">
+    <header class="shared-feature-header"><button type="button" id="backFromSecretGardenBtn" aria-label="Retour">‹</button><div><small>Entre vous seulement</small><h1>Jardin secret</h1><p>Déposez ici ce que vous n'osez pas toujours dire à voix haute.</p></div><button type="button" id="openSecretComposerBtn" class="shared-feature-add" aria-label="Déposer quelque chose">＋</button></header>
+    <section class="secret-garden-hero"><span aria-hidden="true">🔐</span><div><small>Un endroit sans pression</small><h2>Il n'y a pas de bonne façon de se confier.</h2><p>Un secret drôle, une peur, une envie, une question ou une petite chose à découvrir sur toi.</p></div><button type="button" id="secretGardenDepositBtn">Déposer quelque chose</button></section>
+    <div class="shared-feature-metrics"><article><strong id="secretWaitingCount">0</strong><span>À découvrir</span></article><article><strong id="secretMineCount">0</strong><span>Mes dépôts</span></article><article><strong id="secretExchangeCount">0</strong><span>Échanges</span></article></div>
+    <nav class="shared-feature-tabs" aria-label="Afficher le Jardin secret"><button type="button" class="is-active" data-secret-view="inbox">🔓 À découvrir</button><button type="button" data-secret-view="mine">🌱 Mes dépôts</button><button type="button" data-secret-view="exchanges">🤝 Échanges secrets</button></nav>
+    <div id="secretGardenList" class="secret-garden-list"></div><div id="secretGardenEmpty" class="shared-feature-empty" style="display:none;"><span>🤫</span><strong>Le jardin est encore silencieux</strong><p>La première confidence peut être sérieuse, légère, bizarre ou minuscule.</p></div>
+    <section id="secretComposer" class="shared-feature-sheet" style="display:none;"><header><div><small>Juste entre vous</small><h2>Déposer quelque chose</h2></div><button type="button" id="closeSecretComposerBtn" aria-label="Fermer">×</button></header><form id="secretComposerForm"><label>Quel genre de confidence ?<select id="secretTypeInput"><option value="secret">🤫 Un secret</option><option value="unsaid">💭 Quelque chose que je n'ose pas dire</option><option value="discover">✨ Une chose à découvrir sur moi</option><option value="confession">🫣 Une confession</option><option value="desire">💌 Une envie que je n'ai jamais osé exprimer</option><option value="thought">🧠 Une pensée que je garde pour moi</option><option value="question">❓ Une question que je n'ose pas poser</option></select></label><label>Comment veux-tu la partager ?<select id="secretModeInput"><option value="direct">🔓 À découvrir quand l'autre sera prêt(e)</option><option value="exchange">🤝 Échange secret : l'autre dépose quelque chose aussi</option></select></label><label>Petit indice <small>Facultatif, visible avant l'ouverture</small><input id="secretHintInput" type="text" maxlength="100" placeholder="Ex. Ça concerne un souvenir d'enfance…"></label><label>Ce que tu veux lui dire<textarea id="secretContentInput" rows="7" maxlength="2500" required placeholder="Écris librement…"></textarea></label><button type="submit" id="saveSecretBtn">🔐 Déposer dans le Jardin secret</button></form></section>
+    <section id="secretRevealSheet" class="shared-feature-sheet" style="display:none;"><header><div><small id="secretRevealKicker">Une confidence pour toi</small><h2 id="secretRevealTitle">Prête à découvrir ?</h2></div><button type="button" id="closeSecretRevealBtn" aria-label="Fermer">×</button></header><div id="secretRevealContent"></div><div id="secretReactionChoices" class="secret-reaction-choices" style="display:none;"><p>Comment tu reçois ce qu'on vient de te confier ?</p><button type="button" data-secret-reaction="thanks">💚 Merci de me l'avoir dit</button><button type="button" data-secret-reaction="touched">🥹 Ça me touche</button><button type="button" data-secret-reaction="surprised">😳 Je ne m'y attendais pas</button><button type="button" data-secret-reaction="laugh">😂 Mais t'es sérieuse ?</button><button type="button" data-secret-reaction="discuss">💬 J'aimerais qu'on en parle</button></div></section>
+    <section id="secretExchangeResponseSheet" class="shared-feature-sheet" style="display:none;"><header><div><small>Pour ouvrir l'échange</small><h2>Dépose quelque chose toi aussi</h2></div><button type="button" id="closeSecretExchangeResponseBtn" aria-label="Fermer">×</button></header><form id="secretExchangeResponseForm"><p id="secretExchangeHint" class="secret-exchange-hint"></p><label>Ta confidence en retour<textarea id="secretExchangeResponseInput" rows="7" maxlength="2500" required placeholder="À ton tour de déposer quelque chose…"></textarea></label><button type="submit">🤝 Sceller l'échange</button></form></section>
 </div>
 
 <!-- ÉCRAN DES NOUVEAUX MODES DE JEU -->
@@ -2893,12 +2941,13 @@
     <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-messaging-compat.js"></script>
 
     <script src="js/firebase.js?v=86"></script>
-    <script src="js/screens.js?v=108"></script>
+    <script src="js/screens.js?v=1159"></script>
     <script src="js/utils.js"></script>
     <script src="js/storage.js"></script>
     <script src="js/rankings.js"></script>
     <script src="js/questions.js"></script>
-    <script src="js/script.js?v=1158"></script>
+    <script src="js/script.js?v=1159"></script>
+    <script src="js/shared-experiences.js?v=1159"></script>
 
 </body>
 </html>

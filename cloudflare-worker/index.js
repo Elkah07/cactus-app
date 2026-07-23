@@ -9,7 +9,6 @@ const MODE_CONFIGS = {
   wouldRather: { path: "wouldRatherChallenges", label: "Tu préfères ?" },
   threeYesNo: { path: "threeYesNoChallenges", label: "3 oui / 3 non" },
   limitReached: { path: "limitReachedChallenges", label: "Limite atteinte" },
-  coupleDare: { path: "coupleDareChallenges", label: "Défis à deux" },
   bestLie: { path: "bestLieChallenges", label: "Qui ment le mieux ?" }
 };
 
@@ -339,6 +338,43 @@ async function processAuthenticatedEvent(request, env) {
       tag: "capsule-created",
       screen: "timeCapsules"
     }, "garden"));
+  } else if (kind === "shared-dare-created" || kind === "shared-dare-completed") {
+    const dareId = String(body.dareId || "");
+    const dare = space.sharedDares?.[dareId];
+    if (!dare) return jsonResponse({ error: "Défi introuvable." }, 404);
+    const completed = kind === "shared-dare-completed";
+    if ((!completed && dare.createdByUid !== uid) || (completed && dare.completedByUid !== uid)) return jsonResponse({ error: "Action invalide." }, 403);
+    dispatchId = `${kind}:${spaceId}:${dareId}:${uid}`;
+    jobs = targets.map((target) => sendPushToUid(env, target.uid, {
+      title: completed ? "Un défi vient d'être réalisé 🏆" : "Un nouveau défi vous attend ✨",
+      body: completed ? `${actor.pseudo || "Ta partenaire"} a marqué « ${dare.title || "un défi"} » comme réalisé.` : `${actor.pseudo || "Ta partenaire"} a ajouté « ${dare.title || "un défi"} » à votre liste.`,
+      tag: completed ? "shared-dare-completed" : "shared-dare-created",
+      screen: "coupleDaresHub"
+    }, "garden"));
+  } else if (kind === "secret-created") {
+    const entryId = String(body.entryId || "");
+    const entry = space.secretGarden?.entries?.[entryId];
+    if (!entry || entry.createdByUid !== uid) return jsonResponse({ error: "Confidence introuvable." }, 404);
+    dispatchId = `${kind}:${spaceId}:${entryId}:${uid}`;
+    jobs = targets.map((target) => sendPushToUid(env, target.uid, {
+      title: entry.mode === "exchange" ? "Un échange secret t'attend 🤝" : "Quelque chose t'attend 🔐",
+      body: entry.hint || `${actor.pseudo || "Ta partenaire"} a déposé quelque chose dans votre Jardin secret.`,
+      tag: "secret-garden",
+      screen: "secretGarden"
+    }, "garden"));
+  } else if (kind === "secret-exchange-ready") {
+    const entryId = String(body.entryId || "");
+    const entry = space.secretGarden?.entries?.[entryId];
+    if (!entry?.exchangeResponse || entry.exchangeResponse.createdByUid !== uid) return jsonResponse({ error: "Échange introuvable." }, 404);
+    dispatchId = `${kind}:${spaceId}:${entryId}:${uid}`;
+    jobs = targets.map((target) => sendPushToUid(env, target.uid, { title: "Votre échange secret est prêt 🤝", body: "Vous avez toutes les deux déposé quelque chose.", tag: "secret-exchange-ready", screen: "secretGarden" }, "garden"));
+  } else if (kind === "secret-reaction") {
+    const entryId = String(body.entryId || "");
+    const entry = space.secretGarden?.entries?.[entryId];
+    const reaction = entry?.reactions?.[uid];
+    if (!entry || !reaction || reaction.type === "discuss") return jsonResponse({ error: "Réaction introuvable." }, 404);
+    dispatchId = `${kind}:${spaceId}:${entryId}:${uid}:${reaction.createdAt || 0}`;
+    jobs = targets.map((target) => sendPushToUid(env, target.uid, { title: `${actor.pseudo || "Ta partenaire"} a réagi 💚`, body: reaction.label || "Une réaction t'attend dans votre Jardin secret.", tag: "secret-reaction", screen: "secretGarden" }, "garden"));
   } else if (kind === "achievement-unlocked") {
     const achievementId = String(body.achievementId || "");
     const achievement = space.stats?.achievements?.[achievementId];
