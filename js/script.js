@@ -3107,7 +3107,7 @@ function applyAppAppearance(appearance) {
 
 function getSharedAppearance(spaceData = currentSpaceData) {
     const shared = spaceData?.sharedAppearance;
-    if (!shared?.enabled || !currentUser?.uid || shared.acceptedMembers?.[currentUser.uid] !== true) return null;
+    if (!shared?.enabled || !currentUser?.uid || shared.acceptedMembers?.[currentUser.uid] !== true || !shared.appearance) return null;
     return normalizeAppAppearance(shared.appearance);
 }
 
@@ -3134,8 +3134,12 @@ function loadCachedPersonalAppearance() {
 function savePersonalAppearance(nextAppearance) {
     currentPersonalAppearance = normalizeAppAppearance(nextAppearance);
     cachePersonalAppearance(currentPersonalAppearance);
-    applyEffectiveAppearance();
+
+    // Appliquer immédiatement le choix local. Auparavant applyEffectiveAppearance() pouvait
+    // réappliquer un ancien univers commun et donner l'impression que les couleurs ne répondaient plus.
+    applyAppAppearance(currentPersonalAppearance);
     renderAppearanceStudio();
+
     if (currentUser?.uid) {
         database.ref("users/" + currentUser.uid + "/appearance").set(currentPersonalAppearance)
             .catch((error) => console.warn("Sauvegarde du thème impossible", error));
