@@ -8220,6 +8220,7 @@ function renderLimitReached(challenge) {
     // Ce rendu peut être rappelé localement à chaque niveau.
     // On vide donc les anciens choix avant de créer les deux boutons du niveau courant.
     newGameChoices.innerHTML = "";
+    newGameChoices.style.display = "grid";
 
     const scenario = challenge.scenario || {};
     const levels = Array.isArray(scenario.levels) ? scenario.levels : [];
@@ -8652,8 +8653,9 @@ function renderBestLie(challenge) {
     }
 
     const myAwards = challenge.awards?.[currentUser.uid] || {};
-    if (partnerUid && (!Number.isInteger(Number(myAwards.credible)) || !Number.isInteger(Number(myAwards.funny)))) {
-        const awardType = !Number.isInteger(Number(myAwards.credible)) ? "credible" : "funny";
+    const hasAwardIndex = (value) => value !== null && value !== undefined && value !== "" && Number.isInteger(Number(value)) && Number(value) >= 0 && Number(value) <= 2;
+    if (partnerUid && (!hasAwardIndex(myAwards.credible) || !hasAwardIndex(myAwards.funny))) {
+        const awardType = !hasAwardIndex(myAwards.credible) ? "credible" : "funny";
         const isCredible = awardType === "credible";
         newGameStepBadge.textContent = isCredible ? "Vote final · 1 / 2" : "Vote final · 2 / 2";
         newGameProgressBar.style.width = isCredible ? "84%" : "92%";
@@ -8666,14 +8668,29 @@ function renderBestLie(challenge) {
             ? "Ton choix apparaîtra dans le Palmarès du mytho avec le badge 🏆."
             : "Tu peux choisir le même mensonge que pour le vote crédible, ou un autre.";
 
+        const partnerAnswers = answers[partnerUid] || {};
+        const availableLies = [0, 1, 2].map((index) => ({ index, answer: partnerAnswers[index] })).filter((entry) => entry.answer?.text);
+        if (availableLies.length < 3) {
+            newGameChoices.style.display = "none";
+            setNewGameStatus("Les mensonges arrivent…", "Les trois réponses de " + partnerName + " ne sont pas encore disponibles sur cet appareil. L’écran se mettra à jour automatiquement.");
+            return;
+        }
+
+        newGameChoices.style.display = "grid";
         const awardBox = document.createElement("div");
         awardBox.className = "best-lie-award-box";
-        [0, 1, 2].forEach((index) => {
+        availableLies.forEach(({ index, answer }) => {
             const card = document.createElement("button");
             card.type = "button";
             card.className = "best-lie-award-choice";
             const category = formatGameCategoryLabel(prompts[index]?.category, "Manche " + (index + 1));
-            card.innerHTML = "<small>Manche " + (index + 1) + " · " + escapeHtml(category) + "</small><strong>« " + escapeHtml(answers[partnerUid]?.[index]?.text || "Réponse introuvable") + " »</strong><span>" + (isCredible ? "🎯 Voter pour ce mensonge" : "😂 Grave drôle") + "</span>";
+            const small = document.createElement("small");
+            small.textContent = "Manche " + (index + 1) + " · " + category;
+            const strong = document.createElement("strong");
+            strong.textContent = "« " + answer.text + " »";
+            const action = document.createElement("span");
+            action.textContent = isCredible ? "🎯 Choisir comme le plus crédible" : "😂 Choisir comme le plus drôle";
+            card.append(small, strong, action);
             card.addEventListener("click", () => submitBestLieAward(awardType, index, card));
             awardBox.appendChild(card);
         });
