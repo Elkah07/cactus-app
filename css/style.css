@@ -15587,7 +15587,7 @@ body.cactus-calibration-open {
 .dashboard-experience-visual { width:44px !important; height:44px !important; border-radius:14px !important; font-size:1.35rem !important; }
 .dashboard-experience-copy small { display:none !important; }
 .dashboard-experience-copy strong { font-size:.82rem !important; }
-.dashboard-experience-copy span { font-size:.58rem !important; line-height:1.2; display:-webkit-box; line-clamp:1; -webkit-line-clamp:1; -webkit-box-orient:vertical; overflow:hidden; }
+.dashboard-experience-copy span { font-size:.58rem !important; line-height:1.2; display:-webkit-box; -webkit-line-clamp:1; -webkit-box-orient:vertical; overflow:hidden; }
 .dashboard-experience-card>b { min-width:24px !important; width:24px; height:24px !important; font-size:.62rem; }
 .dashboard-experience-card>i { display:none; }
 .time-capsule-creation-panel { max-height:calc(100dvh - 118px); overflow:auto; }
@@ -15625,3 +15625,51 @@ body.cactus-calibration-open {
 .best-lie-award-choice strong { font-size: .76rem; line-height: 1.45; }
 .best-lie-award-choice span { justify-self: start; padding: 7px 10px; border-radius: 999px; background: color-mix(in srgb, var(--app-accent) 16%, transparent); color: var(--app-heading); font-size: .64rem; font-weight: 900; }
 .best-lie-award-choice:active { transform: scale(.985); }
+
+/* V116.8 — Discussion dashboard compacte quand aucun sujet n'attend */
+.dashboard-discussions-card.is-empty {
+    margin: 12px 0 4px;
+    padding: 10px 14px;
+    min-height: 58px;
+    grid-template-columns: 34px minmax(0, 1fr) auto;
+    gap: 10px;
+    border-radius: 18px;
+}
+.dashboard-discussions-card.is-empty .dashboard-discussions-icon {
+    width: 34px;
+    height: 34px;
+    border-radius: 11px;
+}
+.dashboard-discussions-card.is-empty .dashboard-discussions-icon .cactus-ui-icon {
+    width: 20px;
+    height: 20px;
+}
+.dashboard-discussions-card.is-empty .dashboard-discussions-copy {
+    display: flex;
+    align-items: baseline;
+    gap: 7px;
+    overflow: hidden;
+}
+.dashboard-discussions-card.is-empty .dashboard-discussions-copy small {
+    font-size: .72rem;
+    white-space: nowrap;
+}
+.dashboard-discussions-card.is-empty .dashboard-discussions-copy strong {
+    font-size: .82rem;
+    font-weight: 700;
+    opacity: .82;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.dashboard-discussions-card.is-empty .dashboard-discussions-copy span,
+.dashboard-discussions-card.is-empty .dashboard-discussions-count,
+.dashboard-discussions-card.is-empty .dashboard-discussions-arrow {
+    display: none;
+}
+@media (max-width: 390px) {
+    .dashboard-discussions-card.is-empty .dashboard-discussions-copy {
+        display: grid;
+        gap: 0;
+    }
+}
