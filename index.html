@@ -518,8 +518,10 @@
     <form id="timeCapsuleForm" class="organizer-form organizer-creation-panel time-capsule-creation-panel" style="display:none;">
         <div class="organizer-form-heading"><div><small>Nouvelle capsule</small><strong>Créez un souvenir vraiment à vous</strong></div><button type="button" id="cancelTimeCapsuleBtn">Annuler</button></div>
 
+        <nav class="time-capsule-stepper" aria-label="Étapes de création"><button type="button" class="is-active" data-capsule-step="1"><b>1</b><span>Le souvenir</span></button><button type="button" data-capsule-step="2"><b>2</b><span>Son écrin</span></button><button type="button" data-capsule-step="3"><b>3</b><span>La magie</span></button></nav>
         <div class="time-capsule-builder">
             <section class="time-capsule-builder-main">
+                <div class="time-capsule-step-panel is-active" data-capsule-panel="1">
                 <label class="time-capsule-field"><span>Le titre visible</span><input id="timeCapsuleTitleInput" type="text" required placeholder="Ex. À nous dans un an…"></label>
                 <label class="time-capsule-field"><span>Le message secret</span><textarea id="timeCapsuleMessageInput" rows="6" required placeholder="Écris ce que le futur ne doit pas oublier…"></textarea></label>
                 <section class="time-capsule-media-builder" aria-label="Souvenirs à joindre">
@@ -539,7 +541,9 @@
                     <label><span>Signature</span><select id="timeCapsuleAuthorInput" aria-label="Signature"></select></label>
                 </div>
 
+                </div>
                 <section class="time-capsule-customizer" aria-labelledby="timeCapsuleCustomizeTitle">
+                    <div class="time-capsule-step-panel" data-capsule-panel="2">
                     <div class="time-capsule-customizer-heading"><small>Personnalisation</small><strong id="timeCapsuleCustomizeTitle">Donnez une âme à votre capsule</strong><p>Les choix seront visibles par vous deux et conservés avec le souvenir.</p></div>
 
                     <fieldset class="time-capsule-choice-group">
@@ -569,11 +573,15 @@
                         </button>
                     </fieldset>
 
+                    </div>
+                    <div class="time-capsule-step-panel" data-capsule-panel="3">
                     <fieldset class="time-capsule-choice-group">
                         <legend>Effet au moment de l’ouverture</legend>
                         <div id="timeCapsuleEffectChoices" class="time-capsule-choice-grid effect-grid" role="radiogroup" aria-label="Effet d’ouverture"></div>
                     </fieldset>
+                    </div>
                 </section>
+                <div class="time-capsule-step-actions"><button type="button" id="timeCapsulePrevStep">← Retour</button><button type="button" id="timeCapsuleNextStep">Continuer →</button></div>
             </section>
 
             <aside class="time-capsule-live-preview" aria-label="Aperçu de la capsule">
@@ -1413,22 +1421,6 @@
         <span class="dashboard-discussions-arrow" aria-hidden="true">›</span>
     </button>
 
-    <section class="dashboard-shared-experiences">
-        <header><small>Au-delà des jeux</small><h2>À vivre & à partager</h2></header>
-        <div class="dashboard-shared-experiences-grid">
-            <button type="button" id="dashboardDaresBtn" class="dashboard-experience-card is-dares">
-                <span class="dashboard-experience-visual"><img src="assets/cactus-couple-dare.webp" alt="" loading="lazy" decoding="async"></span>
-                <span class="dashboard-experience-copy"><small>Des choses à faire ensemble</small><strong>Nos défis</strong><span id="dashboardDaresStatus">300 idées à découvrir</span></span>
-                <b id="dashboardDaresCount">0</b><i aria-hidden="true">›</i>
-            </button>
-            <button type="button" id="dashboardSecretGardenBtn" class="dashboard-experience-card is-secret">
-                <span class="dashboard-experience-visual" aria-hidden="true">🔐</span>
-                <span class="dashboard-experience-copy"><small>Ce qu'on n'ose pas toujours dire</small><strong>Jardin secret</strong><span id="dashboardSecretGardenStatus">Un espace rien qu'à vous deux</span></span>
-                <b id="dashboardSecretGardenCount">0</b><i aria-hidden="true">›</i>
-            </button>
-        </div>
-    </section>
-
 
     <!-- JEUX -->
     <section class="dashboard-games-section">
@@ -1482,6 +1474,22 @@
 
     </section>
 
+
+    <section class="dashboard-shared-experiences">
+        <header><small>Au-delà des jeux</small><h2>À vivre & à partager</h2></header>
+        <div class="dashboard-shared-experiences-grid">
+            <button type="button" id="dashboardDaresBtn" class="dashboard-experience-card is-dares">
+                <span class="dashboard-experience-visual"><img src="assets/cactus-couple-dare.webp" alt="" loading="lazy" decoding="async"></span>
+                <span class="dashboard-experience-copy"><small>Des choses à faire ensemble</small><strong>Nos défis</strong><span id="dashboardDaresStatus">300 idées à découvrir</span></span>
+                <b id="dashboardDaresCount">0</b><i aria-hidden="true">›</i>
+            </button>
+            <button type="button" id="dashboardSecretGardenBtn" class="dashboard-experience-card is-secret">
+                <span class="dashboard-experience-visual" aria-hidden="true">🔐</span>
+                <span class="dashboard-experience-copy"><small>Ce qu'on n'ose pas toujours dire</small><strong>Jardin secret</strong><span id="dashboardSecretGardenStatus">Un espace rien qu'à vous deux</span></span>
+                <b id="dashboardSecretGardenCount">0</b><i aria-hidden="true">›</i>
+            </button>
+        </div>
+    </section>
 
     <!-- ACTIVITÉ -->
     <button

@@ -17622,3 +17622,15 @@ if (
             displayGuessChallenges(challenges);
     });
 }
+
+// CACTUS V116.1 — atelier capsules en 3 étapes
+(function initTimeCapsuleStepper(){
+    const form=document.getElementById('timeCapsuleForm');
+    if(!form)return;
+    const tabs=[...form.querySelectorAll('[data-capsule-step]')], panels=[...form.querySelectorAll('[data-capsule-panel]')];
+    const prev=document.getElementById('timeCapsulePrevStep'), next=document.getElementById('timeCapsuleNextStep');
+    const preview=form.querySelector('.time-capsule-live-preview'); let step=1;
+    function show(n){step=Math.max(1,Math.min(3,n));tabs.forEach(x=>{const on=Number(x.dataset.capsuleStep)===step;x.classList.toggle('is-active',on);x.setAttribute('aria-current',on?'step':'false')});panels.forEach(x=>x.classList.toggle('is-active',Number(x.dataset.capsulePanel)===step));if(prev)prev.style.visibility=step===1?'hidden':'visible';if(next)next.style.display=step===3?'none':'block';form.classList.toggle('is-final-step',step===3);preview?.classList.toggle('is-final-step',step===3);form.scrollTo({top:0,behavior:'smooth'});}
+    tabs.forEach(x=>x.addEventListener('click',()=>show(Number(x.dataset.capsuleStep))));prev?.addEventListener('click',()=>show(step-1));next?.addEventListener('click',()=>show(step+1));
+    document.getElementById('showTimeCapsuleFormBtn')?.addEventListener('click',()=>setTimeout(()=>show(1),0));show(1);
+})();

@@ -15575,3 +15575,45 @@ body.cactus-calibration-open {
 .time-capsule-reveal-photos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin:0 0 16px}.time-capsule-reveal-photos img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:16px;box-shadow:0 8px 18px var(--app-shadow-soft)}.time-capsule-reveal-photos img:only-child{grid-column:1/-1;aspect-ratio:auto;max-height:360px;object-fit:contain;background:var(--app-icon-bg)}
 .time-capsule-reveal-links{display:grid;gap:7px;margin:0 0 18px;text-align:left}.time-capsule-reveal-links a{display:block;padding:10px 12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;border-radius:12px;background:var(--app-icon-bg);color:var(--app-accent);font-size:.57rem;font-weight:800;text-decoration:none}
 @media(max-width:520px){.time-capsule-photo-preview{grid-template-columns:repeat(2,minmax(0,1fr))}.time-capsule-link-adder{grid-template-columns:1fr}.time-capsule-link-adder button{min-height:40px}}
+
+/* === V116.1 · Hiérarchie accueil, navigation fixe et atelier capsules compact === */
+#dashboardScreen { padding-bottom: 96px !important; }
+#dashboardScreen .dashboard-bottom-nav { position:fixed !important; left:50% !important; bottom:max(8px,env(safe-area-inset-bottom)) !important; transform:translateX(-50%); z-index:900; width:min(calc(100% - 24px),680px); margin:0 !important; display:grid !important; grid-template-columns:repeat(4,1fr); background:color-mix(in srgb,var(--app-panel-bg) 94%,transparent); border:1px solid var(--app-border); box-shadow:0 14px 38px rgba(0,0,0,.22); backdrop-filter:blur(18px); }
+.dashboard-shared-experiences { margin:.85rem 0 1rem !important; }
+.dashboard-shared-experiences>header { margin-bottom:.55rem !important; }
+.dashboard-shared-experiences>header h2 { font-size:1.05rem !important; }
+.dashboard-shared-experiences-grid { grid-template-columns:repeat(2,minmax(0,1fr)) !important; gap:.6rem !important; }
+.dashboard-experience-card { grid-template-columns:44px minmax(0,1fr) 24px !important; min-height:76px !important; padding:.62rem !important; border-radius:20px !important; gap:.55rem !important; }
+.dashboard-experience-visual { width:44px !important; height:44px !important; border-radius:14px !important; font-size:1.35rem !important; }
+.dashboard-experience-copy small { display:none !important; }
+.dashboard-experience-copy strong { font-size:.82rem !important; }
+.dashboard-experience-copy span { font-size:.58rem !important; line-height:1.2; display:-webkit-box; -webkit-line-clamp:1; -webkit-box-orient:vertical; overflow:hidden; }
+.dashboard-experience-card>b { min-width:24px !important; width:24px; height:24px !important; font-size:.62rem; }
+.dashboard-experience-card>i { display:none; }
+.time-capsule-creation-panel { max-height:calc(100dvh - 118px); overflow:auto; }
+.time-capsule-stepper { position:sticky; top:0; z-index:8; display:grid; grid-template-columns:repeat(3,1fr); gap:6px; padding:10px 12px; background:color-mix(in srgb,var(--app-panel-bg) 96%,transparent); backdrop-filter:blur(14px); }
+.time-capsule-stepper button { display:flex; align-items:center; justify-content:center; gap:6px; min-height:42px; padding:7px; border-radius:14px; color:var(--app-muted); background:var(--app-icon-bg); border:1px solid transparent; }
+.time-capsule-stepper button b { display:grid; place-items:center; width:23px; height:23px; border-radius:50%; background:rgba(255,255,255,.12); }
+.time-capsule-stepper button.is-active { color:var(--app-heading); border-color:color-mix(in srgb,var(--app-accent) 45%,transparent); background:color-mix(in srgb,var(--app-accent) 17%,var(--app-panel-bg)); }
+.time-capsule-step-panel { display:none; }
+.time-capsule-step-panel.is-active { display:block; animation:cactusCapsuleStepIn .22s ease; }
+@keyframes cactusCapsuleStepIn { from{opacity:0;transform:translateY(7px)} to{opacity:1;transform:none} }
+.time-capsule-step-actions { display:flex; gap:8px; margin-top:12px; }
+.time-capsule-step-actions button { flex:1; min-height:46px; border-radius:15px; }
+#timeCapsulePrevStep { background:var(--app-icon-bg); color:var(--app-heading); }
+#timeCapsuleNextStep { background:var(--app-accent); color:white; }
+.time-capsule-live-preview { position:static !important; margin-top:12px; }
+.time-capsule-live-preview:not(.is-final-step) { display:none !important; }
+.time-capsule-seal-button { display:none !important; }
+.time-capsule-creation-panel.is-final-step .time-capsule-seal-button { display:flex !important; }
+/* Give every souvenir shape a visibly distinct silhouette, not a generic capsule. */
+.capsule-style-letter .time-capsule-preview-object{border-radius:10px 10px 18px 18px!important;transform:rotate(-2deg)}
+.capsule-style-bottle .time-capsule-preview-object{border-radius:38% 38% 28% 28%!important;clip-path:polygon(32% 0,68% 0,72% 17%,88% 30%,92% 100%,8% 100%,12% 30%,28% 17%)}
+.capsule-style-chest .time-capsule-preview-object{border-radius:24px 24px 12px 12px!important;aspect-ratio:1.25/1!important}
+.capsule-style-polaroid .time-capsule-preview-object{border-radius:8px!important;aspect-ratio:.88/1!important;box-shadow:inset 0 -24px rgba(255,255,255,.3)}
+.capsule-style-orb .time-capsule-preview-object{border-radius:50%!important;box-shadow:inset 0 0 22px rgba(255,255,255,.45),0 0 28px var(--capsule-accent,rgba(130,200,255,.35))}
+.capsule-style-cactus .time-capsule-preview-object{border-radius:46% 46% 38% 38%!important}
+.capsule-style-book .time-capsule-preview-object{border-radius:7px 18px 18px 7px!important;aspect-ratio:.82/1!important}
+.capsule-style-heart .time-capsule-preview-object{clip-path:polygon(50% 92%,7% 49%,7% 25%,20% 10%,38% 10%,50% 24%,62% 10%,80% 10%,93% 25%,93% 49%);border-radius:0!important}
+.capsule-style-lantern .time-capsule-preview-object{border-radius:18px 18px 28px 28px!important;box-shadow:inset 0 0 24px rgba(255,220,110,.4)}
+@media(max-width:620px){.dashboard-shared-experiences-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}.dashboard-experience-card{grid-template-columns:40px minmax(0,1fr)!important}.dashboard-experience-card>b{position:absolute;right:7px;top:7px}.time-capsule-stepper button span{font-size:.58rem}.time-capsule-builder{display:block!important}}
