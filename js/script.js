@@ -17370,7 +17370,33 @@ auth.onAuthStateChanged((user) => {
                 }
 
                 if (userData.spaceCode) {
-                    return restoreUserSpace(userData).then(hideAppState);
+                    // V116.7: ne jamais laisser l’écran de démarrage bloqué si une
+                    // opération Firebase secondaire (migration, progression, listener) tarde.
+                    const loadingFailsafe = window.setTimeout(() => {
+                        console.warn("Chargement de l’espace trop long : affichage du tableau de bord en mode dégradé");
+                        if (currentUser && currentSpaceCode) {
+                            showScreen("dashboard");
+                            hideAppState();
+                        }
+                    }, 8000);
+
+                    return restoreUserSpace(userData)
+                        .then(() => {
+                            window.clearTimeout(loadingFailsafe);
+                            hideAppState();
+                        })
+                        .catch((error) => {
+                            window.clearTimeout(loadingFailsafe);
+                            console.error("Restauration de l’espace impossible", error);
+                            if (currentSpaceCode) {
+                                listenToCurrentSpace(currentSpaceCode);
+                                showScreen("dashboard");
+                                hideAppState();
+                                showToast("Connexion rétablie en mode simplifié");
+                                return;
+                            }
+                            throw error;
+                        });
                 } else {
                     hideAppState();
                     stopCurrentSpaceListeners();

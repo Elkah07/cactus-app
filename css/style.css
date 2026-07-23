@@ -15587,7 +15587,7 @@ body.cactus-calibration-open {
 .dashboard-experience-visual { width:44px !important; height:44px !important; border-radius:14px !important; font-size:1.35rem !important; }
 .dashboard-experience-copy small { display:none !important; }
 .dashboard-experience-copy strong { font-size:.82rem !important; }
-.dashboard-experience-copy span { font-size:.58rem !important; line-height:1.2; display:-webkit-box; -webkit-line-clamp:1; -webkit-box-orient:vertical; overflow:hidden; }
+.dashboard-experience-copy span { font-size:.58rem !important; line-height:1.2; display:-webkit-box; line-clamp:1; -webkit-line-clamp:1; -webkit-box-orient:vertical; overflow:hidden; }
 .dashboard-experience-card>b { min-width:24px !important; width:24px; height:24px !important; font-size:.62rem; }
 .dashboard-experience-card>i { display:none; }
 .time-capsule-creation-panel { max-height:calc(100dvh - 118px); overflow:auto; }
