@@ -10378,6 +10378,19 @@ function renderNotifications(spaceData) {
         copy.append(title, message, date);
         actions.append(openButton, deleteButton);
         card.append(icon, copy, actions);
+        card.tabIndex = 0;
+        card.setAttribute("role", "button");
+        card.setAttribute("aria-label", "Ouvrir : " + notification.title);
+        card.addEventListener("click", (event) => {
+            if (event.target.closest("button")) return;
+            openNotification(notification);
+        });
+        card.addEventListener("keydown", (event) => {
+            if (event.key !== "Enter" && event.key !== " ") return;
+            if (event.target.closest("button")) return;
+            event.preventDefault();
+            openNotification(notification);
+        });
         openButton.addEventListener("click", () => openNotification(notification));
         deleteButton.addEventListener("click", () => dismissNotification(notification));
         notificationsList.appendChild(card);

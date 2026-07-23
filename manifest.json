@@ -1,33 +1,27 @@
 {
-  "pack": "Ce qu’on ne découvre qu’avec le temps",
-  "new_playable_objects": 600,
-  "distribution": {
-    "ok": 130,
-    "questions": 120,
-    "likely": 60,
-    "guess": 60,
-    "wyr": 60,
-    "green": 60,
-    "rankings": 60,
-    "limits": 50
-  },
-  "limit_reached_extra_levels": 300,
-  "themes": [
-    "Identité, évolution & convictions",
-    "Amitiés, vie sociale & place des autres",
-    "Intimité durable & sexualité adulte",
-    "Petites choses qui usent le couple",
-    "Morale, loyauté & dilemmes impossibles",
-    "Corps, santé & hygiène de vie",
-    "Couple LGBT+, visibilité & parentalité",
-    "Passé, secrets & anciennes versions de soi"
-  ],
-  "checks": {
-    "id_collisions_with_base": 0,
-    "duplicate_new_ids": 0,
-    "exact_text_duplicates_with_base": 0,
-    "exact_text_duplicates_inside_pack": 0,
-    "fuzzy_matches_ratio_0_93_or_more": 0,
-    "all_limit_scenarios_have_6_levels": true
-  }
+  "id": "./",
+  "name": "Cactus",
+  "short_name": "Cactus",
+  "description": "Votre espace à deux pour jouer, partager et faire grandir votre Cactou.",
+  "lang": "fr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#003E2D",
+  "theme_color": "#003E2D",
+  "icons": [
+    {
+      "src": "icons/icon-192-v2.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/icon-512-v2.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
 }

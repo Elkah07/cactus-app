@@ -15259,3 +15259,217 @@ body.cactus-calibration-open {
     .cactus-calibration-nudge { justify-self: center; }
     .cactus-calibration-actions { grid-template-columns: 1fr; }
 }
+
+
+/* V115.5 · Cibles tactiles mobiles et navigation plus confortable */
+@media (max-width: 760px), (pointer: coarse) {
+    #markNotificationsReadBtn,
+    #clearReadNotificationsBtn,
+    .notifications-filters button,
+    .notification-card-actions button,
+    .creator-cactus-evolution-preview-controls button,
+    #openCactusWardrobeBtn,
+    #dashboardTodayOpenBtn,
+    #recommendedGameBtn,
+    .games-category-filters button,
+    #closeGameDetailsBtn,
+    #gardenEditBtn,
+    #showCreateNotebookBtn,
+    #backFromDailyToolsBtn,
+    #backFromHistoryBtn,
+    #historyQuickAddBtn,
+    #memoriesStoryBtn,
+    .memories-main-tabs button,
+    #addPhotoMemoryBtn,
+    #showMemoryFormBtn,
+    #declineThemeOfferBtn,
+    #resetGamesFiltersBtn,
+    .daily-section-heading button,
+    .daily-calendar-inline-heading button,
+    .discussion-resolve-button,
+    .garden-shop-card button {
+        min-height: 44px;
+    }
+
+    .notification-card-actions button,
+    #closeGameDetailsBtn,
+    #backFromHistoryBtn,
+    #historyQuickAddBtn {
+        width: 44px;
+        height: 44px;
+        min-width: 44px;
+        padding: 0;
+    }
+
+    .notification-card {
+        grid-template-columns: 48px minmax(0, 1fr) 44px;
+    }
+    #memoriesStoryBtn,
+    .memories-main-tabs button {
+        height: 44px;
+    }
+
+
+    .creator-cactus-evolution-preview-controls button {
+        padding-top: 8px;
+        padding-bottom: 8px;
+    }
+}
+
+/* Zone tactile confortable sans rendre le code espace visuellement plus imposant. */
+#dashboardScreen .dashboard-space-code {
+    min-height: 44px;
+    box-sizing: border-box;
+}
+
+/* V115.5 · Audit tactile complet sur les écrans secondaires et les jeux */
+@media (max-width: 760px), (pointer: coarse) {
+    #forgotPasswordBtn,
+    #skipOnboardingBtn,
+    .game-question-tools button,
+    .move-btn,
+    #cancelShoppingEditBtn,
+    .shopping-item-actions button,
+    .organizer-item-actions button,
+    .organizer-item-check,
+    #calendarCustomizeBtn,
+    #calendarTodayBtn,
+    #calendarAddSelectedDateBtn,
+    .time-capsule-card button,
+    #renameNotebookBtn,
+    #deleteNotebookBtn {
+        min-height: 44px;
+    }
+
+    .move-btn,
+    .shopping-item-actions button.is-delete,
+    .organizer-item-actions button.is-delete,
+    .organizer-item-check {
+        width: 44px;
+        min-width: 44px;
+        height: 44px;
+        padding: 0;
+    }
+}
+
+@media (max-width: 760px), (pointer: coarse) {
+    .game-question-tools > div button {
+        min-height: 44px !important;
+        padding: 8px 10px !important;
+    }
+
+    #notebookScreen #renameNotebookBtn,
+    #notebookScreen #deleteNotebookBtn {
+        min-height: 44px;
+    }
+}
+
+/* V115.5 · Dernier passage tactile : toutes les commandes visibles restent à 44 px minimum. */
+@media (max-width: 760px), (pointer: coarse) {
+    #dashboardProfileBtn,
+    #dashboardNotificationsBtn,
+    #dashboardSettingsBtn,
+    #backFromSettingsTopBtn,
+    #backFromDiscussionsBtn,
+    #gardenDailyShortcutBtn,
+    #backFromShoppingBtn,
+    #showShoppingFormBtn,
+    #backFromTasksBtn,
+    #showTaskFormBtn,
+    #backFromRemindersBtn,
+    #showReminderFormBtn,
+    #backFromImportantDatesBtn,
+    #showImportantDateFormBtn,
+    #backFromCountdownsBtn,
+    #showCountdownFormBtn,
+    #backFromTimeCapsulesBtn,
+    #showTimeCapsuleFormBtn,
+    #calendarMonthPrev,
+    #calendarMonthNext,
+    #backFromNewGameBtn,
+    #storyPageBackTopBtn,
+    #backFromCoupleProfileBtn,
+    #notebookScreen .notebook-back-mini {
+        width: 44px !important;
+        min-width: 44px !important;
+        height: 44px !important;
+        min-height: 44px !important;
+    }
+
+    .organizer-header {
+        grid-template-columns: 44px minmax(0, 1fr) auto;
+    }
+
+    #cancelShoppingEditBtn,
+    [data-shopping-filter],
+    [data-task-filter],
+    [data-reminder-filter],
+    .app-display-mode-switch button,
+    #previewThemeOfferBtn,
+    #acceptThemeOfferBtn,
+    #timeCapsuleActiveTab,
+    #timeCapsuleArchiveTab,
+    .time-capsule-card .time-capsule-primary-action,
+    .time-capsule-card .time-capsule-secondary-action,
+    .couple-profile-form .profile-color-palette button[data-profile-color] {
+        min-height: 44px !important;
+    }
+
+    .shopping-item-actions button,
+    .organizer-item-actions button {
+        width: 44px !important;
+        min-width: 44px !important;
+        height: 44px !important;
+        min-height: 44px !important;
+    }
+
+    .shopping-item-copy,
+    .organizer-item-copy {
+        padding-right: 104px;
+    }
+
+    .time-capsule-reveal-close {
+        width: 44px !important;
+        min-width: 44px !important;
+        height: 44px !important;
+        min-height: 44px !important;
+    }
+}
+
+/* V115.5 · Marge anti-arrondi pour les navigateurs mobiles qui rendent 44 CSS px à 43 px. */
+@media (max-width: 760px), (pointer: coarse) {
+    #cancelShoppingEditBtn,
+    .shopping-list-screen .shopping-check,
+    .time-capsule-card-footer .time-capsule-primary-action,
+    .time-capsule-card-footer .time-capsule-secondary-action,
+    .time-capsule-reveal-close {
+        min-height: 46px !important;
+    }
+
+    .shopping-list-screen .shopping-check,
+    .time-capsule-reveal-close {
+        width: 46px !important;
+        min-width: 46px !important;
+        height: 46px !important;
+    }
+}
+
+@media (max-width: 760px), (pointer: coarse) {
+    #closeTimeCapsuleRevealBtn,
+    #closeTimeCapsuleEmojiPickerBtn {
+        width: 46px !important;
+        min-width: 46px !important;
+        height: 46px !important;
+        min-height: 46px !important;
+    }
+}
+
+@media (max-width: 760px), (pointer: coarse) {
+    .time-capsule-card-footer .is-delete {
+        width: 46px !important;
+        min-width: 46px !important;
+        height: 46px !important;
+        min-height: 46px !important;
+        flex-basis: 46px !important;
+    }
+}

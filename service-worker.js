@@ -88,15 +88,15 @@ try {
     console.warn("Firebase Messaging indisponible dans le service worker", error);
 }
 
-const CACHE_VERSION = "v1154";
+const CACHE_VERSION = "v1155";
 const SHELL_CACHE = `cactus-shell-${CACHE_VERSION}`;
 const RUNTIME_CACHE = `cactus-runtime-${CACHE_VERSION}`;
 
 const APP_SHELL = [
     "./index.html",
-    "./css/style.css?v=1150",
+    "./css/style.css?v=1155",
     "./js/firebase.js?v=86",
-    "./js/script.js?v=1154",
+    "./js/script.js?v=1155",
     "./js/screens.js?v=108",
     "./js/utils.js",
     "./js/storage.js",
@@ -113,7 +113,7 @@ const APP_SHELL = [
     "./data/green-flag-red-flag.json",
     "./data/princess-treatment.json",
     "./data/questions.json",
-    "./manifest.json",
+    "./manifest.json?v=1155",
     "./icons/icon-192-v2.png",
     "./icons/icon-512-v2.png",
     "./icons/notification-badge.png",
@@ -132,6 +132,11 @@ const APP_SHELL = [
     "./assets/cactus-rig/stage-1-body.webp",
     "./assets/cactus-rig/stage-1-body-bare.webp",
     "./assets/cactus-rig/stage-1-accessory-foreground.webp",
+    "./assets/cactus-rig/stage-2-accessory-foreground.webp",
+    "./assets/cactus-rig/stage-3-accessory-foreground.webp",
+    "./assets/cactus-rig/stage-4-accessory-foreground.webp",
+    "./assets/cactus-rig/stage-5-accessory-foreground.webp",
+    "./assets/cactus-rig/stage-6-accessory-foreground.webp",
     "./assets/cactus-rig/stage-1-wave-arm.webp",
     "./assets/cactus-rig/stage-2-body.webp",
     "./assets/cactus-rig/stage-2-body-bare.webp",
@@ -185,6 +190,7 @@ const APP_SHELL = [
     "./assets/cactus-compatibility.png",
     "./assets/cactus-garden.png",
     "./assets/cactus-playing.png",
+    "./assets/cactus-main.png",
     "./assets/cactus-profile.png",
     "./assets/cactus-streak.png"
 ];

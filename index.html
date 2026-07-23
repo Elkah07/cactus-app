@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cactus 🌵</title>
-    <link rel="stylesheet" href="css/style.css?v=1150">
-    <link rel="manifest" href="manifest.json?v=2">
+    <link rel="stylesheet" href="css/style.css?v=1155">
+    <link rel="manifest" href="manifest.json?v=1155">
     <meta name="theme-color" content="#003E2D">
 </head>
 <body>
@@ -195,13 +195,13 @@
             type="text"
             id="notebookEmoji"
             placeholder="Symbole ou punaise du carnet"
-        >
+         aria-label="Symbole du carnet">
 
         <input
             type="text"
             id="notebookTitle"
             placeholder="Titre du carnet"
-        >
+         aria-label="Titre du carnet">
 
         <input type="hidden" id="notebookColor" value="#D8F3DC">
         <button type="button" id="notebookColorButton" class="notebook-color-button" style="--control-color:#D8F3DC">
@@ -240,9 +240,9 @@
 
     <form id="shoppingItemForm" class="shopping-item-form organizer-creation-panel" style="display:none;">
         <div class="shopping-form-heading"><div><small id="shoppingFormKicker">Nouvel article</small><strong id="shoppingFormTitle">Que faut-il acheter ?</strong></div><button type="button" id="cancelShoppingEditBtn" style="display:none;">Annuler</button></div>
-        <input type="text" id="shoppingItemName" maxlength="80" required placeholder="Ex. Jus de fruits" autocomplete="off">
+        <input type="text" id="shoppingItemName" maxlength="80" required placeholder="Ex. Jus de fruits" autocomplete="off" aria-label="Article à ajouter">
         <div class="shopping-form-row">
-            <input type="text" id="shoppingItemQuantity" maxlength="30" placeholder="Quantité (facultatif)" autocomplete="off">
+            <input type="text" id="shoppingItemQuantity" maxlength="30" placeholder="Quantité (facultatif)" autocomplete="off" aria-label="Quantité de l’article">
             <select id="shoppingItemCategory" aria-label="Catégorie">
                 <option value="produce">Fruits et légumes</option>
                 <option value="bakery">Boulangerie</option>
@@ -284,8 +284,8 @@
     <section class="organizer-hero organizer-showcase task-showcase"><div class="organizer-showcase-icon"><svg class="cactus-ui-icon" aria-hidden="true"><use href="#cactusIconTasks"></use></svg></div><div class="organizer-showcase-copy"><small>Votre organisation</small><strong id="tasksHeroTitle">Ce qu’il reste à faire</strong><p id="tasksHeroText">Répartissez vos tâches et avancez ensemble.</p></div><div class="organizer-showcase-meter"><span id="tasksProgressLabel">0%</span><div><i id="tasksProgressBar"></i></div></div></section>
     <form id="taskForm" class="organizer-form organizer-creation-panel" style="display:none;">
         <div class="organizer-form-heading"><div><small id="taskFormKicker">Nouvelle tâche</small><strong id="taskFormTitle">Que faut-il faire ?</strong></div><button type="button" id="cancelTaskEditBtn" style="display:none;">Annuler</button></div>
-        <input id="taskTitleInput" type="text" maxlength="100" required placeholder="Titre de la tâche">
-        <textarea id="taskDetailsInput" maxlength="500" rows="2" placeholder="Détails facultatifs"></textarea>
+        <input id="taskTitleInput" type="text" maxlength="100" required placeholder="Titre de la tâche" aria-label="Titre de la tâche">
+        <textarea id="taskDetailsInput" maxlength="500" rows="2" placeholder="Détails facultatifs" aria-label="Détails de la tâche"></textarea>
         <div class="organizer-form-grid"><select id="taskAssigneeInput" aria-label="Personne assignée"></select><select id="taskPriorityInput" aria-label="Priorité"><option value="low">Tranquille</option><option value="medium" selected>Importante</option><option value="high">Urgente</option></select><label><span>Échéance</span><input id="taskDueDateInput" type="date"></label></div>
         <button type="submit" id="saveTaskBtn">Ajouter la tâche</button>
     </form>
@@ -299,8 +299,8 @@
     <section class="organizer-hero is-reminder organizer-showcase reminder-showcase"><div class="organizer-showcase-icon"><svg class="cactus-ui-icon" aria-hidden="true"><use href="#cactusIconBell"></use></svg></div><div class="organizer-showcase-copy"><small>À ne pas oublier</small><strong id="remindersHeroTitle">Vos prochains rappels</strong><p id="remindersHeroText">Une date, une heure et Cactus garde l’information.</p></div><div id="remindersHeroNext" class="organizer-showcase-next">Rien de prévu</div></section>
     <form id="reminderForm" class="organizer-form organizer-creation-panel" style="display:none;">
         <div class="organizer-form-heading"><div><small id="reminderFormKicker">Nouveau rappel</small><strong id="reminderFormTitle">Que faut-il retenir ?</strong></div><button type="button" id="cancelReminderEditBtn" style="display:none;">Annuler</button></div>
-        <input id="reminderTitleInput" type="text" maxlength="100" required placeholder="Titre du rappel">
-        <textarea id="reminderDetailsInput" maxlength="500" rows="2" placeholder="Précisions facultatives"></textarea>
+        <input id="reminderTitleInput" type="text" maxlength="100" required placeholder="Titre du rappel" aria-label="Titre du rappel">
+        <textarea id="reminderDetailsInput" maxlength="500" rows="2" placeholder="Précisions facultatives" aria-label="Détails du rappel"></textarea>
         <div class="organizer-form-grid"><label><span>Date</span><input id="reminderDateInput" type="date" required></label><label><span>Heure</span><input id="reminderTimeInput" type="time"></label><select id="reminderTargetInput" aria-label="Personne concernée"></select></div>
         <button type="submit" id="saveReminderBtn">Ajouter le rappel</button>
     </form>
@@ -427,7 +427,7 @@
             <label class="calendar-emoji-field"><span>Symbole</span><input id="importantDateEmojiInput" type="text" maxlength="8" value="💚" inputmode="text" aria-label="Emoji de l’événement"><small>Utilisez n’importe quel emoji de votre clavier</small></label>
             <label class="calendar-title-field"><span>Titre</span><input id="importantDateTitleInput" type="text" maxlength="100" required placeholder="Ex. Nos retrouvailles à Bordeaux"></label>
         </div>
-        <textarea id="importantDateNotesInput" maxlength="500" rows="3" placeholder="Une petite note, une adresse, ce que vous avez prévu…"></textarea>
+        <textarea id="importantDateNotesInput" maxlength="500" rows="3" placeholder="Une petite note, une adresse, ce que vous avez prévu…" aria-label="Notes pour cette date importante"></textarea>
         <div class="organizer-form-grid calendar-event-grid">
             <label><span>Date</span><input id="importantDateValueInput" type="date" required></label>
             <label><span>Heure <small>(facultative)</small></span><input id="importantDateTimeInput" type="time"></label>
@@ -438,7 +438,7 @@
             <input type="hidden" id="importantDateColorInput" value="#72D59D">
             <button type="button" id="importantDateColorButton" class="notebook-color-button calendar-event-color-button" style="--control-color:#72D59D"><span aria-hidden="true"></span><span>Couleur de l’événement</span><small>#72D59D</small></button>
             <label class="organizer-checkbox calendar-countdown-toggle"><input id="importantDateCountdownInput" type="checkbox" checked><span><strong>Afficher le compte à rebours</strong><small>Ex. J-12 dans « À venir » et sur l’accueil</small></span></label>
-            <input id="importantDateAnnualInput" type="checkbox" hidden>
+            <input id="importantDateAnnualInput" type="checkbox" hidden aria-label="Répéter cette date chaque année">
         </div>
         <button type="submit" id="saveImportantDateBtn">Ajouter à notre calendrier</button>
     </form>
@@ -478,8 +478,8 @@
     <section class="organizer-hero is-countdown"><svg class="cactus-ui-icon" aria-hidden="true"><use href="#cactusIconCountdown"></use></svg><div><small>À attendre ensemble</small><strong>Les prochains grands moments</strong><p>Voyages, anniversaires, concerts et retrouvailles.</p></div></section>
     <form id="countdownForm" class="organizer-form organizer-creation-panel" style="display:none;">
         <div class="organizer-form-heading"><div><small id="countdownFormKicker">Nouveau compte à rebours</small><strong id="countdownFormTitle">Quel moment attendez-vous ?</strong></div><button type="button" id="cancelCountdownEditBtn">Annuler</button></div>
-        <input id="countdownTitleInput" type="text" maxlength="100" required placeholder="Ex. Notre voyage à Lisbonne">
-        <textarea id="countdownNotesInput" maxlength="500" rows="2" placeholder="Petit mot facultatif"></textarea>
+        <input id="countdownTitleInput" type="text" maxlength="100" required placeholder="Ex. Notre voyage à Lisbonne" aria-label="Titre du compte à rebours">
+        <textarea id="countdownNotesInput" maxlength="500" rows="2" placeholder="Petit mot facultatif" aria-label="Notes du compte à rebours"></textarea>
         <div class="organizer-form-grid"><label><span>Date</span><input id="countdownDateInput" type="date" required></label><label><span>Heure</span><input id="countdownTimeInput" type="time"></label><select id="countdownCategoryInput" aria-label="Catégorie"><option value="trip">Voyage</option><option value="celebration">Fête</option><option value="concert">Concert</option><option value="reunion">Retrouvailles</option><option value="other">Autre</option></select></div>
         <button type="submit" id="saveCountdownBtn">Créer le compte à rebours</button>
     </form>
@@ -624,7 +624,7 @@
         <div id="timeCapsuleEmojiGrid" class="time-capsule-emoji-full-grid" role="grid" aria-label="Emojis disponibles"></div>
         <div class="time-capsule-emoji-custom">
             <div><strong>Un emoji précis ?</strong><small>Ouvre le clavier emoji de ton téléphone et colle celui que tu veux, même s’il n’est pas dans la liste.</small></div>
-            <div><input id="timeCapsuleCustomEmojiInput" type="text" inputmode="text" autocomplete="off" maxlength="16" placeholder="🫶"><button type="button" id="useTimeCapsuleCustomEmojiBtn">Utiliser</button></div>
+            <div><input id="timeCapsuleCustomEmojiInput" type="text" inputmode="text" autocomplete="off" maxlength="16" placeholder="🫶" aria-label="Emoji personnalisé de la capsule"><button type="button" id="useTimeCapsuleCustomEmojiBtn">Utiliser</button></div>
         </div>
     </section>
 </div>
@@ -831,10 +831,10 @@
                 <option value="celebration">🎉 Célébration</option>
                 <option value="proud">🌟 Fierté</option>
             </select>
-            <input id="memoryTitle" type="text" maxlength="80" required placeholder="Titre du souvenir">
-            <textarea id="memoryText" rows="4" maxlength="1000" required placeholder="Racontez ce joli moment…"></textarea>
+            <input id="memoryTitle" type="text" maxlength="80" required placeholder="Titre du souvenir" aria-label="Titre du souvenir">
+            <textarea id="memoryText" rows="4" maxlength="1000" required placeholder="Racontez ce joli moment…" aria-label="Texte du souvenir"></textarea>
             <div class="memory-photo-field">
-                <input id="memoryPhotoInput" type="file" accept="image/*" hidden>
+                <input id="memoryPhotoInput" type="file" accept="image/*" hidden aria-label="Photo du souvenir">
                 <button type="button" id="chooseMemoryPhotoBtn" class="memory-photo-picker">
                     <span class="memory-photo-picker-icon" aria-hidden="true">📸</span>
                     <span><strong>Ajouter une photo</strong><small>Facultatif · l’image sera allégée automatiquement</small></span>
@@ -1068,14 +1068,14 @@
         type="email"
         id="authEmail"
         placeholder="Adresse e-mail"
-    >
+     aria-label="Adresse e-mail">
 
     <input
         type="password"
         id="authPassword"
         placeholder="Mot de passe"
         autocomplete="current-password"
-    >
+     aria-label="Mot de passe">
 
     <button type="button" id="signupBtn">
         Créer un compte
@@ -1094,7 +1094,7 @@
             <!-- ÉCRAN PSEUDO -->
             <div id="pseudoScreen" style="display:none;">
                 <h1>Choisis ton pseudo</h1>
-                <input type="text" id="pseudo" placeholder="Ton pseudo">
+                <input type="text" id="pseudo" placeholder="Ton pseudo" aria-label="Ton pseudo">
                 <button type="button" id="savePseudoBtn">Continuer</button>
             </div>
 
@@ -1127,7 +1127,7 @@
 
                 <button type="button" id="createSpaceBtn">Créer un espace</button>
 
-                <input type="text" id="joinCode" placeholder="Code de l'espace">
+                <input type="text" id="joinCode" placeholder="Code de l'espace" aria-label="Code de l’espace">
 
                 <button type="button" id="joinSpaceBtn" class="secondary">Rejoindre un espace</button>
 
@@ -1574,7 +1574,7 @@
         <h2 id="dailyQuestionText">Chargement de votre question…</h2>
 
         <div id="dailyAnswerForm">
-            <textarea id="dailyAnswerInput" rows="4" maxlength="600" placeholder="Écris ta réponse ici…"></textarea>
+            <textarea id="dailyAnswerInput" rows="4" maxlength="600" placeholder="Écris ta réponse ici…" aria-label="Ta réponse au rituel du jour"></textarea>
             <button type="button" id="submitDailyAnswerBtn">Envoyer ma réponse</button>
         </div>
 
@@ -1858,7 +1858,7 @@
     <input
         type="date"
         id="storyDateInput"
-    >
+     aria-label="Date de début de votre relation">
 
     <button type="button" id="saveStoryDateBtn">Continuer</button>
 </div>
@@ -1871,7 +1871,7 @@
         type="text"
         id="storyMeetingInput"
         placeholder="Instagram, Bordeaux, travail..."
-    >
+     aria-label="Lieu ou contexte de votre rencontre">
 
     <button type="button" id="saveStoryMeetingBtn">Continuer</button>
 </div>
@@ -1884,7 +1884,7 @@
         type="text"
         id="storyFirstDateInput"
         placeholder="Un café, une balade, un resto..."
-    >
+     aria-label="Votre premier rendez-vous">
 
     <button type="button" id="saveStoryFirstDateBtn">Continuer</button>
 </div>
@@ -1897,13 +1897,13 @@
         type="text"
         id="storyNicknameMineInput"
         placeholder="Ton surnom pour elle/lui"
-    >
+     aria-label="Ton surnom pour ton ou ta partenaire">
 
     <input
         type="text"
         id="storyNicknamePartnerInput"
         placeholder="Son surnom pour toi"
-    >
+     aria-label="Son surnom pour toi">
 
     <button type="button" id="saveStoryNicknamesBtn">Continuer</button>
 </div>
@@ -1916,7 +1916,7 @@
         type="text"
         id="storySongInput"
         placeholder="Titre ou artiste"
-    >
+     aria-label="Votre chanson">
 
     <button type="button" id="saveStorySongBtn">Continuer</button>
 </div>
@@ -2096,7 +2096,7 @@
         type="text"
         id="guessAnswerInput"
         placeholder="Ta réponse"
-    >
+     aria-label="Ta réponse">
 
     <button type="button" id="validateGuessAnswerBtn">
         Valider ma réponse
@@ -2132,7 +2132,7 @@
         type="text"
         id="guessPredictionInput"
         placeholder="Selon toi, sa réponse c’est..."
-    >
+     aria-label="Ta prédiction de sa réponse">
 
     <button type="button" id="validateGuessPredictionBtn">
         Valider ma prédiction
@@ -2409,7 +2409,7 @@
     <textarea
         id="questionsAnswerInput"
         placeholder="Écris ta réponse..."
-    ></textarea>
+     aria-label="Ta réponse à la question"></textarea>
 
     <button type="button" id="validateQuestionsAnswerBtn">
         Valider ma réponse
@@ -2505,7 +2505,7 @@
             type="text"
             id="newPseudo"
             placeholder="Nouveau pseudo"
-        >
+         aria-label="Nouveau pseudo">
 
         <button type="button" id="saveNewPseudoBtn">
             Modifier mon pseudo
@@ -2790,7 +2790,7 @@
         <div class="question-report-backdrop" data-close-creator-reports></div>
         <section class="creator-reports-sheet">
             <header><div><small>Créatrice uniquement</small><h2 id="creatorReportsTitle">Signalements</h2></div><button type="button" id="closeCreatorReportsBtn" aria-label="Fermer">×</button></header>
-            <div class="creator-reports-filters"><select id="creatorReportsGameFilter"><option value="all">Tous les jeux</option><option value="ranking">Classements</option><option value="guess">Devine ma réponse</option><option value="likely">Qui est le plus susceptible</option><option value="ok">OK ou Pas OK</option><option value="greenFlag">Green / Red Flag</option><option value="princess">Princess Treatment</option><option value="questions">Questions</option></select><select id="creatorReportsReasonFilter"><option value="all">Toutes les raisons</option><option value="confusing">Confuse</option><option value="duplicate">Doublon</option><option value="mistake">Faute</option><option value="sensitive">Sensible</option><option value="offtopic">Hors sujet</option></select><select id="creatorReportsStatusFilter"><option value="open">À traiter</option><option value="resolved">Corrigés</option><option value="ignored">Ignorés</option><option value="all">Tous</option></select></div>
+            <div class="creator-reports-filters"><select id="creatorReportsGameFilter" aria-label="Filtrer les signalements par jeu"><option value="all">Tous les jeux</option><option value="ranking">Classements</option><option value="guess">Devine ma réponse</option><option value="likely">Qui est le plus susceptible</option><option value="ok">OK ou Pas OK</option><option value="greenFlag">Green / Red Flag</option><option value="princess">Princess Treatment</option><option value="questions">Questions</option></select><select id="creatorReportsReasonFilter" aria-label="Filtrer les signalements par raison"><option value="all">Toutes les raisons</option><option value="confusing">Confuse</option><option value="duplicate">Doublon</option><option value="mistake">Faute</option><option value="sensitive">Sensible</option><option value="offtopic">Hors sujet</option></select><select id="creatorReportsStatusFilter" aria-label="Filtrer les signalements par statut"><option value="open">À traiter</option><option value="resolved">Corrigés</option><option value="ignored">Ignorés</option><option value="all">Tous</option></select></div>
             <div id="creatorReportsList" class="creator-reports-list"></div>
             <div id="creatorReportsEmpty" class="creator-reports-empty" style="display:none;"><span>🌵</span><strong>Aucun signalement ici</strong><p>Tout est à jour pour ce filtre.</p></div>
         </section>
@@ -2800,7 +2800,7 @@
         <div class="question-report-backdrop" data-close-creator-content></div>
         <section class="creator-content-sheet">
             <header><div><small>Catalogue en direct</small><h2 id="creatorContentTitle">Gérer les questions</h2></div><button type="button" id="closeCreatorContentBtn" aria-label="Fermer">×</button></header>
-            <div class="creator-content-toolbar"><select id="creatorContentGameFilter"><option value="questions">Questions</option><option value="guess">Devine ma réponse</option><option value="likely">Qui est le plus susceptible</option><option value="ok">OK ou Pas OK</option><option value="greenFlag">Green / Red Flag</option><option value="princess">Princess Treatment</option><option value="ranking">Classements</option></select><input id="creatorContentSearch" type="search" placeholder="Rechercher…"><button type="button" id="creatorNewContentBtn">＋ Ajouter</button></div>
+            <div class="creator-content-toolbar"><select id="creatorContentGameFilter" aria-label="Filtrer les contenus par jeu"><option value="questions">Questions</option><option value="guess">Devine ma réponse</option><option value="likely">Qui est le plus susceptible</option><option value="ok">OK ou Pas OK</option><option value="greenFlag">Green / Red Flag</option><option value="princess">Princess Treatment</option><option value="ranking">Classements</option></select><input id="creatorContentSearch" type="search" placeholder="Rechercher…" aria-label="Rechercher dans les contenus"><button type="button" id="creatorNewContentBtn">＋ Ajouter</button></div>
             <div id="creatorContentList" class="creator-content-list"></div>
             <form id="creatorContentForm" class="creator-content-form" style="display:none;">
                 <div class="creator-content-form-heading"><div><small id="creatorContentFormMode">Questions</small><strong id="creatorContentFormTitle">Nouvelle question</strong></div><button type="button" id="closeCreatorContentFormBtn">×</button></div>
@@ -2824,7 +2824,7 @@
         <div id="deleteAccountConfirmBox" class="delete-account-confirm-box" style="display:none;">
             <strong>Cette action est définitive</strong>
             <p>Exporte tes données si nécessaire, puis écris <b>SUPPRIMER</b> ci-dessous.</p>
-            <input id="deleteAccountConfirmation" type="text" maxlength="9" autocomplete="off" placeholder="SUPPRIMER">
+            <input id="deleteAccountConfirmation" type="text" maxlength="9" autocomplete="off" placeholder="SUPPRIMER" aria-label="Confirmation de suppression du compte">
             <div>
                 <button type="button" id="confirmDeleteAccountBtn" class="danger-btn">Confirmer la suppression</button>
                 <button type="button" id="cancelDeleteAccountBtn" class="secondary">Annuler</button>
@@ -2893,7 +2893,7 @@
     <script src="js/storage.js"></script>
     <script src="js/rankings.js"></script>
     <script src="js/questions.js"></script>
-    <script src="js/script.js?v=1154"></script>
+    <script src="js/script.js?v=1155"></script>
 
 </body>
 </html>
