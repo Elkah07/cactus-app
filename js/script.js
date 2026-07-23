@@ -4211,6 +4211,58 @@ function getCalendarEventEmoji(item = {}) {
     return item.emoji || getCalendarCategoryConfig(item.category).emoji;
 }
 
+function splitCalendarEmojiSymbols(value) {
+    const text = String(value || "").trim();
+    if (!text) return [];
+    try {
+        if (typeof Intl !== "undefined" && typeof Intl.Segmenter === "function") {
+            const segmenter = new Intl.Segmenter("fr", { granularity: "grapheme" });
+            return Array.from(segmenter.segment(text), ({ segment }) => segment).filter((segment) => segment.trim());
+        }
+    } catch (error) {
+        // Le fallback ci-dessous couvre les navigateurs qui ne proposent pas Intl.Segmenter.
+    }
+    return Array.from(text).filter((segment) => segment.trim());
+}
+
+function getPrimaryCalendarEmoji(value, fallback = "✨") {
+    return splitCalendarEmojiSymbols(value)[0] || fallback;
+}
+
+function renderCalendarEmojiCluster(element, value, { max = 4, compact = false } = {}) {
+    if (!element) return;
+    const rawValue = String(value || "✨").trim() || "✨";
+    const symbols = splitCalendarEmojiSymbols(rawValue);
+    const total = Math.max(1, symbols.length);
+    const visibleLimit = Math.max(1, Number(max) || 4);
+
+    element.classList.remove("calendar-emoji-cluster", "is-compact");
+    element.removeAttribute("data-emoji-count");
+    element.replaceChildren();
+    element.setAttribute("aria-label", rawValue);
+    element.title = rawValue;
+
+    if (total === 1) {
+        element.textContent = symbols[0] || "✨";
+        return;
+    }
+
+    element.classList.add("calendar-emoji-cluster");
+    if (compact) element.classList.add("is-compact");
+
+    const rendered = symbols.length > visibleLimit
+        ? [...symbols.slice(0, visibleLimit - 1), `+${symbols.length - (visibleLimit - 1)}`]
+        : symbols.slice(0, visibleLimit);
+    element.dataset.emojiCount = String(rendered.length);
+
+    rendered.forEach((symbol) => {
+        const token = document.createElement("span");
+        token.className = "calendar-emoji-token" + (String(symbol).startsWith("+") ? " is-more" : "");
+        token.textContent = symbol;
+        element.appendChild(token);
+    });
+}
+
 function getCalendarEventColor(item = {}) {
     return item.color || getCalendarCategoryConfig(item.category).color;
 }
@@ -4339,7 +4391,7 @@ function createCalendarEventCard(eventItem, { compact = false, timeline = false 
     article.className = "calendar-event-card" + (compact ? " is-compact" : "") + (timeline ? " is-timeline" : "") + (historical ? " is-past-event" : "") + (eventItem.readOnly ? " is-readonly" : "");
     article.style.setProperty("--event-color", getCalendarEventColor(eventItem));
 
-    const icon = document.createElement("span"); icon.className = "calendar-event-emoji"; icon.textContent = getCalendarEventEmoji(eventItem);
+    const icon = document.createElement("span"); icon.className = "calendar-event-emoji"; renderCalendarEmojiCluster(icon, getCalendarEventEmoji(eventItem), { max: 4 });
     const copy = document.createElement("div"); copy.className = "calendar-event-copy";
     const title = document.createElement("strong"); title.textContent = eventItem.title || "Un moment à deux";
     const meta = document.createElement("span"); meta.textContent = formatCalendarOccurrence(eventItem, occurrence);
@@ -4391,7 +4443,7 @@ function renderCoupleCalendarGrid(events) {
         button.dataset.date = dateKey;
         const number = document.createElement("span"); number.className = "couple-calendar-day-number"; number.textContent = String(cellDate.getDate());
         const dots = document.createElement("span"); dots.className = "couple-calendar-day-events";
-        dayEvents.slice(0, 3).forEach((eventItem) => { const dot = document.createElement("i"); dot.style.setProperty("--event-color", getCalendarEventColor(eventItem)); dot.textContent = getCalendarEventEmoji(eventItem); dots.appendChild(dot); });
+        dayEvents.slice(0, 3).forEach((eventItem) => { const dot = document.createElement("i"); dot.style.setProperty("--event-color", getCalendarEventColor(eventItem)); renderCalendarEmojiCluster(dot, getCalendarEventEmoji(eventItem), { max: 2, compact: true }); dots.appendChild(dot); });
         if (dayEvents.length > 3) { const more = document.createElement("em"); more.textContent = "+" + (dayEvents.length - 3); dots.appendChild(more); }
         button.append(number, dots);
         button.addEventListener("click", () => { selectedCoupleCalendarDate = dateKey; if (outside) coupleCalendarCursor = new Date(cellDate.getFullYear(), cellDate.getMonth(), 1); renderImportantDates(currentImportantDates); });
@@ -5453,7 +5505,7 @@ function renderDailyLifeHub(spaceData = currentSpaceData || {}) {
             button.className = "daily-upcoming-moment";
             button.style.setProperty("--event-color", getCalendarEventColor(item));
             button.addEventListener("click", () => showScreen("importantDates"));
-            const emoji = document.createElement("span"); emoji.textContent = getCalendarEventEmoji(item);
+            const emoji = document.createElement("span"); renderCalendarEmojiCluster(emoji, getCalendarEventEmoji(item), { max: 4 });
             const copy = document.createElement("div"); const title = document.createElement("strong"); title.textContent = item.title || "Un moment à deux"; const meta = document.createElement("small"); meta.textContent = formatCalendarOccurrence(item, occurrence); copy.append(title, meta);
             const countdown = document.createElement("b"); countdown.textContent = getCalendarCountdownLabel(item, occurrence);
             button.append(emoji, copy, countdown); return button;
@@ -5467,7 +5519,7 @@ function renderDailyLifeHub(spaceData = currentSpaceData || {}) {
         } else {
             dashboardNextMomentCard.style.display = "flex";
             dashboardNextMomentCard.style.setProperty("--event-color", getCalendarEventColor(next.item));
-            dashboardNextMomentEmoji.textContent = getCalendarEventEmoji(next.item);
+            renderCalendarEmojiCluster(dashboardNextMomentEmoji, getCalendarEventEmoji(next.item), { max: 4 });
             dashboardNextMomentTitle.textContent = next.item.title || "Un moment à deux";
             dashboardNextMomentMeta.textContent = formatCalendarOccurrence(next.item, next.occurrence);
             dashboardNextMomentCountdown.textContent = getCalendarCountdownLabel(next.item, next.occurrence);
@@ -5569,7 +5621,7 @@ function getCactusLivingContext(spaceData = currentSpaceData || {}) {
         const [mood, symbols] = moodMap[category] || ["special", ["✦", "✨", "✧", "·", "✦", "⋆"]];
         return {
             mood,
-            symbol: emoji,
+            symbol: getPrimaryCalendarEmoji(emoji),
             color: getCalendarEventColor(featuredEvent),
             special: true,
             message: pickStableCactusEventPhrase(category, spaceData, { title, emoji }),

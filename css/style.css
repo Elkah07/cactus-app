@@ -15473,3 +15473,63 @@ body.cactus-calibration-open {
         flex-basis: 46px !important;
     }
 }
+
+
+/* V115.6 · Affichage propre des événements qui utilisent plusieurs emojis */
+.calendar-emoji-cluster {
+    box-sizing: border-box;
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: minmax(0, 1fr);
+    place-items: center;
+    gap: 0;
+    padding: 5px;
+    overflow: hidden;
+    line-height: 1;
+    white-space: normal !important;
+}
+
+.calendar-emoji-cluster .calendar-emoji-token {
+    display: grid;
+    place-items: center;
+    min-width: 0;
+    line-height: 1;
+    font-size: .68em;
+}
+
+.calendar-emoji-cluster[data-emoji-count="2"] .calendar-emoji-token {
+    font-size: .78em;
+}
+
+.calendar-emoji-cluster[data-emoji-count="3"] .calendar-emoji-token:last-child {
+    grid-column: 1 / -1;
+}
+
+.calendar-emoji-cluster .calendar-emoji-token.is-more {
+    font-family: inherit;
+    font-size: .45em;
+    font-weight: 900;
+    letter-spacing: -.03em;
+}
+
+.calendar-emoji-cluster.is-compact {
+    padding: 1px;
+}
+
+.calendar-emoji-cluster.is-compact .calendar-emoji-token {
+    font-size: .5em;
+}
+
+.calendar-emoji-cluster.is-compact[data-emoji-count="2"] .calendar-emoji-token {
+    font-size: .56em;
+}
+
+#dashboardScreen .dashboard-next-moment-emoji.calendar-emoji-cluster,
+.daily-upcoming-moment > span.calendar-emoji-cluster,
+.calendar-event-emoji.calendar-emoji-cluster {
+    flex-shrink: 0;
+}
+
+.couple-calendar-day-events i.calendar-emoji-cluster {
+    padding: 1px;
+}
