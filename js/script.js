@@ -7702,13 +7702,7 @@ function isNewGameChallengeAvailableToCurrentUser(mode, challenge) {
     if (mode === "wouldRather") {
         return !challenge.answers?.[uid];
     }
-
-    if (mode === "planCrisis") {
-        const scenario = selectFreshGameItem(source, mode, null, NEW_GAME_MODES[mode].path);
-        return { ...common, scenario, answers: {} };
-    }
-
-    if (mode === "threeYesNo") {
+if (mode === "threeYesNo") {
         return countThreeYesNoAnswers(challenge.answers?.[uid]).total < 6;
     }
 
