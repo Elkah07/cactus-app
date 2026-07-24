@@ -15673,3 +15673,12 @@ body.cactus-calibration-open {
         gap: 0;
     }
 }
+
+/* CACTUS V117.0 — Plan de crise */
+.plan-crisis-choice { text-align:left; min-height:58px; }
+.plan-crisis-result-row { display:grid; gap:.35rem; padding:.85rem; border:1px solid rgba(45,106,79,.14); border-radius:18px; background:rgba(255,255,255,.62); }
+.plan-crisis-result-row strong { font-size:.9rem; }
+.plan-crisis-result-row span { font-size:.82rem; opacity:.78; }
+.plan-crisis-verdict { display:grid; gap:.35rem; padding:1rem; border-radius:20px; background:var(--theme-soft, #eaf7ef); text-align:center; }
+.plan-crisis-verdict strong { font-size:1rem; }
+.plan-crisis-verdict span { font-size:.86rem; }

@@ -883,6 +883,7 @@ const threeYesNoBtn = document.getElementById("threeYesNoBtn");
 const limitReachedBtn = document.getElementById("limitReachedBtn");
 const coupleDareBtn = document.getElementById("coupleDareBtn");
 const bestLieBtn = document.getElementById("bestLieBtn");
+const planCrisisBtn = document.getElementById("planCrisisBtn");
 const newGameScreen = document.getElementById("newGameScreen");
 const backFromNewGameBtn = document.getElementById("backFromNewGameBtn");
 const newGameCategory = document.getElementById("newGameCategory");
@@ -1769,6 +1770,13 @@ const relationStatsModes = [
         path: "bestLieChallenges",
         color: "#8f7de8",
         compatibilityWeight: 0.5
+    },
+    {
+        key: "planCrisis",
+        label: "Plan de crise",
+        icon: "🎬",
+        path: "planCrisisChallenges",
+        color: "#ff8f88"
     }
 ];
 
@@ -1780,6 +1788,7 @@ let threeYesNoSituations = [];
 let limitReachedScenarios = [];
 let coupleDares = [];
 let bestLiePrompts = [];
+let planCrisisScenarios = [];
 let activeNewGameMode = null;
 let activeNewGameId = null;
 let isStartingNewGame = false;
@@ -2001,20 +2010,22 @@ async function loadRankingsData() {
 }
 
 async function loadNewGamesData() {
-    const [wouldRatherResponse, threeYesNoResponse, limitReachedResponse, daresResponse, bestLieResponse] = await Promise.all([
+    const [wouldRatherResponse, threeYesNoResponse, limitReachedResponse, daresResponse, bestLieResponse, planCrisisResponse] = await Promise.all([
         fetch("data/would-you-rather.json"),
         fetch("data/three-yes-three-no.json"),
         fetch("data/limit-reached.json"),
         fetch("data/couple-dares.json"),
-        fetch("data/best-lie.json")
+        fetch("data/best-lie.json"),
+        fetch("data/plan-de-crise.json")
     ]);
 
-    [wouldRatherQuestions, threeYesNoSituations, limitReachedScenarios, coupleDares, bestLiePrompts] = await Promise.all([
+    [wouldRatherQuestions, threeYesNoSituations, limitReachedScenarios, coupleDares, bestLiePrompts, planCrisisScenarios] = await Promise.all([
         wouldRatherResponse.json(),
         threeYesNoResponse.json(),
         limitReachedResponse.json(),
         daresResponse.json(),
-        bestLieResponse.json()
+        bestLieResponse.json(),
+        planCrisisResponse.json()
     ]);
 }
 
@@ -6776,6 +6787,13 @@ const GAMES_LIBRARY = {
         image: "assets/cactus-limit-reached.webp",
         description: "Avancez chacun à votre rythme dans une situation qui s'intensifie. Arrêtez-vous dès que votre limite est atteinte, puis découvrez jusqu'où l'autre serait allé."
     },
+    planCrisis: {
+        title: "Plan de crise",
+        category: "Aventure à deux",
+        duration: "8 min",
+        image: "assets/cactus-playing.png",
+        description: "Traversez une mini-aventure à deux : choix secrets, missions cachées, catastrophes et révélations. Vos décisions écrivent votre propre version du scénario."
+    },
     bestLie: {
         title: "Qui ment le mieux ?",
         category: "Fun & complicité",
@@ -7406,7 +7424,8 @@ const DISCUSSION_GAME_LABELS = {
     threeYesNo: "3 oui / 3 non",
     limitReached: "Limite atteinte",
     coupleDare: "Défis à deux",
-    bestLie: "Qui ment le mieux ?"
+    bestLie: "Qui ment le mieux ?",
+    planCrisis: "Plan de crise"
 };
 
 function sanitizeDiscussionKey(value) {
@@ -7653,7 +7672,8 @@ const NEW_GAME_MODES = {
     threeYesNo: { path: "threeYesNoChallenges", title: "3 oui / 3 non", category: "Tes limites" },
     limitReached: { path: "limitReachedChallenges", title: "Limite atteinte", category: "Jusqu'où ça passe ?" },
     coupleDare: { path: "coupleDareChallenges", title: "Défis à deux", category: "Mission commune" },
-    bestLie: { path: "bestLieChallenges", title: "Qui ment le mieux ?", category: "Duel de mythos" }
+    bestLie: { path: "bestLieChallenges", title: "Qui ment le mieux ?", category: "Duel de mythos" },
+    planCrisis: { path: "planCrisisChallenges", title: "Plan de crise", category: "Aventure à deux" }
 };
 
 function shuffleNewGameItems(items) {
@@ -7683,6 +7703,11 @@ function isNewGameChallengeAvailableToCurrentUser(mode, challenge) {
         return !challenge.answers?.[uid];
     }
 
+    if (mode === "planCrisis") {
+        const scenario = selectFreshGameItem(source, mode, null, NEW_GAME_MODES[mode].path);
+        return { ...common, scenario, answers: {} };
+    }
+
     if (mode === "threeYesNo") {
         return countThreeYesNoAnswers(challenge.answers?.[uid]).total < 6;
     }
@@ -7710,6 +7735,17 @@ function isNewGameChallengeAvailableToCurrentUser(mode, challenge) {
         return countBestLieEntries(challenge.ratings?.[uid]) < 3;
     }
 
+    if (mode === "planCrisis") {
+        const stages = challenge.scenario?.stages || [];
+        if (!stages.length) return false;
+        for (let index = 0; index < stages.length; index++) {
+            const previous = index === 0 ? true : Object.keys(challenge.answers?.[index - 1] || {}).length >= 2;
+            if (!previous) return false;
+            if (!challenge.answers?.[index]?.[uid]) return true;
+        }
+        return false;
+    }
+
     return true;
 }
 
@@ -7725,6 +7761,7 @@ function getNewGameSource(mode) {
     if (mode === "limitReached") return limitReachedScenarios;
     if (mode === "coupleDare") return coupleDares;
     if (mode === "bestLie") return bestLiePrompts;
+    if (mode === "planCrisis") return planCrisisScenarios;
     return [];
 }
 
@@ -8935,6 +8972,134 @@ function completeCoupleDare() {
     }).catch((error) => showToast(getFriendlyFirebaseError(error)));
 }
 
+
+function getPlanCrisisPlayerName(uid) {
+    if (!uid) return "Partenaire";
+    const p1 = currentSpaceData?.player1;
+    const p2 = currentSpaceData?.player2;
+    if (p1?.uid === uid) return p1.pseudo || "Partenaire";
+    if (p2?.uid === uid) return p2.pseudo || "Partenaire";
+    return uid === currentUser?.uid ? (pseudo || "Toi") : "Partenaire";
+}
+
+function renderPlanCrisis(challenge) {
+    const scenario = challenge.scenario || {};
+    const stages = Array.isArray(scenario.stages) ? scenario.stages : [];
+    const uid = currentUser.uid;
+    const partnerUid = [currentSpaceData?.player1?.uid, currentSpaceData?.player2?.uid].find((id) => id && id !== uid);
+    const mySecret = challenge.createdBy === uid ? scenario.secretA : scenario.secretB;
+    const answers = challenge.answers || {};
+    let activeIndex = 0;
+    while (activeIndex < stages.length && answers[activeIndex]?.[uid]) activeIndex++;
+    const completedStages = stages.filter((_, index) => Object.keys(answers[index] || {}).length >= 2).length;
+
+    if (challenge.status === "completed" || completedStages >= stages.length) {
+        newGameStepBadge.textContent = "Terminé";
+        newGameProgressBar.style.width = "100%";
+        newGameInstruction.textContent = "Votre aventure est terminée. Voici la trace de vos décisions.";
+        newGamePromptKicker.textContent = "🏁 Votre fin";
+        newGamePrompt.textContent = scenario.title || "Plan de crise";
+        newGamePromptDetails.textContent = "Vous avez traversé " + stages.length + " rebondissements sans savoir exactement ce que l'autre allait choisir.";
+        newGameResult.style.display = "grid";
+        const title = document.createElement("h3");
+        title.textContent = "Votre parcours";
+        newGameResult.appendChild(title);
+        stages.forEach((stage, index) => {
+            const row = document.createElement("article");
+            row.className = "plan-crisis-result-row";
+            const heading = document.createElement("strong");
+            heading.textContent = (index + 1) + ". " + stage.title;
+            row.appendChild(heading);
+            Object.entries(answers[index] || {}).forEach(([answerUid, answer]) => {
+                const line = document.createElement("span");
+                line.textContent = getPlanCrisisPlayerName(answerUid) + " : " + (answer.label || "");
+                row.appendChild(line);
+            });
+            newGameResult.appendChild(row);
+        });
+        const same = stages.reduce((total, _, index) => {
+            const vals = Object.values(answers[index] || {}).map((x) => x.choice);
+            return total + (vals.length >= 2 && vals[0] === vals[1] ? 1 : 0);
+        }, 0);
+        const verdict = document.createElement("div");
+        verdict.className = "plan-crisis-verdict";
+        verdict.innerHTML = "<strong>🧠 Même cerveau : " + same + "/" + stages.length + "</strong><span>🌪️ Niveau de chaos : " + (same >= 4 ? "étonnamment maîtrisé" : same >= 2 ? "savoureusement instable" : "absolument légendaire") + "</span>";
+        newGameResult.appendChild(verdict);
+        newGameAgainBtn.textContent = "Nouvelle aventure";
+        newGameAgainBtn.style.display = "block";
+        setCurrentDiscussionContext({ mode: "planCrisis", sourceId: activeNewGameId, title: scenario.title || "Plan de crise", summary: "Votre aventure interactive et les choix qui vous ont le plus surpris.", entries: stages.map((stage, index) => ({ label: stage.title, value: Object.values(answers[index] || {}).map((a) => a.label).join(" / ") })) });
+        return;
+    }
+
+    if (activeIndex >= stages.length) {
+        newGameStepBadge.textContent = stages.length + " / " + stages.length;
+        newGameProgressBar.style.width = "96%";
+        newGameInstruction.textContent = "Tu as terminé ta partie. La fin se débloquera dès que l'autre aura fait ses derniers choix.";
+        newGamePromptKicker.textContent = "⏳ En attente";
+        newGamePrompt.textContent = "La catastrophe est suspendue dans le temps…";
+        newGamePromptDetails.textContent = "Tu peux lancer un autre jeu pendant ce temps.";
+        setNewGameStatus("Ton aventure est à jour", "Ton/ta partenaire doit encore jouer.");
+        newGameAgainBtn.textContent = "Nouvelle aventure";
+        newGameAgainBtn.style.display = "block";
+        return;
+    }
+
+    const stage = stages[activeIndex];
+    const previousReady = activeIndex === 0 || Object.keys(answers[activeIndex - 1] || {}).length >= 2;
+    if (!previousReady) {
+        newGameStepBadge.textContent = (activeIndex + 1) + " / " + stages.length;
+        newGameProgressBar.style.width = Math.max(8, (activeIndex / stages.length) * 100) + "%";
+        newGameInstruction.textContent = "Ton choix est enregistré. Le prochain rebondissement arrivera quand l'autre aura répondu.";
+        newGamePromptKicker.textContent = "⏳ Suspense";
+        newGamePrompt.textContent = "Cactus attend encore une décision…";
+        newGamePromptDetails.textContent = "Tu peux quitter la partie et revenir plus tard.";
+        return;
+    }
+
+    newGameStepBadge.textContent = (activeIndex + 1) + " / " + stages.length;
+    newGameProgressBar.style.width = Math.max(8, (activeIndex / stages.length) * 100) + "%";
+    newGameInstruction.textContent = activeIndex === 0 ? "Lis ton objectif secret, puis fais ton premier choix sans regarder celui de l'autre." : "Nouveau rebondissement. Choisis ce que tu ferais vraiment.";
+    newGamePromptKicker.textContent = activeIndex === 0 ? ("🔐 " + (mySecret || "Ta mission reste secrète")) : (scenario.kicker || "Plan de crise");
+    newGamePrompt.textContent = stage.title;
+    newGamePromptDetails.textContent = stage.text || "";
+    (stage.options || []).forEach((label, optionIndex) => {
+        const button = createNewGameChoice(label, String(optionIndex), "plan-crisis-choice");
+        button.addEventListener("click", () => submitPlanCrisisChoice(activeIndex, optionIndex, label, button));
+        newGameChoices.appendChild(button);
+    });
+}
+
+function submitPlanCrisisChoice(stageIndex, optionIndex, label, button) {
+    const challenge = getActiveNewGameChallenge();
+    if (!challenge || challenge.answers?.[stageIndex]?.[currentUser.uid]) return;
+    if (button) button.disabled = true;
+    const challengeId = activeNewGameId;
+    const path = NEW_GAME_MODES.planCrisis.path;
+    return database.ref("spaces/" + currentSpaceCode + "/" + path + "/" + challengeId + "/answers/" + stageIndex + "/" + currentUser.uid)
+        .set({ choice: optionIndex, label, answeredAt: Date.now(), pseudo: pseudo || "Partenaire" })
+        .then(() => database.ref("spaces/" + currentSpaceCode + "/" + path + "/" + challengeId).transaction((live) => {
+            if (!live || live.status === "completed") return live;
+            const stages = live.scenario?.stages || [];
+            const done = stages.length > 0 && stages.every((_, index) => Object.keys(live.answers?.[index] || {}).length >= 2);
+            if (done) {
+                live.status = "completed";
+                live.completedAt = Date.now();
+            }
+            return live;
+        }))
+        .then((result) => {
+            const live = result?.snapshot?.val();
+            if (live?.status === "completed") {
+                return Promise.all([awardCompletedGameBonus("planCrisis", challengeId), clearNewGameLockIfMatches("planCrisis", challengeId)]);
+            }
+            return false;
+        })
+        .catch((error) => {
+            if (button) button.disabled = false;
+            showToast(getFriendlyFirebaseError(error));
+        });
+}
+
 function renderNewGame(spaceData = currentSpaceData) {
     const config = NEW_GAME_MODES[activeNewGameMode];
     const challenge = getActiveNewGameChallenge(spaceData);
@@ -8947,6 +9112,7 @@ function renderNewGame(spaceData = currentSpaceData) {
     if (activeNewGameMode === "limitReached") renderLimitReached(challenge);
     if (activeNewGameMode === "coupleDare") renderCoupleDare(challenge);
     if (activeNewGameMode === "bestLie") renderBestLie(challenge);
+    if (activeNewGameMode === "planCrisis") renderPlanCrisis(challenge);
 }
 
 wouldRatherBtn.addEventListener("click", () => startNewGame("wouldRather"));
@@ -8954,6 +9120,7 @@ threeYesNoBtn.addEventListener("click", () => startNewGame("threeYesNo"));
 limitReachedBtn.addEventListener("click", () => startNewGame("limitReached"));
 coupleDareBtn.addEventListener("click", () => startNewGame("coupleDare"));
 bestLieBtn.addEventListener("click", () => startNewGame("bestLie"));
+planCrisisBtn?.addEventListener("click", () => startNewGame("planCrisis"));
 backFromNewGameBtn.addEventListener("click", () => showScreen("allGames"));
 newGameAgainBtn.addEventListener("click", () => startNewGame(activeNewGameMode));
 newGameDoneBtn.addEventListener("click", completeCoupleDare);
@@ -13167,7 +13334,8 @@ function getGameInboxActivities() {
             threeYesNo: ["3/3", "3 oui / 3 non", countThreeYesNoAnswers(open[1].answers?.[currentUser.uid]).total >= 6 ? "En attente de l’autre" : "Continue tes six choix"],
             limitReached: ["⛔", "Limite atteinte", open[1].results?.[currentUser.uid] ? "En attente de l’autre" : "Trouve jusqu’où ça passe"],
             coupleDare: ["★", "Défis à deux", open[1].votes?.[currentUser.uid] ? "Mission en cours" : "Un défi vous attend"],
-            bestLie: ["🎭", "Qui ment le mieux ?", countBestLieEntries(open[1].answers?.[currentUser.uid]) < 3 ? "Invente tes trois mensonges" : (countBestLieEntries(open[1].ratings?.[currentUser.uid]) < 3 && Object.values(open[1].answers || {}).filter((set) => countBestLieEntries(set) >= 3).length >= 2 ? "À toi de noter les mensonges" : "En attente de l’autre")]
+            bestLie: ["🎭", "Qui ment le mieux ?", countBestLieEntries(open[1].answers?.[currentUser.uid]) < 3 ? "Invente tes trois mensonges" : (countBestLieEntries(open[1].ratings?.[currentUser.uid]) < 3 && Object.values(open[1].answers || {}).filter((set) => countBestLieEntries(set) >= 3).length >= 2 ? "À toi de noter les mensonges" : "En attente de l’autre")],
+            planCrisis: ["🎬", "Plan de crise", "Votre aventure continue"]
         };
         const [icon, label, state] = labels[mode];
         add([open], icon, label, state, () => {
@@ -13387,7 +13555,8 @@ function getLatestCompletedActivity() {
         { key: "wouldRatherChallenges", mode: "wouldRather", icon: "↔", label: "Tu préfères ?" },
         { key: "threeYesNoChallenges", mode: "threeYesNo", icon: "3/3", label: "3 oui / 3 non" },
         { key: "limitReachedChallenges", mode: "limitReached", icon: "⛔", label: "Limite atteinte" },
-        { key: "bestLieChallenges", mode: "bestLie", icon: "🎭", label: "Qui ment le mieux ?" }
+        { key: "bestLieChallenges", mode: "bestLie", icon: "🎭", label: "Qui ment le mieux ?" },
+        { key: "planCrisisChallenges", mode: "planCrisis", icon: "🎬", label: "Plan de crise" }
     ];
 
     let latest = null;

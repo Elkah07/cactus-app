@@ -1,0 +1,77 @@
+[
+  {
+    "id":"paradis_prix",
+    "title":"Le paradis a un prix",
+    "kicker":"Île paradisiaque",
+    "intro":"On vous offre une villa sur une île privée pendant un an. Tout est payé. Vous devez partir dans 48 heures et vous ne pourrez revenir qu'une seule fois pendant l'année.",
+    "secretA":"Ton objectif secret : tu veux partir. Une fois dans la partie, tu peux défendre un choix qui te semble complètement déraisonnable.",
+    "secretB":"Ton objectif secret : tu veux protéger votre vie actuelle. Tu dois au moins une fois choisir l'option la plus prudente, même si elle est moins excitante.",
+    "stages":[
+      {"title":"Vous signez ?","text":"Première décision, avant de connaître les mauvaises surprises.","options":["🌴 Je pars demain","🏠 Je reste","🤔 J'accepte seulement sous conditions"]},
+      {"title":"Une seule valise pour deux","text":"Vous n'avez droit qu'à une seule valise cabine pour toute l'année. Quel type de contenu sauvez-vous en priorité ?","options":["📸 Les souvenirs et objets sentimentaux","👕 Le pratique, uniquement l'essentiel","🎮 Le confort et les loisirs","💅 Ce qui nous fait nous sentir nous-mêmes"]},
+      {"title":"Le visiteur unique","text":"Une seule personne pourra venir vous voir pendant toute l'année. Comment tranchez-vous ?","options":["👤 Je choisis quelqu'un de mon côté","💚 Je laisse l'autre choisir","🎲 On tire au sort","🚫 Personne, cette année est à nous"]},
+      {"title":"La villa disparaît","text":"Dernière minute : la villa n'est plus disponible. Il reste une petite cabane sans climatisation, avec internet seulement deux heures par jour.","options":["🔥 On y va quand même","✋ Là, c'est non","📅 On négocie pour partir moins longtemps"]},
+      {"title":"Le choix final","text":"Après tout ce que vous venez de décider, quelle phrase résume le mieux votre duo ?","options":["🌪️ On fonce et on gère après","🧠 On peut tout faire avec un bon plan","💚 Le lieu importe moins que nous deux","😂 On serait rentrées au bout de quatre jours"]}
+    ]
+  },
+  {
+    "id":"dix_millions",
+    "title":"10 millions, mais pas comme prévu",
+    "kicker":"Fortune sous conditions",
+    "intro":"Vous gagnez 10 millions d'euros ensemble. Le contrat est réel, l'argent aussi. Mais pendant les prochaines minutes, Cactus décide des règles de votre nouvelle vie.",
+    "secretA":"Mission secrète : tu dois essayer de préserver au moins la moitié de l'argent, quoi qu'il arrive.",
+    "secretB":"Mission secrète : tu dois réussir à faire accepter au moins une dépense complètement excessive.",
+    "stages":[
+      {"title":"Votre premier réflexe","text":"L'argent vient d'arriver. Quelle est votre première décision ?","options":["🏠 Acheter la maison de nos rêves","✈️ Tout quitter pendant un an","📈 Investir presque tout","🎁 Gâter nos proches avant nous"]},
+      {"title":"La règle des 24 heures","text":"Vous devez dépenser exactement 1 million avant demain soir, sinon vous perdez les 10 millions.","options":["🏡 Immobilier express","🚗 Voyages et folies","💚 Donner une grosse partie","🤯 Acheter n'importe quoi pour réussir"]},
+      {"title":"Le cadeau impossible","text":"Chacune peut offrir UNE chose à l'autre, sans limite de prix. Quel type de cadeau choisissez-vous ?","options":["💎 Un objet complètement fou","🌍 Une expérience pour toute une vie","🏡 Quelque chose qui change son quotidien","🤫 Je préfère garder la surprise"]},
+      {"title":"Le prix à payer","text":"Pour garder l'argent, vous devez choisir une contrainte pendant 5 ans.","options":["📵 Aucun réseau social","🚫 Aucun restaurant","✈️ Aucun voyage hors de France","🛍️ Aucun achat non essentiel"]},
+      {"title":"Verdict de millionnaires","text":"Au fond, qu'est-ce qui risquerait le plus de vous créer des disputes ?","options":["💸 La façon de dépenser","👨‍👩‍👧 Aider ou non les proches","🏠 Le lieu où vivre","😂 Rien, on serait insupportablement heureuses"]}
+    ]
+  },
+  {
+    "id":"centre_commercial",
+    "title":"7 nuits dans le centre commercial",
+    "kicker":"Survie très confortable… en théorie",
+    "intro":"Toutes les portes viennent de se verrouiller. Vous êtes seules dans un immense centre commercial pendant 7 jours. Tout est accessible, mais chaque nuit une nouvelle zone devient interdite.",
+    "secretA":"Mission secrète : tu dois absolument sécuriser un endroit confortable pour dormir avant la troisième manche.",
+    "secretB":"Mission secrète : tu dois convaincre l'autre de faire au moins un choix purement fun plutôt que raisonnable.",
+    "stages":[
+      {"title":"Votre QG","text":"Vous devez choisir immédiatement votre camp de base.","options":["🛏️ Le magasin de literie","🍔 L'espace restauration","🎬 Le cinéma","🏕️ Le magasin de sport"]},
+      {"title":"Premier pillage autorisé","text":"Vous pouvez prendre gratuitement tout ce qui tient dans un seul chariot.","options":["🍫 Nourriture et boissons","🔋 Technologie et batteries","🧸 Confort et divertissement","👗 Une semaine de looks absurdes"]},
+      {"title":"Coupure générale","text":"Plus d'électricité pour les prochaines 24 heures. Où allez-vous ?","options":["🔦 On reste au QG","🏕️ Direction le magasin de sport","🍽️ On sauve toute la nourriture possible","👻 On explore le centre dans le noir"]},
+      {"title":"Une zone doit disparaître","text":"Pour rouvrir les portes, vous devez condamner définitivement une zone.","options":["🛍️ Les boutiques de vêtements","🍔 Les restaurants","🎬 Les loisirs","🛏️ Les magasins de maison"]},
+      {"title":"Après 7 jours…","text":"Quelle serait votre vraie situation ?","options":["👑 On aurait créé notre royaume","💀 On ne se parlerait plus","😂 On aurait oublié qu'on veut sortir","🚪 On chercherait la sortie dès le premier soir"]}
+    ]
+  },
+  {
+    "id":"telerealite",
+    "title":"Bienvenue dans Couple sous pression",
+    "kicker":"Télé-réalité",
+    "intro":"Une production vous propose 100 000 € pour vivre trois semaines dans une villa filmée 24 h/24 avec d'autres couples. Chaque décision publique peut augmenter ou réduire votre cagnotte.",
+    "secretA":"Mission secrète : tu veux protéger votre image de couple et éviter le drama à tout prix.",
+    "secretB":"Mission secrète : tu veux gagner. Si provoquer un peu de chaos rapporte de l'argent, tu dois sérieusement l'envisager.",
+    "stages":[
+      {"title":"Vous entrez dans la villa ?","text":"Le contrat est devant vous.","options":["🎥 Oui, on va tout gagner","🚪 Jamais de la vie","💰 Seulement si la cagnotte est garantie"]},
+      {"title":"Le premier dilemme","text":"20 000 € de plus si l'une de vous accepte de montrer son téléphone à l'autre devant les caméras.","options":["📱 Aucun problème","🚫 Hors de question","🤝 Oui, mais hors caméra"]},
+      {"title":"La production veut du drama","text":"10 000 € si vous devez dormir séparément pendant une semaine et participer chacune à des rendez-vous fictifs.","options":["💸 On prend l'argent","😤 Absolument pas","😂 Oui, et on joue le jeu à fond"]},
+      {"title":"Le vote du public","text":"Le public vous trouve trop calmes. Pour rester, vous devez choisir une épreuve.","options":["🔥 Répondre à 10 questions gênantes","🎭 Inventer une fausse dispute","💌 Lire nos anciens messages","🚪 Partir avec la cagnotte actuelle"]},
+      {"title":"La grande finale","text":"Vous avez gagné. Quelle serait votre première réaction en regardant les épisodes ?","options":["🫣 Je me cache sous une couverture","😂 Je regarde tout dix fois","📱 Je lis tous les commentaires","🚫 Je refuse de regarder"]}
+    ]
+  },
+  {
+    "id":"mariage_24h",
+    "title":"Mariage dans 24 heures",
+    "kicker":"Catastrophe nuptiale",
+    "intro":"Votre mariage est demain. Le lieu vient d'annuler, la moitié des prestataires ne répond plus et 80 personnes sont déjà en route. Vous avez 24 heures pour sauver la journée.",
+    "secretA":"Mission secrète : pour toi, le plus important est de garder un moment intime et romantique, même si tout le reste change.",
+    "secretB":"Mission secrète : pour toi, le plus important est que les invités passent une soirée mémorable, même si le mariage ne ressemble plus du tout au plan initial.",
+    "stages":[
+      {"title":"Le nouveau lieu","text":"Vous devez choisir en cinq minutes.","options":["🌳 Un grand jardin prêté par un proche","🏠 Une fête géante à la maison","🍽️ Privatiser un restaurant disponible","💍 Se marier à deux et annuler la fête"]},
+      {"title":"Le budget explose","text":"Il reste assez d'argent pour sauver UNE seule chose.","options":["📸 Le photographe","🍽️ Le repas","🎵 La musique","💐 La décoration"]},
+      {"title":"La tenue est fichue","text":"L'une des tenues principales est inutilisable le matin du mariage.","options":["🛍️ Achat d'urgence","😂 On improvise avec ce qu'on trouve","👗 On emprunte une tenue","💚 On s'en fiche, on y va comme ça"]},
+      {"title":"Il pleut. Évidemment.","text":"Votre plan extérieur devient impossible une heure avant la cérémonie.","options":["☔ On maintient sous la pluie","🏃 Tout le monde à l'intérieur","🚗 On change encore de lieu","😂 On transforme ça en cérémonie chaotique assumée"]},
+      {"title":"Votre mariage sauvé ressemble à…","text":"Choisissez le verdict qui vous correspond le plus.","options":["💚 Pas parfait, mais tellement nous","🎉 Le meilleur chaos de notre vie","😭 Je pleure depuis 14 heures","✈️ On prend l'argent restant et on s'enfuit"]}
+    ]
+  }
+]
