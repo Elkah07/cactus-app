@@ -7702,7 +7702,7 @@ function isNewGameChallengeAvailableToCurrentUser(mode, challenge) {
     if (mode === "wouldRather") {
         return !challenge.answers?.[uid];
     }
-if (mode === "threeYesNo") {
+    if (mode === "threeYesNo") {
         return countThreeYesNoAnswers(challenge.answers?.[uid]).total < 6;
     }
 
