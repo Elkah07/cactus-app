@@ -1861,6 +1861,7 @@ function listenToCurrentSpace(spaceCodeValue) {
         renderDiscussionsDashboard(spaceData);
         refreshDiscussionButtons();
         if (typeof renderSharedExperiencesDashboard === "function") renderSharedExperiencesDashboard(spaceData);
+        if (typeof renderMailboxDashboard === "function") renderMailboxDashboard(spaceData);
 
         if (lastShownScreen === "discussions") {
             renderDiscussions(spaceData);
@@ -1879,6 +1880,7 @@ function listenToCurrentSpace(spaceCodeValue) {
         }
         if (lastShownScreen === "coupleDaresHub" && typeof renderCoupleDaresHub === "function") renderCoupleDaresHub(spaceData);
         if (lastShownScreen === "secretGarden" && typeof renderSecretGarden === "function") renderSecretGarden(spaceData);
+        if (lastShownScreen === "mailbox" && typeof renderMailbox === "function") renderMailbox(spaceData);
 
         const liveRelationStats = buildRelationStatistics(spaceData);
         updateDashboardRelationStats(liveRelationStats);
@@ -10468,6 +10470,19 @@ async function notifyPushWorkerOfSpaceChanges(previousSpace = {}, nextSpace = {}
             if (!previousReactions[reactionUid] && reactionUid === currentUser.uid && reaction?.createdAt && reaction?.type !== "discuss") queuePushWorkerEvent({ kind: "secret-reaction", spaceId: currentSpaceCode, entryId });
         });
     });
+    const previousLetters = previousSpace.mailbox?.letters || {};
+    Object.entries(nextSpace.mailbox?.letters || {}).forEach(([letterId, letter]) => {
+        const before = previousLetters[letterId];
+        if (!before && letter?.createdByUid === currentUser.uid) {
+            queuePushWorkerEvent({ kind: "mailbox-created", spaceId: currentSpaceCode, letterId });
+        }
+        const previousReactions = before?.reactions || {};
+        Object.entries(letter?.reactions || {}).forEach(([reactionUid, reaction]) => {
+            if (!previousReactions[reactionUid] && reactionUid === currentUser.uid && reaction?.createdAt) {
+                queuePushWorkerEvent({ kind: "mailbox-reaction", spaceId: currentSpaceCode, letterId });
+            }
+        });
+    });
 
     const previousAchievements = previousSpace.stats?.achievements || {};
     Object.entries(nextSpace.stats?.achievements || {}).forEach(([achievementId, achievement]) => {
@@ -11028,6 +11043,16 @@ function buildNotifications(spaceData) {
                 notifications.push({ id:"secret_reaction_"+entryId+"_"+reactionUid+"_"+reaction.createdAt, type:"garden", icon:"💚", title:(reaction.pseudo||"Votre partenaire")+" a réagi à une confidence", message:reaction.label||"Une réaction vous attend dans le Jardin secret.", timestamp:reaction.createdAt, target:{kind:"secretGarden",entryId} });
             });
         });
+        Object.entries(spaceData.mailbox?.letters || {}).forEach(([letterId, letter]) => {
+            const delivered = Number(letter.deliverAt || letter.createdAt || 0) <= Date.now();
+            if (delivered && letter.createdByUid && letter.createdByUid !== currentUser.uid && typeof letter.createdAt === "number") {
+                notifications.push({ id:"mailbox_"+letterId+"_"+letter.createdAt, type:"garden", icon:"💌", title:"Une lettre est arrivée", message:letter.subject||"Une enveloppe t’attend dans votre boîte aux lettres.", timestamp:Number(letter.deliverAt||letter.createdAt), target:{kind:"mailbox",letterId} });
+            }
+            Object.entries(letter.reactions || {}).forEach(([reactionUid, reaction]) => {
+                if (reactionUid === currentUser.uid || typeof reaction?.createdAt !== "number") return;
+                notifications.push({ id:"mailbox_reaction_"+letterId+"_"+reactionUid+"_"+reaction.createdAt, type:"garden", icon:"💚", title:(reaction.pseudo||"Votre partenaire")+" a réagi à ta lettre", message:reaction.label||"Une réaction t’attend.", timestamp:reaction.createdAt, target:{kind:"mailbox",letterId} });
+            });
+        });
     }
 
     if (preferences.achievements) {
@@ -11422,6 +11447,13 @@ function openNotification(notification) {
     } else if (target.kind === "secretGarden") {
         if (typeof openSecretGarden === "function") openSecretGarden();
         else showScreen("dashboard");
+    } else if (target.kind === "mailbox") {
+        if (typeof openMailbox === "function") {
+            openMailbox();
+            if (target.letterId && typeof openMailboxLetter === "function") {
+                window.setTimeout(() => openMailboxLetter(target.letterId), 120);
+            }
+        } else showScreen("dashboard");
     }
 }
 

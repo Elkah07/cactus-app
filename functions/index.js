@@ -221,6 +221,18 @@ exports.send_due_cactus_notifications = onSchedule({
       }, "garden")));
       updates[`spaces/${spaceId}/dailyTools/countdowns/${countdownId}/pushNotificationAt`] = Date.now();
     }
+
+    for (const [letterId, letter] of Object.entries(space.mailbox?.letters || {})) {
+      if (!letter.deliverAt || letter.deliverAt > Date.now() || letter.pushDeliveredNotificationAt) continue;
+      const targets = players.filter((player) => player.uid !== letter.createdByUid);
+      targets.forEach((player) => jobs.push(sendPushToUid(player.uid, {
+        title: "Une lettre est arrivée 💌",
+        body: `${letter.createdByPseudo || "Ta partenaire"} t’a laissé « ${letter.subject || "une lettre"} ».`,
+        tag: `mailbox-${letterId}`,
+        screen: "mailbox"
+      }, "garden")));
+      updates[`spaces/${spaceId}/mailbox/letters/${letterId}/pushDeliveredNotificationAt`] = Date.now();
+    }
   }
 
   await Promise.allSettled(jobs);
@@ -250,4 +262,29 @@ exports.notify_secret_exchange_ready = onValueCreated({ ref: "/spaces/{spaceId}/
 exports.notify_secret_reaction = onValueCreated({ ref: "/spaces/{spaceId}/secretGarden/entries/{entryId}/reactions/{reactionUid}", region: REGION }, async (event) => {
   const reaction = event.data.val() || {}; if (reaction.type === "discuss") return; const players = await getSpacePlayers(event.params.spaceId); const targets = players.filter((p) => p.uid !== event.params.reactionUid);
   await Promise.all(targets.map((target) => sendPushToUid(target.uid, { title: `${reaction.pseudo || "Ta partenaire"} a réagi 💚`, body: reaction.label || "Une réaction t'attend dans votre Jardin secret.", tag: "secret-reaction", screen: "secretGarden" }, "garden")));
+});
+
+exports.notify_new_mailbox_letter = onValueCreated({ ref: "/spaces/{spaceId}/mailbox/letters/{letterId}", region: REGION }, async (event) => {
+  const letter = event.data.val() || {};
+  if (Number(letter.deliverAt || letter.createdAt || 0) > Date.now()) return;
+  const players = await getSpacePlayers(event.params.spaceId);
+  const targets = players.filter((player) => player.uid !== letter.createdByUid);
+  await Promise.all(targets.map((target) => sendPushToUid(target.uid, {
+    title: "Une lettre est arrivée 💌",
+    body: `${letter.createdByPseudo || "Ta partenaire"} t’a laissé « ${letter.subject || "une lettre"} ».`,
+    tag: `mailbox-${event.params.letterId}`,
+    screen: "mailbox"
+  }, "garden")));
+});
+
+exports.notify_mailbox_reaction = onValueCreated({ ref: "/spaces/{spaceId}/mailbox/letters/{letterId}/reactions/{reactionUid}", region: REGION }, async (event) => {
+  const reaction = event.data.val() || {};
+  const players = await getSpacePlayers(event.params.spaceId);
+  const targets = players.filter((player) => player.uid !== event.params.reactionUid);
+  await Promise.all(targets.map((target) => sendPushToUid(target.uid, {
+    title: `${reaction.pseudo || "Ta partenaire"} a réagi à ta lettre 💚`,
+    body: reaction.label || "Une réaction t’attend dans votre boîte aux lettres.",
+    tag: `mailbox-reaction-${event.params.letterId}`,
+    screen: "mailbox"
+  }, "garden")));
 });

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cactus 🌵</title>
-    <link rel="stylesheet" href="css/style.css?v=1159">
+    <link rel="stylesheet" href="css/style.css?v=1171">
     <link rel="manifest" href="manifest.json?v=1155">
     <meta name="theme-color" content="#003E2D">
 </head>
@@ -1307,6 +1307,21 @@
             <span class="dashboard-time-capsule-ready-copy"><small>Le temps est arrivé</small><strong id="dashboardTimeCapsuleReadyTitle">Une capsule vous attend ✨</strong></span>
         </button>
 
+        <button type="button" id="dashboardMailboxBtn" class="dashboard-mailbox" aria-label="Ouvrir votre boîte aux lettres">
+            <span class="dashboard-mailbox-object" aria-hidden="true">
+                <i class="dashboard-mailbox-flag"></i>
+                <i class="dashboard-mailbox-box"></i>
+                <i class="dashboard-mailbox-post"></i>
+                <i class="dashboard-mailbox-envelope">💌</i>
+            </span>
+            <span class="dashboard-mailbox-copy">
+                <small>Votre courrier privé</small>
+                <strong id="dashboardMailboxTitle">La boîte aux lettres</strong>
+                <span id="dashboardMailboxStatus">Aucune nouvelle lettre</span>
+            </span>
+            <b id="dashboardMailboxCount" style="display:none;">0</b>
+        </button>
+
     </section>
 
     <div id="cactusWardrobeModal" class="cactus-wardrobe-modal" style="display:none;" role="dialog" aria-modal="true" aria-labelledby="cactusWardrobeTitle">
@@ -1563,6 +1578,84 @@
 
     </nav>
 
+</div>
+
+<!-- ÉCRAN BOÎTE AUX LETTRES -->
+<div id="mailboxScreen" class="secondary-screen mailbox-screen" style="display:none;">
+    <header class="shared-feature-header mailbox-header">
+        <button type="button" id="backFromMailboxBtn" aria-label="Retour">‹</button>
+        <div><small>Rien qu’à vous deux</small><h1>La boîte aux lettres</h1></div>
+        <button type="button" id="openMailboxComposerBtn" aria-label="Écrire une lettre">＋</button>
+    </header>
+
+    <section class="mailbox-hero">
+        <div class="mailbox-hero-object" aria-hidden="true"><span>💌</span><i></i></div>
+        <div><small>Un courrier qui compte</small><h2 id="mailboxHeroTitle">Écrivez autrement</h2><p id="mailboxHeroText">Des lettres à garder, à relire et à découvrir au bon moment.</p></div>
+    </section>
+
+    <section class="mailbox-metrics" aria-label="Résumé du courrier">
+        <article><strong id="mailboxUnreadCount">0</strong><span>À ouvrir</span></article>
+        <article><strong id="mailboxSentCount">0</strong><span>Envoyées</span></article>
+        <article><strong id="mailboxFavoriteCount">0</strong><span>Favorites</span></article>
+    </section>
+
+    <nav class="mailbox-tabs" aria-label="Dossiers de la boîte aux lettres">
+        <button type="button" class="is-active" data-mailbox-view="inbox">Reçues</button>
+        <button type="button" data-mailbox-view="sent">Envoyées</button>
+        <button type="button" data-mailbox-view="favorites">Favoris</button>
+        <button type="button" data-mailbox-view="archives">Archives</button>
+    </nav>
+
+    <div id="mailboxList" class="mailbox-list"></div>
+    <div id="mailboxEmpty" class="mailbox-empty" style="display:none;">
+        <span aria-hidden="true">📭</span><strong>Aucun courrier ici</strong><p>Une jolie lettre changera bientôt cette boîte vide.</p>
+        <button type="button" id="mailboxEmptyWriteBtn">Écrire une lettre</button>
+    </div>
+
+    <section id="mailboxComposer" class="mailbox-sheet" style="display:none;" aria-label="Écrire une lettre">
+        <div class="mailbox-sheet-backdrop" data-close-mailbox-composer></div>
+        <form id="mailboxComposerForm" class="mailbox-paper mailbox-composer-paper">
+            <header><div><small>Faire parvenir un mot</small><h2>Écrire une lettre</h2></div><button type="button" id="closeMailboxComposerBtn" aria-label="Fermer">×</button></header>
+            <label>Type de courrier
+                <select id="mailboxTypeInput">
+                    <option value="love">💚 Lettre d’amour</option>
+                    <option value="invitation">🎟️ Invitation</option>
+                    <option value="note">🌵 Petit mot</option>
+                    <option value="surprise">🎁 Surprise</option>
+                    <option value="later">🕰️ Pour plus tard</option>
+                </select>
+            </label>
+            <label>Objet<input id="mailboxSubjectInput" type="text" maxlength="100" required placeholder="Quelques mots pour donner envie de l’ouvrir…"></label>
+            <label>Ta lettre<textarea id="mailboxBodyInput" rows="8" maxlength="5000" required placeholder="Prends le temps d’écrire ce que tu veux vraiment lui laisser…"></textarea></label>
+            <label class="mailbox-photo-field">Une photo, si tu veux<input id="mailboxPhotoInput" type="file" accept="image/*"><small>Elle sera glissée dans l’enveloppe avec ta lettre.</small></label>
+            <div class="mailbox-delivery-row">
+                <label>Livraison
+                    <select id="mailboxDeliveryModeInput"><option value="now">Maintenant</option><option value="later">À une date précise</option></select>
+                </label>
+                <label id="mailboxDeliveryDateField" style="display:none;">Date et heure<input id="mailboxDeliveryDateInput" type="datetime-local"></label>
+            </div>
+            <button type="submit" id="sendMailboxLetterBtn">Sceller et envoyer l’enveloppe 💌</button>
+        </form>
+    </section>
+
+    <section id="mailboxRevealSheet" class="mailbox-sheet" style="display:none;" aria-label="Lire une lettre">
+        <div class="mailbox-sheet-backdrop" data-close-mailbox-reveal></div>
+        <article class="mailbox-paper mailbox-reveal-paper">
+            <button type="button" id="closeMailboxRevealBtn" class="mailbox-close" aria-label="Fermer">×</button>
+            <div id="mailboxOpeningAnimation" class="mailbox-opening-animation" aria-hidden="true"><span class="mailbox-opening-envelope"><i></i><b>💚</b></span></div>
+            <div id="mailboxLetterContent" class="mailbox-letter-content">
+                <small id="mailboxRevealType">Une lettre</small><h2 id="mailboxRevealSubject">Pour toi</h2>
+                <p id="mailboxRevealMeta"></p><div id="mailboxRevealBody"></div><img id="mailboxRevealPhoto" alt="Photo jointe à la lettre" style="display:none;">
+                <div id="mailboxReactionChoices" class="mailbox-reactions">
+                    <button type="button" data-mailbox-reaction="heart">💚 J’adore</button>
+                    <button type="button" data-mailbox-reaction="touched">🥹 Touchée</button>
+                    <button type="button" data-mailbox-reaction="smile">😊 Ça me fait sourire</button>
+                    <button type="button" data-mailbox-reaction="reply">💌 Répondre</button>
+                </div>
+                <footer><button type="button" id="favoriteMailboxLetterBtn" class="secondary">☆ Ajouter aux favoris</button><button type="button" id="archiveMailboxLetterBtn" class="secondary">Archiver</button></footer>
+            </div>
+        </article>
+    </section>
 </div>
 
 <!-- ÉCRAN NOTIFICATIONS -->
@@ -2967,13 +3060,14 @@
     <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-messaging-compat.js"></script>
 
     <script src="js/firebase.js?v=86"></script>
-    <script src="js/screens.js?v=1159"></script>
+    <script src="js/screens.js?v=1171"></script>
     <script src="js/utils.js"></script>
     <script src="js/storage.js"></script>
     <script src="js/rankings.js"></script>
     <script src="js/questions.js"></script>
-    <script src="js/script.js?v=1170"></script>
+    <script src="js/script.js?v=1171"></script>
     <script src="js/shared-experiences.js?v=1159"></script>
+    <script src="js/mailbox.js?v=1171"></script>
 
 </body>
 </html>

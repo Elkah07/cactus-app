@@ -331,6 +331,31 @@ async function processAuthenticatedEvent(request, env) {
       tag: "capsule-created",
       screen: "timeCapsules"
     }, "garden"));
+  } else if (kind === "mailbox-created") {
+    const letterId = String(body.letterId || "");
+    const letter = space.mailbox?.letters?.[letterId];
+    if (!letter || letter.createdByUid !== uid) return jsonResponse({ error: "Lettre introuvable." }, 404);
+    dispatchId = `${kind}:${spaceId}:${letterId}:${uid}`;
+    if (Number(letter.deliverAt || letter.createdAt || 0) <= Date.now()) {
+      jobs = targets.map((target) => sendPushToUid(env, target.uid, {
+        title: "Une lettre est arrivée 💌",
+        body: `${actor.pseudo || "Ta partenaire"} t’a laissé « ${letter.subject || "une lettre"} ».`,
+        tag: `mailbox-${letterId}`,
+        screen: "mailbox"
+      }, "garden"));
+    }
+  } else if (kind === "mailbox-reaction") {
+    const letterId = String(body.letterId || "");
+    const letter = space.mailbox?.letters?.[letterId];
+    const reaction = letter?.reactions?.[uid];
+    if (!letter || !reaction) return jsonResponse({ error: "Réaction introuvable." }, 404);
+    dispatchId = `${kind}:${spaceId}:${letterId}:${uid}:${reaction.createdAt || 0}`;
+    jobs = targets.map((target) => sendPushToUid(env, target.uid, {
+      title: `${actor.pseudo || "Ta partenaire"} a réagi à ta lettre 💚`,
+      body: reaction.label || "Une réaction t’attend dans votre boîte aux lettres.",
+      tag: `mailbox-reaction-${letterId}`,
+      screen: "mailbox"
+    }, "garden"));
   } else if (kind === "achievement-unlocked") {
     const achievementId = String(body.achievementId || "");
     const achievement = space.stats?.achievements?.[achievementId];
@@ -460,6 +485,20 @@ async function runScheduledNotifications(env) {
       }, "garden")));
       if (summarizeDeliveries(results).failed === 0) {
         updates[`spaces/${spaceId}/dailyTools/countdowns/${countdownId}/pushNotificationAt`] = Date.now();
+      }
+    }
+
+    for (const [letterId, letter] of Object.entries(space.mailbox?.letters || {})) {
+      if (!letter.deliverAt || letter.deliverAt > Date.now() || letter.pushDeliveredNotificationAt) continue;
+      const targets = players.filter((player) => player.uid !== letter.createdByUid);
+      const results = await Promise.allSettled(targets.map((player) => sendPushToUid(env, player.uid, {
+        title: "Une lettre est arrivée 💌",
+        body: `${letter.createdByPseudo || "Ta partenaire"} t’a laissé « ${letter.subject || "une lettre"} ».`,
+        tag: `mailbox-${letterId}`,
+        screen: "mailbox"
+      }, "garden")));
+      if (summarizeDeliveries(results).failed === 0) {
+        updates[`spaces/${spaceId}/mailbox/letters/${letterId}/pushDeliveredNotificationAt`] = Date.now();
       }
     }
 
