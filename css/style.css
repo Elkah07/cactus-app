@@ -15841,7 +15841,7 @@ body.mailbox-sheet-open{overflow:hidden}
 }
 .dashboard-cactus-character .dashboard-mailbox:hover{transform:scale(.76) translateY(-2px)}
 .dashboard-cactus-character .dashboard-mailbox:active{transform:scale(.72)}
-.dashboard-cactus-character .dashboard-mailbox-flag{transform:rotate(-78deg)}
+.dashboard-cactus-character .dashboard-mailbox-flag{transform:rotate(78deg)}
 .dashboard-cactus-character .dashboard-mailbox.has-mail .dashboard-mailbox-flag{transform:rotate(0)}
 .dashboard-cactus-character .dashboard-mailbox-alert{right:1px;bottom:100px;width:140px}
 @media(max-width:620px){
