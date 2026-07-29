@@ -15833,6 +15833,27 @@ body.mailbox-sheet-open{overflow:hidden}
     .dashboard-cactus-character .dashboard-mailbox-alert{right:3px}
 }
 
+/* CACTUS V117.4 — boîte plus discrète et drapeau dans le bon sens */
+.dashboard-cactus-character .dashboard-mailbox{
+    right:clamp(-42px,-8vw,-24px);
+    bottom:5px;
+    transform:scale(.76);
+}
+.dashboard-cactus-character .dashboard-mailbox:hover{transform:scale(.76) translateY(-2px)}
+.dashboard-cactus-character .dashboard-mailbox:active{transform:scale(.72)}
+.dashboard-cactus-character .dashboard-mailbox-flag{transform:rotate(-78deg)}
+.dashboard-cactus-character .dashboard-mailbox.has-mail .dashboard-mailbox-flag{transform:rotate(0)}
+.dashboard-cactus-character .dashboard-mailbox-alert{right:1px;bottom:100px;width:140px}
+@media(max-width:620px){
+    .dashboard-cactus-character .dashboard-mailbox{right:-27px;bottom:5px;transform:scale(.68)}
+    .dashboard-cactus-character .dashboard-mailbox:hover{transform:scale(.68) translateY(-2px)}
+    .dashboard-cactus-character .dashboard-mailbox:active{transform:scale(.64)}
+    .dashboard-cactus-character .dashboard-mailbox-alert{right:2px;bottom:99px;width:138px}
+}
+@media(max-width:390px){
+    .dashboard-cactus-character .dashboard-mailbox{right:-20px;transform:scale(.63)}
+}
+
 /* V116.6 · Qui ment le mieux : votes finaux explicites */
 .best-lie-award-box { grid-column: 1 / -1; display: grid; gap: 12px; }
 .best-lie-award-choice { width: 100%; display: grid; gap: 8px; text-align: left; padding: 16px; border: 1px solid var(--app-border); border-radius: 18px; background: var(--app-input-bg, rgba(255,255,255,.86)); color: var(--app-heading); }

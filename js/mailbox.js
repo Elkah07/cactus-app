@@ -24,6 +24,7 @@ const sendMailboxLetterBtn = document.getElementById("sendMailboxLetterBtn");
 const mailboxList = document.getElementById("mailboxList");
 const mailboxEmpty = document.getElementById("mailboxEmpty");
 const mailboxUnreadCount = document.getElementById("mailboxUnreadCount");
+const creatorTestMailboxBtn = document.getElementById("creatorTestMailboxBtn");
 const mailboxSentCount = document.getElementById("mailboxSentCount");
 const mailboxFavoriteCount = document.getElementById("mailboxFavoriteCount");
 const mailboxTabs = document.querySelectorAll("[data-mailbox-view]");
@@ -74,6 +75,7 @@ const MAILBOX_INVITATION_ANSWERS = {
 };
 
 let activeMailboxView = "inbox";
+let creatorMailboxPreview = null;
 let activeMailboxLetterId = null;
 
 function mailboxPartner(space = currentSpaceData) {
@@ -152,13 +154,34 @@ function getMailboxUnread(space = currentSpaceData) {
 
 function renderMailboxDashboard(space = currentSpaceData) {
     if (!dashboardMailboxBtn || !currentUser) return;
-    const unread = getMailboxUnread(space);
-    dashboardMailboxBtn.classList.toggle("has-mail", unread.length > 0);
-    dashboardMailboxCount.textContent = unread.length > 99 ? "99+" : unread.length;
-    dashboardMailboxCount.style.display = unread.length ? "grid" : "none";
-    dashboardMailboxStatus.textContent = unread.length
-        ? `${unread.length} nouvelle${unread.length > 1 ? "s" : ""} lettre${unread.length > 1 ? "s" : ""} t’attend${unread.length > 1 ? "ent" : ""}`
+    const realUnread = getMailboxUnread(space);
+    const previewActive = typeof isCreatorModeEnabled === "function" && isCreatorModeEnabled() && creatorMailboxPreview !== null;
+    const unreadCount = previewActive ? creatorMailboxPreview : realUnread.length;
+    dashboardMailboxBtn.classList.toggle("has-mail", unreadCount > 0);
+    dashboardMailboxBtn.classList.toggle("is-creator-preview", previewActive);
+    dashboardMailboxCount.textContent = unreadCount > 99 ? "99+" : unreadCount;
+    dashboardMailboxCount.style.display = unreadCount ? "grid" : "none";
+    dashboardMailboxStatus.textContent = unreadCount
+        ? `${unreadCount} nouvelle${unreadCount > 1 ? "s" : ""} lettre${unreadCount > 1 ? "s" : ""} t’attend${unreadCount > 1 ? "ent" : ""}`
         : "Aucune nouvelle lettre";
+}
+
+function cycleCreatorMailboxPreview() {
+    if (typeof isCreatorModeEnabled !== "function" || !isCreatorModeEnabled()) return;
+    if (creatorMailboxPreview === null) {
+        creatorMailboxPreview = 0;
+        creatorTestMailboxBtn.textContent = "📬 Tester une lettre";
+        showToast("Aperçu créateur : boîte vide, drapeau baissé 📭");
+    } else if (creatorMailboxPreview === 0) {
+        creatorMailboxPreview = 1;
+        creatorTestMailboxBtn.textContent = "↩️ Revenir à l’état réel";
+        showToast("Aperçu créateur : une lettre non lue 📬");
+    } else {
+        creatorMailboxPreview = null;
+        creatorTestMailboxBtn.textContent = "📭 Tester la boîte vide";
+        showToast("Boîte revenue à son état réel");
+    }
+    renderMailboxDashboard(currentSpaceData);
 }
 
 function openMailbox() {
@@ -514,6 +537,7 @@ function reactToMailboxLetter(type) {
 }
 
 dashboardMailboxBtn?.addEventListener("click", openMailbox);
+creatorTestMailboxBtn?.addEventListener("click", cycleCreatorMailboxPreview);
 backFromMailboxBtn?.addEventListener("click", () => {
     closeMailboxComposer();
     closeMailboxReveal();
