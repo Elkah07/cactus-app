@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cactus 🌵</title>
-    <link rel="stylesheet" href="css/style.css?v=1171">
+    <link rel="stylesheet" href="css/style.css?v=1172">
     <link rel="manifest" href="manifest.json?v=1155">
     <meta name="theme-color" content="#003E2D">
 </head>
@@ -1615,26 +1615,34 @@
     <section id="mailboxComposer" class="mailbox-sheet" style="display:none;" aria-label="Écrire une lettre">
         <div class="mailbox-sheet-backdrop" data-close-mailbox-composer></div>
         <form id="mailboxComposerForm" class="mailbox-paper mailbox-composer-paper">
-            <header><div><small>Faire parvenir un mot</small><h2>Écrire une lettre</h2></div><button type="button" id="closeMailboxComposerBtn" aria-label="Fermer">×</button></header>
-            <label>Type de courrier
+            <header><div><small>Un échange rien qu’à vous</small><h2>Déposer un courrier</h2></div><button type="button" id="closeMailboxComposerBtn" aria-label="Fermer">×</button></header>
+            <label>Qu’est-ce que tu lui envoies ?
                 <select id="mailboxTypeInput">
-                    <option value="love">💚 Lettre d’amour</option>
+                    <option value="note">💚 Petit mot</option>
                     <option value="invitation">🎟️ Invitation</option>
-                    <option value="note">🌵 Petit mot</option>
+                    <option value="question">💬 Une question</option>
+                    <option value="confidence">🔐 Confidence</option>
                     <option value="surprise">🎁 Surprise</option>
-                    <option value="later">🕰️ Pour plus tard</option>
                 </select>
             </label>
             <label>Objet<input id="mailboxSubjectInput" type="text" maxlength="100" required placeholder="Quelques mots pour donner envie de l’ouvrir…"></label>
-            <label>Ta lettre<textarea id="mailboxBodyInput" rows="8" maxlength="5000" required placeholder="Prends le temps d’écrire ce que tu veux vraiment lui laisser…"></textarea></label>
+            <label>Ton message<textarea id="mailboxBodyInput" rows="5" maxlength="5000" required placeholder="Écris-lui ce que tu veux déposer ici…"></textarea></label>
+            <section id="mailboxInvitationFields" class="mailbox-invitation-fields" style="display:none;">
+                <header><span>🎟️</span><div><strong>Les détails de l’invitation</strong><small>Tout est facultatif : garde la surprise si tu préfères.</small></div></header>
+                <div class="mailbox-invitation-grid">
+                    <label>Date<input id="mailboxInvitationDateInput" type="date"></label>
+                    <label>Heure<input id="mailboxInvitationTimeInput" type="time"></label>
+                </div>
+                <label>Lieu<input id="mailboxInvitationPlaceInput" type="text" maxlength="120" placeholder="Chez nous, au restaurant, en visio…"></label>
+            </section>
             <label class="mailbox-photo-field">Une photo, si tu veux<input id="mailboxPhotoInput" type="file" accept="image/*"><small>Elle sera glissée dans l’enveloppe avec ta lettre.</small></label>
-            <div class="mailbox-delivery-row">
+            <div class="mailbox-delivery-row" style="display:none;">
                 <label>Livraison
                     <select id="mailboxDeliveryModeInput"><option value="now">Maintenant</option><option value="later">À une date précise</option></select>
                 </label>
                 <label id="mailboxDeliveryDateField" style="display:none;">Date et heure<input id="mailboxDeliveryDateInput" type="datetime-local"></label>
             </div>
-            <button type="submit" id="sendMailboxLetterBtn">Sceller et envoyer l’enveloppe 💌</button>
+            <button type="submit" id="sendMailboxLetterBtn">Déposer dans sa boîte 💌</button>
         </form>
     </section>
 
@@ -1646,6 +1654,27 @@
             <div id="mailboxLetterContent" class="mailbox-letter-content">
                 <small id="mailboxRevealType">Une lettre</small><h2 id="mailboxRevealSubject">Pour toi</h2>
                 <p id="mailboxRevealMeta"></p><div id="mailboxRevealBody"></div><img id="mailboxRevealPhoto" alt="Photo jointe à la lettre" style="display:none;">
+                <section id="mailboxInvitationCard" class="mailbox-invitation-card" style="display:none;">
+                    <div class="mailbox-invitation-ticket">
+                        <span>🎟️</span><div><small>Invitation pour nous deux</small><strong id="mailboxInvitationWhen">À décider ensemble</strong><p id="mailboxInvitationWhere" style="display:none;"></p></div>
+                    </div>
+                    <div id="mailboxInvitationAnswer" class="mailbox-invitation-answer"></div>
+                    <div id="mailboxInvitationChoices" class="mailbox-invitation-choices">
+                        <button type="button" data-invitation-answer="yes">💚 Oui, avec plaisir</button>
+                        <button type="button" data-invitation-answer="maybe">🤔 Peut-être</button>
+                        <button type="button" data-invitation-answer="no">Pas cette fois</button>
+                    </div>
+                    <label id="mailboxInvitationMessageField">Un petit mot avec ta réponse
+                        <textarea id="mailboxInvitationMessageInput" rows="2" maxlength="500" placeholder="Tu peux préciser ta réponse…"></textarea>
+                    </label>
+                </section>
+                <section id="mailboxQuestionCard" class="mailbox-question-card" style="display:none;">
+                    <div id="mailboxQuestionAnswer" class="mailbox-question-answer"></div>
+                    <label id="mailboxQuestionAnswerField">Ta réponse
+                        <textarea id="mailboxQuestionAnswerInput" rows="3" maxlength="1500" placeholder="Réponds-lui vraiment…"></textarea>
+                    </label>
+                    <button type="button" id="sendMailboxQuestionAnswerBtn">Envoyer ma réponse 💬</button>
+                </section>
                 <div id="mailboxReactionChoices" class="mailbox-reactions">
                     <button type="button" data-mailbox-reaction="heart">💚 J’adore</button>
                     <button type="button" data-mailbox-reaction="touched">🥹 Touchée</button>
@@ -3065,9 +3094,9 @@
     <script src="js/storage.js"></script>
     <script src="js/rankings.js"></script>
     <script src="js/questions.js"></script>
-    <script src="js/script.js?v=1171"></script>
+    <script src="js/script.js?v=1172"></script>
     <script src="js/shared-experiences.js?v=1159"></script>
-    <script src="js/mailbox.js?v=1171"></script>
+    <script src="js/mailbox.js?v=1172"></script>
 
 </body>
 </html>

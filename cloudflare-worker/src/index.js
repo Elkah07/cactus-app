@@ -356,6 +356,22 @@ async function processAuthenticatedEvent(request, env) {
       tag: `mailbox-reaction-${letterId}`,
       screen: "mailbox"
     }, "garden"));
+  } else if (kind === "mailbox-invitation-response" || kind === "mailbox-question-response") {
+    const letterId = String(body.letterId || "");
+    const letter = space.mailbox?.letters?.[letterId];
+    const isInvitation = kind === "mailbox-invitation-response";
+    const response = isInvitation ? letter?.invitationResponse : letter?.questionResponse;
+    if (!letter || !response || response.respondedByUid !== uid) return jsonResponse({ error: "Réponse introuvable." }, 404);
+    dispatchId = `${kind}:${spaceId}:${letterId}:${uid}:${response.respondedAt || 0}`;
+    const invitationLabels = { yes: "a accepté ton invitation 💚", maybe: "a répondu peut-être à ton invitation 🤔", no: "ne pourra pas accepter cette invitation" };
+    jobs = targets.map((target) => sendPushToUid(env, target.uid, {
+      title: isInvitation
+        ? `${actor.pseudo || "Ta partenaire"} ${invitationLabels[response.answer] || "a répondu à ton invitation"}`
+        : `${actor.pseudo || "Ta partenaire"} a répondu à ta question 💬`,
+      body: response.message || response.body || `Ouvre « ${letter.subject || "ton courrier"} » pour découvrir sa réponse.`,
+      tag: `${kind}-${letterId}`,
+      screen: "mailbox"
+    }, "garden"));
   } else if (kind === "achievement-unlocked") {
     const achievementId = String(body.achievementId || "");
     const achievement = space.stats?.achievements?.[achievementId];

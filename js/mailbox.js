@@ -1,4 +1,4 @@
-// CACTUS V117.1 — La boîte aux lettres
+// CACTUS V117.2 — La boîte aux lettres et invitations interactives
 
 const dashboardMailboxBtn = document.getElementById("dashboardMailboxBtn");
 const dashboardMailboxStatus = document.getElementById("dashboardMailboxStatus");
@@ -12,6 +12,10 @@ const closeMailboxComposerBtn = document.getElementById("closeMailboxComposerBtn
 const mailboxTypeInput = document.getElementById("mailboxTypeInput");
 const mailboxSubjectInput = document.getElementById("mailboxSubjectInput");
 const mailboxBodyInput = document.getElementById("mailboxBodyInput");
+const mailboxInvitationFields = document.getElementById("mailboxInvitationFields");
+const mailboxInvitationDateInput = document.getElementById("mailboxInvitationDateInput");
+const mailboxInvitationTimeInput = document.getElementById("mailboxInvitationTimeInput");
+const mailboxInvitationPlaceInput = document.getElementById("mailboxInvitationPlaceInput");
 const mailboxPhotoInput = document.getElementById("mailboxPhotoInput");
 const mailboxDeliveryModeInput = document.getElementById("mailboxDeliveryModeInput");
 const mailboxDeliveryDateField = document.getElementById("mailboxDeliveryDateField");
@@ -32,6 +36,19 @@ const mailboxRevealSubject = document.getElementById("mailboxRevealSubject");
 const mailboxRevealMeta = document.getElementById("mailboxRevealMeta");
 const mailboxRevealBody = document.getElementById("mailboxRevealBody");
 const mailboxRevealPhoto = document.getElementById("mailboxRevealPhoto");
+const mailboxInvitationCard = document.getElementById("mailboxInvitationCard");
+const mailboxInvitationWhen = document.getElementById("mailboxInvitationWhen");
+const mailboxInvitationWhere = document.getElementById("mailboxInvitationWhere");
+const mailboxInvitationAnswer = document.getElementById("mailboxInvitationAnswer");
+const mailboxInvitationChoices = document.getElementById("mailboxInvitationChoices");
+const mailboxInvitationMessageField = document.getElementById("mailboxInvitationMessageField");
+const mailboxInvitationMessageInput = document.getElementById("mailboxInvitationMessageInput");
+const mailboxInvitationAnswerButtons = document.querySelectorAll("[data-invitation-answer]");
+const mailboxQuestionCard = document.getElementById("mailboxQuestionCard");
+const mailboxQuestionAnswer = document.getElementById("mailboxQuestionAnswer");
+const mailboxQuestionAnswerField = document.getElementById("mailboxQuestionAnswerField");
+const mailboxQuestionAnswerInput = document.getElementById("mailboxQuestionAnswerInput");
+const sendMailboxQuestionAnswerBtn = document.getElementById("sendMailboxQuestionAnswerBtn");
 const mailboxReactionButtons = document.querySelectorAll("[data-mailbox-reaction]");
 const favoriteMailboxLetterBtn = document.getElementById("favoriteMailboxLetterBtn");
 const archiveMailboxLetterBtn = document.getElementById("archiveMailboxLetterBtn");
@@ -39,7 +56,9 @@ const archiveMailboxLetterBtn = document.getElementById("archiveMailboxLetterBtn
 const MAILBOX_TYPES = {
     love: ["💚", "Lettre d’amour"],
     invitation: ["🎟️", "Invitation"],
-    note: ["🌵", "Petit mot"],
+    note: ["💚", "Petit mot"],
+    question: ["💬", "Question"],
+    confidence: ["🔐", "Confidence"],
     surprise: ["🎁", "Surprise"],
     later: ["🕰️", "Pour plus tard"]
 };
@@ -47,6 +66,11 @@ const MAILBOX_REACTIONS = {
     heart: "💚 J’adore",
     touched: "🥹 Touchée",
     smile: "😊 Ça me fait sourire"
+};
+const MAILBOX_INVITATION_ANSWERS = {
+    yes: { emoji: "💚", label: "Oui, avec plaisir", short: "Acceptée" },
+    maybe: { emoji: "🤔", label: "Peut-être", short: "Peut-être" },
+    no: { emoji: "🌙", label: "Pas cette fois", short: "Refusée" }
 };
 
 let activeMailboxView = "inbox";
@@ -91,6 +115,32 @@ function mailboxNiceDate(timestamp, includeTime = false) {
     }).format(new Date(timestamp));
 }
 
+function mailboxInvitationTimestamp(invitation = {}) {
+    if (!invitation.date) return 0;
+    return new Date(`${invitation.date}T${invitation.time || "00:00"}`).getTime();
+}
+
+function mailboxInvitationDateLabel(invitation = {}) {
+    const timestamp = mailboxInvitationTimestamp(invitation);
+    if (!timestamp) return "Date à décider ensemble";
+    return mailboxNiceDate(timestamp, Boolean(invitation.time));
+}
+
+function updateMailboxComposerType() {
+    const isInvitation = mailboxTypeInput?.value === "invitation";
+    if (mailboxInvitationFields) mailboxInvitationFields.style.display = isInvitation ? "grid" : "none";
+    if (mailboxSubjectInput) mailboxSubjectInput.placeholder = isInvitation
+        ? "Un dîner, une soirée film, un week-end…"
+        : "Quelques mots pour donner envie de l’ouvrir…";
+    if (mailboxBodyInput) mailboxBodyInput.placeholder = isInvitation
+        ? "Donne-lui envie de dire oui…"
+        : mailboxTypeInput?.value === "question"
+            ? "Explique un peu ce que tu aimerais savoir…"
+            : mailboxTypeInput?.value === "confidence"
+                ? "Dis ce que tu n’arrives pas toujours à dire à voix haute…"
+                : "Écris-lui ce que tu veux déposer ici…";
+}
+
 function getMailboxUnread(space = currentSpaceData) {
     return mailboxLetters(space).filter((letter) =>
         !mailboxIsMine(letter) &&
@@ -128,8 +178,9 @@ function showMailboxComposer(replyTo = null) {
         mailboxComposerForm.dataset.replyTo = replyTo.id;
     } else {
         delete mailboxComposerForm.dataset.replyTo;
-        mailboxBodyInput.placeholder = "Prends le temps d’écrire ce que tu veux vraiment lui laisser…";
+        mailboxBodyInput.placeholder = "Écris-lui ce que tu veux déposer ici…";
     }
+    updateMailboxComposerType();
     mailboxComposer.style.display = "block";
     document.body.classList.add("mailbox-sheet-open");
     setTimeout(() => (replyTo ? mailboxBodyInput : mailboxSubjectInput).focus(), 100);
@@ -163,8 +214,14 @@ async function sendMailboxLetter(event) {
         if (photo) photoData = await compressMemoryPhoto(photo);
         const now = Date.now();
         const ref = database.ref(`spaces/${currentSpaceCode}/mailbox/letters`).push();
+        const type = MAILBOX_TYPES[mailboxTypeInput.value] ? mailboxTypeInput.value : "note";
+        const invitation = type === "invitation" ? {
+            date: mailboxInvitationDateInput.value || "",
+            time: mailboxInvitationTimeInput.value || "",
+            place: mailboxInvitationPlaceInput.value.trim().slice(0, 120)
+        } : null;
         await ref.set({
-            type: MAILBOX_TYPES[mailboxTypeInput.value] ? mailboxTypeInput.value : "note",
+            type,
             subject: subject.slice(0, 100),
             body: body.slice(0, 5000),
             photoData,
@@ -175,13 +232,14 @@ async function sendMailboxLetter(event) {
             createdByPseudo: pseudo || "Partenaire",
             recipientUid: partner.uid,
             recipientPseudo: partner.pseudo || "Partenaire",
-            replyTo: mailboxComposerForm.dataset.replyTo || null
+            replyTo: mailboxComposerForm.dataset.replyTo || null,
+            invitation
         });
         closeMailboxComposer();
         activeMailboxView = "sent";
         mailboxTabs.forEach((button) => button.classList.toggle("is-active", button.dataset.mailboxView === activeMailboxView));
         renderMailbox(currentSpaceData);
-        showToast(deliverAt > now ? "🕰️ Lettre scellée pour plus tard" : "💌 Lettre envoyée");
+        showToast(deliverAt > now ? "🕰️ Lettre scellée pour plus tard" : type === "invitation" ? "🎟️ Invitation envoyée" : "💌 Lettre envoyée");
     } catch (error) {
         showToast(getFriendlyFirebaseError(error));
     } finally {
@@ -210,7 +268,10 @@ function createMailboxLetterCard(letter) {
     title.textContent = letter.subject || "Une lettre pour toi";
     const meta = document.createElement("span");
     if (own) {
-        meta.textContent = letter.readBy?.[letter.recipientUid]
+        const answer = MAILBOX_INVITATION_ANSWERS[letter.invitationResponse?.answer];
+        meta.textContent = letter.type === "invitation" && answer
+            ? `${answer.emoji} ${answer.short} par ${letter.recipientPseudo || "ta partenaire"}`
+            : letter.readBy?.[letter.recipientUid]
             ? `✓ Ouverte par ${letter.recipientPseudo || "ta partenaire"}`
             : delivered ? "Enveloppe encore fermée" : "En attente de livraison";
     } else {
@@ -278,6 +339,8 @@ function openMailboxLetter(id) {
     mailboxRevealBody.textContent = letter.body || "";
     mailboxRevealPhoto.src = letter.photoData || "";
     mailboxRevealPhoto.style.display = letter.photoData ? "block" : "none";
+    renderMailboxInvitation(letter, own);
+    renderMailboxQuestion(letter, own);
     favoriteMailboxLetterBtn.textContent = mailboxIsFavorite(letter) ? "★ Dans les favoris" : "☆ Ajouter aux favoris";
     archiveMailboxLetterBtn.textContent = mailboxIsArchived(letter) ? "Sortir des archives" : "Archiver";
     mailboxReactionButtons.forEach((button) => {
@@ -296,6 +359,131 @@ function openMailboxLetter(id) {
             mailboxLetterContent.classList.remove("is-hidden-for-opening");
         }, 1150);
         database.ref(`spaces/${currentSpaceCode}/mailbox/letters/${id}/readBy/${currentUser.uid}`).set(Date.now());
+    }
+}
+
+function renderMailboxQuestion(letter, own) {
+    const isQuestion = letter.type === "question";
+    mailboxQuestionCard.style.display = isQuestion ? "grid" : "none";
+    if (!isQuestion) return;
+    const response = letter.questionResponse || null;
+    mailboxQuestionAnswer.replaceChildren();
+    if (response?.body) {
+        const small = document.createElement("small");
+        small.textContent = own ? `Réponse de ${response.respondedByPseudo || "ta partenaire"}` : "Ta réponse";
+        const p = document.createElement("p");
+        p.textContent = response.body;
+        mailboxQuestionAnswer.append(small, p);
+    } else {
+        mailboxQuestionAnswer.textContent = own ? "Elle n’a pas encore répondu." : "Cette question attend ta réponse.";
+    }
+    mailboxQuestionAnswerField.style.display = own ? "none" : "grid";
+    sendMailboxQuestionAnswerBtn.style.display = own ? "none" : "block";
+    mailboxQuestionAnswerInput.value = response?.body || "";
+}
+
+async function answerMailboxQuestion() {
+    const id = activeMailboxLetterId;
+    const letter = currentSpaceData?.mailbox?.letters?.[id];
+    const body = mailboxQuestionAnswerInput.value.trim();
+    if (!letter || letter.type !== "question" || mailboxIsMine(letter) || !body) return;
+    sendMailboxQuestionAnswerBtn.disabled = true;
+    const response = {
+        body: body.slice(0, 1500),
+        respondedAt: Date.now(),
+        respondedByUid: currentUser.uid,
+        respondedByPseudo: pseudo || "Partenaire"
+    };
+    try {
+        await database.ref(`spaces/${currentSpaceCode}/mailbox/letters/${id}/questionResponse`).set(response);
+        renderMailboxQuestion({ ...letter, questionResponse: response }, false);
+        showToast("💬 Réponse envoyée");
+    } catch (error) {
+        showToast(getFriendlyFirebaseError(error));
+    } finally {
+        sendMailboxQuestionAnswerBtn.disabled = false;
+    }
+}
+
+function renderMailboxInvitation(letter, own) {
+    const isInvitation = letter.type === "invitation";
+    mailboxInvitationCard.style.display = isInvitation ? "grid" : "none";
+    if (!isInvitation) return;
+    const invitation = letter.invitation || {};
+    const response = letter.invitationResponse || null;
+    const answer = MAILBOX_INVITATION_ANSWERS[response?.answer];
+    mailboxInvitationWhen.textContent = mailboxInvitationDateLabel(invitation);
+    mailboxInvitationWhere.textContent = invitation.place ? `📍 ${invitation.place}` : "";
+    mailboxInvitationWhere.style.display = invitation.place ? "block" : "none";
+    mailboxInvitationAnswer.replaceChildren();
+    if (answer) {
+        const strong = document.createElement("strong");
+        strong.textContent = own
+            ? `${answer.emoji} ${letter.recipientPseudo || "Ta partenaire"} a répondu : ${answer.label}`
+            : `${answer.emoji} Tu as répondu : ${answer.label}`;
+        mailboxInvitationAnswer.append(strong);
+        if (response.message) {
+            const p = document.createElement("p");
+            p.textContent = response.message;
+            mailboxInvitationAnswer.append(p);
+        }
+    } else {
+        mailboxInvitationAnswer.textContent = own
+            ? "En attente de sa réponse…"
+            : "Est-ce que tu acceptes cette invitation ?";
+    }
+    mailboxInvitationChoices.style.display = own ? "none" : "grid";
+    mailboxInvitationMessageField.style.display = own ? "none" : "grid";
+    mailboxInvitationMessageInput.value = response?.message || "";
+    mailboxInvitationAnswerButtons.forEach((button) => {
+        button.classList.toggle("is-selected", response?.answer === button.dataset.invitationAnswer);
+    });
+}
+
+async function answerMailboxInvitation(answer) {
+    const id = activeMailboxLetterId;
+    const letter = currentSpaceData?.mailbox?.letters?.[id];
+    if (!letter || letter.type !== "invitation" || mailboxIsMine(letter) || !MAILBOX_INVITATION_ANSWERS[answer]) return;
+    mailboxInvitationAnswerButtons.forEach((button) => { button.disabled = true; });
+    const now = Date.now();
+    const response = {
+        answer,
+        message: mailboxInvitationMessageInput.value.trim().slice(0, 500),
+        respondedAt: now,
+        respondedByUid: currentUser.uid,
+        respondedByPseudo: pseudo || "Partenaire"
+    };
+    try {
+        const updates = {};
+        updates[`spaces/${currentSpaceCode}/mailbox/letters/${id}/invitationResponse`] = response;
+        if (answer === "yes" && letter.invitation?.date) {
+            const calendarId = letter.calendarEventId || database.ref(`spaces/${currentSpaceCode}/dailyTools/importantDates`).push().key;
+            updates[`spaces/${currentSpaceCode}/mailbox/letters/${id}/calendarEventId`] = calendarId;
+            updates[`spaces/${currentSpaceCode}/dailyTools/importantDates/${calendarId}`] = {
+                title: letter.subject || "Notre invitation",
+                notes: [letter.body, letter.invitation.place ? `Lieu : ${letter.invitation.place}` : ""].filter(Boolean).join("\n"),
+                date: letter.invitation.date,
+                time: letter.invitation.time || "",
+                category: "appointment",
+                emoji: "🎟️",
+                repeat: "none",
+                createdAt: now,
+                updatedAt: now,
+                createdByUid: letter.createdByUid,
+                createdByPseudo: letter.createdByPseudo || "Partenaire",
+                sourceMailboxLetterId: id
+            };
+        } else if (letter.calendarEventId) {
+            updates[`spaces/${currentSpaceCode}/dailyTools/importantDates/${letter.calendarEventId}`] = null;
+            updates[`spaces/${currentSpaceCode}/mailbox/letters/${id}/calendarEventId`] = null;
+        }
+        await database.ref().update(updates);
+        renderMailboxInvitation({ ...letter, invitationResponse: response }, false);
+        showToast(`${MAILBOX_INVITATION_ANSWERS[answer].emoji} Réponse envoyée`);
+    } catch (error) {
+        showToast(getFriendlyFirebaseError(error));
+    } finally {
+        mailboxInvitationAnswerButtons.forEach((button) => { button.disabled = false; });
     }
 }
 
@@ -337,6 +525,7 @@ mailboxEmptyWriteBtn?.addEventListener("click", () => showMailboxComposer());
 closeMailboxComposerBtn?.addEventListener("click", closeMailboxComposer);
 document.querySelector("[data-close-mailbox-composer]")?.addEventListener("click", closeMailboxComposer);
 mailboxComposerForm?.addEventListener("submit", sendMailboxLetter);
+mailboxTypeInput?.addEventListener("change", updateMailboxComposerType);
 mailboxDeliveryModeInput?.addEventListener("change", () => {
     const scheduled = mailboxDeliveryModeInput.value === "later";
     mailboxDeliveryDateField.style.display = scheduled ? "grid" : "none";
@@ -350,6 +539,8 @@ mailboxTabs.forEach((button) => button.addEventListener("click", () => {
 closeMailboxRevealBtn?.addEventListener("click", closeMailboxReveal);
 document.querySelector("[data-close-mailbox-reveal]")?.addEventListener("click", closeMailboxReveal);
 mailboxReactionButtons.forEach((button) => button.addEventListener("click", () => reactToMailboxLetter(button.dataset.mailboxReaction)));
+mailboxInvitationAnswerButtons.forEach((button) => button.addEventListener("click", () => answerMailboxInvitation(button.dataset.invitationAnswer)));
+sendMailboxQuestionAnswerBtn?.addEventListener("click", answerMailboxQuestion);
 favoriteMailboxLetterBtn?.addEventListener("click", () => toggleMailboxPersonalState("favorites"));
 archiveMailboxLetterBtn?.addEventListener("click", () => toggleMailboxPersonalState("archivedBy"));
 

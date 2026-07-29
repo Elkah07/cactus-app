@@ -10482,6 +10482,12 @@ async function notifyPushWorkerOfSpaceChanges(previousSpace = {}, nextSpace = {}
                 queuePushWorkerEvent({ kind: "mailbox-reaction", spaceId: currentSpaceCode, letterId });
             }
         });
+        if (letter?.invitationResponse?.respondedByUid === currentUser.uid && before?.invitationResponse?.respondedAt !== letter.invitationResponse.respondedAt) {
+            queuePushWorkerEvent({ kind: "mailbox-invitation-response", spaceId: currentSpaceCode, letterId });
+        }
+        if (letter?.questionResponse?.respondedByUid === currentUser.uid && before?.questionResponse?.respondedAt !== letter.questionResponse.respondedAt) {
+            queuePushWorkerEvent({ kind: "mailbox-question-response", spaceId: currentSpaceCode, letterId });
+        }
     });
 
     const previousAchievements = previousSpace.stats?.achievements || {};
@@ -11052,6 +11058,15 @@ function buildNotifications(spaceData) {
                 if (reactionUid === currentUser.uid || typeof reaction?.createdAt !== "number") return;
                 notifications.push({ id:"mailbox_reaction_"+letterId+"_"+reactionUid+"_"+reaction.createdAt, type:"garden", icon:"💚", title:(reaction.pseudo||"Votre partenaire")+" a réagi à ta lettre", message:reaction.label||"Une réaction t’attend.", timestamp:reaction.createdAt, target:{kind:"mailbox",letterId} });
             });
+            const invitationResponse = letter.invitationResponse;
+            if (letter.createdByUid === currentUser.uid && invitationResponse?.respondedByUid && invitationResponse.respondedByUid !== currentUser.uid && typeof invitationResponse.respondedAt === "number") {
+                const labels = { yes: "a accepté ton invitation", maybe: "a répondu peut-être à ton invitation", no: "ne pourra pas accepter cette invitation" };
+                notifications.push({ id:"mailbox_invitation_"+letterId+"_"+invitationResponse.respondedAt, type:"garden", icon:"🎟️", title:(invitationResponse.respondedByPseudo||"Votre partenaire")+" a répondu", message:labels[invitationResponse.answer]||"Une réponse t’attend.", timestamp:invitationResponse.respondedAt, target:{kind:"mailbox",letterId} });
+            }
+            const questionResponse = letter.questionResponse;
+            if (letter.createdByUid === currentUser.uid && questionResponse?.respondedByUid && questionResponse.respondedByUid !== currentUser.uid && typeof questionResponse.respondedAt === "number") {
+                notifications.push({ id:"mailbox_question_"+letterId+"_"+questionResponse.respondedAt, type:"garden", icon:"💬", title:(questionResponse.respondedByPseudo||"Votre partenaire")+" a répondu à ta question", message:questionResponse.body||"Sa réponse t’attend dans votre boîte.", timestamp:questionResponse.respondedAt, target:{kind:"mailbox",letterId} });
+            }
         });
     }
 
