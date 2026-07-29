@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cactus 🌵</title>
-    <link rel="stylesheet" href="css/style.css?v=1172">
+    <link rel="stylesheet" href="css/style.css?v=1173">
     <link rel="manifest" href="manifest.json?v=1155">
     <meta name="theme-color" content="#003E2D">
 </head>
@@ -1270,6 +1270,22 @@
             <img id="cactusAccessoryForeground" class="cactus-accessory-foreground" src="assets/cactus-rig/stage-1-accessory-foreground.webp" alt="" aria-hidden="true" hidden>
             <span id="cactusHeadAccessory" class="cactus-accessory cactus-accessory-head" aria-hidden="true"></span>
             <span id="cactusFaceAccessory" class="cactus-accessory cactus-accessory-face" aria-hidden="true"></span>
+            <button type="button" id="dashboardMailboxBtn" class="dashboard-mailbox" aria-label="Ouvrir votre boîte aux lettres">
+                <span class="dashboard-mailbox-alert" aria-hidden="true">
+                    <strong id="dashboardMailboxTitle">Une lettre t’attend 💌</strong>
+                    <span id="dashboardMailboxStatus">Aucune nouvelle lettre</span>
+                </span>
+                <span class="dashboard-mailbox-object" aria-hidden="true">
+                    <i class="dashboard-mailbox-flag"></i>
+                    <i class="dashboard-mailbox-box"></i>
+                    <i class="dashboard-mailbox-door"></i>
+                    <i class="dashboard-mailbox-post"></i>
+                    <i class="dashboard-mailbox-grass"></i>
+                    <i class="dashboard-mailbox-envelope">💌</i>
+                </span>
+                <b id="dashboardMailboxCount" style="display:none;">0</b>
+                <span class="dashboard-mailbox-label">Courrier</span>
+            </button>
         </div>
         <div class="dashboard-cactus-interactions">
             <p class="dashboard-cactus-interaction-hint">Touche ton cactus pour lui faire dire coucou</p>
@@ -1305,21 +1321,6 @@
             <span class="dashboard-time-capsule-ready-orbit" aria-hidden="true"></span>
             <span class="dashboard-time-capsule-ready-object" aria-hidden="true"><svg class="cactus-ui-icon"><use href="#cactusIconCapsule"></use></svg></span>
             <span class="dashboard-time-capsule-ready-copy"><small>Le temps est arrivé</small><strong id="dashboardTimeCapsuleReadyTitle">Une capsule vous attend ✨</strong></span>
-        </button>
-
-        <button type="button" id="dashboardMailboxBtn" class="dashboard-mailbox" aria-label="Ouvrir votre boîte aux lettres">
-            <span class="dashboard-mailbox-object" aria-hidden="true">
-                <i class="dashboard-mailbox-flag"></i>
-                <i class="dashboard-mailbox-box"></i>
-                <i class="dashboard-mailbox-post"></i>
-                <i class="dashboard-mailbox-envelope">💌</i>
-            </span>
-            <span class="dashboard-mailbox-copy">
-                <small>Votre courrier privé</small>
-                <strong id="dashboardMailboxTitle">La boîte aux lettres</strong>
-                <span id="dashboardMailboxStatus">Aucune nouvelle lettre</span>
-            </span>
-            <b id="dashboardMailboxCount" style="display:none;">0</b>
         </button>
 
     </section>
@@ -3094,9 +3095,9 @@
     <script src="js/storage.js"></script>
     <script src="js/rankings.js"></script>
     <script src="js/questions.js"></script>
-    <script src="js/script.js?v=1172"></script>
+    <script src="js/script.js?v=1173"></script>
     <script src="js/shared-experiences.js?v=1159"></script>
-    <script src="js/mailbox.js?v=1172"></script>
+    <script src="js/mailbox.js?v=1173"></script>
 
 </body>
 </html>

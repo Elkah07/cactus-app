@@ -15643,6 +15643,196 @@ body.mailbox-sheet-open{overflow:hidden}
 .mailbox-question-card{gap:.7rem;margin:.9rem 0;padding:1rem;border:1px solid rgba(78,130,160,.2);border-radius:22px;background:linear-gradient(145deg,#f3fbff,#eef6f4)}.mailbox-question-answer{padding:.75rem;border-radius:15px;background:rgba(255,255,255,.68);color:#496259}.mailbox-question-answer small{display:block;margin-bottom:.25rem;color:#56816f;font-weight:850;text-transform:uppercase;letter-spacing:.06em}.mailbox-question-answer p{margin:0;white-space:pre-wrap;line-height:1.55}.mailbox-question-card label{font-size:.78rem}.mailbox-question-card button{background:#4f956f;color:#fff}
 @media(max-width:620px){.dashboard-mailbox{grid-template-columns:58px minmax(0,1fr) auto}.dashboard-mailbox-object{transform:scale(.72);transform-origin:left center}.mailbox-invitation-grid,.mailbox-invitation-choices{grid-template-columns:1fr}.mailbox-invitation-choices button{padding:.78rem}.mailbox-invitation-ticket{grid-template-columns:46px minmax(0,1fr)}.mailbox-invitation-ticket>span{width:46px;height:46px}}
 
+/* CACTUS V117.3 — vraie boîte aux lettres intégrée à la scène de Cactou */
+.dashboard-cactus-character .dashboard-mailbox{
+    position:absolute;
+    z-index:8;
+    right:clamp(-56px,-11vw,-34px);
+    bottom:2px;
+    width:104px;
+    height:104px;
+    margin:0;
+    padding:0;
+    display:block;
+    overflow:visible;
+    border:0;
+    border-radius:0;
+    background:transparent;
+    box-shadow:none;
+    color:inherit;
+    text-align:center;
+    transform-origin:bottom center;
+    transition:transform .2s ease,filter .2s ease;
+}
+.dashboard-cactus-character .dashboard-mailbox:hover{transform:translateY(-2px);filter:brightness(1.05)}
+.dashboard-cactus-character .dashboard-mailbox:active{transform:scale(.96)}
+.dashboard-cactus-character .dashboard-mailbox-object{
+    position:absolute;
+    inset:auto 0 17px 0;
+    display:block;
+    width:100%;
+    height:78px;
+    transform:none;
+}
+.dashboard-cactus-character .dashboard-mailbox-box{
+    left:15px;
+    top:8px;
+    width:76px;
+    height:48px;
+    border:2px solid rgba(26,73,50,.38);
+    border-radius:29px 29px 9px 9px;
+    background:linear-gradient(150deg,#76b790 0%,#438365 58%,#316b51 100%);
+    box-shadow:inset 0 4px 0 rgba(255,255,255,.16),inset 0 -6px 0 rgba(18,58,39,.14),0 9px 16px rgba(22,67,45,.2);
+}
+.dashboard-cactus-character .dashboard-mailbox-box:before{
+    content:"";
+    position:absolute;
+    inset:4px 7px auto;
+    height:18px;
+    border-radius:20px 20px 7px 7px;
+    border-top:1px solid rgba(255,255,255,.24);
+}
+.dashboard-cactus-character .dashboard-mailbox-box:after{
+    right:11px;
+    top:21px;
+    width:26px;
+    height:5px;
+    background:rgba(17,55,37,.58);
+    box-shadow:0 1px 0 rgba(255,255,255,.12);
+}
+.dashboard-cactus-character .dashboard-mailbox-door{
+    position:absolute;
+    z-index:2;
+    left:17px;
+    top:27px;
+    width:71px;
+    height:27px;
+    border-radius:0 0 8px 8px;
+    border-top:1px solid rgba(21,61,41,.2);
+    background:linear-gradient(180deg,rgba(41,105,73,.05),rgba(29,80,54,.18));
+}
+.dashboard-cactus-character .dashboard-mailbox-post{
+    left:46px;
+    top:55px;
+    width:15px;
+    height:20px;
+    border-radius:0 0 4px 4px;
+    background:linear-gradient(90deg,#80634c,#a37d5d 45%,#70513e);
+    box-shadow:0 3px 5px rgba(49,35,25,.16);
+}
+.dashboard-cactus-character .dashboard-mailbox-grass{
+    position:absolute;
+    left:30px;
+    bottom:0;
+    width:48px;
+    height:8px;
+    border-radius:50%;
+    background:rgba(67,133,87,.35);
+    filter:blur(.4px);
+}
+.dashboard-cactus-character .dashboard-mailbox-flag{
+    z-index:5;
+    left:17px;
+    top:-2px;
+    width:6px;
+    height:34px;
+    border-radius:5px;
+    background:#b53f42;
+    transform:rotate(0);
+    transform-origin:3px 31px;
+    transition:transform .45s cubic-bezier(.2,.8,.2,1);
+}
+.dashboard-cactus-character .dashboard-mailbox-flag:after{
+    left:2px;
+    top:0;
+    width:24px;
+    height:15px;
+    border-radius:3px 6px 6px 3px;
+    background:linear-gradient(145deg,#f06d68,#cf4549);
+    box-shadow:0 2px 5px rgba(103,31,34,.2);
+}
+.dashboard-cactus-character .dashboard-mailbox.has-mail .dashboard-mailbox-flag{transform:rotate(-78deg)}
+.dashboard-cactus-character .dashboard-mailbox-envelope{
+    right:2px;
+    top:7px;
+    font-size:1.5rem;
+}
+.dashboard-cactus-character .dashboard-mailbox.has-mail .dashboard-mailbox-envelope{animation:mailboxEnvelopeBounce 1.8s ease-in-out infinite}
+.dashboard-cactus-character .dashboard-mailbox-label{
+    position:absolute;
+    left:50%;
+    bottom:0;
+    translate:-50% 0;
+    padding:3px 8px;
+    border:1px solid color-mix(in srgb,var(--app-accent) 24%,transparent);
+    border-radius:999px;
+    background:color-mix(in srgb,var(--app-panel-bg) 90%,transparent);
+    color:var(--app-muted);
+    font-size:.52rem;
+    font-weight:900;
+    letter-spacing:.04em;
+    backdrop-filter:blur(8px);
+}
+.dashboard-cactus-character .dashboard-mailbox-alert{
+    position:absolute;
+    z-index:9;
+    right:-7px;
+    bottom:104px;
+    width:154px;
+    padding:9px 11px;
+    display:grid;
+    gap:2px;
+    border:1px solid color-mix(in srgb,var(--app-accent) 30%,transparent);
+    border-radius:16px 16px 4px 16px;
+    background:color-mix(in srgb,var(--app-panel-bg) 96%,transparent);
+    box-shadow:0 10px 26px rgba(17,58,39,.18);
+    text-align:left;
+    opacity:0;
+    visibility:hidden;
+    transform:translateY(7px) scale(.94);
+    transform-origin:bottom right;
+    transition:opacity .25s ease,transform .25s ease,visibility .25s;
+    backdrop-filter:blur(14px);
+}
+.dashboard-cactus-character .dashboard-mailbox-alert strong{font-size:.67rem;line-height:1.25;color:var(--app-heading)}
+.dashboard-cactus-character .dashboard-mailbox-alert span{font-size:.52rem;line-height:1.25;color:var(--app-muted)}
+.dashboard-cactus-character .dashboard-mailbox.has-mail .dashboard-mailbox-alert{
+    opacity:1;
+    visibility:visible;
+    transform:none;
+    animation:mailboxAlertIn .45s ease both;
+}
+.dashboard-cactus-character .dashboard-mailbox>b{
+    position:absolute;
+    z-index:10;
+    right:1px;
+    top:0;
+    min-width:25px;
+    height:25px;
+    padding:0 6px;
+    border:2px solid var(--app-panel-bg);
+    border-radius:99px;
+    background:#e35457;
+    color:#fff;
+    place-items:center;
+    font-size:.61rem;
+    font-style:normal;
+    box-shadow:0 5px 12px rgba(129,40,43,.25);
+}
+.dashboard-cactus-character .dashboard-mailbox.has-mail{filter:none;box-shadow:none;border:0}
+@keyframes mailboxAlertIn{0%{opacity:0;transform:translateY(8px) scale(.9)}65%{transform:translateY(-2px) scale(1.02)}100%{opacity:1;transform:none}}
+@media(max-width:620px){
+    .dashboard-cactus-character .dashboard-mailbox{right:-42px;bottom:0;transform:scale(.86)}
+    .dashboard-cactus-character .dashboard-mailbox:hover{transform:scale(.86) translateY(-2px)}
+    .dashboard-cactus-character .dashboard-mailbox:active{transform:scale(.82)}
+    .dashboard-cactus-character .dashboard-mailbox-object{transform:none}
+    .dashboard-cactus-character .dashboard-mailbox-alert{right:-2px;bottom:101px;width:142px}
+}
+@media(max-width:390px){
+    .dashboard-cactus-character .dashboard-mailbox{right:-30px;transform:scale(.78)}
+    .dashboard-cactus-character .dashboard-mailbox-alert{right:3px}
+}
+
 /* V116.6 · Qui ment le mieux : votes finaux explicites */
 .best-lie-award-box { grid-column: 1 / -1; display: grid; gap: 12px; }
 .best-lie-award-choice { width: 100%; display: grid; gap: 8px; text-align: left; padding: 16px; border: 1px solid var(--app-border); border-radius: 18px; background: var(--app-input-bg, rgba(255,255,255,.86)); color: var(--app-heading); }
